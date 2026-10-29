@@ -13,7 +13,7 @@ cards:
     card:
       type: markdown
       content: >
-        ## {{ states('input_text.govuk_banner_message') | default('Death of a notable person', true) }}
+        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Death of a notable person' }}
       card_mod:
         style: |
           ha-card {
@@ -33,7 +33,7 @@ cards:
     card:
       type: markdown
       content: >
-        ## {{ states('input_text.govuk_banner_message') | default('National emergency', true) }}
+        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'National emergency' }}
       card_mod:
         style: |
           ha-card {
@@ -53,7 +53,7 @@ cards:
     card:
       type: markdown
       content: >
-        ## {{ states('input_text.govuk_banner_message') | default('Local emergency', true) }}
+        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Local emergency' }}
       card_mod:
         style: |
           ha-card {
