@@ -1,4 +1,25 @@
-MIT License
+HA-Theme-gov.uk licence notice
+==============================
+
+This repository combines original code with design values derived from the
+GOV.UK Design System. Two licences apply.
+
+1. Original code in this repository (theme YAML, card snippets, scripts,
+   documentation) is released under the MIT Licence below.
+
+2. Colour values, spacing and typographic conventions derived from GOV.UK
+   Frontend (https://github.com/alphagov/govuk-frontend) are Crown copyright,
+   made available under the Open Government Licence v3.0:
+   https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+
+Not included and not licensed here: the GDS Transport typeface and the GOV.UK
+crown logo and brand marks. GDS Transport is licensed for use on GOV.UK
+services only; this theme falls back to Arial. This project is unofficial and
+is not affiliated with or endorsed by the Government Digital Service or Home
+Assistant.
+
+-------------------------------------------------------------------------------
+MIT Licence
 
 Copyright (c) 2026 Nathan
 

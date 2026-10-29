@@ -1,0 +1,17 @@
+# Add to configuration.yaml (or a package) to create the helper that drives
+# the emergency banner. Restart or reload helpers afterwards.
+input_select:
+  govuk_banner_type:
+    name: GOV.UK banner type
+    icon: mdi:alert-octagon
+    options:
+      - none
+      - death_notable_person
+      - national_emergency
+      - local_emergency
+
+input_text:
+  govuk_banner_message:
+    name: GOV.UK banner message
+    icon: mdi:message-alert
+    max: 255

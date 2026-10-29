@@ -1,0 +1,17 @@
+# Standard GOV.UK-style panel (confirmation panel: green, bold white text).
+# Requires card-mod.
+type: markdown
+title: Heating schedule saved
+content: >
+  Your reference is **{{ now().strftime('%Y%m%d-%H%M') }}**
+card_mod:
+  style: |
+    ha-card {
+      background: #00703c;
+      color: #ffffff;
+      border: 5px solid #00703c;
+      border-radius: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    ha-markdown, ha-markdown *, .card-header { color: #ffffff !important; font-weight: 700; }

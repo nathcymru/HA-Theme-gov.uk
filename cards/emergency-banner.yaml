@@ -1,0 +1,67 @@
+# Emergency banner, after the GOV.UK emergency publishing manual
+# https://docs.publishing.service.gov.uk/manual/emergency-publishing.html
+# Requires: card-mod (HACS), and the helpers in cards/helpers.yaml.
+# Paste into a dashboard card editor (Show code editor). One card per level;
+# only the one matching input_select.govuk_banner_type is shown.
+type: vertical-stack
+cards:
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: input_select.govuk_banner_type
+        state: death_notable_person
+    card:
+      type: markdown
+      content: >
+        ## {{ states('input_text.govuk_banner_message') | default('Death of a notable person', true) }}
+      card_mod:
+        style: |
+          ha-card {
+            background: #0b0c0c;
+            color: #ffffff;
+            border: 2px solid #0b0c0c;
+            border-radius: 0;
+            box-shadow: none;
+            font-weight: 700;
+          }
+          ha-markdown, ha-markdown * { color: #ffffff !important; }
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: input_select.govuk_banner_type
+        state: national_emergency
+    card:
+      type: markdown
+      content: >
+        ## {{ states('input_text.govuk_banner_message') | default('National emergency', true) }}
+      card_mod:
+        style: |
+          ha-card {
+            background: #d4351c;
+            color: #ffffff;
+            border: 2px solid #d4351c;
+            border-radius: 0;
+            box-shadow: none;
+            font-weight: 700;
+          }
+          ha-markdown, ha-markdown * { color: #ffffff !important; }
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: input_select.govuk_banner_type
+        state: local_emergency
+    card:
+      type: markdown
+      content: >
+        ## {{ states('input_text.govuk_banner_message') | default('Local emergency', true) }}
+      card_mod:
+        style: |
+          ha-card {
+            background: #00703c;
+            color: #ffffff;
+            border: 2px solid #00703c;
+            border-radius: 0;
+            box-shadow: none;
+            font-weight: 700;
+          }
+          ha-markdown, ha-markdown * { color: #ffffff !important; }

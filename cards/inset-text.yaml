@@ -1,0 +1,14 @@
+# GOV.UK inset text: 10px mid-grey left border on transparent background.
+type: markdown
+content: >
+  It can take up to 10 minutes for the thermostat to report its new state.
+card_mod:
+  style: |
+    ha-card {
+      background: transparent;
+      border: none;
+      border-left: 10px solid #b1b4b6;
+      border-radius: 0;
+      padding: 15px 0 15px 20px;
+      box-shadow: none;
+    }

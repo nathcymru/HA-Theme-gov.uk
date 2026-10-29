@@ -1,0 +1,402 @@
+# GOV.UK theme for Home Assistant
+# Colours: GOV.UK Frontend v5 palette (settings/_colours-palette.scss, _colours-applied.scss)
+# Variable names: Home Assistant frontend (src/resources/theme/*.globals.ts, ha-card, ha-switch)
+# Contrast pairings are checked by scripts/contrast.py
+govuk:
+  # ---------------------------------------------------------------
+  # Mode-independent: typography, shape, spacing
+  # ---------------------------------------------------------------
+  # GDS Transport is licensed for GOV.UK use only; Arial is the documented fallback.
+  ha-font-family-body: "'GDS Transport', arial, sans-serif"
+  ha-font-family-heading: "'GDS Transport', arial, sans-serif"
+  ha-font-family-longform: "'GDS Transport', arial, sans-serif"
+  ha-font-family-code: "'Courier New', monospace"
+  ha-font-weight-body: "400"
+  ha-font-weight-normal: "400"
+  ha-font-weight-heading: "700"
+  ha-font-weight-bold: "700"
+  ha-font-weight-action: "700"
+  ha-line-height-normal: "1.25"
+  ha-card-header-font-family: "'GDS Transport', arial, sans-serif"
+  ha-card-header-font-size: "24px"
+  ha-card-header-color: "var(--primary-text-color)"
+
+  # Square, flat, stark: no rounding, no shadows.
+  ha-card-border-radius: "0px"
+  ha-card-border-width: "2px"
+  ha-card-box-shadow: "none"
+  ha-border-radius-sm: "0px"
+  ha-border-radius-md: "0px"
+  ha-border-radius-lg: "0px"
+  ha-border-radius-xl: "0px"
+  ha-border-radius-2xl: "0px"
+  ha-border-radius-3xl: "0px"
+  ha-border-radius-4xl: "0px"
+  ha-border-radius-5xl: "0px"
+  ha-border-radius-6xl: "0px"
+  ha-border-radius-square: "0px"
+  ha-border-radius-pill: "0px"
+  ha-border-radius-circle: "0px"
+  ha-picture-border-radius: "0px"
+  ha-picture-border-radius-sm: "0px"
+  ha-border-width-sm: "2px"
+  ha-border-width-md: "2px"
+  ha-border-width-lg: "4px"
+  ha-switch-size: "32px"
+  ha-switch-min-touch-size: "44px"
+  mdc-shape-small: "0px"
+  mdc-shape-medium: "0px"
+  mdc-shape-large: "0px"
+  mdc-button-outline-width: "2px"
+
+  # GOV.UK status colours (same in both modes where contrast allows)
+  rgb-primary-color: "0, 112, 60"
+  rgb-accent-color: "255, 221, 0"
+
+  modes:
+    # =============================================================
+    # LIGHT: GOV.UK native palette
+    # =============================================================
+    light:
+      # Text
+      primary-text-color: "#0b0c0c"
+      secondary-text-color: "#505a5f"
+      text-primary-color: "#ffffff"
+      text-light-primary-color: "#0b0c0c"
+      disabled-text-color: "#505a5f"
+      rgb-primary-text-color: "11, 12, 12"
+      rgb-secondary-text-color: "80, 90, 95"
+      rgb-text-primary-color: "255, 255, 255"
+
+      # Actions: GOV.UK green button, #005a30 hover
+      primary-color: "#00703c"
+      dark-primary-color: "#005a30"
+      darker-primary-color: "#00401f"
+      light-primary-color: "#cce2d8"
+      accent-color: "#1d70b8"
+      rgb-card-background-color: "255, 255, 255"
+
+      # Surfaces
+      primary-background-color: "#f3f2f1"
+      secondary-background-color: "#f3f2f1"
+      clear-background-color: "#ffffff"
+      card-background-color: "#ffffff"
+      ha-card-background: "#ffffff"
+      ha-card-border-color: "#b1b4b6"
+      divider-color: "#b1b4b6"
+      outline-color: "#b1b4b6"
+      outline-hover-color: "#0b0c0c"
+      shadow-color: "transparent"
+      scrollbar-thumb-color: "#505a5f"
+
+      # Status
+      error-color: "#d4351c"
+      warning-color: "#f47738"
+      success-color: "#00703c"
+      info-color: "#1d70b8"
+      rgb-error-color: "212, 53, 28"
+      rgb-warning-color: "244, 119, 56"
+      rgb-success-color: "0, 112, 60"
+      rgb-info-color: "29, 112, 184"
+      state-icon-color: "#0b0c0c"
+      state-active-color: "#00703c"
+      state-inactive-color: "#505a5f"
+      state-unavailable-color: "#505a5f"
+
+      # Sidebar and header: GOV.UK black header band, yellow selected state
+      sidebar-background-color: "#0b0c0c"
+      sidebar-text-color: "#ffffff"
+      sidebar-icon-color: "#ffffff"
+      sidebar-selected-text-color: "#ffdd00"
+      sidebar-selected-icon-color: "#ffdd00"
+      app-header-background-color: "#0b0c0c"
+      app-header-text-color: "#ffffff"
+      app-header-border-bottom: "10px solid #1d70b8"
+
+      # Links
+      link-color: "#1d70b8"
+
+      # Inputs: GOV.UK uses a 2px black border on a white field
+      input-fill-color: "#ffffff"
+      input-ink-color: "#0b0c0c"
+      input-label-ink-color: "#0b0c0c"
+      input-idle-line-color: "#0b0c0c"
+      input-hover-line-color: "#0b0c0c"
+      input-disabled-line-color: "#505a5f"
+      input-disabled-fill-color: "#f3f2f1"
+      input-disabled-ink-color: "#505a5f"
+      input-outlined-idle-border-color: "#0b0c0c"
+      input-outlined-hover-border-color: "#0b0c0c"
+      input-outlined-disabled-border-color: "#505a5f"
+      input-dropdown-icon-color: "#0b0c0c"
+      mdc-text-field-fill-color: "#ffffff"
+      mdc-text-field-ink-color: "#0b0c0c"
+      mdc-text-field-label-ink-color: "#0b0c0c"
+      mdc-text-field-idle-line-color: "#0b0c0c"
+      mdc-text-field-hover-line-color: "#0b0c0c"
+      mdc-text-field-outlined-idle-border-color: "#0b0c0c"
+      mdc-text-field-outlined-hover-border-color: "#0b0c0c"
+      mdc-select-fill-color: "#ffffff"
+      mdc-select-ink-color: "#0b0c0c"
+      mdc-select-label-ink-color: "#0b0c0c"
+      mdc-select-idle-line-color: "#0b0c0c"
+      mdc-select-hover-line-color: "#0b0c0c"
+      mdc-select-outlined-idle-border-color: "#0b0c0c"
+      mdc-select-outlined-hover-border-color: "#0b0c0c"
+      mdc-select-dropdown-icon-color: "#0b0c0c"
+
+      # Checkboxes, radios, switches: thick black borders, green when on
+      mdc-checkbox-unchecked-color: "#0b0c0c"
+      mdc-checkbox-disabled-color: "#505a5f"
+      mdc-radio-unchecked-color: "#0b0c0c"
+      mdc-radio-disabled-color: "#505a5f"
+      mdc-ripple-color: "#ffdd00"
+      ha-switch-background-color: "#ffffff"
+      ha-switch-background-color-hover: "#f3f2f1"
+      ha-switch-border-color: "#0b0c0c"
+      ha-switch-thumb-background-color: "#0b0c0c"
+      ha-switch-thumb-background-color-hover: "#0b0c0c"
+      ha-switch-thumb-border-color: "#0b0c0c"
+      ha-switch-checked-background-color: "#00703c"
+      ha-switch-checked-background-color-hover: "#005a30"
+      ha-switch-checked-border-color: "#0b0c0c"
+      ha-switch-checked-border-color-hover: "#0b0c0c"
+      ha-switch-checked-thumb-background-color: "#ffffff"
+      ha-switch-checked-thumb-background-color-hover: "#ffffff"
+      ha-switch-checked-thumb-border-color: "#0b0c0c"
+      ha-switch-checked-thumb-border-color-hover: "#0b0c0c"
+      switch-checked-color: "#00703c"
+      switch-checked-button-color: "#ffffff"
+      switch-checked-track-color: "#00703c"
+      switch-unchecked-color: "#0b0c0c"
+      switch-unchecked-button-color: "#0b0c0c"
+      switch-unchecked-track-color: "#ffffff"
+
+      # Sliders
+      slider-color: "#00703c"
+      slider-secondary-color: "#b1b4b6"
+      slider-track-color: "#b1b4b6"
+      paper-slider-knob-color: "#0b0c0c"
+      paper-slider-active-color: "#00703c"
+
+      # Dialogs and tabs
+      mdc-dialog-heading-ink-color: "#0b0c0c"
+      mdc-dialog-content-ink-color: "#0b0c0c"
+      mdc-dialog-scroll-divider-color: "#b1b4b6"
+      mdc-tab-text-label-color-default: "#0b0c0c"
+      mdc-theme-primary: "#00703c"
+      mdc-theme-secondary: "#1d70b8"
+      mdc-theme-error: "#d4351c"
+      mdc-theme-surface: "#ffffff"
+      mdc-theme-background: "#f3f2f1"
+      mdc-theme-on-primary: "#ffffff"
+      mdc-theme-on-surface: "#0b0c0c"
+
+      # Label badges and charts (GOV.UK palette)
+      label-badge-red: "#d4351c"
+      label-badge-blue: "#1d70b8"
+      label-badge-green: "#00703c"
+      label-badge-yellow: "#ffdd00"
+      label-badge-grey: "#505a5f"
+      red-color: "#d4351c"
+      green-color: "#00703c"
+      blue-color: "#1d70b8"
+      yellow-color: "#ffdd00"
+      orange-color: "#f47738"
+      purple-color: "#4c2c92"
+      pink-color: "#d53880"
+      brown-color: "#b58840"
+      teal-color: "#28a197"
+      grey-color: "#505a5f"
+      dark-grey-color: "#505a5f"
+      light-grey-color: "#b1b4b6"
+      black-color: "#0b0c0c"
+      white-color: "#ffffff"
+
+      # Optional: card-mod (https://github.com/thomasloven/lovelace-card-mod).
+      # Ignored by Home Assistant if card-mod is not installed.
+      card-mod-theme: govuk
+      card-mod-card-yaml: |
+        .: |
+          ha-card {
+            border: 2px solid #b1b4b6;
+            border-radius: 0;
+            box-shadow: none;
+          }
+          ha-card:focus-visible,
+          ha-card:focus-within {
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+            box-shadow: inset 0 0 0 2px #0b0c0c;
+          }
+      card-mod-more-info-yaml: |
+        ha-dialog {
+          --ha-dialog-border-radius: 0;
+        }
+
+    # =============================================================
+    # DARK: charcoal base, WCAG AAA text pairings
+    # =============================================================
+    dark:
+      primary-text-color: "#ffffff"
+      secondary-text-color: "#c6c9ca"
+      text-primary-color: "#ffffff"
+      text-light-primary-color: "#ffffff"
+      disabled-text-color: "#b1b4b6"
+      rgb-primary-text-color: "255, 255, 255"
+      rgb-secondary-text-color: "198, 201, 202"
+      rgb-text-primary-color: "255, 255, 255"
+
+      primary-color: "#00703c"
+      dark-primary-color: "#005a30"
+      darker-primary-color: "#00401f"
+      light-primary-color: "#6fd39a"
+      accent-color: "#ffdd00"
+      rgb-card-background-color: "42, 46, 48"
+
+      primary-background-color: "#1d2021"
+      secondary-background-color: "#1d2021"
+      clear-background-color: "#1d2021"
+      card-background-color: "#2a2e30"
+      ha-card-background: "#2a2e30"
+      ha-card-border-color: "#6f777b"
+      divider-color: "#6f777b"
+      outline-color: "#6f777b"
+      outline-hover-color: "#ffffff"
+      shadow-color: "transparent"
+      scrollbar-thumb-color: "#b1b4b6"
+
+      error-color: "#ff8a75"
+      warning-color: "#f9a26c"
+      success-color: "#6fd39a"
+      info-color: "#8cbbe3"
+      rgb-error-color: "255, 138, 117"
+      rgb-warning-color: "249, 162, 108"
+      rgb-success-color: "111, 211, 154"
+      rgb-info-color: "140, 187, 227"
+      state-icon-color: "#ffffff"
+      state-active-color: "#ffdd00"
+      state-inactive-color: "#c6c9ca"
+      state-unavailable-color: "#b1b4b6"
+
+      sidebar-background-color: "#0b0c0c"
+      sidebar-text-color: "#ffffff"
+      sidebar-icon-color: "#ffffff"
+      sidebar-selected-text-color: "#ffdd00"
+      sidebar-selected-icon-color: "#ffdd00"
+      app-header-background-color: "#0b0c0c"
+      app-header-text-color: "#ffffff"
+      app-header-border-bottom: "10px solid #8cbbe3"
+
+      link-color: "#8cbbe3"
+
+      input-fill-color: "#1d2021"
+      input-ink-color: "#ffffff"
+      input-label-ink-color: "#ffffff"
+      input-idle-line-color: "#b1b4b6"
+      input-hover-line-color: "#ffffff"
+      input-disabled-line-color: "#6f777b"
+      input-disabled-fill-color: "#2a2e30"
+      input-disabled-ink-color: "#b1b4b6"
+      input-outlined-idle-border-color: "#b1b4b6"
+      input-outlined-hover-border-color: "#ffffff"
+      input-outlined-disabled-border-color: "#6f777b"
+      input-dropdown-icon-color: "#ffffff"
+      mdc-text-field-fill-color: "#1d2021"
+      mdc-text-field-ink-color: "#ffffff"
+      mdc-text-field-label-ink-color: "#ffffff"
+      mdc-text-field-idle-line-color: "#b1b4b6"
+      mdc-text-field-hover-line-color: "#ffffff"
+      mdc-text-field-outlined-idle-border-color: "#b1b4b6"
+      mdc-text-field-outlined-hover-border-color: "#ffffff"
+      mdc-select-fill-color: "#1d2021"
+      mdc-select-ink-color: "#ffffff"
+      mdc-select-label-ink-color: "#ffffff"
+      mdc-select-idle-line-color: "#b1b4b6"
+      mdc-select-hover-line-color: "#ffffff"
+      mdc-select-outlined-idle-border-color: "#b1b4b6"
+      mdc-select-outlined-hover-border-color: "#ffffff"
+      mdc-select-dropdown-icon-color: "#ffffff"
+
+      mdc-checkbox-unchecked-color: "#ffffff"
+      mdc-checkbox-disabled-color: "#6f777b"
+      mdc-radio-unchecked-color: "#ffffff"
+      mdc-radio-disabled-color: "#6f777b"
+      mdc-ripple-color: "#ffdd00"
+      ha-switch-background-color: "#1d2021"
+      ha-switch-background-color-hover: "#2a2e30"
+      ha-switch-border-color: "#ffffff"
+      ha-switch-thumb-background-color: "#ffffff"
+      ha-switch-thumb-background-color-hover: "#ffffff"
+      ha-switch-thumb-border-color: "#ffffff"
+      ha-switch-checked-background-color: "#00703c"
+      ha-switch-checked-background-color-hover: "#005a30"
+      ha-switch-checked-border-color: "#ffffff"
+      ha-switch-checked-border-color-hover: "#ffffff"
+      ha-switch-checked-thumb-background-color: "#ffffff"
+      ha-switch-checked-thumb-background-color-hover: "#ffffff"
+      ha-switch-checked-thumb-border-color: "#ffffff"
+      ha-switch-checked-thumb-border-color-hover: "#ffffff"
+      switch-checked-color: "#00703c"
+      switch-checked-button-color: "#ffffff"
+      switch-checked-track-color: "#00703c"
+      switch-unchecked-color: "#ffffff"
+      switch-unchecked-button-color: "#ffffff"
+      switch-unchecked-track-color: "#1d2021"
+
+      slider-color: "#6fd39a"
+      slider-secondary-color: "#6f777b"
+      slider-track-color: "#6f777b"
+      paper-slider-knob-color: "#ffffff"
+      paper-slider-active-color: "#6fd39a"
+
+      mdc-dialog-heading-ink-color: "#ffffff"
+      mdc-dialog-content-ink-color: "#ffffff"
+      mdc-dialog-scroll-divider-color: "#6f777b"
+      mdc-tab-text-label-color-default: "#ffffff"
+      mdc-theme-primary: "#6fd39a"
+      mdc-theme-secondary: "#8cbbe3"
+      mdc-theme-error: "#ff8a75"
+      mdc-theme-surface: "#2a2e30"
+      mdc-theme-background: "#1d2021"
+      mdc-theme-on-primary: "#ffffff"
+      mdc-theme-on-surface: "#ffffff"
+
+      label-badge-red: "#ff8a75"
+      label-badge-blue: "#8cbbe3"
+      label-badge-green: "#6fd39a"
+      label-badge-yellow: "#ffdd00"
+      label-badge-grey: "#b1b4b6"
+      red-color: "#ff8a75"
+      green-color: "#6fd39a"
+      blue-color: "#8cbbe3"
+      yellow-color: "#ffdd00"
+      orange-color: "#f9a26c"
+      purple-color: "#b8a4e8"
+      pink-color: "#f499be"
+      brown-color: "#d9b36b"
+      teal-color: "#5fd0c6"
+      grey-color: "#b1b4b6"
+      dark-grey-color: "#6f777b"
+      light-grey-color: "#c6c9ca"
+      black-color: "#0b0c0c"
+      white-color: "#ffffff"
+
+      card-mod-theme: govuk
+      card-mod-card-yaml: |
+        .: |
+          ha-card {
+            border: 2px solid #6f777b;
+            border-radius: 0;
+            box-shadow: none;
+          }
+          ha-card:focus-visible,
+          ha-card:focus-within {
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+            box-shadow: inset 0 0 0 2px #0b0c0c;
+          }
+      card-mod-more-info-yaml: |
+        ha-dialog {
+          --ha-dialog-border-radius: 0;
+        }
