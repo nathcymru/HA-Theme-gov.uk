@@ -1,0 +1,50 @@
+# GOV.UK-style button grid. Green start buttons with a 2px darker bottom edge,
+# yellow focus ring with black inner edge. Requires card-mod.
+type: grid
+columns: 2
+square: false
+cards:
+  - type: button
+    entity: light.living_room
+    name: Living room
+    show_icon: false
+    tap_action:
+      action: toggle
+    card_mod:
+      style: |
+        ha-card {
+          background: #00703c;
+          color: #ffffff;
+          border: 2px solid #00703c;
+          border-bottom: 4px solid #002d18;
+          border-radius: 0;
+          font-weight: 700;
+          min-height: 44px;
+        }
+        ha-card:hover { background: #005a30; }
+        ha-card:focus-visible {
+          outline: 3px solid #ffdd00;
+          box-shadow: 0 4px 0 #0b0c0c;
+        }
+  - type: button
+    entity: light.kitchen
+    name: Kitchen
+    show_icon: false
+    tap_action:
+      action: toggle
+    card_mod:
+      style: |
+        ha-card {
+          background: #00703c;
+          color: #ffffff;
+          border: 2px solid #00703c;
+          border-bottom: 4px solid #002d18;
+          border-radius: 0;
+          font-weight: 700;
+          min-height: 44px;
+        }
+        ha-card:hover { background: #005a30; }
+        ha-card:focus-visible {
+          outline: 3px solid #ffdd00;
+          box-shadow: 0 4px 0 #0b0c0c;
+        }
