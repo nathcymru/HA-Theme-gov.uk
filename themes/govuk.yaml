@@ -49,6 +49,27 @@ govuk:
   mdc-shape-large: "0px"
   mdc-button-outline-width: "2px"
 
+  # Focus ring. Home Assistant 2026.10+ draws keyboard focus from
+  # --ha-color-focus (default grey) via the --wa-focus-ring-* tokens.
+  ha-color-focus: "#ffdd00"
+  wa-focus-ring-width: "3px"
+  wa-focus-ring-offset: "0px"
+
+  # Primary palette scale. Newer Home Assistant buttons (ha-button, FAB)
+  # take their fill from this scale, not from primary-color, so the
+  # default cyan shows unless it is remapped to GOV.UK green.
+  ha-color-primary-05: "#00170c"
+  ha-color-primary-10: "#002e18"
+  ha-color-primary-20: "#004a28"
+  ha-color-primary-30: "#005a30"
+  ha-color-primary-40: "#00703c"
+  ha-color-primary-50: "#2a8556"
+  ha-color-primary-60: "#5aa682"
+  ha-color-primary-70: "#8bc2a6"
+  ha-color-primary-80: "#b9dcc9"
+  ha-color-primary-90: "#d9ece2"
+  ha-color-primary-95: "#ecf5f0"
+
   # GOV.UK status colours (same in both modes where contrast allows)
   rgb-primary-color: "0, 112, 60"
   rgb-accent-color: "255, 221, 0"
