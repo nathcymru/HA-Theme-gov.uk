@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOV.UK Lighting Controls</title>
+    <style>
+        :root {
+            --govuk-green: #00703c;
+            --govuk-green-hover: #005a30;
+            --govuk-green-shadow: #002d18;
+            
+            --govuk-grey: #f3f2f1;
+            --govuk-grey-hover: #dbdad9;
+            --govuk-grey-shadow: #929191;
+            
+            --govuk-text: #0b0c0c;
+            --govuk-secondary-text: #505a5f;
+            --govuk-focus: #ffdd00;
+            --govuk-border: #b1b4b6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "GDS Transport", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f3f2f1;
+            color: var(--govuk-text);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .dashboard-card {
+            width: 100%;
+            max-width: 520px;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid var(--govuk-border);
+        }
+
+        /* Typography */
+        .govuk-heading-m {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+            color: var(--govuk-text);
+        }
+
+        .govuk-caption-m {
+            font-size: 0.875rem;
+            color: var(--govuk-secondary-text);
+            margin-bottom: 0;
+        }
+
+        .govuk-body {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Focus State for ALL interactive elements */
+        button:focus, 
+        input:focus, 
+        .govuk-button:focus,
+        .palette-tile:focus {
+            background-color: var(--govuk-focus) !important;
+            color: var(--govuk-text) !important;
+            box-shadow: 0 -2px 0 var(--govuk-focus), 0 4px 0 var(--govuk-text) !important;
+            outline: none !important;
+        }
+
+        /* Buttons (44px min touch target) */
+        .govuk-button {
+            background-color: var(--govuk-green);
+            color: #ffffff;
+            box-shadow: 0 2px 0 var(--govuk-green-shadow);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            min-height: 44px;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .govuk-button:hover {
+            background-color: var(--govuk-green-hover);
+        }
+
+        .govuk-button--secondary {
+            background-color: var(--govuk-grey);
+            color: var(--govuk-text);
+            box-shadow: 0 2px 0 var(--govuk-grey-shadow);
+        }
+
+        .govuk-button--secondary:hover {
+            background-color: var(--govuk-grey-hover);
+        }
+
+        .govuk-button:active, 
+        .govuk-button--secondary:active {
+            top: 2px;
+            box-shadow: none !important;
+        }
+
+        .icon-button {
+            padding: 8px 10px;
+            min-width: 44px;
+        }
+
+        .icon-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Master Controls */
+        .master-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .master-controls .govuk-button {
+            flex: 1;
+        }
+
+        /* Summary List */
+        .govuk-summary-list {
+            border-top: 1px solid var(--govuk-border);
+            margin-bottom: 15px;
+        }
+
+        .govuk-summary-list__row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--govuk-border);
+            gap: 10px;
+        }
+
+        .govuk-summary-list__key {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .govuk-summary-list__actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Isometric Floorplan Area */
+        .floorplan-area {
+            background: #f8f8f8;
+            border: 2px dashed var(--govuk-border);
+            padding: 15px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Dialog & Tile Grid */
+        dialog {
+            border: 1px solid var(--govuk-border);
+            padding: 20px;
+            max-width: 440px;
+            width: 95%;
+            margin: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        dialog::backdrop {
+            background: rgba(11, 12, 12, 0.7);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--govuk-border);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: var(--govuk-grey);
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .tab-btn.active {
+            background: var(--govuk-green);
+            color: white;
+        }
+
+        .tile-group {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-height: 260px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+
+        .tile-group.active {
+            display: grid;
+        }
+
+        .palette-tile {
+            min-height: 44px;
+            padding: 10px;
+            border: 2px solid var(--govuk-border);
+            background: #ffffff;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            text-align: left;
+        }
+
+        .palette-tile:hover {
+            border-color: var(--govuk-text);
+        }
+
+        .palette-tile span {
+            font-size: 0.875rem;
+            font-weight: 700;
+            z-index: 2;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .tile-preview {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.25;
+            z-index: 1;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            border-top: 1px solid var(--govuk-border);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="dashboard-card">
+        <h1 class="govuk-heading-m" style="margin-bottom: 15px;">House Lighting</h1>
+        
+        <div class="master-controls">
+            <button class="govuk-button" onclick="setAllLights(true)">Turn all on</button>
+            <button class="govuk-button govuk-button--secondary" onclick="setAllLights(false)">Turn all off</button>
+        </div>
+
+        <div class="govuk-summary-list" id="rooms-container">
+            <!-- Rooms rendered dynamically via JS -->
+        </div>
+
+        <div class="floorplan-area">
+            <p class="govuk-body" style="margin:0; font-size: 0.875rem;">Isometric Floorplan View</p>
+            <strong id="floorplan-status" style="font-size: 1rem; color: var(--govuk-green);">All lights off</strong>
+        </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <dialog id="settings-dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title" class="govuk-heading-m">Room settings</h2>
+        <p class="govuk-body" style="font-size: 0.875rem; margin-bottom: 10px;">Select a functional white, solid color, or dynamic scene.</p>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="switchTab('whites')">Whites</button>
+            <button class="tab-btn" onclick="switchTab('colors')">Solid Colors</button>
+            <button class="tab-btn" onclick="switchTab('scenes')">Dynamic Scenes</button>
+        </div>
+
+        <!-- Whites Group -->
+        <div id="group-whites" class="tile-group active">
+            <button class="palette-tile" onclick="selectPreset('Candlelight / Ultra Warm')">
+                <div class="tile-preview" style="background: #FF8912;"></div>
+                <span>Candlelight</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Warm White')">
+                <div class="tile-preview" style="background: #FFB76C;"></div>
+                <span>Warm White</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Daylight / Neutral White')">
+                <div class="tile-preview" style="background: #FFE4CE;"></div>
+                <span>Daylight</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Cool White')">
+                <div class="tile-preview" style="background: #C9E2FF;"></div>
+                <span>Cool White</span>
+            </button>
+        </div>
+
+        <!-- Colors Group -->
+        <div id="group-colors" class="tile-group">
+            <button class="palette-tile" onclick="selectPreset('Solid Red')">
+                <div class="tile-preview" style="background: #FF0000;"></div>
+                <span>Red</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Solid Orange')">
+                <div class="tile-preview" style="background: #FF5E00;"></div>
+                <span>Orange</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Solid Yellow')">
+                <div class="tile-preview" style="background: #FFD900;"></div>
+                <span>Yellow</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Solid Green')">
+                <div class="tile-preview" style="background: #00FF00;"></div>
+                <span>Green</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Solid Cyan')">
+                <div class="tile-preview" style="background: #00F2FF;"></div>
+                <span>Cyan</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Solid Blue')">
+                <div class="tile-preview" style="background: #002BFF;"></div>
+                <span>Blue</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Solid Purple')">
+                <div class="tile-preview" style="background: #D400FF;"></div>
+                <span>Purple</span>
+            </button>
+        </div>
+
+        <!-- Scenes Group -->
+        <div id="group-scenes" class="tile-group">
+            <button class="palette-tile" onclick="selectPreset('Rugby')">
+                <div class="tile-preview" style="background: linear-gradient(90deg, #D30A24 0%, #00FF00 50%, #FFFFFF 100%);"></div>
+                <span>Rugby</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Football')">
+                <div class="tile-preview" style="background: linear-gradient(90deg, #004D98 0%, #FFFFFF 50%, #00FF00 100%);"></div>
+                <span>Football</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Halloween')">
+                <div class="tile-preview" style="background: linear-gradient(90deg, #FF5E00 0%, #800080 50%, #00FF00 100%);"></div>
+                <span>Halloween</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Christmas')">
+                <div class="tile-preview" style="background: linear-gradient(90deg, #FF0000 0%, #008000 25%, #FFD700 50%, #C0C0C0 75%, #FFFFFF 100%);"></div>
+                <span>Christmas</span>
+            </button>
+            <button class="palette-tile" onclick="selectPreset('Emergency')">
+                <div class="tile-preview" style="background: linear-gradient(90deg, #FF0000 0%, #0000FF 100%);"></div>
+                <span>Emergency</span>
+            </button>
+        </div>
+
+        <div class="modal-actions">
+            <button class="govuk-button govuk-button--secondary" onclick="closeSettings()">Close</button>
+        </div>
+    </dialog>
+
+    <script>
+        const rooms = [
+            { id: 'living-room', name: 'Living Room', floor: 'Ground floor' },
+            { id: 'kitchen', name: 'Kitchen', floor: 'Ground floor' },
+            { id: 'bedroom', name: 'Bedroom', floor: 'First floor' },
+            { id: 'hallway', name: 'Hallway', floor: 'Ground floor' }
+        ];
+
+        const state = {};
+        rooms.forEach(r => state[r.id] = { on: false, preset: 'Off' });
+
+        let currentRoomId = null;
+        const dialog = document.getElementById('settings-dialog');
+        const floorplanStatus = document.getElementById('floorplan-status');
+
+        function renderRooms() {
+            const container = document.getElementById('rooms-container');
+            container.innerHTML = rooms.map(room => `
+                <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__key">
+                        <h2 class="govuk-heading-m">${room.name}</h2>
+                        <p class="govuk-caption-m">${room.floor} • <span id="mode-${room.id}">${state[room.id].preset}</span></p>
+                    </div>
+                    <div class="govuk-summary-list__actions">
+                        <button id="btn-${room.id}" class="govuk-button ${state[room.id].on ? '' : 'govuk-button--secondary'}" onclick="toggleLight('${room.id}')">
+                            ${state[room.id].on ? 'On' : 'Off'}
+                        </button>
+                        <button class="govuk-button govuk-button--secondary icon-button" onclick="openSettings('${room.id}', '${room.name}')" aria-label="Settings for ${room.name}">
+                            <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5S20.33 12 19.5 12z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateUI(roomId) {
+            const btn = document.getElementById(`btn-${roomId}`);
+            const modeSpan = document.getElementById(`mode-${roomId}`);
+            const roomState = state[roomId];
+
+            if (roomState.on) {
+                btn.textContent = "On";
+                btn.className = "govuk-button";
+            } else {
+                btn.textContent = "Off";
+                btn.className = "govuk-button govuk-button--secondary";
+                roomState.preset = 'Off';
+            }
+            modeSpan.textContent = roomState.preset;
+            updateFloorplanText();
+        }
+
+        function updateFloorplanText() {
+            const activeRooms = rooms.filter(r => state[r.id].on);
+            if (activeRooms.length === 0) {
+                floorplanStatus.textContent = "All lights off";
+            } else {
+                const details = activeRooms.map(r => `${r.name} (${state[r.id].preset})`);
+                floorplanStatus.textContent = `Active: ${details.join(', ')}`;
+            }
+        }
+
+        function toggleLight(roomId) {
+            state[roomId].on = !state[roomId].on;
+            if (state[roomId].on && state[roomId].preset === 'Off') {
+                state[roomId].preset = 'Warm White';
+            }
+            updateUI(roomId);
+        }
+
+        function setAllLights(isOn) {
+            rooms.forEach(r => {
+                state[r.id].on = isOn;
+                state[r.id].preset = isOn ? 'Warm White' : 'Off';
+                updateUI(r.id);
+            });
+        }
+
+        function openSettings(roomId, roomName) {
+            currentRoomId = roomId;
+            document.getElementById('dialog-title').textContent = `${roomName} settings`;
+            dialog.showModal();
+        }
+
+        function closeSettings() {
+            dialog.close();
+            currentRoomId = null;
+        }
+
+        function switchTab(category) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tile-group').forEach(group => group.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(`group-${category}`).classList.add('active');
+        }
+
+        function selectPreset(presetName) {
+            if (currentRoomId) {
+                state[currentRoomId].on = true;
+                state[currentRoomId].preset = presetName;
+                updateUI(currentRoomId);
+            }
+            closeSettings();
+        }
+
+        // Initialize on load
+        window.onload = () => {
+            renderRooms();
+        };
+    </script>
+</body>
+</html>
