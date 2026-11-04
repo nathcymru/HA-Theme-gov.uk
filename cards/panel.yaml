@@ -1,4 +1,5 @@
-# Standard GOV.UK-style panel (confirmation panel: green, bold white text).
+# GOV.UK confirmation panel (components/panel): #0f7a52, 5px border, 35px padding,
+# 36px text, 48px bold title.
 # Requires card-mod.
 type: markdown
 title: Heating schedule saved
@@ -7,11 +8,13 @@ content: >
 card_mod:
   style: |
     ha-card {
-      background: #00703c;
+      background: #0f7a52;
       color: #ffffff;
-      border: 5px solid #00703c;
+      border: 5px solid #0f7a52;
       border-radius: 0;
       text-align: center;
-      padding: 20px;
+      padding: 35px;
     }
-    ha-markdown, ha-markdown *, .card-header { color: #ffffff !important; font-weight: 700; }
+    ha-markdown, ha-markdown *, .card-header { color: #ffffff !important; }
+    .card-header { font-size: 48px; font-weight: 700; line-height: 1.1; padding: 0 0 30px; }
+    ha-markdown { font-size: 36px; line-height: 1.1111; }

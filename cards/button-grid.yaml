@@ -1,5 +1,7 @@
-# GOV.UK-style button grid. Green start buttons with a 2px darker bottom edge,
-# yellow focus ring with black inner edge. Requires card-mod.
+# GOV.UK button grid, from govuk-frontend 6.6 components/button: #0f7a52 fill,
+# #0b5c3e hover, 2px #083d29 bottom shadow (not a thick border), 19px regular
+# text, padding 8px 10px 7px, 2px transparent border (40px tall with shadow).
+# Focus: yellow fill, black text, 2px black shadow. Requires card-mod.
 type: grid
 columns: 2
 square: false
@@ -13,18 +15,25 @@ cards:
     card_mod:
       style: |
         ha-card {
-          background: #00703c;
+          background: #0f7a52;
           color: #ffffff;
-          border: 2px solid #00703c;
-          border-bottom: 4px solid #002d18;
+          border: 2px solid transparent;
           border-radius: 0;
-          font-weight: 700;
-          min-height: 44px;
+          box-shadow: 0 2px 0 #083d29;
+          font-size: 19px;
+          font-weight: 400;
+          line-height: 1;
+          padding: 8px 10px 7px;
+          min-height: 0;
+          height: auto;
         }
-        ha-card:hover { background: #005a30; }
+        ha-card:hover { background: #0b5c3e; }
         ha-card:focus-visible {
-          outline: 3px solid #ffdd00;
-          box-shadow: 0 4px 0 #0b0c0c;
+          outline: 3px solid transparent;
+          border-color: #ffdd00;
+          background: #ffdd00;
+          color: #0b0c0c;
+          box-shadow: 0 2px 0 #0b0c0c;
         }
   - type: button
     entity: light.kitchen
@@ -35,16 +44,23 @@ cards:
     card_mod:
       style: |
         ha-card {
-          background: #00703c;
+          background: #0f7a52;
           color: #ffffff;
-          border: 2px solid #00703c;
-          border-bottom: 4px solid #002d18;
+          border: 2px solid transparent;
           border-radius: 0;
-          font-weight: 700;
-          min-height: 44px;
+          box-shadow: 0 2px 0 #083d29;
+          font-size: 19px;
+          font-weight: 400;
+          line-height: 1;
+          padding: 8px 10px 7px;
+          min-height: 0;
+          height: auto;
         }
-        ha-card:hover { background: #005a30; }
+        ha-card:hover { background: #0b5c3e; }
         ha-card:focus-visible {
-          outline: 3px solid #ffdd00;
-          box-shadow: 0 4px 0 #0b0c0c;
+          outline: 3px solid transparent;
+          border-color: #ffdd00;
+          background: #ffdd00;
+          color: #0b0c0c;
+          box-shadow: 0 2px 0 #0b0c0c;
         }

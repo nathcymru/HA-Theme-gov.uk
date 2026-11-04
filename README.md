@@ -49,14 +49,14 @@ Follows the levels in the [GOV.UK emergency publishing manual](https://docs.publ
 | --- | --- |
 | `none` | Hidden |
 | `death_notable_person` | Black `#0b0c0c`, white bold text |
-| `national_emergency` | Red `#d4351c`, white bold text (Level 1) |
-| `local_emergency` | Green `#00703c`, white bold text (Level 2) |
+| `national_emergency` | Red `#ca3535`, white bold text (Level 1) |
+| `local_emergency` | Green `#0f7a52`, white bold text (Level 2) |
 
 Optional text comes from `input_text.govuk_banner_message`. Place the card at the top of each dashboard view; a stack or a sections-view full-width row works well. An automation or the helper's entity card can change the type.
 
 ## Accessibility
 
-Run `python3 scripts/contrast.py` to see the ratios. Summary: body text is AAA in both modes; the white-on-green button is 6.21:1 (AA, not AAA) and white-on-red banner text is 4.86:1 (AA), because those are the official GOV.UK colours. Focus rings are `#ffdd00`.
+Run `python3 scripts/contrast.py` to see the ratios. Summary: body text is AAA in both modes; the white-on-green button is 5.35:1 (AA, not AAA) and white-on-red banner text is 5.16:1 (AA), because those are the official GOV.UK colours. Focus rings are `#ffdd00` with a black outer ring (GOV.UK focused box).
 
 ## Notes and limits
 
