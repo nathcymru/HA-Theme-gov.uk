@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "node lighting/scripts/generate.mjs",
+    "generate": "node lighting/scripts/generate.mjs && node lighting/scripts/generate-ha.mjs",
+    "check:ha": "python3 lighting/scripts/check-ha.py",
     "test": "node lighting/scripts/generate.mjs --check && node --test lighting/test/*.test.mjs"
   }
 }
