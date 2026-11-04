@@ -19,34 +19,7 @@ govuk:
   ha-font-weight-heading: "700"
   ha-font-weight-bold: "700"
   ha-font-weight-action: "400"
-  ha-line-height-normal: "1.3157894737"
-  # Body copy is 19px in GOV.UK Frontend (.govuk-body, font-size 1.1875rem);
-  # Home Assistant's medium size is 14px, so scale the whole ramp by 19/14.
-  ha-font-size-scale: "1.3571"
-
-  # GOV.UK spacing scale (settings/_spacing.scss): 5, 10, 15, 20, 25, 30, 40, 50, 60px.
-  # Home Assistant steps are 4px; map each step to a multiple of 5px.
-  ha-space-1: "5px"
-  ha-space-2: "10px"
-  ha-space-3: "15px"
-  ha-space-4: "20px"
-  ha-space-5: "25px"
-  ha-space-6: "30px"
-  ha-space-7: "35px"
-  ha-space-8: "40px"
-  ha-space-9: "45px"
-  ha-space-10: "50px"
-  ha-space-11: "55px"
-  ha-space-12: "60px"
-  ha-space-13: "65px"
-  ha-space-14: "70px"
-  ha-space-15: "75px"
-  ha-space-16: "80px"
-  ha-space-17: "85px"
-  ha-space-18: "90px"
-  ha-space-19: "95px"
-  ha-space-20: "100px"
-
+  ha-line-height-normal: "1.25"
   # Buttons (components/button/_mixin.scss): 19px text on a 1 line-height,
   # padding 8px 10px 7px, 2px transparent border, so 38px + a 2px bottom
   # shadow = 40px. Regular weight (400), not bold.
