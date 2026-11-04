@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "whites": [
-    {"id": "candlelight@1", "slug": "candlelight", "label": "Candlelight", "preview": "#FF8912", "kelvin": {"hue": 2000, "innr": 1800}, "brightnessPct": 30},
-    {"id": "warm_white@1", "slug": "warm_white", "label": "Warm white", "preview": "#FFB76C", "kelvin": {"hue": 2700, "innr": 2700}, "brightnessPct": 100},
-    {"id": "daylight@1", "slug": "daylight", "label": "Daylight", "preview": "#FFE4CE", "kelvin": {"hue": 4000, "innr": 4000}, "brightnessPct": 100},
-    {"id": "cool_white@1", "slug": "cool_white", "label": "Cool white", "preview": "#C9E2FF", "kelvin": {"hue": 6500, "innr": 6500}, "brightnessPct": 100}
+    {"slug": "candlelight", "label": "Candlelight", "preview": "#FF8912", "kelvin": {"hue": 2000, "innr": 1800}, "brightnessPct": 30},
+    {"slug": "warm_white", "label": "Warm white", "preview": "#FFB76C", "kelvin": {"hue": 2700, "innr": 2700}, "brightnessPct": 100},
+    {"slug": "daylight", "label": "Daylight", "preview": "#FFE4CE", "kelvin": {"hue": 4000, "innr": 4000}, "brightnessPct": 100},
+    {"slug": "cool_white", "label": "Cool white", "preview": "#C9E2FF", "kelvin": {"hue": 6500, "innr": 6500}, "brightnessPct": 100}
   ],
   "colors": [
     {"slug": "red", "label": "Red", "preview": "#FF0000", "hue": [255,0,0], "innr": [255,0,0]},

@@ -1,6 +1,6 @@
 [
   {
-    "id": "candlelight@1",
+    "id": "candlelight",
     "version": 1,
     "category": "white",
     "label": "Candlelight",
@@ -13,7 +13,7 @@
     "brightnessPct": 30
   },
   {
-    "id": "warm_white@1",
+    "id": "warm_white",
     "version": 1,
     "category": "white",
     "label": "Warm white",
@@ -26,7 +26,7 @@
     "brightnessPct": 100
   },
   {
-    "id": "daylight@1",
+    "id": "daylight",
     "version": 1,
     "category": "white",
     "label": "Daylight",
@@ -39,7 +39,7 @@
     "brightnessPct": 100
   },
   {
-    "id": "cool_white@1",
+    "id": "cool_white",
     "version": 1,
     "category": "white",
     "label": "Cool white",
