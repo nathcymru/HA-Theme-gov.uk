@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__github__merge_pull_request",
+      "mcp__github__create_pull_request",
+      "mcp__github__update_pull_request",
+      "mcp__github__push_files",
+      "mcp__github__create_or_update_file",
+      "mcp__remote-devices__Control_Chrome__open_url",
+      "mcp__remote-devices__Control_Chrome__get_page_content",
+      "mcp__remote-devices__Control_Chrome__execute_javascript",
+      "mcp__remote-devices__Control_Chrome__list_tabs",
+      "mcp__remote-devices__Control_Chrome__switch_to_tab",
+      "mcp__remote-devices__Control_Chrome__reload_tab",
+      "mcp__remote-devices__device_bash",
+      "mcp__remote-devices__device_commit_files",
+      "mcp__remote-devices__device_stage_files",
+      "mcp__remote-devices__device_list_dir"
+    ]
+  }
+}
