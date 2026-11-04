@@ -1,0 +1,9 @@
+{
+  "name": "ha-theme-govuk-lighting",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node lighting/scripts/generate.mjs",
+    "test": "node lighting/scripts/generate.mjs --check && node --test lighting/test/"
+  }
+}
