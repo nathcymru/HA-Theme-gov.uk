@@ -21,7 +21,7 @@ for (const r of catalogue(doc)) {
 }
 
 const q = (s) => JSON.stringify(s);
-const MEMBERS = `{% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | sort | list }}`;
+const MEMBERS = `{% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}`;
 
 const engine = `
 script:
@@ -168,10 +168,17 @@ const dispatch = `
         target: {entity_id: "script.govuk_lights_room_{{ room }}"}
       - if: "{{ turn_off | default(false) }}"
         then:
-          - action: light.turn_off
-            target:
-              area_id: >-
+          - variables:
+              area: >-
                 {{ ${JSON.stringify(Object.fromEntries(rooms.map((r) => [r.id, r.area]))).replace(/"/g, "'")}[room] }}
+              include: "{{ [] }}"
+              exclude: "{{ [] }}"
+              lights: >-
+                ${MEMBERS}
+          - if: "{{ lights | length > 0 }}"
+            then:
+              - action: light.turn_off
+                target: {entity_id: "{{ lights }}"}
 `;
 const helpers = `
 input_boolean:

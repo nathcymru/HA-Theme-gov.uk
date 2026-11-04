@@ -55,7 +55,7 @@ script:
           sequence:
             - variables:
                 lights: >-
-                  {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | sort | list }}
+                  {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}
                 step: "{{ repeat.index - 1 }}"
             - repeat:
                 for_each: "{{ lights }}"
@@ -243,7 +243,14 @@ script:
         target: {entity_id: "script.govuk_lights_room_{{ room }}"}
       - if: "{{ turn_off | default(false) }}"
         then:
-          - action: light.turn_off
-            target:
-              area_id: >-
+          - variables:
+              area: >-
                 {{ {'lounge':'lounge','kitchen':'kitchen','bathroom':'bathroom','hall':'hall','study':'study','bedroom':'bedroom'}[room] }}
+              include: "{{ [] }}"
+              exclude: "{{ [] }}"
+              lights: >-
+                {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}
+          - if: "{{ lights | length > 0 }}"
+            then:
+              - action: light.turn_off
+                target: {entity_id: "{{ lights }}"}

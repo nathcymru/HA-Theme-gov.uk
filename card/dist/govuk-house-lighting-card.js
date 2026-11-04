@@ -1,4 +1,6 @@
 // lighting/engine/discovery.ts
+var RESERVED_LABEL = "govuk_lighting_reserved";
+var isReserved = (s, id) => !!s.entities[id]?.labels?.includes(RESERVED_LABEL);
 var isLight = (id) => id.startsWith("light.");
 var members = (s, id) => {
   const e = s.states[id]?.attributes?.entity_id;
@@ -15,7 +17,7 @@ function expand(s, id, seen = /* @__PURE__ */ new Set()) {
   const m = members(s, id);
   return m ? m.filter(isLight).flatMap((x) => expand(s, x, seen)) : [id];
 }
-function resolveRoomLights(s, room) {
+function resolveRoomMembers(s, room) {
   const out = /* @__PURE__ */ new Set();
   const add = (id) => expand(s, id).forEach((x) => out.add(x));
   const candidates = new Set([...Object.keys(s.entities), ...Object.keys(s.states)].filter(isLight));
@@ -29,6 +31,8 @@ function resolveRoomLights(s, room) {
   for (const x of room.exclude ?? []) expand(s, x).forEach((m) => out.delete(m));
   return [...out].filter((id) => isLight(id) && (s.states[id] || s.entities[id])).sort();
 }
+var resolveRoomLights = (s, room) => resolveRoomMembers(s, room).filter((id) => !isReserved(s, id));
+var resolveReserved = (s, room) => resolveRoomMembers(s, room).filter((id) => isReserved(s, id));
 
 // lighting/engine/capabilities.ts
 var COLOR_MODES = ["hs", "xy", "rgb", "rgbw", "rgbww"];
@@ -82,6 +86,7 @@ function assessRoom(s, room, recipes) {
   return {
     roomId: room.id,
     totalLights: caps.length,
+    reservedLights: resolveReserved(s, room).length,
     availableLights: live.length,
     unavailableLights: caps.filter((c) => c.status === "unavailable").length,
     unknownLights: caps.filter((c) => c.status === "unknown").length,
@@ -789,7 +794,7 @@ var SVG = "http://www.w3.org/2000/svg";
 var RECIPE_LIST = recipes_default;
 var CATS = [["white", "Whites"], ["color", "Solid colours"], ["scene", "Dynamic scenes"]];
 var REASONS = {
-  no_lights: "This room has no lights.",
+  no_lights: "This room has no lights this card can control.",
   all_unavailable: "All lights in this room are unavailable.",
   members_unavailable: "Some lights are unavailable, so the whole room cannot be set to one colour.",
   needs_all_colour: "Every light in this room must be able to show colour.",
@@ -1036,10 +1041,10 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   async toggle(v) {
     if (v.on > 0) return this.stop(v, true);
-    const area = v.cfg.area;
-    if (!area) return;
+    const ids = v.caps.lightCapabilities.map((c) => c.entityId);
+    if (!ids.length) return;
     try {
-      await this._hass.callService("light", "turn_on", {}, { area_id: area });
+      await this._hass.callService("light", "turn_on", {}, { entity_id: ids });
     } catch (e) {
       this.toast(`Could not turn on ${v.cfg.name}: ${e.message}`);
     }
@@ -1062,7 +1067,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
       const caps = assessRoom(snap, v.cfg, RECIPE_LIST);
       const owner = snap.states[`input_text.govuk_lights_${v.cfg.id}`]?.state ?? "";
       const on = caps.lightCapabilities.filter((c) => snap.states[c.entityId]?.state === "on").length;
-      const sig = JSON.stringify([caps.lightCapabilities.map((c) => [c.entityId, c.status, c.color, c.colorTemp, c.dimmable, snap.states[c.entityId]?.state]), owner]);
+      const sig = JSON.stringify([caps.reservedLights, caps.lightCapabilities.map((c) => [c.entityId, c.status, c.color, c.colorTemp, c.dimmable, snap.states[c.entityId]?.state]), owner]);
       if (sig === v.sig) continue;
       Object.assign(v, { caps, owner, on, sig });
       changed = true;
@@ -1083,7 +1088,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   describe(v) {
     const c = v.caps;
-    if (c.totalLights === 0) return "No lights";
+    if (c.totalLights === 0) return c.reservedLights > 0 ? "Managed by another automation" : "No lights";
     if (c.availableLights === 0) return "Unavailable";
     if (v.on === 0) return "Off";
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
