@@ -758,15 +758,15 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .btn--secondary:hover { background: var(--divider-color); }
 .btn--warning { background: var(--error-color); border-color: var(--error-color); color: var(--text-primary-color); }
 .btn--small { min-width: 88px; }
+.btn--icon { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; padding: 8px; }
 .btn:disabled, .tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn:focus-visible, .link:focus-visible, .tab:focus-visible, .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); outline-offset: 0; box-shadow: 0 4px 0 var(--primary-text-color); }
+.btn:focus-visible, .tab:focus-visible, .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); outline-offset: 0; box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
-.row { display: grid; grid-template-columns: 1fr; gap: 4px 16px; padding: 12px 0; border-bottom: 1px solid var(--divider-color); }
-@media (min-width: 480px) { .row { grid-template-columns: 30% 1fr auto; align-items: center; } }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--divider-color); }
 .key { font-weight: 700; margin: 0; }
-.value { margin: 0; }
+.sub { display: block; font-weight: 400; color: var(--secondary-text-color); }
+.sub:empty { display: none; }
 .act { margin: 0; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
-.link { font: inherit; background: none; border: 0; padding: 8px 0; color: var(--primary-color); text-decoration: underline; cursor: pointer; min-height: 44px; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .plan { display: block; width: 100%; height: auto; }
 .shade { transition: opacity 0.3s; }
@@ -775,24 +775,29 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .hit { fill: transparent; stroke: none; cursor: pointer; }
 .hit:hover { fill: var(--ha-color-focus); fill-opacity: 0.18; }
 .hit:focus-visible { outline: none; stroke: var(--ha-color-focus); stroke-width: 8px; fill: var(--ha-color-focus); fill-opacity: 0.18; }
-.dlg { max-width: min(640px, 92vw); border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
+.dlg { width: min(640px, 92vw); height: min(520px, 90vh); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
+.dlg[open] { display: flex; }
+.dlg--auto { height: auto; }
 .dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
 .dlg-title { margin: 0 0 16px; font-size: 24px; }
 .tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--divider-color); margin-bottom: 16px; }
 .tab { font: inherit; padding: 12px 16px; min-height: 44px; border: 1px solid var(--divider-color); border-bottom: 0; border-radius: 0; background: var(--secondary-background-color); color: var(--primary-text-color); cursor: pointer; }
 .tab[aria-selected=true] { background: var(--card-background-color); font-weight: 700; border-top: 4px solid var(--primary-color); }
-.tiles { list-style: none; margin: 0 0 24px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-.tile { width: 100%; font: inherit; text-align: left; display: block; padding: 0; cursor: pointer; background: var(--card-background-color); color: var(--primary-text-color); border: 2px solid var(--divider-color); border-radius: 0; }
-.tile[aria-pressed=true] { border-color: var(--primary-text-color); border-width: 4px; }
-.swatch { display: block; height: 48px; border-bottom: 2px solid var(--divider-color); }
-.tile-label { display: block; padding: 8px; font-weight: 700; }
-.note { margin: 4px 0 0; font-size: 14px; color: var(--secondary-text-color); }
+.panels { flex: 1; min-height: 0; overflow: auto; padding: 8px; }
+.tiles { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, 64px); gap: 12px; }
+.tile { position: relative; display: block; width: 64px; height: 64px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
+.tile[aria-pressed=true] { outline: 4px solid var(--primary-text-color); outline-offset: 2px; }
+.swatch { position: absolute; inset: 0; display: block; }
+.tile-icon { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); object-fit: contain; pointer-events: none; }
+.hint { margin: 0 0 16px; font-size: 14px; color: var(--secondary-text-color); }
+.dlg-close { align-self: flex-start; margin-top: 16px; }
 `;
 
 // card/src/card.ts
 var SVG = "http://www.w3.org/2000/svg";
 var RECIPE_LIST = recipes_default;
-var CATS = [["white", "Whites"], ["color", "Solid colours"], ["scene", "Dynamic scenes"]];
+var CATS = [["light", "Whites and colours", ["white", "color"]], ["scene", "Scenes", ["scene"]]];
+var COG = "M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.86,17.38L11.25,20H12.75L13.12,17.4C14.32,17.14 15.38,16.5 16.15,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.38C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z";
 var REASONS = {
   no_lights: "This room has no lights this card can control.",
   all_unavailable: "All lights in this room are unavailable.",
@@ -801,10 +806,11 @@ var REASONS = {
   needs_colour_light: "This room needs at least one colour light.",
   no_dimmable_lights: "No light in this room can be dimmed."
 };
-var ADAPT = "This scene will adapt to the lights in this room.";
 var SAFE_CSS = /^(#[0-9A-Fa-f]{6}|linear-gradient\(90deg(, #[0-9A-Fa-f]{6} \d{1,3}%)+\))$/;
 var safeCss = (v) => SAFE_CSS.test(v) ? v : "transparent";
 var previewOf = (r) => safeCss(r.previewCss ?? r.preview);
+var HEX = /^#[0-9A-Fa-f]{6}$/;
+var paletteSeconds = (n) => Math.max(4, n * 3);
 function el(tag, props = {}, ...kids) {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(props)) {
@@ -930,11 +936,11 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   buildRow(v) {
     const name = v.cfg.name ?? v.cfg.id;
-    const state = el("dd", { class: "value", "data-role": "state" });
     const toggle = el("button", { class: "btn btn--small", type: "button", onclick: () => this.toggle(v) });
-    const settings = el("button", { class: "link", type: "button", onclick: (e) => this.open(v.cfg.id, e.currentTarget) }, "Settings", el("span", { class: "vh" }, ` for ${name}`));
-    const stop = el("button", { class: "link", type: "button", hidden: true, onclick: () => this.stop(v, false) }, "Stop scene", el("span", { class: "vh" }, ` in ${name}`));
-    const row = el("div", { class: "row", "data-room": v.cfg.id }, el("dt", { class: "key" }, name), state, el("dd", { class: "act" }, toggle, stop, settings));
+    const icon = svg("svg", { viewBox: "0 0 24 24", width: 24, height: 24, "aria-hidden": "true", focusable: "false" });
+    icon.append(svg("path", { d: COG, fill: "currentColor" }));
+    const settings = el("button", { class: "btn btn--secondary btn--icon", type: "button", title: "Settings", onclick: (e) => this.open(v.cfg.id, e.currentTarget) }, icon, el("span", { class: "vh" }, `Settings for ${name}`));
+    const row = el("div", { class: "row", "data-room": v.cfg.id }, el("dt", { class: "key" }, name, el("span", { class: "sub", "data-role": "sub" })), el("dd", { class: "act" }, toggle, settings));
     v.row = row;
     return row;
   }
@@ -951,12 +957,12 @@ var GovukHouseLightingCard = class extends HTMLElement {
     if (!this.dialog.open) this.dialog.showModal();
     void opener;
   }
-  renderDialog(tab = "white") {
+  renderDialog(tab = CATS[0][0]) {
     const v = this.views.get(this.current), d = this.dialog;
     const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
     const tabs = el("div", { role: "tablist", class: "tabs", "aria-label": "Lighting type" });
-    const panels = el("div");
-    CATS.forEach(([cat, label]) => {
+    const panels = el("div", { class: "panels" });
+    CATS.forEach(([cat, label, kinds]) => {
       const t = el("button", {
         role: "tab",
         type: "button",
@@ -979,25 +985,42 @@ var GovukHouseLightingCard = class extends HTMLElement {
       tabs.append(t);
       const p = el("div", { role: "tabpanel", id: `panel-${cat}`, "aria-labelledby": `tab-${cat}`, hidden: cat !== tab });
       const grid = el("ul", { class: "tiles" });
-      for (const r of RECIPE_LIST.filter((x) => x.category === cat)) {
+      let anyOff = false;
+      for (const r of RECIPE_LIST.filter((x) => kinds.includes(x.category))) {
         const a = avail.get(r.id);
         const off = a.availability === "unsupported";
-        const note = off ? REASONS[a.reason ?? ""] ?? "Not available in this room." : a.availability === "adaptive" ? ADAPT : "";
+        anyOff = anyOff || off;
+        const reason = off ? REASONS[a.reason ?? ""] ?? "Not available in this room." : "";
+        const tip = reason ? `${r.label}: ${reason}` : r.label;
         const swatch = el("span", { class: "swatch" });
-        swatch.style.background = previewOf(r);
-        const selected = v.owner === r.id;
-        const btn = el("button", { class: "tile", type: "button", disabled: off, "aria-pressed": String(selected), "aria-describedby": note ? `n-${r.id}` : void 0, onclick: () => this.pick(v, r) }, swatch, el("span", { class: "tile-label" }, r.label));
-        grid.append(el("li", {}, btn, note ? el("p", { id: `n-${r.id}`, class: "note" }, note) : ""));
+        if (r.category === "scene") this.animateSwatch(swatch, r, v);
+        else swatch.style.background = previewOf(r);
+        const kids = [swatch];
+        if (r.category === "scene") kids.push(el("img", { class: "tile-icon", src: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href, alt: "", loading: "lazy" }));
+        const btn = el("button", { class: "tile", type: "button", disabled: off, title: tip, "aria-label": tip, "aria-pressed": String(v.owner === r.id), onclick: () => this.pick(v, r) }, ...kids);
+        grid.append(el("li", {}, btn));
       }
       p.append(grid);
+      if (anyOff) p.append(el("p", { class: "hint" }, "Faded options cannot be used in this room. Hover over one to see why."));
       panels.append(p);
     });
     d.replaceChildren(
       el("h3", { id: "dlg-title", class: "dlg-title" }, `${v.cfg.name ?? v.cfg.id} lighting`),
       tabs,
       panels,
-      el("button", { class: "btn btn--secondary", type: "button", onclick: () => d.close() }, "Close")
+      el("button", { class: "btn btn--secondary dlg-close", type: "button", onclick: () => d.close() }, "Close")
     );
+  }
+  /** Cycles the room's effective scene palette at the same pace as the floor-plan tint. Static when motion is reduced. */
+  animateSwatch(swatch, r, v) {
+    const palette = buildPlan(r, v.caps.lightCapabilities).effectivePalette.filter((c) => HEX.test(c));
+    if (!palette.length) {
+      swatch.style.background = previewOf(r);
+      return;
+    }
+    swatch.style.backgroundColor = palette[0];
+    if (palette.length < 2 || this.reduceMotion.matches || typeof swatch.animate !== "function") return;
+    swatch.animate([...palette, palette[0]].map((c) => ({ backgroundColor: c })), { duration: paletteSeconds(palette.length) * 1e3, iterations: Infinity, easing: "linear" });
   }
   async pick(v, r) {
     if (r.safety?.flashing) {
@@ -1016,9 +1039,9 @@ var GovukHouseLightingCard = class extends HTMLElement {
     return new Promise((res) => {
       const c = el(
         "dialog",
-        { class: "dlg", "aria-labelledby": "w-title" },
+        { class: "dlg dlg--auto", "aria-labelledby": "w-title" },
         el("h3", { id: "w-title", class: "dlg-title" }, "Warning: flashing lights"),
-        el("p", {}, `${r.label} flashes red and blue quickly. It can trigger seizures in people with photosensitive epilepsy. It stops by itself after ${r.safety.maxRuntimeS} seconds, or when you select Stop scene.`),
+        el("p", {}, `${r.label} flashes red and blue quickly. It can trigger seizures in people with photosensitive epilepsy. It stops by itself after ${r.safety.maxRuntimeS} seconds, or when you turn the room off.`),
         el(
           "div",
           { class: "actions" },
@@ -1076,7 +1099,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
     if (changed) {
       this.paintSummary();
       if (this.dialog?.open && this.current) {
-        const t = this.dialog.querySelector("[aria-selected=true]")?.id.replace("tab-", "") ?? "white";
+        const t = this.dialog.querySelector("[aria-selected=true]")?.id.replace("tab-", "") ?? CATS[0][0];
         const f = this.root.activeElement;
         this.renderDialog(t);
         if (f?.id) this.dialog.querySelector(`#${CSS.escape(f.id)}`)?.focus();
@@ -1096,14 +1119,13 @@ var GovukHouseLightingCard = class extends HTMLElement {
     return (rec ? `On, ${rec.label}` : "On, custom") + part;
   }
   paintRoom(v) {
-    const st = v.row.querySelector("[data-role=state]");
-    st.textContent = this.describe(v);
+    const uncontrolled = v.caps.totalLights === 0 || v.caps.availableLights === 0;
+    v.row.querySelector("[data-role=sub]").textContent = uncontrolled ? this.describe(v) : "";
     const btn = v.row.querySelector(".btn");
     btn.textContent = v.on > 0 ? "Turn off" : "Turn on";
     btn.disabled = v.caps.availableLights === 0;
     btn.setAttribute("aria-label", `${v.on > 0 ? "Turn off" : "Turn on"} ${v.cfg.name ?? v.cfg.id}`);
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
-    v.row.querySelectorAll(".link")[0].hidden = !(rec?.category === "scene" && v.on > 0);
     const shade = this.plan.querySelector(`.shade[data-room=${v.cfg.id}]`);
     const hit = this.plan.querySelector(`.hit[data-room=${v.cfg.id}]`);
     hit.setAttribute("aria-label", `${v.cfg.name ?? v.cfg.id}, ${this.describe(v)}. Open lighting settings.`);
@@ -1117,10 +1139,10 @@ var GovukHouseLightingCard = class extends HTMLElement {
     let palette = [];
     if (rec) palette = buildPlan(rec, v.caps.lightCapabilities).effectivePalette;
     if (!palette.length) palette = ["#FFB76C"];
-    palette = palette.filter((p) => /^#[0-9A-Fa-f]{6}$/.test(p));
+    palette = palette.filter((p) => HEX.test(p));
     shade.setAttribute("fill", palette[0]);
     if (palette.length > 1 && !this.reduceMotion.matches) {
-      const a = svg("animate", { attributeName: "fill", values: [...palette, palette[0]].join(";"), dur: `${Math.max(4, palette.length * 3)}s`, repeatCount: "indefinite" });
+      const a = svg("animate", { attributeName: "fill", values: [...palette, palette[0]].join(";"), dur: `${paletteSeconds(palette.length)}s`, repeatCount: "indefinite" });
       shade.append(a);
     } else if (palette.length > 1) shade.setAttribute("fill", palette[0]);
   }

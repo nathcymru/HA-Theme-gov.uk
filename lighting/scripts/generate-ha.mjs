@@ -155,6 +155,7 @@ const dispatch = `
           brightness: "{{ brightness | default(none) }}"
   govuk_lights_stop:
     alias: "GOV.UK lights: stop room scene"
+    description: "Ends any scene in the room. With turn_off, every light is first set to default warm white and then switched off, so the next Turn on is white."
     mode: parallel
     max: 20
     fields:
@@ -177,6 +178,24 @@ const dispatch = `
                 ${MEMBERS}
           - if: "{{ lights | length > 0 }}"
             then:
+              # Reset to default white first (instant, no transition) so a later plain
+              # Turn on never resumes the scene's last colour.
+              - repeat:
+                  for_each: "{{ lights }}"
+                  sequence:
+                    - variables:
+                        e: "{{ repeat.item }}"
+                        modes: "{{ state_attr(e,'supported_color_modes') or [] }}"
+                        can_ct: "{{ modes | select('in', ['color_temp','hs','xy','rgb','rgbw','rgbww']) | list | length > 0 }}"
+                    - if: "{{ states(e) not in ['unavailable','unknown'] and can_ct }}"
+                      then:
+                        - action: light.turn_on
+                          target: {entity_id: "{{ e }}"}
+                          data:
+                            color_temp_kelvin: >-
+                              {% set lo = state_attr(e,'min_color_temp_kelvin') %}{% set hi = state_attr(e,'max_color_temp_kelvin') %}{{ [[2700, lo or 2700] | max, hi or 2700] | min }}
+                            brightness_pct: 100
+                            transition: 0
               - action: light.turn_off
                 target: {entity_id: "{{ lights }}"}
 `;
