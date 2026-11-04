@@ -1,0 +1,167 @@
+{
+  "image": {
+    "file": "assets/floorplan.png",
+    "width": 1448,
+    "height": 1086,
+    "sha256": "3d35a6d91cbddb794eff5d631edeb1af53301d9b9a3a050410e3afb2e6b8bb98"
+  },
+  "regions": {
+    "lounge": [
+      [
+        98,
+        40
+      ],
+      [
+        590,
+        40
+      ],
+      [
+        590,
+        420
+      ],
+      [
+        670,
+        420
+      ],
+      [
+        670,
+        610
+      ],
+      [
+        98,
+        610
+      ]
+    ],
+    "bathroom": [
+      [
+        592,
+        40
+      ],
+      [
+        858,
+        40
+      ],
+      [
+        858,
+        410
+      ],
+      [
+        595,
+        410
+      ]
+    ],
+    "kitchen": [
+      [
+        862,
+        40
+      ],
+      [
+        1345,
+        40
+      ],
+      [
+        1340,
+        412
+      ],
+      [
+        875,
+        412
+      ]
+    ],
+    "hall": [
+      [
+        672,
+        412
+      ],
+      [
+        782,
+        412
+      ],
+      [
+        782,
+        962
+      ],
+      [
+        585,
+        962
+      ],
+      [
+        585,
+        632
+      ],
+      [
+        672,
+        632
+      ]
+    ],
+    "study": [
+      [
+        80,
+        628
+      ],
+      [
+        552,
+        628
+      ],
+      [
+        552,
+        962
+      ],
+      [
+        80,
+        962
+      ]
+    ],
+    "bedroom": [
+      [
+        785,
+        435
+      ],
+      [
+        1342,
+        435
+      ],
+      [
+        1375,
+        958
+      ],
+      [
+        812,
+        958
+      ]
+    ]
+  },
+  "rooms": [
+    {
+      "id": "lounge",
+      "name": "Lounge",
+      "area": "lounge"
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "area": "kitchen"
+    },
+    {
+      "id": "bathroom",
+      "name": "Bathroom",
+      "area": "bathroom"
+    },
+    {
+      "id": "hall",
+      "name": "Hallway",
+      "area": "hall"
+    },
+    {
+      "id": "study",
+      "name": "Office / Second bedroom",
+      "area": "study"
+    },
+    {
+      "id": "bedroom",
+      "name": "Main bedroom",
+      "area": "bedroom"
+    }
+  ],
+  "_note": "regions: hand-traced against the approved image (see docs); rooms: default room->HA area mapping, overridable in card config."
+}

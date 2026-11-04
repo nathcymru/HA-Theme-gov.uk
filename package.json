@@ -5,6 +5,12 @@
   "scripts": {
     "generate": "node lighting/scripts/generate.mjs && node lighting/scripts/generate-ha.mjs",
     "check:ha": "python3 lighting/scripts/check-ha.py",
+    "build": "esbuild card/src/card.ts --bundle --format=esm --outfile=card/dist/govuk-house-lighting-card.js --target=es2022",
+    "typecheck": "tsc --noEmit --allowImportingTsExtensions --strict --target es2022 --module esnext --moduleResolution bundler --resolveJsonModule --lib es2022,dom card/src/card.ts",
     "test": "node lighting/scripts/generate.mjs --check && node --test lighting/test/*.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
   }
 }
