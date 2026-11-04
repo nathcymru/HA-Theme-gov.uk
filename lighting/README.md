@@ -7,7 +7,7 @@ Three separate parts. Only the card needs the browser; scenes run inside Home As
 | Recipes | `lighting/recipes/recipes.json` | The one canonical list: 4 whites, 7 colours, 5 dynamic scenes. Edit only this file. |
 | Engine | `lighting/engine/` | Finds a room's lights from its Home Assistant **Area**, works out what they can do, and decides whether each recipe is full, adaptive or unsupported. |
 | Controller | `lighting/ha/govuk_lighting.yaml` (generated) | Home Assistant scripts that run scenes. One restart-mode script per room, so rooms never cancel each other. |
-| Card | `card/` | `custom:govuk-house-lighting-card`: room list, settings dialog, floor plan. |
+| Card | `card/` | `custom:govuk-house-lighting-card`: room list, settings dialog (fixed size; Whites and colours tab, Scenes tab), floor plan. |
 
 Run `npm install`, then `npm run generate` after editing recipes or `lighting/rooms.json`, `npm run build` for the card, `npm test` and `npm run typecheck` to check.
 
@@ -54,20 +54,21 @@ data: { room: lounge, recipe: christmas, brightness: 70 }
 action: script.govuk_lights_stop
 data: { room: lounge, turn_off: true }
 ```
+`turn_off: true` sets every light in the room to default warm white (2700 K, instant) and then switches it off, so the next plain Turn on gives white, not the last scene colour.
 Recipe ids: `candlelight warm_white daylight cool_white red orange yellow green cyan blue purple rugby football halloween christmas emergency`. The same data is in `lighting/generated/recipes.json` and `recipes.ts`.
 Room state: `input_text.govuk_lights_<room>` holds the active recipe id (or `stopped`).
 
 ## Safety and ownership
 
 - Emergency flashes red and blue. It is blocked unless `input_boolean.govuk_lights_allow_flashing` is on (the card asks first), and stops after 60 seconds. The card itself never flashes.
-- A scene loop runs only while the room's `input_text` still holds its recipe id. A newer apply, Stop, or Turn off ends it at the next cycle. If someone else changes the lights, the scene may overwrite them on its next cycle until stopped. Stop it, or use Turn off.
+- A scene loop runs only while the room's `input_text` still holds its recipe id. A newer apply or Turn off ends it at the next cycle. If someone else changes the lights, the scene may overwrite them on its next cycle until stopped. Use Turn off, or choose another recipe.
 - The card shows "custom" when lights are on but no recipe owns them, and the entities' real on/off/unavailable state always wins.
 
 ## Lights owned by another automation
 
 A light that another automation writes to must not also be driven by scenes: two writers fight, and a watchdog will keep undoing the scene. Mark such a light with the Home Assistant **label** `govuk_lighting_reserved` (Settings > Areas, labels & zones > Labels, then add it to the entity).
 
-- The card and the scripts both skip reserved lights, including for Turn on, Turn off and Stop.
+- The card and the scripts both skip reserved lights, including for Turn on and Turn off.
 - A room whose lights are all reserved shows "Managed by another automation".
 - Nothing in the other automation needs to change.
 
