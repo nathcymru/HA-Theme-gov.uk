@@ -4,6 +4,6 @@
   "type": "module",
   "scripts": {
     "generate": "node lighting/scripts/generate.mjs",
-    "test": "node lighting/scripts/generate.mjs --check && node --test lighting/test/"
+    "test": "node lighting/scripts/generate.mjs --check && node --test lighting/test/*.test.mjs"
   }
 }
