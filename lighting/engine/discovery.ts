@@ -1,5 +1,8 @@
 import type { Snapshot, RoomSource } from './types.ts';
 
+/** Label that marks a light as owned by another automation. The engine never drives these. */
+export const RESERVED_LABEL = 'govuk_lighting_reserved';
+export const isReserved = (s: Snapshot, id: string) => !!s.entities[id]?.labels?.includes(RESERVED_LABEL);
 const isLight = (id: string) => id.startsWith('light.');
 const members = (s: Snapshot, id: string): string[] | null => {
   const e = s.states[id]?.attributes?.entity_id;
@@ -21,8 +24,8 @@ function expand(s: Snapshot, id: string, seen = new Set<string>()): string[] {
   return m ? m.filter(isLight).flatMap((x) => expand(s, x, seen)) : [id];
 }
 
-/** Resolve the physical lights for a room: area + inherited + groups + includes − excludes, deduplicated and sorted. */
-export function resolveRoomLights(s: Snapshot, room: RoomSource): string[] {
+/** Every light that belongs to the room, including reserved ones. */
+export function resolveRoomMembers(s: Snapshot, room: RoomSource): string[] {
   const out = new Set<string>();
   const add = (id: string) => expand(s, id).forEach((x) => out.add(x));
   const candidates = new Set<string>([...Object.keys(s.entities), ...Object.keys(s.states)].filter(isLight));
@@ -37,3 +40,7 @@ export function resolveRoomLights(s: Snapshot, room: RoomSource): string[] {
   // A group listed only through its own id could leave a stale non-light; keep lights present in state or registry.
   return [...out].filter((id) => isLight(id) && (s.states[id] || s.entities[id])).sort();
 }
+
+/** Lights the engine may drive: members minus reserved. */
+export const resolveRoomLights = (s: Snapshot, room: RoomSource): string[] => resolveRoomMembers(s, room).filter((id) => !isReserved(s, id));
+export const resolveReserved = (s: Snapshot, room: RoomSource): string[] => resolveRoomMembers(s, room).filter((id) => isReserved(s, id));

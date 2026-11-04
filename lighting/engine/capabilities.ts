@@ -1,5 +1,5 @@
 import type { Snapshot, LightCapability, RoomSource, RoomLightingCapabilities, RecipeAvailability, Availability } from './types.ts';
-import { resolveRoomLights } from './discovery.ts';
+import { resolveRoomLights, resolveReserved } from './discovery.ts';
 
 const COLOR_MODES = ['hs', 'xy', 'rgb', 'rgbw', 'rgbww'];
 
@@ -57,7 +57,7 @@ export function assessRoom(s: Snapshot, room: RoomSource, recipes: Recipe[]): Ro
   const caps = resolveRoomLights(s, room).map((id) => lightCapability(s, id));
   const live = caps.filter((c) => c.status === 'available');
   return {
-    roomId: room.id, totalLights: caps.length, availableLights: live.length,
+    roomId: room.id, totalLights: caps.length, reservedLights: resolveReserved(s, room).length, availableLights: live.length,
     unavailableLights: caps.filter((c) => c.status === 'unavailable').length,
     unknownLights: caps.filter((c) => c.status === 'unknown').length,
     colorLights: live.filter((c) => c.color).length,

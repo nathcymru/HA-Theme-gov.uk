@@ -9,7 +9,7 @@ const SVG = 'http://www.w3.org/2000/svg';
 const RECIPE_LIST = RECIPES as any[];
 const CATS: Array<[string, string]> = [['white', 'Whites'], ['color', 'Solid colours'], ['scene', 'Dynamic scenes']];
 const REASONS: Record<string, string> = {
-  no_lights: 'This room has no lights.', all_unavailable: 'All lights in this room are unavailable.',
+  no_lights: 'This room has no lights this card can control.', all_unavailable: 'All lights in this room are unavailable.',
   members_unavailable: 'Some lights are unavailable, so the whole room cannot be set to one colour.',
   needs_all_colour: 'Every light in this room must be able to show colour.', needs_colour_light: 'This room needs at least one colour light.',
   no_dimmable_lights: 'No light in this room can be dimmed.',
@@ -186,8 +186,8 @@ class GovukHouseLightingCard extends HTMLElement {
 
   private async toggle(v: RoomView) {
     if (v.on > 0) return this.stop(v, true);
-    const area = v.cfg.area; if (!area) return;
-    try { await this._hass.callService('light', 'turn_on', {}, { area_id: area }); } catch (e) { this.toast(`Could not turn on ${v.cfg.name}: ${(e as Error).message}`); }
+    const ids = v.caps.lightCapabilities.map((c) => c.entityId); if (!ids.length) return; // reserved lights are never included
+    try { await this._hass.callService('light', 'turn_on', {}, { entity_id: ids }); } catch (e) { this.toast(`Could not turn on ${v.cfg.name}: ${(e as Error).message}`); }
   }
   private async stop(v: RoomView, off: boolean) {
     try { await this._hass.callService('script', 'govuk_lights_stop', { room: v.cfg.id, turn_off: off }); } catch (e) { this.toast(`Could not stop ${v.cfg.name}: ${(e as Error).message}`); }
@@ -201,7 +201,7 @@ class GovukHouseLightingCard extends HTMLElement {
       const caps = assessRoom(snap, v.cfg, RECIPE_LIST);
       const owner = snap.states[`input_text.govuk_lights_${v.cfg.id}`]?.state ?? '';
       const on = caps.lightCapabilities.filter((c) => snap.states[c.entityId]?.state === 'on').length;
-      const sig = JSON.stringify([caps.lightCapabilities.map((c) => [c.entityId, c.status, c.color, c.colorTemp, c.dimmable, snap.states[c.entityId]?.state]), owner]);
+      const sig = JSON.stringify([caps.reservedLights, caps.lightCapabilities.map((c) => [c.entityId, c.status, c.color, c.colorTemp, c.dimmable, snap.states[c.entityId]?.state]), owner]);
       if (sig === v.sig) continue;
       Object.assign(v, { caps, owner, on, sig }); changed = true; this.paintRoom(v);
     }
@@ -214,7 +214,7 @@ class GovukHouseLightingCard extends HTMLElement {
 
   private describe(v: RoomView): string {
     const c = v.caps;
-    if (c.totalLights === 0) return 'No lights';
+    if (c.totalLights === 0) return c.reservedLights > 0 ? 'Managed by another automation' : 'No lights';
     if (c.availableLights === 0) return 'Unavailable';
     if (v.on === 0) return 'Off';
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);

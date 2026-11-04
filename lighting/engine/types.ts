@@ -1,4 +1,4 @@
-export interface EntityReg { entity_id: string; device_id?: string | null; area_id?: string | null; platform?: string; disabled_by?: string | null; hidden_by?: string | null }
+export interface EntityReg { entity_id: string; device_id?: string | null; area_id?: string | null; platform?: string; disabled_by?: string | null; hidden_by?: string | null; labels?: string[] }
 export interface DeviceReg { id: string; area_id?: string | null; manufacturer?: string | null; model?: string | null }
 export interface HassState { entity_id: string; state: string; attributes: Record<string, any> }
 export interface Snapshot { entities: Record<string, EntityReg>; devices: Record<string, DeviceReg>; states: Record<string, HassState> }
@@ -15,7 +15,7 @@ export interface LightCapability {
 export type Availability = 'full' | 'adaptive' | 'unsupported';
 export interface RecipeAvailability { recipeId: string; availability: Availability; reason?: string }
 export interface RoomLightingCapabilities {
-  roomId: string; totalLights: number; availableLights: number; unavailableLights: number; unknownLights: number;
+  roomId: string; totalLights: number; reservedLights: number; availableLights: number; unavailableLights: number; unknownLights: number;
   colorLights: number; colorTemperatureLights: number; dimmableLights: number; onOffOnlyLights: number;
   allSupportColor: boolean; someSupportColor: boolean; allSupportColorTemperature: boolean;
   lightCapabilities: LightCapability[]; availableRecipes: RecipeAvailability[];

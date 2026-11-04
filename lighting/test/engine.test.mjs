@@ -128,3 +128,16 @@ test('scene distribution: 1, 2 and 3+ colour bulbs are stable', () => {
   const two = mk(2).steps; assert.notEqual(two[0].sequence[0].hex, two[1].sequence[0].hex);
   const four = mk(4).steps; assert.equal(four.length, 4); assert.deepEqual(JSON.stringify(mk(4)), JSON.stringify(mk(4)));
 });
+import { RESERVED_LABEL } from '../engine/discovery.ts';
+test('reserved lights (owned by another automation) are never driven and are reported distinctly', () => {
+  const s = snap([['light.spot', 'hall', COL], ['light.b', 'hall', COL]]);
+  const hall = { id: 'hall', name: 'Hall', area: 'hall' };
+  s.entities['light.spot'].labels = [RESERVED_LABEL];
+  assert.deepEqual(resolveRoomLights(s, hall), ['light.b']);
+  const a = assessRoom(s, hall, recipes); assert.equal(a.reservedLights, 1); assert.equal(a.totalLights, 1);
+  const plan = buildPlan(R('christmas'), a.lightCapabilities);
+  assert.ok(!plan.steps.some((x) => x.entityId === 'light.spot'));
+  s.entities['light.b'].labels = [RESERVED_LABEL];
+  const none = assessRoom(s, hall, recipes); assert.equal(none.totalLights, 0); assert.equal(none.reservedLights, 2);
+  assert.equal(none.availableRecipes[0].reason, 'no_lights');
+});

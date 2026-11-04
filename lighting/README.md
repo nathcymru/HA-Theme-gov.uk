@@ -63,6 +63,14 @@ Room state: `input_text.govuk_lights_<room>` holds the active recipe id (or `sto
 - A scene loop runs only while the room's `input_text` still holds its recipe id. A newer apply, Stop, or Turn off ends it at the next cycle. If someone else changes the lights, the scene may overwrite them on its next cycle until stopped. Stop it, or use Turn off.
 - The card shows "custom" when lights are on but no recipe owns them, and the entities' real on/off/unavailable state always wins.
 
+## Lights owned by another automation
+
+A light that another automation writes to must not also be driven by scenes: two writers fight, and a watchdog will keep undoing the scene. Mark such a light with the Home Assistant **label** `govuk_lighting_reserved` (Settings > Areas, labels & zones > Labels, then add it to the entity).
+
+- The card and the scripts both skip reserved lights, including for Turn on, Turn off and Stop.
+- A room whose lights are all reserved shows "Managed by another automation".
+- Nothing in the other automation needs to change.
+
 ## Floor plan
 
 `card/assets/floorplan.png` is the approved image, unmodified (SHA-256 in `floorplan.png.sha256`, checked by `npm test`). The SVG uses its real pixel size (1448×1086) as the `viewBox`. Room regions in `card/src/rooms.json` were traced by eye against the image and checked on an overlay; edges near wall tops and the angled bedroom wall are approximate, not pixel-perfect. Lit rooms are tinted with the recipe's effective palette; off rooms are darkened.
