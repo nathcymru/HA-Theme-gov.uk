@@ -45,7 +45,7 @@ class GovukHouseLightingCard extends HTMLElement {
   private _hass: any; private config!: Config; private root: ShadowRoot; private views = new Map<string, RoomView>();
   private dialog?: HTMLDialogElement; private current?: string; private reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   private onMotion = () => this.paintAll();
-  private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: string[] = []; private list?: HTMLElement; private plan?: SVGElement; private built = false;
+  private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: string[] = []; private list?: HTMLElement; private unavail?: HTMLElement; private unavailBox?: HTMLElement; private unavailBtn?: HTMLButtonElement; private unavailOpen = false; private plan?: SVGElement; private built = false;
 
   constructor() { super(); this.root = this.attachShadow({ mode: 'open' }); }
 
@@ -91,11 +91,15 @@ class GovukHouseLightingCard extends HTMLElement {
       el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(true) }, 'All on'),
       el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(false) }, 'All off'));
     this.list = el('dl', { class: 'rooms' });
+    this.unavail = el('dl', { class: 'rooms rooms--unavailable', id: 'unavailable-rooms', hidden: true });
+    this.unavailBtn = el('button', { class: 'acc-btn', type: 'button', 'aria-expanded': 'false', 'aria-controls': 'unavailable-rooms', onclick: () => this.setUnavailable(!this.unavailOpen) });
+    this.unavailBox = el('div', { class: 'acc', hidden: true }, el('h3', { class: 'acc-heading' }, this.unavailBtn!), this.unavail!);
     this.plan = this.buildPlan();
     // Floor plan first, then the room list.
-    this.root.replaceChildren(style, el('ha-card', {}, el('div', { class: 'body' }, el('div', { class: 'head' }, title, all), this.errorSlot!, this.status!, this.plan!, this.list!)));
+    this.root.replaceChildren(style, el('ha-card', {}, el('div', { class: 'body' }, el('div', { class: 'head' }, title, all), this.errorSlot!, this.status!, this.plan!, this.list!, this.unavailBox!)));
     for (const cfg of this.config.rooms) this.views.set(cfg.id, { cfg, caps: undefined as any, sig: '', on: 0, owner: '' });
     for (const v of this.views.values()) this.list!.append(this.buildRow(v));
+    this.layoutRooms();
     this.dialog = this.buildDialog(); this.root.append(this.dialog);
   }
 
@@ -111,8 +115,8 @@ class GovukHouseLightingCard extends HTMLElement {
     for (const cfg of this.config.rooms) {
       const pts = (FLOOR.regions as any)[cfg.id].map((p: number[]) => p.join(',')).join(' ');
       const hit = svg('polygon', { points: pts, class: 'hit', tabindex: 0, role: 'button', 'data-room': cfg.id });
-      hit.addEventListener('click', () => this.open(cfg.id));
-      hit.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Enter' || k === ' ') { e.preventDefault(); this.open(cfg.id); } });
+      hit.addEventListener('click', () => { if (this.usable(this.views.get(cfg.id)!)) this.open(cfg.id); });
+      hit.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Enter' || k === ' ') { e.preventDefault(); if (this.usable(this.views.get(cfg.id)!)) this.open(cfg.id); } });
       s.append(hit);
     }
     return s;
@@ -120,14 +124,31 @@ class GovukHouseLightingCard extends HTMLElement {
 
   private buildRow(v: RoomView): HTMLElement {
     const name = v.cfg.name ?? v.cfg.id;
-    const toggle = el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.toggle(v) });
+    // Turn on/off is the primary action; Settings is the secondary button with the authorised cog (icon only).
+    const toggle = el('button', { class: 'btn', type: 'button', 'data-role': 'toggle', onclick: () => this.toggle(v) });
     const icon = svg('svg', { viewBox: '0 0 24 24', width: 19, height: 19, class: 'btn-icon', 'aria-hidden': 'true', focusable: 'false' });
     icon.append(svg('path', { d: COG, fill: 'currentColor' }));
-    // The cog is the one authorised deviation from the GOV.UK secondary button.
-    const settings = el('button', { class: 'btn btn--secondary', type: 'button', onclick: (e: Event) => this.open(v.cfg.id, e.currentTarget as HTMLElement) }, icon, 'Settings', el('span', { class: 'vh' }, ` for ${name}`));
-    // A room gets a line under its name only when some of its lights are managed elsewhere or unavailable.
+    const settings = el('button', { class: 'btn btn--secondary', type: 'button', 'data-role': 'settings', title: 'Settings', onclick: (e: Event) => this.open(v.cfg.id, e.currentTarget as HTMLElement) }, icon, el('span', { class: 'vh' }, `Settings for ${name}`));
     const row = el('div', { class: 'row', 'data-room': v.cfg.id }, el('dt', { class: 'key' }, name, el('span', { class: 'sub', 'data-role': 'sub' })), el('dd', { class: 'act' }, toggle, settings));
     v.row = row; return row;
+  }
+
+  private usable(v: RoomView) { return !!v.caps && v.caps.availableLights > 0; }
+  private setUnavailable(open: boolean) {
+    this.unavailOpen = open;
+    this.unavailBtn!.setAttribute('aria-expanded', String(open)); this.unavail!.hidden = !open;
+    this.unavailBtn!.querySelector('[data-role=acc-state]')!.textContent = open ? 'Hide' : 'Show';
+  }
+  /** Rooms with no controllable lights live in the "Unavailable" accordion; everything else stays in the main list. */
+  private layoutRooms() {
+    const off: RoomView[] = [];
+    for (const v of this.views.values()) {
+      const dest = !v.caps || this.usable(v) ? this.list! : this.unavail!;
+      if (v.row!.parentElement !== dest) dest.append(v.row!);
+      if (v.caps && !this.usable(v)) off.push(v);
+    }
+    this.unavailBox!.hidden = off.length === 0;
+    this.unavailBtn!.replaceChildren(`Unavailable (${off.length})`, el('span', { class: 'acc-state', 'data-role': 'acc-state' }, this.unavailOpen ? 'Hide' : 'Show'));
   }
 
   private buildDialog(): HTMLDialogElement {
@@ -251,40 +272,37 @@ class GovukHouseLightingCard extends HTMLElement {
       Object.assign(v, { caps, owner, on, sig }); changed = true; this.paintRoom(v);
     }
     if (changed) {
-      this.paintSummary();
+      this.layoutRooms(); this.paintSummary();
       if (this.dialog?.open && this.current) { const t = this.dialog.querySelector('[aria-selected=true]')?.id.replace('tab-', '') ?? CATS[0][0]; const f = this.root.activeElement; this.renderDialog(t); if (f?.id) this.dialog.querySelector<HTMLElement>(`#${CSS.escape(f.id)}`)?.focus(); }
     }
   }
   private paintAll() { for (const v of this.views.values()) if (v.caps) this.paintRoom(v); }
 
-  /** Notes about lights this card is not driving. Shown under the room name, and read out on the floor plan. */
-  private notes(v: RoomView): string[] {
-    const c = v.caps, out: string[] = [];
-    const n = (k: number, t: string) => `${k} light${k === 1 ? '' : 's'} ${t}`;
-    if (c.reservedLights > 0) out.push(n(c.reservedLights, 'managed by another automation'));
-    if (c.unavailableLights > 0) out.push(n(c.unavailableLights, 'unavailable'));
-    if (c.reservedLights === 0 && c.totalLights === 0) out.push('No lights');
-    return out;
+  /** "2 of 3 lights on" or "0 of 3 lights on": lights this card can control. Reserved lights are not counted. */
+  private count(v: RoomView): string {
+    const total = v.caps.availableLights, word = `light${total === 1 ? '' : 's'}`;
+    return v.on > 0 ? `${v.on} of ${total} ${word} on` : `${total} of ${total} ${word} off`;
   }
   private describe(v: RoomView): string {
-    const c = v.caps, notes = this.notes(v).join(', ');
-    if (c.availableLights === 0) return notes || 'No lights';
+    if (!this.usable(v)) return 'unavailable';
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
-    const part = v.on < c.availableLights && v.on > 0 ? ' (some lights off)' : '';
-    const state = v.on === 0 ? 'Off' : (rec ? `On, ${rec.label}` : 'On, custom') + part;
-    return notes ? `${state}. ${notes}` : state;
+    return `${this.count(v)}${v.on > 0 && rec ? `, ${rec.label}` : ''}`;
   }
 
   private paintRoom(v: RoomView) {
-    v.row!.querySelector('[data-role=sub]')!.textContent = this.notes(v).join(', ');
-    const btn = v.row!.querySelector<HTMLButtonElement>('.btn')!;
-    btn.textContent = v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = v.caps.availableLights === 0;
+    const usable = this.usable(v), total = v.caps.availableLights;
+    v.row!.querySelector('[data-role=sub]')!.textContent = total > 0 ? this.count(v) : '';
+    v.row!.querySelector<HTMLButtonElement>('[data-role=settings]')!.disabled = !usable;
+    const btn = v.row!.querySelector<HTMLButtonElement>('[data-role=toggle]')!;
+    btn.hidden = !usable;
+    btn.textContent = v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = !usable;
     btn.setAttribute('aria-label', `${v.on > 0 ? 'Turn off' : 'Turn on'} ${v.cfg.name ?? v.cfg.id}`);
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
     // Floor plan: one overlay per room, driven by the effective palette.
     const shade = this.plan!.querySelector<SVGPolygonElement>(`.shade[data-room=${v.cfg.id}]`)!;
     const hit = this.plan!.querySelector(`.hit[data-room=${v.cfg.id}]`)!;
-    hit.setAttribute('aria-label', `${v.cfg.name ?? v.cfg.id}, ${this.describe(v)}. Open lighting settings.`);
+    hit.setAttribute('aria-label', `${v.cfg.name ?? v.cfg.id}, ${this.describe(v)}.${this.usable(v) ? ' Open lighting settings.' : ''}`);
+    hit.setAttribute('aria-disabled', String(!this.usable(v)));
     shade.replaceChildren(); shade.removeAttribute('style');
     if (v.on === 0) { shade.setAttribute('class', 'shade shade--off'); return; }
     shade.setAttribute('class', 'shade shade--lit');

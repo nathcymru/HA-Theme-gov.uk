@@ -9,7 +9,7 @@ const states = {
 };
 const areas = { l1: 'lounge', l2: 'lounge', h1: 'hall', h2: 'hall', b1: 'bedroom', o1: 'study', h3: 'hall', hue: 'hall' };
 const entities = {}, devices = {};
-for (const [k, a] of Object.entries(areas)) { entities['light.' + k] = { entity_id: 'light.' + k, device_id: 'd' + k }; if (k.startsWith('h') && k !== 'hue') entities['light.' + k].labels = ['govuk_lighting_reserved']; // hall Innr lights are owned by another automation
+for (const [k, a] of Object.entries(areas)) { entities['light.' + k] = { entity_id: 'light.' + k, device_id: 'd' + k }; if (k === 'h1') entities['light.' + k].labels = ['govuk_lighting_reserved']; // Spot 1 (door warning) stays with the front-door automation
   devices['d' + k] = { id: 'd' + k, area_id: a, manufacturer: k.startsWith('h') ? 'Innr' : 'Signify' }; }
 const card = document.createElement('govuk-house-lighting-card');
 card.setConfig({ type: 'custom:govuk-house-lighting-card' });
