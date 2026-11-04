@@ -21,7 +21,7 @@ for (const r of catalogue(doc)) {
 }
 
 const q = (s) => JSON.stringify(s);
-const MEMBERS = `{% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}`;
+const MEMBERS = `{% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m | list if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}`;
 
 const engine = `
 script:

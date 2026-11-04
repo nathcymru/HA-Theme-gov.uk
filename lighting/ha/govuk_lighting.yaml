@@ -55,7 +55,7 @@ script:
           sequence:
             - variables:
                 lights: >-
-                  {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}
+                  {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m | list if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}
                 step: "{{ repeat.index - 1 }}"
             - repeat:
                 for_each: "{{ lights }}"
@@ -250,7 +250,7 @@ script:
               include: "{{ [] }}"
               exclude: "{{ [] }}"
               lights: >-
-                {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}
+                {% set ns = namespace(l=[]) %}{% for e in area_entities(area) if e.startswith('light.') %}{% set m = state_attr(e,'entity_id') %}{% set ns.l = ns.l + (m | list if m else [e]) %}{% endfor %}{% for e in include %}{% set ns.l = ns.l + [e] %}{% endfor %}{{ ns.l | unique | reject('in', exclude) | reject('in', label_entities('govuk_lighting_reserved')) | sort | list }}
           - if: "{{ lights | length > 0 }}"
             then:
               # Reset to default white first (instant, no transition) so a later plain
