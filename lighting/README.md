@@ -82,3 +82,7 @@ A light that another automation writes to must not also be driven by scenes: two
 - No hardware test has been done. Real Hue and Innr command rates for 0.5 s flashing are untested; `intervalS` for Emergency is in the recipe file.
 - Light-group changes inside a running scene are picked up at the next cycle (membership is re-read each loop); there is no restart-time recovery beyond the helper state.
 - Colour accuracy depends on the bulbs; RGB values are targets, not calibrated output.
+
+## Sharing the Hall with the front-door automation
+
+`front_door.yaml` owns three Hall lights. Spot 1 (`light.innr_hall_1`) is the door warning and keeps the `govuk_lighting_reserved` label. Spots 2 and 3 (`light.innr_rs_242_c_2`, `_c_3`) are night lights: remove the label from them so the card can run scenes on them. In "Front Door — Solar and Companion Lighting" the evening switch-on only runs while `input_text.govuk_lights_hall` is empty, `stopped`, `unknown` or `unavailable` (no card recipe active), and sunrise hands control back by setting it to `stopped`. The card's Turn off resets the lights to white, switches them off and sets `stopped`, so the automation resumes at its next door or sun event. See `lighting/ha/front_door.patch.diff`.
