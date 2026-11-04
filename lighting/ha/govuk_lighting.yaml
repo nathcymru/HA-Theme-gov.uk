@@ -38,8 +38,8 @@ script:
     sequence:
       - variables:
           recipes: {"candlelight":{"cat":"white","t":1,"b":30,"k":{"hue":2000,"innr":1800}},"warm_white":{"cat":"white","t":1,"b":100,"k":{"hue":2700,"innr":2700}},"daylight":{"cat":"white","t":1,"b":100,"k":{"hue":4000,"innr":4000}},"cool_white":{"cat":"white","t":1,"b":100,"k":{"hue":6500,"innr":6500}},"red":{"cat":"color","t":1,"b":100,"colors":[{"hue":[255,0,0],"innr":[255,0,0]}]},"orange":{"cat":"color","t":1,"b":100,"colors":[{"hue":[255,94,0],"innr":[255,80,0]}]},"yellow":{"cat":"color","t":1,"b":100,"colors":[{"hue":[255,217,0],"innr":[255,200,0]}]},"green":{"cat":"color","t":1,"b":100,"colors":[{"hue":[0,255,0],"innr":[0,255,0]}]},"cyan":{"cat":"color","t":1,"b":100,"colors":[{"hue":[0,242,255],"innr":[0,230,255]}]},"blue":{"cat":"color","t":1,"b":100,"colors":[{"hue":[0,43,255],"innr":[0,20,255]}]},"purple":{"cat":"color","t":1,"b":100,"colors":[{"hue":[212,0,255],"innr":[212,0,255]}]},"rugby":{"cat":"scene","t":5,"b":100,"interval":null,"flashing":false,"max_s":0,"colors":[{"hue":[211,10,36],"innr":[255,0,0],"b":100},{"hue":[0,128,0],"innr":[0,255,0],"b":100}],"white_k":5000},"football":{"cat":"scene","t":15,"b":100,"interval":null,"flashing":false,"max_s":0,"colors":[{"hue":[0,77,152],"innr":[0,43,255],"b":100},{"hue":[0,255,0],"innr":[0,255,0],"b":100}],"white_k":4000},"halloween":{"cat":"scene","t":8,"b":100,"interval":null,"flashing":false,"max_s":0,"colors":[{"hue":[255,94,0],"innr":[255,94,0],"b":100},{"hue":[128,0,128],"innr":[128,0,128],"b":100},{"hue":[0,255,0],"innr":[0,255,0],"b":100}],"white_k":2700},"christmas":{"cat":"scene","t":20,"b":100,"interval":null,"flashing":false,"max_s":0,"colors":[{"hue":[255,0,0],"innr":[255,0,0],"b":100},{"hue":[0,128,0],"innr":[0,128,0],"b":100},{"hue":[255,215,0],"innr":[255,165,0],"b":100},{"hue":[224,224,224],"innr":[224,224,224],"b":60}],"white_k":2700},"emergency":{"cat":"scene","t":0,"b":100,"interval":0.5,"flashing":true,"max_s":60,"colors":[{"hue":[255,0,0],"innr":[255,0,0],"b":100},{"hue":[0,0,255],"innr":[0,0,255],"b":100}],"white_k":2700}}
-          include: "{{ include | default([]) }}"
-          exclude: "{{ exclude | default([]) }}"
+          include: "{{ include | default([], true) }}"
+          exclude: "{{ exclude | default([], true) }}"
           rec: "{{ recipes[recipe] }}"
           owner: "input_text.govuk_lights_{{ room }}"
       - condition: template
@@ -68,7 +68,9 @@ script:
                       can_color: "{{ modes | select('in', ['hs','xy','rgb','rgbw','rgbww']) | list | length > 0 }}"
                       can_ct: "{{ 'color_temp' in modes }}"
                       can_dim: "{{ can_color or can_ct or 'brightness' in modes or 'white' in modes }}"
-                      pct: "{{ brightness | default(rec.b) | int }}"
+                      # brightness may be missing, none or a string; fall back to the recipe's own level.
+                      pct: >-
+                        {% set b = brightness | default(0, true) | int(0) %}{{ b if 0 < b <= 100 else rec.b | int(100) }}
                       tr: "{{ rec.t }}"
                   - condition: template
                     value_template: "{{ states(e) not in ['unavailable','unknown'] }}"
@@ -242,7 +244,7 @@ script:
         data: {value: "stopped"}
       - action: script.turn_off
         target: {entity_id: "script.govuk_lights_room_{{ room }}"}
-      - if: "{{ turn_off | default(false) }}"
+      - if: "{{ turn_off | default(false, true) | bool(false) }}"
         then:
           - variables:
               area: >-

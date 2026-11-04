@@ -39,8 +39,8 @@ script:
     sequence:
       - variables:
           recipes: ${JSON.stringify(rt)}
-          include: "{{ include | default([]) }}"
-          exclude: "{{ exclude | default([]) }}"
+          include: "{{ include | default([], true) }}"
+          exclude: "{{ exclude | default([], true) }}"
           rec: "{{ recipes[recipe] }}"
           owner: "input_text.govuk_lights_{{ room }}"
       - condition: template
@@ -69,7 +69,9 @@ script:
                       can_color: "{{ modes | select('in', ['hs','xy','rgb','rgbw','rgbww']) | list | length > 0 }}"
                       can_ct: "{{ 'color_temp' in modes }}"
                       can_dim: "{{ can_color or can_ct or 'brightness' in modes or 'white' in modes }}"
-                      pct: "{{ brightness | default(rec.b) | int }}"
+                      # brightness may be missing, none or a string; fall back to the recipe's own level.
+                      pct: >-
+                        {% set b = brightness | default(0, true) | int(0) %}{{ b if 0 < b <= 100 else rec.b | int(100) }}
                       tr: "{{ rec.t }}"
                   - condition: template
                     value_template: "{{ states(e) not in ['unavailable','unknown'] }}"
@@ -167,7 +169,7 @@ const dispatch = `
         data: {value: "stopped"}
       - action: script.turn_off
         target: {entity_id: "script.govuk_lights_room_{{ room }}"}
-      - if: "{{ turn_off | default(false) }}"
+      - if: "{{ turn_off | default(false, true) | bool(false) }}"
         then:
           - variables:
               area: >-

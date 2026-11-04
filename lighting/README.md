@@ -69,7 +69,7 @@ Room state: `input_text.govuk_lights_<room>` holds the active recipe id (or `sto
 A light that another automation writes to must not also be driven by scenes: two writers fight, and a watchdog will keep undoing the scene. Mark such a light with the Home Assistant **label** `govuk_lighting_reserved` (Settings > Areas, labels & zones > Labels, then add it to the entity).
 
 - The card and the scripts both skip reserved lights, including for Turn on and Turn off.
-- A room whose lights are all reserved shows "Managed by another automation".
+- A room with reserved or unavailable lights says so under its name, for example "3 lights managed by another automation, 1 light unavailable". Turn on/off only ever acts on the lights that are not reserved.
 - Nothing in the other automation needs to change.
 
 ## Floor plan

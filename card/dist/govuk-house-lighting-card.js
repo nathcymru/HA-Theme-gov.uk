@@ -748,25 +748,34 @@ var STYLES = `
 :host { display: block; }
 ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-color); }
 .body { padding: 16px; }
-.title { margin: 0 0 8px; font-size: var(--ha-card-header-font-size, 24px); font-weight: var(--ha-font-weight-heading, 700); }
+.head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 15px; margin-bottom: 8px; }
+.title { margin: 0; font-size: var(--ha-card-header-font-size, 24px); font-weight: var(--ha-font-weight-heading, 700); }
 .status { margin: 0 0 16px; color: var(--secondary-text-color); }
-.actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
-.btn { font: inherit; font-weight: 700; min-height: 44px; padding: 8px 16px; cursor: pointer; border: 2px solid var(--primary-color); border-radius: 0;
+.actions { display: flex; flex-wrap: wrap; gap: 15px; }
+/* GOV.UK button (govuk-frontend 5): 16px on small screens, 19px from 40.0625em; weight 400; 2px border; padding 8px 10px 7px. */
+.btn { font: inherit; font-size: 16px; font-weight: 400; line-height: 1; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
   background: var(--primary-color); color: var(--text-primary-color); box-shadow: 0 2px 0 var(--ha-color-primary-10); }
-.btn:hover { background: var(--ha-color-primary-30); border-color: var(--ha-color-primary-30); }
-.btn--secondary { background: var(--card-background-color); color: var(--primary-text-color); border-color: var(--primary-text-color); box-shadow: none; }
-.btn--secondary:hover { background: var(--divider-color); }
-.btn--warning { background: var(--error-color); border-color: var(--error-color); color: var(--text-primary-color); }
-.btn--small { min-width: 88px; }
-.btn--icon { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; padding: 8px; }
-.btn:disabled, .tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn:focus-visible, .tab:focus-visible, .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); outline-offset: 0; box-shadow: 0 4px 0 var(--primary-text-color); }
+@media (min-width: 40.0625em) { .btn { font-size: 19px; } }
+.btn:hover { background: var(--ha-color-primary-30); }
+.btn:active { top: 2px; }
+.btn--secondary { background: var(--secondary-background-color); color: var(--primary-text-color); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 41%, var(--secondary-background-color)); }
+.btn--secondary:hover { background: color-mix(in srgb, var(--primary-text-color) 10%, var(--secondary-background-color)); }
+.btn--warning { background: var(--error-color); color: var(--text-primary-color); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 55%, var(--error-color)); }
+.btn--warning:hover { background: color-mix(in srgb, var(--primary-text-color) 20%, var(--error-color)); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn:disabled:hover { background: var(--primary-color); }
+.btn--secondary:disabled:hover { background: var(--secondary-background-color); }
+.btn:disabled:active { top: 0; }
+.btn-icon { flex: none; }
+.btn:focus-visible:not(:active):not(:hover), .btn:focus:not(:active):not(:hover) { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--primary-text-color); }
+.tab:focus-visible, .tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
+.tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
-.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--divider-color); }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
 .key { font-weight: 700; margin: 0; }
 .sub { display: block; font-weight: 400; color: var(--secondary-text-color); }
 .sub:empty { display: none; }
-.act { margin: 0; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.act { margin: 0; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .plan { display: block; width: 100%; height: auto; }
 .shade { transition: opacity 0.3s; }
@@ -780,17 +789,26 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .dlg--auto { height: auto; }
 .dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
 .dlg-title { margin: 0 0 16px; font-size: 24px; }
-.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--divider-color); margin-bottom: 16px; }
-.tab { font: inherit; padding: 12px 16px; min-height: 44px; border: 1px solid var(--divider-color); border-bottom: 0; border-radius: 0; background: var(--secondary-background-color); color: var(--primary-text-color); cursor: pointer; }
-.tab[aria-selected=true] { background: var(--card-background-color); font-weight: 700; border-top: 4px solid var(--primary-color); }
+.tabs { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 5px; padding: 5px 0 0; border-bottom: 1px solid var(--divider-color); margin-bottom: 16px; }
+.tab { font: inherit; font-size: 16px; line-height: 1.25; padding: 10px 20px; border: 0; border-radius: 0; background: var(--secondary-background-color); color: var(--primary-text-color); text-decoration: underline; text-underline-offset: 0.1578em; cursor: pointer; }
+@media (min-width: 40.0625em) { .tab { font-size: 19px; } }
+.tab:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
+.tab[aria-selected=true] { margin: -5px 0 -1px; padding: 14px 19px 16px; border: 1px solid var(--divider-color); border-bottom: 0; background: var(--card-background-color); text-decoration: none; }
 .panels { flex: 1; min-height: 0; overflow: auto; padding: 8px; }
 .tiles { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, 64px); gap: 12px; }
+.tile:disabled { opacity: 0.5; cursor: not-allowed; }
 .tile { position: relative; display: block; width: 64px; height: 64px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
 .tile[aria-pressed=true] { outline: 4px solid var(--primary-text-color); outline-offset: 2px; }
 .swatch { position: absolute; inset: 0; display: block; }
 .tile-icon { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); object-fit: contain; pointer-events: none; }
+.error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
+.error-summary:focus { outline: 3px solid var(--ha-color-focus); }
+.error-summary__title { margin: 0 0 15px; font-size: 18px; line-height: 1.1111; font-weight: 700; }
+.error-summary__list { margin: 0; padding: 0; list-style: none; font-weight: 700; }
+.error-summary__list li { margin: 0; }
 .hint { margin: 0 0 16px; font-size: 14px; color: var(--secondary-text-color); }
 .dlg-close { align-self: flex-start; margin-top: 16px; }
+.actions--dialog { margin-top: 16px; }
 `;
 
 // card/src/card.ts
@@ -836,6 +854,8 @@ var GovukHouseLightingCard = class extends HTMLElement {
   reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   onMotion = () => this.paintAll();
   status;
+  errorSlot;
+  errors = [];
   list;
   plan;
   built = false;
@@ -895,15 +915,16 @@ var GovukHouseLightingCard = class extends HTMLElement {
     style.textContent = STYLES;
     const title = el("h2", { class: "title" }, this.config.title);
     this.status = el("p", { class: "status", role: "status" });
+    this.errorSlot = el("div", { class: "error-slot" });
     const all = el(
       "div",
       { class: "actions" },
-      el("button", { class: "btn", type: "button", onclick: () => this.all(true) }, "Turn all on"),
-      el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.all(false) }, "Turn all off")
+      el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.all(true) }, "All on"),
+      el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.all(false) }, "All off")
     );
     this.list = el("dl", { class: "rooms" });
     this.plan = this.buildPlan();
-    this.root.replaceChildren(style, el("ha-card", {}, el("div", { class: "body" }, title, this.status, all, this.list, this.plan)));
+    this.root.replaceChildren(style, el("ha-card", {}, el("div", { class: "body" }, el("div", { class: "head" }, title, all), this.errorSlot, this.status, this.plan, this.list)));
     for (const cfg of this.config.rooms) this.views.set(cfg.id, { cfg, caps: void 0, sig: "", on: 0, owner: "" });
     for (const v of this.views.values()) this.list.append(this.buildRow(v));
     this.dialog = this.buildDialog();
@@ -936,10 +957,10 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   buildRow(v) {
     const name = v.cfg.name ?? v.cfg.id;
-    const toggle = el("button", { class: "btn btn--small", type: "button", onclick: () => this.toggle(v) });
-    const icon = svg("svg", { viewBox: "0 0 24 24", width: 24, height: 24, "aria-hidden": "true", focusable: "false" });
+    const toggle = el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.toggle(v) });
+    const icon = svg("svg", { viewBox: "0 0 24 24", width: 19, height: 19, class: "btn-icon", "aria-hidden": "true", focusable: "false" });
     icon.append(svg("path", { d: COG, fill: "currentColor" }));
-    const settings = el("button", { class: "btn btn--secondary btn--icon", type: "button", title: "Settings", onclick: (e) => this.open(v.cfg.id, e.currentTarget) }, icon, el("span", { class: "vh" }, `Settings for ${name}`));
+    const settings = el("button", { class: "btn btn--secondary", type: "button", onclick: (e) => this.open(v.cfg.id, e.currentTarget) }, icon, "Settings", el("span", { class: "vh" }, ` for ${name}`));
     const row = el("div", { class: "row", "data-room": v.cfg.id }, el("dt", { class: "key" }, name, el("span", { class: "sub", "data-role": "sub" })), el("dd", { class: "act" }, toggle, settings));
     v.row = row;
     return row;
@@ -1006,6 +1027,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
     });
     d.replaceChildren(
       el("h3", { id: "dlg-title", class: "dlg-title" }, `${v.cfg.name ?? v.cfg.id} lighting`),
+      this.errorSummary() ?? "",
       tabs,
       panels,
       el("button", { class: "btn btn--secondary dlg-close", type: "button", onclick: () => d.close() }, "Close")
@@ -1028,11 +1050,13 @@ var GovukHouseLightingCard = class extends HTMLElement {
       if (!ok) return;
       await this._hass.callService("input_boolean", "turn_on", {}, { entity_id: "input_boolean.govuk_lights_allow_flashing" });
     }
+    this.clearErrors();
     try {
       await this._hass.callService("script", "govuk_lights_apply", { room: v.cfg.id, recipe: r.id });
       this.dialog.close();
     } catch (e) {
-      this.toast(`Could not apply ${r.label}: ${e.message}`);
+      console.error("govuk-house-lighting-card", e);
+      this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`);
     }
   }
   confirmFlashing(r) {
@@ -1059,24 +1083,62 @@ var GovukHouseLightingCard = class extends HTMLElement {
       c.showModal();
     });
   }
-  toast(msg) {
-    if (this.status) this.status.textContent = msg;
+  /** GOV.UK error summary: shown at the top of the card, or of the open dialog, with focus moved to it. */
+  errorSummary() {
+    if (!this.errors.length) return void 0;
+    return el(
+      "div",
+      { class: "error-summary", tabindex: -1, "data-role": "error-summary" },
+      el(
+        "div",
+        { role: "alert" },
+        el("h2", { class: "error-summary__title" }, "There is a problem"),
+        el("ul", { class: "error-summary__list" }, ...this.errors.map((m) => el("li", {}, m)))
+      )
+    );
+  }
+  showError(msg) {
+    if (!this.errors.includes(msg)) this.errors.push(msg);
+    this.paintErrors(true);
+  }
+  clearErrors() {
+    if (this.errors.length) {
+      this.errors = [];
+      this.paintErrors(false);
+    }
+  }
+  paintErrors(focus) {
+    const card = this.errorSummary();
+    this.errorSlot?.replaceChildren(...card ? [card] : []);
+    if (this.dialog?.open && this.current) this.renderDialog(this.dialog.querySelector("[aria-selected=true]")?.id.replace("tab-", "") ?? CATS[0][0]);
+    if (!focus) return;
+    const target = this.dialog?.open ? this.dialog : this.errorSlot;
+    target?.querySelector("[data-role=error-summary]")?.focus();
   }
   async toggle(v) {
+    this.clearErrors();
     if (v.on > 0) return this.stop(v, true);
     const ids = v.caps.lightCapabilities.map((c) => c.entityId);
     if (!ids.length) return;
     try {
       await this._hass.callService("light", "turn_on", {}, { entity_id: ids });
     } catch (e) {
-      this.toast(`Could not turn on ${v.cfg.name}: ${e.message}`);
+      {
+        console.error("govuk-house-lighting-card", e);
+        this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned on. Try again.`);
+      }
+      ;
     }
   }
   async stop(v, off) {
     try {
       await this._hass.callService("script", "govuk_lights_stop", { room: v.cfg.id, turn_off: off });
     } catch (e) {
-      this.toast(`Could not stop ${v.cfg.name}: ${e.message}`);
+      {
+        console.error("govuk-house-lighting-card", e);
+        this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned off. Try again.`);
+      }
+      ;
     }
   }
   async all(on) {
@@ -1109,18 +1171,25 @@ var GovukHouseLightingCard = class extends HTMLElement {
   paintAll() {
     for (const v of this.views.values()) if (v.caps) this.paintRoom(v);
   }
+  /** Notes about lights this card is not driving. Shown under the room name, and read out on the floor plan. */
+  notes(v) {
+    const c = v.caps, out = [];
+    const n = (k, t) => `${k} light${k === 1 ? "" : "s"} ${t}`;
+    if (c.reservedLights > 0) out.push(n(c.reservedLights, "managed by another automation"));
+    if (c.unavailableLights > 0) out.push(n(c.unavailableLights, "unavailable"));
+    if (c.reservedLights === 0 && c.totalLights === 0) out.push("No lights");
+    return out;
+  }
   describe(v) {
-    const c = v.caps;
-    if (c.totalLights === 0) return c.reservedLights > 0 ? "Managed by another automation" : "No lights";
-    if (c.availableLights === 0) return "Unavailable";
-    if (v.on === 0) return "Off";
+    const c = v.caps, notes = this.notes(v).join(", ");
+    if (c.availableLights === 0) return notes || "No lights";
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
-    const part = v.on < c.availableLights ? " (some lights off)" : "";
-    return (rec ? `On, ${rec.label}` : "On, custom") + part;
+    const part = v.on < c.availableLights && v.on > 0 ? " (some lights off)" : "";
+    const state = v.on === 0 ? "Off" : (rec ? `On, ${rec.label}` : "On, custom") + part;
+    return notes ? `${state}. ${notes}` : state;
   }
   paintRoom(v) {
-    const uncontrolled = v.caps.totalLights === 0 || v.caps.availableLights === 0;
-    v.row.querySelector("[data-role=sub]").textContent = uncontrolled ? this.describe(v) : "";
+    v.row.querySelector("[data-role=sub]").textContent = this.notes(v).join(", ");
     const btn = v.row.querySelector(".btn");
     btn.textContent = v.on > 0 ? "Turn off" : "Turn on";
     btn.disabled = v.caps.availableLights === 0;
