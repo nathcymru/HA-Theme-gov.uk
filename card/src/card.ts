@@ -45,7 +45,7 @@ class GovukHouseLightingCard extends HTMLElement {
   private _hass: any; private config!: Config; private root: ShadowRoot; private views = new Map<string, RoomView>();
   private dialog?: HTMLDialogElement; private current?: string; private reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   private onMotion = () => this.paintAll();
-  private status?: HTMLElement; private list?: HTMLElement; private plan?: SVGElement; private built = false;
+  private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: string[] = []; private list?: HTMLElement; private plan?: SVGElement; private built = false;
 
   constructor() { super(); this.root = this.attachShadow({ mode: 'open' }); }
 
@@ -85,12 +85,15 @@ class GovukHouseLightingCard extends HTMLElement {
     const style = el('style'); style.textContent = STYLES;
     const title = el('h2', { class: 'title' }, this.config.title!);
     this.status = el('p', { class: 'status', role: 'status' });
+    this.errorSlot = el('div', { class: 'error-slot' });
+    // GOV.UK: avoid several default buttons, so every button here is secondary.
     const all = el('div', { class: 'actions' },
-      el('button', { class: 'btn', type: 'button', onclick: () => this.all(true) }, 'Turn all on'),
-      el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(false) }, 'Turn all off'));
+      el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(true) }, 'All on'),
+      el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(false) }, 'All off'));
     this.list = el('dl', { class: 'rooms' });
     this.plan = this.buildPlan();
-    this.root.replaceChildren(style, el('ha-card', {}, el('div', { class: 'body' }, title, this.status!, all, this.list!, this.plan!)));
+    // Floor plan first, then the room list.
+    this.root.replaceChildren(style, el('ha-card', {}, el('div', { class: 'body' }, el('div', { class: 'head' }, title, all), this.errorSlot!, this.status!, this.plan!, this.list!)));
     for (const cfg of this.config.rooms) this.views.set(cfg.id, { cfg, caps: undefined as any, sig: '', on: 0, owner: '' });
     for (const v of this.views.values()) this.list!.append(this.buildRow(v));
     this.dialog = this.buildDialog(); this.root.append(this.dialog);
@@ -117,11 +120,12 @@ class GovukHouseLightingCard extends HTMLElement {
 
   private buildRow(v: RoomView): HTMLElement {
     const name = v.cfg.name ?? v.cfg.id;
-    const toggle = el('button', { class: 'btn btn--small', type: 'button', onclick: () => this.toggle(v) });
-    const icon = svg('svg', { viewBox: '0 0 24 24', width: 24, height: 24, 'aria-hidden': 'true', focusable: 'false' });
+    const toggle = el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.toggle(v) });
+    const icon = svg('svg', { viewBox: '0 0 24 24', width: 19, height: 19, class: 'btn-icon', 'aria-hidden': 'true', focusable: 'false' });
     icon.append(svg('path', { d: COG, fill: 'currentColor' }));
-    const settings = el('button', { class: 'btn btn--secondary btn--icon', type: 'button', title: 'Settings', onclick: (e: Event) => this.open(v.cfg.id, e.currentTarget as HTMLElement) }, icon, el('span', { class: 'vh' }, `Settings for ${name}`));
-    // Only a room that cannot be controlled gets a line under its name; normal state is shown by the button.
+    // The cog is the one authorised deviation from the GOV.UK secondary button.
+    const settings = el('button', { class: 'btn btn--secondary', type: 'button', onclick: (e: Event) => this.open(v.cfg.id, e.currentTarget as HTMLElement) }, icon, 'Settings', el('span', { class: 'vh' }, ` for ${name}`));
+    // A room gets a line under its name only when some of its lights are managed elsewhere or unavailable.
     const row = el('div', { class: 'row', 'data-room': v.cfg.id }, el('dt', { class: 'key' }, name, el('span', { class: 'sub', 'data-role': 'sub' })), el('dd', { class: 'act' }, toggle, settings));
     v.row = row; return row;
   }
@@ -168,7 +172,7 @@ class GovukHouseLightingCard extends HTMLElement {
       if (anyOff) p.append(el('p', { class: 'hint' }, 'Faded options cannot be used in this room. Hover over one to see why.'));
       panels.append(p);
     });
-    d.replaceChildren(el('h3', { id: 'dlg-title', class: 'dlg-title' }, `${v.cfg.name ?? v.cfg.id} lighting`), tabs, panels,
+    d.replaceChildren(el('h3', { id: 'dlg-title', class: 'dlg-title' }, `${v.cfg.name ?? v.cfg.id} lighting`), this.errorSummary() ?? '', tabs, panels,
       el('button', { class: 'btn btn--secondary dlg-close', type: 'button', onclick: () => d.close() }, 'Close'));
     // Confirm dialog for flashing scenes is created on demand in pick().
   }
@@ -188,8 +192,9 @@ class GovukHouseLightingCard extends HTMLElement {
       if (!ok) return;
       await this._hass.callService('input_boolean', 'turn_on', {}, { entity_id: 'input_boolean.govuk_lights_allow_flashing' });
     }
+    this.clearErrors();
     try { await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id }); this.dialog!.close(); }
-    catch (e) { this.toast(`Could not apply ${r.label}: ${(e as Error).message}`); }
+    catch (e) { console.error('govuk-house-lighting-card', e); this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`); }
   }
   private confirmFlashing(r: any): Promise<boolean> {
     return new Promise((res) => {
@@ -203,15 +208,34 @@ class GovukHouseLightingCard extends HTMLElement {
       this.root.append(c); c.showModal();
     });
   }
-  private toast(msg: string) { if (this.status) this.status.textContent = msg; }
+  /** GOV.UK error summary: shown at the top of the card, or of the open dialog, with focus moved to it. */
+  private errorSummary(): HTMLElement | undefined {
+    if (!this.errors.length) return undefined;
+    return el('div', { class: 'error-summary', tabindex: -1, 'data-role': 'error-summary' },
+      el('div', { role: 'alert' }, el('h2', { class: 'error-summary__title' }, 'There is a problem'),
+        el('ul', { class: 'error-summary__list' }, ...this.errors.map((m) => el('li', {}, m)))));
+  }
+  private showError(msg: string) {
+    if (!this.errors.includes(msg)) this.errors.push(msg);
+    this.paintErrors(true);
+  }
+  private clearErrors() { if (this.errors.length) { this.errors = []; this.paintErrors(false); } }
+  private paintErrors(focus: boolean) {
+    const card = this.errorSummary(); this.errorSlot?.replaceChildren(...(card ? [card] : []));
+    if (this.dialog?.open && this.current) this.renderDialog(this.dialog.querySelector('[aria-selected=true]')?.id.replace('tab-', '') ?? CATS[0][0]);
+    if (!focus) return;
+    const target = this.dialog?.open ? this.dialog : this.errorSlot;
+    target?.querySelector<HTMLElement>('[data-role=error-summary]')?.focus();
+  }
 
   private async toggle(v: RoomView) {
+    this.clearErrors();
     if (v.on > 0) return this.stop(v, true);
     const ids = v.caps.lightCapabilities.map((c) => c.entityId); if (!ids.length) return; // reserved lights are never included
-    try { await this._hass.callService('light', 'turn_on', {}, { entity_id: ids }); } catch (e) { this.toast(`Could not turn on ${v.cfg.name}: ${(e as Error).message}`); }
+    try { await this._hass.callService('light', 'turn_on', {}, { entity_id: ids }); } catch (e) { { console.error('govuk-house-lighting-card', e); this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned on. Try again.`); }; }
   }
   private async stop(v: RoomView, off: boolean) {
-    try { await this._hass.callService('script', 'govuk_lights_stop', { room: v.cfg.id, turn_off: off }); } catch (e) { this.toast(`Could not stop ${v.cfg.name}: ${(e as Error).message}`); }
+    try { await this._hass.callService('script', 'govuk_lights_stop', { room: v.cfg.id, turn_off: off }); } catch (e) { { console.error('govuk-house-lighting-card', e); this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned off. Try again.`); }; }
   }
   private async all(on: boolean) { for (const v of this.views.values()) if (on ? v.on === 0 : v.on > 0) await this.toggle(v); }
 
@@ -233,19 +257,26 @@ class GovukHouseLightingCard extends HTMLElement {
   }
   private paintAll() { for (const v of this.views.values()) if (v.caps) this.paintRoom(v); }
 
+  /** Notes about lights this card is not driving. Shown under the room name, and read out on the floor plan. */
+  private notes(v: RoomView): string[] {
+    const c = v.caps, out: string[] = [];
+    const n = (k: number, t: string) => `${k} light${k === 1 ? '' : 's'} ${t}`;
+    if (c.reservedLights > 0) out.push(n(c.reservedLights, 'managed by another automation'));
+    if (c.unavailableLights > 0) out.push(n(c.unavailableLights, 'unavailable'));
+    if (c.reservedLights === 0 && c.totalLights === 0) out.push('No lights');
+    return out;
+  }
   private describe(v: RoomView): string {
-    const c = v.caps;
-    if (c.totalLights === 0) return c.reservedLights > 0 ? 'Managed by another automation' : 'No lights';
-    if (c.availableLights === 0) return 'Unavailable';
-    if (v.on === 0) return 'Off';
+    const c = v.caps, notes = this.notes(v).join(', ');
+    if (c.availableLights === 0) return notes || 'No lights';
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
-    const part = v.on < c.availableLights ? ' (some lights off)' : '';
-    return (rec ? `On, ${rec.label}` : 'On, custom') + part;
+    const part = v.on < c.availableLights && v.on > 0 ? ' (some lights off)' : '';
+    const state = v.on === 0 ? 'Off' : (rec ? `On, ${rec.label}` : 'On, custom') + part;
+    return notes ? `${state}. ${notes}` : state;
   }
 
   private paintRoom(v: RoomView) {
-    const uncontrolled = v.caps.totalLights === 0 || v.caps.availableLights === 0;
-    v.row!.querySelector('[data-role=sub]')!.textContent = uncontrolled ? this.describe(v) : '';
+    v.row!.querySelector('[data-role=sub]')!.textContent = this.notes(v).join(', ');
     const btn = v.row!.querySelector<HTMLButtonElement>('.btn')!;
     btn.textContent = v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = v.caps.availableLights === 0;
     btn.setAttribute('aria-label', `${v.on > 0 ? 'Turn off' : 'Turn on'} ${v.cfg.name ?? v.cfg.id}`);
