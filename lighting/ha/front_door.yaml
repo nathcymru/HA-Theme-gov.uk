@@ -1,0 +1,311 @@
+# Front Door hall lighting (Home Assistant package: /homeassistant/packages/front_door.yaml).
+#
+# One automation reacts to events, one script runs the sequence. Nothing polls.
+#
+#   Door opens   Save the Hall as a scene, hand the Hall back from any card recipe,
+#                then run the red warning on Spot 1 until the door closes.
+#   Door closes  Day:   restore the saved scene exactly.
+#                Night: green confirmation on Spot 1, then all Hall lights white (3000 K, 100%).
+#   Manual wins  The card's Hall actions turn off script.front_door_sequence and clear
+#                input_boolean.front_door_sequence_active (see rooms.json "interrupts" and "release").
+#                The close step only runs while that boolean is on, so a manual change is
+#                one-time: the next door opening sets it on again.
+#
+# Alexa is intentionally omitted: no integration is installed.
+# Lights: Spot 1 is light.innr_hall_1 (warning light). Spots 2 and 3 are the other Hall Innr lights.
+# None of these lights carries the govuk_lighting_reserved label: the lighting card may drive them.
+
+input_text:
+  front_door_open_since:
+    name: Front Door - observed opening timestamp
+    max: 32
+    icon: mdi:timer-outline
+
+input_boolean:
+  # On from door opening until the sequence completes or a manual change takes over.
+  front_door_sequence_active:
+    name: Front Door - sequence owns the Hall
+    icon: mdi:door-open
+  # On while the night white lights are on, so sunrise knows to switch them off.
+  front_door_night_lights:
+    name: Front Door - retain night hall lights
+    icon: mdi:lightbulb-night
+
+script:
+  front_door_sequence:
+    alias: Front Door - Hall sequence
+    description: >-
+      phase "open": red warning on Spot 1 (solid for 60 seconds, then 2 seconds on / 2 seconds off)
+      until the door closes. phase "close": restore the saved scene by day, or confirm in green
+      and set all Hall lights to white at night. Turn this script off to cancel it.
+    mode: restart
+    fields:
+      phase:
+        description: open or close
+        required: true
+        selector:
+          select:
+            options: [open, close]
+    sequence:
+      - choose:
+          - conditions: "{{ phase == 'open' }}"
+            sequence:
+              - action: light.turn_on
+                continue_on_error: true
+                target:
+                  entity_id: light.innr_hall_1
+                data:
+                  rgb_color: [255, 0, 0]
+                  brightness_pct: 100
+                  effect: 'off'
+                  transition: 0
+              # Solid red for the first 60 seconds of the opening, counted from the observed
+              # opening time so a restart does not reset it.
+              - delay:
+                  seconds: >-
+                    {{ [0, 60 - (as_timestamp(now()) - states('input_text.front_door_open_since') | float(as_timestamp(now())))] | max }}
+              - repeat:
+                  while:
+                    - condition: state
+                      entity_id: binary_sensor.hall_front_door_cs
+                      state: 'on'
+                  sequence:
+                    - action: light.turn_on
+                      continue_on_error: true
+                      target:
+                        entity_id: light.innr_hall_1
+                      data:
+                        rgb_color: [255, 0, 0]
+                        brightness_pct: 100
+                        effect: 'off'
+                        transition: 0
+                    - delay:
+                        seconds: 2
+                    - action: light.turn_off
+                      continue_on_error: true
+                      target:
+                        entity_id: light.innr_hall_1
+                      data:
+                        transition: 0
+                    - delay:
+                        seconds: 2
+          - conditions: "{{ phase == 'close' }}"
+            sequence:
+              # A manual change clears this boolean: then the close step must not touch the lights.
+              - condition: state
+                entity_id: input_boolean.front_door_sequence_active
+                state: 'on'
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.front_door_sequence_active
+              - choose:
+                  - conditions: "{{ is_state('sun.sun', 'below_horizon') }}"
+                    sequence:
+                      - repeat:
+                          count: 3
+                          sequence:
+                            - action: light.turn_on
+                              continue_on_error: true
+                              target:
+                                entity_id: light.innr_hall_1
+                              data:
+                                rgb_color: [0, 255, 0]
+                                brightness_pct: 100
+                                effect: 'off'
+                                transition: 0
+                            - delay:
+                                milliseconds: 350
+                            - action: light.turn_off
+                              continue_on_error: true
+                              target:
+                                entity_id: light.innr_hall_1
+                              data:
+                                transition: 0
+                            - delay:
+                                milliseconds: 350
+                      - action: input_boolean.turn_on
+                        target:
+                          entity_id: input_boolean.front_door_night_lights
+                      - action: light.turn_on
+                        continue_on_error: true
+                        target:
+                          entity_id:
+                            - light.innr_hall_1
+                            - light.innr_rs_242_c_2
+                            - light.innr_rs_242_c_3
+                        data:
+                          color_temp_kelvin: 3000
+                          brightness_pct: 100
+                          effect: 'off'
+                          transition: 1
+                default:
+                  - choose:
+                      # Scenes made by scene.create are not kept over a restart: fall back to off.
+                      - conditions: "{{ states.scene.front_door_hall_before is defined }}"
+                        sequence:
+                          - action: scene.turn_on
+                            continue_on_error: true
+                            target:
+                              entity_id: scene.front_door_hall_before
+                    default:
+                      - action: light.turn_off
+                        continue_on_error: true
+                        target:
+                          entity_id:
+                            - light.innr_hall_1
+                            - light.innr_rs_242_c_2
+                            - light.innr_rs_242_c_3
+                        data:
+                          transition: 0
+                  # Night lights left over from the night before go off once it is day.
+                  - if:
+                      - condition: state
+                        entity_id: input_boolean.front_door_night_lights
+                        state: 'on'
+                    then:
+                      - action: light.turn_off
+                        continue_on_error: true
+                        target:
+                          entity_id:
+                            - light.innr_hall_1
+                            - light.innr_rs_242_c_2
+                            - light.innr_rs_242_c_3
+                        data:
+                          transition: 0
+                      - action: input_boolean.turn_off
+                        target:
+                          entity_id: input_boolean.front_door_night_lights
+        default:
+          - stop: "front_door_sequence needs phase open or close"
+            error: true
+
+automation:
+  - id: front_door_lighting_controller_v1
+    alias: Front Door - Hall lighting
+    description: >-
+      Starts the Front Door sequence script when the door opens or closes, restarts it after a
+      restart, reload or a bulb returning, and switches the night white lights off at sunrise.
+    mode: queued
+    max: 10
+    max_exceeded: silent
+    trace:
+      stored_traces: 10
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.hall_front_door_cs
+        from: 'off'
+        to: 'on'
+        id: opened
+      - trigger: state
+        entity_id: binary_sensor.hall_front_door_cs
+        from: 'on'
+        to: 'off'
+        id: closed
+      - trigger: homeassistant
+        event: start
+        id: recover
+      - trigger: event
+        event_type: automation_reloaded
+        id: recover
+      - trigger: state
+        entity_id: light.innr_hall_1
+        from: unavailable
+        id: recover
+      - trigger: sun
+        event: sunrise
+        id: sunrise
+    actions:
+      - choose:
+          - conditions: "{{ trigger.id == 'opened' }}"
+            sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.front_door_open_since
+                data:
+                  value: "{{ as_timestamp(trigger.to_state.last_changed) }}"
+              # Only the first opening of a sequence saves the Hall, so a sensor glitch cannot
+              # overwrite the saved scene with the red warning.
+              - if:
+                  - condition: state
+                    entity_id: input_boolean.front_door_sequence_active
+                    state: 'off'
+                then:
+                  # Stop any card recipe so it cannot write to the lights while they are saved.
+                  - action: input_text.set_value
+                    continue_on_error: true
+                    target:
+                      entity_id: input_text.govuk_lights_hall
+                    data:
+                      value: stopped
+                  - action: script.turn_off
+                    continue_on_error: true
+                    target:
+                      entity_id: script.govuk_lights_room_hall
+                  - action: scene.create
+                    continue_on_error: true
+                    data:
+                      scene_id: front_door_hall_before
+                      snapshot_entities:
+                        - light.innr_hall_1
+                        - light.innr_rs_242_c_2
+                        - light.innr_rs_242_c_3
+                  - action: input_boolean.turn_on
+                    target:
+                      entity_id: input_boolean.front_door_sequence_active
+              - action: script.turn_on
+                target:
+                  entity_id: script.front_door_sequence
+                data:
+                  variables:
+                    phase: open
+          - conditions: "{{ trigger.id == 'closed' }}"
+            sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.front_door_open_since
+                data:
+                  value: '0'
+              - action: script.turn_on
+                target:
+                  entity_id: script.front_door_sequence
+                data:
+                  variables:
+                    phase: close
+          # After a restart, reload or a bulb returning: carry on with a sequence that is still owed.
+          - conditions:
+              - condition: trigger
+                id: recover
+              - condition: state
+                entity_id: input_boolean.front_door_sequence_active
+                state: 'on'
+              - condition: template
+                value_template: "{{ states('binary_sensor.hall_front_door_cs') in ['on', 'off'] }}"
+            sequence:
+              - action: script.turn_on
+                target:
+                  entity_id: script.front_door_sequence
+                data:
+                  variables:
+                    phase: "{{ 'open' if is_state('binary_sensor.hall_front_door_cs', 'on') else 'close' }}"
+          - conditions:
+              - condition: trigger
+                id: sunrise
+              - condition: state
+                entity_id: input_boolean.front_door_sequence_active
+                state: 'off'
+              - condition: state
+                entity_id: input_boolean.front_door_night_lights
+                state: 'on'
+            sequence:
+              - action: light.turn_off
+                continue_on_error: true
+                target:
+                  entity_id:
+                    - light.innr_hall_1
+                    - light.innr_rs_242_c_2
+                    - light.innr_rs_242_c_3
+                data:
+                  transition: 0
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.front_door_night_lights

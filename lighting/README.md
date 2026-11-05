@@ -85,4 +85,9 @@ A light that another automation writes to must not also be driven by scenes: two
 
 ## Sharing the Hall with the front-door automation
 
-`front_door.yaml` owns three Hall lights. Spot 1 (`light.innr_hall_1`) is the door warning and keeps the `govuk_lighting_reserved` label. Spots 2 and 3 (`light.innr_rs_242_c_2`, `_c_3`) are night lights: remove the label from them so the card can run scenes on them. In "Front Door — Solar and Companion Lighting" the evening switch-on only runs while `input_text.govuk_lights_hall` is empty, `stopped`, `unknown` or `unavailable` (no card recipe active), and sunrise hands control back by setting it to `stopped`. The card's Turn off resets the lights to white, switches them off and sets `stopped`, so the automation resumes at its next door or sun event. See `lighting/ha/front_door.patch.diff`.
+`lighting/ha/front_door.yaml` (copy it to `/homeassistant/packages/front_door.yaml`) owns the Hall door sequence. None of the three Hall lights carries the `govuk_lighting_reserved` label, so the card controls all of them.
+
+- Door opens: the Hall is saved as `scene.front_door_hall_before`, any card recipe is stopped, and Spot 1 shows the red warning until the door closes.
+- Door closes by day: the saved scene is restored exactly. At night: green confirmation, then all three lights white (3000 K, 100%).
+- Manual changes win once: the card's Hall actions (a recipe, Turn on, Turn off) stop `script.front_door_sequence` and clear `input_boolean.front_door_sequence_active`. This comes from `interrupts` and `release` in `rooms.json`. The next door opening starts the sequence again.
+- Nothing polls. The script ends when the door closes; a restart, reload or Spot 1 returning from unavailable resumes a sequence that is still owed.

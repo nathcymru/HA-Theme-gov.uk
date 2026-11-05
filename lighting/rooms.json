@@ -3,7 +3,7 @@
     {"id": "lounge", "name": "Lounge", "area": "lounge"},
     {"id": "kitchen", "name": "Kitchen", "area": "kitchen"},
     {"id": "bathroom", "name": "Bathroom", "area": "bathroom"},
-    {"id": "hall", "name": "Hallway", "area": "hall"},
+    {"id": "hall", "name": "Hallway", "area": "hall", "interrupts": ["script.front_door_sequence"], "release": ["input_boolean.front_door_sequence_active", "input_boolean.front_door_night_lights"]},
     {"id": "study", "name": "Office or second bedroom", "area": "study"},
     {"id": "bedroom", "name": "Main bedroom", "area": "bedroom"}
   ]
