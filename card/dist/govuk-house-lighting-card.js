@@ -350,7 +350,7 @@ var recipes_default = [
     category: "scene",
     previewCss: "linear-gradient(90deg, #D30A24 0%, #00FF00 50%, #FFFFFF 100%)",
     slug: "rugby",
-    label: "Welsh Rugby",
+    label: "Welsh rugby",
     transitionS: 5,
     stops: [
       [
@@ -390,7 +390,7 @@ var recipes_default = [
     category: "scene",
     previewCss: "linear-gradient(90deg, #004D98 0%, #FFFFFF 50%, #00FF00 100%)",
     slug: "football",
-    label: "Everton Football",
+    label: "Everton football",
     transitionS: 15,
     stops: [
       [
@@ -731,7 +731,7 @@ var rooms_default = {
     },
     {
       id: "study",
-      name: "Office / Second bedroom",
+      name: "Office or second bedroom",
       area: "study"
     },
     {
@@ -772,6 +772,7 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
 .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+.row[hidden] { display: none; }
 .key { font-weight: 700; margin: 0; }
 .sub { display: block; font-weight: 400; font-size: var(--ha-font-size-s, 14px); line-height: 1.25; color: var(--secondary-text-color); }
 .sub:empty { display: none; }
@@ -805,14 +806,23 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .error-summary__title { margin: 0 0 15px; font-size: 18px; line-height: 1.1111; font-weight: 700; }
 .error-summary__list { margin: 0; padding: 0; list-style: none; font-weight: 700; }
 .error-summary__list li { margin: 0; }
-.acc { margin-top: 24px; border-top: 1px solid var(--divider-color); border-bottom: 1px solid var(--divider-color); }
-.acc-heading { margin: 0; }
-.acc-btn { font: inherit; font-weight: 700; display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 15px; box-sizing: border-box; padding: 15px 0; border: 0; border-radius: 0; background: none; color: var(--primary-text-color); text-align: left; cursor: pointer; }
-.acc-btn:hover { background: var(--secondary-background-color); }
-.acc-btn:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); box-shadow: inset 0 -4px 0 var(--primary-text-color); }
-.acc-state { font-weight: 400; color: var(--link-color); text-decoration: underline; }
-.rooms--unavailable { margin: 0; }
-.rooms--unavailable .row:last-child { border-bottom: 0; }
+/* GOV.UK details component */
+.details { display: block; margin: 15px 0 0; font-size: var(--ha-font-size-m, 19px); line-height: 1.3157894737; }
+.details-summary { position: relative; display: block; width: fit-content; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
+.details-summary::-webkit-details-marker { display: none; }
+.details-summary::before { content: ""; position: absolute; top: -1px; bottom: 0; left: 0; margin: auto; display: block; width: 0; height: 0; clip-path: polygon(0 0, 100% 50%, 0 100%); border-style: solid; border-color: transparent; border-width: 7px 0 7px 12.124px; border-left-color: inherit; }
+.details[open] > .details-summary { margin-bottom: 5px; }
+.details[open] > .details-summary::before { clip-path: polygon(0 0, 50% 100%, 100% 0); border-width: 12.124px 7px 0; border-left-color: transparent; border-top-color: inherit; }
+.details-summary-text { text-decoration: underline; text-decoration-thickness: max(1px, 0.0625rem); text-underline-offset: 0.1578em; }
+.details-summary:hover .details-summary-text { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); text-decoration-skip-ink: none; }
+.details-summary:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
+.details-summary:focus-visible .details-summary-text { text-decoration: none; }
+.details-text { padding: 15px 0 15px 20px; border-left: 5px solid var(--divider-color); }
+.details-text p { margin: 0 0 20px; }
+.details-text > :last-child { margin-bottom: 0; }
+.link { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.1578em; }
+.link:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
+.link:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
 .hint { margin: 0 0 16px; font-size: 14px; color: var(--secondary-text-color); }
 .dlg-close { align-self: flex-start; margin-top: 16px; }
 .actions--dialog { margin-top: 16px; }
@@ -831,6 +841,7 @@ var REASONS = {
   needs_colour_light: "This room needs at least one colour light.",
   no_dimmable_lights: "No light in this room can be dimmed."
 };
+var AREAS_DOCS = "https://www.home-assistant.io/docs/organizing/areas/";
 var SAFE_CSS = /^(#[0-9A-Fa-f]{6}|linear-gradient\(90deg(, #[0-9A-Fa-f]{6} \d{1,3}%)+\))$/;
 var safeCss = (v) => SAFE_CSS.test(v) ? v : "transparent";
 var previewOf = (r) => safeCss(r.previewCss ?? r.preview);
@@ -864,10 +875,6 @@ var GovukHouseLightingCard = class extends HTMLElement {
   errorSlot;
   errors = [];
   list;
-  unavail;
-  unavailBox;
-  unavailBtn;
-  unavailOpen = false;
   plan;
   built = false;
   constructor() {
@@ -934,14 +941,10 @@ var GovukHouseLightingCard = class extends HTMLElement {
       el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.all(false) }, "All off")
     );
     this.list = el("dl", { class: "rooms" });
-    this.unavail = el("dl", { class: "rooms rooms--unavailable", id: "unavailable-rooms", hidden: true });
-    this.unavailBtn = el("button", { class: "acc-btn", type: "button", "aria-expanded": "false", "aria-controls": "unavailable-rooms", onclick: () => this.setUnavailable(!this.unavailOpen) });
-    this.unavailBox = el("div", { class: "acc", hidden: true }, el("h3", { class: "acc-heading" }, this.unavailBtn), this.unavail);
     this.plan = this.buildPlan();
-    this.root.replaceChildren(style, el("ha-card", {}, el("div", { class: "body" }, el("div", { class: "head" }, title, all), this.errorSlot, this.status, this.plan, this.list, this.unavailBox)));
+    this.root.replaceChildren(style, el("ha-card", {}, el("div", { class: "body" }, el("div", { class: "head" }, title, all), this.errorSlot, this.status, this.plan, this.list, this.buildHelp())));
     for (const cfg of this.config.rooms) this.views.set(cfg.id, { cfg, caps: void 0, sig: "", on: 0, owner: "" });
     for (const v of this.views.values()) this.list.append(this.buildRow(v));
-    this.layoutRooms();
     this.dialog = this.buildDialog();
     this.root.append(this.dialog);
   }
@@ -985,22 +988,33 @@ var GovukHouseLightingCard = class extends HTMLElement {
   usable(v) {
     return !!v.caps && v.caps.availableLights > 0;
   }
-  setUnavailable(open) {
-    this.unavailOpen = open;
-    this.unavailBtn.setAttribute("aria-expanded", String(open));
-    this.unavail.hidden = !open;
-    this.unavailBtn.querySelector("[data-role=acc-state]").textContent = open ? "Hide" : "Show";
-  }
-  /** Rooms with no controllable lights live in the "Unavailable" accordion; everything else stays in the main list. */
-  layoutRooms() {
-    const off = [];
-    for (const v of this.views.values()) {
-      const dest = !v.caps || this.usable(v) ? this.list : this.unavail;
-      if (v.row.parentElement !== dest) dest.append(v.row);
-      if (v.caps && !this.usable(v)) off.push(v);
-    }
-    this.unavailBox.hidden = off.length === 0;
-    this.unavailBtn.replaceChildren(`Unavailable (${off.length})`, el("span", { class: "acc-state", "data-role": "acc-state" }, this.unavailOpen ? "Hide" : "Show"));
+  /** GOV.UK details component: help for lights or rooms that do not appear. Copy follows the GOV.UK A to Z style guide. */
+  buildHelp() {
+    const strong = (t) => el("strong", {}, t);
+    return el(
+      "details",
+      { class: "details" },
+      el("summary", { class: "details-summary" }, el("span", { class: "details-summary-text" }, "Missing lights or rooms?")),
+      el(
+        "div",
+        { class: "details-text" },
+        el("p", {}, "Lights might not appear in a room if they are not smart bulbs, are in the wrong area or are offline."),
+        el("p", {}, "To fix this, select ", strong("Settings"), ", then ", strong("Devices and services"), ". Check your connected devices and make sure each light is in the correct area."),
+        el(
+          "p",
+          {},
+          "If you still have trouble, select ",
+          strong("Settings"),
+          ", then ",
+          strong("System"),
+          ", then ",
+          strong("Logs"),
+          " to find error details. You can also read the ",
+          el("a", { class: "link", href: AREAS_DOCS, target: "_blank", rel: "noreferrer noopener" }, "Home Assistant areas documentation (opens in new tab)"),
+          " for help organising your home."
+        )
+      )
+    );
   }
   buildDialog() {
     const d = el("dialog", { class: "dlg", "aria-labelledby": "dlg-title" });
@@ -1059,7 +1073,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
         grid.append(el("li", {}, btn));
       }
       p.append(grid);
-      if (anyOff) p.append(el("p", { class: "hint" }, "Faded options cannot be used in this room. Hover over one to see why."));
+      if (anyOff) p.append(el("p", { class: "hint" }, "Faded options are not available in this room. Hover over an option to see why."));
       panels.append(p);
     });
     d.replaceChildren(
@@ -1196,7 +1210,6 @@ var GovukHouseLightingCard = class extends HTMLElement {
       this.paintRoom(v);
     }
     if (changed) {
-      this.layoutRooms();
       this.paintSummary();
       if (this.dialog?.open && this.current) {
         const t = this.dialog.querySelector("[aria-selected=true]")?.id.replace("tab-", "") ?? CATS[0][0];
@@ -1221,6 +1234,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   paintRoom(v) {
     const usable = this.usable(v), total = v.caps.availableLights;
+    v.row.hidden = !usable;
     v.row.querySelector("[data-role=sub]").textContent = total > 0 ? this.count(v) : "";
     v.row.querySelector("[data-role=settings]").disabled = !usable;
     const btn = v.row.querySelector("[data-role=toggle]");
@@ -1251,7 +1265,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
     } else if (palette.length > 1) shade.setAttribute("fill", palette[0]);
   }
   paintSummary() {
-    const vs = [...this.views.values()];
+    const vs = [...this.views.values()].filter((v) => this.usable(v));
     const on = vs.filter((v) => v.on > 0).length;
     this.status.textContent = `${on} of ${vs.length} rooms on`;
   }

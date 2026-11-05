@@ -191,7 +191,7 @@ export const RECIPES = [
     "category": "scene",
     "previewCss": "linear-gradient(90deg, #D30A24 0%, #00FF00 50%, #FFFFFF 100%)",
     "slug": "rugby",
-    "label": "Welsh Rugby",
+    "label": "Welsh rugby",
     "transitionS": 5,
     "stops": [
       [
@@ -231,7 +231,7 @@ export const RECIPES = [
     "category": "scene",
     "previewCss": "linear-gradient(90deg, #004D98 0%, #FFFFFF 50%, #00FF00 100%)",
     "slug": "football",
-    "label": "Everton Football",
+    "label": "Everton football",
     "transitionS": 15,
     "stops": [
       [

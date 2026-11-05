@@ -30,6 +30,7 @@ test('theme compliance: card CSS uses theme variables only', () => {
   for (const v of ['--primary-color', '--ha-color-focus', '--divider-color', '--primary-text-color']) assert.ok(css.includes(v), v);
 });
 test('card source has no innerHTML, eval or remote URLs', () => {
-  const src = rd('card/src/card.ts').toString().replace(/\/\/.*$/gm, '').replace('http://www.w3.org/2000/svg', '');
+  // Allowed: the SVG namespace and the one documentation link shown in the help text (a plain link, never fetched).
+  const src = rd('card/src/card.ts').toString().replace(/\/\/.*$/gm, '').replace('http://www.w3.org/2000/svg', '').replace('https://www.home-assistant.io/docs/organizing/areas/', '');
   assert.ok(!/innerHTML|eval\(|new Function|https?:\/\//.test(src));
 });
