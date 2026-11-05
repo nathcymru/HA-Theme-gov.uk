@@ -17,7 +17,7 @@ input_text:
     name: "GOV.UK lights: Hallway active recipe"
     max: 64
   govuk_lights_study:
-    name: "GOV.UK lights: Office / Second bedroom active recipe"
+    name: "GOV.UK lights: Office or second bedroom active recipe"
     max: 64
   govuk_lights_bedroom:
     name: "GOV.UK lights: Main bedroom active recipe"
@@ -186,7 +186,7 @@ script:
           exclude: []
 
   govuk_lights_room_study:
-    alias: "GOV.UK lights: Office / Second bedroom"
+    alias: "GOV.UK lights: Office or second bedroom"
     mode: restart   # restarts only this room
     fields:
       recipe: {description: "Recipe id"}

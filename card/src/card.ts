@@ -16,6 +16,8 @@ const REASONS: Record<string, string> = {
   needs_all_colour: 'Every light in this room must be able to show colour.', needs_colour_light: 'This room needs at least one colour light.',
   no_dimmable_lights: 'No light in this room can be dimmed.',
 };
+// The only external link in the card: plain help text, never fetched.
+const AREAS_DOCS = 'https://www.home-assistant.io/docs/organizing/areas/';
 const SAFE_CSS = /^(#[0-9A-Fa-f]{6}|linear-gradient\(90deg(, #[0-9A-Fa-f]{6} \d{1,3}%)+\))$/;
 const safeCss = (v: string) => (SAFE_CSS.test(v) ? v : 'transparent');
 const previewOf = (r: any): string => safeCss(r.previewCss ?? r.preview);
@@ -45,7 +47,7 @@ class GovukHouseLightingCard extends HTMLElement {
   private _hass: any; private config!: Config; private root: ShadowRoot; private views = new Map<string, RoomView>();
   private dialog?: HTMLDialogElement; private current?: string; private reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   private onMotion = () => this.paintAll();
-  private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: string[] = []; private list?: HTMLElement; private unavail?: HTMLElement; private unavailBox?: HTMLElement; private unavailBtn?: HTMLButtonElement; private unavailOpen = false; private plan?: SVGElement; private built = false;
+  private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: string[] = []; private list?: HTMLElement; private plan?: SVGElement; private built = false;
 
   constructor() { super(); this.root = this.attachShadow({ mode: 'open' }); }
 
@@ -91,15 +93,11 @@ class GovukHouseLightingCard extends HTMLElement {
       el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(true) }, 'All on'),
       el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(false) }, 'All off'));
     this.list = el('dl', { class: 'rooms' });
-    this.unavail = el('dl', { class: 'rooms rooms--unavailable', id: 'unavailable-rooms', hidden: true });
-    this.unavailBtn = el('button', { class: 'acc-btn', type: 'button', 'aria-expanded': 'false', 'aria-controls': 'unavailable-rooms', onclick: () => this.setUnavailable(!this.unavailOpen) });
-    this.unavailBox = el('div', { class: 'acc', hidden: true }, el('h3', { class: 'acc-heading' }, this.unavailBtn!), this.unavail!);
     this.plan = this.buildPlan();
     // Floor plan first, then the room list.
-    this.root.replaceChildren(style, el('ha-card', {}, el('div', { class: 'body' }, el('div', { class: 'head' }, title, all), this.errorSlot!, this.status!, this.plan!, this.list!, this.unavailBox!)));
+    this.root.replaceChildren(style, el('ha-card', {}, el('div', { class: 'body' }, el('div', { class: 'head' }, title, all), this.errorSlot!, this.status!, this.plan!, this.list!, this.buildHelp())));
     for (const cfg of this.config.rooms) this.views.set(cfg.id, { cfg, caps: undefined as any, sig: '', on: 0, owner: '' });
     for (const v of this.views.values()) this.list!.append(this.buildRow(v));
-    this.layoutRooms();
     this.dialog = this.buildDialog(); this.root.append(this.dialog);
   }
 
@@ -134,21 +132,17 @@ class GovukHouseLightingCard extends HTMLElement {
   }
 
   private usable(v: RoomView) { return !!v.caps && v.caps.availableLights > 0; }
-  private setUnavailable(open: boolean) {
-    this.unavailOpen = open;
-    this.unavailBtn!.setAttribute('aria-expanded', String(open)); this.unavail!.hidden = !open;
-    this.unavailBtn!.querySelector('[data-role=acc-state]')!.textContent = open ? 'Hide' : 'Show';
-  }
-  /** Rooms with no controllable lights live in the "Unavailable" accordion; everything else stays in the main list. */
-  private layoutRooms() {
-    const off: RoomView[] = [];
-    for (const v of this.views.values()) {
-      const dest = !v.caps || this.usable(v) ? this.list! : this.unavail!;
-      if (v.row!.parentElement !== dest) dest.append(v.row!);
-      if (v.caps && !this.usable(v)) off.push(v);
-    }
-    this.unavailBox!.hidden = off.length === 0;
-    this.unavailBtn!.replaceChildren(`Unavailable (${off.length})`, el('span', { class: 'acc-state', 'data-role': 'acc-state' }, this.unavailOpen ? 'Hide' : 'Show'));
+
+  /** GOV.UK details component: help for lights or rooms that do not appear. Copy follows the GOV.UK A to Z style guide. */
+  private buildHelp(): HTMLElement {
+    const strong = (t: string) => el('strong', {}, t);
+    return el('details', { class: 'details' },
+      el('summary', { class: 'details-summary' }, el('span', { class: 'details-summary-text' }, 'Missing lights or rooms?')),
+      el('div', { class: 'details-text' },
+        el('p', {}, 'Lights might not appear in a room if they are not smart bulbs, are in the wrong area or are offline.'),
+        el('p', {}, 'To fix this, select ', strong('Settings'), ', then ', strong('Devices and services'), '. Check your connected devices and make sure each light is in the correct area.'),
+        el('p', {}, 'If you still have trouble, select ', strong('Settings'), ', then ', strong('System'), ', then ', strong('Logs'), ' to find error details. You can also read the ',
+          el('a', { class: 'link', href: AREAS_DOCS, target: '_blank', rel: 'noreferrer noopener' }, 'Home Assistant areas documentation (opens in new tab)'), ' for help organising your home.')));
   }
 
   private buildDialog(): HTMLDialogElement {
@@ -190,7 +184,7 @@ class GovukHouseLightingCard extends HTMLElement {
         grid.append(el('li', {}, btn));
       }
       p.append(grid);
-      if (anyOff) p.append(el('p', { class: 'hint' }, 'Faded options cannot be used in this room. Hover over one to see why.'));
+      if (anyOff) p.append(el('p', { class: 'hint' }, 'Faded options are not available in this room. Hover over an option to see why.'));
       panels.append(p);
     });
     d.replaceChildren(el('h3', { id: 'dlg-title', class: 'dlg-title' }, `${v.cfg.name ?? v.cfg.id} lighting`), this.errorSummary() ?? '', tabs, panels,
@@ -272,7 +266,7 @@ class GovukHouseLightingCard extends HTMLElement {
       Object.assign(v, { caps, owner, on, sig }); changed = true; this.paintRoom(v);
     }
     if (changed) {
-      this.layoutRooms(); this.paintSummary();
+      this.paintSummary();
       if (this.dialog?.open && this.current) { const t = this.dialog.querySelector('[aria-selected=true]')?.id.replace('tab-', '') ?? CATS[0][0]; const f = this.root.activeElement; this.renderDialog(t); if (f?.id) this.dialog.querySelector<HTMLElement>(`#${CSS.escape(f.id)}`)?.focus(); }
     }
   }
