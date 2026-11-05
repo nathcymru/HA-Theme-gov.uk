@@ -176,6 +176,12 @@ script:
       recipe: {description: "Recipe id"}
       brightness: {description: "Optional brightness percent"}
     sequence:
+      - action: script.turn_off
+        continue_on_error: true
+        target: {entity_id: ["script.front_door_sequence"]}
+      - action: input_boolean.turn_off
+        continue_on_error: true
+        target: {entity_id: ["input_boolean.front_door_sequence_active","input_boolean.front_door_night_lights"]}
       - action: script.govuk_lights_engine
         data:
           room: "hall"
@@ -244,6 +250,19 @@ script:
         data: {value: "stopped"}
       - action: script.turn_off
         target: {entity_id: "script.govuk_lights_room_{{ room }}"}
+      - variables:
+          interrupts: "{{ {'lounge':[],'kitchen':[],'bathroom':[],'hall':['script.front_door_sequence'],'study':[],'bedroom':[]}[room] }}"
+          release: "{{ {'lounge':[],'kitchen':[],'bathroom':[],'hall':['input_boolean.front_door_sequence_active','input_boolean.front_door_night_lights'],'study':[],'bedroom':[]}[room] }}"
+      - if: "{{ interrupts | length > 0 }}"
+        then:
+          - action: script.turn_off
+            continue_on_error: true
+            target: {entity_id: "{{ interrupts }}"}
+      - if: "{{ release | length > 0 }}"
+        then:
+          - action: input_boolean.turn_off
+            continue_on_error: true
+            target: {entity_id: "{{ release }}"}
       - if: "{{ turn_off | default(false, true) | bool(false) }}"
         then:
           - variables:

@@ -123,6 +123,14 @@ script:
         data: {value: "{{ recipe if rec.cat != 'scene' else 'stopped' }}"}
 `;
 
+// A manual change from the card wins over an automation that also drives the room. The room lists
+// the scripts to stop ("interrupts") and the flags to clear ("release"); nothing else is coupled.
+const manual = (r) => {
+  let o = '';
+  if (r.interrupts?.length) o += `\n      - action: script.turn_off\n        continue_on_error: true\n        target: {entity_id: ${q(r.interrupts)}}`;
+  if (r.release?.length) o += `\n      - action: input_boolean.turn_off\n        continue_on_error: true\n        target: {entity_id: ${q(r.release)}}`;
+  return o;
+};
 const wrappers = rooms.map((r) => `
   govuk_lights_room_${r.id}:
     alias: "GOV.UK lights: ${r.name}"
@@ -130,7 +138,7 @@ const wrappers = rooms.map((r) => `
     fields:
       recipe: {description: "Recipe id"}
       brightness: {description: "Optional brightness percent"}
-    sequence:
+    sequence:${manual(r)}
       - action: script.govuk_lights_engine
         data:
           room: ${q(r.id)}
@@ -169,6 +177,19 @@ const dispatch = `
         data: {value: "stopped"}
       - action: script.turn_off
         target: {entity_id: "script.govuk_lights_room_{{ room }}"}
+      - variables:
+          interrupts: "{{ ${JSON.stringify(Object.fromEntries(rooms.map((r) => [r.id, r.interrupts ?? []]))).replace(/"/g, "'")}[room] }}"
+          release: "{{ ${JSON.stringify(Object.fromEntries(rooms.map((r) => [r.id, r.release ?? []]))).replace(/"/g, "'")}[room] }}"
+      - if: "{{ interrupts | length > 0 }}"
+        then:
+          - action: script.turn_off
+            continue_on_error: true
+            target: {entity_id: "{{ interrupts }}"}
+      - if: "{{ release | length > 0 }}"
+        then:
+          - action: input_boolean.turn_off
+            continue_on_error: true
+            target: {entity_id: "{{ release }}"}
       - if: "{{ turn_off | default(false, true) | bool(false) }}"
         then:
           - variables:
