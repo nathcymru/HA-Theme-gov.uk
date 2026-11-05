@@ -285,6 +285,7 @@ class GovukHouseLightingCard extends HTMLElement {
 
   private paintRoom(v: RoomView) {
     const usable = this.usable(v), total = v.caps.availableLights;
+    v.row!.hidden = !usable; // rooms with no usable lights are hidden from the list
     v.row!.querySelector('[data-role=sub]')!.textContent = total > 0 ? this.count(v) : '';
     v.row!.querySelector<HTMLButtonElement>('[data-role=settings]')!.disabled = !usable;
     const btn = v.row!.querySelector<HTMLButtonElement>('[data-role=toggle]')!;
@@ -311,7 +312,7 @@ class GovukHouseLightingCard extends HTMLElement {
     } else if (palette.length > 1) shade.setAttribute('fill', palette[0]); // reduced motion: static representative colour
   }
   private paintSummary() {
-    const vs = [...this.views.values()]; const on = vs.filter((v) => v.on > 0).length;
+    const vs = [...this.views.values()].filter((v) => this.usable(v)); const on = vs.filter((v) => v.on > 0).length;
     this.status!.textContent = `${on} of ${vs.length} rooms on`;
   }
 }

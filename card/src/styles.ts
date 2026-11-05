@@ -27,6 +27,7 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
 .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+.row[hidden] { display: none; }
 .key { font-weight: 700; margin: 0; }
 .sub { display: block; font-weight: 400; font-size: var(--ha-font-size-s, 14px); line-height: 1.25; color: var(--secondary-text-color); }
 .sub:empty { display: none; }
