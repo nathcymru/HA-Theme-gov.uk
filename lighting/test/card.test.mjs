@@ -48,3 +48,14 @@ test('room groups: every room with lights has a group, and the card opens more-i
 test('no hover-only help text in the card', () => {
   assert.ok(!/Hover over/i.test(rd('card/src/card.ts').toString()));
 });
+
+// Guard: the card layout is approved by Nathan. Adding visible elements (such as scene buttons) needs his written approval first.
+test('card shows no scene buttons or tiles on the room list', () => {
+  const src = rd('card/src/card.ts').toString();
+  assert.doesNotMatch(src, /class:\s*'tiles'|class:\s*'tile'|data-scene/);
+});
+// Guard: the card only reads hass state and calls Home Assistant services; scene loops must stop when lights are turned off elsewhere.
+test('scene loop only drives lights that are still on', () => {
+  const y = rd('lighting/ha/govuk_lighting.yaml').toString();
+  assert.match(y, /select\('is_state','on'\)/);
+});
