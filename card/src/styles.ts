@@ -23,7 +23,7 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .btn-icon { flex: none; }
 .btn[hidden] { display: none; }
 .btn:focus-visible:not(:active):not(:hover), .btn:focus:not(:active):not(:hover) { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--primary-text-color); }
-.tab:focus-visible, .tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
+.tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
 .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
 .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
@@ -40,27 +40,24 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .hit { fill: transparent; stroke: none; cursor: pointer; }
 .hit:hover { fill: var(--ha-color-focus); fill-opacity: 0.18; }
 .hit:focus-visible { outline: none; stroke: var(--ha-color-focus); stroke-width: 8px; fill: var(--ha-color-focus); fill-opacity: 0.18; }
-.dlg { width: min(640px, 92vw); height: min(520px, 90vh); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
+.dlg { width: min(640px, 92vw); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
 .dlg[open] { display: flex; }
-.dlg--auto { height: auto; }
-.dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
 .dlg-title { margin: 0 0 16px; font-size: 24px; }
-.tabs { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 5px; padding: 5px 0 0; border-bottom: 1px solid var(--divider-color); margin-bottom: 16px; }
-.tab { font: inherit; font-size: var(--ha-font-size-m, 19px); line-height: 1.25; padding: 10px 20px; border: 0; border-radius: 0; background: var(--secondary-background-color); color: var(--primary-text-color); text-decoration: underline; text-underline-offset: 0.1578em; cursor: pointer; }
-.tab:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
-.tab[aria-selected=true] { margin: -5px 0 -1px; padding: 14px 19px 16px; border: 1px solid var(--divider-color); border-bottom: 0; background: var(--card-background-color); text-decoration: none; }
-.panels { flex: 1; min-height: 0; overflow: auto; padding: 8px; }
-.tiles { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, 64px); gap: 12px; }
+.dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
+.tiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.tile { position: relative; display: block; width: 64px; height: 64px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
-.tile[aria-pressed=true] { outline: 4px solid var(--primary-text-color); outline-offset: 2px; }
+.tile { position: relative; display: block; width: 36px; height: 36px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
+.tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
 .swatch { position: absolute; inset: 0; display: block; }
-.tile-icon { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); object-fit: contain; pointer-events: none; }
+/* Icons are drawn as solid white: brightness(0) flattens every colour to black, invert(1) turns it white. */
+.tile-icon { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
+.swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
 .error-summary:focus { outline: 3px solid var(--ha-color-focus); }
 .error-summary__title { margin: 0 0 15px; font-size: 18px; line-height: 1.1111; font-weight: 700; }
 .error-summary__list { margin: 0; padding: 0; list-style: none; font-weight: 700; }
 .error-summary__list li { margin: 0; }
+.error-summary__list .link { color: var(--error-color); }
 /* GOV.UK details component */
 .details { display: block; margin: 15px 0 0; font-size: var(--ha-font-size-m, 19px); line-height: 1.3157894737; }
 .details-summary { position: relative; display: block; width: fit-content; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
@@ -78,7 +75,9 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .link { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.1578em; }
 .link:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
 .link:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
-.hint { margin: 0 0 16px; font-size: 14px; color: var(--secondary-text-color); }
-.dlg-close { align-self: flex-start; margin-top: 16px; }
-.actions--dialog { margin-top: 16px; }
+.scenes-slot { grid-column: 1 / -1; margin: 0; padding: 4px; }
+.scenes-slot:empty { display: none; }
+/* GOV.UK error message component, with its left-hand error border. */
+.form-group--error { padding-left: 15px; border-left: 5px solid var(--error-color); }
+.error-message { margin: 0 0 15px; font-weight: 700; color: var(--error-color); }
 `;

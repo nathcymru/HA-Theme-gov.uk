@@ -768,7 +768,7 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .btn-icon { flex: none; }
 .btn[hidden] { display: none; }
 .btn:focus-visible:not(:active):not(:hover), .btn:focus:not(:active):not(:hover) { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--primary-text-color); }
-.tab:focus-visible, .tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
+.tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
 .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
 .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
@@ -785,27 +785,24 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .hit { fill: transparent; stroke: none; cursor: pointer; }
 .hit:hover { fill: var(--ha-color-focus); fill-opacity: 0.18; }
 .hit:focus-visible { outline: none; stroke: var(--ha-color-focus); stroke-width: 8px; fill: var(--ha-color-focus); fill-opacity: 0.18; }
-.dlg { width: min(640px, 92vw); height: min(520px, 90vh); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
+.dlg { width: min(640px, 92vw); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
 .dlg[open] { display: flex; }
-.dlg--auto { height: auto; }
-.dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
 .dlg-title { margin: 0 0 16px; font-size: 24px; }
-.tabs { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 5px; padding: 5px 0 0; border-bottom: 1px solid var(--divider-color); margin-bottom: 16px; }
-.tab { font: inherit; font-size: var(--ha-font-size-m, 19px); line-height: 1.25; padding: 10px 20px; border: 0; border-radius: 0; background: var(--secondary-background-color); color: var(--primary-text-color); text-decoration: underline; text-underline-offset: 0.1578em; cursor: pointer; }
-.tab:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
-.tab[aria-selected=true] { margin: -5px 0 -1px; padding: 14px 19px 16px; border: 1px solid var(--divider-color); border-bottom: 0; background: var(--card-background-color); text-decoration: none; }
-.panels { flex: 1; min-height: 0; overflow: auto; padding: 8px; }
-.tiles { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, 64px); gap: 12px; }
+.dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
+.tiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.tile { position: relative; display: block; width: 64px; height: 64px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
-.tile[aria-pressed=true] { outline: 4px solid var(--primary-text-color); outline-offset: 2px; }
+.tile { position: relative; display: block; width: 36px; height: 36px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
+.tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
 .swatch { position: absolute; inset: 0; display: block; }
-.tile-icon { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); object-fit: contain; pointer-events: none; }
+/* Icons are drawn as solid white: brightness(0) flattens every colour to black, invert(1) turns it white. */
+.tile-icon { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
+.swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
 .error-summary:focus { outline: 3px solid var(--ha-color-focus); }
 .error-summary__title { margin: 0 0 15px; font-size: 18px; line-height: 1.1111; font-weight: 700; }
 .error-summary__list { margin: 0; padding: 0; list-style: none; font-weight: 700; }
 .error-summary__list li { margin: 0; }
+.error-summary__list .link { color: var(--error-color); }
 /* GOV.UK details component */
 .details { display: block; margin: 15px 0 0; font-size: var(--ha-font-size-m, 19px); line-height: 1.3157894737; }
 .details-summary { position: relative; display: block; width: fit-content; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
@@ -823,24 +820,17 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .link { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.1578em; }
 .link:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
 .link:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
-.hint { margin: 0 0 16px; font-size: 14px; color: var(--secondary-text-color); }
-.dlg-close { align-self: flex-start; margin-top: 16px; }
-.actions--dialog { margin-top: 16px; }
+.scenes-slot { grid-column: 1 / -1; margin: 0; padding: 4px; }
+.scenes-slot:empty { display: none; }
+/* GOV.UK error message component, with its left-hand error border. */
+.form-group--error { padding-left: 15px; border-left: 5px solid var(--error-color); }
+.error-message { margin: 0 0 15px; font-weight: 700; color: var(--error-color); }
 `;
 
 // card/src/card.ts
 var SVG = "http://www.w3.org/2000/svg";
 var RECIPE_LIST = recipes_default;
-var CATS = [["light", "Whites and colours", ["white", "color"]], ["scene", "Scenes", ["scene"]]];
 var COG = "M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.86,17.38L11.25,20H12.75L13.12,17.4C14.32,17.14 15.38,16.5 16.15,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.38C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z";
-var REASONS = {
-  no_lights: "This room has no lights this card can control.",
-  all_unavailable: "All lights in this room are unavailable.",
-  members_unavailable: "Some lights are unavailable, so the whole room cannot be set to one colour.",
-  needs_all_colour: "Every light in this room must be able to show colour.",
-  needs_colour_light: "This room needs at least one colour light.",
-  no_dimmable_lights: "No light in this room can be dimmed."
-};
 var AREAS_DOCS = "https://www.home-assistant.io/docs/organizing/areas/";
 var SAFE_CSS = /^(#[0-9A-Fa-f]{6}|linear-gradient\(90deg(, #[0-9A-Fa-f]{6} \d{1,3}%)+\))$/;
 var safeCss = (v) => SAFE_CSS.test(v) ? v : "transparent";
@@ -867,8 +857,6 @@ var GovukHouseLightingCard = class extends HTMLElement {
   config;
   root;
   views = /* @__PURE__ */ new Map();
-  dialog;
-  current;
   reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   onMotion = () => this.paintAll();
   status;
@@ -921,7 +909,6 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   disconnectedCallback() {
     this.reduceMotion.removeEventListener("change", this.onMotion);
-    this.dialog?.close();
   }
   snapshot() {
     const h = this._hass;
@@ -945,8 +932,6 @@ var GovukHouseLightingCard = class extends HTMLElement {
     this.root.replaceChildren(style, el("ha-card", {}, el("div", { class: "body" }, el("div", { class: "head" }, title, all), this.errorSlot, this.status, this.plan, this.list, this.buildHelp())));
     for (const cfg of this.config.rooms) this.views.set(cfg.id, { cfg, caps: void 0, sig: "", on: 0, owner: "" });
     for (const v of this.views.values()) this.list.append(this.buildRow(v));
-    this.dialog = this.buildDialog();
-    this.root.append(this.dialog);
   }
   buildPlan() {
     const { width, height } = rooms_default.image;
@@ -962,13 +947,13 @@ var GovukHouseLightingCard = class extends HTMLElement {
       const pts = rooms_default.regions[cfg.id].map((p) => p.join(",")).join(" ");
       const hit = svg("polygon", { points: pts, class: "hit", tabindex: 0, role: "button", "data-room": cfg.id });
       hit.addEventListener("click", () => {
-        if (this.usable(this.views.get(cfg.id))) this.open(cfg.id);
+        if (this.usable(this.views.get(cfg.id))) this.openMoreInfo(cfg.id);
       });
       hit.addEventListener("keydown", (e) => {
         const k = e.key;
         if (k === "Enter" || k === " ") {
           e.preventDefault();
-          if (this.usable(this.views.get(cfg.id))) this.open(cfg.id);
+          if (this.usable(this.views.get(cfg.id))) this.openMoreInfo(cfg.id);
         }
       });
       s.append(hit);
@@ -980,8 +965,8 @@ var GovukHouseLightingCard = class extends HTMLElement {
     const toggle = el("button", { class: "btn", type: "button", "data-role": "toggle", onclick: () => this.toggle(v) });
     const icon = svg("svg", { viewBox: "0 0 24 24", width: 19, height: 19, class: "btn-icon", "aria-hidden": "true", focusable: "false" });
     icon.append(svg("path", { d: COG, fill: "currentColor" }));
-    const settings = el("button", { class: "btn btn--secondary", type: "button", "data-role": "settings", title: "Settings", onclick: (e) => this.open(v.cfg.id, e.currentTarget) }, icon, el("span", { class: "vh" }, `Settings for ${name}`));
-    const row = el("div", { class: "row", "data-room": v.cfg.id }, el("dt", { class: "key" }, name, el("span", { class: "sub", "data-role": "sub" })), el("dd", { class: "act" }, toggle, settings));
+    const settings = el("button", { class: "btn btn--secondary", type: "button", "data-role": "settings", title: "Settings", onclick: () => this.openMoreInfo(v.cfg.id) }, icon, el("span", { class: "vh" }, `Settings for ${name}`));
+    const row = el("div", { class: "row", "data-room": v.cfg.id }, el("dt", { class: "key" }, name, el("span", { class: "sub", "data-role": "sub" })), el("dd", { class: "act" }, toggle, settings), el("dd", { class: "scenes-slot", "data-role": "scenes" }));
     v.row = row;
     return row;
   }
@@ -1016,73 +1001,41 @@ var GovukHouseLightingCard = class extends HTMLElement {
       )
     );
   }
-  buildDialog() {
-    const d = el("dialog", { class: "dlg", "aria-labelledby": "dlg-title" });
-    d.addEventListener("close", () => {
-      this.current = void 0;
-    });
-    return d;
+  /** Settings opens Home Assistant's own more-info dialog (slider, colour wheel and temperature) for the room's light group. */
+  openMoreInfo(roomId) {
+    const v = this.views.get(roomId);
+    const group = `light.govuk_lights_${roomId}`;
+    const entityId = this._hass.states[group] ? group : v.caps.lightCapabilities.find((c) => c.status === "available")?.entityId;
+    if (!entityId) {
+      this.showError(`${v.cfg.name ?? v.cfg.id} has no light to open.`, roomId);
+      return;
+    }
+    this.dispatchEvent(new CustomEvent("hass-more-info", { bubbles: true, composed: true, detail: { entityId } }));
   }
-  open(roomId, opener) {
-    this.current = roomId;
-    this.renderDialog();
-    if (!this.dialog.open) this.dialog.showModal();
-    void opener;
-  }
-  renderDialog(tab = CATS[0][0]) {
-    const v = this.views.get(this.current), d = this.dialog;
+  /** Compact scene squares for one room: only scenes this room can run; no hover-only information. */
+  paintScenes(v) {
+    const slot = v.row.querySelector("[data-role=scenes]");
     const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
-    const tabs = el("div", { role: "tablist", class: "tabs", "aria-label": "Lighting type" });
-    const panels = el("div", { class: "panels" });
-    CATS.forEach(([cat, label, kinds]) => {
-      const t = el("button", {
-        role: "tab",
-        type: "button",
-        class: "tab",
-        id: `tab-${cat}`,
-        "aria-controls": `panel-${cat}`,
-        "aria-selected": String(cat === tab),
-        tabindex: cat === tab ? 0 : -1,
-        onclick: () => this.renderDialog(cat),
-        onkeydown: (e) => {
-          const i = CATS.findIndex((c) => c[0] === cat);
-          const n = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : -1;
-          if (n >= 0) {
-            e.preventDefault();
-            this.renderDialog(CATS[(n + CATS.length) % CATS.length][0]);
-            this.dialog.querySelector("[aria-selected=true]").focus();
-          }
-        }
-      }, label);
-      tabs.append(t);
-      const p = el("div", { role: "tabpanel", id: `panel-${cat}`, "aria-labelledby": `tab-${cat}`, hidden: cat !== tab });
-      const grid = el("ul", { class: "tiles" });
-      let anyOff = false;
-      for (const r of RECIPE_LIST.filter((x) => kinds.includes(x.category))) {
-        const a = avail.get(r.id);
-        const off = a.availability === "unsupported";
-        anyOff = anyOff || off;
-        const reason = off ? REASONS[a.reason ?? ""] ?? "Not available in this room." : "";
-        const tip = reason ? `${r.label}: ${reason}` : r.label;
+    const scenes = RECIPE_LIST.filter((r) => r.category === "scene" && avail.get(r.id)?.availability !== "unsupported");
+    const err = this.errors.filter((e) => e.room === v.cfg.id);
+    const kids = [];
+    if (this.usable(v) && scenes.length) {
+      const grid = el("ul", { class: "tiles", "aria-label": `Scenes for ${v.cfg.name ?? v.cfg.id}` });
+      for (const r of scenes) {
         const swatch = el("span", { class: "swatch" });
-        if (r.category === "scene") this.animateSwatch(swatch, r, v);
-        else swatch.style.background = previewOf(r);
-        const kids = [swatch];
-        if (r.category === "scene") kids.push(el("img", { class: "tile-icon", src: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href, alt: "", loading: "lazy" }));
-        const btn = el("button", { class: "tile", type: "button", disabled: off, title: tip, "aria-label": tip, "aria-pressed": String(v.owner === r.id), onclick: () => this.pick(v, r) }, ...kids);
+        this.animateSwatch(swatch, r, v);
+        const btn = el(
+          "button",
+          { class: "tile", type: "button", "aria-label": r.label, title: r.label, "aria-pressed": String(v.owner === r.id), "data-scene": r.id, onclick: () => this.pick(v, r) },
+          swatch,
+          el("img", { class: "tile-icon", src: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href, alt: "", loading: "lazy" })
+        );
         grid.append(el("li", {}, btn));
       }
-      p.append(grid);
-      if (anyOff) p.append(el("p", { class: "hint" }, "Faded options are not available in this room. Hover over an option to see why."));
-      panels.append(p);
-    });
-    d.replaceChildren(
-      el("h3", { id: "dlg-title", class: "dlg-title" }, `${v.cfg.name ?? v.cfg.id} lighting`),
-      this.errorSummary() ?? "",
-      tabs,
-      panels,
-      el("button", { class: "btn btn--secondary dlg-close", type: "button", onclick: () => d.close() }, "Close")
-    );
+      kids.push(grid);
+    }
+    const body = err.length ? [el("div", { class: "form-group--error", id: `error-${v.cfg.id}` }, ...err.map((e) => el("p", { class: "error-message" }, el("span", { class: "vh" }, "Error:"), ` ${e.msg}`)), ...kids)] : kids;
+    slot.replaceChildren(...body);
   }
   /** Cycles the room's effective scene palette at the same pace as the floor-plan tint. Static when motion is reduced. */
   animateSwatch(swatch, r, v) {
@@ -1104,10 +1057,9 @@ var GovukHouseLightingCard = class extends HTMLElement {
     this.clearErrors();
     try {
       await this._hass.callService("script", "govuk_lights_apply", { room: v.cfg.id, recipe: r.id });
-      this.dialog.close();
     } catch (e) {
       console.error("govuk-house-lighting-card", e);
-      this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`);
+      this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`, v.cfg.id);
     }
   }
   confirmFlashing(r) {
@@ -1134,9 +1086,13 @@ var GovukHouseLightingCard = class extends HTMLElement {
       c.showModal();
     });
   }
-  /** GOV.UK error summary: shown at the top of the card, or of the open dialog, with focus moved to it. */
+  /** GOV.UK error summary at the top of the card; each item links to the room it concerns, which also shows the inline error message. */
   errorSummary() {
     if (!this.errors.length) return void 0;
+    const link = (e) => e.room ? el("a", { class: "link", href: `#error-${e.room}`, onclick: (ev) => {
+      ev.preventDefault();
+      this.root.querySelector(`#error-${e.room} ~ .tiles .tile, #error-${e.room} .tile`)?.focus();
+    } }, e.msg) : e.msg;
     return el(
       "div",
       { class: "error-summary", tabindex: -1, "data-role": "error-summary" },
@@ -1144,12 +1100,12 @@ var GovukHouseLightingCard = class extends HTMLElement {
         "div",
         { role: "alert" },
         el("h2", { class: "error-summary__title" }, "There is a problem"),
-        el("ul", { class: "error-summary__list" }, ...this.errors.map((m) => el("li", {}, m)))
+        el("ul", { class: "error-summary__list" }, ...this.errors.map((e) => el("li", {}, link(e))))
       )
     );
   }
-  showError(msg) {
-    if (!this.errors.includes(msg)) this.errors.push(msg);
+  showError(msg, room) {
+    if (!this.errors.some((e) => e.msg === msg && e.room === room)) this.errors.push({ room, msg });
     this.paintErrors(true);
   }
   clearErrors() {
@@ -1161,10 +1117,8 @@ var GovukHouseLightingCard = class extends HTMLElement {
   paintErrors(focus) {
     const card = this.errorSummary();
     this.errorSlot?.replaceChildren(...card ? [card] : []);
-    if (this.dialog?.open && this.current) this.renderDialog(this.dialog.querySelector("[aria-selected=true]")?.id.replace("tab-", "") ?? CATS[0][0]);
-    if (!focus) return;
-    const target = this.dialog?.open ? this.dialog : this.errorSlot;
-    target?.querySelector("[data-role=error-summary]")?.focus();
+    for (const v of this.views.values()) if (v.caps) this.paintScenes(v);
+    if (focus) this.errorSlot?.querySelector("[data-role=error-summary]")?.focus();
   }
   async toggle(v) {
     this.clearErrors();
@@ -1174,22 +1128,16 @@ var GovukHouseLightingCard = class extends HTMLElement {
     try {
       await this._hass.callService("light", "turn_on", {}, { entity_id: ids });
     } catch (e) {
-      {
-        console.error("govuk-house-lighting-card", e);
-        this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned on. Try again.`);
-      }
-      ;
+      console.error("govuk-house-lighting-card", e);
+      this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned on. Try again.`, v.cfg.id);
     }
   }
   async stop(v, off) {
     try {
       await this._hass.callService("script", "govuk_lights_stop", { room: v.cfg.id, turn_off: off });
     } catch (e) {
-      {
-        console.error("govuk-house-lighting-card", e);
-        this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned off. Try again.`);
-      }
-      ;
+      console.error("govuk-house-lighting-card", e);
+      this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned off. Try again.`, v.cfg.id);
     }
   }
   async all(on) {
@@ -1211,12 +1159,6 @@ var GovukHouseLightingCard = class extends HTMLElement {
     }
     if (changed) {
       this.paintSummary();
-      if (this.dialog?.open && this.current) {
-        const t = this.dialog.querySelector("[aria-selected=true]")?.id.replace("tab-", "") ?? CATS[0][0];
-        const f = this.root.activeElement;
-        this.renderDialog(t);
-        if (f?.id) this.dialog.querySelector(`#${CSS.escape(f.id)}`)?.focus();
-      }
     }
   }
   paintAll() {
@@ -1242,6 +1184,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
     btn.textContent = v.on > 0 ? "Turn off" : "Turn on";
     btn.disabled = !usable;
     btn.setAttribute("aria-label", `${v.on > 0 ? "Turn off" : "Turn on"} ${v.cfg.name ?? v.cfg.id}`);
+    this.paintScenes(v);
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
     const shade = this.plan.querySelector(`.shade[data-room=${v.cfg.id}]`);
     const hit = this.plan.querySelector(`.hit[data-room=${v.cfg.id}]`);

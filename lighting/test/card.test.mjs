@@ -34,3 +34,17 @@ test('card source has no innerHTML, eval or remote URLs', () => {
   const src = rd('card/src/card.ts').toString().replace(/\/\/.*$/gm, '').replace('http://www.w3.org/2000/svg', '').replace('https://www.home-assistant.io/docs/organizing/areas/', '');
   assert.ok(!/innerHTML|eval\(|new Function|https?:\/\//.test(src));
 });
+test('room groups: every room with lights has a group, and the card opens more-info for it', () => {
+  const groups = rd('lighting/ha/govuk_lighting_groups.yaml').toString();
+  const areaLights = JSON.parse(rd('lighting/ha/area-lights.json').toString());
+  const rooms = JSON.parse(rd('lighting/rooms.json').toString()).rooms;
+  for (const r of rooms.filter((x) => (areaLights[x.area] ?? []).length)) {
+    assert.ok(groups.includes(`unique_id: "govuk_lights_group_${r.id}"`), `group for ${r.id}`);
+    assert.ok(groups.includes(`light.govuk_lights_${r.id}:`), `friendly name for ${r.id}`);
+  }
+  const src = rd('card/src/card.ts').toString();
+  assert.ok(src.includes('hass-more-info') && src.includes('light.govuk_lights_${roomId}'));
+});
+test('no hover-only help text in the card', () => {
+  assert.ok(!/Hover over/i.test(rd('card/src/card.ts').toString()));
+});
