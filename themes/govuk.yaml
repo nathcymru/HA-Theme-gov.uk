@@ -259,6 +259,11 @@ govuk:
       card-mod-more-info-yaml: |
         ha-dialog {
           --ha-dialog-border-radius: 0;
+          --ha-dialog-width-md: 420px;
+          --ha-dialog-width-lg: 420px;
+          --ha-dialog-max-width: min(420px, calc(100vw - 32px));
+          --ha-dialog-max-height: min(560px, calc(100vh - 32px));
+          --ha-dialog-min-height: 0px;
           --mdc-dialog-min-width: min(420px, calc(100vw - 32px));
           --mdc-dialog-max-width: min(420px, calc(100vw - 32px));
           --mdc-dialog-max-height: min(560px, calc(100vh - 32px));
@@ -436,6 +441,11 @@ govuk:
       card-mod-more-info-yaml: |
         ha-dialog {
           --ha-dialog-border-radius: 0;
+          --ha-dialog-width-md: 420px;
+          --ha-dialog-width-lg: 420px;
+          --ha-dialog-max-width: min(420px, calc(100vw - 32px));
+          --ha-dialog-max-height: min(560px, calc(100vh - 32px));
+          --ha-dialog-min-height: 0px;
           --mdc-dialog-min-width: min(420px, calc(100vw - 32px));
           --mdc-dialog-max-width: min(420px, calc(100vw - 32px));
           --mdc-dialog-max-height: min(560px, calc(100vh - 32px));
