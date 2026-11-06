@@ -30,13 +30,15 @@ ha-icon-button-group { justify-self: start; }
 .govuk-swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .govuk-tile img { position: absolute; inset: 5px; width: calc(100% - 10px); height: calc(100% - 10px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
 .govuk-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-@media (min-width: 600px) {
-  :host { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .govuk-scenes, ha-more-info-control-select-container { align-self: start; }
-}
 `;
 
 // A horizontal, GOV.UK-shaped slider: square corners, 1px outline in the text colour, no rounded thumb.
+// Home Assistant shows the light controls and, for a group, a section of its member lights. Side by
+// side on desktop and tablet; stacked on mobile.
+const CONTENT_CSS = `
+@media (min-width: 700px) { :host { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; } }
+`;
+
 const SLIDER_CSS = `
 ha-control-slider {
   --control-slider-thickness: 40px;
@@ -68,9 +70,9 @@ function sizeDialog(dialogHost: HTMLElement) {
   const haDialog = findDeep(dialogHost.shadowRoot ?? dialogHost, 'ha-dialog');
   if (!haDialog) return;
   const v: Record<string, string> = {
-    '--ha-dialog-width-md': '640px', '--ha-dialog-width-lg': '640px',
-    '--ha-dialog-max-width': 'min(640px, calc(100vw - 32px))',
-    '--ha-dialog-max-height': 'min(560px, calc(100vh - 32px))', '--ha-dialog-min-height': '0px',
+    '--ha-dialog-width-md': '920px', '--ha-dialog-width-lg': '920px',
+    '--ha-dialog-max-width': 'min(920px, calc(100vw - 32px))',
+    '--ha-dialog-max-height': 'min(580px, calc(100vh - 32px))', '--ha-dialog-min-height': '0px',
     '--ha-dialog-border-radius': '0px',
   };
   for (const [k, val] of Object.entries(v)) haDialog.style.setProperty(k, val);
@@ -105,6 +107,8 @@ export function tuneMoreInfo(spec: DialogSpec): void {
     const sr = ml?.shadowRoot;
     if (dlg && ml && sr && sr.querySelector('.controls')) {
       sizeDialog(dlg); addSheet(sr, MORE_INFO_LIGHT_CSS);
+      const content = dlg.shadowRoot ? findDeep(dlg.shadowRoot, 'more-info-content') : null;
+      if (content?.shadowRoot) addSheet(content.shadowRoot, CONTENT_CSS);
       const sc = sr.querySelector<HTMLElement>('ha-state-control-light-brightness');
       const slider = sc?.shadowRoot?.querySelector<any>('ha-control-slider');
       if (sc?.shadowRoot && slider) {
