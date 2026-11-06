@@ -58,8 +58,18 @@ script:
                 lights: >-
                   ${MEMBERS.replace(/\n/g, ' ')}
                 step: "{{ repeat.index - 1 }}"
+            # After the first pass, only drive lights that are still on. A light turned off in Home
+            # Assistant's own dialog stays off; when none are left, the room releases the recipe.
+            - variables:
+                active: "{{ lights if step == 0 else lights | select('is_state','on') | list }}"
+            - if: "{{ step > 0 and active | length == 0 }}"
+              then:
+                - action: input_text.set_value
+                  target: {entity_id: "{{ owner }}"}
+                  data: {value: stopped}
+                - stop: "All lights in the room were turned off"
             - repeat:
-                for_each: "{{ lights }}"
+                for_each: "{{ active }}"
                 sequence:
                   - variables:
                       e: "{{ repeat.item }}"

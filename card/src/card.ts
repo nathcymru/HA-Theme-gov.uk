@@ -145,36 +145,13 @@ class GovukHouseLightingCard extends HTMLElement {
     this.dispatchEvent(new CustomEvent('hass-more-info', { bubbles: true, composed: true, detail: { entityId } }));
   }
 
-  /** Compact scene squares for one room: only scenes this room can run; no hover-only information. */
+  /** Per-room slot for the GOV.UK inline error message. Scenes are not shown on the card unless Nathan asks for them. */
   private paintScenes(v: RoomView) {
     const slot = v.row!.querySelector<HTMLElement>('[data-role=scenes]')!;
-    const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
-    const scenes = RECIPE_LIST.filter((r) => r.category === 'scene' && avail.get(r.id)?.availability !== 'unsupported');
     const err = this.errors.filter((e) => e.room === v.cfg.id);
-    const kids: Node[] = [];
-    if (this.usable(v) && scenes.length) {
-      const grid = el('ul', { class: 'tiles', 'aria-label': `Scenes for ${v.cfg.name ?? v.cfg.id}` });
-      for (const r of scenes) {
-        const swatch = el('span', { class: 'swatch' });
-        this.animateSwatch(swatch, r, v);
-        const btn = el('button', { class: 'tile', type: 'button', 'aria-label': r.label, title: r.label, 'aria-pressed': String(v.owner === r.id), 'data-scene': r.id, onclick: () => this.pick(v, r) },
-          swatch, el('img', { class: 'tile-icon', src: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href, alt: '', loading: 'lazy' }));
-        grid.append(el('li', {}, btn));
-      }
-      kids.push(grid);
-    }
     // GOV.UK error message component: static text, "Error:" prefix for screen readers, red left border.
-    const body = err.length ? [el('div', { class: 'form-group--error', id: `error-${v.cfg.id}` }, ...err.map((e) => el('p', { class: 'error-message' }, el('span', { class: 'vh' }, 'Error:'), ` ${e.msg}`)), ...kids)] : kids;
+    const body = err.length ? [el('div', { class: 'form-group--error', id: `error-${v.cfg.id}` }, ...err.map((e) => el('p', { class: 'error-message' }, el('span', { class: 'vh' }, 'Error:'), ` ${e.msg}`)))] : [];
     slot.replaceChildren(...body);
-  }
-
-  /** Cycles the room's effective scene palette at the same pace as the floor-plan tint. Static when motion is reduced. */
-  private animateSwatch(swatch: HTMLElement, r: any, v: RoomView) {
-    const palette = buildPlan(r, v.caps.lightCapabilities).effectivePalette.filter((c) => HEX.test(c));
-    if (!palette.length) { swatch.style.background = previewOf(r); return; }
-    swatch.style.backgroundColor = palette[0];
-    if (palette.length < 2 || this.reduceMotion.matches || typeof swatch.animate !== 'function') return;
-    swatch.animate([...palette, palette[0]].map((c) => ({ backgroundColor: c })), { duration: paletteSeconds(palette.length) * 1000, iterations: Infinity, easing: 'linear' });
   }
 
   private async pick(v: RoomView, r: any) {
