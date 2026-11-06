@@ -208,6 +208,12 @@ govuk:
       paper-slider-knob-color: "#0b0c0c"
       paper-slider-active-color: "#0f7a52"
 
+      # Dialog size. Home Assistant 2026.11 sizes dialogs with these variables. card-mod 4.2.1 cannot
+      # reach the new more-info dialog, so they are set here on the theme root instead.
+      ha-dialog-width-md: "420px"
+      ha-dialog-width-lg: "420px"
+      ha-dialog-border-radius: "0px"
+
       # Dialogs and tabs
       mdc-dialog-heading-ink-color: "#0b0c0c"
       mdc-dialog-content-ink-color: "#0b0c0c"
@@ -256,27 +262,6 @@ govuk:
             outline: 3px solid transparent;
             box-shadow: 0 0 0 4px #ffdd00, 0 0 0 8px #0b0c0c;
           }
-      card-mod-more-info-yaml: |
-        ha-dialog {
-          --ha-dialog-border-radius: 0;
-          --ha-dialog-width-md: 420px;
-          --ha-dialog-width-lg: 420px;
-          --ha-dialog-max-width: min(420px, calc(100vw - 32px));
-          --ha-dialog-max-height: min(560px, calc(100vh - 32px));
-          --ha-dialog-min-height: 0px;
-          --mdc-dialog-min-width: min(420px, calc(100vw - 32px));
-          --mdc-dialog-max-width: min(420px, calc(100vw - 32px));
-          --mdc-dialog-max-height: min(560px, calc(100vh - 32px));
-          --dialog-content-padding: 16px;
-          --ha-dialog-surface-border: 1px solid var(--divider-color);
-          --ha-dialog-surface-margin-top: 0px;
-          --dialog-surface-margin-top: 0px;
-          --mdc-shape-medium: 0;
-          --dialog-box-shadow: none;
-        }
-        ha-more-info-dialog, ha-dialog {
-          --mdc-dialog-heading-ink-color: var(--primary-text-color);
-        }
 
     # =============================================================
     # DARK: charcoal base, WCAG AAA text pairings
@@ -394,6 +379,10 @@ govuk:
       paper-slider-knob-color: "#ffffff"
       paper-slider-active-color: "#6fd39a"
 
+      ha-dialog-width-md: "420px"
+      ha-dialog-width-lg: "420px"
+      ha-dialog-border-radius: "0px"
+
       mdc-dialog-heading-ink-color: "#ffffff"
       mdc-dialog-content-ink-color: "#ffffff"
       mdc-dialog-scroll-divider-color: "#6f777b"
@@ -438,24 +427,3 @@ govuk:
             outline: 3px solid transparent;
             box-shadow: 0 0 0 4px #ffdd00, 0 0 0 8px #ffffff;
           }
-      card-mod-more-info-yaml: |
-        ha-dialog {
-          --ha-dialog-border-radius: 0;
-          --ha-dialog-width-md: 420px;
-          --ha-dialog-width-lg: 420px;
-          --ha-dialog-max-width: min(420px, calc(100vw - 32px));
-          --ha-dialog-max-height: min(560px, calc(100vh - 32px));
-          --ha-dialog-min-height: 0px;
-          --mdc-dialog-min-width: min(420px, calc(100vw - 32px));
-          --mdc-dialog-max-width: min(420px, calc(100vw - 32px));
-          --mdc-dialog-max-height: min(560px, calc(100vh - 32px));
-          --dialog-content-padding: 16px;
-          --ha-dialog-surface-border: 1px solid var(--divider-color);
-          --ha-dialog-surface-margin-top: 0px;
-          --dialog-surface-margin-top: 0px;
-          --mdc-shape-medium: 0;
-          --dialog-box-shadow: none;
-        }
-        ha-more-info-dialog, ha-dialog {
-          --mdc-dialog-heading-ink-color: var(--primary-text-color);
-        }
