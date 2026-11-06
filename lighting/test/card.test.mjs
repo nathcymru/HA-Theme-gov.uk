@@ -40,7 +40,7 @@ test('room groups: every room with lights has a group, and the card opens more-i
   const rooms = JSON.parse(rd('lighting/rooms.json').toString()).rooms;
   for (const r of rooms.filter((x) => (areaLights[x.area] ?? []).length)) {
     assert.ok(groups.includes(`unique_id: "govuk_lights_group_${r.id}"`), `group for ${r.id}`);
-    assert.ok(groups.includes(`light.govuk_lights_${r.id}:`), `friendly name for ${r.id}`);
+    assert.ok(groups.includes(`name: "Lights ${r.id[0].toUpperCase()}${r.id.slice(1)}"`), `name for ${r.id}`);
   }
   const src = rd('card/src/card.ts').toString();
   assert.ok(src.includes('hass-more-info') && src.includes('light.govuk_lights_${roomId}'));

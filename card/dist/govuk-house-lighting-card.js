@@ -827,11 +827,142 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .error-message { margin: 0 0 15px; font-weight: 700; color: var(--error-color); }
 `;
 
+// card/src/dialog.ts
+var MORE_INFO_LIGHT_CSS = `
+:host { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-content: start; flex: 0 0 auto; font-family: var(--ha-font-family-body, inherit); color: var(--primary-text-color); }
+ha-more-info-state-header { grid-column: 1 / -1; }
+.controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: center; justify-items: stretch; margin: 0 !important; flex: none; }
+.controls > * { margin: 0 !important; }
+ha-state-control-light-brightness { width: 100%; }
+ha-icon-button-group { justify-self: start; }
+.button-bar, .buttons { max-width: none; justify-content: flex-start; }
+.button-bar { border-radius: 0; background: transparent; }
+.buttons > * { margin: 4px 4px 4px 0; }
+.govuk-scenes { display: block; border-left: 5px solid var(--divider-color); padding-left: 12px; }
+.govuk-scenes h3 { margin: 0 0 8px; font: var(--ha-font-weight-bold, 700) 1rem/1.25 var(--ha-font-family-body, inherit); color: var(--primary-text-color); }
+.govuk-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.govuk-tile { position: relative; display: block; width: 40px; height: 40px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
+.govuk-tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
+.govuk-tile:focus-visible { outline: 3px solid var(--ha-color-focus, var(--accent-color)); outline-offset: 0; box-shadow: 0 4px 0 var(--primary-text-color); }
+.govuk-swatch { position: absolute; inset: 0; display: block; }
+.govuk-swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
+.govuk-tile img { position: absolute; inset: 5px; width: calc(100% - 10px); height: calc(100% - 10px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
+.govuk-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (min-width: 600px) {
+  :host { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .govuk-scenes, ha-more-info-control-select-container { align-self: start; }
+}
+`;
+var SLIDER_CSS = `
+ha-control-slider {
+  --control-slider-thickness: 40px;
+  --control-slider-border-radius: 0px;
+  --control-slider-color: var(--primary-color);
+  --control-slider-background: var(--secondary-background-color);
+  --control-slider-background-opacity: 1;
+  width: 100%; height: 40px !important; min-height: 0 !important; max-height: none !important;
+  border: 2px solid var(--primary-text-color); box-sizing: border-box;
+}
+`;
+var sheets = /* @__PURE__ */ new WeakSet();
+function addSheet(root, css) {
+  if (sheets.has(root)) return;
+  const s = new CSSStyleSheet();
+  s.replaceSync(css);
+  root.adoptedStyleSheets = [...root.adoptedStyleSheets, s];
+  sheets.add(root);
+}
+function findDeep(root, selector) {
+  const hit = root.querySelector(selector);
+  if (hit) return hit;
+  for (const e of Array.from(root.querySelectorAll("*"))) {
+    if (e.shadowRoot) {
+      const r = findDeep(e.shadowRoot, selector);
+      if (r) return r;
+    }
+  }
+  return null;
+}
+function sizeDialog(dialogHost) {
+  const haDialog = findDeep(dialogHost.shadowRoot ?? dialogHost, "ha-dialog");
+  if (!haDialog) return;
+  const v = {
+    "--ha-dialog-width-md": "640px",
+    "--ha-dialog-width-lg": "640px",
+    "--ha-dialog-max-width": "min(640px, calc(100vw - 32px))",
+    "--ha-dialog-max-height": "min(560px, calc(100vh - 32px))",
+    "--ha-dialog-min-height": "0px",
+    "--ha-dialog-border-radius": "0px"
+  };
+  for (const [k, val] of Object.entries(v)) haDialog.style.setProperty(k, val);
+}
+function paintScenes(host, spec) {
+  host.querySelector(".govuk-scenes")?.remove();
+  if (!spec.scenes.length) return;
+  const sec = document.createElement("section");
+  sec.className = "govuk-scenes";
+  const h = document.createElement("h3");
+  h.textContent = "Scenes";
+  sec.append(h);
+  const ul = document.createElement("ul");
+  for (const sc of spec.scenes) {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "govuk-tile";
+    b.title = sc.label;
+    b.setAttribute("aria-pressed", String(sc.pressed));
+    const sw = document.createElement("span");
+    sw.className = "govuk-swatch";
+    sc.fill(sw);
+    const img = document.createElement("img");
+    img.src = sc.iconUrl;
+    img.alt = "";
+    const vh = document.createElement("span");
+    vh.className = "govuk-vh";
+    vh.textContent = sc.label;
+    b.append(sw, img, vh);
+    b.addEventListener("click", () => spec.onPick(sc.id));
+    li.append(b);
+    ul.append(li);
+  }
+  sec.append(ul);
+  host.querySelector(".controls")?.after(sec);
+}
+function tuneMoreInfo(spec) {
+  const started = performance.now();
+  const tick = () => {
+    const ha = document.querySelector("home-assistant");
+    const dlg = ha?.shadowRoot ? findDeep(ha.shadowRoot, "ha-more-info-dialog") : null;
+    const ml = dlg?.shadowRoot ? findDeep(dlg.shadowRoot, "more-info-light") : null;
+    const sr = ml?.shadowRoot;
+    if (dlg && ml && sr && sr.querySelector(".controls")) {
+      sizeDialog(dlg);
+      addSheet(sr, MORE_INFO_LIGHT_CSS);
+      const sc = sr.querySelector("ha-state-control-light-brightness");
+      const slider = sc?.shadowRoot?.querySelector("ha-control-slider");
+      if (sc?.shadowRoot && slider) {
+        addSheet(sc.shadowRoot, SLIDER_CSS);
+        slider.vertical = false;
+        slider.removeAttribute("vertical");
+        slider.setAttribute("aria-orientation", "horizontal");
+      }
+      paintScenes(sr, spec);
+      return;
+    }
+    if (performance.now() - started < 6e3) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
 // card/src/card.ts
 var SVG = "http://www.w3.org/2000/svg";
 var RECIPE_LIST = recipes_default;
 var COG = "M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.86,17.38L11.25,20H12.75L13.12,17.4C14.32,17.14 15.38,16.5 16.15,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.38C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z";
 var AREAS_DOCS = "https://www.home-assistant.io/docs/organizing/areas/";
+var SAFE_CSS = /^(#[0-9A-Fa-f]{6}|linear-gradient\(90deg(, #[0-9A-Fa-f]{6} \d{1,3}%)+\))$/;
+var safeCss = (v) => SAFE_CSS.test(v) ? v : "transparent";
+var previewOf = (r) => safeCss(r.previewCss ?? r.preview);
 var HEX = /^#[0-9A-Fa-f]{6}$/;
 var paletteSeconds = (n) => Math.max(4, n * 3);
 function el(tag, props = {}, ...kids) {
@@ -1008,6 +1139,33 @@ var GovukHouseLightingCard = class extends HTMLElement {
       return;
     }
     this.dispatchEvent(new CustomEvent("hass-more-info", { bubbles: true, composed: true, detail: { entityId } }));
+    const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
+    const scenes = this.usable(v) ? RECIPE_LIST.filter((r) => r.category === "scene" && avail.get(r.id)?.availability !== "unsupported") : [];
+    tuneMoreInfo({
+      title: v.cfg.name ?? v.cfg.id,
+      scenes: scenes.map((r) => ({
+        id: r.id,
+        label: r.label,
+        pressed: v.owner === r.id,
+        iconUrl: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href,
+        fill: (swatch) => this.animateSwatch(swatch, r, v)
+      })),
+      onPick: (id) => {
+        const r = scenes.find((x) => x.id === id);
+        if (r) void this.pick(v, r);
+      }
+    });
+  }
+  /** Cycles the room's effective scene palette at the same pace as the floor-plan tint. Static when motion is reduced. */
+  animateSwatch(swatch, r, v) {
+    const palette = buildPlan(r, v.caps.lightCapabilities).effectivePalette.filter((c) => HEX.test(c));
+    if (!palette.length) {
+      swatch.style.background = previewOf(r);
+      return;
+    }
+    swatch.style.backgroundColor = palette[0];
+    if (palette.length < 2 || this.reduceMotion.matches || typeof swatch.animate !== "function") return;
+    swatch.animate([...palette, palette[0]].map((c) => ({ backgroundColor: c })), { duration: paletteSeconds(palette.length) * 1e3, iterations: Infinity, easing: "linear" });
   }
   /** Per-room slot for the GOV.UK inline error message. Scenes are not shown on the card unless Nathan asks for them. */
   paintScenes(v) {

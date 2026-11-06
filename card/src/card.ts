@@ -4,6 +4,7 @@ import type { Snapshot, RoomSource, RoomLightingCapabilities } from '../../light
 import RECIPES from '../../lighting/generated/recipes.json' with { type: 'json' };
 import FLOOR from './rooms.json' with { type: 'json' };
 import { STYLES } from './styles.ts';
+import { tuneMoreInfo } from './dialog.ts';
 
 const SVG = 'http://www.w3.org/2000/svg';
 const RECIPE_LIST = RECIPES as any[];
@@ -143,6 +144,27 @@ class GovukHouseLightingCard extends HTMLElement {
     const entityId = this._hass.states[group] ? group : v.caps.lightCapabilities.find((c) => c.status === 'available')?.entityId;
     if (!entityId) { this.showError(`${v.cfg.name ?? v.cfg.id} has no light to open.`, roomId); return; }
     this.dispatchEvent(new CustomEvent('hass-more-info', { bubbles: true, composed: true, detail: { entityId } }));
+    // Restyle Home Assistant's own dialog (GOV.UK look, no scrolling) and add this room's scenes to it.
+    const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
+    const scenes = this.usable(v) ? RECIPE_LIST.filter((r) => r.category === 'scene' && avail.get(r.id)?.availability !== 'unsupported') : [];
+    tuneMoreInfo({
+      title: v.cfg.name ?? v.cfg.id,
+      scenes: scenes.map((r) => ({
+        id: r.id, label: r.label, pressed: v.owner === r.id,
+        iconUrl: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href,
+        fill: (swatch) => this.animateSwatch(swatch, r, v),
+      })),
+      onPick: (id) => { const r = scenes.find((x) => x.id === id); if (r) void this.pick(v, r); },
+    });
+  }
+
+  /** Cycles the room's effective scene palette at the same pace as the floor-plan tint. Static when motion is reduced. */
+  private animateSwatch(swatch: HTMLElement, r: any, v: RoomView) {
+    const palette = buildPlan(r, v.caps.lightCapabilities).effectivePalette.filter((c) => HEX.test(c));
+    if (!palette.length) { swatch.style.background = previewOf(r); return; }
+    swatch.style.backgroundColor = palette[0];
+    if (palette.length < 2 || this.reduceMotion.matches || typeof swatch.animate !== 'function') return;
+    swatch.animate([...palette, palette[0]].map((c) => ({ backgroundColor: c })), { duration: paletteSeconds(palette.length) * 1000, iterations: Infinity, easing: 'linear' });
   }
 
   /** Per-room slot for the GOV.UK inline error message. Scenes are not shown on the card unless Nathan asks for them. */
