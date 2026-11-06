@@ -91,3 +91,11 @@ A light that another automation writes to must not also be driven by scenes: two
 - Door closes by day: the saved scene is restored exactly. At night: green confirmation, then all three lights white (3000 K, 100%).
 - Manual changes win once: the card's Hall actions (a recipe, Turn on, Turn off) stop `script.front_door_sequence` and clear `input_boolean.front_door_sequence_active`. This comes from `interrupts` and `release` in `rooms.json`. The next door opening starts the sequence again.
 - Nothing polls. The script ends when the door closes; a restart, reload or Spot 1 returning from unavailable resumes a sequence that is still owed.
+
+## Settings opens Home Assistant's own dialog
+
+The Settings button fires Home Assistant's `hass-more-info` event for the room's light group, so the native brightness slider, colour wheel and temperature control are what you use. The card has no copy of that dialog. Whites and solid colours are not offered as tiles; the native dialog sends the `light.turn_on` calls (`color_temp_kelvin`, `xy_color`, `rgb_color`).
+
+- Groups are `light.govuk_lights_<room>`, generated into `lighting/ha/govuk_lighting_groups.yaml` from `lighting/ha/area-lights.json` (a snapshot of which lights are in which area). Copy the YAML to `/homeassistant/packages/` and reload groups or restart. After adding or moving a lamp, update the JSON and run `npm run generate`.
+- If a room has no group yet, Settings opens the dialog for the room's first available light.
+- Scene squares sit under each room. Only scenes the room can run are shown, so there is no hover-only text. Errors use the GOV.UK error summary plus an inline error message with the "Error:" prefix for screen readers.

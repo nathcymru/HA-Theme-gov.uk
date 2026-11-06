@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "node lighting/scripts/generate.mjs && node lighting/scripts/generate-ha.mjs",
+    "generate": "node lighting/scripts/generate.mjs && node lighting/scripts/generate-ha.mjs && node lighting/scripts/generate-groups.mjs",
     "check:ha": "python3 lighting/scripts/check-ha.py",
     "build": "esbuild card/src/card.ts --bundle --format=esm --outfile=card/dist/govuk-house-lighting-card.js --target=es2022",
     "typecheck": "tsc --noEmit --allowImportingTsExtensions --strict --target es2022 --module esnext --moduleResolution bundler --resolveJsonModule --lib es2022,dom card/src/card.ts",

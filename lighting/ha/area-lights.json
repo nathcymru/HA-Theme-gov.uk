@@ -1,0 +1,7 @@
+{
+  "_comment": "Light entities per Home Assistant area, read from the live registries on 2026-11-06. Room-wide groups are built from this. Hue room groups (light.lounge, light.hall, light.bedroom, light.study) are left out because they contain the lamps below. Update this file when lamps are added or moved, then run npm run generate.",
+  "lounge": ["light.lounge_lamp", "light.lounge_ceiling"],
+  "hall": ["light.hall_lamp", "light.innr_rs_242_c_2", "light.innr_rs_242_c_3", "light.innr_hall_1"],
+  "bedroom": ["light.lava_lamp", "light.bedroom_ceiling", "light.misting_fan_ambient_light"],
+  "study": ["light.study_ceiling"]
+}
