@@ -259,6 +259,18 @@ govuk:
       card-mod-more-info-yaml: |
         ha-dialog {
           --ha-dialog-border-radius: 0;
+          --mdc-dialog-min-width: min(420px, calc(100vw - 32px));
+          --mdc-dialog-max-width: min(420px, calc(100vw - 32px));
+          --mdc-dialog-max-height: min(560px, calc(100vh - 32px));
+          --dialog-content-padding: 16px;
+          --ha-dialog-surface-border: 1px solid var(--divider-color);
+          --ha-dialog-surface-margin-top: 0px;
+          --dialog-surface-margin-top: 0px;
+          --mdc-shape-medium: 0;
+          --dialog-box-shadow: none;
+        }
+        ha-more-info-dialog, ha-dialog {
+          --mdc-dialog-heading-ink-color: var(--primary-text-color);
         }
 
     # =============================================================
@@ -424,4 +436,16 @@ govuk:
       card-mod-more-info-yaml: |
         ha-dialog {
           --ha-dialog-border-radius: 0;
+          --mdc-dialog-min-width: min(420px, calc(100vw - 32px));
+          --mdc-dialog-max-width: min(420px, calc(100vw - 32px));
+          --mdc-dialog-max-height: min(560px, calc(100vh - 32px));
+          --dialog-content-padding: 16px;
+          --ha-dialog-surface-border: 1px solid var(--divider-color);
+          --ha-dialog-surface-margin-top: 0px;
+          --dialog-surface-margin-top: 0px;
+          --mdc-shape-medium: 0;
+          --dialog-box-shadow: none;
+        }
+        ha-more-info-dialog, ha-dialog {
+          --mdc-dialog-heading-ink-color: var(--primary-text-color);
         }
