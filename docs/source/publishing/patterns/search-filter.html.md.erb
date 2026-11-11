@@ -1,0 +1,62 @@
+---
+title: "Search filter"
+description: "The publishing search-filter pattern narrows a result set with facets and adapts their placement on small screens."
+section: "patterns"
+group: "Publishing patterns"
+source_url: "https://design-guide.publishing.service.gov.uk/patterns/search-filter/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Search filter
+
+The publishing search-filter pattern narrows a result set with facets and adapts their placement on small screens. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/patterns/search-filter/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use filters for a substantial device, automation or document catalogue. Choose facets that reflect the task, such as area, domain or availability. Keep a visible result count and clear selected criteria. A short list that is already easy to scan does not need an elaborate filter panel.
+
+## Structure and behaviour
+
+Group related choices with a fieldset and legend. Keep search, filters and results in a logical document order. A mobile disclosure may contain the same controls, with a link back to results. Native HA remains responsible for entity visibility and actual filtering; a documentation specimen is not a replacement entity registry.
+
+## Home Assistant boundary
+
+Automatic refresh must not move focus away from the changed filter. State when results are loading and when no records match. Preserve meaningful query state when navigating back. These local examples apply filters only when the person submits them: query words must all match a record, selected areas are alternatives, and query and area criteria combine. Clear filters restores the fixed dataset. Counts and empty-state messages reflect the actual visible records; no live entities are queried. Without JavaScript, all records remain readable and the form cannot submit.
+
+## Search and area filters
+
+Try a name, select Kitchen or Hall, and apply the filters. Choices within Area are alternatives; the query and area criteria combine.
+
+<%= example("pub-patterns-search-filter-1") %>
+
+## Recover from no matches
+
+Enter an unmatched word such as bedroom to see the empty state, then clear filters to restore all three documentation records.
+
+<%= example("pub-patterns-search-filter-2") %>
+
+## Acceptance checks
+
+- A zero-result state offers a meaningful reset route.
+- The result count agrees with the displayed dataset.
+- Multiple filter groups have unique labels.
+- Mobile and desktop expose the same filtering capability.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing patterns](index.html).

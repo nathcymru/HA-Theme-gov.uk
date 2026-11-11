@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "source_index": "https://service-manual.nhs.uk/design-system/components",
+  "reviewed_on": "2026-11-11",
+  "total": 38,
+  "scope": "Complete current index including the withdrawn review-date entry. Reference examples are documentation, not claims of deployed Home Assistant native adaptations.",
+  "components": [
+    {
+      "id": "buttons",
+      "title": "Buttons",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/buttons",
+      "source_status": "current",
+      "local_path": "/components/buttons.html",
+      "local_status": "reference",
+      "adaptation": "Keep native service permissions and pending states. A command is not a confirmed device state: after an action, describe that a request was sent until the integration reports the result. The reference actions below only update example text. Destructive confirmation uses explicit wording and the fixed danger role; it is not a palette variant.",
+      "examples": [
+        "nhs-button-primary",
+        "nhs-button-secondary",
+        "nhs-button-warning",
+        "nhs-button-unavailable"
+      ]
+    },
+    {
+      "id": "character-count",
+      "title": "Character count",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/character-count",
+      "source_status": "current",
+      "local_path": "/components/character-count.html",
+      "local_status": "reference",
+      "adaptation": "The example uses the GOV.UK character-count enhancement. It allows editing beyond the limit and provides feedback; submission validation still belongs to the component that stores the note. A household note is not a monitored message to a support team. State its audience and purpose.",
+      "examples": [
+        "nhs-count-note",
+        "nhs-count-over-limit"
+      ]
+    },
+    {
+      "id": "checkboxes",
+      "title": "Checkboxes",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/checkboxes",
+      "source_status": "current",
+      "local_path": "/components/checkboxes.html",
+      "local_status": "reference",
+      "adaptation": "When editing an existing Home Assistant preference, show its saved checked state. This differs from preselecting answers to a new question, which can conceal a missed decision. Keep presentation preferences separate from physical commands. Checking a room in a filter must not switch its devices on.",
+      "examples": [
+        "nhs-checkbox-rooms",
+        "nhs-checkbox-preference"
+      ]
+    },
+    {
+      "id": "date-input",
+      "title": "Date input",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/date-input",
+      "source_status": "current",
+      "local_path": "/components/date-input.html",
+      "local_status": "reference",
+      "adaptation": "Group the fields as one question and validate the whole calendar date, including leap years. A date-only maintenance record is not a timestamp: do not silently shift it when the account timezone changes. Do not use birthday autocomplete attributes for appliance dates.",
+      "examples": [
+        "nhs-date-maintenance",
+        "nhs-date-error"
+      ]
+    },
+    {
+      "id": "error-message",
+      "title": "Error message",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/error-message",
+      "source_status": "current",
+      "local_path": "/components/error-message.html",
+      "local_status": "reference",
+      "adaptation": "For Home Assistant settings, distinguish malformed input from a service failure. Keep a correctly entered room name if saving fails because the connection was lost. Avoid inventing numeric ranges: enforce the integration’s declared minimum and maximum, and identify their unit.",
+      "examples": [
+        "nhs-error-room-name",
+        "nhs-error-temperature"
+      ]
+    },
+    {
+      "id": "error-summary",
+      "title": "Error summary",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/error-summary",
+      "source_status": "current",
+      "local_path": "/components/error-summary.html",
+      "local_status": "reference",
+      "adaptation": "After a failed Home Assistant settings save, focus the summary once and preserve every non-secret answer. Prefix the page title with “Error:” when the form owns its page. In an existing modal, keep the focus inside that modal and use its accessible title; do not replace the application title indiscriminately.",
+      "examples": [
+        "nhs-summary-one-error",
+        "nhs-summary-two-errors"
+      ]
+    },
+    {
+      "id": "fieldset",
+      "title": "Fieldset",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/fieldset",
+      "source_status": "current",
+      "local_path": "/components/fieldset.html",
+      "local_status": "reference",
+      "adaptation": "For a dashboard editor, separate display choices from integration settings so the legend describes a coherent task. On a one-question page the legend can contain the page heading. In a multi-section settings page use the appropriate lower heading level instead of repeating h1.",
+      "examples": [
+        "nhs-fieldset-room-options",
+        "nhs-fieldset-period"
+      ]
+    },
+    {
+      "id": "file-upload",
+      "title": "File upload",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/file-upload",
+      "source_status": "current",
+      "local_path": "/components/file-upload.html",
+      "local_status": "reference",
+      "adaptation": "The reference examples select files locally and do not send them anywhere. A production importer must validate file content, report progress and explain whether an import will replace settings before committing it. File selection is not proof that an upload or restore succeeded.",
+      "examples": [
+        "nhs-upload-image",
+        "nhs-upload-error"
+      ]
+    },
+    {
+      "id": "hint-text",
+      "title": "Hint text",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/hint-text",
+      "source_status": "current",
+      "local_path": "/components/hint-text.html",
+      "local_status": "reference",
+      "adaptation": "For Home Assistant, explain human concepts rather than internal entity or service names unless an advanced configuration task requires those identifiers. State whether a value changes only the display or affects an automation. Keep extended help in normal page content outside the described-by text.",
+      "examples": [
+        "nhs-hint-name",
+        "nhs-hint-scope"
+      ]
+    },
+    {
+      "id": "password-input",
+      "title": "Password input",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/password-input",
+      "source_status": "current",
+      "local_path": "/components/password-input.html",
+      "local_status": "reference",
+      "adaptation": "These examples contain no stored credentials and do not authenticate. In production, allow password managers and paste. Keep the password hidden initially and return the input type to password before submission. Do not change the account’s password policy through presentation code.",
+      "examples": [
+        "nhs-password-current",
+        "nhs-password-new"
+      ]
+    },
+    {
+      "id": "radios",
+      "title": "Radios",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/radios",
+      "source_status": "current",
+      "local_path": "/components/radios.html",
+      "local_status": "reference",
+      "adaptation": "Show a saved setting when editing an existing preference. For a new unanswered question, avoid silently choosing an answer. Include a genuine “Use system setting” or “Not sure” option when it is valid, rather than forcing a false binary answer.",
+      "examples": [
+        "nhs-radio-units",
+        "nhs-radio-theme-mode"
+      ]
+    },
+    {
+      "id": "search-input",
+      "title": "Search input",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/search-input",
+      "source_status": "current",
+      "local_path": "/components/search-input.html",
+      "local_status": "reference",
+      "adaptation": "Preserve the current query when returning from a result. Distinguish no matching devices from a failed connection, and keep a clear route to the unfiltered list. Search in a reference frame changes no Home Assistant state; its feedback describes only the demonstration.",
+      "examples": [
+        "nhs-search-devices",
+        "nhs-search-no-results"
+      ]
+    },
+    {
+      "id": "select",
+      "title": "Select",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/select",
+      "source_status": "current",
+      "local_path": "/components/select.html",
+      "local_status": "reference",
+      "adaptation": "Preselect the saved palette when editing theme settings. Keep its name in text and provide an immediate visual preview; a colour swatch alone does not identify the choice. Selecting an appearance must not issue device commands or reset the selected Energy period.",
+      "examples": [
+        "nhs-select-palettes",
+        "nhs-select-error"
+      ]
+    },
+    {
+      "id": "text-input",
+      "title": "Text input",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/text-input",
+      "source_status": "current",
+      "local_path": "/components/text-input.html",
+      "local_status": "reference",
+      "adaptation": "Use friendly names for ordinary household tasks; show entity identifiers only when the task requires them. For measurements, state the unit in the label as well as any visual suffix. Accept sensible formatting instead of rejecting an answer solely for harmless spaces.",
+      "examples": [
+        "nhs-input-room",
+        "nhs-input-measurement"
+      ]
+    },
+    {
+      "id": "textarea",
+      "title": "Textarea",
+      "group": "Form elements",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/textarea",
+      "source_status": "current",
+      "local_path": "/components/textarea.html",
+      "local_status": "reference",
+      "adaptation": "Explain who can read a household note and where it appears. Do not store passwords, access tokens or private care instructions in a shared dashboard note. Preserve draft text through ordinary validation errors and make unsaved changes clear before navigating away.",
+      "examples": [
+        "nhs-textarea-description",
+        "nhs-textarea-error"
+      ]
+    },
+    {
+      "id": "card",
+      "title": "Cards",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/card",
+      "source_status": "current",
+      "local_path": "/components/cards.html",
+      "local_status": "existing-component",
+      "adaptation": "Shared GOV.UK primitive with NHS guidance and Home Assistant examples.",
+      "examples": [
+        "nhs-card-navigation",
+        "nhs-card-information"
+      ]
+    },
+    {
+      "id": "details",
+      "title": "Details",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/details",
+      "source_status": "current",
+      "local_path": "/components/details.html",
+      "local_status": "reference",
+      "adaptation": "An Energy view can keep a definition of a measurement nearby without obscuring the actual value and unit. A device card may explain why an action needs permission, but the immediate unavailable reason must remain visible. Do not place a link or a button inside the summary.",
+      "examples": [
+        "nhs-details-energy",
+        "nhs-details-unavailable"
+      ]
+    },
+    {
+      "id": "do-and-dont-lists",
+      "title": "Do and do not lists",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/do-and-dont-lists",
+      "source_status": "current",
+      "local_path": "/components/do-and-dont-lists.html",
+      "local_status": "reference",
+      "adaptation": "Write advice that the user can act on and that matches verified product behaviour. Keep device-specific servicing instructions in the manufacturer’s guidance. The examples explain interface use and information handling; they do not prescribe physical repairs.",
+      "examples": [
+        "nhs-advice-dashboard",
+        "nhs-advice-notes"
+      ]
+    },
+    {
+      "id": "expander",
+      "title": "Expander",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/expander",
+      "source_status": "current",
+      "local_path": "/components/expander.html",
+      "local_status": "reference",
+      "adaptation": "For Home Assistant help, expanders may organise explanations of recorded Energy values or dashboard visibility. They are a reference-content pattern, not a new container for every card. Preserve the user’s open sections when unrelated readings change.",
+      "examples": [
+        "nhs-expander-energy",
+        "nhs-expander-guide"
+      ]
+    },
+    {
+      "id": "images",
+      "title": "Images",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/images",
+      "source_status": "current",
+      "local_path": "/components/images.html",
+      "local_status": "reference",
+      "adaptation": "The example floor plan is an original schematic, not a picture of a real home. A real installation needs its own accurate room labels and text alternative. Retain an ordinary room list as an alternative to a spatial plan, and respect access permissions for cameras and private images.",
+      "examples": [
+        "nhs-image-floorplan",
+        "nhs-image-decorative"
+      ]
+    },
+    {
+      "id": "inset-text",
+      "title": "Inset text",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/inset-text",
+      "source_status": "current",
+      "local_path": "/components/inset-text.html",
+      "local_status": "reference",
+      "adaptation": "An Energy help page can distinguish an estimated cost from a supplier bill. A dashboard guide can explain that renaming a view changes its label only. Neither should be represented as a live alert or as successful completion of an action.",
+      "examples": [
+        "nhs-inset-estimate",
+        "nhs-inset-display"
+      ]
+    },
+    {
+      "id": "notification-banners",
+      "title": "Notification banners",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/notification-banners",
+      "source_status": "current",
+      "local_path": "/components/notification-banners.html",
+      "local_status": "reference",
+      "adaptation": "State what is affected and when it applies. A temporary integration outage is not evidence that a physical device is off. Success wording must reflect the result confirmed by Home Assistant, not merely that a button was pressed. Remove stale success notices after navigation.",
+      "examples": [
+        "nhs-banner-maintenance",
+        "nhs-banner-success"
+      ]
+    },
+    {
+      "id": "panel",
+      "title": "Panel",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/panel",
+      "source_status": "current",
+      "local_path": "/components/panel.html",
+      "local_status": "reference",
+      "adaptation": "A dashboard import confirmation should state exactly what was imported and where to find it. Do not say “Backup restored” until the owning restore operation confirms completion. An interruption must explain its consequence without inventing authority or demanding an unnecessary approval.",
+      "examples": [
+        "nhs-panel-complete",
+        "nhs-panel-interruption"
+      ]
+    },
+    {
+      "id": "review-date",
+      "title": "Review dates and freshness",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/review-date",
+      "source_status": "withdrawn",
+      "local_path": "/components/review-date.html",
+      "local_status": "reference",
+      "adaptation": "For civica.uk documentation, published and updated metadata describe changes to the page. A device card instead needs the meaning of its timestamp, the relevant timezone and an unavailable or stale state when required by its integration. Keep these concepts separate in wording and machine-readable records.",
+      "examples": [
+        "nhs-component-review-guidance",
+        "nhs-review-reading"
+      ],
+      "replacement_source_url": "https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date"
+    },
+    {
+      "id": "summary-list",
+      "title": "Summary list",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/summary-list",
+      "source_status": "current",
+      "local_path": "/components/summary-list.html",
+      "local_status": "reference",
+      "adaptation": "A device summary should distinguish a friendly name, room and connection state. A settings summary can offer a change link without making the whole row a button. Returning from a change must preserve the existing answer and the path back to the review.",
+      "examples": [
+        "nhs-summary-device",
+        "nhs-summary-change"
+      ]
+    },
+    {
+      "id": "table",
+      "title": "Table",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/table",
+      "source_status": "current",
+      "local_path": "/components/table.html",
+      "local_status": "reference",
+      "adaptation": "Keep recorded zeros distinct from missing values. The Energy companion’s View data table is an implemented example with pagination and native period semantics; these broader table variants are reference patterns. Preserve the selected date, unit and timezone when presenting chart values.",
+      "examples": [
+        "nhs-table-readings",
+        "nhs-table-missing",
+        "nhs-table-scroll"
+      ]
+    },
+    {
+      "id": "tabs",
+      "title": "Tabs",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/tabs",
+      "source_status": "current",
+      "local_path": "/components/tabs.html",
+      "local_status": "reference",
+      "adaptation": "A device reference might separate current details from its event history. Preserve the selected tab during unrelated sensor updates and avoid refetching or resetting the user’s position unnecessarily. An empty panel should explain why it has no values rather than disabling its tab.",
+      "examples": [
+        "nhs-tabs-device",
+        "nhs-tabs-empty"
+      ]
+    },
+    {
+      "id": "tag",
+      "title": "Tag",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/tag",
+      "source_status": "current",
+      "local_path": "/components/tag.html",
+      "local_status": "reference",
+      "adaptation": "Distinguish “Unavailable” from “Off”: lack of a connection does not prove the physical state. A setup task may be “Completed” while the associated device is currently unavailable; these are different facts and need different labels.",
+      "examples": [
+        "nhs-tag-connection",
+        "nhs-tag-task"
+      ]
+    },
+    {
+      "id": "task-list",
+      "title": "Task list",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/task-list",
+      "source_status": "current",
+      "local_path": "/components/task-list.html",
+      "local_status": "reference",
+      "adaptation": "A dashboard setup may include choosing rooms, reviewing labels and checking the finished view. Mark a task completed only when its required work is saved. Explain dependencies instead of presenting an unexplained disabled link. Keep any final activation separate from progress labels.",
+      "examples": [
+        "nhs-tasks-dashboard",
+        "nhs-tasks-dependency"
+      ]
+    },
+    {
+      "id": "warning-callout",
+      "title": "Warning callout",
+      "group": "Content presentation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/warning-callout",
+      "source_status": "current",
+      "local_path": "/components/warning-callout.html",
+      "local_status": "reference",
+      "adaptation": "In Home Assistant guidance, make clear that an unavailable reading is not a confirmed safe physical state and that importing configuration may alter existing settings. Do not invent alarm advice or device operating instructions. Link to the owning verified guidance from ordinary surrounding content where appropriate.",
+      "examples": [
+        "nhs-warning-unavailable",
+        "nhs-warning-import"
+      ]
+    },
+    {
+      "id": "action-link",
+      "title": "Action links",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/action-link",
+      "source_status": "current",
+      "local_path": "/components/action-links.html",
+      "local_status": "existing-component",
+      "adaptation": "Shared GOV.UK primitive with NHS guidance and Home Assistant examples.",
+      "examples": [
+        "nhs-action-link-journey",
+        "nhs-action-link-help"
+      ]
+    },
+    {
+      "id": "back-link",
+      "title": "Back link",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/back-link",
+      "source_status": "current",
+      "local_path": "/components/back-link.html",
+      "local_status": "reference",
+      "adaptation": "Home Assistant already owns routing and many back controls. Reuse the native route and editor state rather than inserting a second competing control. The examples use local section targets so no real dashboard is left or modified.",
+      "examples": [
+        "nhs-back-step",
+        "nhs-back-review"
+      ]
+    },
+    {
+      "id": "breadcrumbs",
+      "title": "Breadcrumbs",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/breadcrumbs",
+      "source_status": "current",
+      "local_path": "/components/breadcrumbs.html",
+      "local_status": "reference",
+      "adaptation": "Home Assistant’s sidebar and native navigation already supply much of this context. Add breadcrumbs only where a deeper hierarchy needs them, such as a device detail flow. Use real parent routes and preserve ordinary link behaviour; do not invent an extra hierarchy from entity identifiers.",
+      "examples": [
+        "nhs-breadcrumbs-device",
+        "nhs-breadcrumbs-guide"
+      ]
+    },
+    {
+      "id": "contents-list",
+      "title": "Contents list",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/contents-list",
+      "source_status": "current",
+      "local_path": "/components/contents-list.html",
+      "local_status": "reference",
+      "adaptation": "An Energy help guide can separate measurements, comparisons and missing data. Keep the page title and topic labels consistent with the contents. An in-page list is a local variant for one long article; use section fragments and label it “On this page” so the scope is clear.",
+      "examples": [
+        "nhs-contents-guide",
+        "nhs-contents-in-page"
+      ]
+    },
+    {
+      "id": "footer",
+      "title": "Footer",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/footer",
+      "source_status": "current",
+      "local_path": "/components/footer.html",
+      "local_status": "reference",
+      "adaptation": "Use civica.uk identity and the project’s actual licence and ownership information. Do not copy NHS or Crown copyright claims. Help links must lead to a known destination and appear consistently. An application’s native settings and about screens may be the appropriate home for equivalent information.",
+      "examples": [
+        "nhs-footer-simple",
+        "nhs-footer-information"
+      ]
+    },
+    {
+      "id": "header",
+      "title": "Header",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/header",
+      "source_status": "current",
+      "local_path": "/components/header.html",
+      "local_status": "reference",
+      "adaptation": "The NHS header’s identity rules apply to NHS services, not this project. civica.uk uses the supplied lockup and palette masthead. Preserve Home Assistant’s native menu, account actions and permissions. A constrained task may need fewer exits than a browsing dashboard.",
+      "examples": [
+        "nhs-header-minimal",
+        "nhs-header-navigation"
+      ]
+    },
+    {
+      "id": "pagination",
+      "title": "Pagination",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/pagination",
+      "source_status": "current",
+      "local_path": "/components/pagination.html",
+      "local_status": "reference",
+      "adaptation": "For Home Assistant history, preserve the query, period, filters and sorting when changing page. State how many rows or pages are available. The existing Energy data table uses explicit previous/next buttons for 100-row pages; route-based lists can use the link pattern shown here.",
+      "examples": [
+        "nhs-pagination-guide",
+        "nhs-pagination-records"
+      ]
+    },
+    {
+      "id": "skip-link",
+      "title": "Skip link",
+      "group": "Navigation",
+      "source_url": "https://service-manual.nhs.uk/design-system/components/skip-link",
+      "source_status": "current",
+      "local_path": "/components/skip-link.html",
+      "local_status": "reference",
+      "adaptation": "The civica documentation shell supplies page-level navigation. In Home Assistant, routing and shadow roots require integration with the native focus target; a fragment in one shadow tree cannot automatically focus another. Do not claim a global skip enhancement from an isolated HTML example.",
+      "examples": [
+        "nhs-skip-main",
+        "nhs-skip-form"
+      ]
+    }
+  ]
+}

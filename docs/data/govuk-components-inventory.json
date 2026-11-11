@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "source_index": "https://design-system.service.gov.uk/components/",
+  "reviewed_on": "2026-11-11",
+  "total": 37,
+  "components": [
+    {
+      "id": "accordion",
+      "title": "Accordion",
+      "source_url": "https://design-system.service.gov.uk/components/accordion/",
+      "local_path": "/components/accordion.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "back-link",
+      "title": "Back link",
+      "source_url": "https://design-system.service.gov.uk/components/back-link/",
+      "local_path": "/components/back-link.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "breadcrumbs",
+      "title": "Breadcrumbs",
+      "source_url": "https://design-system.service.gov.uk/components/breadcrumbs/",
+      "local_path": "/components/breadcrumbs.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "button",
+      "title": "Button",
+      "source_url": "https://design-system.service.gov.uk/components/button/",
+      "local_path": "/components/buttons.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "character-count",
+      "title": "Character count",
+      "source_url": "https://design-system.service.gov.uk/components/character-count/",
+      "local_path": "/components/character-count.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "checkboxes",
+      "title": "Checkboxes",
+      "source_url": "https://design-system.service.gov.uk/components/checkboxes/",
+      "local_path": "/components/checkboxes.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "cookie-banner",
+      "title": "Cookie banner",
+      "source_url": "https://design-system.service.gov.uk/components/cookie-banner/",
+      "local_path": "/components/cookie-banner.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "date-input",
+      "title": "Date input",
+      "source_url": "https://design-system.service.gov.uk/components/date-input/",
+      "local_path": "/components/date-input.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "details",
+      "title": "Details",
+      "source_url": "https://design-system.service.gov.uk/components/details/",
+      "local_path": "/components/details.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "error-message",
+      "title": "Error message",
+      "source_url": "https://design-system.service.gov.uk/components/error-message/",
+      "local_path": "/components/error-message.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "error-summary",
+      "title": "Error summary",
+      "source_url": "https://design-system.service.gov.uk/components/error-summary/",
+      "local_path": "/components/error-summary.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "exit-this-page",
+      "title": "Exit this page",
+      "source_url": "https://design-system.service.gov.uk/components/exit-this-page/",
+      "local_path": "/components/exit-this-page.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback",
+      "source_url": "https://design-system.service.gov.uk/components/feedback/",
+      "local_path": "/components/feedback.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "fieldset",
+      "title": "Fieldset",
+      "source_url": "https://design-system.service.gov.uk/components/fieldset/",
+      "local_path": "/components/fieldset.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "file-upload",
+      "title": "File upload",
+      "source_url": "https://design-system.service.gov.uk/components/file-upload/",
+      "local_path": "/components/file-upload.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "generic-header",
+      "title": "Generic header",
+      "source_url": "https://design-system.service.gov.uk/components/generic-header/",
+      "local_path": "/components/generic-header.html",
+      "local_status": "reference",
+      "adaptation": "civica.uk identity replaces official government identity; shared structural guidance."
+    },
+    {
+      "id": "footer",
+      "title": "Footer",
+      "source_url": "https://design-system.service.gov.uk/components/footer/",
+      "local_path": "/components/footer.html",
+      "local_status": "reference",
+      "adaptation": "civica.uk identity replaces official government identity; shared structural guidance."
+    },
+    {
+      "id": "header",
+      "title": "Header",
+      "source_url": "https://design-system.service.gov.uk/components/header/",
+      "local_path": "/components/header.html",
+      "local_status": "reference",
+      "adaptation": "civica.uk identity replaces official government identity; shared structural guidance."
+    },
+    {
+      "id": "inset-text",
+      "title": "Inset text",
+      "source_url": "https://design-system.service.gov.uk/components/inset-text/",
+      "local_path": "/components/inset-text.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "language-navigation",
+      "title": "Language navigation",
+      "source_url": "https://design-system.service.gov.uk/components/language-navigation/",
+      "local_path": "/components/language-navigation.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "notification-banner",
+      "title": "Notification banner",
+      "source_url": "https://design-system.service.gov.uk/components/notification-banner/",
+      "local_path": "/components/notification-banners.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "pagination",
+      "title": "Pagination",
+      "source_url": "https://design-system.service.gov.uk/components/pagination/",
+      "local_path": "/components/pagination.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "panel",
+      "title": "Panel",
+      "source_url": "https://design-system.service.gov.uk/components/panel/",
+      "local_path": "/components/panel.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "password-input",
+      "title": "Password input",
+      "source_url": "https://design-system.service.gov.uk/components/password-input/",
+      "local_path": "/components/password-input.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "phase-banner",
+      "title": "Phase banner",
+      "source_url": "https://design-system.service.gov.uk/components/phase-banner/",
+      "local_path": "/components/phase-banner.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "radios",
+      "title": "Radios",
+      "source_url": "https://design-system.service.gov.uk/components/radios/",
+      "local_path": "/components/radios.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "select",
+      "title": "Select",
+      "source_url": "https://design-system.service.gov.uk/components/select/",
+      "local_path": "/components/select.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "service-navigation",
+      "title": "Service navigation",
+      "source_url": "https://design-system.service.gov.uk/components/service-navigation/",
+      "local_path": "/components/service-navigation.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "skip-link",
+      "title": "Skip link",
+      "source_url": "https://design-system.service.gov.uk/components/skip-link/",
+      "local_path": "/components/skip-link.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "summary-list",
+      "title": "Summary list",
+      "source_url": "https://design-system.service.gov.uk/components/summary-list/",
+      "local_path": "/components/summary-list.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "table",
+      "title": "Table",
+      "source_url": "https://design-system.service.gov.uk/components/table/",
+      "local_path": "/components/table.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "tabs",
+      "title": "Tabs",
+      "source_url": "https://design-system.service.gov.uk/components/tabs/",
+      "local_path": "/components/tabs.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "tag",
+      "title": "Tag",
+      "source_url": "https://design-system.service.gov.uk/components/tag/",
+      "local_path": "/components/tag.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "task-list",
+      "title": "Task list",
+      "source_url": "https://design-system.service.gov.uk/components/task-list/",
+      "local_path": "/components/task-list.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "text-input",
+      "title": "Text input",
+      "source_url": "https://design-system.service.gov.uk/components/text-input/",
+      "local_path": "/components/text-input.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "textarea",
+      "title": "Textarea",
+      "source_url": "https://design-system.service.gov.uk/components/textarea/",
+      "local_path": "/components/textarea.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    },
+    {
+      "id": "warning-text",
+      "title": "Warning text",
+      "source_url": "https://design-system.service.gov.uk/components/warning-text/",
+      "local_path": "/components/warning-text.html",
+      "local_status": "reference",
+      "adaptation": "Shared component primitive with original household examples and explicit implementation limits."
+    }
+  ]
+}

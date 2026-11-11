@@ -10,8 +10,14 @@ review_in: 3 months
 <p><strong>All values on this page are invented example data.</strong> They are not readings from a home, official statistics or an ONS endorsement.</p>
 <p>Compare line, column and bar presentation, inspect the values and try the appearance controls. In aggregate comparisons, solid columns show the current period and hatched columns show the previous period. The examples start with native Home Assistant data structures, including its split-sign power arrays, translucent bars and gradient areas, so the shared adapter must perform the same conversion as the live installation. The 24-device example demonstrates the <a href="../styles/chart-colour.html">generated chart colours and their limits</a>. Read the <a href="charts.html">chart specification</a> for supported Energy cards, source guidance and controlled deviations.</p>
 
-<div data-civica-energy-examples></div>
-<noscript><p>The interactive examples need JavaScript. The <a href="charts.html">chart specification</a> and <a href="../patterns/energy.html">Energy pattern</a> remain available without it.</p></noscript>
-<p>The standalone renderer's <a href="../reference/chart-demo-licenses.txt">third-party licences</a> are included with these examples.</p>
-
-<script type="module" src="../javascripts/energy-chart-examples.js"></script>
+<h2>Power sources — individual unfilled lines</h2>
+<%= example('local-chart-power') %>
+<h2>Consumption — solid and hatched columns</h2>
+<%= example('local-chart-usage') %>
+<h2>Device comparison — horizontal bars</h2>
+<%= example('local-chart-devices') %>
+<h2>24 named series — generated colours</h2>
+<%= example('local-chart-many') %>
+<h2>No values — an explicit empty state</h2>
+<%= example('local-chart-empty') %>
+<p>The standalone renderer’s <a href="../reference/chart-demo-licenses.txt">third-party licences</a> are included with these examples.</p>

@@ -1,0 +1,60 @@
+---
+title: "Related Navigation"
+description: "Related navigation links to useful adjacent content. It complements the current task without becoming a second site map."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/related-navigation/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Related Navigation
+
+Related navigation links to useful adjacent content. It complements the current task without becoming a second site map. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/related-navigation/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a small set of meaningful links after a device guide or beside a long documentation article. Examples include installation requirements beside a theme-settings page, or a device manual beside a maintenance record. Order by user need, not by an assumed popularity score.
+
+## Structure and behaviour
+
+Mark the group as navigation and give it a specific label such as "More about theme installation". Use concise destination titles. On narrow screens, move related links after the main content in the same reading order. Explain external destinations when leaving HA or the documentation.
+
+## Home Assistant boundary
+
+The theme does not infer household relationships, expose hidden dashboards or recommend external services. Only link to destinations the current user may access. Do not copy government organisation, world-location or policy classifications into the household interface.
+
+## Related theme guidance
+
+Two real in-page destinations illustrate a small curated set.
+
+<%= example("pub-components-related-navigation-1") %>
+
+## Device documentation
+
+A narrow related group complements a sample record.
+
+<%= example("pub-components-related-navigation-2") %>
+
+## Acceptance checks
+
+- Each destination helps complete or understand the current task.
+- The group has a unique navigation name.
+- Mobile order puts the main task before supplementary links.
+- No related link triggers a service call.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

@@ -1,5 +1,45 @@
 <%
   fragment = Nokogiri::HTML::DocumentFragment.parse(yield)
+  headings = fragment.children.select { |node| node.name == 'h2' }
+  # Component pages lead with the default rendered example, as the official
+  # Design System does; supporting variants remain beside their guidance.
+  first_example = fragment.at_css('.c-example')
+  if current_section == 'components' && first_example && headings.first
+    prior = first_example.previous_element
+    while prior && !%w[h2 h3].include?(prior.name)
+      prior = prior.previous_element
+    end
+    if prior && prior.name == 'h3'
+      reference = Nokogiri::XML::Node.new('p', fragment.document)
+      link = Nokogiri::XML::Node.new('a', fragment.document)
+      link['href'] = "##{first_example['id']}"
+      link.content = 'View this example at the start of the page'
+      reference.add_child(link)
+      first_example.add_previous_sibling(reference)
+    end
+    first_example.unlink
+    headings.first.add_previous_sibling(first_example)
+  end
+  if headings.length >= 3 && !home_page?
+    contents = Nokogiri::XML::Node.new('nav', fragment.document)
+    contents['class'] = 'c-on-this-page'
+    contents['aria-label'] = 'On this page'
+    title = Nokogiri::XML::Node.new('h2', fragment.document)
+    title.content = 'On this page'
+    contents.add_child(title)
+    list = Nokogiri::XML::Node.new('ul', fragment.document)
+    headings.each_with_index do |heading, index|
+      heading['id'] ||= "section-#{index + 1}"
+      item = Nokogiri::XML::Node.new('li', fragment.document)
+      link = Nokogiri::XML::Node.new('a', fragment.document)
+      link['href'] = "##{heading['id']}"
+      link.content = heading.text
+      item.add_child(link)
+      list.add_child(item)
+    end
+    contents.add_child(list)
+    headings.first.add_previous_sibling(contents)
+  end
   fragment.css('table').each do |table|
     heading = table.xpath('preceding::*[self::h2 or self::h3][1]').first
     label = heading ? heading.text : current_page.data.title

@@ -1,0 +1,60 @@
+---
+title: "Completed transaction"
+description: "The publishing completed-transaction template is a service feedback destination after a transaction; it is not simply a generic success panel."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/completed-transaction/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Completed transaction
+
+The publishing completed-transaction template is a service feedback destination after a transaction; it is not simply a generic success panel. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/completed-transaction/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+In Home Assistant, distinguish a command being accepted from a device reaching the requested state. A completed setup flow can show what was saved and the useful next action. Feedback should be optional and separate from the confirmed result.
+
+## Structure and behaviour
+
+Name the completed task, include a reference only if the underlying system provides one, and explain any remaining work. A request still awaiting the device should say so. Retain a route back to the relevant native page. A short action may need a local status message rather than a whole completion page.
+
+## Home Assistant boundary
+
+No government /done route, satisfaction service or promotional content is added. The examples are explicitly fictional outcome states and do not call devices. Never show “Completed” merely because the user pressed a button or the visual animation ended.
+
+## Confirmed outcome specimen
+
+A labelled example of a saved preference, not a real setting change.
+
+<%= example("pub-frontend-templates-completed-transaction-1") %>
+
+## Pending device outcome
+
+Do not turn a pending response into a false completion.
+
+<%= example("pub-frontend-templates-completed-transaction-2") %>
+
+## Acceptance checks
+
+- Completion is based on confirmed state or successful persistence.
+- Pending, failed and completed outcomes have different wording.
+- Refreshing the page does not repeat the action.
+- Optional feedback cannot block access to the result.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

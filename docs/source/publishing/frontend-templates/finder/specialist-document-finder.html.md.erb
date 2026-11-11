@@ -1,0 +1,62 @@
+---
+title: "Specialist document finder"
+description: "The official variant searches documents of the specialist-document type."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/specialist-document-finder/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Specialist document finder
+
+The official variant searches documents of the specialist-document type. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/finder/specialist-document-finder/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a narrowly scoped library for technical manuals, compatibility records or installation procedures. Show equipment model, document revision and intended audience when these distinguish results.
+
+## Structure and behaviour
+
+Keep the collection scope next to the search label. Use a result title, a short distinguishing description and only the metadata needed for the next decision. The selected criteria and result count should remain visible. A no-match result needs a clear way to broaden the query; an unavailable data source needs a different message.
+
+## Home Assistant boundary
+
+A document matching an appliance name may still be for the wrong model or revision. Never infer compatibility from search relevance or hide that a document has been superseded. The examples are self-contained specimens with invented records. The second example filters its fixed local list by the words entered, updates the result count, exposes a genuine no-match state and restores all records when cleared. Record details remain readable without JavaScript; submit buttons are disabled until the local handler is ready. No connected search backend or household data is used.
+
+## Example technical documents
+
+Two invented entries demonstrate the result metadata.
+
+<%= example("pub-frontend-templates-finder-specialist-document-finder-1") %>
+
+## Search within this collection
+
+Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend.
+
+<%= example("pub-frontend-templates-finder-specialist-document-finder-2") %>
+
+## Acceptance checks
+
+- The collection’s scope matches the promised result type.
+- Metadata is verified rather than inferred from the display name.
+- Keyboard focus stays predictable as criteria change.
+- No-match and unavailable states have different explanations.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](../index.html).

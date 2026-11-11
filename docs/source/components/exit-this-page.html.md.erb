@@ -1,0 +1,44 @@
+---
+title: "Exit this page"
+description: "Provide a rapid departure route only when research identifies a risk from viewing sensitive content."
+section: components
+group: Navigation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Exit this page
+
+Provide a rapid departure route only when research identifies a risk from viewing sensitive content.
+
+## When to use
+
+Consider this pattern for sensitive support content where being observed could place someone at risk. It is not a general close button, a device emergency stop or a replacement for sign-out. A household control dashboard does not need this component merely because it contains personal information.
+
+The examples below demonstrate visual placement and keyboard discovery only. They deliberately use local, clearly labelled destinations. They are not a production safety mechanism.
+
+## Visible departure link
+
+<%= example('core-exit-visible') %>
+
+## Secondary keyboard route
+
+<%= example('core-exit-keyboard') %>
+
+## Production behaviour
+
+Use the complete upstream component and its companion exit pattern for a real service, including the rapid keyboard action and loading cover. Choose a destination that does not expose personalised sensitive content. Both exit routes must agree. Check session-clearing requirements with the application owner; navigation alone does not erase history, browser suggestions or device records.
+
+Do not implement the rapid keyboard shortcut globally in Home Assistant without assessing conflicts with assistive technology and native controls. A miniature demonstration inside an iframe cannot establish that a full-page departure is safe.
+
+## Accessibility and testing
+
+Include affected users and appropriate safety expertise in research. Test the visible action, secondary link, shortcut, slow navigation, keyboard focus, JavaScript failure and browser back behaviour in the actual service. Never describe a local preview as proof of safety.
+
+## Source and limits
+
+Read [GOV.UK Exit this page](https://design-system.service.gov.uk/components/exit-this-page/) and its linked journey pattern. This civica.uk entry records the component for completeness; the theme does not install it on household pages.

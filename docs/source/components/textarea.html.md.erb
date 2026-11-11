@@ -1,0 +1,63 @@
+---
+title: "Textarea"
+description: "Use a textarea for a specific answer that needs several lines."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/textarea"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed textarea guidance and 2 Home Assistant reference examples."
+---
+
+# Textarea
+
+Use a textarea for a specific answer that needs several lines.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for a dashboard description or a bounded household instruction. Set an initial height that matches the expected answer and allow the user to resize it vertically.
+
+## When not to use it
+
+Do not use an open box when a small set of structured choices would answer the question more reliably. Do not imply that a note is monitored by a support service.
+
+## Home Assistant adaptation
+
+Explain who can read a household note and where it appears. Do not store passwords, access tokens or private care instructions in a shared dashboard note. Preserve draft text through ordinary validation errors and make unsaved changes clear before navigating away.
+
+## Accessibility and behaviour
+
+Use a visible label and short associated hint. Keep paste and browser editing shortcuts available. Do not impose a limit simply to control card height; use character count only for a justified storage or delivery restriction.
+
+## Examples
+
+### Describe a dashboard
+
+The audience and purpose of the text are stated before entry.
+
+<%= example('nhs-textarea-description') %>
+
+### Keep text when a save fails validation
+
+The description remains editable after the failed attempt.
+
+<%= example('nhs-textarea-error') %>
+
+## Check the implementation
+
+Test multiline paste, line breaks, long content, resizing, unsaved navigation and the failed-save state. Ensure the field grows or scrolls without trapping keyboard users.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS textarea](https://service-manual.nhs.uk/design-system/components/textarea) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

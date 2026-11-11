@@ -1,0 +1,60 @@
+---
+title: "Special route"
+description: "A special route is a purpose-built page whose content and behaviour do not fit an ordinary publishing template."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/special-route/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Special route
+
+A special route is a purpose-built page whose content and behaviour do not fit an ordinary publishing template. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/special-route/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+In this project, the relevant principle is a deliberately scoped custom component or documented native route. Use a special page only when a verified task cannot be served by the existing dashboard, setting or guide. Record its owner, route and compatibility boundary.
+
+## Structure and behaviour
+
+Keep the same headings, navigation, focus and status conventions as the rest of civica.uk. Specify the input data, allowed actions and empty/error states. Native navigation should continue to support browser history and ordinary links.
+
+## Home Assistant boundary
+
+A theme is not permission to take over arbitrary HA routes or private components. New pages must not invent backend services or expose private household data. The examples illustrate route information and a recovery state, not an installed custom panel.
+
+## Route contract
+
+A fictional custom route is described without a broken navigation link.
+
+<%= example("pub-frontend-templates-special-route-1") %>
+
+## Unavailable custom source
+
+The empty/error message remains useful.
+
+<%= example("pub-frontend-templates-special-route-2") %>
+
+## Acceptance checks
+
+- The custom route has a defined user need.
+- Its input and failure contracts are documented.
+- Direct navigation and browser back work.
+- Unsupported internals leave a usable native route.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

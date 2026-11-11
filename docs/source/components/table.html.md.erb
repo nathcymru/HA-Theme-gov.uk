@@ -1,0 +1,69 @@
+---
+title: "Table"
+description: "Use a table when shared columns help people compare values and understand relationships."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/table"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed table guidance and 3 Home Assistant reference examples."
+---
+
+# Table
+
+Use a table when shared columns help people compare values and understand relationships.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for readings from several rooms or the values behind a chart. Give the table a caption and show units in the headings or cells. Right-align comparable numbers.
+
+## When not to use it
+
+Do not use a table for page layout or force a large data set into a tiny card. A summary list is clearer for the properties of one device; a short explanation may be clearer than a table.
+
+## Home Assistant adaptation
+
+Keep recorded zeros distinct from missing values. The Energy companion’s View data table is an implemented example with pagination and native period semantics; these broader table variants are reference patterns. Preserve the selected date, unit and timezone when presenting chart values.
+
+## Accessibility and behaviour
+
+Use proper row and column headers. A wide table may scroll inside a labelled, keyboard-focusable region while the rest of the page reflows. Preserve table semantics if you develop a stacked layout. Sorting needs real buttons, aria-sort and feedback, not a decorative arrow.
+
+## Examples
+
+### Compare room temperatures
+
+The caption and column heading state what the values mean.
+
+<%= example('nhs-table-readings') %>
+
+### Distinguish zero from missing data
+
+A missing reading remains text, not a fabricated zero.
+
+<%= example('nhs-table-missing') %>
+
+### A wide comparison
+
+The labelled region provides horizontal access without hiding columns.
+
+<%= example('nhs-table-scroll') %>
+
+## Check the implementation
+
+Test 320px width, keyboard scrolling, negative values, missing values, decimal alignment and a screen reader’s cell-header navigation. Do not hide important columns just to fit the viewport.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS table](https://service-manual.nhs.uk/design-system/components/table) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [charts and tables](charts.html).

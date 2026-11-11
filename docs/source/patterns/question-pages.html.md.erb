@@ -1,0 +1,53 @@
+---
+title: "Ask clear questions on pages and in dialogs"
+description: "Collect the information a household task needs with accessible inputs, validation and a reliable way back."
+section: "patterns"
+group: "Page patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/question-pages"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS question-pages pattern."
+---
+
+# Ask clear questions on pages and in dialogs
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A question should earn its place in a household workflow. Explain why the answer is needed and avoid asking again for information the person already supplied.
+
+## The NHS principle we adapt
+
+The [NHS question-page pattern](https://service-manual.nhs.uk/design-system/patterns/question-pages) starts with one question, a clear heading, an input, Back and Continue. It also explains when related questions belong together and why a slider needs an alternative to dragging. civica uses this for setup pages and adapts the same clarity to short, accessible dialogs.
+
+## Ask one understandable thing
+
+For a single question, use the heading as the input label or group legend. Explain the consequence in a short hint. Offer “No room yet” or “I do not know” where that is a valid answer, rather than forcing a fabricated selection. Retain answers when people go back.
+
+<%= example('nhs-question-room') %>
+
+## Use a dialog for a short contextual edit
+
+A small change such as a display name can stay near its triggering control. Use a real accessible dialog with a visible heading and an explicit Cancel action. Choose a full page for a long form, complex help, multiple dependent steps or content that needs a useful bookmark.
+
+<%= example('nhs-question-modal') %>
+
+On opening, place focus at a sensible element inside the dialog. Keep keyboard focus contained while it is modal, allow Escape to cancel, and return focus to the original trigger on close. A long dialog must scroll within the viewport at 320 pixels and high zoom; its close or cancel control must remain reachable. Do not rely on clicking the backdrop to escape.
+
+## Correct errors without losing work
+
+Show an error summary and an associated field message after a failed submit. Retain the attempted answer. Distinguish a malformed value from unavailable data or a permission failure. Do not show field errors before the person has had a chance to answer.
+
+<%= example('nhs-question-error') %>
+
+## Accessibility and content
+
+Keep visible labels, hints and errors programmatically associated. Use actual radios, checkboxes and inputs rather than clickable text that imitates them. Avoid an unnecessary progress bar; only show a total step count when conditional branches make that total reliable. For a continuous value, retain native keyboard operation and provide an equivalent input or non-drag control where needed.
+
+## Home Assistant implementation boundary
+
+Preserve supported native entity controls rather than replacing their behaviour with a styled fake. A display-name edit must not rename an entity unless the interface explicitly promises that operation. A brightness or temperature question must use the actual device capabilities, units and permitted range. Recheck permission and availability before submission, then announce the real result.
+
+The examples submit only to local preview feedback. They do not save a profile, rename an entity or send a service call. In a production dialog, closing after a save should wait for the appropriate confirmed result; closing an unsaved edit must not apply it silently.

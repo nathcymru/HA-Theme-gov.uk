@@ -1,0 +1,63 @@
+---
+title: "Breadcrumbs"
+description: "Breadcrumbs explain a page’s place in a hierarchy and provide routes to its parents."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/breadcrumbs"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed breadcrumbs guidance and 2 Home Assistant reference examples."
+---
+
+# Breadcrumbs
+
+Breadcrumbs explain a page’s place in a hierarchy and provide routes to its parents.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use them on a multi-level reference site or administrative information page. The visible page heading identifies the current page; the trail can list its parents.
+
+## When not to use it
+
+Do not use them for a linear setup journey or pair them with a back link. They show hierarchy, not a record of recently visited dashboards.
+
+## Home Assistant adaptation
+
+Home Assistant’s sidebar and native navigation already supply much of this context. Add breadcrumbs only where a deeper hierarchy needs them, such as a device detail flow. Use real parent routes and preserve ordinary link behaviour; do not invent an extra hierarchy from entity identifiers.
+
+## Accessibility and behaviour
+
+Use a labelled navigation landmark and an ordered list. Keep link text understandable out of context. The shared GOV.UK reference permits wrapping; a condensed mobile parent link requires its own tested implementation rather than silently removing destinations.
+
+## Examples
+
+### A device within a room
+
+The parent links lead to labelled example sections.
+
+<%= example('nhs-breadcrumbs-device') %>
+
+### A help topic within a guide
+
+The current topic is named by the heading, rather than repeated as a link.
+
+<%= example('nhs-breadcrumbs-guide') %>
+
+## Check the implementation
+
+Test long names,320px width, increased text size and direct navigation into a child page. Ensure the current page heading and parent trail agree.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS breadcrumbs](https://service-manual.nhs.uk/design-system/components/breadcrumbs) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

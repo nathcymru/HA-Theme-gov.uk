@@ -1,0 +1,46 @@
+---
+title: "Buttons and forms"
+description: "Buttons and forms for the civica.uk Home Assistant design system."
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+---
+
+# Buttons and forms
+
+Use native Home Assistant form components wherever they already provide the required behaviour. Apply civica.uk typography, boundary, focus and colour tokens consistently.
+
+
+## Examples
+
+These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
+
+<%= example('local-controls-form') %>
+
+<%= example('local-controls-error') %>
+
+
+## Buttons
+
+Use a verb that describes the outcome. Reserve the strongest treatment for the main action in its local group. Secondary actions remain clearly interactive. Destructive actions include explicit wording and the appropriate semantic treatment; they do not become green because Racing Moss is selected.
+
+Keep keyboard focus visible. Do not remove outlines without providing an equivalent focus indicator. Maintain the distinction between hover, focus, pressed and disabled states.
+
+## Fields
+
+Every field has a persistent visible label. Place hint text before the input where it helps the user make the choice. Place errors near the affected field and associate the message programmatically. Do not rely on a red border alone.
+
+For a short set of mutually exclusive choices, consider radios. For ten palette choices, a labelled select keeps the settings compact and keyboard accessible. A two-state Muted preference uses a labelled checkbox or switch with a clear current value.
+
+## Focus
+
+Use the fixed yellow focus token with a dark edge or text treatment. Ensure it remains identifiable against every palette and canvas. Do not use the palette primary as the only focus colour.
+
+## Validation
+
+Keep entered values after a validation error. Move focus only when necessary to explain a blocking submission error. Do not show an error before the user has had a reasonable opportunity to complete a field.
+
+## Labels and state
+
+“Muted colours” describes a preference. The current palette and Vivid/Muted state should also be available in text. Switching appearance does not require a confirmation dialog or a page reload.
+
+Source patterns: [GOV.UK buttons](https://design-system.service.gov.uk/components/button/), [text input](https://design-system.service.gov.uk/components/text-input/), [select](https://design-system.service.gov.uk/components/select/) and [error messages](https://design-system.service.gov.uk/components/error-message/).

@@ -313,7 +313,31 @@
     "upstreamWebsiteIsMiddleman": false,
     "publishedOfficialBrandAssets": false,
     "visualAudit": "community/visual-audit.html",
-    "visualSourceSnapshot": "reference/visual-audit-sources.json"
+    "visualSourceSnapshot": "reference/visual-audit-sources.json",
+    "sourceCoverage": "reference/coverage.json",
+    "sourceCounts": {
+      "govukComponents": 37,
+      "nhsComponents": 38,
+      "nhsPatterns": 13,
+      "publishingEntriesIncludingVariants": 42
+    },
+    "examples": {
+      "component": "components/example.html",
+      "singleSource": "docs/data/*examples.yml",
+      "preview": "isolated same-origin iframe",
+      "standalonePath": "examples/{id}.html",
+      "code": "same normalised markup as preview",
+      "actions": "local demonstration only; no household connection",
+      "noJavaScript": "readable content, inert demonstration forms"
+    },
+    "publicationHistory": {
+      "component": "components/page-history.html",
+      "scope": "every editorial guide except homepage; standalone canvases use owning-guide history",
+      "dates": "authored publication/update entries, never generated review dates"
+    },
+    "navigation": "six primary sections; page groups generated from source metadata",
+    "homepageIllustrations": "original repository-native SVG; supplied identity unchanged",
+    "referenceStatus": "catalogue coverage is not native Home Assistant implementation coverage"
   },
   "sources": [
     "https://design-system.service.gov.uk/",
@@ -333,7 +357,8 @@
     "https://design-system.service.gov.uk/styles/images/",
     "https://design-patterns.service.justice.gov.uk/components/notification-badge/",
     "https://components.publishing.service.gov.uk/component-guide/action_link",
-    "https://components.publishing.service.gov.uk/component-guide/search"
+    "https://components.publishing.service.gov.uk/component-guide/search",
+    "https://design-guide.publishing.service.gov.uk/"
   ],
   "visualHierarchy": {
     "structuralBorders": {

@@ -1,0 +1,1470 @@
+examples:
+  nhs-button-primary:
+    title: "Save dashboard preferences"
+    description: "The primary action names what is saved; the example does not change Home Assistant."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <button type="button" class="govuk-button" data-demo-message="Example preferences saved.">Save preferences</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  nhs-button-secondary:
+    title: "Primary and secondary actions"
+    description: "A separate secondary action changes only the local example message."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-button-group">
+      <button type="button" class="govuk-button" data-demo-message="Example preferences saved.">Save room name</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-demo-message="Example room name reset.">Reset example</button>
+      </div>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  nhs-button-warning:
+    title: "Confirm removing a saved view"
+    description: "This is an explicit final confirmation example, not a live deletion."
+    height: 340
+    html: |
+      <h2 class="govuk-heading-m">Remove the saved garden view?</h2>
+      <p class="govuk-body">This example removes only a demonstration view.</p>
+      <button class="govuk-button govuk-button--warning" type="button" data-demo-message="Example view removed.">Remove saved view</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+  nhs-button-unavailable:
+    title: "Explain why an action is unavailable"
+    description: "The reason remains readable even when the control cannot be used."
+    height: 340
+    html: |
+      <p class="govuk-body" id="washer-unavailable">Remote start is unavailable while the washer is off.</p>
+      <button class="govuk-button" type="button" disabled aria-describedby="washer-unavailable">Start washer</button>
+  nhs-count-note:
+    title: "A short dashboard note"
+    description: "An example limit of 120 characters is explained before typing."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="120">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="note">Dashboard note</label>
+      <div class="govuk-hint" id="note-hint">Shown to people who can open this dashboard</div>
+      <textarea class="govuk-textarea govuk-js-character-count" id="note" name="note" rows="4" aria-describedby="note-hint note-info">Bins move to Friday this week.</textarea>
+      </div>
+      <div id="note-info" class="govuk-hint govuk-character-count__message">You can enter up to 120 characters</div>
+      </div>
+      </form>
+  nhs-count-over-limit:
+    title: "An answer above the limit"
+    description: "The full answer remains available to edit; it is not silently cut off."
+    height: 420
+    html: |
+      <form data-demo-form>
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="40">
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="long-note">Dashboard note</label>
+      <div class="govuk-hint" id="long-note-hint">Example limit:40 characters</div>
+      <p class="govuk-error-message" id="long-note-error">
+      <span class="govuk-visually-hidden">Error:</span> Dashboard note must be 40 characters or fewer</p>
+      <textarea class="govuk-textarea govuk-js-character-count govuk-textarea--error" id="long-note" name="long-note" rows="4" aria-describedby="long-note-hint long-note-error long-note-info" aria-invalid="true">The side entrance will be used while the front path is being repaired.</textarea>
+      </div>
+      <div id="long-note-info" class="govuk-hint govuk-character-count__message">You can enter up to 40 characters</div>
+      </div>
+      </form>
+  nhs-checkbox-rooms:
+    title: "Choose several rooms"
+    description: "Room selection changes the example scope, not device state."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <fieldset class="govuk-fieldset" aria-describedby="rooms-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Which rooms should appear?</legend>
+      <div class="govuk-hint" id="rooms-hint">Select all rooms you want to include</div>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="rooms-0" name="rooms" type="checkbox" value="0">
+      <label class="govuk-label govuk-checkboxes__label" for="rooms-0">Bedroom</label>
+      </div>
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="rooms-1" name="rooms" type="checkbox" value="1">
+      <label class="govuk-label govuk-checkboxes__label" for="rooms-1">Kitchen</label>
+      </div>
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="rooms-2" name="rooms" type="checkbox" value="2">
+      <label class="govuk-label govuk-checkboxes__label" for="rooms-2">Living room</label>
+      </div>
+      </div>
+      </fieldset>
+      </form>
+  nhs-checkbox-preference:
+    title: "Edit a saved display preference"
+    description: "An existing saved preference can be checked initially."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Display preferences</legend>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="muted-0" name="muted" type="checkbox" value="0" checked>
+      <label class="govuk-label govuk-checkboxes__label" for="muted-0">Use muted colours</label>
+      </div>
+      </div>
+      </fieldset>
+      <button type="button" class="govuk-button" data-demo-message="Example preferences saved.">Save display preferences</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  nhs-date-maintenance:
+    title: "Record a known maintenance date"
+    description: "The date is supplied by the user, not inferred from a sensor."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="filter-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">When was the filter replaced?</legend>
+      <div class="govuk-hint" id="filter-hint">For example, 11 11 2026</div>
+      <div class="govuk-date-input">
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="filter-day">Day</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="filter-day" name="filter-day" type="text" inputmode="numeric" value="11">
+      </div>
+      </div>
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="filter-month">Month</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="filter-month" name="filter-month" type="text" inputmode="numeric" value="11">
+      </div>
+      </div>
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="filter-year">Year</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="filter-year" name="filter-year" type="text" inputmode="numeric" value="2026">
+      </div>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      </form>
+  nhs-date-error:
+    title: "Correct one part of a date"
+    description: "The month is identified and the other answers remain intact."
+    height: 400
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <fieldset class="govuk-fieldset" aria-describedby="installation-hint installation-error">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">When was the device installed?</legend>
+      <div class="govuk-hint" id="installation-hint">For example, 11 11 2026</div>
+      <p class="govuk-error-message" id="installation-error">
+      <span class="govuk-visually-hidden">Error:</span> Month must be between 1 and 12</p>
+      <div class="govuk-date-input">
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="installation-day">Day</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="installation-day" name="installation-day" type="text" inputmode="numeric" value="11">
+      </div>
+      </div>
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="installation-month">Month</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="installation-month" name="installation-month" type="text" inputmode="numeric" value="13" aria-invalid="true" aria-describedby="installation-error">
+      </div>
+      </div>
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="installation-year">Year</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="installation-year" name="installation-year" type="text" inputmode="numeric" value="2026">
+      </div>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      </form>
+  nhs-error-room-name:
+    title: "A missing room name"
+    description: "This represents the state after an unsuccessful save."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="room-name">Room name</label>
+      <div class="govuk-hint" id="room-name-hint">Use a name people in the household recognise</div>
+      <p class="govuk-error-message" id="room-name-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter a room name</p>
+      <input class="govuk-input  govuk-input--error" id="room-name" name="room-name" type="text" value="" aria-describedby="room-name-hint room-name-error" aria-invalid="true" >
+      </div>
+      </form>
+  nhs-error-temperature:
+    title: "A temperature outside a declared range"
+    description: "The example declares its supported range; production must use the actual integration limits."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="target-temperature">Target temperature, in degrees Celsius</label>
+      <div class="govuk-hint" id="target-temperature-hint">This example accepts 10 to 30 degrees Celsius</div>
+      <p class="govuk-error-message" id="target-temperature-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter a temperature between 10 and 30 degrees Celsius</p>
+      <input class="govuk-input govuk-input--width-4 govuk-input--error" id="target-temperature" name="target-temperature" type="text" value="35" aria-describedby="target-temperature-hint target-temperature-error" aria-invalid="true" inputmode="decimal">
+      </div>
+      </form>
+  nhs-summary-one-error:
+    title: "One setting needs an answer"
+    description: "The summary link reaches the same labelled input that carries the inline error."
+    height: 420
+    html: |
+      <div class="govuk-error-summary" data-module="govuk-error-summary" data-disable-auto-focus="true">
+      <div role="alert">
+      <h2 class="govuk-error-summary__title">There is a problem</h2>
+      <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+      <li>
+      <a href="#summary-room">Enter a room name</a>
+      </li>
+      </ul>
+      </div>
+      </div>
+      </div>
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="summary-room">Room name</label>
+      <p class="govuk-error-message" id="summary-room-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter a room name</p>
+      <input class="govuk-input  govuk-input--error" id="summary-room" name="summary-room" type="text" value="" aria-describedby="summary-room-error" aria-invalid="true" >
+      </div>
+      </form>
+  nhs-summary-two-errors:
+    title: "Several settings need attention"
+    description: "Both links point to actual controls and preserve the entered values."
+    height: 560
+    html: |
+      <div class="govuk-error-summary" data-module="govuk-error-summary" data-disable-auto-focus="true">
+      <div role="alert">
+      <h2 class="govuk-error-summary__title">There is a problem</h2>
+      <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+      <li>
+      <a href="#summary-label">Enter a dashboard name</a>
+      </li>
+      <li>
+      <a href="#summary-path">Enter a path without spaces</a>
+      </li>
+      </ul>
+      </div>
+      </div>
+      </div>
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="summary-label">Dashboard name</label>
+      <p class="govuk-error-message" id="summary-label-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter a dashboard name</p>
+      <input class="govuk-input  govuk-input--error" id="summary-label" name="summary-label" type="text" value="" aria-describedby="summary-label-error" aria-invalid="true" >
+      </div>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="summary-path">Dashboard path</label>
+      <p class="govuk-error-message" id="summary-path-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter a path without spaces</p>
+      <input class="govuk-input  govuk-input--error" id="summary-path" name="summary-path" type="text" value="my dashboard" aria-describedby="summary-path-error" aria-invalid="true" >
+      </div>
+      </form>
+  nhs-fieldset-room-options:
+    title: "Related room choices"
+    description: "The legend identifies the shared question for all options."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <fieldset class="govuk-fieldset" aria-describedby="included-rooms-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Rooms in this view</legend>
+      <div class="govuk-hint" id="included-rooms-hint">Select all that apply</div>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="included-rooms-0" name="included-rooms" type="checkbox" value="0">
+      <label class="govuk-label govuk-checkboxes__label" for="included-rooms-0">Hall</label>
+      </div>
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="included-rooms-1" name="included-rooms" type="checkbox" value="1">
+      <label class="govuk-label govuk-checkboxes__label" for="included-rooms-1">Kitchen</label>
+      </div>
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="included-rooms-2" name="included-rooms" type="checkbox" value="2">
+      <label class="govuk-label govuk-checkboxes__label" for="included-rooms-2">Landing</label>
+      </div>
+      </div>
+      </fieldset>
+      </form>
+  nhs-fieldset-period:
+    title: "A grouped date answer"
+    description: "One legend groups three individually labelled inputs."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="service-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">When was the appliance serviced?</legend>
+      <div class="govuk-hint" id="service-date-hint">For example, 11 11 2026</div>
+      <div class="govuk-date-input">
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="service-date-day">Day</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="service-date-day" name="service-date-day" type="text" inputmode="numeric" value="11">
+      </div>
+      </div>
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="service-date-month">Month</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="service-date-month" name="service-date-month" type="text" inputmode="numeric" value="11">
+      </div>
+      </div>
+      <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="service-date-year">Year</label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="service-date-year" name="service-date-year" type="text" inputmode="numeric" value="2026">
+      </div>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      </form>
+  nhs-upload-image:
+    title: "Choose a dashboard image"
+    description: "This example opens the local file chooser only."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="dashboard-image">Dashboard image</label>
+      <div class="govuk-hint" id="dashboard-image-hint">JPEG or PNG, up to 5 MB in this example</div>
+      <input class="govuk-file-upload" id="dashboard-image" name="dashboard-image" type="file" accept="image/jpeg,image/png" aria-describedby="dashboard-image-hint">
+      </div>
+      </form>
+  nhs-upload-error:
+    title: "Explain a rejected format"
+    description: "The error identifies the supported formats without clearing other form answers."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="replacement-image">Choose another image</label>
+      <p class="govuk-error-message" id="replacement-image-error">
+      <span class="govuk-visually-hidden">Error:</span> Select a JPEG or PNG image</p>
+      <input class="govuk-file-upload govuk-file-upload--error" id="replacement-image" name="replacement-image" type="file" accept="image/jpeg,image/png" aria-invalid="true" aria-describedby="replacement-image-error">
+      </div>
+      </form>
+  nhs-hint-name:
+    title: "Explain a recognisable display name"
+    description: "The hint helps people choose a label without exposing implementation details."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="friendly-name">Display name</label>
+      <div class="govuk-hint" id="friendly-name-hint">For example, Bedside lamp</div>
+      <input class="govuk-input " id="friendly-name" name="friendly-name" type="text" value="" aria-describedby="friendly-name-hint" >
+      </div>
+      </form>
+  nhs-hint-scope:
+    title: "Clarify what a setting affects"
+    description: "The saved display preference is distinct from the recorded measurement."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <fieldset class="govuk-fieldset" aria-describedby="temperature-unit-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Temperature unit</legend>
+      <div class="govuk-hint" id="temperature-unit-hint">Changes the display only; recorded values stay unchanged</div>
+      <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="temperature-unit-0" name="temperature-unit" type="radio" value="0">
+      <label class="govuk-label govuk-radios__label" for="temperature-unit-0">Degrees Celsius</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="temperature-unit-1" name="temperature-unit" type="radio" value="1">
+      <label class="govuk-label govuk-radios__label" for="temperature-unit-1">Degrees Fahrenheit</label>
+      </div>
+      </div>
+      </fieldset>
+      </form>
+  nhs-password-current:
+    title: "Enter an existing password"
+    description: "The example uses an empty field and cannot sign in."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
+      <label class="govuk-label" for="existing-password">Password</label>
+      <div class="govuk-input__wrapper govuk-password-input__wrapper">
+      <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="existing-password" name="existing-password" type="password" autocomplete="current-password" spellcheck="false" autocapitalize="none">
+      <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="existing-password" aria-label="Show password" hidden>Show</button>
+      </div>
+      </div>
+      </form>
+  nhs-password-new:
+    title: "Create a password in an owning account flow"
+    description: "This demonstrates new-password autocomplete, not a new civica login system."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
+      <label class="govuk-label" for="new-password">Create a password</label>
+      <div class="govuk-hint" id="new-password-hint">Use your password manager to create and save a unique password</div>
+      <div class="govuk-input__wrapper govuk-password-input__wrapper">
+      <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="new-password" name="new-password" type="password" autocomplete="new-password" spellcheck="false" autocapitalize="none" aria-describedby="new-password-hint">
+      <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" aria-controls="new-password" aria-label="Show new password" hidden>Show</button>
+      </div>
+      </div>
+      </form>
+  nhs-radio-units:
+    title: "Choose one unit"
+    description: "Both options are visible and neither is assumed for a new answer."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Which temperature unit should be used?</legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="new-units-0" name="new-units" type="radio" value="0">
+      <label class="govuk-label govuk-radios__label" for="new-units-0">Degrees Celsius</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="new-units-1" name="new-units" type="radio" value="1">
+      <label class="govuk-label govuk-radios__label" for="new-units-1">Degrees Fahrenheit</label>
+      </div>
+      </div>
+      </fieldset>
+      </form>
+  nhs-radio-theme-mode:
+    title: "Edit a saved mode"
+    description: "The existing system-controlled mode is accurately preselected."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Colour mode</legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="theme-mode-0" name="theme-mode" type="radio" value="0">
+      <label class="govuk-label govuk-radios__label" for="theme-mode-0">Light</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="theme-mode-1" name="theme-mode" type="radio" value="1">
+      <label class="govuk-label govuk-radios__label" for="theme-mode-1">Dark</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="theme-mode-2" name="theme-mode" type="radio" value="2" checked>
+      <label class="govuk-label govuk-radios__label" for="theme-mode-2">Use device setting</label>
+      </div>
+      </div>
+      </fieldset>
+      </form>
+  nhs-search-devices:
+    title: "Search within devices"
+    description: "The field’s scope is explicit and the example button only reports a local message."
+    height: 340
+    html: |
+      <form data-demo-form role="search" aria-label="Devices">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="device-search">Find a device</label>
+      <div class="govuk-hint" id="device-search-hint">Search by its display name</div>
+      <input class="govuk-input " id="device-search" name="device-search" type="search" value="" aria-describedby="device-search-hint" inputmode="search">
+      </div>
+      <button type="button" class="govuk-button" data-demo-message="Example search completed. Two matching devices would be listed here.">Search devices</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  nhs-search-no-results:
+    title: "A query with no matches"
+    description: "The existing query stays visible and the user can revise it."
+    height: 430
+    html: |
+      <form data-demo-form role="search" aria-label="Devices">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="unmatched-device">Find a device</label>
+      <input class="govuk-input " id="unmatched-device" name="unmatched-device" type="search" value="Attic radiator" >
+      </div>
+      <button type="button" class="govuk-button" data-demo-message="Example search repeated.">Search again</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <h2 class="govuk-heading-m">No matching devices</h2>
+      <p class="govuk-body">Check the name or try a room name. The connection is available.</p>
+  nhs-select-palettes:
+    title: "Choose a saved palette"
+    description: "A named, reversible settings list is the local reason for retaining a select."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="palette-choice">Colour palette</label>
+      <div class="govuk-hint" id="palette-choice-hint">Preview names only; this example does not change Home Assistant</div>
+      <select class="govuk-select" id="palette-choice" name="palette-choice" aria-describedby="palette-choice-hint">
+      <option selected>Civic Cobalt</option>
+      <option>Racing Moss</option>
+      <option>Imperial Damson</option>
+      <option>Sovereign Crimson</option>
+      <option>Regimental Plum</option>
+      <option>Oxford Midnight</option>
+      <option>Ink Charcoal</option>
+      <option>Heritage Ochre</option>
+      <option>Kiln Terracotta</option>
+      <option>Umber Bronze</option>
+      </select>
+      </div>
+      </form>
+  nhs-select-error:
+    title: "An unanswered required choice"
+    description: "The placeholder cannot be mistaken for an actual saved dashboard."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="default-dashboard">Default dashboard</label>
+      <p class="govuk-error-message" id="default-dashboard-error">
+      <span class="govuk-visually-hidden">Error:</span> Choose a default dashboard</p>
+      <select class="govuk-select govuk-select--error" id="default-dashboard" name="default-dashboard" aria-invalid="true" aria-describedby="default-dashboard-error">
+      <option value="" selected>Choose a dashboard</option>
+      <option>Overview</option>
+      <option>Energy</option>
+      <option>Housework</option>
+      </select>
+      </div>
+      </form>
+  nhs-input-room:
+    title: "A household-friendly name"
+    description: "The answer is human-readable rather than an internal entity ID."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="living-room-label">Room name</label>
+      <div class="govuk-hint" id="living-room-label-hint">Use the name people in your household use</div>
+      <input class="govuk-input " id="living-room-label" name="living-room-label" type="text" value="Living room" aria-describedby="living-room-label-hint" >
+      </div>
+      </form>
+  nhs-input-measurement:
+    title: "A measurement with its unit"
+    description: "The unit is explicit in the accessible label as well as beside the input."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="display-temperature">Temperature, in degrees Celsius</label>
+      <div class="govuk-input__wrapper">
+      <input class="govuk-input govuk-input--width-4" id="display-temperature" name="display-temperature" type="text" inputmode="decimal" value="20.5">
+      <div class="govuk-input__suffix" aria-hidden="true">°C</div>
+      </div>
+      </div>
+      </form>
+  nhs-textarea-description:
+    title: "Describe a dashboard"
+    description: "The audience and purpose of the text are stated before entry."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="dashboard-description">Dashboard description</label>
+      <div class="govuk-hint" id="dashboard-description-hint">Shown to everyone who can open this dashboard</div>
+      <textarea class="govuk-textarea" id="dashboard-description" name="dashboard-description" rows="4" aria-describedby="dashboard-description-hint" >Lights, heating and household tasks for shared areas.</textarea>
+      </div>
+      </form>
+  nhs-textarea-error:
+    title: "Keep text when a save fails validation"
+    description: "The description remains editable after the failed attempt."
+    height: 340
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="required-description">Describe what this view includes</label>
+      <div class="govuk-hint" id="required-description-hint">Include the rooms or tasks covered</div>
+      <p class="govuk-error-message" id="required-description-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter a description of this view</p>
+      <textarea class="govuk-textarea govuk-textarea--error" id="required-description" name="required-description" rows="4" aria-describedby="required-description-hint required-description-error" aria-invalid="true" >
+      </textarea>
+      </div>
+      </form>
+  nhs-details-energy:
+    title: "Explain an Energy term"
+    description: "The definition is optional; the measurement stays outside the disclosure."
+    height: 340
+    html: |
+      <p class="govuk-body">Electricity imported today:3.8 kWh</p>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What does imported electricity mean?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Electricity imported is energy supplied to your home from the grid. Solar energy used directly in your home is recorded separately.</p>
+      </div>
+      </details>
+  nhs-details-unavailable:
+    title: "Explain an unavailable action"
+    description: "The key reason is visible before the optional explanation."
+    height: 340
+    html: |
+      <p class="govuk-body">Remote start is unavailable while the appliance is off.</p>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Why is remote start unavailable?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">The integration only enables this action when the appliance reports that remote operation is permitted. Turning on a dashboard preference cannot grant that permission.</p>
+      </div>
+      </details>
+  nhs-advice-dashboard:
+    title: "Maintain a shared dashboard"
+    description: "Positive and negative instructions remain meaningful when read individually."
+    height: 470
+    html: |
+      <section class="civica-do-list">
+      <h2 class="govuk-heading-m">Do</h2>
+      <ul class="govuk-list">
+      <li>
+      <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M4 12L9 17L20 6" fill="none" stroke="currentColor" stroke-width="3">
+      </path>
+      </svg> use room names the household recognises</li>
+      <li>
+      <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M4 12L9 17L20 6" fill="none" stroke="currentColor" stroke-width="3">
+      </path>
+      </svg> check the dashboard on a small screen</li>
+      </ul>
+      </section>
+      <section class="civica-dont-list">
+      <h2 class="govuk-heading-m">Do not</h2>
+      <ul class="govuk-list">
+      <li>
+      <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M5 5L19 19M19 5L5 19" fill="none" stroke="currentColor" stroke-width="3">
+      </path>
+      </svg> do not remove the text that explains an unavailable device</li>
+      <li>
+      <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M5 5L19 19M19 5L5 19" fill="none" stroke="currentColor" stroke-width="3">
+      </path>
+      </svg> do not use colour as the only status indicator</li>
+      </ul>
+      </section>
+  nhs-advice-notes:
+    title: "Write useful household notes"
+    description: "A single advice list is acceptable when there is no useful opposing set."
+    height: 340
+    html: |
+      <section class="civica-dont-list">
+      <h2 class="govuk-heading-m">Do not</h2>
+      <ul class="govuk-list">
+      <li>
+      <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M5 5L19 19M19 5L5 19" fill="none" stroke="currentColor" stroke-width="3">
+      </path>
+      </svg> do not put account passwords in dashboard notes</li>
+      <li>
+      <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M5 5L19 19M19 5L5 19" fill="none" stroke="currentColor" stroke-width="3">
+      </path>
+      </svg> do not describe a command request as a confirmed device state</li>
+      </ul>
+      </section>
+  nhs-expander-energy:
+    title: "Understand recorded energy"
+    description: "A substantial reference explanation is grouped without hiding the live reading."
+    height: 360
+    html: |
+      <details class="civica-expander">
+      <summary>How recorded energy differs from live power</summary>
+      <div class="civica-expander__content">
+      <p class="govuk-body">Power describes the rate of use at a moment, usually in kilowatts. Energy describes use over a period, usually in kilowatt hours.</p>
+      <p class="govuk-body">Use the date controls on the Energy page to compare recorded periods. A live power reading and a daily energy total answer different questions.</p>
+      </div>
+      </details>
+  nhs-expander-guide:
+    title: "Several related help sections"
+    description: "Independent sections can stay open together."
+    height: 420
+    html: |
+      <details class="civica-expander" open>
+      <summary>Missing readings</summary>
+      <div class="civica-expander__content">
+      <p class="govuk-body">A missing sample is not automatically zero. Check the integration’s availability and the period displayed by the chart.</p>
+      </div>
+      </details>
+      <details class="civica-expander">
+      <summary>Delayed readings</summary>
+      <div class="civica-expander__content">
+      <p class="govuk-body">Some integrations report totals after the period ends. Keep the reporting interval visible where it affects interpretation.</p>
+      </div>
+      </details>
+  nhs-image-floorplan:
+    title: "An informative room diagram"
+    description: "The text alternative describes the highlighted location; the caption explains the task."
+    height: 350
+    html: |
+      <figure class="civica-image">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20480%20220%22%3E%3Crect%20width%3D%22480%22%20height%3D%22220%22%20fill%3D%22%23f3f2f1%22%2F%3E%3Cpath%20d%3D%22M20%2020H460V200H20ZM240%2020V200M20%20120H240%22%20fill%3D%22none%22%20stroke%3D%22%230b0c0c%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22345%22%20cy%3D%22100%22%20r%3D%2218%22%20fill%3D%22%231d70b8%22%2F%3E%3Ctext%20x%3D%2255%22%20y%3D%2270%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3EHall%3C%2Ftext%3E%3Ctext%20x%3D%2245%22%20y%3D%22165%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3EKitchen%3C%2Ftext%3E%3Ctext%20x%3D%22290%22%20y%3D%22160%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3ELiving%20room%3C%2Ftext%3E%3C%2Fsvg%3E" width="480" height="220" alt="Example floor plan: the living room is to the right of the hall and kitchen. A blue dot marks the living-room sensor.">
+      <figcaption class="civica-image__caption">Use the room name to check that you have selected the living-room sensor.</figcaption>
+      </figure>
+  nhs-image-decorative:
+    title: "A decorative identity mark"
+    description: "The nearby text names the service, so the repeated mark has an empty alt."
+    height: 340
+    html: |
+      <div>
+      <img src="../images/civica-emblem.svg" width="64" height="64" alt="">
+      <h2 class="govuk-heading-m">civica.uk</h2>
+      <p class="govuk-body">Home information and controls, organised around your household.</p>
+      </div>
+  nhs-inset-estimate:
+    title: "Explain an estimated cost"
+    description: "Supporting context stays near the relevant explanation."
+    height: 340
+    html: |
+      <h2 class="govuk-heading-m">About energy costs</h2>
+      <div class="govuk-inset-text">
+      <span class="govuk-visually-hidden">Information:</span> The cost shown here is an estimate based on the configured tariff. Your supplier’s bill may include other charges.</div>
+  nhs-inset-display:
+    title: "Clarify a display-only change"
+    description: "The note explains the scope without presenting a warning."
+    height: 340
+    html: |
+      <h2 class="govuk-heading-m">Name a dashboard</h2>
+      <div class="govuk-inset-text">
+      <span class="govuk-visually-hidden">Information:</span> Changing a dashboard’s display name does not rename the devices shown on it.</div>
+  nhs-banner-maintenance:
+    title: "A planned interruption"
+    description: "The notice specifies the affected feature and the time window."
+    height: 330
+    html: |
+      <div class="govuk-notification-banner" role="region" aria-labelledby="banner-title">
+      <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="banner-title">Scheduled maintenance</h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">Energy history may be delayed tonight.</p>
+      <p class="govuk-body">The example recording service is scheduled for maintenance from 02:00 to 02:30. Device controls are not part of this example notice.</p>
+      </div>
+      </div>
+  nhs-banner-success:
+    title: "A confirmed save from the previous step"
+    description: "The message describes a completed preference save."
+    height: 340
+    html: |
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="region" aria-labelledby="banner-title">
+      <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="banner-title">Success</h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">Dashboard preferences saved</p>
+      <p class="govuk-body">Your selected rooms will appear the next time you open the dashboard.</p>
+      </div>
+      </div>
+  nhs-panel-complete:
+    title: "A completed dashboard setup"
+    description: "This static example illustrates the final result of a successful journey."
+    height: 340
+    html: |
+      <div class="govuk-panel govuk-panel--confirmation">
+      <h2 class="govuk-panel__title">Dashboard ready</h2>
+      <div class="govuk-panel__body">Shared rooms</div>
+      </div>
+      <p class="govuk-body">The example dashboard includes the kitchen and living room.</p>
+  nhs-panel-interruption:
+    title: "Explain an import consequence"
+    description: "An interruption is part of a deliberate journey, not a general alert."
+    height: 350
+    html: |
+      <div class="govuk-panel civica-panel--interruption">
+      <h2 class="govuk-panel__title">Check the imported view</h2>
+      <div class="govuk-panel__body">Some device references may need to be matched to this home.</div>
+      </div>
+      <p class="govuk-body">The example has not changed any devices. Review the references before saving.</p>
+  nhs-component-review-guidance:
+    title: "Editorial review of a help page"
+    description: "These dates refer to a human review of authored content."
+    height: 340
+    html: |
+      <h2 class="govuk-heading-m">Understanding energy estimates</h2>
+      <p class="govuk-body">This example explains how a configured tariff affects the displayed estimate.</p>
+      <p class="govuk-body-s">Last reviewed: <time datetime="2026-11-11">11 November 2026</time>
+      <br>Next review: <time datetime="2027-02-11">11 February 2027</time>
+      </p>
+  nhs-review-reading:
+    title: "Freshness of a recorded reading"
+    description: "This timestamp is an observation, not an editorial review."
+    height: 340
+    html: |
+      <h2 class="govuk-heading-m">Living-room temperature</h2>
+      <p class="govuk-body">20.5°C</p>
+      <p class="govuk-body-s">Observed at <time datetime="2026-11-11T14:05:00Z">14:05 GMT on 11 November 2026</time>
+      </p>
+      <p class="govuk-body">The example reading has not been updated since that time.</p>
+  nhs-summary-device:
+    title: "Read-only device details"
+    description: "Key-value pairs describe one device without implying tabular comparison."
+    height: 340
+    html: |
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Name</dt>
+      <dd class="govuk-summary-list__value">Living-room lamp</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Room</dt>
+      <dd class="govuk-summary-list__value">Living room</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Connection</dt>
+      <dd class="govuk-summary-list__value">Available</dd>
+      </div>
+      </dl>
+  nhs-summary-change:
+    title: "Review and change a display name"
+    description: "The change link has an unambiguous accessible name and an actual example destination."
+    height: 390
+    html: |
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Dashboard name</dt>
+      <dd class="govuk-summary-list__value">Shared rooms</dd>
+      <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#edit-dashboard-name">Change<span class="govuk-visually-hidden"> dashboard name</span>
+      </a>
+      </dd>
+      </div>
+      </dl>
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="edit-dashboard-name">Dashboard name</label>
+      <input class="govuk-input " id="edit-dashboard-name" name="edit-dashboard-name" type="text" value="Shared rooms" >
+      </div>
+      </form>
+  nhs-table-readings:
+    title: "Compare room temperatures"
+    description: "The caption and column heading state what the values mean."
+    height: 340
+    html: |
+      <table class="govuk-table ">
+      <caption class="govuk-table__caption govuk-table__caption--m">Room temperatures</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Room</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Temperature (°C)</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Kitchen</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">19.8</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Living room</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">20.5</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Bedroom</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">18.2</td>
+      </tr>
+      </tbody>
+      </table>
+  nhs-table-missing:
+    title: "Distinguish zero from missing data"
+    description: "A missing reading remains text, not a fabricated zero."
+    height: 340
+    html: |
+      <table class="govuk-table civica-table--striped">
+      <caption class="govuk-table__caption govuk-table__caption--m">Electricity recorded by hour</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Period start (GMT)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Energy (kWh)</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">09:00</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">10:00</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">Not available</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">11:00</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">0.42</td>
+      </tr>
+      </tbody>
+      </table>
+  nhs-table-scroll:
+    title: "A wide comparison"
+    description: "The labelled region provides horizontal access without hiding columns."
+    height: 340
+    html: |
+      <div class="civica-table-scroll" role="region" aria-label="Weekly room-temperature comparison" tabindex="0">
+      <table class="govuk-table ">
+      <caption class="govuk-table__caption govuk-table__caption--m">Room temperatures at 09:00 GMT</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Room</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Monday (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tuesday (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Wednesday (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Thursday (°C)</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Kitchen</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">19.2</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">19.7</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">19.4</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">19.5</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Living room</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">20.1</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">20.3</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">20.0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">20.2</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  nhs-tabs-device:
+    title: "Related device information"
+    description: "The panels contain different information, not steps in a form."
+    height: 380
+    html: |
+      <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">Contents</h2>
+      <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#device-tabs-0">Details</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#device-tabs-1">History</a>
+      </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="device-tabs-0">
+      <h2 class="govuk-heading-m">Details</h2>
+      <p class="govuk-body">Living-room lamp. Connection available.</p>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="device-tabs-1">
+      <h2 class="govuk-heading-m">History</h2>
+      <p class="govuk-body">Last reported change:11 November 2026 at 14:00 GMT.</p>
+      </div>
+      </div>
+  nhs-tabs-empty:
+    title: "An empty history panel"
+    description: "The panel remains available and explains the absence of data."
+    height: 380
+    html: |
+      <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">Contents</h2>
+      <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#empty-tabs-0">Overview</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#empty-tabs-1">History</a>
+      </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="empty-tabs-0">
+      <h2 class="govuk-heading-m">Overview</h2>
+      <p class="govuk-body">The example device is available.</p>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="empty-tabs-1">
+      <h2 class="govuk-heading-m">History</h2>
+      <p class="govuk-body">No history is available for the selected period. The current reading does not supply earlier values.</p>
+      </div>
+      </div>
+  nhs-tag-connection:
+    title: "Connection states"
+    description: "The words explain the meaning without requiring colour recognition."
+    height: 340
+    html: |
+      <ul class="govuk-list">
+      <li>Living-room lamp: <strong class="govuk-tag govuk-tag--green">Available</strong>
+      </li>
+      <li>Garden sensor: <strong class="govuk-tag govuk-tag--grey">Unavailable</strong>
+      </li>
+      </ul>
+  nhs-tag-task:
+    title: "Task progress"
+    description: "A progress tag describes a record, not a button."
+    height: 340
+    html: |
+      <ul class="govuk-list">
+      <li>Choose rooms: <strong class="govuk-tag">Completed</strong>
+      </li>
+      <li>Check dashboard: <strong class="govuk-tag govuk-tag--blue">In progress</strong>
+      </li>
+      </ul>
+  nhs-tasks-dashboard:
+    title: "A dashboard setup journey"
+    description: "Each task links to an existing example section."
+    height: 500
+    html: |
+      <ul class="govuk-task-list">
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+      <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="#choose-rooms" aria-describedby="setup-0-status">Choose rooms</a>
+      </div>
+      <div class="govuk-task-list__status" id="setup-0-status">Completed</div>
+      </li>
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+      <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="#review-labels" aria-describedby="setup-1-status">Review labels</a>
+      </div>
+      <div class="govuk-task-list__status" id="setup-1-status">In progress</div>
+      </li>
+      </ul>
+      <section id="choose-rooms" tabindex="-1">
+      <h2 class="govuk-heading-m">Choose rooms</h2>
+      <p class="govuk-body">Kitchen and living room are selected in this example.</p>
+      </section>
+      <section id="review-labels" tabindex="-1">
+      <h2 class="govuk-heading-m">Review labels</h2>
+      <p class="govuk-body">Check that everyone recognises the room names.</p>
+      </section>
+  nhs-tasks-dependency:
+    title: "Explain a dependent task"
+    description: "The unavailable task is text with an explicit prerequisite."
+    height: 430
+    html: |
+      <ul class="govuk-task-list">
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+      <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="#choose-dashboard" aria-describedby="dependent-0-status">Choose a dashboard</a>
+      </div>
+      <div class="govuk-task-list__status" id="dependent-0-status">Not yet started</div>
+      </li>
+      <li class="govuk-task-list__item">
+      <div class="govuk-task-list__name-and-hint">Review device references</div>
+      <div class="govuk-task-list__status" id="dependent-1-status">Cannot start yet</div>
+      </li>
+      </ul>
+      <p class="govuk-body">Choose a dashboard before reviewing its device references.</p>
+      <section id="choose-dashboard" tabindex="-1">
+      <h2 class="govuk-heading-m">Choose a dashboard</h2>
+      <p class="govuk-body">This example does not import or activate a dashboard.</p>
+      </section>
+  nhs-warning-unavailable:
+    title: "Avoid a false inference from missing data"
+    description: "The callout corrects a specific dashboard interpretation."
+    height: 340
+    html: |
+      <section class="civica-warning-callout">
+      <h2 class="civica-warning-callout__heading">
+      <span class="govuk-visually-hidden">Important:</span> An unavailable reading is not an off state</h2>
+      <p class="govuk-body">If a device stops reporting, this dashboard cannot confirm its current physical state. Use the device’s own status and verified instructions.</p>
+      </section>
+  nhs-warning-import:
+    title: "Explain a configuration consequence"
+    description: "This is help content before an import, not an active confirmation dialog."
+    height: 340
+    html: |
+      <section class="civica-warning-callout">
+      <h2 class="civica-warning-callout__heading">
+      <span class="govuk-visually-hidden">Important:</span> Check what an import replaces</h2>
+      <p class="govuk-body">A dashboard or configuration import may replace existing settings. Read the owning import screen’s description and keep a recoverable copy before continuing.</p>
+      </section>
+  nhs-back-step:
+    title: "Return to a previous setup step"
+    description: "The local destination represents a previous step and the entered answer stays intact."
+    height: 440
+    html: |
+      <a class="govuk-back-link" href="#previous-rooms">Back to room selection</a>
+      <h2 class="govuk-heading-m">Name this view</h2>
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="view-name">View name</label>
+      <input class="govuk-input " id="view-name" name="view-name" type="text" value="Shared rooms" >
+      </div>
+      </form>
+      <section id="previous-rooms" tabindex="-1">
+      <h2 class="govuk-heading-m">Room selection</h2>
+      <p class="govuk-body">Kitchen and living room are still selected in this example.</p>
+      </section>
+  nhs-back-review:
+    title: "Return to the settings review"
+    description: "A specific destination is clearer than guessing from browser history."
+    height: 340
+    html: |
+      <a class="govuk-back-link" href="#settings-review">Back to settings review</a>
+      <p class="govuk-body">Edit the display preference in the owning form.</p>
+      <section id="settings-review" tabindex="-1">
+      <h2 class="govuk-heading-m">Settings review</h2>
+      <p class="govuk-body">Your saved answers would be shown here.</p>
+      </section>
+  nhs-breadcrumbs-device:
+    title: "A device within a room"
+    description: "The parent links lead to labelled example sections."
+    height: 380
+    html: |
+      <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#crumb-home">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#crumb-rooms">Rooms</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#crumb-kitchen">Kitchen</a>
+      </li>
+      </ol>
+      </nav>
+      <h2 class="govuk-heading-m">Kitchen temperature sensor</h2>
+      <section id="crumb-home" tabindex="-1">
+      <h3 class="govuk-heading-s">Home</h3>
+      </section>
+      <section id="crumb-rooms" tabindex="-1">
+      <h3 class="govuk-heading-s">Rooms</h3>
+      </section>
+      <section id="crumb-kitchen" tabindex="-1">
+      <h3 class="govuk-heading-s">Kitchen</h3>
+      </section>
+  nhs-breadcrumbs-guide:
+    title: "A help topic within a guide"
+    description: "The current topic is named by the heading, rather than repeated as a link."
+    height: 340
+    html: |
+      <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#crumb-help">Help</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#crumb-energy">Energy guide</a>
+      </li>
+      </ol>
+      </nav>
+      <h2 class="govuk-heading-m">Understand imported energy</h2>
+      <section id="crumb-help" tabindex="-1">
+      <h3 class="govuk-heading-s">Help</h3>
+      </section>
+      <section id="crumb-energy" tabindex="-1">
+      <h3 class="govuk-heading-s">Energy guide</h3>
+      </section>
+  nhs-contents-guide:
+    title: "A small Energy guide"
+    description: "The current topic and related destinations are visible."
+    height: 450
+    html: |
+      <nav class="civica-contents-list" aria-label="Pages in this guide">
+      <h2 class="govuk-heading-s">Energy guide</h2>
+      <ul class="govuk-list">
+      <li>
+      <span aria-current="page">Measurements</span>
+      </li>
+      <li>
+      <a class="govuk-link" href="#guide-comparisons">Comparisons</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#guide-missing">Missing readings</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="guide-comparisons" tabindex="-1">
+      <h3 class="govuk-heading-s">Comparisons</h3>
+      <p class="govuk-body">Compare equivalent periods and show their original dates.</p>
+      </section>
+      <section id="guide-missing" tabindex="-1">
+      <h3 class="govuk-heading-s">Missing readings</h3>
+      <p class="govuk-body">Do not treat absent values as zero.</p>
+      </section>
+  nhs-contents-in-page:
+    title: "Sections within one article"
+    description: "This local variant names its in-page scope explicitly."
+    height: 420
+    html: |
+      <nav class="civica-contents-list" aria-label="On this page">
+      <h2 class="govuk-heading-s">On this page</h2>
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#guide-labels">Room labels</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#guide-images">Room images</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="guide-labels" tabindex="-1">
+      <h3 class="govuk-heading-s">Room labels</h3>
+      <p class="govuk-body">Choose names that the household recognises.</p>
+      </section>
+      <section id="guide-images" tabindex="-1">
+      <h3 class="govuk-heading-s">Room images</h3>
+      <p class="govuk-body">Use an image only when it helps identification.</p>
+      </section>
+  nhs-footer-simple:
+    title: "A small documentation footer"
+    description: "A few supporting links remain easy to scan."
+    height: 390
+    html: |
+      <section id="footer-accessibility">
+      <h2 class="govuk-heading-s">Accessibility</h2>
+      <p class="govuk-body">Example accessibility information.</p>
+      </section>
+      <section id="footer-help">
+      <h2 class="govuk-heading-s">Help</h2>
+      <p class="govuk-body">Example help information.</p>
+      </section>
+      <footer class="civica-footer">
+      <nav aria-label="Footer">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#footer-accessibility">Accessibility</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#footer-help">Help</a>
+      </li>
+      </ul>
+      </nav>
+      <p class="govuk-body-s">civica.uk reference service</p>
+      </footer>
+  nhs-footer-information:
+    title: "Information-handling links"
+    description: "These local targets illustrate placement; production needs the real policies."
+    height: 400
+    html: |
+      <section id="footer-privacy">
+      <h2 class="govuk-heading-s">Privacy</h2>
+      <p class="govuk-body">Explain the actual information handled by the service.</p>
+      </section>
+      <section id="footer-licence">
+      <h2 class="govuk-heading-s">Licensing</h2>
+      <p class="govuk-body">Identify the project’s software and artwork terms separately.</p>
+      </section>
+      <footer class="civica-footer">
+      <nav aria-label="Footer">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#footer-privacy">Privacy</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#footer-licence">Licensing</a>
+      </li>
+      </ul>
+      </nav>
+      <p class="govuk-body-s">civica.uk reference service</p>
+      </footer>
+  nhs-header-minimal:
+    title: "A focused setup header"
+    description: "Only identity and the task’s service name are present."
+    height: 300
+    html: |
+      <header class="civica-header">
+      <a class="civica-header__brand" href="#service-home">
+      <img src="../images/civica-lockup.svg" width="150" height="44" alt="civica.uk">
+      </a>
+      <span>Dashboard setup</span>
+      </header>
+      <main id="service-home" tabindex="-1">
+      <h1 class="govuk-heading-l">Set up a shared view</h1>
+      <p class="govuk-body">Choose the information your household needs.</p>
+      </main>
+  nhs-header-navigation:
+    title: "A service header with a few destinations"
+    description: "The civica lockup replaces NHS and GOV.UK identity assets."
+    height: 400
+    html: |
+      <header class="civica-header">
+      <a class="civica-header__brand" href="#service-home">
+      <img src="../images/civica-lockup.svg" width="150" height="44" alt="civica.uk">
+      </a>
+      <span>My home</span>
+      <nav class="civica-header__navigation" aria-label="Main">
+      <ul class="govuk-list">
+      <li>
+      <a href="#header-rooms">Rooms</a>
+      </li>
+      <li>
+      <a href="#header-energy">Energy</a>
+      </li>
+      <li>
+      <a href="#header-profile">Profile</a>
+      </li>
+      </ul>
+      </nav>
+      </header>
+      <main id="service-home" tabindex="-1">
+      <h1 class="govuk-heading-l">My home</h1>
+      <section id="header-rooms">
+      <h2 class="govuk-heading-s">Rooms</h2>
+      </section>
+      <section id="header-energy">
+      <h2 class="govuk-heading-s">Energy</h2>
+      </section>
+      <section id="header-profile">
+      <h2 class="govuk-heading-s">Profile</h2>
+      </section>
+      </main>
+  nhs-pagination-guide:
+    title: "Move between help topics"
+    description: "Topic names identify where previous and next lead."
+    height: 410
+    html: |
+      <nav class="govuk-pagination govuk-pagination--block" aria-label="Pagination">
+      <div class="govuk-pagination__prev">
+      <a class="govuk-link govuk-pagination__link" href="#previous-topic" rel="prev">
+      <span class="govuk-pagination__link-title">Previous<span class="govuk-visually-hidden"> topic</span>
+      </span>
+      <span class="govuk-pagination__link-label">Measurements</span>
+      </a>
+      </div>
+      <div class="govuk-pagination__next">
+      <a class="govuk-link govuk-pagination__link" href="#next-topic" rel="next">
+      <span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> topic</span>
+      </span>
+      <span class="govuk-pagination__link-label">Missing readings</span>
+      </a>
+      </div>
+      </nav>
+      <section id="previous-topic" tabindex="-1">
+      <h2 class="govuk-heading-s">Measurements</h2>
+      </section>
+      <section id="next-topic" tabindex="-1">
+      <h2 class="govuk-heading-s">Missing readings</h2>
+      </section>
+  nhs-pagination-records:
+    title: "Numbered pages of records"
+    description: "The current page is identified and the sample destinations exist."
+    height: 380
+    html: |
+      <p class="govuk-body">Example history: page 2 of 3</p>
+      <nav class="govuk-pagination" aria-label="History pages">
+      <ul class="govuk-pagination__list">
+      <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#records-one" aria-label="Page 1">1</a>
+      </li>
+      <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#records-two" aria-label="Page 2" aria-current="page">2</a>
+      </li>
+      <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#records-three" aria-label="Page 3">3</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="records-one" tabindex="-1">
+      <h2 class="govuk-heading-s">Page 1 destination</h2>
+      </section>
+      <section id="records-two" tabindex="-1">
+      <h2 class="govuk-heading-s">Page 2 destination</h2>
+      </section>
+      <section id="records-three" tabindex="-1">
+      <h2 class="govuk-heading-s">Page 3 destination</h2>
+      </section>
+  nhs-skip-main:
+    title: "Skip a repeated header"
+    description: "Press Tab inside the example or open it separately to reveal the link."
+    height: 330
+    html: |
+      <a class="govuk-skip-link" href="#skip-main-content" data-module="govuk-skip-link">Skip to main content</a>
+      <header>
+      <nav aria-label="Example navigation">
+      <a class="govuk-link" href="#skip-rooms">Rooms</a> <a class="govuk-link" href="#skip-energy">Energy</a>
+      </nav>
+      </header>
+      <main id="skip-main-content" tabindex="-1">
+      <h1 class="govuk-heading-l">Home overview</h1>
+      <section id="skip-rooms">
+      <h2 class="govuk-heading-s">Rooms</h2>
+      </section>
+      <section id="skip-energy">
+      <h2 class="govuk-heading-s">Energy</h2>
+      </section>
+      </main>
+  nhs-skip-form:
+    title: "Reach the task directly"
+    description: "The main target comes after the repeated navigation and back link."
+    height: 440
+    html: |
+      <a class="govuk-skip-link" href="#skip-form-content" data-module="govuk-skip-link">Skip to main content</a>
+      <header>
+      <p class="govuk-body">civica.uk — dashboard setup</p>
+      </header>
+      <a class="govuk-back-link" href="#skip-previous">Back to review</a>
+      <main id="skip-form-content" tabindex="-1">
+      <h1 class="govuk-heading-l">Name this view</h1>
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="skip-view-name">View name</label>
+      <input class="govuk-input " id="skip-view-name" name="skip-view-name" type="text" value="Shared rooms" >
+      </div>
+      </form>
+      <section id="skip-previous">
+      <h2 class="govuk-heading-s">Review</h2>
+      </section>
+      </main>
+  nhs-card-navigation:
+    title: "A room navigation card"
+    description: "One clear heading link opens the related destination; controls are not nested inside it."
+    height: 350
+    html: |
+      <article class="civica-card">
+      <h2 class="govuk-heading-m">
+      <a class="govuk-link" href="#card-kitchen">Kitchen</a>
+      </h2>
+      <p class="govuk-body">Lights, temperature and appliance status.</p>
+      </article>
+      <section id="card-kitchen" tabindex="-1">
+      <h2 class="govuk-heading-m">Kitchen overview</h2>
+      <p class="govuk-body">Example destination.</p>
+      </section>
+  nhs-card-information:
+    title: "A card with separate actions"
+    description: "An information card can contain several independently focusable actions."
+    height: 320
+    html: |
+      <article class="civica-card">
+      <h2 class="govuk-heading-m">Living-room view</h2>
+      <p class="govuk-body">Show lighting and temperature together.</p>
+      <div class="govuk-button-group">
+      <button type="button" class="govuk-button" data-demo-message="Example preview opened.">Preview view</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-demo-message="Example view reset.">Reset example</button>
+      </div>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </article>
+  nhs-action-link-journey:
+    title: "Start a dashboard setup journey"
+    description: "The NHS action-link pattern signals the start of a service or task."
+    height: 340
+    html: |
+      <div class="civica-action-link">
+      <a class="govuk-link" href="#start-view">
+      <svg aria-hidden="true" focusable="false" width="40" height="40" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="20" fill="#d2e2f1">
+      </circle>
+      <path d="M12 20H28M22 14L28 20L22 26" fill="none" stroke="#0b0c0c" stroke-width="2">
+      </path>
+      </svg>
+      <span>Set up a shared view</span>
+      </a>
+      </div>
+      <section id="start-view" tabindex="-1">
+      <h2 class="govuk-heading-m">Set up a shared view</h2>
+      <p class="govuk-body">Choose rooms and review their labels.</p>
+      </section>
+  nhs-action-link-help:
+    title: "Start an account preference task"
+    description: "This is navigation to a task, not a button that saves a form."
+    height: 340
+    html: |
+      <div class="civica-action-link">
+      <a class="govuk-link" href="#review-preferences">
+      <svg aria-hidden="true" focusable="false" width="40" height="40" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="20" fill="#d2e2f1">
+      </circle>
+      <path d="M12 20H28M22 14L28 20L22 26" fill="none" stroke="#0b0c0c" stroke-width="2">
+      </path>
+      </svg>
+      <span>Review display preferences</span>
+      </a>
+      </div>
+      <section id="review-preferences" tabindex="-1">
+      <h2 class="govuk-heading-m">Display preferences</h2>
+      <p class="govuk-body">Check your palette and colour mode.</p>
+      </section>

@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-11",
+  "source": {
+    "site": "https://design-guide.publishing.service.gov.uk/",
+    "indexes": [
+      "https://design-guide.publishing.service.gov.uk/components/",
+      "https://design-guide.publishing.service.gov.uk/patterns/",
+      "https://design-guide.publishing.service.gov.uk/frontend-templates/"
+    ],
+    "guideRepository": "https://github.com/alphagov/govuk-design-guide",
+    "guideObservedHead": "f227dc04ff5c25d91b81420f8db326e75757eceb",
+    "guideCommitMeaning": "Repository head observed during review; not a claim that the deployed website identifies its build with this commit",
+    "componentRepository": "https://github.com/alphagov/govuk_publishing_components",
+    "componentCommit": "bbe236c5259dd84ddb9208cabca0186fd04d5faa",
+    "latestChangelogRelease": "71.1.0",
+    "captureMethod": "Recursive same-origin traversal of the three index sections, including nested finder and template variants; trailing slash aliases deduplicated; SHA-256 of each fetched HTML response",
+    "scope": "All component, pattern and frontend-template guidance entries in the Publishing Design Guide, not every lower-level component in the separate gem catalogue"
+  },
+  "counts": {
+    "components": 11,
+    "patterns": 1,
+    "frontendTemplates": 30,
+    "total": 42,
+    "examples": 84
+  },
+  "items": [
+    {
+      "id": "pub-components-attachment",
+      "title": "Attachment",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/attachment/",
+      "sourceSha256": "f8028931c8c5fdebc090fbf95236eb1726b272ebb1649a6a430bbaaf897cf775",
+      "localPage": "/publishing/components/attachment.html",
+      "sourceFile": "docs/source/publishing/components/attachment.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-attachment-1",
+        "pub-components-attachment-2"
+      ]
+    },
+    {
+      "id": "pub-components-breadcrumbs",
+      "title": "Breadcrumbs",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/breadcrumbs/",
+      "sourceSha256": "387258842c927a5473bc2c6727f1e03e2fe51ccdc27a6f6ec00340e1740ccd59",
+      "localPage": "/publishing/components/breadcrumbs.html",
+      "sourceFile": "docs/source/publishing/components/breadcrumbs.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-breadcrumbs-1",
+        "pub-components-breadcrumbs-2"
+      ]
+    },
+    {
+      "id": "pub-components-content-list",
+      "title": "Contents list",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/content-list/",
+      "sourceSha256": "f150ba48fc8ea77bc5000a462a7c9231fcf61031a72f124d21ccbad4c931eb2e",
+      "localPage": "/publishing/components/content-list.html",
+      "sourceFile": "docs/source/publishing/components/content-list.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-content-list-1",
+        "pub-components-content-list-2"
+      ]
+    },
+    {
+      "id": "pub-components-emergency-banner",
+      "title": "Emergency banner",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/emergency-banner/",
+      "sourceSha256": "543635796bb0d49384cce9df67303c8421db4b1f0733da9ba2ea85356bac59cb",
+      "localPage": "/publishing/components/emergency-banner.html",
+      "sourceFile": "docs/source/publishing/components/emergency-banner.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-emergency-banner-1",
+        "pub-components-emergency-banner-2"
+      ]
+    },
+    {
+      "id": "pub-components-feedback",
+      "title": "Feedback",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/feedback/",
+      "sourceSha256": "0b8347bf3d7c8b8a91aae4c6c90d3e0c13a1c105b7e20cd470b77893c1667c42",
+      "localPage": "/publishing/components/feedback.html",
+      "sourceFile": "docs/source/publishing/components/feedback.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-feedback-1",
+        "pub-components-feedback-2"
+      ]
+    },
+    {
+      "id": "pub-components-global-banner",
+      "title": "Global banner",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/global-banner/",
+      "sourceSha256": "ffb4b3767bae4b2983e2480c7508ead4725d4a608184040c458a4f72ca1205fe",
+      "localPage": "/publishing/components/global-banner.html",
+      "sourceFile": "docs/source/publishing/components/global-banner.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-global-banner-1",
+        "pub-components-global-banner-2"
+      ]
+    },
+    {
+      "id": "pub-components-previous-and-next-navigation",
+      "title": "Previous and next navigation",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/previous-and-next-navigation/",
+      "sourceSha256": "80376525868746f6f495233ee45b8de93d57298dbda25b0555e2823e1bdca9ba",
+      "localPage": "/publishing/components/previous-and-next-navigation.html",
+      "sourceFile": "docs/source/publishing/components/previous-and-next-navigation.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-previous-and-next-navigation-1",
+        "pub-components-previous-and-next-navigation-2"
+      ]
+    },
+    {
+      "id": "pub-components-print-link",
+      "title": "Print link",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/print-link/",
+      "sourceSha256": "8c478c2b5f5a508119e8c4145a3b9d11f83fffdf5ab1eb2449d9795ad8224186",
+      "localPage": "/publishing/components/print-link.html",
+      "sourceFile": "docs/source/publishing/components/print-link.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-print-link-1",
+        "pub-components-print-link-2"
+      ]
+    },
+    {
+      "id": "pub-components-related-navigation",
+      "title": "Related Navigation",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/related-navigation/",
+      "sourceSha256": "8fa5d259be7cb6d066c7d8e7496fd30604abce6fce1fe2be63a1c78560601b7b",
+      "localPage": "/publishing/components/related-navigation.html",
+      "sourceFile": "docs/source/publishing/components/related-navigation.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-related-navigation-1",
+        "pub-components-related-navigation-2"
+      ]
+    },
+    {
+      "id": "pub-components-search-autocomplete",
+      "title": "Search autocomplete",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/search-autocomplete/",
+      "sourceSha256": "da8d3de2833c55023cf02b9b5cf3c57c63130709c7acaf2a5012632c2b8828c8",
+      "localPage": "/publishing/components/search-autocomplete.html",
+      "sourceFile": "docs/source/publishing/components/search-autocomplete.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-search-autocomplete-1",
+        "pub-components-search-autocomplete-2"
+      ]
+    },
+    {
+      "id": "pub-components-single-page-notification-button",
+      "title": "Single page notification button",
+      "category": "components",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/components/single-page-notification-button/",
+      "sourceSha256": "9b1dc9ed3a6f7db070d596619215f81b5225c4141e86472f17b6cb506527fbec",
+      "localPage": "/publishing/components/single-page-notification-button.html",
+      "sourceFile": "docs/source/publishing/components/single-page-notification-button.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-components-single-page-notification-button-1",
+        "pub-components-single-page-notification-button-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-answer",
+      "title": "Answer",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/answer/",
+      "sourceSha256": "6b3a62a59f241f0e0109ee74143c104743e4db8bcbd95882cbda8c226ba41b18",
+      "localPage": "/publishing/frontend-templates/answer.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/answer.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-answer-1",
+        "pub-frontend-templates-answer-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-calendar",
+      "title": "Calendar",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/calendar/",
+      "sourceSha256": "589b9d4d1f9e073ad9777bd67406caf64f051167889b8ae08bfd51cbc367e06b",
+      "localPage": "/publishing/frontend-templates/calendar.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-calendar-1",
+        "pub-frontend-templates-calendar-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-completed-transaction",
+      "title": "Completed transaction",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/completed-transaction/",
+      "sourceSha256": "38bdeed8e524cba2ef80f6dfe671984a799885bce9531e2a3c3cb8f7250d5fb8",
+      "localPage": "/publishing/frontend-templates/completed-transaction.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/completed-transaction.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-completed-transaction-1",
+        "pub-frontend-templates-completed-transaction-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-detailed-guide",
+      "title": "Detailed guide",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/detailed-guide/",
+      "sourceSha256": "b4201710c4415ecf151c519b04b0857a32a599e26528ff901b55d7691fc3a381",
+      "localPage": "/publishing/frontend-templates/detailed-guide.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/detailed-guide.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-detailed-guide-1",
+        "pub-frontend-templates-detailed-guide-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-document-collections",
+      "title": "Document collections",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/document-collections/",
+      "sourceSha256": "ffcc6cd346d7272045e37c8e314369af3196cdcc56b986e013f226c236ca92bc",
+      "localPage": "/publishing/frontend-templates/document-collections.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/document-collections.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-document-collections-1",
+        "pub-frontend-templates-document-collections-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder",
+      "title": "Finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/",
+      "sourceSha256": "436614faf1cdef65d9a5a57dbb85aef1f5f43f36844af5f80cdb5ad18ef3317a",
+      "localPage": "/publishing/frontend-templates/finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-1",
+        "pub-frontend-templates-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-case-studies-finder",
+      "title": "Case studies finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/case-studies-finder/",
+      "sourceSha256": "4d281b58c57d7f70c23ad2e75382284a33a486c95cf55ce2ed49e3e4c81a6f97",
+      "localPage": "/publishing/frontend-templates/finder/case-studies-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/case-studies-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-case-studies-finder-1",
+        "pub-frontend-templates-finder-case-studies-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-departments-agencies-public-bodies-finder",
+      "title": "Departments, agencies and public bodies finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/departments-agencies-public-bodies-finder/",
+      "sourceSha256": "6a9443b9d6c4c219237fae3eb991795305fc45a4541eddd5fe9faceb79e53acf",
+      "localPage": "/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-departments-agencies-public-bodies-finder-1",
+        "pub-frontend-templates-finder-departments-agencies-public-bodies-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-groups-finder",
+      "title": "Groups finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/groups-finder/",
+      "sourceSha256": "72c7787243c392d363844266431b8a5573e092d4b7751ac87facd095abf12a21",
+      "localPage": "/publishing/frontend-templates/finder/groups-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/groups-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-groups-finder-1",
+        "pub-frontend-templates-finder-groups-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-hmrc-contacts-finder",
+      "title": "HMRC contacts finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/hmrc-contacts-finder/",
+      "sourceSha256": "9c05f5e1b236ac63ba17ab034d544e4881698f1cf2f5d700a11ae3810172163e",
+      "localPage": "/publishing/frontend-templates/finder/hmrc-contacts-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/hmrc-contacts-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-hmrc-contacts-finder-1",
+        "pub-frontend-templates-finder-hmrc-contacts-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-people-finder",
+      "title": "People finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/people-finder/",
+      "sourceSha256": "0702fc06793181b792fd6e3f9ac57180da114b08126d221733a65372ab583333",
+      "localPage": "/publishing/frontend-templates/finder/people-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-people-finder-1",
+        "pub-frontend-templates-finder-people-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-search",
+      "title": "Search",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/search/",
+      "sourceSha256": "fac4e2bd85e48ed25b1dec0765d75800e47e203aced1b149cf310706ce8651b8",
+      "localPage": "/publishing/frontend-templates/finder/search.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/search.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-search-1",
+        "pub-frontend-templates-finder-search-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-specialist-document-finder",
+      "title": "Specialist document finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/specialist-document-finder/",
+      "sourceSha256": "324d2f9629f38cad40fc1b2caebcdc22ce1ccb4bb06a68858ab67b145e9d882c",
+      "localPage": "/publishing/frontend-templates/finder/specialist-document-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/specialist-document-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-specialist-document-finder-1",
+        "pub-frontend-templates-finder-specialist-document-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-statistical-data-sets-finder",
+      "title": "Statistical data sets finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/statistical-data-sets-finder/",
+      "sourceSha256": "7f72e2f4d394f66c477dcd7b70b55bacbe61e0d96f61d95cca8a987fc2ebfad6",
+      "localPage": "/publishing/frontend-templates/finder/statistical-data-sets-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/statistical-data-sets-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-statistical-data-sets-finder-1",
+        "pub-frontend-templates-finder-statistical-data-sets-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-supergroup-finder",
+      "title": "Supergroup finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/supergroup-finder/",
+      "sourceSha256": "5797fe8e77ea9cd0dbd432ab5ff2dd5dc47e89d03c5edf057766a51871534ea8",
+      "localPage": "/publishing/frontend-templates/finder/supergroup-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/supergroup-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-supergroup-finder-1",
+        "pub-frontend-templates-finder-supergroup-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-topical-events-finder",
+      "title": "Topical events finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/topical-events-finder/",
+      "sourceSha256": "12f545d2afe0c0751c0dba4cdc031dc0b5ab39f9183bc243f740794d58a6b4ae",
+      "localPage": "/publishing/frontend-templates/finder/topical-events-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/topical-events-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-topical-events-finder-1",
+        "pub-frontend-templates-finder-topical-events-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-finder-world-organisation-finder",
+      "title": "World organisation finder",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/world-organisation-finder/",
+      "sourceSha256": "73316d6556c8e0af1c52471e5ed1cb573ec1438d4d765dff5912f090c49c7c8f",
+      "localPage": "/publishing/frontend-templates/finder/world-organisation-finder.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
+      "parentId": "pub-frontend-templates-finder",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-finder-world-organisation-finder-1",
+        "pub-frontend-templates-finder-world-organisation-finder-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-guide",
+      "title": "Guide",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/guide/",
+      "sourceSha256": "5b34104ad9569dacd26476c633f8f52021a0318dfc8e94f9bde9c25302420f8d",
+      "localPage": "/publishing/frontend-templates/guide.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/guide.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-guide-1",
+        "pub-frontend-templates-guide-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-homepage",
+      "title": "Homepage",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/homepage/",
+      "sourceSha256": "cfd89ce7d7a4c56028223b9dd0a768c29931d338352e47dd1c02de1ad7d4ae01",
+      "localPage": "/publishing/frontend-templates/homepage.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/homepage.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-homepage-1",
+        "pub-frontend-templates-homepage-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse",
+      "title": "Mainstream browse",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/",
+      "sourceSha256": "93c4788bb34a3697013b2e752af0eba086fcdf9450155edad4592eff570e87bd",
+      "localPage": "/publishing/frontend-templates/mainstream-browse.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/mainstream-browse.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-mainstream-browse-1",
+        "pub-frontend-templates-mainstream-browse-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-level-one",
+      "title": "Level one",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/level-one/",
+      "sourceSha256": "b88ba3e88e55768350edbf1228e0daced05f1495ff74874ce746515928806e8c",
+      "localPage": "/publishing/frontend-templates/mainstream-browse/level-one.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/mainstream-browse/level-one.html.md.erb",
+      "parentId": "pub-frontend-templates-mainstream-browse",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-mainstream-browse-level-one-1",
+        "pub-frontend-templates-mainstream-browse-level-one-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-level-two",
+      "title": "Level two",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/level-two/",
+      "sourceSha256": "f2d409d1b6f4fa47f17b33efd4392733099f154bc1e3e39344bdbf4be9bff5d0",
+      "localPage": "/publishing/frontend-templates/mainstream-browse/level-two.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/mainstream-browse/level-two.html.md.erb",
+      "parentId": "pub-frontend-templates-mainstream-browse",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-mainstream-browse-level-two-1",
+        "pub-frontend-templates-mainstream-browse-level-two-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer",
+      "title": "Smart answer",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/",
+      "sourceSha256": "6c1e5211c95fb9f4dd62e4b7a7c72e9ac46c0795b67bc1c46bad9a563ee036f4",
+      "localPage": "/publishing/frontend-templates/smart-answer.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-smart-answer-1",
+        "pub-frontend-templates-smart-answer-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-github-smart-answer",
+      "title": "GitHub smart answer",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/github-smart-answer/",
+      "sourceSha256": "bd01e6016c84e2f3a64dd3e5a6b6d48e00659cbe37295f4f81f3885ed6503ac2",
+      "localPage": "/publishing/frontend-templates/smart-answer/github-smart-answer.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/smart-answer/github-smart-answer.html.md.erb",
+      "parentId": "pub-frontend-templates-smart-answer",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-smart-answer-github-smart-answer-1",
+        "pub-frontend-templates-smart-answer-github-smart-answer-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-simple-smart-answer",
+      "title": "Simple smart answer",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/simple-smart-answer/",
+      "sourceSha256": "6591b3d8cc16684e33bc9c841cf0c4d910f2a7a2a274d01a82e56f74401b408f",
+      "localPage": "/publishing/frontend-templates/smart-answer/simple-smart-answer.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/smart-answer/simple-smart-answer.html.md.erb",
+      "parentId": "pub-frontend-templates-smart-answer",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-smart-answer-simple-smart-answer-1",
+        "pub-frontend-templates-smart-answer-simple-smart-answer-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-special-route",
+      "title": "Special route",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/special-route/",
+      "sourceSha256": "087f41c80cff108626b390a56322c948618e7532f789e4aadda3cc777dffbb88",
+      "localPage": "/publishing/frontend-templates/special-route.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/special-route.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-special-route-1",
+        "pub-frontend-templates-special-route-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-step-by-step-nav",
+      "title": "Step by step nav",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/step-by-step-nav/",
+      "sourceSha256": "b13128889ac3ee4606fd792f3cfbf3f1469d9225377b3f9dde5928d2038505cb",
+      "localPage": "/publishing/frontend-templates/step-by-step-nav.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/step-by-step-nav.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-step-by-step-nav-1",
+        "pub-frontend-templates-step-by-step-nav-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-topical-events",
+      "title": "Topical events",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/topical-events/",
+      "sourceSha256": "37d39b02382da989b1faf51e7a7ca73b0c4c034f0b01c4729ac904491e40b2f3",
+      "localPage": "/publishing/frontend-templates/topical-events.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/topical-events.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-topical-events-1",
+        "pub-frontend-templates-topical-events-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-topical-events-about",
+      "title": "About page",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/topical-events/about/",
+      "sourceSha256": "9eeac46840f3906945d65605c25959b8bc7a64e3f8baafe9242a69491866bacb",
+      "localPage": "/publishing/frontend-templates/topical-events/about.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
+      "parentId": "pub-frontend-templates-topical-events",
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-topical-events-about-1",
+        "pub-frontend-templates-topical-events-about-2"
+      ]
+    },
+    {
+      "id": "pub-frontend-templates-transaction",
+      "title": "Transaction",
+      "category": "frontend-templates",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/frontend-templates/transaction/",
+      "sourceSha256": "0c7698dabf04b2b479a799dca44f1a0a5bc2360e0894cf4209b3b990424b0380",
+      "localPage": "/publishing/frontend-templates/transaction.html",
+      "sourceFile": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-frontend-templates-transaction-1",
+        "pub-frontend-templates-transaction-2"
+      ]
+    },
+    {
+      "id": "pub-patterns-search-filter",
+      "title": "Search filter",
+      "category": "patterns",
+      "sourceUrl": "https://design-guide.publishing.service.gov.uk/patterns/search-filter/",
+      "sourceSha256": "0fcb73bcb646a38f0e870847f9ec6cfafb9cd65a100f4d89dde0ec80f8db1d28",
+      "localPage": "/publishing/patterns/search-filter.html",
+      "sourceFile": "docs/source/publishing/patterns/search-filter.html.md.erb",
+      "parentId": null,
+      "status": "reference",
+      "runtimeStatus": "Reference content and isolated local examples; no additional HA capability or publishing backend installed",
+      "examples": [
+        "pub-patterns-search-filter-1",
+        "pub-patterns-search-filter-2"
+      ]
+    }
+  ],
+  "metadataMigration": {
+    "issue": "https://github.com/alphagov/govuk_publishing_components/issues/5560",
+    "pullRequest": "https://github.com/alphagov/govuk_publishing_components/pull/5572",
+    "mergedOn": "2026-07-14",
+    "mergeCommit": "2cf4b390247a68deb2905afd3ee329fb09c0e58a",
+    "introducedIn": "66.9.0",
+    "initialChange": "Non-breaking addition of published-dates capabilities to metadata; old component initially retained",
+    "oldComponentRemovedIn": "71.0.0",
+    "removalPullRequest": "https://github.com/alphagov/govuk_publishing_components/pull/5807",
+    "seeUpdatesLinkRestoredIn": "71.1.0",
+    "restorationPullRequest": "https://github.com/alphagov/govuk_publishing_components/pull/5844",
+    "optionMapping": {
+      "published": "first_published",
+      "history": "page_history"
+    },
+    "historyClarification": "The old published_dates history array becomes metadata page_history. Metadata also has a separate history text field; it is not the array. No current show_history option was found in the pinned implementation or examples.",
+    "currentOptions": [
+      "first_published",
+      "last_updated",
+      "page_history",
+      "see_updates_link",
+      "border_top",
+      "title"
+    ],
+    "pageHistoryFields": [
+      "display_time",
+      "note",
+      "timestamp"
+    ],
+    "implementation": "https://github.com/alphagov/govuk_publishing_components/blob/bbe236c5259dd84ddb9208cabca0186fd04d5faa/app/views/govuk_publishing_components/components/_metadata.html.erb",
+    "examples": "https://github.com/alphagov/govuk_publishing_components/blob/bbe236c5259dd84ddb9208cabca0186fd04d5faa/app/views/govuk_publishing_components/components/docs/metadata.yml"
+  }
+}

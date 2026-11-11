@@ -1,0 +1,60 @@
+---
+title: "Step by step nav"
+description: "Publishing step-by-step navigation connects an ordered end-to-end journey across guidance and services. It is not a task-completion tracker."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/step-by-step-nav/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Step by step nav
+
+Publishing step-by-step navigation connects an ordered end-to-end journey across guidance and services. It is not a task-completion tracker. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/step-by-step-nav/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use the navigational structure for a documented setup journey with a real beginning and end: understand requirements, install, then verify. Keep optional or unordered household chores in a task list instead. Opening a guidance step does not mean it has been completed.
+
+## Structure and behaviour
+
+Number genuinely ordered stages and keep their action links visible. Explain prerequisites and optional branches in text. If disclosure controls shorten a long overview, the same headings and links must remain usable without JavaScript. Each destination must stand alone for direct visitors.
+
+## Home Assistant boundary
+
+The theme does not store progress through this reference journey. Do not reuse the step design as an automation status display or assert that an installation succeeded. A service needing saved completion belongs to an explicit task-list implementation.
+
+## Installation journey
+
+An ordered list links to existing local step text.
+
+<%= example("pub-frontend-templates-step-by-step-nav-1") %>
+
+## Guidance disclosure
+
+Native details expands guidance without claiming saved progress.
+
+<%= example("pub-frontend-templates-step-by-step-nav-2") %>
+
+## Acceptance checks
+
+- The sequence is necessary rather than merely convenient.
+- Step numbers are announced with their titles.
+- No check mark appears because a link was visited.
+- Optional paths and prerequisites remain understandable.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

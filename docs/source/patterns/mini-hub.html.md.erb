@@ -1,0 +1,53 @@
+---
+title: "Explain one topic across a mini-hub"
+description: "Break a complex household topic into a small set of related information pages."
+section: "patterns"
+group: "Page patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/mini-hub"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS mini-hub pattern."
+---
+
+# Explain one topic across a mini-hub
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A mini-hub is a guide, not a setup wizard. People can read the part they need in any order without submitting answers or changing a device.
+
+## The NHS principle we adapt
+
+The [NHS mini-hub pattern](https://service-manual.nhs.uk/design-system/patterns/mini-hub) presents one topic across a small set of pages, with a distinct current-page heading, contents and sequential navigation. civica adopts that structure for explanatory topics such as understanding an energy chart. Keep the group small; the NHS pattern describes two to eight pages.
+
+## Make the current page unmistakable
+
+Lead with the current page's subject and put the wider topic below it as a caption. A reader following a link should immediately know that the page changed. Use an explicit separator for a screen reader when the heading includes both parts.
+
+<%= example('nhs-mini-hub-reading') %>
+
+## Provide both direct and sequential navigation
+
+Keep the same contents order across every page and identify the current page with `aria-current="page"`. At the end, offer Previous and Next links with the actual destination titles. These are normal page links, not buttons that save data. The two examples here are separately generated pages and link to each other.
+
+<%= example('nhs-mini-hub-gaps') %>
+
+## Choose the right scope
+
+“Your energy chart” can contain reading units, missing data and comparing periods. It should not also contain household account settings and vacuum controls. If the content fits comfortably on one page, use headings and optional in-page navigation. If there are many different topics, use a hub. If each step asks for information, use question pages instead.
+
+## Accessibility and content
+
+Keep headings, link names and browser titles specific to the current page. Maintain a readable line length and a single-column order on narrow screens. Preserve normal links so browser Back, bookmarking and opening in another tab work. Do not make users complete earlier pages before reading a later explanation.
+
+Mark the current contents item in text or with an additional visible treatment, not colour alone. Keep repeated navigation concise so it does not overwhelm the page's own content. Test the guide with people who use magnification or screen reader heading navigation.
+
+## Home Assistant implementation boundary
+
+A mini-hub can explain native chart meanings, availability states or household maintenance records. It must not masquerade as the native Energy panel or substitute synthetic values for actual readings. Link to a real device or chart only when that route is supported in the installation. Reading a guide must never invoke an action, enable an automation or clear an alert.
+
+## Maintenance
+
+Review the group as a connected guide when a capability changes. Keep the contents and pagination consistent with the published set, preserve old meaningful links where possible and remove references to retired controls. The preview uses synthetic explanatory text and the same links in embedded and standalone views.

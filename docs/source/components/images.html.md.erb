@@ -1,0 +1,63 @@
+---
+title: "Images"
+description: "An image should help identify, locate or understand something that text alone would not explain as well."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/images"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed images guidance and 2 Home Assistant reference examples."
+---
+
+# Images
+
+An image should help identify, locate or understand something that text alone would not explain as well.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use an informative room diagram or device photograph when it helps the household recognise the right item. Keep the name, current state and controls as readable text outside the image.
+
+## When not to use it
+
+Do not decorate every settings page or put essential text only inside a picture. A photograph must not become the sole evidence that a device is connected or safe to use.
+
+## Home Assistant adaptation
+
+The example floor plan is an original schematic, not a picture of a real home. A real installation needs its own accurate room labels and text alternative. Retain an ordinary room list as an alternative to a spatial plan, and respect access permissions for cameras and private images.
+
+## Accessibility and behaviour
+
+Give informative images an alt text that conveys their useful meaning. Use an empty alt for a genuinely decorative image next to equivalent text. Captions explain what to conclude, rather than repeating the alternative. Give complex diagrams an adjacent longer description.
+
+## Examples
+
+### An informative room diagram
+
+The text alternative describes the highlighted location; the caption explains the task.
+
+<%= example('nhs-image-floorplan') %>
+
+### A decorative identity mark
+
+The nearby text names the service, so the repeated mark has an empty alt.
+
+<%= example('nhs-image-decorative') %>
+
+## Check the implementation
+
+Test images disabled, narrow screens, enlarged text and reading order. Supply dimensions to reduce layout movement and keep images responsive without cropping important details.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS images](https://service-manual.nhs.uk/design-system/components/images) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [cards](cards.html).

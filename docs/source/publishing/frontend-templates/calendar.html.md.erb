@@ -1,0 +1,60 @@
+---
+title: "Calendar"
+description: "The publishing calendar template presents important dates in a structured, browsable form."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/calendar/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Calendar
+
+The publishing calendar template presents important dates in a structured, browsable form. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/calendar/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Adapt the information structure for existing household calendar entries, maintenance appointments or collection schedules. Prefer a readable agenda when people mainly need the next event. Display the calendar source, local date and time; distinguish all-day events from timed appointments.
+
+## Structure and behaviour
+
+Group events by date using semantic headings or a table with clear headers. If a calendar grid is necessary, provide a list alternative and a keyboard model that does not require tabbing through every empty cell. Keep next/previous-period controls labelled with their date context.
+
+## Home Assistant boundary
+
+The theme does not generate schedules, infer bank holidays or create calendar entries. Example dates are invented and must not be presented as current household appointments. Keep native timezone, recurrence, cancellations and permission handling with the calendar integration.
+
+## Household agenda
+
+Invented appointments show an agenda structure.
+
+<%= example("pub-frontend-templates-calendar-1") %>
+
+## Empty period
+
+No invented appointment is inserted to fill a calendar.
+
+<%= example("pub-frontend-templates-calendar-2") %>
+
+## Acceptance checks
+
+- Repeated and all-day events retain their native meaning.
+- Today, selected date and event status do not rely only on colour.
+- An empty period is different from a failed calendar request.
+- Narrow screens retain event titles, date and time.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

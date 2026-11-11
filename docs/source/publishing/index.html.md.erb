@@ -1,0 +1,34 @@
+---
+title: "Publishing patterns for civica.uk"
+description: "A complete, source-mapped adaptation of the Publishing Design Guide for Home Assistant documentation and information interfaces."
+section: "patterns"
+group: "Publishing guide"
+source_url: "https://design-guide.publishing.service.gov.uk/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added all 42 publishing guidance mappings and the verified metadata migration record."
+---
+
+# Publishing patterns for civica.uk
+
+The GOV.UK Publishing Design Guide extends the core Design System for information publishing. This local section adapts its information architecture and content patterns to civica.uk without importing the official brand or pretending that Home Assistant is a government publishing platform.
+
+The reviewed inventory contains **42 canonical guidance pages**: 11 components, 1 pattern and 30 frontend templates. The template count includes the nested finder, browse, smart-answer and topical-event variants. Every entry has a local adaptation page and two contextual examples.
+
+- [Publishing components](components/index.html): document links, navigation, messages, search and subscriptions.
+- [Publishing patterns](patterns/index.html): search filters.
+- [Page templates](frontend-templates/index.html): answers, guides, directories, task entry pages and the full set of nested variants.
+- [Source history and metadata migration](source-history.html): pinned sources and the verified published-dates change.
+
+## What coverage means
+
+The catalogue records each source and explains when it fits a household interface. Examples contain real local destinations and ordinary accessible HTML. Synthetic records and local-only form feedback are labelled. No example sends feedback, subscribes an address, creates a calendar event, operates a device or pretends to connect to a backend.
+
+Some government-specific directories have no direct household equivalent. Their pages preserve the source mapping and explain a limited applicable principle, rather than creating a fictitious household service. This is deliberate coverage of the decision, not a missing entry hidden from the catalogue.
+
+The separate `govuk_publishing_components` gem has a larger implementation catalogue. These 42 pages inventory the Publishing Design Guide’s guidance sections; they do not claim to inventory every gem partial or variation. The machine-readable source is `docs/data/publishing-inventory.json`.

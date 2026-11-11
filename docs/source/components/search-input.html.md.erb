@@ -1,0 +1,63 @@
+---
+title: "Search input"
+description: "A labelled search field helps people find a specific item when browsing is not enough."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/search-input"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed search input guidance and 2 Home Assistant reference examples."
+---
+
+# Search input
+
+A labelled search field helps people find a specific item when browsing is not enough.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for a long device list or a help index. State what is being searched so results are predictable. Search can complement filters and sorting.
+
+## When not to use it
+
+Do not make search compensate for missing room navigation. Do not silently combine devices, automations and external web results without explaining the scope.
+
+## Home Assistant adaptation
+
+Preserve the current query when returning from a result. Distinguish no matching devices from a failed connection, and keep a clear route to the unfiltered list. Search in a reference frame changes no Home Assistant state; its feedback describes only the demonstration.
+
+## Accessibility and behaviour
+
+Use a search landmark with a unique label when several searches exist. Provide a visible input label and a text button. A browser-supplied clear icon is an enhancement, not the only way to reset the query.
+
+## Examples
+
+### Search within devices
+
+The field’s scope is explicit and the example button only reports a local message.
+
+<%= example('nhs-search-devices') %>
+
+### A query with no matches
+
+The existing query stays visible and the user can revise it.
+
+<%= example('nhs-search-no-results') %>
+
+## Check the implementation
+
+Test Enter, empty queries, long names, special characters and zero results. Announce a completed result count once; do not move focus or announce every intermediate keystroke.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS search input](https://service-manual.nhs.uk/design-system/components/search-input) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

@@ -1,0 +1,60 @@
+---
+title: "Topical events"
+description: "A topical-event page gathers information about a time-bounded subject. Its government crisis and policy context does not transfer directly to a household."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/topical-events/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Topical events
+
+A topical-event page gathers information about a time-bounded subject. Its government crisis and policy context does not transfer directly to a household. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/topical-events/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+A household adaptation may gather a planned maintenance project, a seasonal setup or a documented upgrade. State the purpose, dates and current status. Separate a project’s background from live alerts and operational controls.
+
+## Structure and behaviour
+
+Use a concise introduction, current information and a curated list of related guides or records. An About page may explain scope and responsibility. Mark closed or archived projects and retain their history where it is useful. A decorative image is optional and needs a clear purpose.
+
+## Home Assistant boundary
+
+Do not invent a campaign, crisis response or multi-agency authority. The template is reference guidance, not an event-management feature or automation scheduler. Examples use explicitly fictional projects and no household dates are inferred.
+
+## Maintenance project
+
+A fictional, time-bounded collection.
+
+<%= example("pub-frontend-templates-topical-events-1") %>
+
+## Closed project
+
+An archived state remains distinct from current work.
+
+<%= example("pub-frontend-templates-topical-events-2") %>
+
+## Acceptance checks
+
+- The time boundary and status are explicit.
+- Archived content is not presented as a current alert.
+- Related items belong to the stated project.
+- The page does not duplicate an existing simple calendar entry.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

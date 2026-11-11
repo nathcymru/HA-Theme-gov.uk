@@ -1,0 +1,63 @@
+---
+title: "Pagination"
+description: "Split a long list or short guide into predictable pages when that improves use or performance."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/pagination"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed pagination guidance and 2 Home Assistant reference examples."
+---
+
+# Pagination
+
+Split a long list or short guide into predictable pages when that improves use or performance.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use numbered pages for many similar records and previous/next topic links for a guide. Keep a short list on one page when that is easier to understand.
+
+## When not to use it
+
+Do not use pagination to advance a form or hide critical current information. Avoid infinite scrolling when it prevents keyboard users from reaching the end of the page.
+
+## Home Assistant adaptation
+
+For Home Assistant history, preserve the query, period, filters and sorting when changing page. State how many rows or pages are available. The existing Energy data table uses explicit previous/next buttons for 100-row pages; route-based lists can use the link pattern shown here.
+
+## Accessibility and behaviour
+
+Use a labelled navigation landmark, descriptive links and aria-current for the current page. Omit a previous link on the first page and a next link on the last. Announce a completed client-side page change and move focus predictably without trapping it.
+
+## Examples
+
+### Move between help topics
+
+Topic names identify where previous and next lead.
+
+<%= example('nhs-pagination-guide') %>
+
+### Numbered pages of records
+
+The current page is identified and the sample destinations exist.
+
+<%= example('nhs-pagination-records') %>
+
+## Check the implementation
+
+Test first/last pages, empty results, a result count that shrinks, browser Back and direct page URLs. These reference links target labelled sample sections; the production controller must load the requested records.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS pagination](https://service-manual.nhs.uk/design-system/components/pagination) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [charts and tables](charts.html).

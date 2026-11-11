@@ -1,0 +1,44 @@
+---
+title: "Warning text"
+description: "Explain a significant consequence before the person commits to an action."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Warning text
+
+Explain a significant consequence before the person commits to an action.
+
+## When to use
+
+Use a short warning where an action can cause a meaningful loss or change that is easy to overlook. Place it before the decision. State the consequence and the affected object in plain language.
+
+Do not use warnings for routine information, successful actions or every unavailable sensor. Repeated warnings lose their usefulness. A device safety interlock remains the responsibility of the device and integration; a styled warning is not an interlock.
+
+## Removing a saved view
+
+<%= example('core-warning-delete') %>
+
+## Replacing configuration
+
+<%= example('core-warning-replace') %>
+
+## Behaviour and content
+
+The exclamation mark is decorative; assistive technology receives the word “Warning” as part of the message. The text names the actual consequence. Avoid all-capital instructions and vague phrases such as “Are you sure?” without context.
+
+Use a [confirmation or interruption pattern](../patterns/interruption.html) when the decision needs more explanation. Keep the cancel route clear. Do not make destructive actions look like the ordinary positive primary action simply because the selected palette is green or red.
+
+## Accessibility and testing
+
+Check that the message appears before the action in both visual and reading order. Test high zoom, screen-reader output and forced colours. Verify the real action’s permission checks, confirmation and failure handling separately; this component supplies only the warning presentation.
+
+## Source and implementation boundary
+
+[GOV.UK Warning text](https://design-system.service.gov.uk/components/warning-text/) supplies the visual structure. The consequences above are explicitly example content. The theme preserves existing HA confirmations and must not infer new device capabilities.

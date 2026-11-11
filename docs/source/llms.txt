@@ -57,3 +57,15 @@ Do not equate a local build, screenshot or token test with live Home Assistant d
 
 - [Chart colour](styles/chart-colour.html): deterministic identity colours, Vivid/Muted and Light/Dark variants, patterns and limits.
 - [Chart colour contract](reference/chart-colours.json): machine-readable generation rules and identity policy.
+
+## Expanded documentation catalogue
+
+- [Coverage and boundaries](community/coverage.html): complete reviewed GOV.UK37/NHS38/NHS13/Publishing42 source mapping, with overlap and scope explained.
+- [Machine-readable coverage](reference/coverage.json): source inventories, every guidance route and standalone example ID.
+- [Example viewer](components/example.html): one source for isolated preview, standalone page and copied HTML; safe local demonstration contract.
+- [Page metadata and history](components/page-history.html): real publication/update records and current publishing-library terminology.
+- [BSL](patterns/british-sign-language.html): discovery, production, review and explicit unavailable states.
+- [Question pages and dialogs](patterns/question-pages.html): bounded modal adaptation and accessible task flow.
+- [Publishing guidance](publishing/index.html): editorial components, patterns and recursively mapped page templates.
+
+Reference catalogue coverage does not mean those components have replaced native Home Assistant. Read each page’s implementation boundary. Example canvases use synthetic data and do not issue household commands.

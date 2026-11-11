@@ -1,0 +1,63 @@
+---
+title: "Contents list"
+description: "A contents list provides a small, predictable map of a related guide."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/contents-list"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed contents list guidance and 2 Home Assistant reference examples."
+---
+
+# Contents list
+
+A contents list provides a small, predictable map of a related guide.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for a short group of related help pages, with matching previous and next navigation at the end. NHS guidance limits this mini-hub pattern to about eight pages.
+
+## When not to use it
+
+Do not use it as a substitute for the main application menu or for a multi-page form. A form needs task progression and saved answers, not a reference guide’s page list.
+
+## Home Assistant adaptation
+
+An Energy help guide can separate measurements, comparisons and missing data. Keep the page title and topic labels consistent with the contents. An in-page list is a local variant for one long article; use section fragments and label it “On this page” so the scope is clear.
+
+## Accessibility and behaviour
+
+Wrap the list in a labelled nav. Mark the current page when it really represents the current route. Use short descriptive links and keep the current topic distinguishable without colour.
+
+## Examples
+
+### A small Energy guide
+
+The current topic and related destinations are visible.
+
+<%= example('nhs-contents-guide') %>
+
+### Sections within one article
+
+This local variant names its in-page scope explicitly.
+
+<%= example('nhs-contents-in-page') %>
+
+## Check the implementation
+
+Test every destination, the browser’s return behaviour, long labels and keyboard traversal. The example links stay inside their reference frame; production multi-page links must request actual pages.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS contents list](https://service-manual.nhs.uk/design-system/components/contents-list) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

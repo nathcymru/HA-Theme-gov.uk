@@ -1,0 +1,63 @@
+---
+title: "Error summary"
+description: "Summarise a failed submission before asking the user to find and fix individual fields."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/error-summary"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed error summary guidance and 2 Home Assistant reference examples."
+---
+
+# Error summary
+
+Summarise a failed submission before asking the user to find and fix individual fields.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use the summary even when one field needs correction. Put it at the start of the form content, below any back link, and use the same messages beside the fields.
+
+## When not to use it
+
+Do not use it for successful saves, general service notices or physical-device alerts. Do not show an error summary and an unrelated success banner as competing outcomes.
+
+## Home Assistant adaptation
+
+After a failed Home Assistant settings save, focus the summary once and preserve every non-secret answer. Prefix the page title with “Error:” when the form owns its page. In an existing modal, keep the focus inside that modal and use its accessible title; do not replace the application title indiscriminately.
+
+## Accessibility and behaviour
+
+Link each message to the affected control. For a grouped date, choose the first incorrect input; for radios, choose the first option. These static reference examples disable automatic focus on load so browsing this documentation is not interrupted.
+
+## Examples
+
+### One setting needs an answer
+
+The summary link reaches the same labelled input that carries the inline error.
+
+<%= example('nhs-summary-one-error') %>
+
+### Several settings need attention
+
+Both links point to actual controls and preserve the entered values.
+
+<%= example('nhs-summary-two-errors') %>
+
+## Check the implementation
+
+Test clicking every error link, submitting with a keyboard, returning to the summary and correcting only one of several errors. Do not create repeated live announcements.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS error summary](https://service-manual.nhs.uk/design-system/components/error-summary) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

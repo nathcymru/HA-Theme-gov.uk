@@ -1,0 +1,63 @@
+---
+title: "Radios"
+description: "Use radios when exactly one answer can be selected from a short list."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/radios"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed radios guidance and 2 Home Assistant reference examples."
+---
+
+# Radios
+
+Use radios when exactly one answer can be selected from a short list.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use them for a new unit choice, a display mode, or a small set of mutually exclusive options. Keep the choices visible when comparing them is useful.
+
+## When not to use it
+
+Do not use radios for selecting several rooms or for an immediate physical on/off control. A switch and a question with two answers have different interaction expectations.
+
+## Home Assistant adaptation
+
+Show a saved setting when editing an existing preference. For a new unanswered question, avoid silently choosing an answer. Include a genuine “Use system setting” or “Not sure” option when it is valid, rather than forcing a false binary answer.
+
+## Accessibility and behaviour
+
+Use one fieldset and legend, one shared name, distinct values and a label for each control. Arrow keys move through a native radio group. Keep follow-up questions simple and do not hide essential explanation behind an option.
+
+## Examples
+
+### Choose one unit
+
+Both options are visible and neither is assumed for a new answer.
+
+<%= example('nhs-radio-units') %>
+
+### Edit a saved mode
+
+The existing system-controlled mode is accurately preselected.
+
+<%= example('nhs-radio-theme-mode') %>
+
+## Check the implementation
+
+Test no initial answer, changed selection, persistence after an error, arrow keys and long labels. On small screens stack choices rather than squeezing several targets into one row.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS radios](https://service-manual.nhs.uk/design-system/components/radios) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

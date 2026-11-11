@@ -1,0 +1,50 @@
+---
+title: "Status and notifications"
+description: "Status and notifications for the civica.uk Home Assistant design system."
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+---
+
+# Status and notifications
+
+Status explains what is happening. An action lets the user change it. Keep the distinction visible and programmatic.
+
+
+## Examples
+
+These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
+
+<%= example('local-status-empty') %>
+
+<%= example('local-status-pending') %>
+
+<%= example('local-status-failure') %>
+
+
+## State vocabulary
+
+| State | Meaning | Presentation |
+| --- | --- | --- |
+| Normal | A confirmed expected state | Plain text and normal surface |
+| Success | A requested action completed | Brief confirmation with semantic success token |
+| Warning | Attention may be needed | Specific explanation and appropriate action |
+| Error | An action or data request failed | Error text and recovery route |
+| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |
+| Empty | The request succeeded but returned no items | Explain the valid empty result |
+| Pending | An operation is in progress | Text feedback and restrained progress indication |
+
+## Notifications
+
+Use an interrupting message only when the user needs it. Routine sensor updates should not generate repeated screen-reader announcements. Use a polite live region for a settings change; reserve urgent announcement behaviour for actual urgent events.
+
+A success message cannot appear before the service confirms success. A warning must say what it concerns. Red, green or yellow alone does not carry the meaning.
+
+## Tags and badges
+
+A status tag is not a button. Give it a text label and avoid underlining it like a link. For new or unread items needing attention, use the explicit [MOJ notification badge adaptation](notification-badge.html). Its red rounded count is distinct from a rectangular status tag. Plain sensor totals and the number of devices belong in ordinary text, not an attention badge.
+
+## Household alerts
+
+Do not copy national-emergency or mourning categories into ordinary home status. A household issue needs direct wording such as “Water detected in the kitchen” or “Smoke alarm unavailable”. Keep a link to details when useful.
+
+Source patterns: [GOV.UK notification banner](https://design-system.service.gov.uk/components/notification-banner/), [tag](https://design-system.service.gov.uk/components/tag/) and [DWP status design](https://design-system.dwp.gov.uk/design-for/status).

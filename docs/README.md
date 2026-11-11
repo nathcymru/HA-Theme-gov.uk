@@ -36,3 +36,20 @@ After changing canonical `design-system/palettes.json`, run `python3 docs/script
 The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It publishes only civica.uk images, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
 
 `source/images/` contains byte-for-byte copies of the needed supplied V3.2 core, icon and palette assets from `brand/civica/`. Keep the originals and provenance there unchanged. Run `python3 docs/scripts/sync-brand.py` after an authorised asset-pack update; it also regenerates the published artwork manifest. This site does not claim official government affiliation or a completed accessibility certification.
+
+
+## Author guidance and examples
+
+Use `.html.md.erb` for Markdown pages containing the shared `example()` helper. Give new guidance a title, description, section/group, publication and update dates, and accurate update notes. Keep first-publication dates stable. The shell requires a history record on every non-home editorial page; standalone example canvases use their owning guide’s history.
+
+Add examples to a `data/*examples.yml` catalogue with a unique ID, title, description and HTML. Middleman generates `/examples/<id>.html`, and the shared helper renders the same final markup in an iframe and the HTML tab. Standard components are enhanced with pinned GOV.UK Frontend 6.6.0. Ordinary demo forms use `data-demo-form` and a local status region; the build makes their controls inert until the local handler is ready. Publishing filters have a separate explicit local-data protocol. Never connect examples to a household.
+
+The component and pattern catalogues, section navigation, sitemap and search are generated from the page metadata. The six top-level routes remain in `data/navigation.yml`. Source-index inventories are published together in `reference/coverage.json`; keep their page and example mappings accurate.
+
+Run the documentation browser suite after building:
+
+```sh
+npx playwright test tests/docs.browser.spec.mjs tests/publishing-examples.browser.spec.mjs --workers=4
+```
+
+It checks guide structure/history, source-to-preview parity, every standalone example’s accessibility/reflow, safe no-JavaScript forms and important interactions. The separate Energy browser suite tests the shared production adapter. Do not describe those checks as proof that every reference pattern is installed in native Home Assistant.

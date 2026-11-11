@@ -1,0 +1,48 @@
+---
+title: "Accordion"
+description: "Let people inspect several related sections without losing the surrounding page."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Accordion
+
+Let people inspect several related sections without losing the surrounding page.
+
+## When to use
+
+Use an accordion for optional troubleshooting topics that a person can select independently, such as connection, power and reporting intervals. Test whether headings and a short contents list would work first. Hidden sections increase the effort needed to discover information.
+
+Keep the current state and the next required action outside the accordion. Do not hide a warning, a failed save or a required question. Never put one accordion inside another.
+
+## Independent troubleshooting sections
+
+<%= example('core-accordion-troubleshooting') %>
+
+## Optional measurement explanations
+
+<%= example('core-accordion-measures') %>
+
+## Behaviour and content
+
+Each section has a short, meaningful heading. The enhanced GOV.UK component supplies its own expand and collapse buttons and a show-all control. Its unenhanced HTML leaves the content readable. Do not replace its button with a clickable heading or manage a second, competing open state.
+
+Opening a section must not trigger a device command, reload data or discard a pending form. Use the same labels in search results and related links so the topic is easy to find. Keep explanations short enough to compare across sections.
+
+## Accessibility and testing
+
+Tab to each control, toggle it with Enter and Space, then inspect its expanded state with a screen reader. Confirm that focus stays on the triggering button. Test all-open content at 320px and 200% text size. With JavaScript disabled, verify every section remains present and in a logical heading order.
+
+## Home Assistant boundary
+
+This is a reference for custom help content. It does not convert native Home Assistant expansion panels or persist their state. Reuse native panels where they already meet the task, and test their actual labels and focus separately.
+
+## Source
+
+Adapted from the [GOV.UK Accordion component](https://design-system.service.gov.uk/components/accordion/), reviewed 11 November 2026. The examples use GOV.UK Frontend 6.6.0 behaviour with civica.uk typography and original household content.

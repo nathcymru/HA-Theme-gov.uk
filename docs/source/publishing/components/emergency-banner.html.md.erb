@@ -1,0 +1,60 @@
+---
+title: "Emergency banner"
+description: "The publishing emergency banner places urgent information above ordinary content. Its government-specific event categories do not transfer to a household dashboard."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/emergency-banner/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Emergency banner
+
+The publishing emergency banner places urgent information above ordinary content. Its government-specific event categories do not transfer to a household dashboard. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/emergency-banner/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Reserve an equivalent household alert for a verified, current condition that needs immediate attention. Include what happened, where, when it was reported and the relevant next action. Keep routine maintenance, expiry reminders and disconnected non-critical sensors in ordinary status components.
+
+## Structure and behaviour
+
+Name the condition in text and retain the underlying integration timestamp and availability. A new urgent alert can be announced once; an already present alert should remain readable without repeatedly interrupting assistive technology. Do not use colour alone to distinguish severity.
+
+## Home Assistant boundary
+
+The theme does not decide that a condition is an emergency, act as an alarm system or replace independent warning equipment. These examples are static design specimens labelled as examples. No simulated emergency is injected into HA, and no government emergency branding is reused.
+
+## Urgent-message specimen
+
+Static fictional message; this is not a live household alert.
+
+<%= example("pub-components-emergency-banner-1") %>
+
+## Stale source
+
+Unknown freshness must remain explicit.
+
+<%= example("pub-components-emergency-banner-2") %>
+
+## Acceptance checks
+
+- Severity comes from an explicit product rule and verified source.
+- Unknown or stale readings are labelled rather than treated as safe.
+- There is no repeated announcement on each render.
+- Routine due dates do not use the emergency treatment.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

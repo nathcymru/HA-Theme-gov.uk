@@ -1,0 +1,60 @@
+---
+title: "Level one"
+description: "The first browse level introduces broad topics and routes to their subtopics."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/level-one/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Level one
+
+The first browse level introduces broad topics and routes to their subtopics. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/level-one/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a first level only when the documentation or household help collection is large enough to need it. Choose broad, familiar subjects and a one-sentence description when names alone are ambiguous. A smaller setup should keep its direct task links visible.
+
+## Structure and behaviour
+
+A topic page contains a clear heading, concise introduction and a plain list of subtopics. Curated high-priority links may appear first when their importance is evidenced; do not label them “Most viewed” without actual appropriate evidence. Keep topic links and immediate device actions separate.
+
+## Home Assistant boundary
+
+The government’s popularity ranking is not a household requirement. This reference does not collect analytics or change native HA areas. A first-level page must not become an extra compulsory click before every common task.
+
+## Lighting topic
+
+Subtopics link to existing local explanatory sections.
+
+<%= example("pub-frontend-templates-mainstream-browse-level-one-1") %>
+
+## System topic
+
+A second subject shows topic-level grouping.
+
+<%= example("pub-frontend-templates-mainstream-browse-level-one-2") %>
+
+## Acceptance checks
+
+- Every subtopic has an actual destination.
+- Topic labels are understandable without icons.
+- The hierarchy reduces effort compared with a flat list.
+- Curated links do not claim unmeasured popularity.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](../index.html).

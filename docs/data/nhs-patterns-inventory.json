@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "catalogue_url": "https://service-manual.nhs.uk/design-system/patterns/",
+  "reviewed_on": "2026-11-11",
+  "coverage": {
+    "official_patterns": 13,
+    "adapted_patterns": 13,
+    "examples": 36
+  },
+  "scope": "All 13 patterns listed in the NHS digital service manual catalogue, adapted as civica household reference patterns. No NHS branding, patient data or clinical workflow is included.",
+  "patterns": [
+    {
+      "source_slug": "ask-for-nhs-numbers",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/ask-for-nhs-numbers",
+      "source_updated_label": "November 2025",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "stable-identifiers",
+      "title": "Ask for device and entity identifiers",
+      "group": "Task patterns",
+      "documentation_path": "docs/source/patterns/stable-identifiers.html.md.erb",
+      "example_ids": [
+        "nhs-identifier-route",
+        "nhs-identifier-error",
+        "nhs-identifier-match"
+      ],
+      "adaptation_boundary": "Identifier interaction only; no NHS or clinical data collection; entity IDs are explicitly renameable.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "check-answers",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/check-answers",
+      "source_updated_label": "June 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "check-answers",
+      "title": "Check answers before saving",
+      "group": "Task patterns",
+      "documentation_path": "docs/source/patterns/check-answers.html.md.erb",
+      "example_ids": [
+        "nhs-check-answers-scene",
+        "nhs-check-answers-changed"
+      ],
+      "adaptation_boundary": "Review configuration separately from activation or observed physical device state.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "complete-multiple-tasks",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/complete-multiple-tasks",
+      "source_updated_label": "June 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "complete-multiple-tasks",
+      "title": "Complete multiple household tasks",
+      "group": "Task patterns",
+      "documentation_path": "docs/source/patterns/complete-multiple-tasks.html.md.erb",
+      "example_ids": [
+        "nhs-tasks-household-setup",
+        "nhs-tasks-resume-draft",
+        "nhs-tasks-repair"
+      ],
+      "adaptation_boundary": "Task progress does not imply device availability, automation activation or deployment success.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "help-users-decide-when-and-where-to-get-care",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care",
+      "source_updated_label": "August 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "household-urgency",
+      "title": "Show household urgency clearly",
+      "group": "Task patterns",
+      "documentation_path": "docs/source/patterns/household-urgency.html.md.erb",
+      "example_ids": [
+        "nhs-household-routine",
+        "nhs-household-action",
+        "nhs-household-unknown"
+      ],
+      "adaptation_boundary": "Separately named household pattern; no transfer of NHS clinical triage, emergency claims or invented device controls.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "find-bsl-content",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/find-bsl-content",
+      "source_updated_label": "September 2025",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "british-sign-language",
+      "title": "Help people find British Sign Language content",
+      "group": "Inclusive content",
+      "documentation_path": "docs/source/patterns/british-sign-language.html.md.erb",
+      "example_ids": [
+        "nhs-bsl-discovery",
+        "nhs-bsl-content-bundle",
+        "nhs-bsl-link-unavailable"
+      ],
+      "adaptation_boundary": "No verified signed asset is bundled; examples honestly show preparation/unavailability and never simulate BSL.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "know-that-a-page-is-up-to-date",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date",
+      "source_updated_label": "November 2025",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "review-dates",
+      "title": "Show when guidance was reviewed",
+      "group": "Inclusive content",
+      "documentation_path": "docs/source/patterns/review-dates.html.md.erb",
+      "example_ids": [
+        "nhs-pattern-review-guidance",
+        "nhs-review-distinct-times",
+        "nhs-review-overdue"
+      ],
+      "adaptation_boundary": "Editorial review, partial update and live reading timestamps are separate data and meanings.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "a-to-z-page",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/a-to-z-page",
+      "source_updated_label": "November 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "a-to-z",
+      "title": "Browse household guides from A to Z",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/a-to-z.html.md.erb",
+      "example_ids": [
+        "nhs-az-household-guides",
+        "nhs-az-aliases",
+        "nhs-az-empty"
+      ],
+      "adaptation_boundary": "A content index for household guides, never an alphabetical device command interface.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "confirmation-page",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/confirmation-page",
+      "source_updated_label": "February 2025",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "confirmation",
+      "title": "Confirm completed household tasks",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/confirmation.html.md.erb",
+      "example_ids": [
+        "nhs-confirmation-saved",
+        "nhs-confirmation-pending",
+        "nhs-confirmation-not-saved"
+      ],
+      "adaptation_boundary": "Only verified persistence/outcomes use success; service acceptance and observed physical state remain separate.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "hub-page",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/hub-page",
+      "source_updated_label": "April 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "hub",
+      "title": "Organise household help with hub pages",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/hub.html.md.erb",
+      "example_ids": [
+        "nhs-hub-household",
+        "nhs-hub-small"
+      ],
+      "adaptation_boundary": "Content navigation is kept distinct from native navigation and physical device controls.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "interruption-page",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/interruption-page",
+      "source_updated_label": "May 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "interruption",
+      "title": "Pause before an exceptional consequence",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/interruption.html.md.erb",
+      "example_ids": [
+        "nhs-interruption-backup",
+        "nhs-interruption-overnight",
+        "nhs-interruption-permission"
+      ],
+      "adaptation_boundary": "Exceptional confirmation only; no permission override or weakening of native device limits.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "mini-hub",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/mini-hub",
+      "source_updated_label": "October 2025",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "mini-hub",
+      "title": "Explain one topic across a mini-hub",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/mini-hub.html.md.erb",
+      "example_ids": [
+        "nhs-mini-hub-reading",
+        "nhs-mini-hub-gaps"
+      ],
+      "adaptation_boundary": "A small multi-page guide with genuine navigation, never a transactional wizard or synthetic live dashboard.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "question-pages",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/question-pages",
+      "source_updated_label": "June 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "question-pages",
+      "title": "Ask clear questions on pages and in dialogs",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/question-pages.html.md.erb",
+      "example_ids": [
+        "nhs-question-room",
+        "nhs-question-modal",
+        "nhs-question-error"
+      ],
+      "adaptation_boundary": "Page principles extended to short accessible modal edits; native device controls and capability constraints are preserved.",
+      "status": "reference"
+    },
+    {
+      "source_slug": "start-page",
+      "source_url": "https://service-manual.nhs.uk/design-system/patterns/start-page",
+      "source_updated_label": "August 2026",
+      "source_reviewed_on": "2026-11-11",
+      "source_review_method": "Read complete official primary-source guidance, including use, non-use, implementation, accessibility and research sections where present.",
+      "civica_slug": "start-page",
+      "title": "Help people start a household task",
+      "group": "Page patterns",
+      "documentation_path": "docs/source/patterns/start-page.html.md.erb",
+      "example_ids": [
+        "nhs-start-notifications",
+        "nhs-start-requirement",
+        "nhs-start-resume"
+      ],
+      "adaptation_boundary": "Meaningful setup entry points only; capability checks and explicit activation remain separate from starting a journey.",
+      "status": "reference"
+    }
+  ]
+}

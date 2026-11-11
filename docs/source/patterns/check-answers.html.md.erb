@@ -1,0 +1,51 @@
+---
+title: "Check answers before saving"
+description: "Review household configuration and correct mistakes before a final save or action."
+section: "patterns"
+group: "Task patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/check-answers"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS check-answers pattern."
+---
+
+# Check answers before saving
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A check answers page gives household members a final view of a configuration before it changes. The title and final button must say what will happen.
+
+## The NHS principle we adapt
+
+The [NHS check answers pattern](https://service-manual.nhs.uk/design-system/patterns/check-answers) groups responses in summary lists and provides specific change links before submission. civica uses that review step for meaningful configuration tasks. It is separate from confirmation after a successful save.
+
+## When to use it
+
+Use it after a multi-step scene, schedule, notification or dashboard setup. A single reversible brightness adjustment does not need a review page. For an irreversible operation, use a focused interruption as well as any useful summary; a long list of answers is not a warning.
+
+<%= example('nhs-check-answers-scene') %>
+
+## Make the effect explicit
+
+Differentiate saving a scene from running it, configuring an automation from enabling it, and changing a dashboard from changing a physical device. List the selected devices, affected area, units, time zone and activation state where those influence the result. Show an optional omission as “Not provided”. Do not display questions from branches the user did not take.
+
+Change links must identify the answer in their accessible name. Return to the summary after the edit, with previous answers retained. If an edit introduces a dependency, ask the new question before returning. Do not turn “Change room” into a restart of the whole wizard.
+
+<%= example('nhs-check-answers-changed') %>
+
+## Handle changes outside the form
+
+Home Assistant entities can disappear or become unavailable while a person reviews a draft. Recheck permissions and relevant capabilities before committing. Show which answer needs attention and preserve the rest. Do not silently substitute another lamp, alter a temperature unit, or enable a newly discovered device.
+
+Where another household member has edited the same configuration, show that conflict and let the person reload or deliberately reconcile the draft. Do not show a success message for a rejected update.
+
+## Accessibility and content
+
+Use semantic description lists with readable labels. Keep the order consistent with the questions. Avoid cramped action columns: allow each row to stack at narrow widths. Focus the error summary on a failed submit and link it to the relevant field or correction route. Readable summaries should not require interpreting icons or colour.
+
+## Home Assistant implementation boundary
+
+The preview never saves a scene or calls a device. Production code must distinguish validation, persistence, activation and observed device state. Guard duplicate submission while the save is pending, announce the eventual outcome, and retain a safe retry path if confirmation cannot be obtained. Preserve native permission checks and service semantics.

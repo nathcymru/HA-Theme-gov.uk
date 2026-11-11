@@ -1,0 +1,63 @@
+---
+title: "Details"
+description: "Keep optional, short explanations close to the thing they explain."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/details"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed details guidance and 2 Home Assistant reference examples."
+---
+
+# Details
+
+Keep optional, short explanations close to the thing they explain.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use a disclosure for an uncommon term or a short explanation that only some people need. The summary should make the hidden topic clear before someone opens it.
+
+## When not to use it
+
+Do not hide an error, a required instruction, a device’s current state or information most users need. Simplify the page first rather than hiding every paragraph.
+
+## Home Assistant adaptation
+
+An Energy view can keep a definition of a measurement nearby without obscuring the actual value and unit. A device card may explain why an action needs permission, but the immediate unavailable reason must remain visible. Do not place a link or a button inside the summary.
+
+## Accessibility and behaviour
+
+Use native details and summary elements. Enter or Space operates the focused summary and its expanded state is exposed automatically. Keep nested heading levels meaningful and do not rebuild the whole disclosure whenever sensor values update.
+
+## Examples
+
+### Explain an Energy term
+
+The definition is optional; the measurement stays outside the disclosure.
+
+<%= example('nhs-details-energy') %>
+
+### Explain an unavailable action
+
+The key reason is visible before the optional explanation.
+
+<%= example('nhs-details-unavailable') %>
+
+## Check the implementation
+
+Test keyboard opening, focus retention while data changes, long summaries and printing. Make the information readable without a custom JavaScript controller.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS details](https://service-manual.nhs.uk/design-system/components/details) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [device controls](devices.html).

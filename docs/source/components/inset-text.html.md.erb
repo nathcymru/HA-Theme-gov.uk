@@ -1,0 +1,63 @@
+---
+title: "Inset text"
+description: "Separate a useful piece of supporting information from the surrounding prose."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/inset-text"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed inset text guidance and 2 Home Assistant reference examples."
+---
+
+# Inset text
+
+Separate a useful piece of supporting information from the surrounding prose.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for an explanation that deserves attention on a reference page, such as the meaning of an estimate or the scope of a display setting. Use it sparingly.
+
+## When not to use it
+
+Do not use an inset as the only warning about an urgent condition. NHS research for this pattern is on content pages, not transactional forms; treat use inside a settings form as a separate design decision.
+
+## Home Assistant adaptation
+
+An Energy help page can distinguish an estimated cost from a supplier bill. A dashboard guide can explain that renaming a view changes its label only. Neither should be represented as a live alert or as successful completion of an action.
+
+## Accessibility and behaviour
+
+Keep the text in the normal reading order. Add a concise hidden “Information:” prefix when the distinction matters to people who cannot see the inset rule. The boundary is a structural marker, not a clickable control.
+
+## Examples
+
+### Explain an estimated cost
+
+Supporting context stays near the relevant explanation.
+
+<%= example('nhs-inset-estimate') %>
+
+### Clarify a display-only change
+
+The note explains the scope without presenting a warning.
+
+<%= example('nhs-inset-display') %>
+
+## Check the implementation
+
+Test the page without the border or colour and check that the information still makes sense. Avoid stacking many inset blocks until they compete with headings.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS inset text](https://service-manual.nhs.uk/design-system/components/inset-text) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [status and notifications](status.html).

@@ -1,0 +1,60 @@
+---
+title: "Smart answer"
+description: "A smart answer asks questions and uses the responses to route someone to a relevant outcome."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Smart answer
+
+A smart answer asks questions and uses the responses to route someone to a relevant outcome. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+A bounded troubleshooting decision aid can help users find the right existing guidance. Ask one meaningful question at a time, include “I do not know” where appropriate and keep a route back to change an answer. Distinguish a suggested next check from a diagnosis.
+
+## Structure and behaviour
+
+Define every branch, outcome and prerequisite before building the interaction. Retain previous responses while moving backwards. Do not hide contradictory evidence or make a confident recommendation from an unavailable reading. Prefer a simple checklist when a decision tree adds no value.
+
+## Home Assistant boundary
+
+The theme provides no diagnostic engine and does not infer appliance faults. Example choices navigate to explanatory text, not service calls. Safety-related decisions and device capability claims require verified domain guidance; they are not generated from a visual pattern.
+
+## Bounded display question
+
+Two local links lead to actual explanations.
+
+<%= example("pub-frontend-templates-smart-answer-1") %>
+
+## Unknown answer
+
+Offer a useful route without guessing.
+
+<%= example("pub-frontend-templates-smart-answer-2") %>
+
+## Acceptance checks
+
+- Every permitted answer reaches a defined outcome.
+- An unknown answer has a useful next step.
+- Changing an earlier answer clears incompatible later results.
+- Outcomes distinguish evidence from assumptions.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

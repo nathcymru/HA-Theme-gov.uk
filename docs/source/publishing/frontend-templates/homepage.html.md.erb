@@ -1,0 +1,60 @@
+---
+title: "Homepage"
+description: "The publishing homepage introduces the service and prioritises important routes rather than linking to everything."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/homepage/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Homepage
+
+The publishing homepage introduces the service and prioritises important routes rather than linking to everything. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/homepage/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+For Home Assistant Overview, prioritise useful household status and frequent tasks. Keep current conditions separate from navigation. Room and domain names should be familiar, with visible labels beside meaningful native icons. The documentation homepage instead introduces the design system and its major learning routes.
+
+## Structure and behaviour
+
+Use a concise heading, a small number of task links and grouped secondary routes. Follow the local action-links component for navigational arrows. Whitespace and headings should do most of the grouping; do not surround every destination with a dark card border.
+
+## Home Assistant boundary
+
+A household homepage is not a clone of www.gov.uk. Use only civica.uk branding and supplied assets, never the crown or official masthead. Priorities depend on the household; do not infer universal “most used” tasks or fabricate live readings.
+
+## Task-focused overview
+
+Working local routes; no live readings are shown.
+
+<%= example("pub-frontend-templates-homepage-1") %>
+
+## Documentation entry
+
+Prioritise a few useful starting points.
+
+<%= example("pub-frontend-templates-homepage-2") %>
+
+## Acceptance checks
+
+- The first screen makes the service purpose clear.
+- Actions and navigation look and behave differently.
+- Unavailable readings are not presented as normal.
+- Repeated icons have a consistent meaning and visible label.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

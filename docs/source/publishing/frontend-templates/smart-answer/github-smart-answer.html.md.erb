@@ -1,0 +1,60 @@
+---
+title: "GitHub smart answer"
+description: "The GitHub smart-answer variant uses version-controlled logic and content for more complex decision trees or calculations."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/github-smart-answer/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# GitHub smart answer
+
+The GitHub smart-answer variant uses version-controlled logic and content for more complex decision trees or calculations. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/github-smart-answer/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+If a future household diagnostic guide needs branching rules, keep those rules in reviewed source with examples for every outcome. Separate logic from explanatory copy. A deterministic answer should cite the inputs and assumptions that produced it.
+
+## Structure and behaviour
+
+Define input types, units, unknown states and boundaries before rendering questions. Test every branch, backtracking and changed answers. A calculation must preserve the underlying measurement semantics and report any approximation; a design template is not authority to invent a formula.
+
+## Home Assistant boundary
+
+This project does not install the government’s Ruby smart-answer engine or introduce a diagnostic calculator. The examples are explicit decision documentation, with no service calls or inferred fault diagnosis. Use a simpler written guide unless the extra logic demonstrably helps.
+
+## Decision rule record
+
+A readable rule specification rather than an unimplemented calculator.
+
+<%= example("pub-frontend-templates-smart-answer-github-smart-answer-1") %>
+
+## Bounded branch navigation
+
+Both example outcomes exist as local sections.
+
+<%= example("pub-frontend-templates-smart-answer-github-smart-answer-2") %>
+
+## Acceptance checks
+
+- Rules are versioned and independently reviewable.
+- Boundary and unknown-input cases have specified outcomes.
+- The user can understand why an outcome was shown.
+- Changes to earlier answers invalidate dependent results.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](../index.html).

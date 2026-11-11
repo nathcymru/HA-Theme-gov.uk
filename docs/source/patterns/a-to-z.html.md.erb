@@ -1,0 +1,53 @@
+---
+title: "Browse household guides from A to Z"
+description: "Provide an alphabetical route through one large collection of familiar household topics."
+section: "patterns"
+group: "Page patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/a-to-z-page"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS a-to-z-page pattern."
+---
+
+# Browse household guides from A to Z
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+An A to Z is an alternative way to find a named guide. It is useful when people recognise the thing they need but may not know the exact spelling or where it sits in the navigation.
+
+## The NHS principle we adapt
+
+The [NHS A to Z pattern](https://service-manual.nhs.uk/design-system/patterns/a-to-z-page) combines letter navigation, grouped links and routes back to the top. It is intended for a collection within one broad subject, not a transactional form. civica uses it for reference guides such as appliances; it does not reorganise live controls alphabetically by technical entity ID.
+
+## Build a coherent collection
+
+Keep one clear subject in the page title. “Appliance guides A to Z” is more useful than a mixed list of meters, household members, scenes and account settings. Use familiar names in link text and put technical IDs in the guide only when they help.
+
+<%= example('nhs-az-household-guides') %>
+
+## Accommodate alternative names
+
+An alias should lead to one maintained guide. For example, a household may say “Hoover” while the canonical guide says “Vacuum cleaner”. Do not create divergent instructions for every synonym. Consider local terminology and user-provided names without exposing another household's private device names.
+
+<%= example('nhs-az-aliases') %>
+
+## Empty states and narrow screens
+
+Only make letters with content interactive. If a filtered or bookmarked letter has no entries, explain that the index has no matching guide and offer a route back to the collection. Do not present a dead link or infer that the integration has no devices.
+
+<%= example('nhs-az-empty') %>
+
+## Accessibility and content
+
+Use “A to Z” in the title. Give letter navigation a clear accessible name. Keep letter links large enough to use and allow them to wrap at 320 pixels. Use headings for letter sections and real anchors so keyboard navigation, browser history and bookmarking work. Avoid sticky alphabet bars that cover focused content when zoomed. A search route can complement the index; it should not replace the index without research.
+
+## Home Assistant implementation boundary
+
+The index navigates to help; selecting a letter or guide must never call a service or toggle a device. A live entity browser needs area, type, availability and permission filters rather than this content-only pattern. Keep the article catalogue separate from the current state registry so a disconnected integration does not remove its recovery instructions.
+
+## Maintenance
+
+Review aliases when guide names change and preserve useful old routes. Sort consistently for the chosen language. If the collection is small, a short list under meaningful headings is easier to use than an almost empty alphabet. The previews contain only synthetic example guides and demonstrate navigation within the isolated example.

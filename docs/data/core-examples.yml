@@ -1,0 +1,116 @@
+{
+  "examples": {
+    "core-accordion-troubleshooting": {
+      "title": "Troubleshooting topics",
+      "html": "<div class=\"govuk-accordion\" data-module=\"govuk-accordion\" id=\"troubleshooting\"><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"troubleshooting-heading-1\">Check power</span></h2></div><div id=\"troubleshooting-content-1\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Check the device display or power indicator. Follow its manufacturer\u2019s instructions before opening a cover.</p></div></div><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"troubleshooting-heading-2\">Check the connection</span></h2></div><div id=\"troubleshooting-content-2\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Check the integration\u2019s status in Home Assistant. A missing reading does not prove the device is off.</p></div></div></div>",
+      "height": 300
+    },
+    "core-accordion-measures": {
+      "title": "Measurement explanations",
+      "html": "<div class=\"govuk-accordion\" data-module=\"govuk-accordion\" id=\"measures\"><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"measures-heading-1\">Power</span></h2></div><div id=\"measures-content-1\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Power is the rate of electricity use at a point in time. This example uses watts.</p></div></div><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"measures-heading-2\">Energy</span></h2></div><div id=\"measures-content-2\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Energy is the amount used over a period. This example uses kilowatt-hours.</p></div></div></div>",
+      "height": 300
+    },
+    "core-cookie-choice": {
+      "title": "Optional measurement choice",
+      "html": "<section class=\"govuk-cookie-banner\" aria-label=\"Example cookie choice\"><h2 class=\"govuk-heading-m\">Optional usage measurement</h2><p class=\"govuk-body\">This example shows a service that offers optional usage measurement. No analytics run in this demonstration.</p><button type=\"button\" class=\"govuk-button \" data-demo-message=\"Example choice: accepted. No tracking has been enabled.\">Accept optional measurement</button> <button type=\"button\" class=\"govuk-button \" data-demo-message=\"Example choice: rejected. No tracking has been enabled.\">Reject optional measurement</button><p role=\"status\" data-demo-status></p></section>",
+      "height": 300
+    },
+    "core-cookie-confirmation": {
+      "title": "Choice confirmation",
+      "html": "<h2 class=\"govuk-heading-m\">Your choice has been saved</h2><p class=\"govuk-body\">Optional measurement is off. In a real service, this message appears only after the preference has been recorded.</p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">What this choice means</span></summary><div class=\"govuk-details__text\">Essential sign-in storage would remain available. You would be able to change optional choices from the service\u2019s privacy settings.</div></details>",
+      "height": 300
+    },
+    "core-exit-visible": {
+      "title": "Departure control \u2014 demonstration only",
+      "html": "<a class=\"govuk-button govuk-button--warning\" href=\"#example-left\">Exit this example</a><h2 class=\"govuk-heading-m\">Sensitive content example</h2><p class=\"govuk-body\">The real page would provide the agreed support content.</p><div id=\"example-left\" tabindex=\"-1\">Example destination. No browser history or session data has been cleared.</div>",
+      "height": 300
+    },
+    "core-exit-keyboard": {
+      "title": "Keyboard departure route",
+      "html": "<a class=\"govuk-skip-link\" href=\"#keyboard-destination\">Exit this example</a><p class=\"govuk-body\">Tab into this example to reveal the secondary departure link. It leads to the same local destination as the visible link.</p><a class=\"govuk-button govuk-button--warning\" href=\"#keyboard-destination\">Exit this example</a><div id=\"keyboard-destination\" tabindex=\"-1\">Example destination only.</div>",
+      "height": 300
+    },
+    "core-feedback-invitation": {
+      "title": "Feedback after guidance",
+      "html": "<h2 class=\"govuk-heading-m\">Help improve this guide</h2><p class=\"govuk-body\">Tell us which instruction was unclear. Do not include passwords, access tokens or private sensor history.</p><a class=\"govuk-link\" href=\"#feedback-form\">Give feedback about this guide</a><form id=\"feedback-form\" data-demo-form><div class=\"govuk-form-group\"><label class=\"govuk-label\" for=\"feedback-detail\">What could be clearer?</label><textarea class=\"govuk-textarea\" id=\"feedback-detail\" rows=\"3\" required></textarea></div><button class=\"govuk-button\" type=\"submit\">Preview sending feedback</button><p role=\"status\" data-demo-status></p></form>",
+      "height": 520
+    },
+    "core-feedback-confirmation": {
+      "title": "Feedback demonstration confirmation",
+      "html": "<h2 class=\"govuk-heading-m\">Your example feedback is ready</h2><p class=\"govuk-body\">This demonstration has not sent a message. A connected service would show its receipt and explain what happens next.</p>",
+      "height": 300
+    },
+    "core-generic-header": {
+      "title": "civica.uk service identity",
+      "html": "<header class=\"civica-demo-header\"><a href=\"#service-home\"><img src=\"../images/civica-lockup.svg\" alt=\"civica.uk\" width=\"205\" height=\"33\"></a></header><main id=\"service-home\"><h2 class=\"govuk-heading-m\">Household guide</h2><p class=\"govuk-body\">Find the instructions for this home.</p></main>",
+      "height": 300
+    },
+    "core-generic-header-service": {
+      "title": "Named service header",
+      "html": "<header class=\"civica-demo-header\"><a href=\"#energy-guide\"><img src=\"../images/civica-lockup.svg\" alt=\"civica.uk\" width=\"205\" height=\"33\"></a><p class=\"govuk-!-margin-bottom-0\">Energy guide</p></header><main id=\"energy-guide\"><h2 class=\"govuk-heading-m\">Understand your readings</h2><p class=\"govuk-body\">Use the meter\u2019s units and the selected period.</p></main>",
+      "height": 300
+    },
+    "core-language-en": {
+      "title": "English page",
+      "html": "<nav class=\"govuk-language-navigation\" aria-label=\"Language\"><ul class=\"govuk-language-navigation__list\"><li class=\"govuk-language-navigation__list-item\"><span class=\"govuk-language-navigation__text\" aria-current=\"true\" lang=\"en\">English</span></li><li class=\"govuk-language-navigation__list-item\"><a class=\"govuk-language-navigation__link\" href=\"./core-language-cy.html\" rel=\"alternate\" lang=\"cy\" hreflang=\"cy\">Cymraeg</a></li></ul></nav><section lang=\"en\"><h2 class=\"govuk-heading-m\">Home</h2><p class=\"govuk-body\">Example</p></section>",
+      "height": 300
+    },
+    "core-language-cy": {
+      "title": "Welsh page",
+      "html": "<nav class=\"govuk-language-navigation\" aria-label=\"Language\"><ul class=\"govuk-language-navigation__list\"><li class=\"govuk-language-navigation__list-item\"><a class=\"govuk-language-navigation__link\" href=\"./core-language-en.html\" rel=\"alternate\" lang=\"en\" hreflang=\"en\">English</a></li><li class=\"govuk-language-navigation__list-item\"><span class=\"govuk-language-navigation__text\" aria-current=\"true\" lang=\"cy\">Cymraeg</span></li></ul></nav><section lang=\"cy\"><h2 class=\"govuk-heading-m\">Cartref</h2><p class=\"govuk-body\">Enghraifft</p></section>",
+      "height": 300
+    },
+    "core-phase-demo": {
+      "title": "Demonstration banner",
+      "html": "<div class=\"govuk-phase-banner\"><p class=\"govuk-phase-banner__content\"><strong class=\"govuk-tag govuk-phase-banner__content__tag\">Demo</strong><span class=\"govuk-phase-banner__text\">Values are examples. Controls do not connect to a home.</span></p></div><h2 class=\"govuk-heading-m\">Kitchen overview</h2><p class=\"govuk-body\">Temperature: 20 \u00b0C \u2014 example reading.</p>",
+      "height": 300
+    },
+    "core-phase-trial": {
+      "title": "Feature trial banner",
+      "html": "<div class=\"govuk-phase-banner\"><p class=\"govuk-phase-banner__content\"><strong class=\"govuk-tag govuk-phase-banner__content__tag\">Trial</strong><span class=\"govuk-phase-banner__text\">This example is being evaluated. Use the existing settings page to make changes.</span></p></div><h2 class=\"govuk-heading-m\">New settings layout</h2><p class=\"govuk-body\">The current settings route remains available during a real trial.</p>",
+      "height": 300
+    },
+    "core-service-navigation": {
+      "title": "Main household sections",
+      "html": "<div class=\"govuk-service-navigation\" data-module=\"govuk-service-navigation\"><div class=\"govuk-service-navigation__container\"><nav class=\"govuk-service-navigation__wrapper\" aria-label=\"Household\"><button type=\"button\" class=\"govuk-service-navigation__toggle govuk-js-service-navigation-toggle\" aria-controls=\"household-nav\" hidden aria-hidden=\"true\">Menu</button><ul class=\"govuk-service-navigation__list\" id=\"household-nav\"><li class=\"govuk-service-navigation__item govuk-service-navigation__item--active\"><a class=\"govuk-service-navigation__link\" href=\"#household-nav-0\" aria-current=\"true\">Overview</a></li><li class=\"govuk-service-navigation__item\"><a class=\"govuk-service-navigation__link\" href=\"#household-nav-1\">Energy</a></li><li class=\"govuk-service-navigation__item\"><a class=\"govuk-service-navigation__link\" href=\"#household-nav-2\">Settings</a></li></ul></nav></div></div><section id=\"household-nav-0\"><h2 class=\"govuk-heading-m\">Overview</h2><p class=\"govuk-body\">Example destination for overview.</p></section><section id=\"household-nav-1\"><h2 class=\"govuk-heading-m\">Energy</h2><p class=\"govuk-body\">Example destination for energy.</p></section><section id=\"household-nav-2\"><h2 class=\"govuk-heading-m\">Settings</h2><p class=\"govuk-body\">Example destination for settings.</p></section>",
+      "height": 600
+    },
+    "core-service-navigation-compact": {
+      "title": "Compact service navigation",
+      "html": "<div class=\"govuk-service-navigation\" data-module=\"govuk-service-navigation\"><div class=\"govuk-service-navigation__container\"><nav class=\"govuk-service-navigation__wrapper\" aria-label=\"Household\"><button type=\"button\" class=\"govuk-service-navigation__toggle govuk-js-service-navigation-toggle\" aria-controls=\"guide-nav\" hidden aria-hidden=\"true\">Menu</button><ul class=\"govuk-service-navigation__list\" id=\"guide-nav\"><li class=\"govuk-service-navigation__item govuk-service-navigation__item--active\"><a class=\"govuk-service-navigation__link\" href=\"#guide-nav-0\" aria-current=\"true\">Guide</a></li><li class=\"govuk-service-navigation__item\"><a class=\"govuk-service-navigation__link\" href=\"#guide-nav-1\">Troubleshooting</a></li></ul></nav></div></div><section id=\"guide-nav-0\"><h2 class=\"govuk-heading-m\">Guide</h2><p class=\"govuk-body\">Example destination for guide.</p></section><section id=\"guide-nav-1\"><h2 class=\"govuk-heading-m\">Troubleshooting</h2><p class=\"govuk-body\">Example destination for troubleshooting.</p></section>",
+      "height": 450
+    },
+    "core-warning-delete": {
+      "title": "Warning before removal",
+      "html": "<h2 class=\"govuk-heading-m\">Remove the example dashboard?</h2><div class=\"govuk-warning-text\"><span class=\"govuk-warning-text__icon\" aria-hidden=\"true\">!</span><strong class=\"govuk-warning-text__text\"><span class=\"govuk-visually-hidden\">Warning</span> Removing this dashboard deletes its saved layout. It does not remove devices from Home Assistant.</strong></div><button type=\"button\" class=\"govuk-button govuk-button--warning\" data-demo-message=\"Example only. No dashboard has been removed.\">Preview removing dashboard</button><p role=\"status\" data-demo-status></p>",
+      "height": 300
+    },
+    "core-warning-replace": {
+      "title": "Warning before replacement",
+      "html": "<h2 class=\"govuk-heading-m\">Replace the example configuration?</h2><div class=\"govuk-warning-text\"><span class=\"govuk-warning-text__icon\" aria-hidden=\"true\">!</span><strong class=\"govuk-warning-text__text\"><span class=\"govuk-visually-hidden\">Warning</span> Replacing the configuration overwrites the current example settings. Review the changes and keep a recoverable copy first.</strong></div><p class=\"govuk-body\">This is a reference screen. It cannot read or replace a configuration.</p>",
+      "height": 300
+    },
+    "system-example-reading": {
+      "title": "A labelled reading",
+      "html": "<h2 class=\"govuk-heading-m\">Living room temperature</h2><p class=\"govuk-body\"><strong>20 \u00b0C</strong> \u2014 example reading. Updated at 14:30.</p>",
+      "height": 300
+    },
+    "system-example-interactive": {
+      "title": "A local demonstration action",
+      "html": "<h2 class=\"govuk-heading-m\">Preview a saved preference</h2><button type=\"button\" class=\"govuk-button \" data-demo-message=\"Example preference saved in this preview only. No household setting changed.\">Preview saving</button><p role=\"status\" data-demo-status></p>",
+      "height": 300
+    },
+    "system-history-expanded": {
+      "title": "A guide with an update",
+      "html": "<section aria-label=\"Example publication details\"><h2 class=\"govuk-heading-m\">Example heating guide</h2><p class=\"govuk-body\">Published <time datetime=\"2026-10-01\">1 October 2026</time><br>Last updated <time datetime=\"2026-11-01\">1 November 2026</time></p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">See all updates</span></summary><div class=\"govuk-details__text\"><ol class=\"govuk-list\"><li><time datetime=\"2026-11-01\">1 November 2026</time><p>Clarified how to identify the active schedule.</p></li><li><time datetime=\"2026-10-01\">1 October 2026</time><p>First published.</p></li></ol></div></details></section>",
+      "height": 300,
+      "description": "Dates and notes in this example are fictional."
+    },
+    "system-history-correction": {
+      "title": "A corrected guide",
+      "html": "<section aria-label=\"Example publication details\"><h2 class=\"govuk-heading-m\">Example meter guide</h2><p class=\"govuk-body\">Published <time datetime=\"2026-10-01\">1 October 2026</time><br>Last updated <time datetime=\"2026-11-01\">1 November 2026</time></p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">See all updates</span></summary><div class=\"govuk-details__text\"><ol class=\"govuk-list\"><li><time datetime=\"2026-11-01\">1 November 2026</time><p>Corrected the unit in the example from W to kW.</p></li><li><time datetime=\"2026-10-01\">1 October 2026</time><p>First published.</p></li></ol></div></details></section>",
+      "height": 300,
+      "description": "An update note identifies the correction instead of saying only \u201cUpdated\u201d."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+---
+title: "Single page notification button"
+description: "The publishing notification control subscribes a person to updates about one page and exposes an unsubscribe state."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/single-page-notification-button/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Single page notification button
+
+The publishing notification control subscribes a person to updates about one page and exposes an unsubscribe state. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/single-page-notification-button/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+For household notifications, route to a real automation or notification preference owned by Home Assistant. Name the event and destination, such as an existing mobile notification channel. Documentation release alerts can link to an actual repository subscription facility, with its external account context clear.
+
+## Structure and behaviour
+
+A subscription has distinct loading, subscribed, unsubscribed and failed states. Only switch the displayed state after the responsible service confirms the result. A bell icon is decorative when visible text names the action. Allow the person to stop the same subscription from the same context.
+
+## Home Assistant boundary
+
+This theme adds no email subscription backend and does not request a GOV.UK account. The examples illustrate copy and local status messages only. They must not report that a household automation was enabled or an address subscribed.
+
+## Opt-in wording
+
+Local demonstration; no notification is enabled.
+
+<%= example("pub-components-single-page-notification-button-1") %>
+
+## Subscribed state specimen
+
+Static confirmed-state wording is labelled as an example.
+
+<%= example("pub-components-single-page-notification-button-2") %>
+
+## Acceptance checks
+
+- The notification event and channel are explicit.
+- Failure leaves the previous confirmed subscription state intact.
+- Stopping a subscription is as discoverable as starting it.
+- The icon does not replace the action label.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

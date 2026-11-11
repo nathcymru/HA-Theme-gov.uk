@@ -1,0 +1,12 @@
+<section class="c-example" aria-label="<%= escape(spec['title']) %> example" id="example-<%= id %>">
+  <div class="c-example__top"><span>Example: <%= escape(spec['title']) %></span><a href="<%= docs_path("/examples/#{id}.html") %>" target="_blank" rel="noopener">Open this example in a new tab<span class="govuk-visually-hidden">: <%= escape(spec['title']) %></span></a></div>
+  <% if spec['description'] %><p class="c-example__description"><%= escape(spec['description']) %></p><% end %>
+  <iframe class="c-example__frame" src="<%= docs_path("/examples/#{id}.html") %>?embed=1" title="<%= escape(spec['title']) %> example" loading="lazy" height="<%= spec['height'] || 300 %>"></iframe>
+  <details class="c-example__code"><summary>View example code</summary>
+    <div class="c-code-tabs" data-code-tabs>
+      <div class="c-code-tabs__list"><a href="#html-<%= id %>">HTML</a><a href="#usage-<%= id %>">Use this example</a></div>
+      <section id="html-<%= id %>" class="c-code-panel"><h3>HTML</h3><button type="button" class="c-copy" data-copy="code-<%= id %>" hidden>Copy HTML</button><pre tabindex="0" role="region" aria-label="HTML for <%= escape(spec['title']) %>"><code id="code-<%= id %>"><%= escape(spec['html'].strip) %></code></pre></section>
+      <section id="usage-<%= id %>" class="c-code-panel"><h3>Use this example</h3><p>In a Middleman guide page, use the shared helper. The preview and HTML are read from the same example record.</p><pre><code>&lt;%= example('<%= id %>') %&gt;</code></pre><p>Use the markup as a starting point. Replace the example content, connect real actions through your application and test the result. Demonstration actions affect this example only.</p></section>
+    </div><p class="c-copy-status" role="status" aria-live="polite"></p>
+  </details>
+</section>

@@ -1,0 +1,63 @@
+---
+title: "Notification banners"
+description: "A banner carries a service-wide notice or an outcome from the previous step."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/notification-banners"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed notification banners guidance and 2 Home Assistant reference examples."
+---
+
+# Notification banners
+
+A banner carries a service-wide notice or an outcome from the previous step.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use an information banner for planned downtime affecting the dashboard, or a success banner after a completed settings save on the previous page. Prioritise one coherent notice.
+
+## When not to use it
+
+Do not place field validation errors in a banner. Do not let a success message compete with an error summary. Put information directly relevant to the current task in the main content.
+
+## Home Assistant adaptation
+
+State what is affected and when it applies. A temporary integration outage is not evidence that a physical device is off. Success wording must reflect the result confirmed by Home Assistant, not merely that a button was pressed. Remove stale success notices after navigation.
+
+## Accessibility and behaviour
+
+Give a static banner a labelled region and a meaningful heading. For a dynamically inserted result, choose an appropriate one-time announcement and avoid repeated alerts from polling. Do not move focus for routine background status updates.
+
+## Examples
+
+### A planned interruption
+
+The notice specifies the affected feature and the time window.
+
+<%= example('nhs-banner-maintenance') %>
+
+### A confirmed save from the previous step
+
+The message describes a completed preference save.
+
+<%= example('nhs-banner-success') %>
+
+## Check the implementation
+
+Test notices with errors, narrow screens, long translations and updates arriving while the user is typing. Fixed notice and success roles remain stable across brand palettes.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS notification banners](https://service-manual.nhs.uk/design-system/components/notification-banners) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [status and notifications](status.html).

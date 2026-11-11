@@ -1,0 +1,51 @@
+---
+title: "Show household urgency clearly"
+description: "Separate routine reminders, events needing attention and unknown information without medical or emergency claims."
+section: "patterns"
+group: "Task patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS help-users-decide-when-and-where-to-get-care pattern."
+---
+
+# Show household urgency clearly
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A household message should explain the observation, the appropriate next step and the confidence in the information. It must not make every maintenance record look like an emergency.
+
+## The NHS principle we adapt
+
+[NHS care cards](https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care) give concise, clearly labelled medical actions with explicit urgency. Their clinical categories and advice do not transfer to a household dashboard. civica uses a distinct household pattern: routine information, a configured event needing attention, and unknown information. It does not recreate clinical triage.
+
+## Choose the message from evidence
+
+A scheduled filter check is routine information. Show its due date and how the reminder was set. Do not apply a black-and-yellow emergency frame to an ordinary certificate, inspection record or service date.
+
+<%= example('nhs-household-routine') %>
+
+A current event can justify a more prominent, labelled message. Name the device, describe what it actually reports and state when the update arrived. Keep one clear next step. Do not infer a related condition the device cannot measure.
+
+<%= example('nhs-household-action') %>
+
+Connection loss needs separate treatment. It does not confirm either a hazard or an all-clear. Retain any unresolved event and explain that new observations are unavailable.
+
+<%= example('nhs-household-unknown') %>
+
+## Use colour as a secondary cue
+
+Lead with text such as “Check the freezer door” or “Sensor information is unavailable”. Use a neutral structural rule for routine information and the civica semantic warning role for an action that needs attention. Brand palette changes must not alter the meaning. Do not reproduce NHS red/blue clinical severity levels or invent a universal household colour code.
+
+## Accessibility and content
+
+Use a heading for each message and give surrounding content its own heading. Keep the observation and action short enough to read under pressure. Include an absolute timestamp and time zone when freshness matters. Avoid an icon-only severity indicator. Announce a genuinely new important event once; do not continuously repeat a static message as entity values refresh.
+
+## Home Assistant implementation boundary
+
+A theme cannot determine physical safety. A production event needs a verified integration, a documented household rule, an owner and a route that actually exists. Native alarm behaviour, permissions and acknowledgements remain intact. Never provide an unavailable remote action or treat clicking “I have read this” as clearing a sensor.
+
+Life-safety or emergency instructions require a separately reviewed product workflow and appropriate authoritative guidance. This pattern supplies no medical advice, emergency response protocol or guarantee of monitoring. The examples are synthetic household interface states, not live warnings.

@@ -1,0 +1,63 @@
+---
+title: "Panel"
+description: "Use a panel for a significant completion or a deliberate interruption in a journey."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/panel"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed panel guidance and 2 Home Assistant reference examples."
+---
+
+# Panel
+
+Use a panel for a significant completion or a deliberate interruption in a journey.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use a confirmation panel after a whole setup task completes, with the next step nearby. An interruption panel may pause a process when the user needs important context before continuing.
+
+## When not to use it
+
+Do not use large panels as decoration inside ordinary help text, or show a success panel for every light switch. A recurring dashboard reading belongs in a card or summary.
+
+## Home Assistant adaptation
+
+A dashboard import confirmation should state exactly what was imported and where to find it. Do not say “Backup restored” until the owning restore operation confirms completion. An interruption must explain its consequence without inventing authority or demanding an unnecessary approval.
+
+## Accessibility and behaviour
+
+Use a short heading and readable supporting text. Keep next actions outside the coloured area where that produces clearer focus and contrast. Ensure meaning survives without the fill colour and avoid large uppercase headings.
+
+## Examples
+
+### A completed dashboard setup
+
+This static example illustrates the final result of a successful journey.
+
+<%= example('nhs-panel-complete') %>
+
+### Explain an import consequence
+
+An interruption is part of a deliberate journey, not a general alert.
+
+<%= example('nhs-panel-interruption') %>
+
+## Check the implementation
+
+Test long names, zoom, the route back to the task and failed completion. A completion reference must not disclose a secret, access token or private file path.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS panel](https://service-manual.nhs.uk/design-system/components/panel) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [dialogs](dialogs.html).

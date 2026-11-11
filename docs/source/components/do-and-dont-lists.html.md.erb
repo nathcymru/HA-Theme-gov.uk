@@ -1,0 +1,63 @@
+---
+title: "Do and do not lists"
+description: "Use paired advice lists when a short set of actions and cautions makes guidance easier to follow."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/do-and-dont-lists"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed do and do not lists guidance and 2 Home Assistant reference examples."
+---
+
+# Do and do not lists
+
+Use paired advice lists when a short set of actions and cautions makes guidance easier to follow.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use them in a help page for maintaining a dashboard or checking an integration. A single instruction usually needs a paragraph, inset or warning rather than a whole list treatment.
+
+## When not to use it
+
+Do not turn status values into advice lists. Do not place essential validation or consent inside this content pattern. Avoid presenting lists side by side, where reading order becomes less clear.
+
+## Home Assistant adaptation
+
+Write advice that the user can act on and that matches verified product behaviour. Keep device-specific servicing instructions in the manufacturer’s guidance. The examples explain interface use and information handling; they do not prescribe physical repairs.
+
+## Accessibility and behaviour
+
+Use headings and actual lists. The text of every negative item must contain “do not”, so the instruction stays correct when read without its heading. Tick and cross graphics are decorative and hidden from assistive technology. Colour supports the words only.
+
+## Examples
+
+### Maintain a shared dashboard
+
+Positive and negative instructions remain meaningful when read individually.
+
+<%= example('nhs-advice-dashboard') %>
+
+### Write useful household notes
+
+A single advice list is acceptable when there is no useful opposing set.
+
+<%= example('nhs-advice-notes') %>
+
+## Check the implementation
+
+Test the spoken sequence, stacked mobile layout and a view without colour. Add a new heading after the lists so later content is not mistaken for another instruction.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS do and do not lists](https://service-manual.nhs.uk/design-system/components/do-and-dont-lists) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [status and notifications](status.html).

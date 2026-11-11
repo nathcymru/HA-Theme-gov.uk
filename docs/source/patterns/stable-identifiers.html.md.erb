@@ -1,0 +1,51 @@
+---
+title: "Ask for device and entity identifiers"
+description: "Help people identify the right household device without requiring them to remember a technical ID."
+section: "patterns"
+group: "Task patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/ask-for-nhs-numbers"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS ask-for-nhs-numbers pattern."
+---
+
+# Ask for device and entity identifiers
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+An identifier helps resolve an exact entity when a readable device name is not enough. Most household members should be able to choose by name and room instead.
+
+## The NHS principle we adapt
+
+The [NHS number pattern](https://service-manual.nhs.uk/design-system/patterns/ask-for-nhs-numbers) explains how to request an identifier, help people recognise it and offer another route when they do not know it. civica adopts that interaction principle, not the patient-data model. No NHS number, patient record, clinical matching service or health information is needed by this theme.
+
+## When to use it
+
+Use an entity identifier for importing a saved configuration, troubleshooting a specific entity, or choosing between devices with identical labels. Use a labelled device picker for ordinary control. Do not treat an ID as proof of identity or permission.
+
+<%= example('nhs-identifier-route') %>
+
+## Validate the kind of identifier you actually need
+
+Home Assistant entity IDs contain a domain and object name, such as `light.example_reading_lamp`. They can be renamed. An integration's unique ID and a device registry ID have different meanings; they are not interchangeable with an entity ID. Name the requested field precisely. If a workflow stores a registry reference, resolve the current entity at the time of use instead of assuming its old name is permanent.
+
+Accept paste and ordinary text entry. Do not apply NHS numeric keyboards, digit grouping, length rules or checksum validation to Home Assistant IDs. Validate against the current authorised entity registry and the supported domain. Keep the entered value after an error. Do not remove punctuation or silently repair a near match.
+
+<%= example('nhs-identifier-error') %>
+
+## Confirm the match
+
+Show the friendly name, area, integration when useful, and the exact reference before saving a selection. Distinguish “not found”, “unavailable” and “not allowed”; avoid revealing entities the current user cannot access. An unavailable entity can still be the correct configured entity, so offer retry or a deliberate replacement rather than overwriting it automatically.
+
+<%= example('nhs-identifier-match') %>
+
+## Accessibility and content
+
+Use a persistent visible label, a short example and associated hint/error text. Allow long IDs to wrap in summaries without changing the copied value. Do not rely on monospace styling to explain meaning. Say “Choose a device instead” rather than “Invalid object”. Keyboard and screen reader users must reach the alternate route without re-entering earlier answers.
+
+## Home Assistant implementation boundary
+
+These examples demonstrate selection, not registry mutation or service calls. A production picker must use the user's actual authorised entities and supported capabilities. Keep access tokens, serial numbers and personal account details out of examples, status messages and logs. Recheck the selected entity before saving or acting on it.

@@ -1,0 +1,214 @@
+{
+  "examples": {
+    "local-device-switch": {
+      "title": "A labelled device switch",
+      "html": "<h2 class=\"govuk-heading-m\">Kitchen light</h2><p class=\"govuk-body\">Example control. Changing it only updates this preview.</p><form data-demo-form><div class=\"govuk-checkboxes\"><div class=\"govuk-checkboxes__item\"><input id=\"light-on\" class=\"govuk-checkboxes__input\" type=\"checkbox\" role=\"switch\"><label class=\"govuk-label govuk-checkboxes__label\" for=\"light-on\">Kitchen light on</label></div></div><button class=\"govuk-button\" type=\"submit\">Preview saving</button><p role=\"status\" data-demo-status></p></form>",
+      "height": 400
+    },
+    "local-device-unavailable": {
+      "title": "An unavailable reading",
+      "html": "<section class=\"civica-card\"><h2 class=\"govuk-heading-m\">Bedroom temperature</h2><p class=\"govuk-body\"><strong>Unavailable</strong></p><p class=\"govuk-body\">The integration has not supplied a current reading. Check the device\u2019s connection from its native details page.</p></section>",
+      "height": 300
+    },
+    "local-device-slider": {
+      "title": "Brightness with an explicit value",
+      "html": "<h2 class=\"govuk-heading-m\">Reading light</h2><form data-demo-form><label class=\"govuk-label\" for=\"brightness\">Brightness (percent)</label><input id=\"brightness\" type=\"range\" min=\"0\" max=\"100\" step=\"1\" value=\"50\" data-demo-range><output for=\"brightness\" data-demo-range-output>50%</output><button class=\"govuk-button\" type=\"submit\">Preview saving</button><p role=\"status\" data-demo-status></p></form>",
+      "height": 350
+    },
+    "local-controls-form": {
+      "title": "Appearance preferences",
+      "html": "<form data-demo-form><div class=\"govuk-form-group\"><label class=\"govuk-label\" for=\"palette-choice\">Colour palette</label><select class=\"govuk-select\" id=\"palette-choice\"><option>Civic Cobalt</option><option>Racing Moss</option><option>Imperial Damson</option></select></div><div class=\"govuk-checkboxes\"><div class=\"govuk-checkboxes__item\"><input class=\"govuk-checkboxes__input\" id=\"muted-choice\" type=\"checkbox\"><label class=\"govuk-label govuk-checkboxes__label\" for=\"muted-choice\">Muted colours</label></div></div><button class=\"govuk-button\" type=\"submit\">Preview saving</button><p role=\"status\" data-demo-status></p></form>",
+      "height": 400
+    },
+    "local-controls-error": {
+      "title": "A field with a useful error",
+      "html": "<form data-demo-form><div class=\"govuk-form-group govuk-form-group--error\"><label class=\"govuk-label\" for=\"room-name\">Room name</label><p class=\"govuk-error-message\" id=\"room-error\"><span class=\"govuk-visually-hidden\">Error:</span> Enter a room name</p><input class=\"govuk-input govuk-input--error\" id=\"room-name\" aria-describedby=\"room-error\" required></div><button class=\"govuk-button\" type=\"submit\">Preview saving</button><p role=\"status\" data-demo-status></p></form>",
+      "height": 350
+    },
+    "local-status-empty": {
+      "title": "A valid empty result",
+      "html": "<h2 class=\"govuk-heading-m\">Notifications</h2><p class=\"govuk-body\">No current notifications.</p><p class=\"govuk-body\">This is different from a failed request. The example contains no unread items.</p>",
+      "height": 300
+    },
+    "local-status-failure": {
+      "title": "An action that did not complete",
+      "html": "<h2 class=\"govuk-heading-m\">Kitchen light did not respond</h2><p class=\"govuk-body\">The last confirmed state is off. Check that the light has power before trying again.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example retry complete. No device command was sent.\">Preview trying again</button><p role=\"status\" data-demo-status></p>",
+      "height": 300
+    },
+    "local-status-pending": {
+      "title": "Waiting for confirmation",
+      "html": "<h2 class=\"govuk-heading-m\">Kitchen light</h2><p class=\"govuk-body\"><strong>Waiting for the device to respond</strong></p><p class=\"govuk-body\">Keep the last confirmed state visible until a new state arrives. This static example does not complete automatically.</p>",
+      "height": 300
+    },
+    "local-badge-count": {
+      "title": "An unread count on its destination",
+      "html": "<a class=\"govuk-link\" href=\"#example-notifications\">Notifications <span class=\"civica-badge\" aria-hidden=\"true\">3</span><span class=\"govuk-visually-hidden\">, 3 unread notifications</span></a><section id=\"example-notifications\"><h2 class=\"govuk-heading-m\">Example notifications</h2><ul class=\"govuk-list govuk-list--bullet\"><li>One device is unavailable.</li><li>A backup completed.</li><li>An update is available.</li></ul></section>",
+      "height": 300
+    },
+    "local-badge-overflow": {
+      "title": "A large attention count",
+      "html": "<a class=\"govuk-link\" href=\"#example-updates\">Updates <span class=\"civica-badge\" aria-hidden=\"true\">99+</span><span class=\"govuk-visually-hidden\">, 99 or more available</span></a><section id=\"example-updates\"><h2 class=\"govuk-heading-m\">Example updates</h2><p class=\"govuk-body\">The visible count is capped, while the destination still explains the items and their status.</p></section>",
+      "height": 300
+    },
+    "local-dialog-details": {
+      "title": "Device details in a dialog",
+      "html": "<button type=\"button\" class=\"govuk-button\" data-demo-open=\"device-dialog\">View example device details</button><dialog id=\"device-dialog\" aria-labelledby=\"device-title\"><h2 class=\"govuk-heading-m\" id=\"device-title\">Kitchen light</h2><p class=\"govuk-body\">Example state: off. This dialog cannot operate a device.</p><button type=\"button\" class=\"govuk-button govuk-button--secondary\" data-demo-close>Close</button></dialog>",
+      "height": 300
+    },
+    "local-dialog-confirm": {
+      "title": "A consequence explained before confirmation",
+      "html": "<button type=\"button\" class=\"govuk-button govuk-button--warning\" data-demo-open=\"remove-dialog\">Remove example view</button><dialog id=\"remove-dialog\" aria-labelledby=\"remove-title\"><h2 class=\"govuk-heading-m\" id=\"remove-title\">Remove the example view?</h2><p class=\"govuk-body\">This demonstration does not remove anything. In a real application, explain exactly which saved layout will be lost.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example confirmation only. Nothing has been removed.\">Preview removing</button><p role=\"status\" data-demo-status></p><button class=\"govuk-button govuk-button--secondary\" type=\"button\" data-demo-close>Cancel</button></dialog>",
+      "height": 300
+    },
+    "local-navigation-rooms": {
+      "title": "Room destinations",
+      "html": "<nav aria-label=\"Example rooms\"><ul class=\"govuk-list\"><li><a class=\"govuk-link\" href=\"#kitchen\">Kitchen</a></li><li><a class=\"govuk-link\" href=\"#living-room\">Living room</a></li></ul></nav><section id=\"kitchen\"><h2 class=\"govuk-heading-m\">Kitchen</h2><p class=\"govuk-body\">Example room destination.</p></section><section id=\"living-room\"><h2 class=\"govuk-heading-m\">Living room</h2><p class=\"govuk-body\">Example room destination.</p></section>",
+      "height": 430
+    },
+    "local-navigation-current": {
+      "title": "A visible current location",
+      "html": "<nav aria-label=\"Example dashboard\"><ul class=\"govuk-list\"><li><a href=\"#overview\" class=\"govuk-link\" aria-current=\"page\"><strong>Overview</strong></a></li><li><a href=\"#energy\" class=\"govuk-link\">Energy</a></li></ul></nav><section id=\"overview\"><h2 class=\"govuk-heading-m\">Overview</h2><p class=\"govuk-body\">Example overview content.</p></section><section id=\"energy\"><h2 class=\"govuk-heading-m\">Energy</h2><p class=\"govuk-body\">Example energy destination.</p></section>",
+      "height": 430
+    },
+    "local-card-actions": {
+      "title": "Device card with separate actions and a details route",
+      "html": "<section class=\"civica-card\"><h2 class=\"govuk-heading-m\">Living room lights</h2><p class=\"govuk-body\">Example confirmed state: off.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example only. No lights were changed.\">Preview turning on</button><p role=\"status\" data-demo-status></p><a class=\"govuk-link\" href=\"#light-details\">View light details</a></section><div id=\"light-details\"><h2 class=\"govuk-heading-m\">Light details</h2><p class=\"govuk-body\">Brightness and colour controls would use the device\u2019s supported capabilities.</p></div>",
+      "height": 450
+    },
+    "local-layout-grid": {
+      "title": "Cards in a responsive grid",
+      "html": "<div class=\"civica-pattern-grid\"><section class=\"civica-card\"><h2 class=\"govuk-heading-m\">Kitchen</h2><p class=\"govuk-body\">Example temperature: 20 \u00b0C.</p></section><section class=\"civica-card\"><h2 class=\"govuk-heading-m\">Bedroom</h2><p class=\"govuk-body\">Example temperature: unavailable.</p></section></div>",
+      "height": 300
+    },
+    "local-layout-groups": {
+      "title": "Grouping with space and headings",
+      "html": "<h2 class=\"govuk-heading-m\">Living room</h2><p class=\"govuk-body\">Use headings and spacing to group related controls.</p><h3 class=\"govuk-heading-s\">Lighting</h3><p class=\"govuk-body\">Reading lamp: off \u2014 example state.</p><h3 class=\"govuk-heading-s\">Temperature</h3><p class=\"govuk-body\">20 \u00b0C \u2014 example reading.</p>",
+      "height": 300
+    },
+    "local-type-hierarchy": {
+      "title": "Heading and reading hierarchy",
+      "html": "<h1 class=\"govuk-heading-xl\">Living room</h1><h2 class=\"govuk-heading-m\">Indoor conditions</h2><p class=\"govuk-body\"><strong style=\"font-size:2rem\">20 \u00b0C</strong></p><p class=\"govuk-body\">Example reading. A sensor value is not a heading.</p>",
+      "height": 300
+    },
+    "local-type-wrapping": {
+      "title": "A long device name",
+      "html": "<section class=\"civica-card\"><h2 class=\"govuk-heading-m\">Upstairs landing reading light beside the cupboard</h2><p class=\"govuk-body\">Unavailable \u2014 the integration has not supplied a current state.</p><p class=\"govuk-body\">The full name and state wrap rather than disappearing behind an ellipsis.</p></section>",
+      "height": 300
+    },
+    "local-content-state": {
+      "title": "Distinguish state from action",
+      "html": "<h2 class=\"govuk-heading-m\">Kitchen light</h2><p class=\"govuk-body\"><strong>Off</strong> \u2014 last confirmed example state.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Waiting for confirmation in this demonstration. No device command was sent.\">Preview turning on</button><p role=\"status\" data-demo-status></p>",
+      "height": 300
+    },
+    "local-content-error": {
+      "title": "Explain the next useful step",
+      "html": "<h2 class=\"govuk-heading-m\">Could not load the energy readings</h2><p class=\"govuk-body\">The statistics service did not respond. Your previous readings are still available in Home Assistant.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example only. No statistics request was sent.\">Preview trying again</button><p role=\"status\" data-demo-status></p>",
+      "height": 300
+    },
+    "local-icon-label": {
+      "title": "An icon supporting a clear label",
+      "html": "<a class=\"civica-action-link\" href=\"#energy-destination\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"20\" cy=\"20\" r=\"20\" fill=\"#d2e2f0\"/><path d=\"M10 20h18m-7-7 7 7-7 7\" fill=\"none\" stroke=\"#0b0c0c\" stroke-width=\"2\"/></svg>View energy use</a><section id=\"energy-destination\"><h2 class=\"govuk-heading-m\">Energy use</h2><p class=\"govuk-body\">The arrow is decorative; the link text names the destination.</p></section>",
+      "height": 300
+    },
+    "local-image-purpose": {
+      "title": "An informative original illustration",
+      "html": "<figure class=\"civica-image\"><img src=\"../images/design-system-hero.svg\" alt=\"An interface assembled from typography, colours, a form and a chart\" width=\"420\" height=\"350\" style=\"background:#1d70b8\"><figcaption class=\"civica-image__caption\">An original civica.uk illustration. Its caption explains why it is included.</figcaption></figure>",
+      "height": 450
+    },
+    "local-brand-primary": {
+      "title": "Supplied identity on the primary colour",
+      "html": "<div class=\"civica-demo-header\"><img src=\"../images/civica-lockup.svg\" alt=\"civica.uk\" width=\"306\" height=\"49\"></div><p class=\"govuk-body\">Use the supplied on-primary lockup at its original aspect ratio.</p>",
+      "height": 300
+    },
+    "local-brand-canvas": {
+      "title": "Supplied identity on a light canvas",
+      "html": "<img src=\"../images/themes/civic-cobalt/vivid/lockup-on-canvas.svg\" alt=\"civica.uk\" width=\"306\" height=\"49\"><p class=\"govuk-body\">Use the matching on-canvas asset. Do not recolour the artwork with a CSS filter.</p>",
+      "height": 300
+    },
+    "local-colour-vivid": {
+      "title": "Civic Cobalt \u2014 Vivid",
+      "html": "<section style=\"background:#ffffff;padding:20px\"><div style=\"background:#1d70b8;padding:20px\"><img src=\"../images/themes/civic-cobalt/vivid/lockup-on-primary.svg\" alt=\"civica.uk\" width=\"245\" height=\"39\"></div><h2 class=\"govuk-heading-m\">Vivid colours</h2><p class=\"govuk-body\">The brand pair changes together. Error, focus and success meanings remain stable.</p></section>",
+      "height": 300
+    },
+    "local-colour-muted": {
+      "title": "Civic Cobalt \u2014 Muted",
+      "html": "<section style=\"background:#f3f6f9;padding:20px\"><div style=\"background:#103e65;padding:20px\"><img src=\"../images/themes/civic-cobalt/muted/lockup-on-primary.svg\" alt=\"civica.uk\" width=\"245\" height=\"39\"></div><h2 class=\"govuk-heading-m\">Muted colours</h2><p class=\"govuk-body\">The brand pair changes together. Error, focus and success meanings remain stable.</p></section>",
+      "height": 300
+    },
+    "local-install-layers": {
+      "title": "The three implementation layers",
+      "html": "<h2 class=\"govuk-heading-m\">Choose the required layer</h2><ol class=\"govuk-list govuk-list--number\"><li>Theme: fonts, colours and supported native tokens.</li><li>Companion: named, tested presentation adapters and settings.</li><li>Custom cards: explicit dashboard configuration.</li></ol><p class=\"govuk-body\">This diagram describes scope. It does not install or enable a feature.</p>",
+      "height": 300
+    },
+    "local-install-check": {
+      "title": "A concrete verification record",
+      "html": "<h2 class=\"govuk-heading-m\">Example release check</h2><dl class=\"govuk-summary-list\"><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Route</dt><dd class=\"govuk-summary-list__value\">Energy \u2192 Power sources</dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Observed</dt><dd class=\"govuk-summary-list__value\">Individual unfilled lines; 1.5px stroke; labelled data table.</dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Evidence</dt><dd class=\"govuk-summary-list__value\">This is an example report, not a live verification result.</dd></div></dl>",
+      "height": 300
+    },
+    "local-compatibility-supported": {
+      "title": "Describe a supported adaptation",
+      "html": "<h2 class=\"govuk-heading-m\">Native Energy chart</h2><p class=\"govuk-body\">The companion adapts identified Energy Cartesian charts. It preserves their data and native period controls.</p><p class=\"govuk-body\">A theme-only installation supplies colour roles but cannot implement the complete chart presentation.</p>",
+      "height": 300
+    },
+    "local-compatibility-fallback": {
+      "title": "Describe an unsupported surface",
+      "html": "<h2 class=\"govuk-heading-m\">Third-party chart card</h2><p class=\"govuk-body\">This card is outside the native Energy adapter\u2019s scope. Keep its native behaviour and follow the card author\u2019s supported styling options.</p><p class=\"govuk-body\">A similar appearance is not proof that the adapter is active.</p>",
+      "height": 300
+    },
+    "local-accessibility-keyboard": {
+      "title": "A keyboard check that has an outcome",
+      "html": "<h2 class=\"govuk-heading-m\">Test a local dialog</h2><p class=\"govuk-body\">Focus the button, open the dialog, press Escape and confirm focus returns to the button.</p><button type=\"button\" class=\"govuk-button\" data-demo-open=\"keyboard-dialog\">Open test dialog</button><dialog id=\"keyboard-dialog\" aria-labelledby=\"keyboard-title\"><h2 class=\"govuk-heading-m\" id=\"keyboard-title\">Keyboard test</h2><p class=\"govuk-body\">Focus should stay inside this modal until it closes.</p><button class=\"govuk-button\" type=\"button\" data-demo-close>Close</button></dialog>",
+      "height": 300
+    },
+    "local-accessibility-data": {
+      "title": "A text alternative to a visual reading",
+      "html": "<table class=\"govuk-table\"><caption class=\"govuk-table__caption govuk-table__caption-m\">Example electricity use</caption><thead class=\"govuk-table__head\"><tr class=\"govuk-table__row\"><th class=\"govuk-table__header\" scope=\"col\">Period</th><th class=\"govuk-table__header\" scope=\"col\">Energy (kWh)</th></tr></thead><tbody class=\"govuk-table__body\"><tr class=\"govuk-table__row\"><th class=\"govuk-table__header\" scope=\"row\">12:00 to 13:00</th><td class=\"govuk-table__cell\">1.2</td></tr><tr class=\"govuk-table__row\"><th class=\"govuk-table__header\" scope=\"row\">13:00 to 14:00</th><td class=\"govuk-table__cell\">Unavailable</td></tr></tbody></table><p class=\"govuk-body\">Missing data is different from zero.</p>",
+      "height": 300
+    },
+    "local-community-issue": {
+      "title": "A useful issue report",
+      "html": "<h2 class=\"govuk-heading-m\">Example report: a label is clipped</h2><dl class=\"govuk-summary-list\"><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Task</dt><dd class=\"govuk-summary-list__value\">Identify the unavailable bedroom sensor.</dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Conditions</dt><dd class=\"govuk-summary-list__value\">320px viewport, 200% text size, keyboard navigation.</dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Expected</dt><dd class=\"govuk-summary-list__value\">The complete name and unavailable state remain readable.</dd></div></dl>",
+      "height": 300
+    },
+    "local-community-decision": {
+      "title": "A bounded design decision",
+      "html": "<h2 class=\"govuk-heading-m\">Example decision: chart line weight</h2><p class=\"govuk-body\">Use 1.5px lines for dense household power data. Keep the same width during hover and in legend keys.</p><p class=\"govuk-body\">The ONS reference is 3px. The narrower local value is explicit and tested against the production adapter.</p>",
+      "height": 300
+    },
+    "local-community-source": {
+      "title": "An attributable source record",
+      "html": "<h2 class=\"govuk-heading-m\">Example source record</h2><dl class=\"govuk-summary-list\"><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Source</dt><dd class=\"govuk-summary-list__value\">ONS chart guidance</dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Local decision</dt><dd class=\"govuk-summary-list__value\">Preserve native Home Assistant data and adapt presentation.</dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Verification</dt><dd class=\"govuk-summary-list__value\">Record source version, local code, checks and limitations separately.</dd></div></dl>",
+      "height": 300
+    },
+    "local-community-licence": {
+      "title": "Separate code and artwork rights",
+      "html": "<h2 class=\"govuk-heading-m\">Example attribution inventory</h2><ul class=\"govuk-list govuk-list--bullet\"><li>Component code: record its actual software licence.</li><li>Guidance: attribute the official source and any applicable content licence.</li><li>Brand artwork: preserve the supplied asset provenance; do not infer a government-brand licence.</li></ul>",
+      "height": 300
+    },
+    "local-chart-power": {
+      "title": "Power sources \u2014 individual unfilled lines",
+      "html": "<div data-civica-energy-examples data-example-chart=\"power\"></div><noscript><p>Interactive charts need JavaScript. Read the chart specification and its accessible-data requirements on the owning guide.</p></noscript><script type=\"module\" src=\"../javascripts/energy-chart-examples.js\"></script>",
+      "height": 850
+    },
+    "local-chart-usage": {
+      "title": "Consumption \u2014 solid and hatched columns",
+      "html": "<div data-civica-energy-examples data-example-chart=\"usage\"></div><noscript><p>Interactive charts need JavaScript. Read the chart specification and its accessible-data requirements on the owning guide.</p></noscript><script type=\"module\" src=\"../javascripts/energy-chart-examples.js\"></script>",
+      "height": 850
+    },
+    "local-chart-devices": {
+      "title": "Device comparison \u2014 horizontal bars",
+      "html": "<div data-civica-energy-examples data-example-chart=\"devices\"></div><noscript><p>Interactive charts need JavaScript. Read the chart specification and its accessible-data requirements on the owning guide.</p></noscript><script type=\"module\" src=\"../javascripts/energy-chart-examples.js\"></script>",
+      "height": 850
+    },
+    "local-chart-many": {
+      "title": "24 named series \u2014 generated colours",
+      "html": "<div data-civica-energy-examples data-example-chart=\"many\"></div><noscript><p>Interactive charts need JavaScript. Read the chart specification and its accessible-data requirements on the owning guide.</p></noscript><script type=\"module\" src=\"../javascripts/energy-chart-examples.js\"></script>",
+      "height": 850
+    },
+    "local-chart-empty": {
+      "title": "No values \u2014 an explicit empty state",
+      "html": "<div data-civica-energy-examples data-example-chart=\"empty\"></div><noscript><p>Interactive charts need JavaScript. Read the chart specification and its accessible-data requirements on the owning guide.</p></noscript><script type=\"module\" src=\"../javascripts/energy-chart-examples.js\"></script>",
+      "height": 850
+    }
+  }
+}

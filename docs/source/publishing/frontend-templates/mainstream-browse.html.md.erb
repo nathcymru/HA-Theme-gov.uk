@@ -1,0 +1,60 @@
+---
+title: "Mainstream browse"
+description: "Mainstream browse organises a topic hierarchy into parent and child pages."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Mainstream browse
+
+Mainstream browse organises a topic hierarchy into parent and child pages. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use the principle for a large household help collection or documentation catalogue. Start with subjects people recognise, such as lighting, heating or maintaining the system. Keep broad subjects distinct from detailed task links. A small household may only need a single flat list.
+
+## Structure and behaviour
+
+Provide a short introduction and plainly labelled topic links. Use a clear second level only where it reduces scanning effort. Alphabetical order can help a known-item list; task priority can help a curated list. Explain the chosen ordering and keep it stable.
+
+## Home Assistant boundary
+
+Do not import the government taxonomy or analytics-derived popularity lists. The theme does not change native HA areas, floors or labels. Navigation must use configured routes and avoid suggesting that an entity has only one possible organisational relationship.
+
+## Household subjects
+
+A readable list uses real local section destinations.
+
+<%= example("pub-frontend-templates-mainstream-browse-1") %>
+
+## Documentation subjects
+
+A second purpose illustrates the same browse structure.
+
+<%= example("pub-frontend-templates-mainstream-browse-2") %>
+
+## Acceptance checks
+
+- The hierarchy can be explained in ordinary language.
+- Users can reach the parent topic from a child.
+- Topic names differ enough to make choices clear.
+- The same list is not needlessly repeated in several panels.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

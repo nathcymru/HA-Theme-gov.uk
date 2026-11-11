@@ -1,0 +1,60 @@
+---
+title: "Feedback"
+description: "The publishing feedback component collects a response about the page. It is separate from contacting an organisation or reporting an urgent problem."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/feedback/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Feedback
+
+The publishing feedback component collects a response about the page. It is separate from contacting an organisation or reporting an urgent problem. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/feedback/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+For civica.uk documentation, offer a clear route to report a documentation problem or suggest an improvement. Explain the destination and that a public issue may be visible to others. In the HA interface, use the existing support path for the affected integration or component.
+
+## Structure and behaviour
+
+If a service collects feedback, label each field and confirm receipt only after a real successful response. Keep entered text available on failure. Make an email address optional unless the service genuinely needs it. Explain the purpose of any contact details before collection.
+
+## Home Assistant boundary
+
+The examples acknowledge activity locally and do not send feedback. No analytics, GOV.UK survey endpoint, notification service or email collection is installed by this reference. A successful local demonstration must never be described as a submitted report.
+
+## Local feedback interaction
+
+Type invented feedback. The demonstration does not send or save it.
+
+<%= example("pub-components-feedback-1") %>
+
+## Public issue route
+
+This real repository link opens the public issue list.
+
+<%= example("pub-components-feedback-2") %>
+
+## Acceptance checks
+
+- The feedback destination and privacy context are clear.
+- Submission errors preserve the user’s wording.
+- Confirmation is backed by the real response, not a click.
+- Keyboard users can reach and leave any expanded form.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

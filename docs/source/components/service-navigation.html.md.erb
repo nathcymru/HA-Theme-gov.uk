@@ -1,0 +1,44 @@
+---
+title: "Service navigation"
+description: "Provide stable, named routes between the main areas of a service."
+section: components
+group: Navigation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Service navigation
+
+Provide stable, named routes between the main areas of a service.
+
+## When to use
+
+Use service navigation for a small set of destinations that remain useful across the service. It helps people understand where they are. In Home Assistant, the native sidebar already fulfils this role; do not duplicate every sidebar destination in another bar.
+
+Use [tabs](tabs.html) for closely related views within one task and [breadcrumbs](breadcrumbs.html) for hierarchy. Keep labels short, distinct and ordered around household needs rather than internal integration names.
+
+## Main household sections
+
+<%= example('core-service-navigation') %>
+
+## A smaller service
+
+<%= example('core-service-navigation-compact') %>
+
+## Behaviour and content
+
+The current item has both visual emphasis and a programmatic current state. Links remain real destinations. On narrow screens the upstream component supplies a keyboard-operable menu toggle; without JavaScript the links remain available. Do not add an unrelated action to the list merely because there is space.
+
+These standalone examples use real local section targets to make navigation inspectable without a Home Assistant connection. A production service should connect equivalent real routes and update the current marker after route changes.
+
+## Accessibility and testing
+
+Name the navigation landmark when a page has multiple navigation regions. Check focus after opening the mobile menu and after a route change. Test with long room names, keyboard-only use, JavaScript disabled and 200% text zoom. The current state must remain recognisable without colour.
+
+## Source and Home Assistant boundary
+
+[GOV.UK Service navigation](https://design-system.service.gov.uk/components/service-navigation/), reviewed 11 November 2026. The installed companion preserves native HA routing; this reference is for standalone guidance or intentionally authored custom pages.

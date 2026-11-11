@@ -1,0 +1,65 @@
+---
+title: "Review dates and freshness"
+description: "The NHS review-date component has been withdrawn. Use its replacement content-review pattern, and keep that distinct from sensor freshness."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/review-date"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed review dates and freshness guidance and 2 Home Assistant reference examples."
+---
+
+# Review dates and freshness
+
+The NHS review-date component has been withdrawn. Use its replacement content-review pattern, and keep that distinct from sensor freshness.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Show a review date on authored guidance when it helps people judge whether the advice is maintained. Record the actual editorial review and the intended next review, rather than changing the date on every deployment.
+
+## When not to use it
+
+Do not put editorial review metadata inside a transaction, or reset a whole-page review date after changing only one sentence. Place whole-page review dates after the authored content. Do not label a sensor value “reviewed”. A data timestamp identifies when a value was observed or received; it does not show that a person checked its accuracy.
+
+## Home Assistant adaptation
+
+For civica.uk documentation, published and updated metadata describe changes to the page. A device card instead needs the meaning of its timestamp, the relevant timezone and an unavailable or stale state when required by its integration. Keep these concepts separate in wording and machine-readable records.
+
+## Accessibility and behaviour
+
+Use visible text with semantic time elements and a full unambiguous date. Relative text such as “five minutes ago” can supplement an absolute timestamp but should not be the only information.
+
+## Examples
+
+### Editorial review of a help page
+
+These dates refer to a human review of authored content.
+
+<%= example('nhs-component-review-guidance') %>
+
+### Freshness of a recorded reading
+
+This timestamp is an observation, not an editorial review.
+
+<%= example('nhs-review-reading') %>
+
+## Check the implementation
+
+Check that an editorial date is supported by a real review and that a sensor timestamp comes from the owning data source. Test timezone changes, stale data and an absent timestamp.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS review dates and freshness](https://service-manual.nhs.uk/design-system/components/review-date) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+The NHS source explicitly withdraws its old component and directs readers to [helping users know a page is up to date](https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date). This page records that replacement, rather than reinstating the retired component.
+
+See also [status and notifications](status.html).

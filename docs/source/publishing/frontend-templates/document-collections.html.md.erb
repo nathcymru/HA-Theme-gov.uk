@@ -1,0 +1,60 @@
+---
+title: "Document collections"
+description: "A document collection groups related material under meaningful sections for a particular task or audience."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/document-collections/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Document collections
+
+A document collection groups related material under meaningful sections for a particular task or audience. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/document-collections/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use this structure for manuals, maintenance guidance or release documentation. Give the collection a focused title and short description. Group by the household task or equipment family rather than by storage format. Provide enough item context to distinguish similar titles.
+
+## Structure and behaviour
+
+Each group has a heading and a list of document links. Use a contents list when several groups make the page long. Add format and revision metadata at item level where relevant. Preserve a route from each document to its collection without implying it belongs to only one collection.
+
+## Home Assistant boundary
+
+This template does not upload private documents or subscribe users to updates. Only expose material intended for the current audience. A missing document must not be replaced with a clickable placeholder, and the collection must not advertise a downloadable bundle that has not been built.
+
+## Equipment documents
+
+A small collection with working local document extracts.
+
+<%= example("pub-frontend-templates-document-collections-1") %>
+
+## Release reading
+
+Group documents by purpose rather than file extension.
+
+<%= example("pub-frontend-templates-document-collections-2") %>
+
+## Acceptance checks
+
+- Every listed document exists and has an understandable title.
+- Groups reflect a real browsing need.
+- Duplicate titles include distinguishing model or revision information.
+- Archived and superseded documents are clearly marked.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

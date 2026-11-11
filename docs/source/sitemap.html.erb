@@ -1,0 +1,11 @@
+---
+title: "Sitemap"
+description: "All civica.uk design-system guidance pages, grouped by section."
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added a complete generated sitemap for the expanded design system."
+---
+<h1>Sitemap</h1><p>Browse every guidance page. Standalone examples are linked from their owning component or pattern.</p>
+<% data.navigation.sections.each do |section| %><h2><a href="<%= docs_path(section.path) %>"><%= section.title %></a></h2><ul><% guide_pages.select { |r| section_for(r) == section.id }.sort_by { |r| r.data.title }.each do |resource| %><li><a href="<%= docs_path('/' + resource.destination_path) %>"><%= escape(resource.data.title) %></a></li><% end %></ul><% end %>

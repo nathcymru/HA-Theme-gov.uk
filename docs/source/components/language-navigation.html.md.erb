@@ -1,0 +1,44 @@
+---
+title: "Language navigation"
+description: "Link equivalent content in the languages the service genuinely supports."
+section: components
+group: Navigation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Language navigation
+
+Link equivalent content in the languages the service genuinely supports.
+
+## When to use
+
+Offer language navigation when a translated version of the current content exists. Keep the person on the same topic and preserve only state that can safely carry between versions. Do not take a translation link to an unrelated home page or automatically infer language from a person’s name.
+
+British Sign Language requires its own content and discovery approach; see the [BSL pattern](../patterns/british-sign-language.html). A language menu is not a substitute for an accessible signed version.
+
+## English and Welsh examples
+
+The small examples below link to each other and demonstrate the navigation structure. Their two labels are illustrative; they do not claim the complete design system has a reviewed Welsh translation.
+
+<%= example('core-language-en') %>
+
+<%= example('core-language-cy') %>
+
+## Behaviour and content
+
+Write each language name in that language. Mark the current language programmatically, and use both `lang` and `hreflang` on alternative links. The full production document’s `lang` must match its principal content, while passages in another language need their own language attribute.
+
+Only publish a translation after review by a suitably qualified speaker. Keep revisions in step and identify when an alternative version is unavailable or out of date. Do not silently substitute machine translation for a reviewed household instruction.
+
+## Accessibility and testing
+
+Check names and pronunciation with a screen reader. Test the actual equivalent destinations, page title, browser back, right-to-left layout where relevant, and long translated labels. Ensure a language change does not submit an unfinished control action.
+
+## Home Assistant boundary and source
+
+Keep native HA language preferences and translations. This reference does not change the account language or translate entity names. The [GOV.UK Language navigation component](https://design-system.service.gov.uk/components/language-navigation/) is currently in trial; record future changes before adopting them.

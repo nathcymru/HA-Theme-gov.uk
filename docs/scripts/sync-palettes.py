@@ -21,9 +21,21 @@ for p in data['palettes']:
             lines.append('| '+tone.title()+' '+role+' | `'+v['hex']+'` | '+', '.join(map(str,v['rgb']))+' | '+', '.join(map(str,v['rgba']))+' | '+', '.join(map(str,v['cmyk']))+' | '+v['reference']+' |')
     lines += ['']
 lines += ['## Maintain the tokens', '', 'Edit the canonical JSON, then run `node scripts/generate-themes.mjs` and `python3 docs/scripts/sync-palettes.py` from the repository root. Commit the generated YAML, theme JSON and this colour reference together. Use `--check` on both generators to detect drift.', '', 'The native theme name is `civica {palette name} {Vivid|Muted}`. The `govuk` entry is a compatibility alias for Civic Cobalt Vivid and uses civica.uk branding.', '', 'The semantic role approach follows [GOV.UK colour guidance](https://design-system.service.gov.uk/styles/colour/). The ten named palettes and theme toggle are local civica.uk decisions.', '']
+page_content = '\n'.join(lines)
+example_section = """## Examples
+
+These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
+
+<%= example('local-colour-vivid') %>
+
+<%= example('local-colour-muted') %>
+
+"""
+position = page_content.index('\n## ')
+page_content = page_content[:position] + '\n\n' + example_section + page_content[position:]
 outputs = {
     root/'docs/source/reference/chart-colours.json': (root/'design-system/chart-colours.json').read_text(),
-    root/'docs/source/styles/colour.html.md': '\n'.join(lines),
+    root/'docs/source/styles/colour.html.md.erb': page_content,
     root/'docs/source/reference/palettes.json': source.read_text(),
     root/'docs/source/reference/upstream-sources.json': (root/'design-system/upstream-sources.json').read_text()
 }
