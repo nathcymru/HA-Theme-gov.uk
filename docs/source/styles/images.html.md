@@ -19,6 +19,22 @@ Do not recolour all icons to the selected palette. Preserve semantic warning and
 
 GOV.UK explicitly recognises that icons can help people scan systems they use frequently. It still recommends visible labels in most cases. [GOV.UK images guidance](https://design-system.service.gov.uk/styles/images/)
 
+## Homepage icons are component-specific
+
+The [GOV.UK homepage](https://www.gov.uk/) uses symbols belonging to particular publishing components. Its [Search component](https://components.publishing.service.gov.uk/component-guide/search) has a magnifying glass, while its [Action link](https://components.publishing.service.gov.uk/component-guide/action_link) has a directional arrow. The action-link guide identifies its large variant for homepage links. These are not a universal GOV.UK icon pack for lights, heating, cameras or household appliances.
+
+Use the official symbol only when adopting that component's actual purpose and interaction. Do not replace device symbols with arrows merely to imitate the homepage. GOV.UK's crown, official logo and other identity assets remain prohibited in civica.uk.
+
+## Local icon selection rules
+
+For a known Home Assistant device or entity, retain its native domain icon and any meaningful state variant. For a maintained shell action, use one consistent vector symbol for the action; prefer an existing HA symbol or a documented official component symbol. Do not mix emoji, font glyphs, unrelated pictogram sets and hand-drawn substitutes in one control family.
+
+Treat the visible icon and its hit target separately. A small, crisp symbol can sit inside a 44px control. Keep its viewBox and aspect ratio; align neighbouring symbols optically without distorting them. Use `currentColor` where the source permits it, and keep decorative SVGs out of the accessibility tree when the control already has a name.
+
+A replacement must record its source, licence, purpose, original geometry and affected components. Test its real size in light/dark mode, forced colours and high zoom. Do not change manufacturer artwork, the supplied civica.uk marks or informative device state merely to make all pixels the same colour. The [visual review](../community/visual-audit.html) records the distinction between source defects and stylistic assumptions.
+
+The maintained lighting scene controls use native HA Material Design icons at 24px: `mdi:string-lights`, `mdi:soccer`, `mdi:rugby`, `mdi:halloween` and `mdi:alarm-light-outline`. A visible scene name supplies the meaning. Their small colour strip represents a light recipe, not a theme semantic state. Existing scene illustration files remain preserved; they are not flattened to white and reused as an improvised icon family.
+
 ## Images
 
 Use room/device images when they help identification. Use live camera imagery only in its established security or monitoring context, with a visible location and freshness/state indicator. Do not add stock photography to fill empty space.

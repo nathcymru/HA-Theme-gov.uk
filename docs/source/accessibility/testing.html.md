@@ -27,6 +27,14 @@ Check desktop, tablet and 320px phone layouts, 200% text enlargement, 400% zoom,
 
 Inspect the supplied logo and favicon at their real sizes. Confirm that no stretched mark, clipped heading, hidden action, lost chart label or accidental page overflow appears.
 
+## Borders, icons and attention counts
+
+Compare structural card edges with editable fields: quiet dividers must not become ink boxes, and inputs must not inherit decorative low-contrast borders. Inspect repeated sections together, since a series of individually valid borders can still overwhelm a page. Keep keyboard focus clearly stronger than ordinary grouping.
+
+Check the [notification badge](../components/notification-badge.html) at 0, 1, 9, 10, 98, 99 and 100 items. Verify its red rounded shape, hidden zero state, capped text, one meaningful accessible count, no extra tab stop, updates and native-theme restoration. Test surrounding backgrounds separately from white text on red.
+
+Review shell and device icons in context: meaningful label, consistent purpose, preserved aspect ratio, sufficient contrast and a usable hit target. Confirm that a symbol is not being stretched or replaced by a missing font glyph. Native radios, switches, avatars and gauges must retain their expected geometry. Record any untested third-party icon or badge separately.
+
 ## Native Home Assistant checks
 
 Open each route directly in a fresh session, before visiting a dashboard:

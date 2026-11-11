@@ -37,6 +37,8 @@ sections:
         path: /components/index.html
       - title: Navigation
         path: /components/navigation.html
+      - title: Action links
+        path: /components/action-links.html
       - title: Buttons and forms
         path: /components/controls.html
       - title: Device controls
@@ -45,6 +47,8 @@ sections:
         path: /components/cards.html
       - title: Status and notifications
         path: /components/status.html
+      - title: Notification badge
+        path: /components/notification-badge.html
       - title: Dialogs
         path: /components/dialogs.html
       - title: Charts and tables
@@ -73,6 +77,8 @@ sections:
         path: /community/deviations.html
       - title: Sources and provenance
         path: /community/sources.html
+      - title: Visual review
+        path: /community/visual-audit.html
       - title: Documentation architecture
         path: /community/architecture.html
       - title: Licensing and attribution

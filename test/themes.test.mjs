@@ -43,8 +43,59 @@ test('20 native themes each offer separate light and dark modes without restrict
     assert.ok(!JSON.stringify(theme).includes('GDS Transport'));
     assert.equal(theme['ha-border-radius-circle'], undefined, 'preserve native radio/avatar circle');
     assert.equal(theme['ha-border-radius-pill'], undefined, 'preserve native switch affordance');
+    for (const size of ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl']) {
+      assert.equal(theme[`ha-border-radius-${size}`], undefined, `preserve native ${size} radius, including sidebar notification badges`);
+    }
     assert.equal(theme['ha-button-border-radius'], '0px');
     assert.equal(theme['ha-dialog-width-lg'], undefined, 'do not constrain every native dialog to a narrow fixed width');
+  }
+});
+
+test('structural borders stay quiet while control, input and focus boundaries remain distinct', () => {
+  for (const [name, theme] of Object.entries(themes)) for (const [mode, values] of Object.entries(theme.modes)) {
+    const v = { ...theme, ...values };
+    const quiet = mode === 'light' ? '#CECECE' : '#50565A';
+    for (const key of ['civica-border-quiet', 'ha-card-border-color', 'divider-color', 'mdc-dialog-scroll-divider-color', 'ha-color-border-neutral-quiet', 'wa-color-surface-border', 'wa-color-neutral-border-quiet']) {
+      assert.equal(v[key], quiet, `${name} ${mode}: ${key} must use the structural border`);
+    }
+    const control = v['civica-border-interactive'];
+    minimum(control, v['card-background-color'], 3, `${name} ${mode} control boundary`);
+    assert.ok(contrast(quiet, v['card-background-color']) < contrast(control, v['card-background-color']), `${name} ${mode} divisions must be quieter than controls`);
+    for (const key of ['outline-color', 'slider-track-color', 'ha-color-border-neutral-normal', 'wa-color-neutral-border-normal']) assert.equal(v[key], control);
+    for (const key of ['input-idle-line-color', 'input-outlined-idle-border-color', 'wa-form-control-border-color', 'ha-color-border-neutral-loud']) assert.equal(v[key], v['primary-text-color']);
+    assert.equal(v['civica-input-border'], mode === 'light' ? '#0B0C0C' : '#FFFFFF');
+    assert.equal(v['ha-color-focus'], '#FFDD00');
+    assert.equal(v['civica-focus-text'], '#0B0C0C');
+  }
+});
+
+test('notification badges retain MOJ red, white text and rounded geometry across every palette and mode', () => {
+  const expected = {
+    'background': '#CA3535', 'color': '#FFFFFF', 'border-radius': '10em',
+    'font-size': 'calc(16px * var(--ha-font-size-scale, 1))', 'font-weight': '700', 'line-height': '1.25',
+    'min-width': '.75em', 'min-height': '1.25em', 'padding': '1px .25em 0', 'margin-left': '.5em',
+    'outline': '4px solid var(--civica-notification-badge-background)', 'outline-offset': '-.1em',
+  };
+  for (const [name, theme] of Object.entries(themes)) for (const values of Object.values(theme.modes)) {
+    const v = { ...theme, ...values };
+    for (const [suffix, value] of Object.entries(expected)) assert.equal(v[`civica-notification-badge-${suffix}`], value, `${name} ${suffix}`);
+    minimum(v['civica-notification-badge-color'], v['civica-notification-badge-background'], 4.5, `${name} notification numeral`);
+    // The dark sidebar uses the canvas rather than the raised card surface so
+    // the unchanged MOJ red circle retains a visible boundary in both modes.
+    minimum(v['civica-notification-badge-background'], v['sidebar-background-color'], 3, `${name} notification badge boundary`);
+    assert.notEqual(v['civica-notification-badge-border-radius'], v['ha-button-border-radius']);
+  }
+});
+
+test('navigation icons use separate neutral, active and masthead roles', () => {
+  for (const [name, theme] of Object.entries(themes)) for (const [mode, values] of Object.entries(theme.modes)) {
+    const v = { ...theme, ...values };
+    assert.equal(v['sidebar-icon-color'], v['civica-navigation-icon-color']);
+    assert.equal(v['sidebar-selected-icon-color'], v['civica-navigation-icon-active-color']);
+    assert.equal(v['sidebar-menu-button-text-color'], v['civica-navigation-icon-masthead-color']);
+    minimum(v['sidebar-icon-color'], v['sidebar-background-color'], 3, `${name} ${mode} navigation icon`);
+    minimum(v['sidebar-selected-icon-color'], v['sidebar-selected-background-color'], 3, `${name} ${mode} selected navigation icon`);
+    minimum(v['civica-navigation-icon-masthead-color'], v['sidebar-menu-button-background-color'], 3, `${name} ${mode} masthead icon`);
   }
 });
 

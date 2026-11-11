@@ -17,6 +17,9 @@
 - themes/civica.yaml: generated twenty theme entries.
 - themes/govuk.yaml: compatibility alias, independent civica.uk identity.
 - ui/src/civica-ui.ts and ui/src/theme-settings.ts: optional companion sources; build output is ui/dist/civica-ui.js.
+- ui/src/action-links.ts: real local navigation links, included in the companion module.
+- ui/src/legacy-card-styles.ts: scoped presentation adapters for three known household cards.
+- ui/src/sidebar-badges.ts: numeric sidebar attention counts; no notification or device commands.
 - brand/civica/: unchanged user-supplied V3.2 artwork and provenance records.
 
 ## Design rules
@@ -28,11 +31,13 @@
 - [Typography](styles/typography.html): Arial, readable hierarchy and wrapping.
 - [Layout](styles/layout.html): native responsive grids and consistent spacing.
 - [Images](styles/images.html): purposeful icons and images with labels.
+- [Notification badge](components/notification-badge.html): exact MOJ rounded red geometry, count limits and HA live-update adaptation.
 - [Content](styles/content.html): plain UK English, precise state/action wording.
 
 ## Components and patterns
 
 - [Components](components/index.html): navigation, controls, devices, cards, status, dialogs and charts.
+- [Action links](components/action-links.html): manual card configuration, native navigation and existing fragment pop-ups.
 - [Patterns](patterns/index.html): home/rooms, native Energy, settings and recovery.
 - [Colour settings](get-started/colour-settings.html): native preference flow and standalone-card fallback.
 - [Deviations](community/deviations.html): explicit local adaptations and their limits.
@@ -41,6 +46,8 @@
 
 - [Testing](accessibility/testing.html): automation, manual checks and live HA verification.
 - [Sources](community/sources.html): official guidance reviewed 11 November 2026.
+- [Visual review](community/visual-audit.html): baseline deficiencies in border hierarchy, generic radius overrides and icon scope.
+- [Visual audit source snapshot](reference/visual-audit-sources.json): immutable official code references and SHA-256 hashes.
 - [Licensing](community/licensing.html): attribution and supplied asset status.
 
 Do not equate a local build, screenshot or token test with live Home Assistant deployment. Do not claim full WCAG compliance from colour tests. Preserve native Energy, Map, device semantics, permissions and translations. Do not modify live household configuration merely to preview this documentation.

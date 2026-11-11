@@ -3,10 +3,10 @@ export const STYLES = `
 :host { display: block; min-width: 0; }
 *, *::before, *::after { box-sizing: border-box; }
 ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-serif); font-size: var(--civica-font-size-body, 19px); line-height: 1.5; color: var(--primary-text-color); background: var(--card-background-color); border: 1px solid var(--divider-color); border-radius: 0; box-shadow: none; }
-.body { padding: 16px; }
-.head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 15px; margin-bottom: 8px; }
+.body { padding: 15px; }
+.head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 15px; margin-bottom: 15px; }
 .title { margin: 0; font-size: var(--ha-card-header-font-size, 24px); font-weight: var(--ha-font-weight-heading, 700); }
-.status { margin: 0 0 16px; font-size: var(--civica-font-size-small, 16px); color: var(--secondary-text-color); }
+.status { margin: 0 0 20px; font-size: var(--civica-font-size-small, 16px); color: var(--secondary-text-color); }
 .actions { display: flex; flex-wrap: wrap; gap: 15px; }
 /* GOV.UK button: theme body size (19px), weight 400, 2px border, padding 8px 10px 7px = 38px + 2px shadow, matching --ha-button-height. */
 .btn { font: inherit; font-size: var(--civica-font-size-body, 19px); font-weight: 400; line-height: 1.3; min-width: 44px; min-height: 44px; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
@@ -24,11 +24,10 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .btn-icon { flex: none; }
 .btn[hidden] { display: none; }
 .btn:focus-visible { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--civica-focus-text, var(--black-color)); }
-.tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
-.tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
-.rooms { margin: 0 0 24px; padding: 0; }
-.row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+.rooms { margin: 0 0 20px; padding: 0; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px 15px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--divider-color); }
 @media (min-width: 540px) { .row { grid-template-columns: minmax(0, 1fr) auto; } }
+@media (min-width: 641px) { .body { padding: 20px; } .rooms { margin-bottom: 30px; } }
 .row > * { min-width: 0; overflow-wrap: anywhere; }
 .row[hidden] { display: none; }
 .key { font-weight: 700; margin: 0; }
@@ -36,7 +35,7 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .sub:empty { display: none; }
 .act { margin: 0; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.plan { display: block; width: 100%; height: auto; }
+.plan { display: block; width: 100%; height: auto; margin-bottom: 15px; }
 .shade { transition: opacity 0.3s; }
 .shade--off { fill: var(--primary-text-color); opacity: 0.45; }
 .shade--lit { opacity: 0.28; mix-blend-mode: soft-light; }
@@ -47,14 +46,6 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .dlg[open] { display: flex; }
 .dlg-title { margin: 0 0 16px; font-size: var(--civica-font-size-heading, 24px); }
 .dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
-.tiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.tile { position: relative; display: block; width: 44px; height: 44px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
-.tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
-.swatch { position: absolute; inset: 0; display: block; }
-/* Icons are drawn as solid white: brightness(0) flattens every colour to black, invert(1) turns it white. */
-.tile-icon { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
-.swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
 .error-summary:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
 .form-group--error:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }

@@ -1,5 +1,15 @@
 # Verification — 11 November 2026
 
+## v1.1.0 design correction
+
+Developed from stable revision `95b7a58`. The correction separates quiet structural borders from input/control boundaries, restores a round MOJ notification count with live-count accessibility, adds labelled navigation links and aligns three known legacy cards with the shared typography and spacing. The [visual audit](docs/source/community/visual-audit.html.md) records the comparison and source evidence.
+
+Build and strict type checking pass. All **42 Node checks** and **30 browser checks** pass. The Middleman site has **35 pages**, checked for links, fragments, automated accessibility and 320px reflow. All 176 supplied V3.2 asset hashes remain unchanged.
+
+New browser coverage includes counts 0/1/98/99/100/1000, retained native count text nodes, live updates, expanded/collapsed accessible names, exact browser-rendered MOJ geometry at 100%/200% text size, dark-mode contrast, forced colours, cleanup/restoration, real link navigation/history and 320px legacy-card layouts. All 20 palettes are checked in both modes. These are reproducible fixture checks; live deployment results are recorded separately in the release notes.
+
+## Previous v1.0.1 baseline
+
 This change was developed from repository `main` at `8e765039bcec3fe98f48fa452e4a6fadb545bb54`. It was checked locally using Node 24.21.0, Google Chrome 157.0.8103.40, Ruby 3.3 and the pinned GOV.UK Tech Docs gem 6.6.0.
 
 | Check | Result |

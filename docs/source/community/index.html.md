@@ -25,6 +25,8 @@ Preserve the user-supplied brand files and their provenance. A new asset require
 
 Review writing, keyboard behaviour, state handling, contrast, native compatibility, generated files and documentation. Use the [test checklist](../accessibility/testing.html) and [deviation register](deviations.html).
 
+The [November 2026 visual review](visual-audit.html) records the border, icon and notification-badge deficiencies found after the initial release, their source evidence and required acceptance checks.
+
 ## Source hierarchy
 
 The user's explicit requirements and this repository's documented local contract govern civica.uk. Official systems provide reusable guidance and source patterns. Their government-specific operational instructions do not become instructions to this project's users or maintainers.

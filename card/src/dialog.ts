@@ -1,25 +1,27 @@
 // A bounded, optional adapter for the native light dialog. All native controls,
 // keyboard handling, orientation and scrolling remain owned by Home Assistant.
 // If its structure changes, leave the native dialog working without enhancement.
-export interface DialogScene { id: string; label: string; iconUrl: string; fill: (swatch: HTMLElement) => void; pressed: boolean }
+export interface DialogScene { id: string; label: string; icon: string; fill: (swatch: HTMLElement) => void; pressed: boolean }
 export interface DialogSpec { entityId: string; title: string; scenes: DialogScene[]; onPick: (id: string) => Promise<boolean> }
 
 const SCENES_CSS = `
-.civica-scenes { margin-block: 20px; padding-inline-start: 15px; border-inline-start: 5px solid var(--divider-color); color: var(--primary-text-color); font: var(--civica-font-size-body, 19px)/1.5 var(--ha-font-family-body, Arial, sans-serif); }
-.civica-scenes h3 { margin: 0 0 12px; font: inherit; font-weight: 700; }
-.civica-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.civica-scenes { margin-block: 30px 20px; color: var(--primary-text-color); font: var(--civica-font-size-body, 19px)/1.5 var(--ha-font-family-body, Arial, sans-serif); }
+.civica-scenes h3 { margin: 0 0 15px; font: inherit; font-weight: 700; }
+.civica-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; }
 .civica-scenes li { min-width: 0; max-width: 100%; }
-.civica-scene { display: flex; align-items: center; gap: 8px; position: relative; min-width: 44px; min-height: 44px; max-width: 100%; padding: 6px 10px; cursor: pointer; background: var(--card-background-color); color: var(--primary-text-color); border: 2px solid var(--primary-text-color); border-radius: 0; font: inherit; text-align: start; overflow-wrap: anywhere; }
-.civica-scene:hover { background: var(--secondary-background-color); }
+.civica-scene { display: flex; align-items: center; gap: 10px; position: relative; min-width: 44px; min-height: 44px; max-width: 100%; box-sizing: border-box; padding: 8px 10px 11px; cursor: pointer; background: var(--secondary-background-color); color: var(--primary-text-color); border: 2px solid transparent; border-radius: 0; box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 41%, var(--secondary-background-color)); font: inherit; line-height: 1.3; text-align: start; overflow-wrap: anywhere; }
+.civica-scene:hover { background: color-mix(in srgb, var(--primary-text-color) 10%, var(--secondary-background-color)); }
+.civica-scene:active { top: 2px; }
 .civica-scene:disabled { cursor: wait; opacity: .65; }
-.civica-scene:focus-visible { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; box-shadow: 0 0 0 5px var(--civica-focus-text, var(--black-color)); }
-.civica-scene-icon { flex: 0 0 28px; width: 28px; height: 28px; position: relative; overflow: hidden; }
-.civica-scene-icon img { position: absolute; inset: 3px; width: 22px; height: 22px; object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
-.civica-swatch { position: absolute; inset: 0; display: block; }
-.civica-swatch::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--black-color) 65%, transparent); }
-.civica-scene-status { margin: 12px 0 0; }
+.civica-scene:focus-visible { outline: 3px solid transparent; border-color: var(--ha-color-focus); background: var(--ha-color-focus); color: var(--civica-focus-text, var(--black-color)); box-shadow: 0 2px 0 var(--civica-focus-text, var(--black-color)); }
+.civica-scene-icon { flex: 0 0 24px; width: 24px; height: 24px; --mdc-icon-size: 24px; color: inherit; pointer-events: none; }
+/* Scene colours describe the lights, not the icon or action. Keep labels and
+   monochrome Home Assistant icons readable throughout the preview animation. */
+.civica-swatch { position: absolute; inset-inline: 0; bottom: 0; height: 3px; display: block; pointer-events: none; }
+.civica-scene:focus-visible .civica-swatch { visibility: hidden; }
+.civica-scene-status { margin: 15px 0 0; }
 .civica-scene-status:empty { display: none; }
-@media (forced-colors: active) { .civica-scene:focus-visible { outline-color: Highlight; } }
+@media (forced-colors: active) { .civica-scene { border-color: ButtonText; } .civica-scene:focus-visible { outline-color: Highlight; } .civica-swatch { display: none; } }
 `;
 
 interface LightControl extends HTMLElement { stateObj?: { entity_id?: string } }
@@ -59,12 +61,10 @@ export function tuneMoreInfo(spec: DialogSpec): () => void {
       for (const scene of spec.scenes) {
         const item = document.createElement('li');
         const button = document.createElement('button'); button.type = 'button'; button.className = 'civica-scene';
-        const icon = document.createElement('span'); icon.className = 'civica-scene-icon'; icon.setAttribute('aria-hidden', 'true');
-        const swatch = document.createElement('span'); swatch.className = 'civica-swatch'; scene.fill(swatch);
-        const image = document.createElement('img'); image.src = scene.iconUrl; image.alt = '';
-        icon.append(swatch, image);
+        const icon = document.createElement('ha-icon'); icon.className = 'civica-scene-icon'; icon.setAttribute('aria-hidden', 'true'); icon.setAttribute('icon', scene.icon);
+        const swatch = document.createElement('span'); swatch.className = 'civica-swatch'; swatch.setAttribute('aria-hidden', 'true'); scene.fill(swatch);
         const label = document.createElement('span'); label.textContent = scene.label;
-        button.append(icon, label);
+        button.append(icon, label, swatch);
         button.addEventListener('click', async () => {
           if (cancelled || control.stateObj?.entity_id !== spec.entityId) return;
           const buttons = Array.from(section.querySelectorAll('button'));

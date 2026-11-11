@@ -23,9 +23,18 @@ Avoid fixed heights for text cards. Use a single column when needed. Do not forc
 
 ## Surfaces and borders
 
-Use flat canvas and card surfaces, square or tightly controlled corners and visible borders. Avoid gradients, decorative glow and large ambient shadows. A restrained bottom edge may indicate a pressable primary button; it is not a floating-card aesthetic.
+Separate the visual roles. A container is not an input. Use spacing, headings and flat surfaces to group content; add a quiet 1px border where a group needs an edge. Avoid nested boxes around a card, its sections and every row.
 
-Keep 2px boundaries on editable fields where needed to make their extent clear. Separate decorative card borders from essential control boundaries: the latter need stronger contrast.
+| Role | Light mode | Dark mode | Use |
+| --- | --- | --- | --- |
+| Structural divider | `#CECECE` | `#50565A` | Card edges, row separators and section rules, normally 1px |
+| Essential control outline | `#6F777B` | `#9BA4AA` | An outline needed to identify an interactive control |
+| Editable field boundary | `#0B0C0C` | White | Strong input boundary, normally 2px |
+| Focus | Yellow with ink | Yellow with ink, or the documented native treatment | The current keyboard target, never ordinary decoration |
+
+The [GOV.UK functional colours](https://design-system.service.gov.uk/styles/colour/) distinguish `border` from `input-border`. The dark structural colour and intermediate control outline are civica adaptations. A decorative separator does not need to meet the contrast requirement of an essential control boundary. Do not weaken an input or focus indicator to make a dense page look quieter.
+
+Use square corners on maintained cards, buttons, fields and dialogs. Do not globally zero Home Assistant's radius scale: [notification badges](../components/notification-badge.html), radio controls, switches, avatars and gauges need their own geometry. Avoid decorative glow and large ambient shadows. A restrained button bottom edge may communicate a pressable action.
 
 ## Responsive behaviour
 
@@ -36,3 +45,7 @@ Do not lock body scrolling or hide native navigation to make a screenshot appear
 ## Density
 
 A home control dashboard can be denser than a single-task government form. This is a controlled adaptation for repeat use. Retain readable labels and at least 44px control targets in maintained custom UI. Avoid reducing text or hit targets to show more cards.
+
+## Dashboard canvas
+
+Use a plain canvas behind controls and reading content. Photographs and animated scenes compete with hierarchy and can make contrast unpredictable. Keep such imagery inside a purposeful component or a separately chosen immersive view. Configure background integrations through their own controls; do not hide their whole application or remove weather data.

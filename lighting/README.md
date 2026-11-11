@@ -15,7 +15,7 @@ The lighting card presents a floor plan and room controls. Home Assistant runs t
 Adapting the lighting controller requires a [source checkout](https://github.com/nathcymru/HA-Theme-gov.uk) matching your release. The installation ZIP includes generated lighting files, but not the root npm commands or complete build source. Run the commands below from the source checkout's root directory, including when you downloaded the installation ZIP separately.
 
 1. Run `npm ci` and `npm run package`. Extract `dist/civica-home-assistant.zip`.
-2. Copy the archive's `www/civica/` directory to Home Assistant's `config/www/civica/`. Keep `card/dist/` and `card/assets/` alongside one another. The card loads the floor plan and scene icons relative to its JavaScript module.
+2. Copy the archive's `www/civica/` directory to Home Assistant's `config/www/civica/`. Keep `card/dist/` and `card/assets/` alongside one another. The card loads the floor plan relative to its JavaScript module. Scene actions use Home Assistant's native icons.
 3. In **Settings → Dashboards → Resources**, add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.0.1` as a **JavaScript module**.
 4. Review the room mappings in `lighting/rooms.json` and the group membership snapshot in `lighting/ha/area-lights.json`. They describe the original installation, so adapt them to your own entity and area IDs. Run `npm run generate` after changing them.
 5. Copy the generated `lighting/ha/govuk_lighting.yaml` and `lighting/ha/govuk_lighting_groups.yaml` to your Home Assistant `config/packages/` directory. Merge package loading into the existing configuration:
@@ -76,7 +76,7 @@ Each room shows how many available, managed lights are on. Rooms with no assigne
 
 Before choosing a group, the card verifies its members, including nested groups, against the room's managed lights. If it cannot prove the group is safe—for example, it contains a reserved or unrelated light—it opens the first available managed light instead. The native dialog then controls that one light. Scene buttons are explicitly labelled with the room name and still request a room scene from the controller.
 
-Supported scenes appear inside the native dialog with visible labels. The enhancement is optional and depends on Home Assistant's component structure. If an update changes that structure, the native controls remain usable and the scene enhancement may be absent. There are no scene buttons in the room list.
+Supported scenes appear inside the native dialog as secondary actions with visible labels and 24px Home Assistant icons. A narrow decorative strip previews the light colours separately from the icon and label; it stays still when reduced motion is enabled. The enhancement is optional and depends on Home Assistant's component structure. If an update changes that structure, the native controls remain usable and the scene enhancement may be absent. There are no scene buttons in the room list.
 
 Failures produce an error summary and an inline room message. Summary links focus the relevant error. A scene request is described as requested, not as proof that hardware changed successfully.
 
