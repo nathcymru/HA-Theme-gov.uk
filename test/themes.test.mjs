@@ -69,6 +69,21 @@ test('structural borders stay quiet while control, input and focus boundaries re
   }
 });
 
+test('native dashboard section titles share the scaled bold card heading hierarchy', () => {
+  for (const [name, theme] of Object.entries(themes)) for (const [mode, values] of Object.entries(theme.modes)) {
+    const v = { ...theme, ...values };
+    const label = `${name} ${mode}`;
+    assert.equal(v['ha-heading-card-title-font-size'], v['ha-card-header-font-size'], `${label} section headings must not fall below card titles`);
+    assert.equal(v['ha-heading-card-title-font-size'], 'var(--civica-font-size-heading)');
+    assert.equal(v['civica-font-size-heading'], 'calc(24px * var(--ha-font-size-scale, 1))', `${label} native user text scaling must remain effective`);
+    assert.equal(v['ha-heading-card-title-font-weight'], '700', `${label} H2 must not inherit the normal-weight fallback`);
+    assert.equal(v['ha-heading-card-title-line-height'], '1.25');
+    for (const suffix of ['font-size', 'font-weight', 'line-height']) {
+      assert.equal(v[`ha-heading-card-subtitle-${suffix}`], undefined, `${label} captions retain their native supporting hierarchy`);
+    }
+  }
+});
+
 test('notification badges retain MOJ red, white text and rounded geometry across every palette and mode', () => {
   const expected = {
     'background': '#CA3535', 'color': '#FFFFFF', 'border-radius': '10em',

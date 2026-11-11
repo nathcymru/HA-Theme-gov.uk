@@ -46,6 +46,10 @@ const common = {
   'ha-line-height-normal': '1.5', 'ha-line-height-condensed': '1.25',
   'ha-card-header-font-family': 'Arial, Helvetica, sans-serif',
   'ha-card-header-font-size': 'var(--civica-font-size-heading)', 'ha-card-header-color': 'var(--primary-text-color)',
+  // Native hui-heading-card titles otherwise fall back to 19px normal weight,
+  // placing dashboard section H2s below the card titles they introduce.
+  'ha-heading-card-title-font-size': 'var(--civica-font-size-heading)',
+  'ha-heading-card-title-font-weight': '700', 'ha-heading-card-title-line-height': '1.25',
   'ha-card-border-radius': '0px', 'ha-card-border-width': '1px', 'ha-card-box-shadow': 'none',
   'ha-button-border-radius': '0px', 'ha-button-height': '44px',
   'ha-dialog-border-radius': '0px', 'ha-picture-border-radius': '0px', 'ha-picture-border-radius-sm': '0px',

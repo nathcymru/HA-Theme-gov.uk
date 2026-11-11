@@ -9,6 +9,8 @@ review_in: 3 months
 
 Back up your current theme configuration before replacing an existing installation. Keep your existing dashboards and integrations.
 
+Choose **HACS or manual installation** to own the theme YAML. Keep each theme name, including the `govuk` compatibility alias, defined only once across the included themes directory.
+
 ## Install the theme with HACS
 
 1. Open **HACS** in Home Assistant.
@@ -25,7 +27,7 @@ If `frontend:` already exists, add `themes:` to that section. Do not create a se
 
 Run the `frontend.reload_themes` action, or restart Home Assistant after a configuration check. Open your profile and select a theme such as **civica Civic Cobalt Vivid**.
 
-HACS's Theme category installs the theme files. It does not install the optional JavaScript module or image files automatically.
+HACS's Theme category installs and updates the YAML in its repository folder under `/config/themes/`. An existing installation may use `/config/themes/govuk/`; keep that HACS-managed location. HACS does not install the optional JavaScript module or image files automatically. When adding those from the release archive, copy only `www/civica/`, not a second set of themes.
 
 ## Download or build the installation archive
 
@@ -42,7 +44,9 @@ The archive is `dist/civica-home-assistant.zip`. Its `README.md` gives the compl
 
 ## Install the optional interface module
 
-Extract the archive. Copy its `www/civica/` directory into `/config/www/civica/`, preserving the complete structure. Copy its `themes/civica/` into `/config/themes/civica/`. The module, lighting bundle and assets need their relative paths intact.
+Extract the archive. Copy its `www/civica/` directory into `/config/www/civica/`, preserving the complete structure. The module, lighting bundle and assets need their relative paths intact.
+
+**If HACS manages the theme, do not copy the archive's `themes/` directory.** Use HACS to update its installed theme files. If you use manual installation, follow the manual steps below and maintain that one theme location.
 
 Add the module to the existing `frontend:` section:
 
@@ -50,7 +54,7 @@ Add the module to the existing `frontend:` section:
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.1.0
+    - /local/civica/civica-ui.js?v=1.1.1
 ```
 
 Restart Home Assistant after a configuration check and reload the browser. The module adds civica.uk settings beside Home Assistant's theme settings. From a non-civica theme, choose a palette to start using civica.uk. It also provides the dashboard settings card.
@@ -61,13 +65,26 @@ Use `extra_module_url` for global loading. Loading only a dashboard resource can
 
 Configure the lighting package and room groups described in `lighting/README.md` before using the lighting card. The included room and automation examples are installation-specific; review them for your home.
 
-Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.1.0` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. The old filename and `custom:govuk-house-lighting-card` type remain for compatibility.
+Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.1.1` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. The old filename and `custom:govuk-house-lighting-card` type remain for compatibility.
 
 The artwork is served from `/local/civica/card/assets/`. Do not install the separate front-door automation example merely to apply the theme.
 
 ## Manual theme installation
 
-Copy the generated theme YAML from `themes/` into your Home Assistant themes directory. Load and select it as described above. The `govuk` theme name remains a compatibility entry for existing configurations; choose a named civica theme for the new palette controls.
+Use these steps only when HACS does not manage this theme. Copy the archive's `themes/civica/` into `/config/themes/civica/` once. From a repository checkout, copy `themes/civica.yaml` into that directory instead. These are alternative sources for the same generated themes. For later updates, replace the files in the same location rather than adding another folder.
+
+Keep `govuk.yaml` only if an existing profile or dashboard uses the old `govuk` theme name. It maps to Civic Cobalt Vivid. Replace or retire an existing alias as part of the same installation; do not add a second included `govuk` definition. Choose a named civica theme for the new palette controls. Load and select it as described above.
+
+## Resolve duplicate theme definitions
+
+If borders, colours or other theme variables remain from an older release after reloading, check for more than one included copy before treating the result as a browser cache issue.
+
+1. Inspect all YAML files under the directory loaded by `!include_dir_merge_named themes`. Look for repeated `civica …` names and the `govuk` alias. A HACS file such as `/config/themes/govuk/civica.yaml` and a manual file such as `/config/themes/civica/civica.yaml` define the same themes.
+2. Choose one installation owner. For HACS, update the repository through HACS and retain its managed files. For manual ownership, remove this repository from HACS so a later HACS update cannot recreate a duplicate, then retain the manual location.
+3. Back up the superseded civica YAML **outside** the included themes directory, for example `/config/civica-theme-backups/`. Move only the superseded civica files or definitions; preserve unrelated themes. Renaming a folder to `backup` inside `/config/themes/` does not exclude its YAML from loading.
+4. Confirm each civica theme and the optional `govuk` alias has one included definition. Run `frontend.reload_themes`, reload the browser and select the theme again. Check that the current release's colours and structural borders appear.
+
+Keep theme and runtime updates aligned: HACS owns YAML updates; the archive's `www/civica/` supplies the matching interface module and assets.
 
 ## Add settings to a dashboard
 

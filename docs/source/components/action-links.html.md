@@ -42,7 +42,7 @@ These are real HTML links with `href` destinations. Enter activates the focused 
 
 Labels use 19px bold text and remain underlined at rest. Every target is at least 44px high. Links wrap onto further rows on narrow screens and long labels can wrap within the available width. The 24px original SVG arrow has a 2px stroke and sits inside a 40px circle. It is hidden from assistive technology so the visible link text provides the accessible name.
 
-Hover and touch-down states strengthen the underline. Keyboard focus uses yellow and ink, including while hovered. The circle and arrow use the active palette's quiet primary roles; the label uses the accessible link colour. Light and dark modes are separate from the Vivid and Muted choices. Forced-colour mode uses system colours.
+Hover and touch-down states strengthen the underline. Keyboard focus uses yellow and ink, including while hovered. The circle mixes 20% of the supplied palette primary with the card surface, giving it a clear, soft tint. The arrow uses the main text colour (ink in light mode, white in dark mode), while the label uses the accessible link colour. Light and dark modes are separate from the Vivid and Muted choices. Forced-colour mode uses system colours.
 
 Visited and unvisited links have the same appearance because dashboard content changes frequently. There is no disabled, pending, success or error action state: every configured item is a navigation link. Configuration errors are reported through Home Assistant's card configuration flow.
 
