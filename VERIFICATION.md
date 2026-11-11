@@ -1,5 +1,11 @@
 # Verification — 11 November 2026
 
+## v1.3.1 thinner chart lines
+
+Dense live Power readings remained visually heavy at the v1.3.0 2px weight. Supported line series now use **1.5px** in normal, hover, selected and blurred states. Legend strokes and the examples' displayed weight read the same production constant. The ONS 3px reference remains explicitly separate in the specification. Colours, source readings and chart types are unchanged.
+
+Build, strict type checking, 50 Node checks, 51 browser checks across the full and focused runs, and 37 documentation pages pass. Canvas checks cover dense 320px Power data and a supported solar forecast line, including hover in Light/Dark; the separate signed-projection and restoration regressions remain intact.
+
 ## v1.3.0 chart consistency correction
 
 The v1.2.0 examples did not reproduce native Energy gradients, split-sign Power arrays and alpha-coloured comparisons. Empty-day live checks also missed these differences. The examples now start with native-shaped inputs and use the same adapter as Home Assistant: individual unfilled 2px Power lines, opaque consumption columns and horizontal device bars. Strictly recognised positive/negative Power pairs select existing signed samples for both plot and table; native source arrays remain unchanged.
