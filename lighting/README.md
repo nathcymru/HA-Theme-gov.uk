@@ -1,101 +1,120 @@
-# GOV.UK house lighting: card, recipes and scene controller
+# civica.uk house lighting
 
-Three separate parts. Only the card needs the browser; scenes run inside Home Assistant.
+The lighting card presents a floor plan and room controls. Home Assistant runs the scenes and supplies the native brightness, colour and temperature controls. The `govuk` filenames and service IDs remain for compatibility; the visible product identity is civica.uk.
 
-| Part | Where | What it does |
+| Part | Source | Purpose |
 | --- | --- | --- |
-| Recipes | `lighting/recipes/recipes.json` | The one canonical list: 4 whites, 7 colours, 5 dynamic scenes. Edit only this file. |
-| Engine | `lighting/engine/` | Finds a room's lights from its Home Assistant **Area**, works out what they can do, and decides whether each recipe is full, adaptive or unsupported. |
-| Controller | `lighting/ha/govuk_lighting.yaml` (generated) | Home Assistant scripts that run scenes. One restart-mode script per room, so rooms never cancel each other. |
-| Card | `card/` | `custom:govuk-house-lighting-card`: room list, settings dialog (fixed size; Whites and colours tab, Scenes tab), floor plan. |
-
-Run `npm install`, then `npm run generate` after editing recipes or `lighting/rooms.json`, `npm run build` for the card, `npm test` and `npm run typecheck` to check.
+| Recipes | `lighting/recipes/recipes.json` | Canonical definitions for 4 white tones, 7 solid colours and 5 scenes. |
+| Capability engine | `lighting/engine/` | Discovers room lights and adapts recipes to their capabilities. |
+| Scene controller | `lighting/ha/govuk_lighting.yaml` | Generated Home Assistant scripts and helpers. Scenes run independently of the browser. |
+| Native room groups | `lighting/ha/govuk_lighting_groups.yaml` | Generated light groups for whole-room native controls. |
+| Card | `card/` | Floor plan, room list, state text, on/off actions, native settings and accessible errors. |
 
 ## Install
 
-1. Copy `card/dist/govuk-house-lighting-card.js` and the folder `card/assets/` into `config/www/govuk-lighting/` (keep `assets/` one level above the JS, i.e. `www/govuk-lighting/dist/…js` and `www/govuk-lighting/assets/floorplan.png`).
-2. **Settings > Dashboards > Resources > Add**: `/local/govuk-lighting/dist/govuk-house-lighting-card.js`, type JavaScript module.
-3. Copy `lighting/ha/govuk_lighting.yaml` to `config/packages/` and make sure packages are loaded:
+1. From the repository, run `npm ci` and `npm run package`. Extract `dist/civica-home-assistant.zip`.
+2. Copy the archive's `www/civica/` directory to Home Assistant's `config/www/civica/`. Keep `card/dist/` and `card/assets/` alongside one another. The card loads the floor plan and scene icons relative to its JavaScript module.
+3. In **Settings → Dashboards → Resources**, add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1` as a **JavaScript module**.
+4. Review the room mappings in `lighting/rooms.json` and the group membership snapshot in `lighting/ha/area-lights.json`. They describe the original installation, so adapt them to your own entity and area IDs. Run `npm run generate` after changing them.
+5. Copy the generated `lighting/ha/govuk_lighting.yaml` and `lighting/ha/govuk_lighting_groups.yaml` to your Home Assistant `config/packages/` directory. Merge package loading into the existing configuration:
+
    ```yaml
    homeassistant:
      packages: !include_dir_named packages
    ```
-4. Restart Home Assistant. Add the card: `type: custom:govuk-house-lighting-card`.
 
-The card needs no HACS card, card-mod or floor-plan add-on. HACS is not involved at runtime.
+6. Restart Home Assistant and check that the scripts and room groups are available. Add a dashboard card:
 
-## How rooms and capabilities work
+   ```yaml
+   type: custom:civica-house-lighting-card
+   ```
 
-- A room is a Home Assistant **Area**. Put a new lamp in the area and the card and controller pick it up. No capability settings anywhere.
-- Lights count through their device's area, an entity's own area override, and light groups (members count; the group itself never does).
-- Optional per room: `entities`, `include`, `exclude`.
-- Each recipe per room is **full** (every light can do it), **adaptive** (still selectable; colour lights get colours, white lights get white, brightness-only lights get brightness) or **unsupported** (disabled with a reason). Solid colours need every light in the room to show colour, and unavailable lights block them.
-- Only the link between a floor-plan region and its area is configured (`card/src/rooms.json`).
+The old `custom:govuk-house-lighting-card` name is still supported. Existing `/local/govuk-lighting/dist/govuk-house-lighting-card.js` installations also work if the adjacent assets remain at `www/govuk-lighting/assets/`; use one resource URL, not both.
 
-Card config (all optional):
+The card needs no card-mod or floor-plan add-on. Install the civica themes separately using the [repository installation guide](../README.md). HACS theme installation does not install this card, its assets or the controller package.
+
+Do not install `lighting/ha/front_door.yaml` as part of a generic card installation. It is a separate, installation-specific example with real entity IDs.
+
+## Configure rooms consistently
+
+A room normally maps to a Home Assistant **Area**. Discovery checks an entity's area, its device's area and the members of light groups. A group is not counted again as an extra bulb.
+
+The card and generated controller have separate configuration inputs. Keep their room IDs, areas, explicit entity lists, inclusions and exclusions aligned:
+
+- `card/src/rooms.json` provides the card defaults; a dashboard card's `rooms` setting can override them.
+- `lighting/rooms.json` provides the controller mappings; run `npm run generate` after editing it.
+- `lighting/ha/area-lights.json` is a static snapshot for the native room groups. Update it and regenerate after adding, removing or moving lamps.
+
+Changing a dashboard card's `rooms` setting alone does **not** change the controller's scene or Turn off targets. Review both configurations before using device controls.
 
 ```yaml
-type: custom:govuk-house-lighting-card
+type: custom:civica-house-lighting-card
 title: House lighting
 rooms:
-  - { id: lounge, name: Lounge, area: lounge }
-  - { id: study, name: Office, area: study, exclude: [light.example_lamp] }
+  - id: lounge
+    name: Lounge
+    area: lounge
+    group: light.my_lounge_group
+  - id: study
+    name: Office
+    area: study
+    exclude:
+      - light.example_lamp
 ```
 
-`id` must be one of the six floor-plan regions: `lounge`, `kitchen`, `bathroom`, `hall`, `study`, `bedroom`.
+`group` is an optional existing light-group entity ID for the native settings dialog. It does not change the controller's membership. Without it, the card checks `light.govuk_lights_<room>` for older installations and `light.lights_<room>` for newly generated groups. Home Assistant may add a numeric suffix when a name is already in use; set `group` to the actual entity ID in that case.
 
-## Use a recipe from anything else
+Room IDs must match one of the six supplied floor-plan regions: `lounge`, `kitchen`, `bathroom`, `hall`, `study` and `bedroom`. An area or explicit entity list is required for each room. A different floor plan needs matching region coordinates, not only a replacement image.
+
+## Use the controls
+
+Each room shows how many available, managed lights are on. Rooms with no assigned or available lights remain visible with an explanation and disabled controls. **Turn all on** includes partially lit rooms; unavailable and reserved lights are excluded. **Turn all off** requests the controller to stop and switch off each active managed room.
+
+**Settings** opens Home Assistant's `hass-more-info` dialog for the room group. The native controls retain their keyboard handling, orientation, scrolling and responsive layout. White tones and solid colours use those native controls rather than extra tiles.
+
+Before choosing a group, the card verifies its members, including nested groups, against the room's managed lights. If it cannot prove the group is safe—for example, it contains a reserved or unrelated light—it opens the first available managed light instead. The native dialog then controls that one light. Scene buttons are explicitly labelled with the room name and still request a room scene from the controller.
+
+Supported scenes appear inside the native dialog with visible labels. The enhancement is optional and depends on Home Assistant's component structure. If an update changes that structure, the native controls remain usable and the scene enhancement may be absent. There are no scene buttons in the room list.
+
+Failures produce an error summary and an inline room message. Summary links focus the relevant error. A scene request is described as requested, not as proof that hardware changed successfully.
+
+## Use recipes from other Home Assistant features
 
 ```yaml
 action: script.govuk_lights_apply
-data: { room: lounge, recipe: christmas, brightness: 70 }
+data:
+  room: lounge
+  recipe: christmas
+  brightness: 70
 ```
+
 ```yaml
 action: script.govuk_lights_stop
-data: { room: lounge, turn_off: true }
+data:
+  room: lounge
+  turn_off: true
 ```
-`turn_off: true` sets every light in the room to default warm white (2700 K, instant) and then switches it off, so the next plain Turn on gives white, not the last scene colour.
-Recipe ids: `candlelight warm_white daylight cool_white red orange yellow green cyan blue purple rugby football halloween christmas emergency`. The same data is in `lighting/generated/recipes.json` and `recipes.ts`.
-Room state: `input_text.govuk_lights_<room>` holds the active recipe id (or `stopped`).
 
-## Safety and ownership
+With `turn_off: true`, the controller first requests default warm white (2700 K) where supported, then switches the room off. This avoids restoring the previous scene colour on the next ordinary Turn on.
 
-- Emergency flashes red and blue. It is blocked unless `input_boolean.govuk_lights_allow_flashing` is on (the card asks first), and stops after 60 seconds. The card itself never flashes.
-- A scene loop runs only while the room's `input_text` still holds its recipe id. A newer apply or Turn off ends it at the next cycle. If someone else changes the lights, the scene may overwrite them on its next cycle until stopped. Use Turn off, or choose another recipe.
-- The card shows "custom" when lights are on but no recipe owns them, and the entities' real on/off/unavailable state always wins.
+Recipe IDs are `candlelight`, `warm_white`, `daylight`, `cool_white`, `red`, `orange`, `yellow`, `green`, `cyan`, `blue`, `purple`, `rugby`, `football`, `halloween`, `christmas` and `emergency`. The generated JSON and TypeScript files contain the same definitions. `input_text.govuk_lights_<room>` stores the active recipe ID or stopped state.
 
-## Lights owned by another automation
+Recipes may be fully supported, adaptive or unsupported. Adaptive scenes use suitable colours, white temperatures or brightness for the available hardware. Availability follows the capability engine; the theme palette never changes the light recipes.
 
-A light that another automation writes to must not also be driven by scenes: two writers fight, and a watchdog will keep undoing the scene. Mark such a light with the Home Assistant **label** `govuk_lighting_reserved` (Settings > Areas, labels & zones > Labels, then add it to the entity).
+## Lighting ownership and flashing
 
-- The card and the scripts both skip reserved lights, including for Turn on and Turn off.
-- A room with reserved or unavailable lights says so under its name, for example "3 lights managed by another automation, 1 light unavailable". Turn on/off only ever acts on the lights that are not reserved.
-- Nothing in the other automation needs to change.
+Apply the Home Assistant label `govuk_lighting_reserved` to any light controlled by an automation that must retain ownership. The card and generated scene controller exclude those lights. Native group controls are offered only when group membership is compatible with the card's exclusions. Reserved lights are not included in the displayed available-light count.
 
-## Floor plan
+The Emergency scene flashes red and blue. It requires explicit confirmation, is blocked by the controller unless `input_boolean.govuk_lights_allow_flashing` is on, and has a 60-second runtime cap. The card preview itself does not flash. Cancelling confirmation sends no service request; a failed permission request does not start the scene.
 
-`card/assets/floorplan.png` is the approved image, unmodified (SHA-256 in `floorplan.png.sha256`, checked by `npm test`). The SVG uses its real pixel size (1448×1086) as the `viewBox`. Room regions in `card/src/rooms.json` were traced by eye against the image and checked on an overlay; edges near wall tops and the angled bedroom wall are approximate, not pixel-perfect. Lit rooms are tinted with the recipe's effective palette; off rooms are darkened.
+Scene loops re-read membership and only drive lights that are still on. Turning an individual light off in Home Assistant keeps it off; when none remain on, the scene releases ownership. Other brightness or colour changes can still be overwritten on the next scene cycle until the scene stops.
 
-## Not yet verified
+The optional front-door example configures the Hall controller to interrupt `script.front_door_sequence` and clear its flags when a room scene or controller stop action takes over. The card's ordinary Turn on calls `light.turn_on` directly; it does not independently stop that door automation. Test any such interaction in your own installation before relying on it.
 
-- The generated scripts are syntax-checked only (`npm run check:ha`, needs `pyyaml` and `jinja2`). They have not been run on a live Home Assistant.
-- No hardware test has been done. Real Hue and Innr command rates for 0.5 s flashing are untested; `intervalS` for Emergency is in the recipe file.
-- Light-group changes inside a running scene are picked up at the next cycle (membership is re-read each loop); there is no restart-time recovery beyond the helper state.
-- Colour accuracy depends on the bulbs; RGB values are targets, not calibrated output.
+## Floor plan and verification
 
-## Sharing the Hall with the front-door automation
+`card/assets/floorplan.png` is the existing supplied image, retained unchanged. Its SHA-256 is checked by the test suite. The SVG uses its 1448 × 1086 dimensions. Room boundaries were traced against the image; angled walls and wall tops are approximate. State text and buttons provide alternatives to the image, and reduced-motion preferences stop the animated colour preview.
 
-`lighting/ha/front_door.yaml` (copy it to `/homeassistant/packages/front_door.yaml`) owns the Hall door sequence. None of the three Hall lights carries the `govuk_lighting_reserved` label, so the card controls all of them.
+Run `npm run build`, `npm run typecheck`, `npm test` and `npm run test:browser`. `npm run check:ha` checks generated YAML and template syntax using PyYAML and Jinja2.
 
-- Door opens: the Hall is saved as `scene.front_door_hall_before`, any card recipe is stopped, and Spot 1 shows the red warning until the door closes.
-- Door closes by day: the saved scene is restored exactly. At night: green confirmation, then all three lights white (3000 K, 100%).
-- Manual changes win once: the card's Hall actions (a recipe, Turn on, Turn off) stop `script.front_door_sequence` and clear `input_boolean.front_door_sequence_active`. This comes from `interrupts` and `release` in `rooms.json`. The next door opening starts the sequence again.
-- Nothing polls. The script ends when the door closes; a restart, reload or Spot 1 returning from unavailable resumes a sequence that is still owed.
-
-## Settings opens Home Assistant's own dialog
-
-The Settings button fires Home Assistant's `hass-more-info` event for the room's light group, so the native brightness slider, colour wheel and temperature control are what you use. The card has no copy of that dialog. Whites and solid colours are not offered as tiles; the native dialog sends the `light.turn_on` calls (`color_temp_kelvin`, `xy_color`, `rgb_color`).
-
-- Groups are `light.govuk_lights_<room>`, generated into `lighting/ha/govuk_lighting_groups.yaml` from `lighting/ha/area-lights.json` (a snapshot of which lights are in which area). Copy the YAML to `/homeassistant/packages/` and reload groups or restart. After adding or moving a lamp, update the JSON and run `npm run generate`.
-- If a room has no group yet, Settings opens the dialog for the room's first available light.
-- Scene squares sit under each room. Only scenes the room can run are shown, so there is no hover-only text. Errors use the GOV.UK error summary plus an inline error message with the "Error:" prefix for screen readers.
+Browser tests use sample states and a minimal native-dialog fixture. They verify component behaviour, not a live Home Assistant deployment or physical bulbs. Command rates, flashing behaviour, restart recovery and interactions with other automations require installation-specific tests. RGB values are targets, not calibrated bulb output.

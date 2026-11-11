@@ -1,35 +1,38 @@
-// Only Home Assistant theme variables supplied by themes/govuk.yaml. No hex colours, no !important.
+// Shared Home Assistant and civica.uk tokens; no fixed interface colours.
 export const STYLES = `
-:host { display: block; }
-ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-color); }
+:host { display: block; min-width: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-serif); font-size: var(--civica-font-size-body, 19px); line-height: 1.5; color: var(--primary-text-color); background: var(--card-background-color); border: 1px solid var(--divider-color); border-radius: 0; box-shadow: none; }
 .body { padding: 16px; }
 .head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 15px; margin-bottom: 8px; }
 .title { margin: 0; font-size: var(--ha-card-header-font-size, 24px); font-weight: var(--ha-font-weight-heading, 700); }
-.status { margin: 0 0 16px; font-size: var(--ha-font-size-s, 14px); color: var(--secondary-text-color); }
+.status { margin: 0 0 16px; font-size: var(--civica-font-size-small, 16px); color: var(--secondary-text-color); }
 .actions { display: flex; flex-wrap: wrap; gap: 15px; }
 /* GOV.UK button: theme body size (19px), weight 400, 2px border, padding 8px 10px 7px = 38px + 2px shadow, matching --ha-button-height. */
-.btn { font: inherit; font-size: var(--ha-font-size-m, 19px); font-weight: 400; line-height: 1; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
+.btn { font: inherit; font-size: var(--civica-font-size-body, 19px); font-weight: 400; line-height: 1.3; min-width: 44px; min-height: 44px; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
   background: var(--primary-color); color: var(--text-primary-color); box-shadow: 0 2px 0 var(--ha-color-primary-10); }
-.btn:hover { background: var(--ha-color-primary-30); }
+.btn:hover { background: var(--civica-action-hover, var(--dark-primary-color)); }
 .btn:active { top: 2px; }
 .btn--secondary { background: var(--secondary-background-color); color: var(--primary-text-color); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 41%, var(--secondary-background-color)); }
 .btn--secondary:hover { background: color-mix(in srgb, var(--primary-text-color) 10%, var(--secondary-background-color)); }
-.btn--warning { background: var(--error-color); color: var(--text-primary-color); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 55%, var(--error-color)); }
-.btn--warning:hover { background: color-mix(in srgb, var(--primary-text-color) 20%, var(--error-color)); }
+.btn--warning { background: var(--civica-danger-fill, var(--error-color)); color: var(--civica-on-danger, var(--text-primary-color)); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 55%, var(--civica-danger-fill, var(--error-color))); }
+.btn--warning:hover { background: color-mix(in srgb, var(--primary-text-color) 20%, var(--civica-danger-fill, var(--error-color))); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn:disabled:hover { background: var(--primary-color); }
 .btn--secondary:disabled:hover { background: var(--secondary-background-color); }
 .btn:disabled:active { top: 0; }
 .btn-icon { flex: none; }
 .btn[hidden] { display: none; }
-.btn:focus-visible:not(:active):not(:hover), .btn:focus:not(:active):not(:hover) { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--primary-text-color); }
+.btn:focus-visible { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--civica-focus-text, var(--black-color)); }
 .tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
 .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
-.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+@media (min-width: 540px) { .row { grid-template-columns: minmax(0, 1fr) auto; } }
+.row > * { min-width: 0; overflow-wrap: anywhere; }
 .row[hidden] { display: none; }
 .key { font-weight: 700; margin: 0; }
-.sub { display: block; font-weight: 400; font-size: var(--ha-font-size-s, 14px); line-height: 1.25; color: var(--secondary-text-color); }
+.sub { display: block; font-weight: 400; font-size: var(--civica-font-size-small, 16px); line-height: 1.5; color: var(--secondary-text-color); }
 .sub:empty { display: none; }
 .act { margin: 0; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -40,44 +43,47 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .hit { fill: transparent; stroke: none; cursor: pointer; }
 .hit:hover { fill: var(--ha-color-focus); fill-opacity: 0.18; }
 .hit:focus-visible { outline: none; stroke: var(--ha-color-focus); stroke-width: 8px; fill: var(--ha-color-focus); fill-opacity: 0.18; }
-.dlg { width: min(640px, 92vw); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
+.dlg { width: min(640px, 92vw); box-sizing: border-box; flex-direction: column; max-width: calc(100vw - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
 .dlg[open] { display: flex; }
-.dlg-title { margin: 0 0 16px; font-size: 24px; }
+.dlg-title { margin: 0 0 16px; font-size: var(--civica-font-size-heading, 24px); }
 .dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
 .tiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.tile { position: relative; display: block; width: 36px; height: 36px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
+.tile { position: relative; display: block; width: 44px; height: 44px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
 .tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
 .swatch { position: absolute; inset: 0; display: block; }
 /* Icons are drawn as solid white: brightness(0) flattens every colour to black, invert(1) turns it white. */
 .tile-icon { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
 .swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
-.error-summary:focus { outline: 3px solid var(--ha-color-focus); }
-.error-summary__title { margin: 0 0 15px; font-size: 18px; line-height: 1.1111; font-weight: 700; }
+.error-summary:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
+.form-group--error:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
+.error-summary__title { margin: 0 0 15px; font-size: var(--civica-font-size-heading, 24px); line-height: 1.25; font-weight: 700; }
 .error-summary__list { margin: 0; padding: 0; list-style: none; font-weight: 700; }
 .error-summary__list li { margin: 0; }
 .error-summary__list .link { color: var(--error-color); }
 /* GOV.UK details component */
-.details { display: block; margin: 15px 0 0; font-size: var(--ha-font-size-m, 19px); line-height: 1.3157894737; }
-.details-summary { position: relative; display: block; width: fit-content; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
+.details { display: block; margin: 15px 0 0; font-size: var(--civica-font-size-body, 19px); line-height: 1.3157894737; }
+.details-summary { position: relative; display: block; width: fit-content; min-height: 44px; padding-top: 8px; padding-bottom: 8px; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
 .details-summary::-webkit-details-marker { display: none; }
 .details-summary::before { content: ""; position: absolute; top: -1px; bottom: 0; left: 0; margin: auto; display: block; width: 0; height: 0; clip-path: polygon(0 0, 100% 50%, 0 100%); border-style: solid; border-color: transparent; border-width: 7px 0 7px 12.124px; border-left-color: inherit; }
 .details[open] > .details-summary { margin-bottom: 5px; }
 .details[open] > .details-summary::before { clip-path: polygon(0 0, 50% 100%, 100% 0); border-width: 12.124px 7px 0; border-left-color: transparent; border-top-color: inherit; }
 .details-summary-text { text-decoration: underline; text-decoration-thickness: max(1px, 0.0625rem); text-underline-offset: 0.1578em; }
 .details-summary:hover .details-summary-text { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); text-decoration-skip-ink: none; }
-.details-summary:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
+.details-summary:focus-visible { outline: 3px solid transparent; color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
 .details-summary:focus-visible .details-summary-text { text-decoration: none; }
 .details-text { padding: 15px 0 15px 20px; border-left: 5px solid var(--divider-color); }
 .details-text p { margin: 0 0 20px; }
 .details-text > :last-child { margin-bottom: 0; }
 .link { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.1578em; }
 .link:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
-.link:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
+.link:focus-visible { outline: 3px solid transparent; color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
 .scenes-slot { grid-column: 1 / -1; margin: 0; padding: 4px; }
 .scenes-slot:empty { display: none; }
 /* GOV.UK error message component, with its left-hand error border. */
 .form-group--error { padding-left: 15px; border-left: 5px solid var(--error-color); }
 .error-message { margin: 0 0 15px; font-weight: 700; color: var(--error-color); }
+@media (prefers-reduced-motion: reduce) { .shade { transition: none; } }
+@media (forced-colors: active) { .btn:focus-visible, .link:focus-visible, .details-summary:focus-visible { outline: 3px solid Highlight; } .hit:focus-visible { stroke: Highlight; } .btn { border: 2px solid ButtonText; } }
 `;

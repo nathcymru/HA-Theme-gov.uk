@@ -1,6 +1,23 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Card preview (fixture)</title>
-<link rel="stylesheet" href="theme.css">
-<body style="margin:16px;background:var(--primary-background-color)">
-<div id="mount" style="max-width:640px"></div>
-<script type="module" src="harness.js"></script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>civica.uk lighting card preview</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="icon" href="../../ui/dist/brand/icons/favicon.ico">
+</head>
+<body>
+  <main>
+    <h1>Lighting card preview</h1>
+    <p>This preview uses sample devices. It does not control your home.</p>
+    <form class="preview-controls" onsubmit="return false">
+      <label>Theme <select id="preview-theme"></select></label>
+      <label>Mode <select id="preview-mode"><option value="light">Light</option><option value="dark">Dark</option></select></label>
+    </form>
+    <div id="mount"></div>
+    <p id="preview-message" role="status"></p>
+  </main>
+  <script type="module" src="harness.js"></script>
+</body>
+</html>

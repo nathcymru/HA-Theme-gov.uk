@@ -32,7 +32,7 @@ const svg = (tag: string, attrs: Record<string, string | number> = {}) => {
   return e;
 };
 
-interface RoomCfg extends RoomSource { }
+interface RoomCfg extends RoomSource { group?: string }
 interface Config { type: string; title?: string; rooms: RoomCfg[]; image?: string }
 interface RoomView { cfg: RoomCfg; caps: RoomLightingCapabilities; sig: string; on: number; owner: string; row?: HTMLElement; poly?: SVGPolygonElement }
 
@@ -40,13 +40,16 @@ class GovukHouseLightingCard extends HTMLElement {
   private _hass: any; private config!: Config; private root: ShadowRoot; private views = new Map<string, RoomView>();
   private reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   private onMotion = () => this.paintAll();
+  private cancelMoreInfo?: () => void;
+  private actionPending = false;
   private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: Array<{ room?: string; msg: string }> = []; private list?: HTMLElement; private plan?: SVGElement; private built = false;
 
   constructor() { super(); this.root = this.attachShadow({ mode: 'open' }); }
 
-  static getStubConfig() { return { type: 'custom:govuk-house-lighting-card' }; }
+  static getStubConfig() { return { type: 'custom:civica-house-lighting-card' }; }
   setConfig(config: Partial<Config>) {
-    if (!config || config.type === undefined) throw new Error('govuk-house-lighting-card: "type" is required');
+    this.cancelMoreInfo?.();
+    if (!config || config.type === undefined) throw new Error('civica-house-lighting-card: "type" is required');
     const rooms = config.rooms ?? FLOOR.rooms;
     if (!Array.isArray(rooms) || !rooms.length) throw new Error('"rooms" must be a non-empty list');
     const ids = new Set<string>();
@@ -54,6 +57,7 @@ class GovukHouseLightingCard extends HTMLElement {
       if (!r.id || !/^[a-z][a-z0-9_]*$/.test(r.id)) throw new Error(`room id "${r.id}" is invalid (lowercase letters, digits, underscore)`);
       if (ids.has(r.id)) throw new Error(`duplicate room id "${r.id}"`);
       ids.add(r.id);
+      if (r.group && !/^light\.[a-z0-9_]+$/.test(r.group)) throw new Error(`room "${r.id}" group must be a light entity ID`);
       if (!r.area && !r.entities?.length) throw new Error(`room "${r.id}" needs an "area" or "entities"`);
       if (!(r.id in FLOOR.regions)) throw new Error(`room "${r.id}" has no floor-plan region (known: ${Object.keys(FLOOR.regions).join(', ')})`);
     }
@@ -71,7 +75,7 @@ class GovukHouseLightingCard extends HTMLElement {
     this.refresh();
   }
   connectedCallback() { this.reduceMotion.addEventListener('change', this.onMotion); }
-  disconnectedCallback() { this.reduceMotion.removeEventListener('change', this.onMotion); }
+  disconnectedCallback() { this.reduceMotion.removeEventListener('change', this.onMotion); this.cancelMoreInfo?.(); }
 
   private snapshot(): Snapshot { const h = this._hass; return { entities: h.entities ?? {}, devices: h.devices ?? {}, states: h.states }; }
 
@@ -83,8 +87,8 @@ class GovukHouseLightingCard extends HTMLElement {
     this.errorSlot = el('div', { class: 'error-slot' });
     // GOV.UK: avoid several default buttons, so every button here is secondary.
     const all = el('div', { class: 'actions' },
-      el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(true) }, 'All on'),
-      el('button', { class: 'btn btn--secondary', type: 'button', onclick: () => this.all(false) }, 'All off'));
+      el('button', { class: 'btn btn--secondary', type: 'button', 'data-role': 'all-on', onclick: () => this.all(true) }, 'Turn all on'),
+      el('button', { class: 'btn btn--secondary', type: 'button', 'data-role': 'all-off', onclick: () => this.all(false) }, 'Turn all off'));
     this.list = el('dl', { class: 'rooms' });
     this.plan = this.buildPlan();
     // Floor plan first, then the room list.
@@ -140,21 +144,36 @@ class GovukHouseLightingCard extends HTMLElement {
   /** Settings opens Home Assistant's own more-info dialog (slider, colour wheel and temperature) for the room's light group. */
   private openMoreInfo(roomId: string) {
     const v = this.views.get(roomId)!;
-    const group = `light.govuk_lights_${roomId}`;
-    const entityId = this._hass.states[group] ? group : v.caps.lightCapabilities.find((c) => c.status === 'available')?.entityId;
+    // Generated HA group names normally become light.lights_<room>. Preserve
+    // legacy IDs and allow explicit renamed groups, but never bypass ownership
+    // exclusions by opening a group that also controls reserved/out-of-room lights.
+    const managed = new Set(v.caps.lightCapabilities.map((capability) => capability.entityId));
+    const safeMembers = (id: string, seen = new Set<string>()): boolean => {
+      if (seen.has(id) || !id.startsWith('light.') || !this._hass.states[id]) return false;
+      const members = this._hass.states[id].attributes?.entity_id;
+      if (!Array.isArray(members)) return managed.has(id);
+      const visited = new Set(seen).add(id);
+      return members.length > 0 && members.every((member: unknown) => typeof member === 'string' && safeMembers(member, visited));
+    };
+    const candidates = v.cfg.group ? [v.cfg.group] : [`light.govuk_lights_${roomId}`, `light.lights_${roomId}`];
+    const group = candidates.find((id) => {
+      const state = this._hass.states[id];
+      return state && !['unknown', 'unavailable'].includes(state.state) && Array.isArray(state.attributes?.entity_id) && safeMembers(id);
+    });
+    const entityId = group ?? v.caps.lightCapabilities.find((c) => c.status === 'available')?.entityId;
     if (!entityId) { this.showError(`${v.cfg.name ?? v.cfg.id} has no light to open.`, roomId); return; }
     this.dispatchEvent(new CustomEvent('hass-more-info', { bubbles: true, composed: true, detail: { entityId } }));
-    // Restyle Home Assistant's own dialog (GOV.UK look, no scrolling) and add this room's scenes to it.
+    // Preserve native controls and scrolling; add scoped, labelled room scenes.
     const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
     const scenes = this.usable(v) ? RECIPE_LIST.filter((r) => r.category === 'scene' && avail.get(r.id)?.availability !== 'unsupported') : [];
-    tuneMoreInfo({
-      title: v.cfg.name ?? v.cfg.id,
+    this.cancelMoreInfo = tuneMoreInfo({
+      entityId, title: v.cfg.name ?? v.cfg.id,
       scenes: scenes.map((r) => ({
         id: r.id, label: r.label, pressed: v.owner === r.id,
         iconUrl: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href,
         fill: (swatch) => this.animateSwatch(swatch, r, v),
       })),
-      onPick: (id) => { const r = scenes.find((x) => x.id === id); if (r) void this.pick(v, r); },
+      onPick: async (id) => { const r = scenes.find((x) => x.id === id); return r ? this.pick(v, r) : false; },
     });
   }
 
@@ -172,19 +191,24 @@ class GovukHouseLightingCard extends HTMLElement {
     const slot = v.row!.querySelector<HTMLElement>('[data-role=scenes]')!;
     const err = this.errors.filter((e) => e.room === v.cfg.id);
     // GOV.UK error message component: static text, "Error:" prefix for screen readers, red left border.
-    const body = err.length ? [el('div', { class: 'form-group--error', id: `error-${v.cfg.id}` }, ...err.map((e) => el('p', { class: 'error-message' }, el('span', { class: 'vh' }, 'Error:'), ` ${e.msg}`)))] : [];
+    const body = err.length ? [el('div', { class: 'form-group--error', tabindex: -1, id: `error-${v.cfg.id}` }, ...err.map((e) => el('p', { class: 'error-message' }, el('span', { class: 'vh' }, 'Error:'), ` ${e.msg}`)))] : [];
     slot.replaceChildren(...body);
   }
 
-  private async pick(v: RoomView, r: any) {
-    if (r.safety?.flashing) {
-      const ok = await this.confirmFlashing(r);
-      if (!ok) return;
-      await this._hass.callService('input_boolean', 'turn_on', {}, { entity_id: 'input_boolean.govuk_lights_allow_flashing' });
-    }
+  private async pick(v: RoomView, r: any): Promise<boolean> {
     this.clearErrors();
-    try { await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id }); }
-    catch (e) { console.error('govuk-house-lighting-card', e); this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`, v.cfg.id); }
+    try {
+      if (r.safety?.flashing) {
+        if (!await this.confirmFlashing(r)) return false;
+        await this._hass.callService('input_boolean', 'turn_on', {}, { entity_id: 'input_boolean.govuk_lights_allow_flashing' });
+      }
+      await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });
+      return true;
+    } catch (e) {
+      console.error('civica-house-lighting-card', e);
+      this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`, v.cfg.id);
+      throw e; // The open native dialog also announces the failure.
+    }
   }
   private confirmFlashing(r: any): Promise<boolean> {
     return new Promise((res) => {
@@ -202,7 +226,7 @@ class GovukHouseLightingCard extends HTMLElement {
   private errorSummary(): HTMLElement | undefined {
     if (!this.errors.length) return undefined;
     const link = (e: { room?: string; msg: string }) => e.room
-      ? el('a', { class: 'link', href: `#error-${e.room}`, onclick: (ev: Event) => { ev.preventDefault(); this.root.querySelector<HTMLElement>(`#error-${e.room} ~ .tiles .tile, #error-${e.room} .tile`)?.focus(); } }, e.msg)
+      ? el('a', { class: 'link', href: `#error-${e.room}`, onclick: (ev: Event) => { ev.preventDefault(); this.root.querySelector<HTMLElement>(`#error-${e.room}`)?.focus(); } }, e.msg)
       : e.msg;
     return el('div', { class: 'error-summary', tabindex: -1, 'data-role': 'error-summary' },
       el('div', { role: 'alert' }, el('h2', { class: 'error-summary__title' }, 'There is a problem'),
@@ -219,16 +243,25 @@ class GovukHouseLightingCard extends HTMLElement {
     if (focus) this.errorSlot?.querySelector<HTMLElement>('[data-role=error-summary]')?.focus();
   }
 
-  private async toggle(v: RoomView) {
-    this.clearErrors();
+  private async toggle(v: RoomView, preserveErrors = false) {
+    if (!this.usable(v)) return;
+    if (!preserveErrors) this.clearErrors();
     if (v.on > 0) return this.stop(v, true);
-    const ids = v.caps.lightCapabilities.map((c) => c.entityId); if (!ids.length) return; // reserved lights are never included
+    return this.turnOn(v);
+  }
+  private async turnOn(v: RoomView) {
+    const ids = v.caps.lightCapabilities.filter((c) => c.status === 'available').map((c) => c.entityId); if (!ids.length) return; // reserved lights are never included
     try { await this._hass.callService('light', 'turn_on', {}, { entity_id: ids }); } catch (e) { console.error('govuk-house-lighting-card', e); this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned on. Try again.`, v.cfg.id); }
   }
   private async stop(v: RoomView, off: boolean) {
     try { await this._hass.callService('script', 'govuk_lights_stop', { room: v.cfg.id, turn_off: off }); } catch (e) { console.error('govuk-house-lighting-card', e); this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned off. Try again.`, v.cfg.id); }
   }
-  private async all(on: boolean) { for (const v of this.views.values()) if (on ? v.on === 0 : v.on > 0) await this.toggle(v); }
+  private async all(on: boolean) {
+    if (this.actionPending) return;
+    this.actionPending = true; this.clearErrors(); this.paintSummary();
+    try { for (const v of this.views.values()) if (this.usable(v)) { if (on) await this.turnOn(v); else if (v.on > 0) await this.stop(v, true); } }
+    finally { this.actionPending = false; this.paintSummary(); }
+  }
 
   /** Recompute only rooms whose inputs changed. */
   private refresh() {
@@ -260,13 +293,13 @@ class GovukHouseLightingCard extends HTMLElement {
 
   private paintRoom(v: RoomView) {
     const usable = this.usable(v), total = v.caps.availableLights;
-    v.row!.hidden = !usable; // rooms with no usable lights are hidden from the list
-    v.row!.querySelector('[data-role=sub]')!.textContent = total > 0 ? this.count(v) : '';
+    v.row!.hidden = false; // Keep unavailable rooms visible with an explanation.
+    v.row!.querySelector('[data-role=sub]')!.textContent = total > 0 ? this.count(v) : v.caps.totalLights === 0 ? 'No lights assigned' : 'Lights unavailable';
     v.row!.querySelector<HTMLButtonElement>('[data-role=settings]')!.disabled = !usable;
     const btn = v.row!.querySelector<HTMLButtonElement>('[data-role=toggle]')!;
-    btn.hidden = !usable;
-    btn.textContent = v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = !usable;
-    btn.setAttribute('aria-label', `${v.on > 0 ? 'Turn off' : 'Turn on'} ${v.cfg.name ?? v.cfg.id}`);
+    btn.hidden = false;
+    btn.textContent = !usable ? 'Unavailable' : v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = !usable;
+    btn.setAttribute('aria-label', `${!usable ? 'Unavailable:' : v.on > 0 ? 'Turn off' : 'Turn on'} ${v.cfg.name ?? v.cfg.id}`);
     this.paintScenes(v);
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
     // Floor plan: one overlay per room, driven by the effective palette.
@@ -289,10 +322,12 @@ class GovukHouseLightingCard extends HTMLElement {
   }
   private paintSummary() {
     const vs = [...this.views.values()].filter((v) => this.usable(v)); const on = vs.filter((v) => v.on > 0).length;
-    this.status!.textContent = `${on} of ${vs.length} rooms on`;
+    this.status!.textContent = vs.length ? `${on} of ${vs.length} available rooms on` : 'No lights are available. Check the rooms below.';
+    for (const b of this.root.querySelectorAll<HTMLButtonElement>('[data-role=all-on], [data-role=all-off]')) b.disabled = this.actionPending || !vs.length;
   }
 }
 
 if (!customElements.get('govuk-house-lighting-card')) customElements.define('govuk-house-lighting-card', GovukHouseLightingCard);
 (window as any).customCards = (window as any).customCards ?? [];
-(window as any).customCards.push({ type: 'govuk-house-lighting-card', name: 'GOV.UK house lighting', description: 'Room lighting with floor plan, whites, colours and dynamic scenes.' });
+if (!customElements.get('civica-house-lighting-card')) customElements.define('civica-house-lighting-card', class extends GovukHouseLightingCard {});
+(window as any).customCards.push({ type: 'civica-house-lighting-card', name: 'civica.uk house lighting', description: 'Room lighting with floor plan, whites, colours and dynamic scenes.' });

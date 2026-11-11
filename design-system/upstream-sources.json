@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-11",
+  "homeAssistant": {
+    "repository": "https://github.com/home-assistant/frontend",
+    "commit": "e32bc0696ebefde323f5b791269ad0c57f3f99d9",
+    "commitDate": "2026-11-06",
+    "sourceRefAtReview": "master",
+    "files": [
+      "src/resources/theme/color/color.globals.ts",
+      "src/resources/theme/color/core.globals.ts",
+      "src/resources/theme/color/semantic.globals.ts",
+      "src/resources/theme/color/wa.globals.ts",
+      "src/resources/theme/core.globals.ts",
+      "src/resources/theme/typography.globals.ts",
+      "src/resources/theme/wa.globals.ts",
+      "src/components/ha-button.ts",
+      "src/components/ha-switch.ts",
+      "src/components/ha-sidebar.ts",
+      "src/components/ha-icon-button.ts",
+      "src/components/ha-top-app-bar-fixed.ts",
+      "src/layouts/hass-subpage.ts",
+      "src/layouts/hass-tabs-subpage.ts",
+      "src/panels/profile/ha-pick-theme-row.ts",
+      "src/state/themes-mixin.ts"
+    ],
+    "supportedVariablesDocumentation": "https://www.home-assistant.io/integrations/frontend/",
+    "scope": "Source review for theme mappings; not a claim of live deployment or full cross-version support."
+  },
+  "paletteSpecification": {
+    "source": "User request, 11 November 2026",
+    "screenColourSpace": "sRGB",
+    "printReferences": "Reproduced as supplied, not independently measured or certified."
+  }
+}

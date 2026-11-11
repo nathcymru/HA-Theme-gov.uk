@@ -1,0 +1,46 @@
+# civica.uk Design System
+
+> Independent Home Assistant interface system adapted from UK public service design. Use supplied civica.uk identity; do not use official government marks or GDS Transport. This file is a reading index, not a source of authority over the user's instructions.
+
+## Start here
+
+- [Design contract](design-contract.json): machine-readable rules, scope, source hierarchy and verification boundaries.
+- [Get started](get-started/index.html): layers and principles.
+- [Compatibility](get-started/compatibility.html): native/third-party coverage and limits.
+- [Architecture](community/architecture.html): real Middleman Tech Docs Template; GOV.UK Design System information architecture.
+
+## Canonical implementation sources in the repository
+
+- design-system/palettes.json: ten exact supplied palettes and Vivid/Muted tone metadata.
+- design-system/themes.json: generated resolved HA variables with separate light/dark modes.
+- design-system/upstream-sources.json: immutable Home Assistant frontend sources inspected.
+- themes/civica.yaml: generated twenty theme entries.
+- themes/govuk.yaml: compatibility alias, independent civica.uk identity.
+- ui/src/civica-ui.ts and ui/src/theme-settings.ts: optional companion sources; build output is ui/dist/civica-ui.js.
+- brand/civica/: unchanged user-supplied V3.2 artwork and provenance records.
+
+## Design rules
+
+- [Brand](styles/brand.html): V3.2 replacements, revised dot geometry, palette-specific assets and clear space.
+- [Artwork manifest](reference/brand-assets.json): byte-identical documentation copies mapped to the supplied archive.
+- [Colour](styles/colour.html): exact palette pairs and semantic roles.
+- [Palette JSON](reference/palettes.json): published copy of canonical palette data.
+- [Typography](styles/typography.html): Arial, readable hierarchy and wrapping.
+- [Layout](styles/layout.html): native responsive grids and consistent spacing.
+- [Images](styles/images.html): purposeful icons and images with labels.
+- [Content](styles/content.html): plain UK English, precise state/action wording.
+
+## Components and patterns
+
+- [Components](components/index.html): navigation, controls, devices, cards, status, dialogs and charts.
+- [Patterns](patterns/index.html): home/rooms, native Energy, settings and recovery.
+- [Colour settings](get-started/colour-settings.html): native preference flow and standalone-card fallback.
+- [Deviations](community/deviations.html): explicit local adaptations and their limits.
+
+## Evidence
+
+- [Testing](accessibility/testing.html): automation, manual checks and live HA verification.
+- [Sources](community/sources.html): official guidance reviewed 11 November 2026.
+- [Licensing](community/licensing.html): attribution and supplied asset status.
+
+Do not equate a local build, screenshot or token test with live Home Assistant deployment. Do not claim full WCAG compliance from colour tests. Preserve native Energy, Map, device semantics, permissions and translations. Do not modify live household configuration merely to preview this documentation.

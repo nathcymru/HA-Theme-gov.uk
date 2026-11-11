@@ -49,7 +49,7 @@ test('no hover-only help text in the card', () => {
   assert.ok(!/Hover over/i.test(rd('card/src/card.ts').toString()));
 });
 
-// Guard: the card layout is approved by Nathan. Adding visible elements (such as scene buttons) needs his written approval first.
+// Keep scene actions in the native light dialog so the room list remains scannable.
 test('card shows no scene buttons or tiles on the room list', () => {
   const src = rd('card/src/card.ts').toString();
   assert.doesNotMatch(src, /class:\s*'tiles'|class:\s*'tile'|data-scene/);

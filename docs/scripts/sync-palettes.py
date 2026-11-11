@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""Publish the canonical palette reference without maintaining a second specification."""
+from pathlib import Path
+import json
+import sys
+root = Path(__file__).resolve().parents[2]
+source = root / 'design-system/palettes.json'
+data = json.loads(source.read_text())
+lines = ['---', 'title: Colour', 'description: Ten civica.uk palettes, Vivid and Muted variants, and independent semantic colours.', 'last_reviewed_on: 2026-11-11', 'review_in: 3 months', '---', '', '# Colour', '', 'Choose one of ten palettes and a Vivid or Muted variant. These choices change the brand primary and canvas while keeping status and data meanings consistent.', '', 'This page is generated from `design-system/palettes.json`. The [machine-readable palette reference](../reference/palettes.json) preserves every supplied hex, RGB, RGBA, CMYK and RAL or descriptive reference. Hex values in sRGB are authoritative for screens. CMYK and RAL entries reproduce the supplied specification; they are not measured colour-match guarantees.', '', '## Palette overview', '', '| Palette | Vivid primary | Vivid canvas | Muted primary | Muted canvas |', '| --- | --- | --- | --- | --- |']
+for p in data['palettes']:
+    lines.append('| '+p['name']+' | '+' | '.join(p[tone][role]['hex'] for tone in ['vivid','muted'] for role in ['primary','canvas'])+' |')
+lines += ['', '## Try the variants', '', 'This demonstration changes only the example. To change Home Assistant, use [the profile colour controls](../get-started/colour-settings.html).', '', '<div class="c-demo" data-palette-demo>', '<div class="c-demo__header"><img data-variant-primary src="../images/themes/civic-cobalt/vivid/lockup-on-primary.svg" alt="civica.uk on primary colour" width="306" height="49"></div>', '<label for="palette-preview">Colour palette</label>', '<select id="palette-preview">']
+for p in data['palettes']:
+    lines.append(f'<option data-palette-id="{p["id"]}" data-vivid="{p["vivid"]["primary"]["hex"]}" data-muted="{p["muted"]["primary"]["hex"]}" data-canvas="{p["muted"]["canvas"]["hex"]}">{p["name"]}</option>')
+lines += ['</select>', '<label><input type="checkbox"> Muted colours</label>', '<div class="c-demo__assets"><img data-variant-canvas src="../images/themes/civic-cobalt/vivid/lockup-on-canvas.svg" alt="civica.uk on canvas colour" width="306" height="49"><img data-variant-icon src="../images/themes/civic-cobalt/vivid/app-icon.svg" alt="civica.uk app icon" width="64" height="64"></div>', '<p>Living room temperature: <strong>21 °C</strong></p>', '<p class="c-status">All monitored devices are available.</p>', '<p role="status">Civic Cobalt, Vivid preview. These choices affect this example only.</p>', '</div>', '', 'The V3.2 artwork preview uses the supplied lockups for the selected primary and canvas, plus its app icon. The accent dot colour comes from each original asset; CSS does not recolour it. [Read the artwork manifest](../reference/brand-assets.json).', '', '## Light and dark modes', '', 'Vivid and Muted are colour-strength variants, independent of Home Assistant’s light, dark or automatic mode. Light mode uses the exact supplied primary and canvas. Dark mode uses neutral dark surfaces and lighter interactive tints derived from the selected primary, while retaining the supplied primary in the brand header. This is an explicit accessibility adaptation; the supplied off-white canvas is not represented as a dark colour.', '', 'The generator blends interaction tints 72% towards white in dark mode. Dark tokens are tested against their actual surfaces. The selected native mode is preserved when the palette changes.', '', '## Keep functional colours stable', '', '| Role | Light-mode base | Rule |', '| --- | --- | --- |', '| Main text | `#0B0C0C` | Use against the tested light canvas or card surface |', '| Secondary text | `#484949` | Keep readable; do not fade with arbitrary opacity |', '| Error | `#CA3535` | Error text/icon role; use dedicated fill/on-fill pair for banners |', '| Success | `#0F7A52` | Confirmed success; independent of palette |', '| Warning text | `#8A6100` | Dark ochre is a local contrast adaptation |', '| Focus | Yellow `#FFDD00` and ink `#0B0C0C` | Custom controls use both colours; yellow alone is insufficient on white |', '', 'Native Home Assistant controls that expose only one outline colour use ink on light surfaces and yellow on dark surfaces. Dark brand masthead controls receive a scoped yellow treatment. Preserve native circle/pill shapes for switches, radio controls, avatars and gauges where their meaning depends on them.', '', 'Use `civica-danger-fill` with `civica-on-danger`, and the equivalent success, warning and notice pairs, for persistent banners. The lighter `error-color` in dark mode is intended for text/icons and is not automatically a safe white-text button fill.', '', 'Eight fixed chart-series colours have separate light/dark values and remain independent of the chosen palette. Prefer five or fewer series, direct labels and a data alternative. Contrast against the surface does not prove that adjacent series can be distinguished. See [Charts and tables](../components/charts.html).', '', '## Exact colour references', '', 'RGB and RGBA values refer to screen colours. Print and paint references are supplied metadata. Do not replace the screen hex with an approximate RAL lookup.', '']
+for p in data['palettes']:
+    lines += ['### '+p['name'], '', '| Variant and role | Hex | RGB | RGBA | CMYK | Supplied reference |', '| --- | --- | --- | --- | --- | --- |']
+    for tone in ['vivid','muted']:
+        for role in ['primary','canvas']:
+            v=p[tone][role]
+            lines.append('| '+tone.title()+' '+role+' | `'+v['hex']+'` | '+', '.join(map(str,v['rgb']))+' | '+', '.join(map(str,v['rgba']))+' | '+', '.join(map(str,v['cmyk']))+' | '+v['reference']+' |')
+    lines += ['']
+lines += ['## Maintain the tokens', '', 'Edit the canonical JSON, then run `node scripts/generate-themes.mjs` and `python3 docs/scripts/sync-palettes.py` from the repository root. Commit the generated YAML, theme JSON and this colour reference together. Use `--check` on both generators to detect drift.', '', 'The native theme name is `civica {palette name} {Vivid|Muted}`. The `govuk` entry is a compatibility alias for Civic Cobalt Vivid and uses civica.uk branding.', '', 'The semantic role approach follows [GOV.UK colour guidance](https://design-system.service.gov.uk/styles/colour/). The ten named palettes and theme toggle are local civica.uk decisions.', '']
+outputs = {
+    root/'docs/source/styles/colour.html.md': '\n'.join(lines),
+    root/'docs/source/reference/palettes.json': source.read_text(),
+    root/'docs/source/reference/upstream-sources.json': (root/'design-system/upstream-sources.json').read_text()
+}
+check = '--check' in sys.argv
+for path, content in outputs.items():
+    if check:
+        if not path.exists() or path.read_text()!=content:
+            raise SystemExit(f'Stale generated documentation: {path.relative_to(root)}')
+    else:
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text(content)
+print('Palette documentation is current.' if check else 'Updated palette documentation and machine-readable references.')

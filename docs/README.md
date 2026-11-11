@@ -1,0 +1,34 @@
+# civica.uk documentation
+
+This is a real [GOV.UK Tech Docs Template](https://github.com/alphagov/tech-docs-template) site, using Middleman and pinned `govuk_tech_docs` 6.6.0. It follows the GOV.UK Design System's Get started / Styles / Components / Patterns / Community / Accessibility organisation with an independent civica.uk identity.
+
+The upstream GOV.UK Design System website uses Node. This project maps its information architecture and layout into Middleman's `source/`, `layouts/`, `data/` and `config/` structure. It does not claim that the upstream Node repository is a Middleman template.
+
+## Build
+
+Use Ruby 3.3, Bundler, Node and Python 3. On macOS, the system Ruby 2.6 is too old; use an installed Ruby 3.3 through your preferred version manager.
+
+```sh
+cd docs
+bundle config set --local path vendor/bundle
+bundle install
+bundle exec middleman build
+```
+
+For a local preview, run `bundle exec middleman server`. Generated output is in `docs/build/` and is not committed.
+
+From the repository root, check internal links and regenerate/check the palette reference:
+
+```sh
+python3 scripts/check-docs.py
+python3 docs/scripts/sync-palettes.py --check
+python3 docs/scripts/sync-brand.py --check
+```
+
+After changing canonical `design-system/palettes.json`, run `python3 docs/scripts/sync-palettes.py` and commit its generated documentation and reference copies. Human rules start in `source/get-started/`; machine-readable guidance starts in `source/llms.txt` and `source/design-contract.json`.
+
+## Branding
+
+The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It publishes only civica.uk images, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
+
+`source/images/` contains byte-for-byte copies of the needed supplied V3.2 core, icon and palette assets from `brand/civica/`. Keep the originals and provenance there unchanged. Run `python3 docs/scripts/sync-brand.py` after an authorised asset-pack update; it also regenerates the published artwork manifest. This site does not claim official government affiliation or a completed accessibility certification.

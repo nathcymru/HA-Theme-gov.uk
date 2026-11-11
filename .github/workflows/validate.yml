@@ -1,0 +1,68 @@
+name: Validate civica.uk
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: docs
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm test
+      - run: python3 docs/scripts/sync-palettes.py --check
+      - run: python3 docs/scripts/sync-brand.py --check
+      - run: python3 -m venv .venv && .venv/bin/pip install PyYAML Jinja2
+      - run: .venv/bin/python lighting/scripts/check-ha.py
+      - run: bundle exec middleman build
+        working-directory: docs
+      - run: python3 scripts/check-docs.py
+      - run: npm run check:brand
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: civica-home-assistant
+          path: dist/civica-home-assistant.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: civica-design-system
+          path: docs/build/
+      - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      - uses: actions/upload-pages-artifact@v4
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: docs/build/
+  deploy-docs:
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish design documentation
+        id: deployment
+        uses: actions/deploy-pages@v4

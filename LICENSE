@@ -2,7 +2,7 @@ HA-Theme-gov.uk licence notice
 ==============================
 
 This repository combines original code with design values derived from the
-GOV.UK Design System. Two licences apply.
+GOV.UK Design System. The following software and design attributions apply. Supplied and pre-existing artwork is covered separately in ARTWORK.md.
 
 1. Original code in this repository (theme YAML, card snippets, scripts,
    documentation) is released under the MIT Licence below.
@@ -14,7 +14,7 @@ GOV.UK Design System. Two licences apply.
 
 Not included and not licensed here: the GDS Transport typeface and the GOV.UK
 crown logo and brand marks. GDS Transport is licensed for use on GOV.UK
-services only; this theme falls back to Arial. This project is unofficial and
+services only; this theme uses Arial. This project is unofficial and
 is not affiliated with or endorsed by the Government Digital Service or Home
 Assistant.
 
