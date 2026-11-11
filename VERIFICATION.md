@@ -7,7 +7,7 @@ This change was developed from repository `main` at `8e765039bcec3fe98f48fa452e4
 | Bundled lighting card and global companion | Build passed |
 | TypeScript | Passed |
 | Node regression and design-token tests | 39 passed |
-| Browser integration and accessibility tests | 19 passed |
+| Browser integration and accessibility tests | 20 passed |
 | Palette contrast | All 20 variants × Light/Dark modes passed the defined text, controls, focus and chart-surface checks |
 | Documentation | Middleman build passed; 32 pages passed internal links/anchors, automated accessibility and 320px reflow checks |
 | Documentation without JavaScript | Content and keyboard skip link passed |
@@ -20,8 +20,12 @@ Browser tests cover custom-element registry replacement during startup, palette 
 
 Desktop and mobile previews were visually inspected. An automated accessibility pass does not constitute full WCAG certification. Colour-pair checks do not establish that all adjacent chart series are distinguishable without labels or patterns.
 
-## Outstanding live acceptance
+## Live rollout and remaining acceptance
 
-No live Home Assistant deployment or device action was performed in this task. Before deploying, follow `docs/source/accessibility/testing.html.md` with the actual Home Assistant version, installed custom cards and target browsers. Check fresh direct loads of Profile, Settings, native Energy, History and Map; long dialogs; keyboard and assistive technology use; mobile/zoom; preference persistence after reload and on another device; and restoring the default theme.
+Chrome checks on Home Assistant 2026.11.0 verified all 20 palette/tone choices, independent Light/Dark mode, saved palette persistence after reload, restoration of default branding, the updated lighting card and its native room dialog, and navigation to native Energy and Map. Existing unavailable devices and missing Energy data remained visible. No physical device actions were sent.
+
+The first live inspection found a sidebar icon contrast issue caused by native adopted stylesheets. A scoped native-token correction and a nested-component regression were added for the stable release. Release notes record final deployment acceptance.
+
+Follow `docs/source/accessibility/testing.html.md` for further manual acceptance. Assistive-technology use, cross-device preference synchronisation, every native/third-party component, and physical-device execution have not been fully tested on this installation.
 
 The Profile, sidebar, toolbar and more-info adapters depend on private component structure. They preserve native controls and fail without replacing core behaviour, but must be rechecked after Home Assistant upgrades. Authentication, installed PWA identity and native app branding are outside this module's coverage.

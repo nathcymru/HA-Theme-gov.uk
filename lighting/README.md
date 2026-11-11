@@ -16,7 +16,7 @@ Adapting the lighting controller requires a [source checkout](https://github.com
 
 1. Run `npm ci` and `npm run package`. Extract `dist/civica-home-assistant.zip`.
 2. Copy the archive's `www/civica/` directory to Home Assistant's `config/www/civica/`. Keep `card/dist/` and `card/assets/` alongside one another. The card loads the floor plan and scene icons relative to its JavaScript module.
-3. In **Settings → Dashboards → Resources**, add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.0.0` as a **JavaScript module**.
+3. In **Settings → Dashboards → Resources**, add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.0.1` as a **JavaScript module**.
 4. Review the room mappings in `lighting/rooms.json` and the group membership snapshot in `lighting/ha/area-lights.json`. They describe the original installation, so adapt them to your own entity and area IDs. Run `npm run generate` after changing them.
 5. Copy the generated `lighting/ha/govuk_lighting.yaml` and `lighting/ha/govuk_lighting_groups.yaml` to your Home Assistant `config/packages/` directory. Merge package loading into the existing configuration:
 

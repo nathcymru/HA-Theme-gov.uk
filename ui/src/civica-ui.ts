@@ -41,19 +41,28 @@ function updateBrand(app: App, targets: HTMLElement[]) {
   // its exact primary colour in light and dark mode, so the same original file
   // works in both. Never recolour the supplied separator dot with CSS filters.
   const variantPath = `themes/${variant!.palette.id}/${variant!.muted ? 'muted' : 'vivid'}/`;
+  // Native icon buttons wrap Web Awesome plain/neutral buttons. Override both
+  // neutral foreground roles at the icon boundary, not across a whole toolbar:
+  // filled buttons and menu surfaces must retain their own foreground pairs.
+  const iconForeground = (colour: string) => `--wa-color-neutral-on-quiet: var(${colour}); --wa-color-neutral-on-normal: var(${colour}); --wa-color-on-quiet: var(${colour}); --wa-color-on-normal: var(${colour});`;
+  const toolbarIcons = (selector: string) => ['ha-icon-button', 'ha-icon-button-arrow-prev', 'ha-menu-button']
+    .flatMap(tag => [`${selector} ${tag}`, `${selector} ::slotted(${tag})`]).join(', ');
   for (const host of targets.filter(el => el.localName === 'hass-subpage' || el.localName === 'ha-top-app-bar-fixed')) {
     if (host.shadowRoot && !host.shadowRoot.querySelector('[data-civica-toolbar]')) {
       const style = document.createElement('style'); style.dataset.civicaToolbar = '';
       style.textContent = host.localName === 'hass-subpage'
-        ? '.toolbar { --sidebar-icon-color: var(--app-header-text-color); --sidebar-text-color: var(--app-header-text-color); --wa-focus-ring-color: var(--ha-color-focus); }'
-        : '.top-app-bar { --wa-focus-ring-color: var(--ha-color-focus); }';
+        ? `.toolbar { --sidebar-icon-color: var(--app-header-text-color); --sidebar-text-color: var(--app-header-text-color); --wa-focus-ring-color: var(--ha-color-focus); } ${toolbarIcons('.toolbar')} { ${iconForeground('--app-header-text-color')} }`
+        : `.top-app-bar { --wa-focus-ring-color: var(--ha-color-focus); } ${toolbarIcons('.top-app-bar')} { ${iconForeground('--app-header-text-color')} }`;
       host.shadowRoot.append(style); sidebarStyles.add(style);
     }
   }
   for (const sidebar of targets.filter(el => el.localName === 'ha-sidebar')) {
     if (sidebar.shadowRoot && !sidebar.shadowRoot.querySelector('[data-civica-sidebar]')) {
       const style = document.createElement('style'); style.dataset.civicaSidebar = '';
-      style.textContent = '.menu { --wa-focus-ring-color: var(--ha-color-focus); } .menu ha-icon-button { color: var(--sidebar-menu-button-text-color); }';
+      // HA's adopted stylesheet comes after injected styles and sets the icon
+      // colour from sidebar-icon-color. Scope that input instead of competing
+      // with its equally specific colour declaration.
+      style.textContent = `.menu { --sidebar-icon-color: var(--sidebar-menu-button-text-color); --wa-focus-ring-color: var(--ha-color-focus); } .menu ha-icon-button { ${iconForeground('--sidebar-menu-button-text-color')} }`;
       sidebar.shadowRoot.append(style); sidebarStyles.add(style);
     }
     const title = sidebar.shadowRoot?.querySelector<HTMLElement>('.title');

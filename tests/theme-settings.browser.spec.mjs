@@ -249,3 +249,90 @@ test('production bundle waits for HA registry replacement before registering or 
     }))).toEqual({ definitions: ['home-assistant', 'civica-theme-settings'], observers: 1, navigationListeners: 1, cards: 1 });
   } finally { await startup.close(); }
 });
+
+test('adopted HA styles keep nested masthead icons white without recolouring sidebar or body controls', async ({ page }) => {
+  await page.evaluate(() => {
+    const sheet = css => { const value = new CSSStyleSheet(); value.replaceSync(css); return value; };
+    class NativeButton extends HTMLElement {
+      constructor() {
+        super();
+        const root = this.attachShadow({ mode: 'open' });
+        root.adoptedStyleSheets = [sheet(':host([variant="neutral"]) { --wa-color-on-quiet: var(--wa-color-neutral-on-quiet); --wa-color-on-normal: var(--wa-color-neutral-on-normal); } button { font: inherit; } :host([appearance="plain"]) button { color:var(--wa-color-on-quiet); } :host([appearance="filled"]) button { color:var(--wa-color-on-normal); }')];
+        const button = document.createElement('button'); button.textContent = 'Menu'; root.append(button);
+      }
+    }
+    class NativeIcon extends HTMLElement {
+      constructor() {
+        super(); const root = this.attachShadow({ mode: 'open' });
+        root.adoptedStyleSheets = [sheet('ha-button { --wa-color-on-normal: currentColor; }')];
+        const button = document.createElement('ha-button'); button.setAttribute('appearance', 'plain'); button.setAttribute('variant', 'neutral'); root.append(button);
+      }
+    }
+    class NativeMenu extends HTMLElement {
+      constructor() { super(); this.attachShadow({ mode: 'open' }).append(document.createElement('ha-icon-button')); }
+    }
+    customElements.define('ha-button', NativeButton);
+    customElements.define('ha-icon-button', NativeIcon);
+    customElements.define('ha-menu-button', NativeMenu);
+    class Sidebar extends HTMLElement {
+      constructor() {
+        super(); const root = this.attachShadow({ mode: 'open' });
+        // Adopted sheets win equal specificity over appended <style> tags,
+        // exactly as in the live Core 2026.11 sidebar.
+        root.adoptedStyleSheets = [sheet('.menu { background:var(--sidebar-menu-button-background-color); color:var(--sidebar-menu-button-text-color); } .menu ha-icon-button, .navigation ha-icon-button { color:var(--sidebar-icon-color); }')];
+        const menu = document.createElement('div'); menu.className = 'menu';
+        const title = document.createElement('div'); title.className = 'title'; title.textContent = 'Home Assistant';
+        menu.append(document.createElement('ha-icon-button'), title);
+        const navigation = document.createElement('div'); navigation.className = 'navigation'; navigation.append(document.createElement('ha-icon-button'));
+        root.append(menu, navigation);
+      }
+    }
+    const headerClass = selector => class extends HTMLElement {
+      constructor() {
+        super(); const root = this.attachShadow({ mode: 'open' });
+        root.adoptedStyleSheets = [sheet(`.${selector} { color:var(--app-header-text-color); background:var(--app-header-background-color); } .toolbar ha-menu-button { color:var(--sidebar-icon-color); }`)];
+        const toolbar = document.createElement('div'); toolbar.className = selector;
+        const menu = document.createElement('ha-menu-button');
+        const slot = document.createElement('slot'); slot.name = 'toolbar-icon';
+        toolbar.append(menu, slot);
+        const body = document.createElement('div'); body.className = 'body'; body.append(document.createElement('ha-icon-button'));
+        root.append(toolbar, body);
+      }
+    };
+    customElements.define('ha-sidebar', Sidebar);
+    customElements.define('hass-subpage', headerClass('toolbar'));
+    customElements.define('ha-top-app-bar-fixed', headerClass('top-app-bar'));
+    const subpage = document.createElement('hass-subpage');
+    const slottedIcon = document.createElement('ha-icon-button'); slottedIcon.slot = 'toolbar-icon'; subpage.append(slottedIcon);
+    window.fixture.app.shadowRoot.append(document.createElement('ha-sidebar'), subpage, document.createElement('ha-top-app-bar-fixed'));
+    window.dispatchEvent(new Event('location-changed'));
+  });
+  await expect(page.locator('ha-sidebar [data-civica-sidebar]')).toHaveCount(1);
+  const masthead = page.locator('ha-sidebar .menu ha-icon-button');
+  const headerButtons = [
+    masthead.locator('button'),
+    page.locator('hass-subpage .toolbar ha-menu-button button'),
+    page.locator('hass-subpage > ha-icon-button[slot="toolbar-icon"] button'),
+    page.locator('ha-top-app-bar-fixed .top-app-bar ha-menu-button button'),
+  ];
+  for (const name of ['civica Racing Moss Muted', 'civica Ink Charcoal Vivid', 'civica Civic Cobalt Vivid']) {
+    await page.evaluate(theme => {
+      window.fixture.app.hass.selectedTheme.theme = theme; window.fixture.paint();
+      // Real HA resolves these neutral roles on the document, independently
+      // from a coloured masthead. This reproduces the nested plain-button path.
+      for (const name of ['--wa-color-neutral-on-quiet', '--wa-color-neutral-on-normal', '--wa-color-on-quiet', '--wa-color-on-normal']) document.documentElement.style.setProperty(name, '#0B0C0C');
+    }, name);
+    await expect(masthead).toHaveCSS('color', 'rgb(255, 255, 255)');
+    for (const button of headerButtons) await expect(button).toHaveCSS('color', 'rgb(255, 255, 255)');
+    await expect(page.locator('ha-sidebar .navigation button')).toHaveCSS('color', 'rgb(11, 12, 12)');
+    await expect(page.locator('hass-subpage .body button')).toHaveCSS('color', 'rgb(11, 12, 12)');
+  }
+  await page.evaluate(() => {
+    window.fixture.app.hass.selectedTheme.theme = window.fixture.app.hass.themes.theme = 'default';
+    window.dispatchEvent(new Event('settheme'));
+  });
+  await expect(page.locator('ha-sidebar [data-civica-sidebar]')).toHaveCount(0);
+  await expect(page.locator('[data-civica-toolbar]')).toHaveCount(0);
+  await expect(masthead).toHaveCSS('color', 'rgb(11, 12, 12)');
+  for (const button of headerButtons) await expect(button).toHaveCSS('color', 'rgb(11, 12, 12)');
+});
