@@ -183,7 +183,7 @@
     "distribution": "Native Energy distribution diagram is a controlled deviation and is not adapted or given a new data table; no ONS Sankey component claimed.",
     "scopeLimits": "Seven named native Energy Cartesian bar/line charts only; History, pie, distribution and third-party renderers remain native.",
     "verification": "Native-shaped Canvas/SVG fixtures must start with actual HA alpha fills, gradients, thin area borders and hover states. Verify final geometry and colours, then compare populated live routes.",
-    "release": "1.3.1",
+    "release": "1.3.2",
     "frontendCompatibilityBaseline": "20261028.5",
     "nativePanel": "ha-panel-energy",
     "nativeChartHosts": [

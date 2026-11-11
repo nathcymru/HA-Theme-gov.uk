@@ -1,5 +1,11 @@
 # Verification — 11 November 2026
 
+## v1.3.2 native redraw recovery
+
+ECharts could leave secondary split-sign geometry on the Canvas after a native legend or theme redraw even when its current data array was empty. Power series now use the renderer's zero-duration update path to finish in-flight transitions immediately. This changes no readings or axes and restores the native animation options when the theme is removed.
+
+The regression verifies actual primary Canvas coordinates against signed values, empty secondary geometry, exact trace counts after hide/show, Light/Dark and date changes, and stability after the native transition window. Dense 320px coverage again requires exactly four source traces. The shared line weight remains 1.5px. Build/typecheck, 50 Node checks, 52 browser checks and 37 documentation pages pass.
+
 ## v1.3.1 thinner chart lines
 
 Dense live Power readings remained visually heavy at the v1.3.0 2px weight. Supported line series now use **1.5px** in normal, hover, selected and blurred states. Legend strokes and the examples' displayed weight read the same production constant. The ONS 3px reference remains explicitly separate in the specification. Colours, source readings and chart types are unchanged.

@@ -319,6 +319,13 @@ function presentation(state: ChartState, option: Options) {
       set([...path, 'symbolSize'], 6);
       set([...path, 'showSymbol'], array(series.data).filter(point => Number.isFinite((Array.isArray(point) ? point : point?.value)?.[1])).length === 1);
       if (paint.power) {
+        // ECharts 6.1's nonanimated LineView update does not stop a native
+        // transition already in flight. Its zero-duration update path does:
+        // finish immediately, so an old animation cannot redraw split-sign
+        // geometry after the signed projection has replaced the data.
+        set([...path, 'animation'], true);
+        set([...path, 'animationDuration'], 0);
+        set([...path, 'animationDurationUpdate'], 0);
         // HA supplies individual source values and only stacks their display.
         // Remove cumulative stacking; applyPowerProjection combines only the
         // verified split-sign display pairs, retaining HA's native source.
