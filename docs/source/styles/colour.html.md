@@ -15,16 +15,16 @@ This page is generated from `design-system/palettes.json`. The [machine-readable
 
 | Palette | Vivid primary | Vivid canvas | Muted primary | Muted canvas |
 | --- | --- | --- | --- | --- |
-| Civic Cobalt | #1D70B8 | #FFFFFF | #103E65 | #F3F6F9 |
-| Racing Moss | #006853 | #FFFFFF | #00392E | #F2F6F4 |
-| Imperial Damson | #732282 | #FFFFFF | #3F1348 | #F6F3F7 |
-| Sovereign Crimson | #B2292E | #FFFFFF | #621719 | #F9F4F4 |
-| Regimental Plum | #532A45 | #FFFFFF | #2E1726 | #F7F3F5 |
-| Oxford Midnight | #003764 | #FFFFFF | #001E37 | #F2F4F8 |
-| Ink Charcoal | #0B0C0C | #FFFFFF | #2B2E30 | #F3F2F1 |
-| Heritage Ochre | #8A6100 | #FFFFFF | #4D3600 | #F9F7F1 |
-| Kiln Terracotta | #9E3B0E | #FFFFFF | #572008 | #F9F5F2 |
-| Umber Bronze | #5C3D28 | #FFFFFF | #332216 | #F6F4F1 |
+| Civic Cobalt | `#1D70B8` | `#FFFFFF` | `#103E65` | `#F3F6F9` |
+| Racing Moss | `#006853` | `#FFFFFF` | `#00392E` | `#F2F6F4` |
+| Imperial Damson | `#732282` | `#FFFFFF` | `#3F1348` | `#F6F3F7` |
+| Sovereign Crimson | `#B2292E` | `#FFFFFF` | `#621719` | `#F9F4F4` |
+| Regimental Plum | `#532A45` | `#FFFFFF` | `#2E1726` | `#F7F3F5` |
+| Oxford Midnight | `#003764` | `#FFFFFF` | `#001E37` | `#F2F4F8` |
+| Ink Charcoal | `#0B0C0C` | `#FFFFFF` | `#2B2E30` | `#F3F2F1` |
+| Heritage Ochre | `#8A6100` | `#FFFFFF` | `#4D3600` | `#F9F7F1` |
+| Kiln Terracotta | `#9E3B0E` | `#FFFFFF` | `#572008` | `#F9F5F2` |
+| Umber Bronze | `#5C3D28` | `#FFFFFF` | `#332216` | `#F6F4F1` |
 
 ## Try the variants
 
