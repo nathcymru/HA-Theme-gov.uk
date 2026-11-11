@@ -1,0 +1,75 @@
+---
+title: "Updates, repairs and maintenance"
+description: "Complete design specification for updates, repairs and maintenance, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-020
+source_url: https://www.home-assistant.io/integrations/update/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated updates, repairs and maintenance specification and three complete synthetic examples."
+---
+
+# Updates, repairs and maintenance
+
+Maintenance information should explain the affected software or device, the available action and its consequences. Keep it distinct from immediate household hazards. A notification count is a route to maintenance detail, not evidence that a problem has been fixed.
+
+## Scope and native ownership
+
+Native update entities expose installed/latest/skipped versions and may support installation and progress. An off state can include a skipped release. Native Repairs supplies issue-specific information or repair steps; civica changes badge presentation, not repair state. [Official Home Assistant source](https://www.home-assistant.io/integrations/update/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-020**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Update available | Show installed and offered versions with release information. | Do not infer severity from a version number. |
+| Skipped release | Name the skipped version when supplied. | Do not claim the latest version is installed. |
+| Downloading / installing | Use only stages and progress the provider exposes. | Do not add a simulated percentage or cancellation promise. |
+| Restart required | Explain the affected service and expected interruption if known. | Do not restart when opening the card. |
+| Repair dismissed / unresolved | Keep acknowledgement distinct from remedy. | Removing a badge does not prove resolution. |
+
+## Integration contract
+
+1. Use the native permission and update/repair workflow. Installation capability, backup support and cancellation vary by integration.
+2. Show the actual software title as well as any household-friendly device name. Preserve release identifiers exactly and identify external release-note links.
+3. Before installing, state known interruptions and prerequisites from the actual provider. Do not invent downtime guarantees or assume every device can roll back.
+4. Keep numeric attention counts owned by Home Assistant. The MOJ-derived civica badge does not create, deliver, dismiss or resolve maintenance records.
+
+## Accessible interaction
+
+- Keep release details readable before the primary action. A version comparison belongs in text, not only coloured tags.
+- Announce stage transitions once; preserve focus and native repair-dialog names through theme changes.
+- Make failed and skipped states visible without requiring colour discrimination or opening a hover tooltip.
+
+## Failure and recovery
+
+- If installation is rejected, retain the installed version and provider explanation; never change the version optimistically.
+- If progress stops reporting, say progress unavailable and inspect the native operation before retrying.
+- If a repair only supplies instructions, show that route rather than an invented Fix now button.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-020-skipped') %>
+
+<%= example('ha-flow-020-progress') %>
+
+<%= example('ha-flow-020-repair') %>
+
+## Integration acceptance
+
+- Verify available, skipped, installation-in-progress and rejected states using supported native fixtures.
+- Confirm opening a maintenance view or dismissing a message cannot be mistaken for a successful repair.
+- Check badge counts update without navigation while each repair’s native content and permissions remain intact.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-COL-05](../styles/brand-colour.html#bg-col-05), [WG-032](../content/interface-copy.html#wg-032), [WG-042](../content/errors-and-alerts.html#wg-042), [WG-044](../content/errors-and-alerts.html#wg-044), [WG-051](../content/instructions-and-learning.html#wg-051).

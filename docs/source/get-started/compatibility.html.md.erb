@@ -34,6 +34,10 @@ These isolated examples illustrate the decisions on this page. Any household val
 | civica.uk action links | Native local links and existing fragment navigation | Each configured destination and pop-up |
 | Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |
 
+## Maintained custom cards and legacy configurations
+
+The maintained custom-card types are `custom:civica-house-lighting-card`, `custom:civica-theme-settings` and `custom:civica-action-links`. `custom:govuk-house-lighting-card` remains a registered subclass of the lighting card with the same behaviour, and its existing bundle filename stays available. Saved dashboards using that name continue to load; the alias is not an additional component. The [compatibility register](../home-assistant/compatibility-register.html) separates these components, exact adapters, token-only surfaces and reference specifications.
+
 ## Private component adapters
 
 The module targets known component types through their open component roots:

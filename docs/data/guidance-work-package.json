@@ -3,7 +3,7 @@
   "title": "Brand, writing and design-system audit work package",
   "reviewed_on": "2026-11-11",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
-  "scope": "Integrate guidance, audit the complete authored design system and propose remediation. This package does not implement the proposed runtime/component backlog or claim live Home Assistant verification.",
+  "scope": "Original brand/writing review and whole-system audit, followed by authorised remediation:16 confirmed findings,4 recommendations,14 ownership decisions,30 dedicated Home Assistant specifications and104 additional examples. Native live-task coverage remains separately bounded.",
   "completion_meaning": "A completed review means its documented scope has been covered. Open audit findings remain open until their acceptance evidence exists.",
   "phases": [
     {
@@ -315,6 +315,73 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-REMEDIATION",
+      "title": "Complete the fixes and examples",
+      "items": [
+        {
+          "id": "R1",
+          "task": "Correct the16confirmed findings and4migration/example recommendations.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json:16 resolved findings and4 implemented recommendations",
+            "docs/data/remediation-verification.json:bounded acceptance evidence"
+          ]
+        },
+        {
+          "id": "R2",
+          "task": "Expand cards with complete image, navigation, control, grouped and failure specimens.",
+          "status": "complete",
+          "evidence": [
+            "docs/source/components/cards.html.md.erb:14 complete card examples",
+            "docs/data/card-artwork-provenance.json:3 original SVGs and rights/alt decisions"
+          ]
+        },
+        {
+          "id": "R3",
+          "task": "Implement the14canonical ownership and standardisation decisions without removing URLs.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json:14 decisions and39 retained variant routes",
+            "tests/remediation.browser.spec.mjs:canonical navigation and runtime alias checks"
+          ]
+        },
+        {
+          "id": "R4",
+          "task": "Author30native Home Assistant design specifications with task-specific examples and acceptance recipes.",
+          "status": "complete",
+          "evidence": [
+            "docs/source/home-assistant/:30 specifications and catalogue",
+            "docs/data/ha-controls-examples.yml:48 examples",
+            "docs/data/ha-flows-examples.yml:45 examples"
+          ]
+        },
+        {
+          "id": "R5",
+          "task": "Reconcile every guide, example, rule, asset and current evidence record.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/remediation-controls-review.json:independent15-guide review",
+            "docs/data/remediation-flows-review.json:independent15-guide review",
+            "scripts/check-guidance.mjs:101 rules,196 guides,405 examples"
+          ]
+        },
+        {
+          "id": "R6",
+          "task": "Run build, integrity, runtime and responsive browser checks; correct failures and rerun affected checks.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/remediation-verification.json:767 unique browser checks,50 Node tests and build/integrity checks"
+          ]
+        },
+        {
+          "id": "R7",
+          "task": "Publish to GitHub Pages and verify the deployed pages in Chrome.",
+          "status": "pending",
+          "evidence": []
+        }
+      ]
     }
   ],
   "loops": [
@@ -372,6 +439,37 @@
         "Completed review and publication tasks while retaining the 16 confirmed findings, four recommendations and 44 component/specification proposals as open work.",
         "Rechecked the completed checklist at 320px; shortened its visible revision reference after the full identifier caused overflow. The complete identifier remains in the evidence record."
       ]
+    },
+    {
+      "id": "loop-6",
+      "title": "Loop 6: implement remedies and complete examples",
+      "outcome": "Implemented the confirmed findings, recommendation improvements and canonical owners. Added30 native-task specifications and104 examples while preserving published URLs.",
+      "checks": [
+        "Completed image, information, control, pending, unavailable, unknown and partial-group card specimens.",
+        "Aligned structural borders, semantic colours, body scale, calendar context and accurate action feedback.",
+        "Preserved native features and bounded runtime changes to the maintained lighting card."
+      ]
+    },
+    {
+      "id": "loop-7",
+      "title": "Loop 7: independent cross-review",
+      "outcome": "Separate reviewers read all30 new guides and93 native-task examples. They corrected15 bounded content/form issues and found no unresolved static-content finding within that scope.",
+      "checks": [
+        "Kept stable identifiers and deliberate choices; corrected capability, uncertainty and source claims.",
+        "Reviewed all101 frozen rule scopes, original artwork provenance and canonical ownership.",
+        "A separate runtime review found and corrected retired-batch continuation after disconnect/reconfiguration."
+      ]
+    },
+    {
+      "id": "loop-8",
+      "title": "Loop 8: rendered verification and correction",
+      "outcome": "All767 unique browser cases passed across the full run and corrective reruns. The tests exposed an audit phrase overflow, an incorrect test lookup and an enlarged-text select minimum; each was corrected and retested.",
+      "checks": [
+        "Built196 guides and405 examples with no broken internal links.",
+        "Passed50 Node checks, type checking, configuration templates, palette sync and supplied artwork hashes.",
+        "Checked connected Chrome at desktop and phone widths.",
+        "Retained separate native, assistive-technology and physical-device acceptance boundaries."
+      ]
     }
   ],
   "limitations": [
@@ -379,7 +477,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "review-and-publication-complete-proposals-open",
+  "status": "remediation-verified-publication-pending",
   "publication_verification": {
     "verified_revision": "fc393e49205926b753d1c531358c5e627c9c2af6",
     "verified_at": "2026-11-11T21:40:35Z",
@@ -389,5 +487,6 @@
     "browser_scope": "Public-page spot checks, desktop and 390px display; all guide/example automated coverage is recorded separately in CI.",
     "public_json_records_verified": 9,
     "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
-  }
+  },
+  "remediation_baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4"
 }

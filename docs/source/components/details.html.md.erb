@@ -1,17 +1,21 @@
 ---
-title: "Details"
-description: "Keep optional, short explanations close to the thing they explain."
-section: "components"
-group: "Content presentation"
-source_url: "https://service-manual.nhs.uk/design-system/components/details"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Details
+description: Keep optional, short explanations close to the thing they explain.
+section: components
+group: Content presentation
+source_url: https://service-manual.nhs.uk/design-system/components/details
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed details guidance and 2 Home Assistant reference examples."
+    description: Documented single-disclosure ownership and the distinct expander and accordion interaction contracts.
+  - date: 2026-11-11
+    description: Identified the selected date and partial-day period of the example energy total.
+  - date: 2026-11-11
+    description: Added NHS-informed details guidance and 2 Home Assistant reference examples.
 ---
 
 # Details
@@ -19,6 +23,12 @@ updates:
 Keep optional, short explanations close to the thing they explain.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## Choose an optional disclosure
+
+This page owns the native single-disclosure contract: a `details` element, a meaningful `summary`, keyboard operation and preserved open state. The [expander variant](expander.html) uses that same semantic contract with more prominent reference-content presentation. An [accordion](accordion.html) instead groups sections and supplies enhanced section buttons and a show-all control.
+
+Choose ordinary visible headings first. Use a small disclosure for an optional definition, an expander for a substantial optional topic, or an accordion when users genuinely need to compare a set of independently opened topics. Do not copy accordion state management into native details or assume that all disclosures have the same JavaScript fallback.
 
 ## When to use it
 

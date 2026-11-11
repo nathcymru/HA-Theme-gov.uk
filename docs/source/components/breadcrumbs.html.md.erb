@@ -1,17 +1,21 @@
 ---
-title: "Breadcrumbs"
-description: "Breadcrumbs explain a page’s place in a hierarchy and provide routes to its parents."
-section: "components"
-group: "Navigation"
-source_url: "https://service-manual.nhs.uk/design-system/components/breadcrumbs"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Breadcrumbs
+description: Breadcrumbs explain a page’s place in a hierarchy and provide routes to its parents.
+section: components
+group: Navigation
+source_url: https://service-manual.nhs.uk/design-system/components/breadcrumbs
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed breadcrumbs guidance and 2 Home Assistant reference examples."
+    description: Established the shared breadcrumb owner and explicit current-page variants, retaining the publishing examples.
+  - date: 2026-11-11
+    description: Corrected punctuation in the narrow-screen check.
+  - date: 2026-11-11
+    description: Added NHS-informed breadcrumbs guidance and 2 Home Assistant reference examples.
 ---
 
 # Breadcrumbs
@@ -19,6 +23,12 @@ updates:
 Breadcrumbs explain a page’s place in a hierarchy and provide routes to its parents.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## Maintain one hierarchy contract
+
+This page owns the shared breadcrumb behaviour. The [publishing breadcrumb examples](../publishing/components/breadcrumbs.html) retain their source context and the variant that includes the current page.
+
+Use one labelled navigation landmark and an ordered parent trail. If the current page is omitted, its heading provides the current context. If it is included, use non-interactive text with `aria-current="page"`; do not link it back to itself. Both variants use actual parent destinations, wrap at narrow widths and keep decorative separators out of accessible names. A source-specific visual variant does not create a second hierarchy.
 
 ## When to use it
 
@@ -52,7 +62,7 @@ The current topic is named by the heading, rather than repeated as a link.
 
 ## Check the implementation
 
-Test long names,320px width, increased text size and direct navigation into a child page. Ensure the current page heading and parent trail agree.
+Test long names, 320px width, increased text size and direct navigation into a child page. Ensure the current page heading and parent trail agree.
 
 Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
 

@@ -1,19 +1,21 @@
 ---
-title: "Finder"
-description: "A finder searches one defined collection and uses relevant filters to narrow its results."
-section: "patterns"
-group: "Page templates"
-source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Finder
+description: A finder searches one defined collection and uses relevant filters to narrow its results.
+section: patterns
+group: Page templates
+source_url: https://design-guide.publishing.service.gov.uk/frontend-templates/finder/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Organised all eleven finder source routes under one filtering and collection contract, preserving applicability boundaries.
+  - date: 2026-11-11
+    description: Added working local example behaviour with a safe no-JavaScript fallback and no connected backend.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Finder
@@ -21,6 +23,26 @@ updates:
 A finder searches one defined collection and uses relevant filters to narrow its results. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/finder/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## One composition with contextual variants
+
+Use the [search-filter pattern](../patterns/search-filter.html) for query, facet, count and reset behaviour, and the [search-input component](../../components/search-input.html) for the field itself. This page owns the collection composition. The eleven retained source routes below explain applicability; they are not eleven new household services.
+
+| Retained source context | Household boundary |
+| --- | --- |
+| [Case studies](finder/case-studies-finder.html) | Curated project evidence; label synthetic examples and tested records accurately. |
+| [Organisations](finder/departments-agencies-public-bodies-finder.html) | Integration or provider context only; no invented government affiliation. |
+| [Groups](finder/groups-finder.html) | Explicitly configured groups; matching names do not prove membership. |
+| [Contacts](finder/hmrc-contacts-finder.html) | Verified support destinations; no invented contact details or response times. |
+| [People](finder/people-finder.html) | Private roles only; native account permissions and presence privacy remain separate. |
+| [Search](finder/search.html) | A stated documentation scope; do not blend it with private household data. |
+| [Specialist documents](finder/specialist-document-finder.html) | Model and revision context; a name match does not establish compatibility. |
+| [Data sets](finder/statistical-data-sets-finder.html) | Real measurements or existing exports; no imaginary download endpoint. |
+| [Broad purposes](finder/supergroup-finder.html) | Predictable guidance categories; no replacement for native area or domain taxonomy. |
+| [Projects and events](finder/topical-events-finder.html) | Current and archived projects distinguished by actual status and dates. |
+| [Worldwide organisations](finder/world-organisation-finder.html) | No direct household equivalent; multi-home discovery is not implemented. |
+
+Every variant keeps its existing examples and source attribution. Extend a collection only when its records, permissions and destinations actually exist; do not infer live discovery or account management from a directory layout.
 
 ## When to use it
 

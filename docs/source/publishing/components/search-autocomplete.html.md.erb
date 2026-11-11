@@ -1,19 +1,21 @@
 ---
-title: "Search autocomplete"
-description: "The publishing search autocomplete suggests queries for a large search service. The guide distinguishes it from a static component-name autocomplete."
-section: "components"
-group: "Publishing components"
-source_url: "https://design-guide.publishing.service.gov.uk/components/search-autocomplete/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Search autocomplete
+description: The publishing search autocomplete suggests queries for a large search service. The guide distinguishes it from a static component-name autocomplete.
+section: components
+group: Publishing components
+source_url: https://design-guide.publishing.service.gov.uk/components/search-autocomplete/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added working local example behaviour with a safe no-JavaScript fallback and no connected backend.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Search autocomplete
@@ -21,6 +23,10 @@ updates:
 The publishing search autocomplete suggests queries for a large search service. The guide distinguishes it from a static component-name autocomplete. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/search-autocomplete/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Keep suggestions optional
+
+The [search-input component](../../components/search-input.html#search-field-filters-or-finder) owns labels and submission. The [search-filter pattern](../patterns/search-filter.html#share-the-filtering-contract) owns visible records and counts. This source variant adds browser-native suggestions from the same fixed records; it does not implement the native Home Assistant entity picker or a predictive search service.
 
 ## When to use it
 

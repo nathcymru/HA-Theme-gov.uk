@@ -1,6 +1,6 @@
 ---
-title: "Service navigation"
-description: "Provide stable, named routes between the main areas of a service."
+title: Service navigation
+description: Provide stable, named routes between the main areas of a service.
 section: components
 group: Navigation
 status: reference
@@ -8,12 +8,18 @@ published_on: 2026-11-11
 updated_on: 2026-11-11
 updates:
   - date: 2026-11-11
-    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added the civica.uk guidance, contextual examples and implementation boundaries.
 ---
 
 # Service navigation
 
 Provide stable, named routes between the main areas of a service.
+
+## Keep route selection separate from identity
+
+The [header family](header.html#identity-and-navigation-have-separate-responsibilities) owns identity and home-link behaviour. This component owns the destination list, current-route marker and responsive menu. The focused [generic header](generic-header.html) does not need a navigation bar merely to share that identity contract.
 
 ## When to use
 

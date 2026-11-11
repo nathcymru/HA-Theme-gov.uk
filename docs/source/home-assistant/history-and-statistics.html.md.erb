@@ -1,0 +1,83 @@
+---
+title: "History, activity and statistics"
+description: "Review recorded values outside Energy with truthful periods, sources and accessibility limits."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-011"
+contract_id: "HA-CTRL-011"
+source_url: "https://www.home-assistant.io/integrations/history/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added history, activity and statistics contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# History, activity and statistics
+
+History answers what entities reported over a chosen period. Activity records events; statistics aggregate supported numeric observations. None of these is automatically covered by the maintained Energy chart adapter, even when the surrounding theme colours match.
+
+**HA-CTRL-011 — reference design specification.** This specifies the local design coverage requested by HA-GAP-011 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-011-capabilities">Task and capability contract</h2>
+
+| Surface | Data and interaction contract |
+| --- | --- |
+| History panel | Preserve selected targets, filters, period, native zoom and available export. Recorder determines stored history. |
+| History graph | Keep state transitions and numeric observations in their native units; do not turn categorical states into a smoothed numeric line. |
+| Activity | An event record is not a continuous measurement or proof of a physical action's completion. Preserve event time and actual attribution. |
+| Statistics graph | Identify the chosen aggregate and interval: mean, minimum, maximum or supported cumulative/difference measure are not interchangeable. |
+| Download or data equivalent | State the actual selected scope, dates, units and missing-data meaning. Do not offer a fake export. |
+
+<h2 id="ha-ctrl-011-states">States, pending work and failure</h2>
+
+Differentiate no selected targets, a successful empty period, an entity excluded from Recorder, unavailable source data and a failed request. Do not convert these into a flat zero series. A recent entity may have no earlier records; a shorter retention period can remove raw history while longer-term statistics remain.
+
+When a person changes the date, retain the previous period label with any retained plot until the new response is ready. Do not show new-period headings over old-period values. A failed request should keep the selected scope available for review, while labelling any retained values with their original period.
+
+Keep gaps, signed values and unit distinctions intact. A graph of mean temperature is not a list of every original reading. If comparing periods, name both periods and coverage before calculating a change. Never infer that a missing activity attribution means a physical button was pressed.
+
+<h2 id="ha-ctrl-011-content">Content and interpretation</h2>
+
+Give each output its quantity, selected period and source. Describe timestamps as observations, events or interval boundaries according to the actual model. Use the person's native date, number and zone preferences for dynamic content. A fixed reference table includes its date and zone so it remains understandable after publication.
+
+<h2 id="ha-ctrl-011-accessibility">Accessibility and interaction</h2>
+
+Test the native keyboard and non-visual routes on the installed frontend. A hover tooltip alone is insufficient for exact values. Use the native export or an explicitly implemented equivalent when available; do not promise the Energy View data table here. Record unresolved chart-access issues with a specific reproduction rather than declaring a themed chart accessible. Keep zoom and source controls named and usable at narrow widths.
+
+<h2 id="ha-ctrl-011-integration">Native integration boundary</h2>
+
+The companion does not target History hosts. Preserve native History, Activity and statistics implementation and supported theme variables. The HTML tables below are design references, not a data-fetching adapter. Before a future adapter is accepted, document the source/aggregation contract, ownership of period changes and teardown, and the exact accessible alternative it adds.
+
+<h2 id="ha-ctrl-011-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-history-values') %>
+
+<%= example('ha-history-empty') %>
+
+<%= example('ha-history-unavailable') %>
+
+<h2 id="ha-ctrl-011-acceptance">Acceptance and evidence</h2>
+
+1. Exercise no target, no records, Recorder exclusion, purged history and a request failure separately. Never fabricate zeroes.
+2. Change targets and periods rapidly; compare heading, plot, table and export scope. Delayed responses must not overwrite a newer selection.
+3. Compare raw state history with a supported statistic for the same period and label their different meaning. Preserve signs, gaps and original units.
+4. Test native keyboard zoom/source selection and actual download contents. Log any inaccessible value route as an unresolved native issue; a static documentation table is not live verification.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-011-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [History](https://www.home-assistant.io/integrations/history/)
+- [Statistics graph card](https://www.home-assistant.io/dashboards/statistics-graph/)
+
+Applicable frozen rules: [BG-DAT-03](../styles/brand-data.html#bg-dat-03), [BG-DAT-04](../styles/brand-data.html#bg-dat-04), [BG-DAT-07](../styles/brand-data.html#bg-dat-07), [WG-074](../content/numbers-and-data.html#wg-074), [WG-076](../content/numbers-and-data.html#wg-076), [WG-077](../content/numbers-and-data.html#wg-077). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

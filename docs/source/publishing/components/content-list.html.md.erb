@@ -1,17 +1,19 @@
 ---
-title: "Contents list"
-description: "A contents list gives a short route to sections within a long page or to chapters in a guide."
-section: "components"
-group: "Publishing components"
-source_url: "https://design-guide.publishing.service.gov.uk/components/content-list/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Contents list
+description: A contents list gives a short route to sections within a long page or to chapters in a guide.
+section: components
+group: Publishing components
+source_url: https://design-guide.publishing.service.gov.uk/components/content-list/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Contents list
@@ -19,6 +21,10 @@ updates:
 A contents list gives a short route to sections within a long page or to chapters in a guide. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/content-list/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Use the shared navigation contract
+
+[Contents list](../../components/contents-list.html#choose-the-navigation-scope) owns the distinction between “On this page” fragments and “In this guide” routes. This publishing source page retains its article examples. Use the [mini-hub pattern](../../patterns/mini-hub.html) when several real pages also need current-topic and previous/next context.
 
 ## When to use it
 

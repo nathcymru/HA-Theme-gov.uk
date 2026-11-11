@@ -1,17 +1,19 @@
 ---
-title: "Breadcrumbs"
-description: "Publishing breadcrumbs expose the parent hierarchy of an information page. They are navigation, not transaction progress."
-section: "components"
-group: "Publishing components"
-source_url: "https://design-guide.publishing.service.gov.uk/components/breadcrumbs/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Breadcrumbs
+description: Publishing breadcrumbs expose the parent hierarchy of an information page. They are navigation, not transaction progress.
+section: components
+group: Publishing components
+source_url: https://design-guide.publishing.service.gov.uk/components/breadcrumbs/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Breadcrumbs
@@ -19,6 +21,10 @@ updates:
 Publishing breadcrumbs expose the parent hierarchy of an information page. They are navigation, not transaction progress. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/breadcrumbs/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Use the shared hierarchy contract
+
+[Breadcrumbs](../../components/breadcrumbs.html#maintain-one-hierarchy-contract) owns parent routes, the navigation landmark and current-page semantics. This source page retains the publishing context and both examples. Choose the parent-only or current-item variant deliberately; both must describe the same real hierarchy.
 
 ## When to use it
 

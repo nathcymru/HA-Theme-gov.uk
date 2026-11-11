@@ -92,8 +92,9 @@
     },
     "system-example-reading": {
       "title": "A labelled reading",
-      "html": "<h2 class=\"govuk-heading-m\">Living room temperature</h2><p class=\"govuk-body\"><strong>20 \u00b0C</strong> \u2014 example reading. Updated at 14:30.</p>",
-      "height": 300
+      "html": "<h2 class=\"govuk-heading-m\">Living room temperature</h2><p class=\"govuk-body\"><strong>20 °C</strong> — synthetic reading.</p><p class=\"govuk-body\">Reported on <time datetime=\"2026-11-11T14:30:00+00:00\">11 November 2026 at 14:30 GMT</time> (Europe/London).</p>",
+      "height": 300,
+      "description": "An invented temperature with its source observation date and time, rather than an unspecified display update."
     },
     "system-example-interactive": {
       "title": "A local demonstration action",

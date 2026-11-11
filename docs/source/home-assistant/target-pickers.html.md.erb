@@ -1,0 +1,87 @@
+---
+title: Entity, device and area pickers
+description: Select the correct household targets while preserving native filters, identities and exclusions.
+section: patterns
+group: "Home Assistant: controls"
+status: reference
+gap_id: HA-GAP-008
+contract_id: HA-CTRL-008
+source_url: https://www.home-assistant.io/docs/blueprint/selectors/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+updates:
+  - date: 2026-11-11
+    description: Aligned authored permission wording with the UK-English style while preserving native labels and identifiers.
+  - date: 2026-11-11
+    description: Corrected the unanswered selection to preserve entity IDs and completed the included/excluded member review.
+  - date: 2026-11-11
+    description: Added entity, device and area pickers contract, domain-specific acceptance checks and synthetic reference examples.
+---
+
+# Entity, device and area pickers
+
+A picker determines what an action will affect. Preserve the native selection family for entities, devices, areas, floors, labels and targets; a plain text field or a fixed select is not an equivalent replacement for a searchable, filtered registry picker.
+
+**HA-CTRL-008 — reference design specification.** This specifies the local design coverage requested by HA-GAP-008 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-008-capabilities">Task and capability contract</h2>
+
+| Selection kind | Contract |
+| --- | --- |
+| Entity | Preserve the stable entity ID and native domain/capability filters. Friendly names can duplicate. |
+| Device | A device can expose several entities with different capabilities; it is not synonymous with one entity. |
+| Area, floor or label | Preserve the native grouping and resolution rules. Explain when membership can change the affected set. |
+| Multiple selection | Retain each item, a useful count and an accessible removal operation; selection order must not change identity. |
+| Action target | Pass the complete supported target, including exclusions. Do not extract only entity IDs and drop native semantics. |
+
+<h2 id="ha-ctrl-008-states">States, pending work and failure</h2>
+
+Distinguish no search matches, no compatible targets, permission-limited results and a failed registry request. A broad “No devices” message is wrong if the filter excludes them. Do not reveal names that the native account is not allowed to obtain.
+
+A saved entity can be unavailable while still existing. A deleted target needs an unresolved-item state and an explicit repair decision. Do not silently choose the first result or remove an inaccessible target on load. When filters change, show how previously selected values are affected before saving.
+
+Keep friendly names as supplied, including punctuation and language. Use area, domain and a stable ID where necessary to distinguish duplicates. Preserve exclusions and mixed target types during serialisation; the action's target field is not an arbitrary list of display labels.
+
+<h2 id="ha-ctrl-008-content">Content and interpretation</h2>
+
+Label the question by its purpose, such as “Which lights should this action affect?”. Show filter scope near the search. A count means the current known matching set, not a promise that every member is available or authorised at execution time. Removal copy must identify whether it removes a target from this draft or deletes an entity from Home Assistant; those are different operations.
+
+<h2 id="ha-ctrl-008-accessibility">Accessibility and interaction</h2>
+
+Retain the native combobox/listbox semantics and keyboard result navigation rather than applying those roles to an incomplete imitation. Announce result and selection changes without repeating all options. A selected-item remove control needs the item name and a predictable focus destination. At enlarged text, show disambiguating context instead of clipping all duplicate names identically.
+
+<h2 id="ha-ctrl-008-integration">Native integration boundary</h2>
+
+Use native schema selectors with their allowed domain, integration, device-class and supported-feature filters. The reference examples are review and naming specimens, not a new picker implementation. When implementing a blueprint or action consumer, preserve the native target value as a whole. Verify the installed frontend's selector behaviour and its backend validation rather than treating a successful visual selection as authorisation.
+
+<h2 id="ha-ctrl-008-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-target-duplicates') %>
+
+<%= example('ha-target-scope') %>
+
+<%= example('ha-target-missing') %>
+
+<h2 id="ha-ctrl-008-acceptance">Acceptance and evidence</h2>
+
+1. Use duplicate friendly names in different areas, translated names and long identifiers. The selected stable IDs must remain correct after sorting or filtering.
+2. Exercise empty results, a registry failure, an unavailable entity and a deleted saved entity separately. No automatic replacement or silent deletion.
+3. Select mixed target kinds with an exclusion and round-trip the native value without dropping fields or expanding scope.
+4. Use keyboard search, selection and removal; verify focus after removing the last selected item. Check both authorised and restricted accounts without exposing hidden data.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-008-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Selectors](https://www.home-assistant.io/docs/blueprint/selectors/)
+- [Entities and domains](https://www.home-assistant.io/docs/configuration/entities_domains/)
+
+Applicable frozen rules: [BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [BG-TYP-05](../styles/brand-typography.html#bg-typ-05), [WG-022](../content/words-and-style.html#wg-022), [WG-025](../content/words-and-style.html#wg-025), [WG-034](../content/interface-copy.html#wg-034), [WG-038](../content/interface-copy.html#wg-038), [WG-084](../content/accessible-content.html#wg-084). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

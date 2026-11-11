@@ -1,0 +1,86 @@
+---
+title: Automation and script editing
+description: Keep edit, save, enable and run operations distinct in visual and YAML workflows.
+section: patterns
+group: "Home Assistant: controls"
+status: reference
+gap_id: HA-GAP-009
+contract_id: HA-CTRL-009
+source_url: https://www.home-assistant.io/docs/automation/editor/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+updates:
+  - date: 2026-11-11
+    description: Separated interface error feedback from the example automation action sequence.
+  - date: 2026-11-11
+    description: Added automation and script editing contract, domain-specific acceptance checks and synthetic reference examples.
+---
+
+# Automation and script editing
+
+An editor combines configuration and actions that may affect the home. People need a readable hierarchy, a stable draft and a clear account of what a test will execute. The native editor remains responsible for editing, validation, undo and traces.
+
+**HA-CTRL-009 — reference design specification.** This specifies the local design coverage requested by HA-GAP-009 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-009-capabilities">Task and capability contract</h2>
+
+| Operation | State and consequence to expose |
+| --- | --- |
+| Edit draft | Unsaved changes; native editor state and undo remain available. |
+| Save | Persist configuration only after the backend confirms it. Do not say the devices have changed. |
+| Enable | Future matching triggers can run the automation. It is not evidence of a current execution. |
+| Run or test | State exactly which actions, conditions or branch the selected native test evaluates, and which targets it can affect. |
+| Disable or delete | Explain effects on future triggers and current execution from the native contract; do not promise a rollback. |
+| Trace | Evidence about a particular run, with its time and branch path; it is not a general success certificate. |
+
+<h2 id="ha-ctrl-009-states">States, pending work and failure</h2>
+
+Separate schema errors, permission failures, save conflicts and action failures. A field or YAML validation error needs the exact location and retained text where the editor supports retention. A lost connection must not become “Saved”. Preserve the draft and native undo if actually available, and explain any recovery limitation honestly.
+
+Nested Choose, If, Repeat and parallel actions need explicit hierarchy. Display order can affect execution; a visual rearrangement must not silently flatten branches. Offer or retain the native non-drag operation where available, and record an accessibility gap if the installed editor cannot perform a necessary reorder by keyboard.
+
+An automation can be saved and disabled, enabled but never triggered, or currently running. Do not collapse those into one “Complete” state. A manual action test can behave differently from the trigger path; its result does not establish that every condition or trigger worked.
+
+<h2 id="ha-ctrl-009-content">Content and interpretation</h2>
+
+Use actual native labels for the version being documented. Explain required targets, modes and significant effects before a test. Keep YAML syntax and entity IDs exact and monospaced. A translated explanatory label must not alter a code value. Separate the error's supplied cause from suggested investigation; do not blame a device without trace evidence.
+
+<h2 id="ha-ctrl-009-accessibility">Accessibility and interaction</h2>
+
+Use real headings and nested lists for explanatory outlines. In the editor, preserve labelled action blocks, keyboard selection, focus after move/delete and accessible error navigation. Dense code surfaces retain alignment and native scaling; do not force 19px prose styling into the code editor. Keep Run visually and semantically separate from Save.
+
+<h2 id="ha-ctrl-009-integration">Native integration boundary</h2>
+
+Hand editing to the native visual or YAML editor under Settings > Automations & scenes. Theme variables do not provide an editor model, undo stack or trace engine. These fixed forms demonstrate content and error placement only. A future scoped adapter must leave native dirty state, validation, ordering and callbacks intact and must document the frontend version it tests.
+
+<h2 id="ha-ctrl-009-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-automation-outline') %>
+
+<%= example('ha-automation-invalid') %>
+
+<%= example('ha-automation-run') %>
+
+<h2 id="ha-ctrl-009-acceptance">Acceptance and evidence</h2>
+
+1. Create an unsaved draft, undo a change, save successfully and reject a save. Verify the actual retained draft and distinguish it from persisted configuration.
+2. Navigate nested conditions/actions, move and delete blocks using the native keyboard routes. Preserve focus and execution order; record unresolved limitations.
+3. Review an action-only test and a real triggered trace separately. Confirm which branches/targets each evaluates in a controlled environment.
+4. Test disabled, enabled, currently running and deleted automation states, plus concurrent edits and connection loss. No save/test action should be dispatched from these documentation examples.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-009-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Automation editors](https://www.home-assistant.io/docs/automation/editor/)
+- [Troubleshooting automations](https://www.home-assistant.io/docs/automation/troubleshooting/)
+
+Applicable frozen rules: [BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [WG-035](../content/interface-copy.html#wg-035), [WG-036](../content/interface-copy.html#wg-036), [WG-051](../content/instructions-and-learning.html#wg-051), [WG-080](../content/accessible-content.html#wg-080), [WG-084](../content/accessible-content.html#wg-084). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

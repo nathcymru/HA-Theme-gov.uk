@@ -1,0 +1,102 @@
+---
+title: "Native task accessibility and evidence"
+description: "Complete design specification for native task accessibility and evidence, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-024
+source_url: https://www.home-assistant.io/dashboards/features/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated native task accessibility and evidence specification and three complete synthetic examples."
+  - date: 2026-11-11
+    description: "Completed the unexecuted test-plan specimen and corrected the matrix reference."
+---
+
+# Native task accessibility and evidence
+
+Test whether a person can complete the task, understand its result and recover from interruption. A visually consistent theme, an automated scan and a complete design specification answer different questions. This matrix makes the remaining native and assistive-technology work visible rather than promoting untested tasks to passes.
+
+## Scope and native ownership
+
+Native dashboard features vary with entity capabilities. Their focus, keyboard and interaction behaviour remain owned by Home Assistant. The repository tests maintained civica controls and source-shaped fixtures; they are not a complete Home Assistant installation. [Official Home Assistant source](https://www.home-assistant.io/dashboards/features/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-024**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Source inspected | Record the file, revision and capability observed. | Source presence is not an executed interaction test. |
+| Automated fixture passed | Name the fixture, browser, revision and assertions. | Do not extend its pass to arbitrary native or custom components. |
+| Manual task passed | Record user steps, state, input method and observed result. | Do not substitute a screenshot for completing the task. |
+| Not tested / blocked | State the missing environment, account, device or method. | Do not convert absence of a failure into a pass. |
+| Failure found | Name the affected task and reproducible condition. | Do not claim a CSS workaround repairs a backend or semantic defect. |
+
+## Integration contract
+
+1. Create one evidence row per task, state and method. Record the repository revision, Core/frontend versions, browser/OS, assistive technology and version, viewport/zoom, theme/tone/mode and entity capability fixture.
+2. Treat keyboard, screen reader, touch, pointer and voice as separate methods. Verify both successful paths and unavailable, pending, rejected, interrupted and permission-limited outcomes.
+3. Reuse the native control semantics. Any presentation adapter must preserve accessible name, role, value, expanded/checked/disabled state and the relationship to hints and errors.
+4. Keep test execution separate from state-changing household work. Use controlled fixtures or an explicitly agreed safe installation for consequential actions; do not silently operate a lock or alarm during an appearance review.
+
+## Accessible interaction
+
+- For native dialogs verify initial focus, containment where modal, Escape/cancel behaviour and focus return. Confirm a nested picker does not lose its parent context.
+- Test 320px reflow, 200% text and 400% browser zoom as separate conditions; a small viewport is not proof of zoom behaviour. Inspect forced colours and reduced motion independently.
+- Screen-reader task evidence must include what was announced and whether the person could complete the task; an axe result does not supply that evidence.
+
+## Failure and recovery
+
+- Keep a native limitation attached to the exact version and component rather than promising universal compatibility.
+- If a control lacks an alternative to dragging, document the supported route if one exists and record the remaining task failure.
+- When a task is blocked by unavailable equipment, record blocked/not tested and the missing prerequisite, not passed.
+
+## Reusable native task matrix
+
+| Task family | Required states and steps | Evidence still needed for a native release |
+| --- | --- | --- |
+| Slider and volume | Name/value; minimum/maximum; step keys; unavailable and pending | Keyboard and screen reader; touch alternative; 200% text and forced colours |
+| Entity/target picker | Search, no results, unavailable match, selected count, permission scope | Keyboard order; selection announcement; long names; native data freshness |
+| Nested automation editor | Add, reorder, expand, validate, undo; save distinct from run | Non-drag route; hierarchy; screen-reader editing; retained draft after rejection |
+| Camera and media | Loading, missing stream, paused/live; labelled controls over imagery | Keyboard and screen reader; captions where content requires them; no autoplay |
+| Map and zone editor | Text location route, grouped markers, absent coordinates, zoom and exit | Non-drag editing route; attribution; keyboard traps and shared-screen privacy |
+| Native more-info dialog | Open, nested control, error, close, focus return | Screen-reader dialog context; Escape; enlarged text; native action outcome |
+| Dense/shared display | Long names, many entities, changing counts and private records | 320px, 200% text, 400% zoom, forced colours, reduced motion and chosen disclosure |
+
+## Executed evidence and its limits
+
+The [published guidance/audit run at revision fc393e4](https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43103696048) passed 531 browser checks for the then-current build. Its record covers 165 guides and 301 examples, including documentation accessibility/reflow, safe local example behaviour and the maintained runtime fixtures. These are historical results, not fresh passes for this expanded page set. The [work-package record](../reference/guidance-work-package.json) retains that scope.
+
+| Executed test family | What its evidence covers | What it does not establish |
+| --- | --- | --- |
+| Documentation browser checks | Built markup, automated accessibility, narrow layout, no-JavaScript content and local demo behaviour | Screen-reader usability or native device workflows |
+| Theme settings and badge fixtures | Palette/tone/mode, named controls, count updates, duplicate loading and restoration | Every native profile/sidebar version or notification delivery |
+| Lighting and legacy-card fixtures | Named controls, unavailable/error states, dialog/scene presentation and cleanup | Physical light or appliance execution |
+| Energy real-renderer fixtures | Native-shaped ECharts data, table values, signed traces, locale, patterns and restoration | Full HA installation, all chart types or a screen-reader task study |
+
+The [v1.3.2 verification record](https://github.com/nathcymru/HA-Theme-gov.uk/blob/fc393e49205926b753d1c531358c5e627c9c2af6/VERIFICATION.md) separately records 50 Node checks, 52 browser checks and 37 documentation pages for that earlier runtime correction. Do not add those historical counts together or relabel them as current coverage. Live palette/chart observations recorded in release evidence do not cover physical device execution or all native task rows above. Human screen-reader, household-comprehension and complete live-task coverage remain separate acceptance work.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-024-evidence') %>
+
+<%= example('ha-flow-024-unexecuted') %>
+
+<%= example('ha-flow-024-checklist') %>
+
+## Integration acceptance
+
+- Every claimed pass links to an executed result for its stated revision and method; new examples require their own build/browser checks.
+- Every matrix row is exercised or explicitly not tested for a release, with unresolved failures retained.
+- User-facing accessibility statements distinguish documentation, maintained fixture controls, native tasks and physical device outcomes.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-COL-03](../styles/brand-colour.html#bg-col-03), [BG-COL-06](../styles/brand-colour.html#bg-col-06), [BG-TYP-05](../styles/brand-typography.html#bg-typ-05), [WG-063](../content/inclusive-content.html#wg-063), [WG-081](../content/accessible-content.html#wg-081), [WG-084](../content/accessible-content.html#wg-084), [WG-086](../content/accessible-content.html#wg-086), [WG-095](../content/content-review.html#wg-095).

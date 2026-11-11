@@ -1,14 +1,27 @@
 ---
-title: "Notification badge"
-description: "The MOJ notification badge pattern and its bounded Home Assistant adaptation."
+title: Notification badge
+description: The MOJ notification badge pattern and its bounded Home Assistant adaptation.
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: Linked attention counts to the message decision guide without changing the MOJ geometry or native behaviour.
+  - date: 2026-11-11
+    description: Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild.
+  - date: 2026-11-11
+    description: First published in the civica.uk design system.
 ---
 
 # Notification badge
 
 Use the [Ministry of Justice notification badge](https://design-patterns.service.justice.gov.uk/components/notification-badge/) for new or unread items that need attention. Associate it with the destination that opens those items. Do not use it for routine device totals or to label a sensor state.
 
+
+## A count has a different job from a status
+
+Follow the [message decision guide](status.html#choose-the-right-message) before adding a badge. This page owns attention-count geometry and count wording. A [tag](tag.html) names a state; a [notification banner](notification-banners.html) carries a message. Neither is a substitute for an unread count, and the count itself cannot communicate the severity of the underlying items.
 
 ## Examples
 

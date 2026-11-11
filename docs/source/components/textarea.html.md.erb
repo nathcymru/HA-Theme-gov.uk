@@ -1,17 +1,19 @@
 ---
-title: "Textarea"
-description: "Use a textarea for a specific answer that needs several lines."
-section: "components"
-group: "Form elements"
-source_url: "https://service-manual.nhs.uk/design-system/components/textarea"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Textarea
+description: Use a textarea for a specific answer that needs several lines.
+section: components
+group: Form elements
+source_url: https://service-manual.nhs.uk/design-system/components/textarea
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed textarea guidance and 2 Home Assistant reference examples."
+    description: Completed the form specimens and retained a substantive description while a different answer fails validation.
+  - date: 2026-11-11
+    description: Added NHS-informed textarea guidance and 2 Home Assistant reference examples.
 ---
 
 # Textarea
@@ -44,9 +46,9 @@ The audience and purpose of the text are stated before entry.
 
 <%= example('nhs-textarea-description') %>
 
-### Keep text when a save fails validation
+### Keep text while another answer needs correction
 
-The description remains editable after the failed attempt.
+The example preserves a complete description while an empty view-name field receives the error. The textarea itself is not invalid. Complete the name and submit to receive local feedback; no view is saved.
 
 <%= example('nhs-textarea-error') %>
 

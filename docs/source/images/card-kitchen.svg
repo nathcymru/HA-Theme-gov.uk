@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">An invented kitchen</title>
+  <desc id="desc">A kitchen counter and sink sit below a window, with a tall cupboard at the left. This is an illustration, not a photograph or device-state display.</desc>
+  <rect width="640" height="360" fill="#f3f6f9"/>
+  <rect x="38" y="40" width="564" height="266" fill="#ffffff"/>
+  <rect x="66" y="73" width="108" height="233" fill="#103e65"/>
+  <rect x="82" y="93" width="76" height="122" fill="#d2e2f0"/>
+  <rect x="145" y="231" width="6" height="32" fill="#ffffff"/>
+  <rect x="215" y="72" width="228" height="110" fill="#d2e2f0"/>
+  <rect x="225" y="82" width="208" height="90" fill="#f3f6f9"/>
+  <rect x="324" y="82" width="10" height="90" fill="#d2e2f0"/>
+  <rect x="225" y="122" width="208" height="10" fill="#d2e2f0"/>
+  <rect x="202" y="225" width="356" height="81" fill="#1d70b8"/>
+  <rect x="202" y="213" width="356" height="12" fill="#103e65"/>
+  <rect x="319" y="229" width="7" height="77" fill="#ffffff"/>
+  <rect x="437" y="229" width="7" height="77" fill="#ffffff"/>
+  <rect x="245" y="241" width="40" height="6" fill="#ffffff"/>
+  <rect x="363" y="241" width="40" height="6" fill="#ffffff"/>
+  <rect x="481" y="241" width="40" height="6" fill="#ffffff"/>
+  <rect x="266" y="207" width="118" height="6" fill="#d2e2f0"/>
+  <path d="M320 207v-25a16 16 0 0 1 32 0v8h-8v-8a8 8 0 0 0-16 0v25z" fill="#103e65"/>
+  <rect x="489" y="172" width="35" height="41" rx="4" fill="#d2e2f0"/>
+  <path d="M506 172v-27h6v27z" fill="#103e65"/>
+  <rect x="38" y="306" width="564" height="15" fill="#d2e2f0"/>
+</svg>

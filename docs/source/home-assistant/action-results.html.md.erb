@@ -1,0 +1,86 @@
+---
+title: "Action requests and results"
+description: "Distinguish requests, reported results, timeouts and partial completion."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-002"
+contract_id: "HA-CTRL-002"
+source_url: "https://www.home-assistant.io/dashboards/actions/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added action requests and results contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Action requests and results
+
+A button expresses an intention. Its result needs separate evidence. This contract covers single entities, room actions, scenes and scripts without inventing transactional guarantees across devices.
+
+**HA-CTRL-002 — reference design specification.** This specifies the local design coverage requested by HA-GAP-002 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-002-capabilities">Task and capability contract</h2>
+
+| Before submission | Required decision |
+| --- | --- |
+| Named target and supported action | Resolve the intended entities through the native target contract; show the affected scope. |
+| Confirmation condition | Record whether confirmation is an entity report, task response or integration-specific event. A resolved call alone is not physical proof. |
+| Retry characteristics | Establish whether repeated requests are safe, additive or potentially conflicting. |
+| Cancellation support | Expose Cancel or Stop only if the underlying operation supports the stated effect. |
+| Concurrent actor | Accept that another user, automation or physical control may change the device while this request is pending. |
+
+<h2 id="ha-ctrl-002-states">States, pending work and failure</h2>
+
+| State of this operation | Presentation |
+| --- | --- |
+| Ready | A specific action label and the latest reported device state. |
+| Sending or accepted | Pending feedback; the device state stays separately qualified. Prevent accidental duplicate submission for that operation. |
+| Observed result | Report the new state and its evidence; do not imply that an unrelated update was caused by this request. |
+| Rejected request | Explain the supplied error and a supported recovery route. Keep the current device state. |
+| Waiting limit reached | “Not confirmed”; explain that the action may still complete. A timeout is not a rollback. |
+| Partial group completion | Give counts and per-member outcomes; retain unknown members. Do not mark the group successful. |
+
+<h2 id="ha-ctrl-002-content">Content and interpretation</h2>
+
+Use “Turn off study lights” for the action and “2 lights reported off” for an observed result. A scene activation time or a script run ending does not establish that every target reached the desired physical state. Do not label a scene “On” unless the relevant entity contract supplies that meaning. Show error details only to an appropriate audience; private identifiers should not leak into shared-screen toasts.
+
+<h2 id="ha-ctrl-002-accessibility">Accessibility and interaction</h2>
+
+Keep a focused button in place while pending. Announce one relevant change through a status region, then retain a visible result. Re-enable the appropriate control after an error without moving focus to a distant toast. A group outcome needs a structured list or table, with a keyboard route to each affected member. Colour is supplemental.
+
+<h2 id="ha-ctrl-002-integration">Native integration boundary</h2>
+
+Preserve native dashboard actions, More info, confirmation and protected-action flows. The theme must not globally wrap every service call or infer completion from a generic promise. The maintained lighting card is a separate, bounded implementation; these examples do not extend it to all domains. If cancellation is unavailable, offer dismissal of the message with clear wording, not a fictional cancellation of the device operation.
+
+<h2 id="ha-ctrl-002-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-action-request') %>
+
+<%= example('ha-action-pending') %>
+
+<%= example('ha-action-partial') %>
+
+<h2 id="ha-ctrl-002-acceptance">Acceptance and evidence</h2>
+
+1. Resolve a request before the state update, and state-update before the response. Neither ordering may create duplicate announcements or premature success.
+2. Exercise group outcomes containing confirmed, rejected, unavailable and unconfirmed members. Counts must reconcile with the intended targets.
+3. Let an operation finish after the waiting limit and after its message is dismissed. Update from current evidence and do not repeat it automatically.
+4. Change the same device from a second session while pending. Keep native state authoritative and retain explicit distinctions between Cancel, Stop and Dismiss.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-002-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Dashboard actions](https://www.home-assistant.io/dashboards/actions/)
+- [State and state object](https://www.home-assistant.io/docs/configuration/state_object/)
+
+Applicable frozen rules: [BG-COL-05](../styles/brand-colour.html#bg-col-05), [WG-032](../content/interface-copy.html#wg-032), [WG-036](../content/interface-copy.html#wg-036), [WG-044](../content/errors-and-alerts.html#wg-044). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

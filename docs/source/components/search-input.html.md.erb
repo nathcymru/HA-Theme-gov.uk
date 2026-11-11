@@ -1,17 +1,19 @@
 ---
-title: "Search input"
-description: "A labelled search field helps people find a specific item when browsing is not enough."
-section: "components"
-group: "Form elements"
-source_url: "https://service-manual.nhs.uk/design-system/components/search-input"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Search input
+description: A labelled search field helps people find a specific item when browsing is not enough.
+section: components
+group: Form elements
+source_url: https://service-manual.nhs.uk/design-system/components/search-input
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed search input guidance and 2 Home Assistant reference examples."
+    description: Defined ownership of query inputs, native datalist suggestions, filtering and finder composition.
+  - date: 2026-11-11
+    description: Added NHS-informed search input guidance and 2 Home Assistant reference examples.
 ---
 
 # Search input
@@ -19,6 +21,19 @@ updates:
 A labelled search field helps people find a specific item when browsing is not enough.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## Search field, filters or finder
+
+This page owns the labelled query input. A complete search needs more than the field:
+
+| Layer | Responsibility | Owner |
+| --- | --- | --- |
+| Query input | Visible label, named scope, keyboard submission and retained query | This page |
+| Suggestions | Optional help entering a known query; free text still works | [Native datalist reference](../publishing/components/search-autocomplete.html) |
+| Query and filters | Apply, clear, result counts, no matches and query/facet combination | [Search-filter pattern](../publishing/patterns/search-filter.html) |
+| Collection page | Result descriptions, permitted dataset, destinations and context | [Finder composition](../publishing/frontend-templates/finder.html) |
+
+The examples demonstrate fixed records or local feedback, as each description states. They do not implement a native entity or target picker. Keep Home Assistant’s picker when selection must respect capability, permission, domain or action-target rules.
 
 ## When to use it
 

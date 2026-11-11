@@ -1,0 +1,77 @@
+---
+title: "Media playback and output selection"
+description: "Complete design specification for media playback and output selection, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-016
+source_url: https://www.home-assistant.io/integrations/media_player/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated media playback and output selection specification and three complete synthetic examples."
+  - date: 2026-11-11
+    description: "Added the shared accessible range target class to the local volume draft."
+---
+
+# Media playback and output selection
+
+Help someone identify what is playing, choose a supported operation and understand which speaker or screen will change. Artwork supports recognition; it must not displace the track title, playback state or target name. Opening a card, navigating or changing a theme must never start playback or move audio to another device.
+
+## Scope and native ownership
+
+The native media_player domain supplies playback states and integration-dependent commands. The media browser only lists suitable players. This specification describes presentation and confirmation around those capabilities; it does not add a media adapter. [Official Home Assistant source](https://www.home-assistant.io/integrations/media_player/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-016**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Playing / paused | Name the item and output; use Pause or Resume only when supported. | Do not infer paused from zero volume. |
+| Idle / off / on | Keep idle, powered off and on-without-playback-detail distinct. | Do not call every non-playing state stopped. |
+| Buffering | Show Preparing playback without advancing a confirmed position. | Do not display an invented progress percentage. |
+| Unknown / unavailable | Explain the missing state beside the player name. | Keep retained artwork clearly separate from current playback. |
+| Live or unknown duration | Use Live stream or Duration not supplied as appropriate. | Do not render an invalid seek range. |
+
+## Integration contract
+
+1. Read supported commands, source list, volume bounds, media duration and position from the actual integration. A source selector requests a change; it is not ordinary navigation.
+2. Separate the selected player from its input source. Do not infer multi-room grouping, casting or transfer support from the presence of several players.
+3. Use the native service path and permissions. Keep a command pending until its documented acknowledgement, then use reported state for a playback result. A rejected request must retain the previous reported state.
+4. Only extrapolate elapsed playback where the native model supports it. Reset interpolation on pause, source change or connection loss; never persist an estimated position as a new reading.
+
+## Accessible interaction
+
+- Give play, pause, mute and source controls visible names or equivalent accessible names containing the output where needed. Do not rely on changing icons alone.
+- Volume and seek need names, bounds, keyboard adjustment and value text such as 35% or 2 minutes 10 seconds of 5 minutes. Retain the native keyboard contract.
+- Preserve album/provider artwork rights. Use empty alternative text when adjacent title/artist already supplies its meaning; avoid flashing visualisers and respect reduced motion.
+
+## Failure and recovery
+
+- If changing source is rejected, keep the selected source and explain the rejection without retrying playback automatically.
+- If position is absent, retain the item and state but omit the seek control. An unavailable artwork image must not hide playback controls.
+- If the connection drops during a request, say its result is unconfirmed; inspect reported playback after reconnect before offering another command.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-016-playing') %>
+
+<%= example('ha-flow-016-source') %>
+
+<%= example('ha-flow-016-unavailable') %>
+
+## Integration acceptance
+
+- Verify pause, mute and stop independently on a player that supports them, and absence of unsupported actions on a restricted player.
+- Check keyboard volume/seek bounds and output/source names at 320px and enlarged text.
+- Confirm navigation, theme changes and example loading produce no media commands.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-ILL-08](../styles/illustration.html#bg-ill-08), [BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [WG-030](../content/interface-copy.html#wg-030), [WG-034](../content/interface-copy.html#wg-034), [WG-063](../content/inclusive-content.html#wg-063), [WG-085](../content/accessible-content.html#wg-085).

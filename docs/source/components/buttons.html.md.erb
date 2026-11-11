@@ -1,17 +1,19 @@
 ---
-title: "Buttons"
-description: "A button changes something or submits an answer. Its text names the outcome."
-section: "components"
-group: "Form elements"
-source_url: "https://service-manual.nhs.uk/design-system/components/buttons"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Buttons
+description: A button changes something or submits an answer. Its text names the outcome.
+section: components
+group: Form elements
+source_url: https://service-manual.nhs.uk/design-system/components/buttons
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed buttons guidance and 4 Home Assistant reference examples."
+    description: Clarified shared GOV.UK/NHS button ownership and the distinction between component variants and installed behaviour.
+  - date: 2026-11-11
+    description: Added NHS-informed buttons guidance and 4 Home Assistant reference examples.
 ---
 
 # Buttons
@@ -19,6 +21,12 @@ updates:
 A button changes something or submits an answer. Its text names the outcome.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## One button contract, several source references
+
+This is the shared button owner for civica-authored examples. GOV.UK and NHS guidance inform one local behaviour contract; their source entries are not separate installed components. The [forms overview](controls.html#choose-the-control-by-its-meaning) helps choose between a command, selection and navigation.
+
+Keep the four variants on this page: primary, secondary, explicitly destructive and unavailable. They share request/outcome semantics and visible focus. Source-specific presentation must not turn a navigation link into a command or treat an accepted command as a confirmed state. Native Home Assistant controls retain their own verified capability and permission behaviour.
 
 ## When to use it
 

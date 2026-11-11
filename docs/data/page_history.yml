@@ -33,6 +33,10 @@
     "updates": [
       {
         "date": "2026-11-11",
+        "description": "Added the dedicated Home Assistant controls and flows catalogue alongside shared task patterns."
+      },
+      {
+        "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
       },
       {
@@ -369,6 +373,10 @@
     "updates": [
       {
         "date": "2026-11-11",
+        "description": "Restored the dense-chart decision to the structured deviations table."
+      },
+      {
+        "date": "2026-11-11",
         "description": "Added shared examples and publication history, and corrected the chart deviation record to the implemented 1.5px line and legend weight."
       },
       {
@@ -493,6 +501,10 @@
     "updates": [
       {
         "date": "2026-11-11",
+        "description": "Updated the module resource cache version for the lighting request and count fixes."
+      },
+      {
+        "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
       },
       {
@@ -523,6 +535,10 @@
     "published_on": "2026-11-11",
     "updated_on": "2026-11-11",
     "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Documented maintained custom-card types, the preserved legacy lighting alias and the dedicated compatibility register."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."

@@ -37,6 +37,8 @@ const svg = (tag: string, attrs: Record<string, string | number> = {}) => {
 interface RoomCfg extends RoomSource { group?: string }
 interface Config { type: string; title?: string; rooms: RoomCfg[]; image?: string }
 interface RoomView { cfg: RoomCfg; caps: RoomLightingCapabilities; sig: string; on: number; owner: string; row?: HTMLElement; poly?: SVGPolygonElement }
+interface RoomRequest { target: 'on' | 'off'; ids: string[]; phase: 'sending' | 'accepted' | 'reported' | 'unconfirmed' | 'failed'; inFlight: boolean; timer?: ReturnType<typeof setTimeout> }
+const REQUEST_WAIT_MS = 20000;
 
 class GovukHouseLightingCard extends HTMLElement {
   private _hass: any; private config!: Config; private root: ShadowRoot; private views = new Map<string, RoomView>();
@@ -44,6 +46,8 @@ class GovukHouseLightingCard extends HTMLElement {
   private onMotion = () => this.paintAll();
   private cancelMoreInfo?: () => void;
   private actionPending = false;
+  private requests = new Map<string, RoomRequest>();
+  private requestGeneration = 0;
   private status?: HTMLElement; private errorSlot?: HTMLElement; private errors: Array<{ room?: string; msg: string }> = []; private list?: HTMLElement; private plan?: SVGElement; private built = false;
 
   constructor() { super(); this.root = this.attachShadow({ mode: 'open' }); }
@@ -51,6 +55,7 @@ class GovukHouseLightingCard extends HTMLElement {
   static getStubConfig() { return { type: 'custom:civica-house-lighting-card' }; }
   setConfig(config: Partial<Config>) {
     this.cancelMoreInfo?.();
+    this.clearRequests();
     if (!config || config.type === undefined) throw new Error('civica-house-lighting-card: "type" is required');
     const rooms = config.rooms ?? FLOOR.rooms;
     if (!Array.isArray(rooms) || !rooms.length) throw new Error('"rooms" must be a non-empty list');
@@ -76,8 +81,21 @@ class GovukHouseLightingCard extends HTMLElement {
     if (!this.built) this.build();
     this.refresh();
   }
-  connectedCallback() { this.reduceMotion.addEventListener('change', this.onMotion); }
-  disconnectedCallback() { this.reduceMotion.removeEventListener('change', this.onMotion); this.cancelMoreInfo?.(); }
+  connectedCallback() { this.reduceMotion.addEventListener('change', this.onMotion); if (this.built && this._hass) { this.paintAll(); this.paintSummary(); } }
+  disconnectedCallback() { this.reduceMotion.removeEventListener('change', this.onMotion); this.cancelMoreInfo?.(); this.clearRequests(); }
+
+  private clearRequests() {
+    // Retire this UI's pending batch. An already-sent service call may still run,
+    // but its completion must not send later rooms or unlock a newer batch.
+    this.requestGeneration++;
+    this.actionPending = false;
+    for (const request of this.requests.values()) clearTimeout(request.timer);
+    this.requests.clear();
+  }
+  private requestPending(v: RoomView) {
+    const request = this.requests.get(v.cfg.id);
+    return !!request && (request.inFlight || request.phase === 'sending' || request.phase === 'accepted');
+  }
 
   private snapshot(): Snapshot { const h = this._hass; return { entities: h.entities ?? {}, devices: h.devices ?? {}, states: h.states }; }
 
@@ -125,7 +143,8 @@ class GovukHouseLightingCard extends HTMLElement {
     const icon = svg('svg', { viewBox: '0 0 24 24', width: 24, height: 24, class: 'btn-icon', 'aria-hidden': 'true', focusable: 'false' });
     icon.append(svg('path', { d: COG, fill: 'currentColor' }));
     const settings = el('button', { class: 'btn btn--secondary', type: 'button', 'data-role': 'settings', title: 'Settings', onclick: () => this.openMoreInfo(v.cfg.id) }, icon, el('span', { class: 'vh' }, `Settings for ${name}`));
-    const row = el('div', { class: 'row', 'data-room': v.cfg.id }, el('dt', { class: 'key' }, name, el('span', { class: 'sub', 'data-role': 'sub' })), el('dd', { class: 'act' }, toggle, settings), el('dd', { class: 'scenes-slot', 'data-role': 'scenes' }));
+    const requestStatus = el('dd', { class: 'request-status', role: 'status', 'data-role': 'request-status' });
+    const row = el('div', { class: 'row', 'data-room': v.cfg.id }, el('dt', { class: 'key' }, name, el('span', { class: 'sub', 'data-role': 'sub' })), el('dd', { class: 'act' }, toggle, settings), requestStatus, el('dd', { class: 'scenes-slot', 'data-role': 'scenes' }));
     v.row = row; return row;
   }
 
@@ -246,23 +265,64 @@ class GovukHouseLightingCard extends HTMLElement {
   }
 
   private async toggle(v: RoomView, preserveErrors = false) {
-    if (!this.usable(v)) return;
+    if (!this.usable(v) || this.actionPending || this.requestPending(v)) return;
     if (!preserveErrors) this.clearErrors();
     if (v.on > 0) return this.stop(v, true);
     return this.turnOn(v);
   }
   private async turnOn(v: RoomView) {
     const ids = v.caps.lightCapabilities.filter((c) => c.status === 'available').map((c) => c.entityId); if (!ids.length) return; // reserved lights are never included
-    try { await this._hass.callService('light', 'turn_on', {}, { entity_id: ids }); } catch (e) { console.error('govuk-house-lighting-card', e); this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned on. Try again.`, v.cfg.id); }
+    await this.request(v, 'on', ids, () => this._hass.callService('light', 'turn_on', {}, { entity_id: ids }));
   }
   private async stop(v: RoomView, off: boolean) {
-    try { await this._hass.callService('script', 'govuk_lights_stop', { room: v.cfg.id, turn_off: off }); } catch (e) { console.error('govuk-house-lighting-card', e); this.showError(`${v.cfg.name ?? v.cfg.id} could not be turned off. Try again.`, v.cfg.id); }
+    const ids = v.caps.lightCapabilities.filter(c => c.status === 'available').map(c => c.entityId);
+    await this.request(v, 'off', ids, () => this._hass.callService('script', 'govuk_lights_stop', { room: v.cfg.id, turn_off: off }));
+  }
+  private async request(v: RoomView, target: 'on' | 'off', ids: string[], send: () => Promise<unknown>) {
+    if (this.requestPending(v) || !ids.length) return;
+    clearTimeout(this.requests.get(v.cfg.id)?.timer);
+    const request: RoomRequest = { target, ids, phase: 'sending', inFlight: true };
+    this.requests.set(v.cfg.id, request);
+    request.timer = setTimeout(() => {
+      if (this.requests.get(v.cfg.id) !== request || request.phase === 'reported' || request.phase === 'failed') return;
+      request.phase = 'unconfirmed'; this.paintRoom(v); this.paintSummary();
+    }, REQUEST_WAIT_MS);
+    this.paintRoom(v); this.paintSummary();
+    try {
+      await send();
+      if (this.requests.get(v.cfg.id) !== request) return;
+      request.inFlight = false;
+      if (request.phase === 'sending') request.phase = 'accepted';
+      this.observeRequest(v);
+    } catch (e) {
+      if (this.requests.get(v.cfg.id) !== request) return;
+      request.inFlight = false; request.phase = 'failed'; clearTimeout(request.timer);
+      console.error('civica-house-lighting-card', e);
+      this.showError(`${v.cfg.name ?? v.cfg.id} could not confirm the turn-${target} request. Check the current state before trying again.`, v.cfg.id);
+    } finally {
+      if (this.requests.get(v.cfg.id) === request) { this.paintRoom(v); this.paintSummary(); }
+    }
+  }
+  private observeRequest(v: RoomView) {
+    const request = this.requests.get(v.cfg.id);
+    if (!request || request.inFlight || request.phase === 'failed' || request.phase === 'reported') return;
+    // State is observed independently: an accepted call is not proof of cause.
+    if (request.ids.every(id => this._hass.states[id]?.state === request.target && this._hass.states[id]?.attributes?.assumed_state !== true)) {
+      request.phase = 'reported'; clearTimeout(request.timer);
+    }
   }
   private async all(on: boolean) {
-    if (this.actionPending) return;
-    this.actionPending = true; this.clearErrors(); this.paintSummary();
-    try { for (const v of this.views.values()) if (this.usable(v)) { if (on) await this.turnOn(v); else if (v.on > 0) await this.stop(v, true); } }
-    finally { this.actionPending = false; this.paintSummary(); }
+    if (this.actionPending || [...this.views.values()].some(v => this.requestPending(v))) return;
+    const generation = this.requestGeneration;
+    this.actionPending = true; this.clearErrors(); this.paintAll(); this.paintSummary();
+    try {
+      for (const v of this.views.values()) {
+        if (generation !== this.requestGeneration) break;
+        if (this.usable(v)) { if (on) await this.turnOn(v); else if (v.on > 0) await this.stop(v, true); }
+      }
+    } finally {
+      if (generation === this.requestGeneration) { this.actionPending = false; this.paintAll(); this.paintSummary(); }
+    }
   }
 
   /** Recompute only rooms whose inputs changed. */
@@ -272,8 +332,9 @@ class GovukHouseLightingCard extends HTMLElement {
       const caps = assessRoom(snap, v.cfg, RECIPE_LIST);
       const owner = snap.states[`input_text.govuk_lights_${v.cfg.id}`]?.state ?? '';
       const on = caps.lightCapabilities.filter((c) => snap.states[c.entityId]?.state === 'on').length;
-      const sig = JSON.stringify([caps.reservedLights, caps.lightCapabilities.map((c) => [c.entityId, c.status, c.color, c.colorTemp, c.dimmable, snap.states[c.entityId]?.state]), owner]);
-      if (sig === v.sig) continue;
+      const sig = JSON.stringify([caps.reservedLights, caps.lightCapabilities.map((c) => [c.entityId, c.status, c.color, c.colorTemp, c.dimmable, snap.states[c.entityId]?.state, snap.states[c.entityId]?.attributes?.assumed_state]), owner]);
+      this.observeRequest(v);
+      if (sig === v.sig) { this.paintRequest(v); continue; }
       Object.assign(v, { caps, owner, on, sig }); changed = true; this.paintRoom(v);
     }
     if (changed) {
@@ -282,27 +343,31 @@ class GovukHouseLightingCard extends HTMLElement {
   }
   private paintAll() { for (const v of this.views.values()) if (v.caps) this.paintRoom(v); }
 
-  /** "2 of 3 lights on" or "0 of 3 lights on": lights this card can control. Reserved lights are not counted. */
+  /** Available, unavailable and unknown managed members stay distinct. */
   private count(v: RoomView): string {
-    const total = v.caps.availableLights, word = `light${total === 1 ? '' : 's'}`;
-    return v.on > 0 ? `${v.on} of ${total} ${word} on` : `${total} of ${total} ${word} off`;
+    const { availableLights: total, unavailableLights: unavailable, unknownLights: unknown } = v.caps;
+    const word = `light${total === 1 ? '' : 's'}`, parts: string[] = [];
+    if (total) parts.push(v.on > 0 ? `${v.on} of ${total}${unavailable || unknown ? ' available' : ''} ${word} on` : `${total} of ${total}${unavailable || unknown ? ' available' : ''} ${word} off`);
+    if (unavailable) parts.push(`${unavailable} light${unavailable === 1 ? '' : 's'} unavailable`);
+    if (unknown) parts.push(`${unknown} light${unknown === 1 ? '' : 's'} unknown`);
+    return parts.join('; ') || (v.caps.reservedLights ? 'Lights controlled elsewhere' : 'No lights assigned');
   }
   private describe(v: RoomView): string {
-    if (!this.usable(v)) return 'unavailable';
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
     return `${this.count(v)}${v.on > 0 && rec ? `, ${rec.label}` : ''}`;
   }
 
   private paintRoom(v: RoomView) {
-    const usable = this.usable(v), total = v.caps.availableLights;
+    const usable = this.usable(v), pending = this.requestPending(v);
     v.row!.hidden = false; // Keep unavailable rooms visible with an explanation.
-    v.row!.querySelector('[data-role=sub]')!.textContent = total > 0 ? this.count(v) : v.caps.totalLights === 0 ? 'No lights assigned' : 'Lights unavailable';
+    v.row!.querySelector('[data-role=sub]')!.textContent = this.count(v);
     v.row!.querySelector<HTMLButtonElement>('[data-role=settings]')!.disabled = !usable;
     const btn = v.row!.querySelector<HTMLButtonElement>('[data-role=toggle]')!;
     btn.hidden = false;
-    btn.textContent = !usable ? 'Unavailable' : v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = !usable;
-    btn.setAttribute('aria-label', `${!usable ? 'Unavailable:' : v.on > 0 ? 'Turn off' : 'Turn on'} ${v.cfg.name ?? v.cfg.id}`);
+    btn.textContent = pending ? 'Request pending' : !usable ? 'Unavailable' : v.on > 0 ? 'Turn off' : 'Turn on'; btn.disabled = !usable || pending || this.actionPending;
+    btn.setAttribute('aria-label', `${pending ? 'Request pending for' : !usable ? 'Unavailable:' : v.on > 0 ? 'Turn off' : 'Turn on'} ${v.cfg.name ?? v.cfg.id}`);
     this.paintScenes(v);
+    this.paintRequest(v);
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
     // Floor plan: one overlay per room, driven by the effective palette.
     const shade = this.plan!.querySelector<SVGPolygonElement>(`.shade[data-room=${v.cfg.id}]`)!;
@@ -322,10 +387,21 @@ class GovukHouseLightingCard extends HTMLElement {
       shade.append(a);
     } else if (palette.length > 1) shade.setAttribute('fill', palette[0]); // reduced motion: static representative colour
   }
+  private paintRequest(v: RoomView) {
+    const request = this.requests.get(v.cfg.id), slot = v.row?.querySelector<HTMLElement>('[data-role=request-status]');
+    if (!slot) return;
+    const name = v.cfg.name ?? v.cfg.id;
+    const message = !request ? '' : request.phase === 'sending' ? `Sending the request to turn ${name} ${request.target}. The last reported state is shown above.`
+      : request.phase === 'accepted' ? `Request accepted. Waiting for the requested lights to report ${request.target}.`
+      : request.phase === 'reported' ? `Request accepted. The requested lights reported ${request.target}. Their current state is shown above.`
+      : request.phase === 'unconfirmed' ? `The requested change is not confirmed. Check the current state before trying again.${request.inFlight ? ' The original request is still pending.' : ''}`
+      : 'The request was not confirmed. Check the current state before trying again.';
+    if (slot.textContent !== message) slot.textContent = message;
+  }
   private paintSummary() {
     const vs = [...this.views.values()].filter((v) => this.usable(v)); const on = vs.filter((v) => v.on > 0).length;
     this.status!.textContent = vs.length ? `${on} of ${vs.length} available rooms on` : 'No lights are available. Check the rooms below.';
-    for (const b of this.root.querySelectorAll<HTMLButtonElement>('[data-role=all-on], [data-role=all-off]')) b.disabled = this.actionPending || !vs.length;
+    for (const b of this.root.querySelectorAll<HTMLButtonElement>('[data-role=all-on], [data-role=all-off]')) b.disabled = this.actionPending || [...this.views.values()].some(v => this.requestPending(v)) || !vs.length;
   }
 }
 

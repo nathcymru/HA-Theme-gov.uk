@@ -1,0 +1,84 @@
+---
+title: "Appliances, vacuums and outdoor devices"
+description: "Present progress, permissions and supported commands without inventing device capabilities."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-007"
+contract_id: "HA-CTRL-007"
+source_url: "https://www.home-assistant.io/integrations/vacuum/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added appliances, vacuums and outdoor devices contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Appliances, vacuums and outdoor devices
+
+A household overview should answer whether a job is running, what the device reports and which actions are genuinely available. Appliance integrations differ widely: a power sensor is not a washing-machine controller, and one robot integration does not establish another robot’s commands.
+
+**HA-CTRL-007 — reference design specification.** This specifies the local design coverage requested by HA-GAP-007 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-007-capabilities">Task and capability contract</h2>
+
+| Supplied information | Presentation decision |
+| --- | --- |
+| Appliance cycle/progress | Show only reported phases and progress. Name an estimate as an estimate; a missing duration stays unknown. |
+| Remote-control permission | Explain a known restriction next to the control. The interface cannot enable a physical remote mode unless the integration explicitly supports that operation. |
+| Vacuum features | Gate Start, Pause, Stop, Return and other commands independently. Retain native maps or room IDs where supported. |
+| Lawn-mower features | Keep mowing, paused, returning, docked and fault states specific. Do not reuse a vacuum command list blindly. |
+| Remote domain | A command sender is not proof that an appliance received the command or exposes its state. |
+
+<h2 id="ha-ctrl-007-states">States, pending work and failure</h2>
+
+Off, idle, running, paused, returning and docked have different meanings. A docked robot is not necessarily fully charged. A countdown reaching zero in the browser cannot confirm cycle completion. If the source omits duration during a pause, show “Not provided” rather than a fabricated zero-minute finish.
+
+Keep power availability, remote permission and device fault separate. If a washer is off and remote permission is off, do not expose a Start button merely because a generic service name exists. A fault code must retain its exact value. Do not turn an unknown code into a confident explanation or make an automatic restart the default recovery.
+
+For a request timeout, retain the last reported job state and explain that the command may still complete. A native task or room selection may change between review and submission; recheck supported targets without silently selecting every room.
+
+<h2 id="ha-ctrl-007-content">Content and interpretation</h2>
+
+Use device-specific labels such as “Return hall vacuum to dock”, only when supported. “Stop” must describe whether it pauses, ends or aborts the cycle according to the integration. Keep estimates visibly qualified. Do not infer completion, cleanliness, absence of people or safe outdoor conditions from a progress percentage or a device icon.
+
+<h2 id="ha-ctrl-007-accessibility">Accessibility and interaction</h2>
+
+A progress bar needs a named quantity and textual value; use an indeterminate state when no percentage exists. Avoid announcing every percentage point. Keep fault details and the native control route reachable by keyboard. Retain useful manufacturer or mapping content without recolouring evidence, and provide names for icon-only controls. Check long phase names and unknown estimates at narrow widths.
+
+<h2 id="ha-ctrl-007-integration">Native integration boundary</h2>
+
+Prefer the integration's native entity controls and supported card features. Capability information can be split across sensors, switches and buttons; document the actual mapping before designing a combined card. These reference examples do not add missing vacuum commands or extend the three existing household-card style adapters. No command is inferred from a manufacturer name or a similar-looking card.
+
+<h2 id="ha-ctrl-007-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-appliance-cycle') %>
+
+<%= example('ha-appliance-returning') %>
+
+<%= example('ha-appliance-error') %>
+
+<h2 id="ha-ctrl-007-acceptance">Acceptance and evidence</h2>
+
+1. Compare a sensor-only appliance, a remotely enabled controller and a remotely disabled controller. Only supported commands may be available.
+2. Exercise idle, running, paused, returning, docked, fault and unavailable states with valid zero, null and estimated duration values.
+3. Delay or reject Pause/Return and preserve current native state; do not replay a command automatically after reconnection.
+4. Verify task labels, keyboard access, quiet progress announcements and exact fault-code copying. Record the integration/device version and use a simulator for actions unless physical testing is explicitly planned.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-007-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Vacuum](https://www.home-assistant.io/integrations/vacuum/)
+- [Lawn mower](https://www.home-assistant.io/integrations/lawn_mower/)
+- [Native card features](https://www.home-assistant.io/dashboards/features/)
+
+Applicable frozen rules: [BG-ILL-07](../styles/illustration.html#bg-ill-07), [BG-ILL-08](../styles/illustration.html#bg-ill-08), [WG-011](../content/voice-and-language.html#wg-011), [WG-032](../content/interface-copy.html#wg-032), [WG-034](../content/interface-copy.html#wg-034), [WG-044](../content/errors-and-alerts.html#wg-044). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

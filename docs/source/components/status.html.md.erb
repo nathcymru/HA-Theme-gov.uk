@@ -1,14 +1,39 @@
 ---
-title: "Status and notifications"
-description: "Status and notifications for the civica.uk Home Assistant design system."
+title: Status and notifications
+description: Status and notifications for the civica.uk Home Assistant design system.
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: Added a decision guide separating state labels, unread counts, ordinary notices and verified urgent messages.
+  - date: 2026-11-11
+    description: Completed the pending specimen with reported state and dated request context, and distinguished a confirmed rejection.
+  - date: 2026-11-11
+    description: Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild.
+  - date: 2026-11-11
+    description: First published in the civica.uk design system.
 ---
 
 # Status and notifications
 
 Status explains what is happening. An action lets the user change it. Keep the distinction visible and programmatic.
 
+
+## Choose the right message
+
+This page owns the state vocabulary and this selection decision. Each component below keeps its own interaction and geometry.
+
+| What the person needs to know | Use | Keep separate |
+| --- | --- | --- |
+| A device, reading or task state | Ordinary text; optionally a [rectangular tag](tag.html) | The action that may change it |
+| How many new or unread items need attention | A [notification badge](notification-badge.html) attached to the destination | Routine device totals and sensor values |
+| A notice affecting the current task or a confirmed outcome | A [notification banner](notification-banners.html) | Field errors and individual device availability |
+| A notice affecting the whole service | The [global-banner variant](../publishing/components/global-banner.html) | A room-only problem and campaign tracking |
+| A verified current condition requiring immediate attention | A clearly scoped [urgent-message variant](../publishing/components/emergency-banner.html) | An overdue record or an unknown reading |
+
+The chosen palette never determines severity. Keep the fixed rounded MOJ count geometry, rectangular tags and full-width notices distinct. Identify scope and source freshness before selecting urgency; an unavailable alarm is a loss of information, not evidence that no hazard exists.
 
 ## Examples
 
@@ -29,6 +54,8 @@ These isolated examples illustrate the decisions on this page. Any household val
 | Success | A requested action completed | Brief confirmation with semantic success token |
 | Warning | Attention may be needed | Specific explanation and appropriate action |
 | Error | An action or data request failed | Error text and recovery route |
+| Unknown | No usable state has been supplied | Explain the missing information; do not infer off or zero |
+| Retained old value | A previous reading is available, with no newer reading | Keep its observation time and avoid calling it current |
 | Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |
 | Empty | The request succeeded but returned no items | Explain the valid empty result |
 | Pending | An operation is in progress | Text feedback and restrained progress indication |
@@ -37,7 +64,7 @@ These isolated examples illustrate the decisions on this page. Any household val
 
 Use an interrupting message only when the user needs it. Routine sensor updates should not generate repeated screen-reader announcements. Use a polite live region for a settings change; reserve urgent announcement behaviour for actual urgent events.
 
-A success message cannot appear before the service confirms success. A warning must say what it concerns. Red, green or yellow alone does not carry the meaning.
+A persistence success needs a confirmed save. Device-request acceptance is not a confirmed physical result: keep the last reported state and its time separate from the request and any later observation. A warning must say what it concerns. Red, green or yellow alone does not carry the meaning.
 
 ## Tags and badges
 

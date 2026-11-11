@@ -1,0 +1,83 @@
+---
+title: "Lighting capabilities and colour"
+description: "Keep physical lighting controls separate from the interface palette and expose only supported features."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-004"
+contract_id: "HA-CTRL-004"
+source_url: "https://www.home-assistant.io/integrations/light/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added lighting capabilities and colour contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Lighting capabilities and colour
+
+Choose the smallest useful lighting control for the task: a quick on/off action, a precise brightness adjustment, a tunable-white setting or native colour selection. Room and scene controls need explicit scope because their members can differ.
+
+**HA-CTRL-004 — reference design specification.** This specifies the local design coverage requested by HA-GAP-004 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-004-capabilities">Task and capability contract</h2>
+
+| Capability | Present |
+| --- | --- |
+| On/off only | State and named on/off action; no dimmer, colour wheel or kelvin field. |
+| Brightness | Native brightness control with a readable percentage; preserve the integration's conversion and off behaviour. |
+| Colour temperature | The entity's supported kelvin range and current setting when supplied. |
+| Colour modes | The native colour control appropriate to `supported_color_modes`; do not assume RGB for every lamp. |
+| Effects or transition | Only the reported effect list and supported transition option. A running effect can restrict other adjustments. |
+| Group or room | Member capabilities, unavailable members and the intended action scope. Never infer universal support from one member. |
+
+<h2 id="ha-ctrl-004-states">States, pending work and failure</h2>
+
+An off light can retain a previous brightness or colour setting; label it as a setting, not emitted light. A missing colour value while off is not a white reading. An unavailable member remains unavailable within a mixed group. Do not turn a group's reported on state into “Every light is on”.
+
+During a change, retain the last reported state and qualify the requested setting. A delayed report may reflect another person's change. If a scene or recipe completes its request but one light does not report the target, use the partial-result contract. Do not automatically repeat a colour or transition command to make the display look consistent.
+
+<h2 id="ha-ctrl-004-content">Content and interpretation</h2>
+
+Keep “Theme colour” and “Light colour” visibly separate. Vivid/Muted selects interface artwork and tokens; it does not affect devices. Give a swatch an accessible name or numeric setting when needed; a coloured circle alone cannot identify a physical light's state. Preserve supplied effect and scene names. Explain whether activating a recipe changes brightness, colour, power or several properties before submission.
+
+<h2 id="ha-ctrl-004-accessibility">Accessibility and interaction</h2>
+
+Keep native colour input keyboard behaviour and a text or detailed-control route for precise values. The colour preview must not be the only indication of the selected setting. Allow kelvin values, long device names and group outcomes to wrap. Verify focus on a light-coloured swatch and dark canvas, and do not use the selected brand colour as a substitute for the device colour.
+
+<h2 id="ha-ctrl-004-integration">Native integration boundary</h2>
+
+Use the Light domain and native card features, with actual `supported_color_modes`, colour-temperature bounds and feature flags. Home Assistant performs supported colour conversions; a theme should not duplicate those conversions. The existing lighting card and its configured recipe script have their own implementation boundary. These specifications do not add a generic colour picker or new service calls to that card.
+
+<h2 id="ha-ctrl-004-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-light-switch') %>
+
+<%= example('ha-light-temperature') %>
+
+<%= example('ha-light-mixed') %>
+
+<h2 id="ha-ctrl-004-acceptance">Acceptance and evidence</h2>
+
+1. Test on/off-only, brightness-only, tunable white, colour and effect-running entities. Unsupported controls must not appear.
+2. Exercise an off entity with retained colour, an unavailable member and a mixed room. Check the action target list and per-member result.
+3. Change all ten interface palettes and both tones; no physical-light command or device-colour conversion may occur.
+4. Use keyboard colour controls, precise text values, 320px layout, native locale and failed requests. Recheck capabilities after a device firmware or integration change.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-004-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Light](https://www.home-assistant.io/integrations/light/)
+- [Light entity capabilities](https://contributors.home-assistant.io/core/entities/light/)
+- [Native card features](https://www.home-assistant.io/dashboards/features/)
+
+Applicable frozen rules: [BG-COL-05](../styles/brand-colour.html#bg-col-05), [BG-ILL-07](../styles/illustration.html#bg-ill-07), [WG-031](../content/interface-copy.html#wg-031), [WG-034](../content/interface-copy.html#wg-034), [WG-035](../content/interface-copy.html#wg-035). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

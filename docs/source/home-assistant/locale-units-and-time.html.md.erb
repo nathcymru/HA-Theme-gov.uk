@@ -1,0 +1,77 @@
+---
+title: "Locale, units and time"
+description: "Complete design specification for locale, units and time, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-023
+source_url: https://www.home-assistant.io/docs/configuration/user-configuration/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated locale, units and time specification and three complete synthetic examples."
+  - date: 2026-11-11
+    description: "Corrected the date-only specimen to identify its containing list entity rather than an individual task."
+---
+
+# Locale, units and time
+
+UK English is the authored documentation style, not a command to replace a household’s Home Assistant language, units or time preferences. Preserve dynamic values and their semantics while formatting them consistently with the native configuration.
+
+## Scope and native ownership
+
+Home Assistant profile settings supply localization preferences. Maintained civica Energy tables already read native number, clock and time-zone preferences; this broader contract covers other surfaces without claiming that they all have a dedicated adapter. [Official Home Assistant source](https://www.home-assistant.io/docs/configuration/user-configuration/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-023**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Measured value | Keep quantity and unit together using native formatting. | Do not convert a rate into a total or increase precision. |
+| Date-only item | Keep the calendar date without inventing a midnight instant. | Do not shift an all-day task across dates by converting zones. |
+| Timed observation | Label its observation/period meaning and relevant zone. | last_changed alone is not a new measurement timestamp. |
+| Repeated local time | Show the offset or other unambiguous context. | 01:30 alone may identify two different instants. |
+| Unknown value / translation | Use explicit missing text and preserve user-supplied names. | Do not substitute zero or silently translate identifiers. |
+
+## Integration contract
+
+1. Use native locale, number separators, unit and 12/24-hour preferences. Do not derive them from the selected civica palette or the browser language alone.
+2. Keep date-only values, instants, durations and recurring local schedules as distinct data types. Convert only when the source contract calls for conversion.
+3. At a daylight-saving transition, distinguish equal wall-clock labels by offset or full period context. Keep comparison-series source dates rather than relabelling them as the current day.
+4. Use bidirectional isolation for identifiers inside right-to-left prose. Mirror layout where appropriate, but do not reverse physical directions, media content, units or chart meaning automatically.
+
+## Accessible interaction
+
+- Long translations and enlarged text must wrap without clipping names, units, field errors or primary actions.
+- Make the spoken value include its unit and relevant time context. Abbreviations should not be the only explanation of an unfamiliar quantity.
+- Avoid ambiguous numeric dates in authored examples. Mark an illustrative translation as unreviewed unless a suitable language review exists.
+
+## Failure and recovery
+
+- If a locale formatter fails, retain the source value and unit with an explicit fallback rather than producing NaN or an empty successful value.
+- If the user changes a preference, reformat displayed values without changing stored measurements, schedule instants or identifiers.
+- If the timezone is unknown, state that limitation instead of assuming Europe/London. Examples with a declared zone do not prescribe the live household zone.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-023-numbers') %>
+
+<%= example('ha-flow-023-clock') %>
+
+<%= example('ha-flow-023-date') %>
+
+## Integration acceptance
+
+- Check decimal-comma and decimal-point formats, 12/24-hour display and local/server-zone choices with identical underlying readings.
+- Test the repeated hour on 25 October 2026 in Europe/London and an all-day due date without shifting it.
+- Inspect long and right-to-left text, while recording language-review limits and keeping copied IDs exact.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-TYP-03](../styles/brand-typography.html#bg-typ-03), [BG-TYP-05](../styles/brand-typography.html#bg-typ-05), [WG-021](../content/words-and-style.html#wg-021), [WG-022](../content/words-and-style.html#wg-022), [WG-065](../content/inclusive-content.html#wg-065), [WG-072](../content/numbers-and-data.html#wg-072), [WG-075](../content/numbers-and-data.html#wg-075).

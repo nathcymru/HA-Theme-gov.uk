@@ -1,6 +1,6 @@
 ---
-title: "Missing Home Assistant specifications"
-description: "Prioritised design and acceptance gaps for native Home Assistant capabilities, with current civica coverage kept explicit."
+title: "Home Assistant specification coverage"
+description: "Completed design contracts and acceptance recipes for native Home Assistant capabilities, with current civica coverage kept explicit."
 section: community
 group: Review
 status: reference
@@ -8,14 +8,16 @@ published_on: 2026-11-11
 updated_on: 2026-11-11
 updates:
   - date: 2026-11-11
+    description: "Linked 30 completed Home Assistant specifications and their task-specific examples, retaining native implementation boundaries."
+  - date: 2026-11-11
     description: "Recorded 30 proposed household design-specification gaps, native capability evidence and testable acceptance criteria."
 ---
 
-# Missing Home Assistant specifications
+# Home Assistant specification coverage
 
 Home Assistant already provides device controls, automation editors, schedules, history, account management and recovery flows. The gaps below concern **civica.uk design specifications and acceptance coverage** for those capabilities. They are not a claim that Home Assistant lacks the features.
 
-The review found 30 areas that need a dedicated specification or a more complete task contract. Every item is a proposal. Completing this audit does not mean those specifications, adapters or tests have been implemented.
+The review identified 30 areas needing a dedicated specification or a more complete task contract. Each now has a linked guide with state/capability decisions, complete examples, accessibility and recovery guidance, and integration acceptance recipes. Start with the [Home Assistant catalogue](../home-assistant/index.html). Completion means design coverage; it does not mean a new native adapter or live device test.
 
 <% audit = JSON.parse(File.read(File.join(root, 'data', 'ha-component-gaps.json'))) %>
 <% sources = audit['sources'].to_h { |source| [source['id'], source] } %>
@@ -38,15 +40,16 @@ Start with the shared state and action contracts, then the domain controls and f
 
 The [machine-readable gap register](../reference/ha-component-gaps.json) contains exact file and line evidence, source records, dependencies, rule-file hashes and acceptance criteria. The [component organisation review](component-audit.html) identifies where shared rules should live.
 
-## Prioritised register
+## Specification register
 
 <% audit['findings'].each do |finding| %>
 <h3 id="<%= escape(finding['id'].downcase) %>"><%= escape(finding['id']) %>: <%= escape(finding['title']) %></h3>
 <p><strong><%= escape(finding['priority']) %> · <%= escape(finding['designCoverage'].tr('-', ' ')) %>.</strong> <%= escape(finding['proposal']) %></p>
+<% if finding['specification'] %><p><strong>Completed specification:</strong> <a href="<%= docs_path(finding['specification']['url']) %>"><%= escape(finding['specification']['title']) %></a> — <%= finding['specification']['examples'].length %> complete examples.</p><% end %>
 <p><strong>Native capability:</strong> <%= escape(finding['nativeCapability']['evidence']) %></p>
 <p><strong>Current civica.uk scope:</strong> <%= escape(finding['civicaRuntime']) %>.</p>
 <p><strong>Affected surfaces:</strong> <%= escape(finding['surfaces'].join(', ')) %>.</p>
-<p><strong>Acceptance criteria for future work:</strong></p>
+<p><strong>Integration acceptance criteria:</strong></p>
 <ul><% finding['acceptanceCriteria'].each do |check| %><li><%= escape(check) %></li><% end %></ul>
 <p>Rule dependencies: <% finding['ruleDependencies'].each_with_index do |rule, index| %><%= ', ' unless index.zero? %><a href="<%= docs_path(rule['localPath']) %>"><%= escape(rule['id']) %></a><% end %>.</p>
 <% dependencies = finding['dependencies'].select { |id| id.start_with?('HA-GAP-') } %>
@@ -66,7 +69,7 @@ Official Home Assistant pages were reviewed on 11 November 2026. The frontend so
 
 ## Distinguish a specimen from a supported feature
 
-These local examples explain the existing compatibility boundary. They do not create a connection to a home or implement any proposed native workflow.
+These local examples explain the compatibility boundary. The dedicated guides above add task-specific examples; none connects to a home or creates an unsupported native workflow.
 
 <%= example('local-compatibility-supported') %>
 
@@ -74,6 +77,6 @@ These local examples explain the existing compatibility boundary. They do not cr
 
 ## Review and implementation limits
 
-The proposals were reviewed against the frozen [brand guidance](../styles/brand-colour.html) and [writing guide](../content/index.html). Their rules preserve native labels, user names, translations, permissions, data values and device capabilities. Illustration rules do not justify replacing functional icons, camera images or maps. A clinical or government source does not give this household application its authority or assurance.
+The specifications are reviewed against the frozen [brand guidance](../styles/brand-colour.html) and [writing guide](../content/index.html). Their rules preserve native labels, user names, translations, permissions, data values and device capabilities. Illustration rules do not justify replacing functional icons, camera images or maps. A clinical or government source does not give this household application its authority or assurance.
 
-This review used source and documentation evidence. It did not operate the user's Home Assistant, run physical commands, modify saved dashboards, build the site or perform new accessibility testing. The [whole-system audit](design-system-audit.html) keeps confirmed implementation findings separate from this proposed coverage register. Use the [audit checklist](../reference/component-audit-checklist.json) to repeat the review when the sources, rules or implementation change.
+The source review established the original gaps. The implementation adds dedicated guides and examples, checked by the build and browser suite described in the [work package](guidance-work-package.html). Those checks use synthetic data; they do not operate household devices or certify complete native task accessibility. The [whole-system audit](design-system-audit.html) keeps confirmed implementation findings separate from this specification coverage register. Use the [audit checklist](../reference/component-audit-checklist.json) to repeat the review when the sources, rules or implementation change.

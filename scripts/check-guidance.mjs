@@ -75,7 +75,18 @@ for (const finding of [...audit.findings, ...recommendations]) {
   }
 }
 for (const recommendation of recommendations) {
-  assert.ok(['proposed_migration', 'proposed_improvement'].includes(recommendation.status), `${recommendation.id}: recommendation is not a confirmed violation or implemented remedy`);
+  assert.ok(['proposed_migration', 'proposed_improvement', 'implemented_pending_verification', 'resolved'].includes(recommendation.status), `${recommendation.id}: explicit recommendation status`);
+}
+for (const finding of [...audit.findings, ...recommendations]) {
+  if (!['resolved', 'implemented_pending_verification'].includes(finding.status)) continue;
+  assert.ok(finding.original_evidence?.revision && finding.original_evidence.records.length, `${finding.id}: retain original evidence`);
+  assert.ok(finding.resolution?.summary && finding.resolution.verification_scope, `${finding.id}: bounded resolution`);
+  same(finding.resolution.acceptance_checks.map(item => item.criterion), finding.acceptance, `${finding.id}: every acceptance criterion is addressed`);
+  assert.ok(existsSync(finding.resolution.evidence_record), `${finding.id}: verification record exists`);
+  if (finding.status === 'resolved') {
+    assert.ok(finding.resolution.acceptance_checks.every(item => item.status === 'verified_in_stated_scope'), `${finding.id}: no unchecked acceptance`);
+    assert.equal(JSON.parse(read(finding.resolution.evidence_record)).automated_status, 'passed', `${finding.id}: executed checks required`);
+  }
 }
 for (const name of ['brand-guidance-checklist', 'writing-guide-checklist', 'component-audit-checklist']) {
   const publicPath = `docs/build/reference/${name}.json`;
@@ -89,8 +100,8 @@ for (const phase of work.phases) for (const item of phase.items) {
 }
 assert.ok(work.loops.length >= 3, 'Record repeated coverage and verification loops');
 
-// This baseline preserves published routes. It is a proposal inventory, not a
-// declaration that a reference specimen implements a native Home Assistant task.
+// Preserve the original route inventory while checking implemented ownership.
+// A completed specification is not a new native Home Assistant implementation.
 const components = json('component-rationalisation');
 const gaps = json('ha-component-gaps');
 const componentChecklist = json('component-audit-checklist');
@@ -210,6 +221,23 @@ for (const gap of gaps.findings) {
   assert.ok(gap.civicaRuntime && gap.designCoverage && gap.nativeCapability.evidence, `${gap.id}: separate native, runtime and design coverage`);
   assert.ok(gap.nativeCapability.sourceIds.length, `${gap.id}: native capability provenance`);
   for (const source of gap.nativeCapability.sourceIds) assert.ok(haSourceIds.has(source), `${gap.id}: unknown native source ${source}`);
+  if (gap.specification) {
+    const spec = gap.specification;
+    assert.equal(currentRoutes.get(spec.url), spec.path, `${gap.id}: dedicated specification resolves`);
+    const markup = read(spec.path);
+    const header = YAML.parse(markup.match(/^---\n([\s\S]*?)\n---/)[1]);
+    assert.equal(header.gap_id, gap.id, `${gap.id}: unique owning specification`);
+    const referenced = [...markup.matchAll(/example\(['"]([^'"]+)/g)].map(match => match[1]);
+    assert.ok(referenced.length >= 3, `${gap.id}: complete task-specific examples`);
+    same(spec.examples, referenced, `${gap.id}: current example inventory`);
+    for (const id of spec.examples) assert.ok(examples[id], `${gap.id}: missing example ${id}`);
+    assert.ok(read(`docs/build${spec.url}`).includes(`id="${spec.acceptance_anchor}"`), `${gap.id}: acceptance section is published`);
+    assert.equal(gap.resolution.nativeFeatureImplemented, false, `${gap.id}: specification is not native implementation`);
+  }
+}
+if (gaps.status.startsWith('specifications-')) {
+  assert.equal(gaps.findings.filter(item => item.specification).length, 30, 'Every HA gap has a dedicated specification');
+  unique(gaps.findings.map(item => item.specification.url), 'Dedicated HA specification routes');
 }
 for (const proposal of components.findings) {
   assert.match(proposal.id, /^COMP-\d{3}$/, 'Stable component proposal identifier');
@@ -241,4 +269,8 @@ for (const loop of componentChecklist.loops) {
     if (check.families) for (const gapIds of Object.values(check.families)) for (const id of gapIds) assert.ok(proposalIds.has(id), `${check.id}: unknown requirement ${id}`);
   }
 }
-console.log(`Guidance evidence is consistent: ${rules.length} rules, ${audit.pages.length} guides, ${audit.examples.length} examples, ${audit.findings.length} findings; ${componentPages.length} component routes and ${proposals.length} proposals resolve. This does not certify conformance or live runtime coverage.`);
+for (const name of ['illustration-assets', 'card-artwork-provenance']) for (const asset of json(name).assets) {
+  assert.equal(hash(asset.path), asset.sha256, `${asset.path}: artwork changed after provenance review`);
+  assert.ok(asset.purpose && (asset.alt_decision || asset.alternative_text_decision), `${asset.path}: purpose and alternative-text decision`);
+}
+console.log(`Guidance evidence is consistent: ${rules.length} rules, ${audit.pages.length} guides, ${audit.examples.length} examples, ${audit.findings.length} findings; ${componentPages.length} component routes and ${proposals.length} organisation/specification records resolve. This does not certify conformance or live runtime coverage.`);

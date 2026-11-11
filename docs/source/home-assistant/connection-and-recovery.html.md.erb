@@ -1,0 +1,75 @@
+---
+title: "Connection loss and recovery"
+description: "Complete design specification for connection loss and recovery, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-018
+source_url: https://contributors.home-assistant.io/core/internals/websocket-api/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated connection loss and recovery specification and three complete synthetic examples."
+---
+
+# Connection loss and recovery
+
+Distinguish the browser’s connection to Home Assistant from an integration’s connection and an entity’s missing state. A single unavailable entity must not turn the whole application into an offline screen. Retained data remain useful only when their age and uncertainty are visible.
+
+## Scope and native ownership
+
+The native WebSocket connection authenticates and carries commands/results and event subscriptions. Entity unknown/unavailable meanings come from the separate state model. The companion must preserve native connection handling, authentication and diagnostics. [Official Home Assistant source](https://contributors.home-assistant.io/core/internals/websocket-api/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-018**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Browser connection lost | Name Home Assistant connection lost and retain labelled last reports. | Do not call every device offline. |
+| Reconnecting | Show a persistent status without repeated interruptions. | Do not replay consequential requests. |
+| Connection restored | Refresh from native subscriptions and reconcile pending results. | A socket opening alone does not confirm an earlier operation. |
+| One entity unavailable | Explain that the entity cannot supply its state. | Do not diagnose Wi-Fi failure without evidence. |
+| Authentication rejected | Use the native sign-in/re-authentication route. | Do not collect tokens inside a themed error card. |
+
+## Integration contract
+
+1. Use the native connection and subscription lifecycle. Do not open a second device-control connection to support appearance changes.
+2. Track the pending request separately from last reported state. A lost response may leave an action completed, pending or rejected; no timeout can prove which occurred.
+3. Keep non-secret draft inputs only where the editor actually supports retention. Reauthentication and navigation can have different persistence limits; describe them accurately.
+4. In safe/recovery mode, native controls and branding take precedence. Missing adapter targets must fail without removing connection messages or the native theme selector.
+
+## Accessible interaction
+
+- Use a polite persistent status for routine reconnecting and announce meaningful transitions once. Do not place the entire updating dashboard in a live region.
+- Keep focus on the interrupted task unless authentication requires a new context; preserve a useful return path when possible.
+- Provide recovery text beside disabled actions. Colour and a spinning icon alone cannot explain which task is unavailable.
+
+## Failure and recovery
+
+- A retry link must perform a real supported retry. Otherwise link to instructions and label it accordingly.
+- After reconnect, read the current reported state before asking the user to repeat a potentially completed device action.
+- Keep failures from native services visible. Never suppress diagnostics merely because a theme adapter stopped attaching.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-018-disconnected') %>
+
+<%= example('ha-flow-018-entity') %>
+
+<%= example('ha-flow-018-save') %>
+
+## Integration acceptance
+
+- Disconnect during a read, configuration save and device request separately; record how each reconciles after native reconnect.
+- Check that no action is automatically replayed and an entity-level unavailable state does not claim application-wide failure.
+- Verify safe/recovery mode cleanup, focus continuity and one announcement per meaningful connection transition.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-COL-05](../styles/brand-colour.html#bg-col-05), [WG-033](../content/interface-copy.html#wg-033), [WG-040](../content/errors-and-alerts.html#wg-040), [WG-041](../content/errors-and-alerts.html#wg-041), [WG-044](../content/errors-and-alerts.html#wg-044).

@@ -6,6 +6,8 @@ published_on: 2026-11-11
 updated_on: 2026-11-11
 updates:
   - date: 2026-11-11
+    description: "Separated current guide and example counts, shared component owners and maintained custom-card types."
+  - date: 2026-11-11
     description: "Added the complete component and pattern source mapping, example catalogue and implementation boundaries."
 ---
 
@@ -36,6 +38,13 @@ Overlapping source entries share one canonical local page rather than creating c
 
 The machine-readable [coverage record](../reference/coverage.json) includes every source URL, local route and example ID. The [complete sitemap](../sitemap.html) and [search](../search.html) use the same Middleman page catalogue as section navigation.
 
+## Local guidance and maintained implementation
+
+<% coverage_pages = guide_pages; coverage_examples = config[:civica_examples] %>
+<p>The current build contains <strong><%= coverage_pages.length %> guides</strong> and <strong><%= coverage_examples.length %> examples</strong>. The 68 component URLs have 58 canonical shared-rule owners. The 130 official source entries include 28 GOV.UK/NHS overlaps; these are source mappings to shared pages, not duplicate components.</p>
+
+The repository maintains three custom-card types: the lighting card, theme settings and action links. The legacy lighting name is an alias of the same component. Shell, Energy and the three household-card presentation adapters are separately listed in the [compatibility register](../home-assistant/compatibility-register.html); an adapter is not another installed card. The [30 Home Assistant specifications](../home-assistant/index.html) are design and acceptance guidance for existing native capabilities.
+
 ## Adaptation decisions
 
 NHS identity rules, clinical urgency and NHS-number collection are not copied into a household application. We use civica.uk artwork, describe household consequences directly and adapt the identifier pattern to useful device and configuration identifiers. The [BSL pattern](../patterns/british-sign-language.html) makes signed-content availability, production and review requirements explicit; it does not invent a verified household video.
@@ -52,7 +61,7 @@ Publishing ministerial, organisation, statistical and policy templates become ho
 
 The [brand inventory](../reference/brand-guidance.json) and [writing inventory](../reference/writing-guide.json) add source-to-rule mappings for the new guidance. They record relevant chapters, deliberate adaptations and excluded material rather than treating a source homepage link as full coverage.
 
-The [work-package checklist](guidance-work-package.html) records repeated coverage checks. The [whole-system audit](design-system-audit.html) records the review scope, every-page outcomes and confirmed findings. The [component organisation review](component-audit.html) and [missing-specification register](missing-components.html) describe proposed work. None of these records changes a reference example into an installed Home Assistant feature.
+The [work-package checklist](guidance-work-package.html) records repeated coverage checks. The [whole-system audit](design-system-audit.html) records the review scope, every-page outcomes and confirmed findings. The [component organisation review](component-audit.html) and [missing-specification register](missing-components.html) record implemented shared ownership and the 30 dedicated native-task design specifications. None of these records changes a reference example into an installed Home Assistant feature.
 
 ## Maintain coverage
 

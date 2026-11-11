@@ -1,3 +1,4 @@
+@import 'civica-tokens';
 $govuk-font-family: (Arial, Helvetica, sans-serif);
 $govuk-include-default-font-face: false;
 $govuk-new-link-styles: true;
@@ -6,11 +7,12 @@ $govuk-new-link-styles: true;
 @import 'govuk/objects';
 @import 'govuk/components';
 @import 'govuk/utilities';
+:root { --c-border:#{$civica-border}; --c-success:#{$civica-success}; --c-error:#{$civica-error}; --c-body-size:1.1875rem; }
 * { box-sizing:border-box; }
-body { margin:0; background:#fff; color:#0b0c0c; font:19px/1.5 Arial,Helvetica,sans-serif; }
+body { margin:0; background:#fff; color:#0b0c0c; font:var(--c-body-size)/1.5 Arial,Helvetica,sans-serif; }
 .c-example-canvas { padding:25px; overflow-wrap:anywhere; }
 .c-example-canvas > :last-child { margin-bottom:0; }
-.c-example-notice { font-size:14px; line-height:1.5; color:#505a5f; margin:0; padding:12px 25px; border-top:1px solid #d8dde0; }
+.c-example-notice { font-size:14px; line-height:1.5; color:#505a5f; margin:0; padding:12px 25px; border-top:1px solid var(--c-border); }
 img,video,iframe { max-width:100%; }
 a { color:#1d70b8; text-underline-offset:.15em; }
 a:visited { color:#4c2c92; }
@@ -18,18 +20,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,s
 button,input,select,textarea { font-family:inherit; }
 [hidden] { display:none!important; }
 .civica-pattern-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); gap:20px; }
-.civica-pattern-card,.civica-card { padding:20px; border:1px solid #b1b4b6; margin-bottom:20px; background:#fff; }
+.civica-pattern-card,.civica-card { padding:20px; border:1px solid var(--c-border); margin-bottom:20px; background:#fff; }
 .civica-pattern-card h2,.civica-card h2 { margin-top:0; }
-.civica-pattern-urgency { border-left:4px solid #1d70b8; padding:20px; margin:20px 0; background:#f3f6f9; }
-.civica-pattern-urgency--action { border-color:#d4351c; background:#fff7f5; }
-.civica-pattern-urgency--unknown { border-color:#505a5f; background:#f3f2f1; }
+.civica-pattern-urgency { border-left:4px solid #505a5f; padding:20px; margin:20px 0; background:#fff; }
+.civica-pattern-urgency--action { border-color:#8a6100; background:#fff7bf; }
+.civica-pattern-urgency--unknown { background:#f3f2f1; }
 .civica-pattern-alphabet { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; }
-.civica-pattern-alphabet a { display:flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; font-weight:bold; border:1px solid #b1b4b6; }
+.civica-pattern-alphabet a { display:flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; font-weight:bold; border:1px solid #505a5f; }
 .civica-pattern-dialog,dialog { max-width:min(40rem,calc(100% - 30px)); max-height:calc(100% - 40px); overflow:auto; padding:25px; border:1px solid #505a5f; }
 dialog::backdrop { background:rgb(11 12 12 / 50%); }
 .civica-action-link { display:flex; align-items:center; gap:12px; min-height:44px; font-weight:bold; margin:10px 0; }
-.civica-action-link::before { content:'➜'; display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:50%; background:#d2e2f0; color:#0b0c0c; text-decoration:none; flex:none; }
-.civica-badge { display:inline-flex; align-items:center; justify-content:center; min-width:25px; height:25px; border-radius:50%; background:#d4351c; color:#fff; font-size:14px; font-weight:700; padding:0 5px; }
 .civica-demo-header { background:#1d70b8; color:#fff; padding:20px; margin-bottom:25px; }
 .civica-demo-header a { color:#fff; }.civica-demo-header a:focus{color:#0b0c0c;}
 .civica-chart { width:100%; height:auto; }
@@ -37,17 +37,14 @@ dialog::backdrop { background:rgb(11 12 12 / 50%); }
 .civica-chart line { stroke:#d9d9d9; stroke-width:1; }
 .civica-chart polyline { fill:none; stroke-width:1.5; vector-effect:non-scaling-stroke; }
 .civica-table-scroll { overflow:auto; max-width:100%; }
-.civica-status { border-left:4px solid #00703c; padding:12px; margin:15px 0; }
-@media(max-width:500px){body{font-size:16px;}.c-example-canvas{padding:20px;}.c-example-notice{padding:12px 20px;}.govuk-button-group{align-items:flex-start;} .govuk-button{width:auto;max-width:100%;}}
+.civica-status { border-left:4px solid var(--c-success); padding:12px; margin:15px 0; }
+@media(max-width:500px){:root{--c-body-size:1.125rem;}.c-example-canvas{padding:20px;}.c-example-notice{padding:12px 20px;}.govuk-button-group{align-items:flex-start;} .govuk-button{width:auto;max-width:100%;}}
 @media(forced-colors:active){.civica-badge{border:1px solid CanvasText;} .civica-chart polyline{stroke:CanvasText;}}
 /* Additional NHS-derived content patterns, with civica.uk semantic roles. */
-.civica-expander { border:1px solid #cecece; margin:20px 0; }
+.civica-expander { border:1px solid var(--c-border); margin:20px 0; }
 .civica-expander summary { padding:18px 20px; color:#1d70b8; font-weight:700; cursor:pointer; }
 .civica-expander > div { padding:0 20px 20px; }
-.civica-do-list,.civica-dont-list { border:1px solid #cecece; padding:20px; margin:25px 0; }
-.civica-do-list ul,.civica-dont-list ul { padding-left:25px; }
-.civica-do-list li::marker { content:'✓  '; color:#00703c; }
-.civica-dont-list li::marker { content:'✕  '; color:#d4351c; }
+.civica-do-list,.civica-dont-list { border:1px solid var(--c-border); padding:20px; margin:25px 0; }
 .civica-image { margin:20px 0; }
 .civica-image img { display:block; width:100%; height:auto; }
 .civica-image__caption { font-size:16px; padding:12px; background:#f3f2f1; }
@@ -55,7 +52,7 @@ dialog::backdrop { background:rgb(11 12 12 / 50%); }
 .civica-warning-callout__heading { color:#0b0c0c; margin:0 0 15px; }
 .civica-panel--interruption { padding:25px; background:#f3f6f9; border-top:4px solid #1d70b8; }
 .civica-table--striped tbody tr:nth-child(even) { background:#f3f2f1; }
-.civica-contents-list { border-left:1px solid #b1b4b6; padding-left:20px; }
+.civica-contents-list { border-left:1px solid var(--c-border); padding-left:20px; }
 .civica-contents-list ul { list-style:none; padding:0; }
 .civica-contents-list li { margin:10px 0; }
 .civica-header { padding:20px; background:#1d70b8; color:#fff; margin-bottom:25px; }
@@ -63,24 +60,41 @@ dialog::backdrop { background:rgb(11 12 12 / 50%); }
 .civica-header__brand img { max-width:205px; height:auto; }
 .civica-header a { color:#fff; }.civica-header a:focus-visible { color:#0b0c0c; background:#ffdd00; }
 .civica-header__navigation ul { list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:15px; }
-.civica-footer { background:#f3f2f1; border-top:1px solid #cecece; padding:20px; font-size:16px; margin-top:25px; }
+.civica-footer { background:#f3f2f1; border-top:1px solid var(--c-border); padding:20px; font-size:16px; margin-top:25px; }
 .civica-footer ul { display:flex; flex-wrap:wrap; gap:15px; list-style:none; padding:0; }
-.civica-pattern-card,.civica-card { border-color:#cecece; }
-.civica-pattern-urgency { border-color:#505a5f; background:#fff; }
-.civica-pattern-urgency--action { border-color:#8a6100; background:#fff7bf; }
-.civica-pattern-urgency--unknown { border-color:#505a5f; background:#f3f2f1; }
-.civica-badge { box-sizing:content-box; display:inline-block; min-width:.75em; min-height:1.25em; height:auto; padding:1px .25em 0; margin-left:.5em; font-size:16px; font-weight:700; line-height:1.25; text-align:center; background:#ca3535; color:#fff; border-radius:10em; outline:4px solid #ca3535; outline-offset:-.1em; }
+.civica-badge { box-sizing:content-box; display:inline-block; min-width:.75em; min-height:1.25em; height:auto; padding:1px .25em 0; margin-left:.5em; font-size:16px; font-weight:700; line-height:1.25; text-align:center; background:var(--c-error); color:#fff; border-radius:10em; outline:4px solid var(--c-error); outline-offset:-.1em; }
 .civica-panel--interruption { color:#0b0c0c; }
-.civica-do-list li::marker,.civica-dont-list li::marker { content:normal; }
 .civica-do-list ul,.civica-dont-list ul { list-style:none; padding:0; }
 .civica-do-list li,.civica-dont-list li { display:flex; align-items:flex-start; gap:12px; margin-bottom:12px; }
 .civica-do-list svg,.civica-dont-list svg { flex:none; width:24px; height:24px; }
-.civica-do-list svg { color:#00703c; }.civica-dont-list svg { color:#d4351c; }
-.civica-action-link::before { content:none; }
+.civica-do-list svg { color:var(--c-success); }.civica-dont-list svg { color:var(--c-error); }
 .civica-action-link a { display:inline-flex; align-items:center; gap:12px; min-height:44px; }
 .civica-action-link svg { flex:none; }
 .civica-table-scroll:focus-visible,pre:focus-visible { outline:3px solid #ffdd00; box-shadow:0 0 0 6px #0b0c0c; }
 .civica-table-scroll > .govuk-table { min-width:36rem; }
 .govuk-button { min-height:44px; }
+// The upstream em minimum must not exceed its container at enlarged text sizes.
+.govuk-select { min-width:min(11.5em,100%); }
 @media print { .govuk-\!-display-none-print { display:none!important; } }
 .c-example-canvas a[aria-current="page"] { font-weight:700; }
+
+/* Main reading and form roles share one explicit responsive scale. Metadata,
+   code and native chart labels retain their documented density roles. */
+.govuk-body,.govuk-body-m,.govuk-list,.govuk-table,.govuk-hint,.govuk-error-message,
+.govuk-input,.govuk-select,.govuk-textarea,.govuk-button,.govuk-details,
+.govuk-label:not([class*="govuk-label--"]),.govuk-fieldset__legend:not([class*="govuk-fieldset__legend--"]) {
+  font-size:var(--c-body-size); line-height:1.5;
+}
+.civica-card-demo { border:1px solid var(--c-border); background:#fff; margin:0 0 20px; min-width:0; max-width:40rem; }
+.civica-card-demo__media { margin:0; }
+.civica-card-demo__media img,img.civica-card-demo__media { display:block; width:100%; height:auto; }
+.civica-card-demo__body { padding:20px; min-width:0; }
+.civica-card-demo__body > :first-child { margin-top:0; }
+.civica-card-demo__body > :last-child { margin-bottom:0; }
+.civica-card-demo__actions { display:flex; flex-wrap:wrap; align-items:baseline; gap:15px 20px; }
+.civica-card-demo__actions .govuk-button { margin-bottom:0; }
+.civica-card-demo__fallback { padding:20px; background:#f3f6f9; color:#505a5f; }
+.civica-control-range { width:100%; max-width:24rem; min-height:44px; }
+.civica-card-demo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:20px; list-style:none; padding:0; margin:0; }
+.civica-card-demo-grid > li { min-width:0; }
+@media(min-width:640px) { .civica-card-demo--horizontal { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); align-items:start; } }

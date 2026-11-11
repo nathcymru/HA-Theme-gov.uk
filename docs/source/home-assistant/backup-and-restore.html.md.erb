@@ -1,0 +1,77 @@
+---
+title: "Backups, restore and recovery copies"
+description: "Complete design specification for backups, restore and recovery copies, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-019
+source_url: https://www.home-assistant.io/common-tasks/general/backups/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated backups, restore and recovery copies specification and three complete synthetic examples."
+  - date: 2026-11-11
+    description: "Required both local review statements before the restore-review example reports completion."
+---
+
+# Backups, restore and recovery copies
+
+Give someone enough information to choose the right recovery material and understand what a restore replaces. A theme-file recovery copy, an archive checksum and a Home Assistant backup answer different questions. None alone proves a working system can be restored.
+
+## Scope and native ownership
+
+Home Assistant provides encrypted backups, storage destinations and native restore workflows. Available contents depend on installation type and selected scope; external databases can require separate protection. Keep the current native backup and recovery documentation authoritative. [Official Home Assistant source](https://www.home-assistant.io/common-tasks/general/backups/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-019**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Requested / creating | Name the backup operation and real progress if supplied. | Do not say Backup ready before creation finishes. |
+| Created locally | Show creation time, included scope and local location. | Do not imply a remote copy exists. |
+| Upload partly failed | Show each successful and failed destination. | Do not discard a valid local copy or announce all destinations saved. |
+| Archive verified | State whether integrity, decryption or a restore was checked. | A hash match is not a successful restore test. |
+| Restoring / interrupted | Explain replacement scope and native reconnect expectations. | Do not invent a safe Cancel or a remaining-time estimate. |
+
+## Integration contract
+
+1. Before creating or restoring, identify installation type, selected contents, destination, backup date and any omitted data. Use native permissions and confirmation.
+2. Before restore confirmation, state which current configuration/data will be replaced and whether an interruption is expected. Link to the current native procedure rather than scripting a parallel restore.
+3. Keep encryption keys, passwords and recovery materials out of example HTML, URLs, screenshots and logs. Provide handling instructions without echoing secrets back to a shared display.
+4. Record a selected-file rollback by its exact paths, prior and resulting hashes and preconditions. It must never be labelled a full backup or imply coverage for devices, external databases or unrelated settings.
+
+## Accessible interaction
+
+- Use structured lists of included and excluded contents; do not hide the replacement warning in optional details.
+- Announce stage changes, not every progress tick. Provide a textual status when no measured percentage exists.
+- Ensure the final confirmation identifies the chosen archive and its date in the accessible name/context; focus should return predictably if it is cancelled before execution.
+
+## Failure and recovery
+
+- A failed destination needs a per-destination retry route where supported; do not recreate a successful backup merely to hide the failure.
+- For a decryption error, keep the archive selection and native error; never suggest disabling encryption as the automatic remedy.
+- If restore disconnects the browser, follow the native recovery procedure. Closing a dialog or tab must not be described as stopping the restore.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-019-destinations') %>
+
+<%= example('ha-flow-019-restore') %>
+
+<%= example('ha-flow-019-recovery') %>
+
+## Integration acceptance
+
+- Exercise created, partially uploaded, invalid-key and interrupted states with synthetic archives in a safe test installation.
+- Verify confirmation names contents and replacement consequences before any restore action.
+- Audit evidence must distinguish file rollback, backup integrity and a separately executed restore test.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-ILL-09](../styles/illustration.html#bg-ill-09), [WG-032](../content/interface-copy.html#wg-032), [WG-036](../content/interface-copy.html#wg-036), [WG-044](../content/errors-and-alerts.html#wg-044), [WG-051](../content/instructions-and-learning.html#wg-051), [WG-095](../content/content-review.html#wg-095).

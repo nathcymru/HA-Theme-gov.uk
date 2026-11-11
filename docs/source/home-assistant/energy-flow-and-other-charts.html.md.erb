@@ -1,0 +1,84 @@
+---
+title: "Energy flow and other chart families"
+description: "Define acceptance for native distribution, gauges and chart engines outside the Energy adapter."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-012"
+contract_id: "HA-CTRL-012"
+source_url: "https://www.home-assistant.io/dashboards/energy/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added energy flow and other chart families contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Energy flow and other chart families
+
+Use each representation for its real question. A distribution diagram shows relationships, a gauge shows a value against a scale, and a pie shows parts of a defined whole. Styling must not silently convert one relationship into another or imply support that has not been implemented.
+
+**HA-CTRL-012 — reference design specification.** This specifies the local design coverage requested by HA-GAP-012 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-012-capabilities">Task and capability contract</h2>
+
+| Chart family | Required scope statement |
+| --- | --- |
+| Native Energy distribution | Keep its native name, direction, selected period and units. It is not an ONS Sankey implementation. |
+| Native Sankey cards | These are distinct native cards where available; source presence does not add them to the maintained adapter whitelist. |
+| Gauge | Preserve the numeric value, unit, bounds and any explicitly configured threshold meaning. |
+| Pie or ring | Define the denominator and period; preserve missing categories. Do not manufacture “Other” or remove small categories to fit the palette. |
+| Third-party renderer | Record the card/engine version and its actual controls, data route and theme support. |
+| Supported Energy line/bar card | Follow the existing exact adapter contract, shared identity colours and 1.5px line weight; do not generalise that coverage. |
+
+<h2 id="ha-ctrl-012-states">States, pending work and failure</h2>
+
+A missing flow is not a zero flow, and a direction arrow is not proof of a current physical connection. Distinguish selected-period energy in kWh from current power in kW. A known closed valve does not establish a measured zero flow. Keep partial coverage visible instead of forcing displayed inputs and outputs to balance by inventing a residual.
+
+For a gauge outside its nominal range, retain the actual value and explain the scale rather than silently clipping the text. Severity bands must come from an explicit definition, not the chosen brand palette. If a pie's denominator is incomplete, qualify the whole; a misleading 100% claim is not repaired by an accessible label.
+
+Unknown card structures and unsupported series retain native rendering. A failed diagram or missing table needs a clear compatibility finding, not a claim that theme variables make it conformant.
+
+<h2 id="ha-ctrl-012-content">Content and interpretation</h2>
+
+Name nodes and direction in text: “Grid to home”, not “Blue to purple”. Keep native source labels, units, period and attribution. Explain whether a figure is instantaneous or accumulated. The reference flow table is a text review of synthetic values, not a new distribution engine and not a screenshot of a live home.
+
+<h2 id="ha-ctrl-012-accessibility">Accessibility and interaction</h2>
+
+Check every node's text value, name and direction without relying on moving particles. Respect reduced motion; if the native diagram cannot stop non-essential motion, record the exact limitation for that version. Provide or identify a meaningful equivalent route for the same values. A single current-value summary is not an equivalent for an entire selected-period graph. Test the diagram's native focus order and overlapping labels at 320px.
+
+<h2 id="ha-ctrl-012-integration">Native integration boundary</h2>
+
+The current companion adapts only the listed native Energy Cartesian line/bar hosts. Distribution, gauges, pies, Sankey cards and third-party engines remain outside that implementation. Do not add broad selectors or promise the Energy View data table for them. A future extension requires its own data model, renderer API, stable colour/legend strategy, fallback and cleanup evidence. See [Charts and tables](../components/charts.html) for the maintained boundary.
+
+<h2 id="ha-ctrl-012-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-flow-values') %>
+
+<%= example('ha-gauge-reading') %>
+
+<%= example('ha-chart-unsupported') %>
+
+<h2 id="ha-ctrl-012-acceptance">Acceptance and evidence</h2>
+
+1. Check distribution direction, source labels, kW versus kWh, period changes and missing/partial inputs without changing native quantities.
+2. Inspect a gauge at minimum, maximum, out-of-range and unavailable values, and a pie with missing category data. No invented threshold or denominator.
+3. Test reduced motion, keyboard access, non-colour cues and an actual value alternative for each named card/engine version. Record unresolved limits.
+4. Switch away from civica.uk and update an unsupported card. Native behaviour must remain intact and no Energy table, ONS label or adapter marker may be fabricated.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-012-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Energy cards](https://www.home-assistant.io/dashboards/energy/)
+- [Gauge card](https://www.home-assistant.io/dashboards/gauge/)
+
+Applicable frozen rules: [BG-DAT-02](../styles/brand-data.html#bg-dat-02), [BG-DAT-06](../styles/brand-data.html#bg-dat-06), [BG-DAT-07](../styles/brand-data.html#bg-dat-07), [WG-004](../content/index.html#wg-004), [WG-077](../content/numbers-and-data.html#wg-077), [WG-095](../content/content-review.html#wg-095). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

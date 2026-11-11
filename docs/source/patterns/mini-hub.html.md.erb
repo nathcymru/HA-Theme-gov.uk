@@ -1,15 +1,17 @@
 ---
-title: "Explain one topic across a mini-hub"
-description: "Break a complex household topic into a small set of related information pages."
-section: "patterns"
-group: "Page patterns"
-source_url: "https://service-manual.nhs.uk/design-system/patterns/mini-hub"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
+title: Explain one topic across a mini-hub
+description: Break a complex household topic into a small set of related information pages.
+section: patterns
+group: Page patterns
+source_url: https://service-manual.nhs.uk/design-system/patterns/mini-hub
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
 updates:
-  - date: "2026-11-11"
-    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS mini-hub pattern."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added civica household guidance, isolated examples and explicit boundaries for the NHS mini-hub pattern.
 ---
 
 # Explain one topic across a mini-hub
@@ -17,6 +19,10 @@ updates:
 **Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
 
 A mini-hub is a guide, not a setup wizard. People can read the part they need in any order without submitting answers or changing a device.
+
+## Use one contents-navigation owner
+
+The [contents-list decision guide](../components/contents-list.html#choose-the-navigation-scope) owns the navigation primitive. This pattern composes it into a small group of real pages with consistent contents and previous/next links. Keep that composition distinct from an in-page list and from a question flow that saves answers.
 
 ## The NHS principle we adapt
 

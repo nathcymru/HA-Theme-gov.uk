@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-11",
+  "baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+  "automated_status": "passed",
+  "scope": "Documentation, complete synthetic examples, shared styles and canonical ownership; maintained lighting request/count behaviour and chart sample-date controls.",
+  "checks": [
+    {
+      "name": "Build and TypeScript",
+      "status": "passed",
+      "commands": [
+        "npm run build",
+        "npm run typecheck",
+        "npm run docs:build"
+      ]
+    },
+    {
+      "name": "Node regressions",
+      "status": "passed",
+      "tests": 50
+    },
+    {
+      "name": "Browser acceptance",
+      "status": "passed",
+      "unique_tests": 767,
+      "execution": "734 passed in the full run;32 additional checks passed after correcting two report-layout failures and a test registry lookup; the remaining enlarged-text select case passed after the minimum-width fix. Full CI repeats all 767 on the committed revision.",
+      "scope": "196 guide routes,405 standalone examples, maintained runtime fixtures,39 preserved family routes,30 specification mappings and14 complete card specimens."
+    },
+    {
+      "name": "Documentation integrity",
+      "status": "passed",
+      "html_pages": 601,
+      "rules": 101,
+      "guides": 196,
+      "examples": 405,
+      "specifications": 30
+    },
+    {
+      "name": "Palette and supplied identity",
+      "status": "passed",
+      "supplied_asset_hashes": 176,
+      "published_brand_assets": 67,
+      "palette_variants": 20
+    },
+    {
+      "name": "Home Assistant configuration syntax",
+      "status": "passed",
+      "scripts": 9,
+      "room_wrappers": 6,
+      "templates": 88
+    }
+  ],
+  "manual_browser": [
+    {
+      "application": "Connected Google Chrome",
+      "environment": "local built site",
+      "status": "passed",
+      "viewports": [
+        "1280\u00d7900",
+        "320\u00d7900"
+      ],
+      "observations": [
+        "Homepage flat artwork and supplied brand placement",
+        "Image card layout, separate control and details route, readable phone content",
+        "Cards guide example presentation and quiet borders",
+        "Narrow audit report diagnosis and correction; semantic table scrolling preserved"
+      ]
+    }
+  ],
+  "deployment": {
+    "status": "pending"
+  },
+  "limits": [
+    "No physical device commands are issued by these checks.",
+    "Thirty dedicated Home Assistant specifications prescribe native acceptance; their examples are not newly installed native features.",
+    "Automated accessibility and fixture checks do not establish full screen-reader usability, household comprehension or whole-application conformance."
+  ]
+}

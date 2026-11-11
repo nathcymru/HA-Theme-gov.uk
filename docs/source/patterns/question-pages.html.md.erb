@@ -1,15 +1,21 @@
 ---
-title: "Ask clear questions on pages and in dialogs"
-description: "Collect the information a household task needs with accessible inputs, validation and a reliable way back."
-section: "patterns"
-group: "Page patterns"
-source_url: "https://service-manual.nhs.uk/design-system/patterns/question-pages"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
+title: Ask clear questions on pages and in dialogs
+description: Collect the information a household task needs with accessible inputs, validation and a reliable way back.
+section: patterns
+group: Page patterns
+source_url: https://service-manual.nhs.uk/design-system/patterns/question-pages
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
 updates:
-  - date: "2026-11-11"
-    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS question-pages pattern."
+  - date: 2026-11-11
+    description: Clarified question-page ownership across task lists, guided references and native Home Assistant editors.
+  - date: 2026-11-11
+    description: Aligned the dialog’s wording and submit feedback with its actual local-only behaviour.
+  - date: 2026-11-11
+    description: Added civica household guidance, isolated examples and explicit boundaries for the NHS question-pages pattern.
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 ---
 
 # Ask clear questions on pages and in dialogs
@@ -17,6 +23,12 @@ updates:
 **Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
 
 A question should earn its place in a household workflow. Explain why the answer is needed and avoid asking again for information the person already supplied.
+
+## Compose the task without replacing its owner
+
+This page owns clear questions, retained answers and the short-dialog adaptation. Use [multiple tasks](complete-multiple-tasks.html) when work has independent parts and saved progress. A [smart-answer template](../publishing/frontend-templates/smart-answer.html) may route answers to guidance, but does not supply an automation or diagnostic engine. A [transaction start page](../publishing/frontend-templates/transaction.html) explains the destination before opening it.
+
+Native Home Assistant remains the owner of automation triggers, conditions, actions, schedules and supported setup flows. A reference question is not a replacement editor. Any connected implementation needs real route, capability, permission, validation, persistence and result handling; the local examples prove none of those backend capabilities.
 
 ## The NHS principle we adapt
 

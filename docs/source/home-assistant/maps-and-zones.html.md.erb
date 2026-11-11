@@ -1,0 +1,77 @@
+---
+title: "Maps, zones and location records"
+description: "Complete design specification for maps, zones and location records, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-017
+source_url: https://www.home-assistant.io/dashboards/map/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated maps, zones and location records specification and three complete synthetic examples."
+  - date: 2026-11-11
+    description: "Bounded the synthetic radius draft and required an explicit display-disclosure choice."
+---
+
+# Maps, zones and location records
+
+A map helps locate entities; a text record explains who or what the marker represents and how certain the location is. The same task must remain understandable when tiles, imagery or pointer gestures are unavailable. Keep a person’s tracked location separate from their login identity.
+
+## Scope and native ownership
+
+The current native Map card supports markers, accuracy circles, grouping and panel lists for people, devices and zones. This specification preserves those native functions and provider attribution; it does not introduce a civica map engine. [Official Home Assistant source](https://www.home-assistant.io/dashboards/map/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-017**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Located entity | Show name, reported zone/location and observation context. | An accuracy circle is uncertainty, not a property boundary. |
+| Several markers grouped | Name the group and expose its members through the native interaction. | Do not announce the cluster as one person. |
+| No location supplied | Keep an explicit location-not-available record where the native view supports it. | Do not place the entity at 0°, 0°. |
+| Tiles unavailable | Retain text records and the map’s own error. | Do not suggest the entities have moved. |
+| Historical route / zone | Label the relevant period or configured zone. | A route is not a current observation. |
+
+## Integration contract
+
+1. Use the native provider and honour its required attribution. Do not crop or cover attribution with floating controls, including at phone widths.
+2. Read latitude, longitude, accuracy and zone states through native data. Do not geocode names or send location data to a new provider merely to apply a theme.
+3. Respect the user’s selected map focus and zoom; a normal state refresh must not repeatedly drag them away from a selected record.
+4. Editing a zone changes configuration and may affect automations. Separate inspection from an explicit, permission-checked edit workflow; label radius units and preserve validation.
+
+## Accessible interaction
+
+- Provide a named textual route to entity/zone details. Label zoom, reset focus and grouping controls; verify keyboard entry and exit without a trap.
+- For supported zone editing, provide an alternative to dragging, such as the native numeric configuration route. Record a missing native alternative as a limitation.
+- Use marker labels or shapes as well as colour. Preserve provider imagery and manufacturer/person pictures; do not recolour photographs to match the brand.
+
+## Failure and recovery
+
+- With no current tracker value, use location not supplied, not away. A configured Home zone does not establish that anyone is there.
+- When location permission is denied, explain the affected feature; do not imply the theme can grant permission.
+- On shared displays, apply the household’s chosen precision and audience. Keep public examples and screenshots free of real addresses and coordinates.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-017-locations') %>
+
+<%= example('ha-flow-017-zone') %>
+
+<%= example('ha-flow-017-private') %>
+
+## Integration acceptance
+
+- Check clustered markers, two entities at the same point, missing coordinates and failed tiles independently.
+- Test controls and text alternatives with keyboard, touch, enlarged text and dark mode; retain readable provider attribution.
+- Verify no location request, movement or new sharing is triggered by opening the documentation or changing palettes.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-DAT-08](../styles/brand-data.html#bg-dat-08), [BG-ILL-08](../styles/illustration.html#bg-ill-08), [BG-ILL-09](../styles/illustration.html#bg-ill-09), [WG-063](../content/inclusive-content.html#wg-063), [WG-066](../content/inclusive-content.html#wg-066), [WG-082](../content/accessible-content.html#wg-082).

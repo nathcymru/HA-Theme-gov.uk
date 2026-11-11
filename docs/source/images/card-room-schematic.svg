@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">An invented three-room layout</title>
+  <desc id="desc">Two smaller rooms are on the left and one larger room on the right. A circular marker identifies a sensor in the larger room. Positions are schematic and do not show live readings.</desc>
+  <rect width="640" height="360" fill="#f3f6f9"/>
+  <rect x="54" y="42" width="532" height="276" fill="#103e65"/>
+  <rect x="66" y="54" width="196" height="120" fill="#ffffff"/>
+  <rect x="66" y="186" width="196" height="120" fill="#ffffff"/>
+  <rect x="274" y="54" width="300" height="252" fill="#d2e2f0"/>
+  <rect x="244" y="113" width="42" height="42" fill="#f3f6f9"/>
+  <rect x="244" y="226" width="42" height="42" fill="#f3f6f9"/>
+  <rect x="392" y="288" width="58" height="42" fill="#f3f6f9"/>
+  <circle cx="457" cy="129" r="24" fill="#1d70b8"/>
+  <circle cx="457" cy="129" r="8" fill="#ffffff"/>
+  <rect x="323" y="201" width="160" height="43" rx="5" fill="#ffffff"/>
+  <rect x="337" y="188" width="132" height="34" rx="5" fill="#ffffff"/>
+</svg>

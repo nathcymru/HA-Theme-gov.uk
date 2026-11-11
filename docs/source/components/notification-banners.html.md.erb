@@ -1,17 +1,21 @@
 ---
-title: "Notification banners"
-description: "A banner carries a service-wide notice or an outcome from the previous step."
-section: "components"
-group: "Content presentation"
-source_url: "https://service-manual.nhs.uk/design-system/components/notification-banners"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Notification banners
+description: A banner carries a service-wide notice or an outcome from the previous step.
+section: components
+group: Content presentation
+source_url: https://service-manual.nhs.uk/design-system/components/notification-banners
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed notification banners guidance and 2 Home Assistant reference examples."
+    description: Connected ordinary banners to shared message selection and the bounded global and urgent variants.
+  - date: 2026-11-11
+    description: Dated the fictional maintenance window and stated its time zone and non-live scope.
+  - date: 2026-11-11
+    description: Added NHS-informed notification banners guidance and 2 Home Assistant reference examples.
 ---
 
 # Notification banners
@@ -19,6 +23,12 @@ updates:
 A banner carries a service-wide notice or an outcome from the previous step.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## Scope the notice before choosing a variant
+
+Use the [message decision guide](status.html#choose-the-right-message) to distinguish a notice from a state label or unread count. This page owns the ordinary notice and confirmed-outcome contract. The [global-banner source variant](../publishing/components/global-banner.html) adds service-wide scope and dismissal-lifecycle questions. The [urgent-message source variant](../publishing/components/emergency-banner.html) requires a verified urgency rule and fresh source context; it does not make a maintenance notice urgent.
+
+A source variation changes context, not the evidence needed to claim success. Keep inline validation with its field and preserve the error summary when a form cannot be submitted.
 
 ## When to use it
 

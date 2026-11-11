@@ -603,12 +603,12 @@ examples:
       <h2 class="govuk-heading-m">Do chart colours change with the brand palette?</h2>
       <p class="govuk-body">Chart identities stay stable across brand palettes. Vivid and Muted adjust their colour strength; Light and Dark adjust surface contrast.</p>
   pub-frontend-templates-calendar-1:
-    title: "Household agenda"
-    description: "Invented appointments show an agenda structure."
+    title: Household agenda
+    description: Invented appointments show an agenda structure.
     html: |
       <div tabindex="0" role="region" aria-label="Example agenda">
       <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Example agenda</caption>
+      <caption class="govuk-table__caption govuk-table__caption--m">Example agenda — Europe/London (GMT), 12 to 14 November 2026</caption>
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Date</th>
@@ -619,7 +619,7 @@ examples:
       <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__cell">12 November 2026</th>
-      <td class="govuk-table__cell">09:00</td>
+      <td class="govuk-table__cell"><time datetime="2026-11-12T09:00:00+00:00">09:00 GMT</time></td>
       <td class="govuk-table__cell">Example maintenance visit</td>
       </tr>
       <tr class="govuk-table__row">
@@ -630,12 +630,13 @@ examples:
       </tbody>
       </table>
       </div>
+      <p class="govuk-body">The all-day reminder belongs to 14 November; it is not a timed midnight appointment. All entries are invented.</p>
   pub-frontend-templates-calendar-2:
-    title: "Empty period"
-    description: "No invented appointment is inserted to fill a calendar."
+    title: Empty period
+    description: No invented appointment is inserted to fill a calendar.
     html: |
-      <h2 class="govuk-heading-m">Example calendar: selected week</h2>
-      <p class="govuk-body">There are no events in this demonstration period.</p>
+      <h2 class="govuk-heading-m">Example calendar: 9 to 15 November 2026</h2>
+      <p class="govuk-body">There are no events from 9 to 15 November 2026 in this synthetic calendar. Dates use Europe/London. This is a successful empty result, not a failed calendar request.</p>
       <details class="govuk-details">
       <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">Calendar source</span>

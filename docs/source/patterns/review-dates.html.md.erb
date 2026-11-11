@@ -1,15 +1,21 @@
 ---
-title: "Show when guidance was reviewed"
-description: "Distinguish reviewed household guidance, individual updates and the freshness of live data."
-section: "patterns"
-group: "Inclusive content"
-source_url: "https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
+title: Show when guidance was reviewed
+description: Distinguish reviewed household guidance, individual updates and the freshness of live data.
+section: patterns
+group: Inclusive content
+source_url: https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
 updates:
-  - date: "2026-11-11"
-    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS know-that-a-page-is-up-to-date pattern."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Corrected availability wording so it does not imply an independent connection test.
+  - date: 2026-11-11
+    description: Added civica household guidance, isolated examples and explicit boundaries for the NHS know-that-a-page-is-up-to-date pattern.
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 ---
 
 # Show when guidance was reviewed
@@ -17,6 +23,10 @@ updates:
 **Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
 
 A review date describes an editorial check of information. It is not a heartbeat from Home Assistant and it cannot confirm the state of a household device.
+
+## Use the metadata owner for presentation
+
+[Page metadata and history](../components/page-history.html#own-editorial-dates-without-inventing-freshness) owns how publication and update records are displayed. This pattern owns the editorial review decision and its scope. The [withdrawn review-date component](../components/review-date.html) is retained for source context; no route is removed and no review date is generated from a build.
 
 ## The NHS principle we adapt
 

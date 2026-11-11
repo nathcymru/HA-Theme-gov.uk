@@ -1,0 +1,85 @@
+---
+title: Presence, people and shared-screen privacy
+description: Present tracker evidence cautiously and limit personal detail on shared displays.
+section: patterns
+group: "Home Assistant: controls"
+status: reference
+gap_id: HA-GAP-014
+contract_id: HA-CTRL-014
+source_url: https://www.home-assistant.io/integrations/person/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+updates:
+  - date: 2026-11-11
+    description: Aligned authored permission wording with the UK-English style while preserving native labels and identifiers.
+  - date: 2026-11-11
+    description: Added presence, people and shared-screen privacy contract, domain-specific acceptance checks and synthetic reference examples.
+---
+
+# Presence, people and shared-screen privacy
+
+Presence can help a household understand device behaviour, but a tracker is evidence about a device or integration, not certainty about a person’s whereabouts. Show only the personal detail needed for the task, especially on wall displays and screenshots.
+
+**HA-CTRL-014 — reference design specification.** This specifies the local design coverage requested by HA-GAP-014 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-014-capabilities">Task and capability contract</h2>
+
+| Information | Contract |
+| --- | --- |
+| Person entity | Use the supplied person name and native combined tracker state. Do not rebuild tracker precedence in theme code. |
+| User account | Keep login identity and permissions separate from tracked presence. |
+| Source and observation time | Explain what reported the state and when, where available; do not call an old report current. |
+| Zone or coordinates | Display only the detail justified by the task and chosen audience. A zone label can itself be sensitive. |
+| Avatar | Use an approved image or a neutral fallback; do not infer identity, role or relationship from appearance. |
+
+<h2 id="ha-ctrl-014-states">States, pending work and failure</h2>
+
+Unknown or unavailable tracker information is not Away. A phone left at home, delayed update or conflicting tracker can make presence uncertain. Preserve the native Person integration's result and source; do not choose whichever tracker produces the most reassuring state.
+
+A single sensor cannot establish that the household is empty or that a person is safe. If a current report is missing, retain an earlier report only with its time and qualification. Do not infer offline, absence or a health event without appropriate source evidence.
+
+Privacy choices need a defined scope: a public screenshot, a shared wall display and a private signed-in view have different audiences. Omitting personal text in a card does not remove that data from Home Assistant or revoke native access. If a chosen redaction cannot be implemented, say so rather than displaying the detail anyway.
+
+<h2 id="ha-ctrl-014-content">Content and interpretation</h2>
+
+Use “Reported home” or the native state with a nearby source qualification where certainty matters. Keep user-supplied names intact. Do not write “Everyone is away” from a partial set of trackers. Explain why a location is needed before asking for it. Public reference examples use invented names and omit actual coordinates, routes and faces.
+
+<h2 id="ha-ctrl-014-accessibility">Accessibility and interaction</h2>
+
+Provide a text name and reported state rather than an avatar or coloured dot alone. An avatar repeating a nearby name can be decorative; an image-only person control needs an accessible name. Do not announce every location update to the whole room. Maintain readable timestamps, keyboard details and a text alternative to any essential map information.
+
+<h2 id="ha-ctrl-014-integration">Native integration boundary</h2>
+
+Retain native Person, tracker and Map behaviour, including source precedence and account permissions. The theme does not implement consent management, location redaction or granular access rules. These examples are disclosure and wording recipes. A future shared-display feature needs explicit scope, data minimisation and tests for alternate routes as well as the main card.
+
+<h2 id="ha-ctrl-014-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-presence-reported') %>
+
+<%= example('ha-presence-missing') %>
+
+<%= example('ha-presence-private') %>
+
+<h2 id="ha-ctrl-014-acceptance">Acceptance and evidence</h2>
+
+1. Test home, not_home, named zone, unknown, unavailable and a stale retained report. Missing data must never imply away.
+2. Compare a person without login, a user without a tracked person and a linked pair. Neither presence nor sign-in may grant the other’s meaning.
+3. Use conflicting or delayed tracker reports in a synthetic setup; preserve native resolution and qualify uncertainty without diagnosing a cause.
+4. Review private and shared displays, notification previews and public screenshots. Check names, coordinates, avatars, timestamps, keyboard alternatives and the stated authorisation boundary.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-014-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Person](https://www.home-assistant.io/integrations/person/)
+- [People and user configuration](https://www.home-assistant.io/docs/configuration/user-configuration/)
+
+Applicable frozen rules: [BG-ILL-09](../styles/illustration.html#bg-ill-09), [WG-011](../content/voice-and-language.html#wg-011), [WG-022](../content/words-and-style.html#wg-022), [WG-045](../content/errors-and-alerts.html#wg-045), [WG-061](../content/inclusive-content.html#wg-061), [WG-066](../content/inclusive-content.html#wg-066). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

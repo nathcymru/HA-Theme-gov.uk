@@ -1,0 +1,55 @@
+---
+title: "Home Assistant controls and flows"
+description: "Design contracts, complete examples and acceptance recipes for native household controls and tasks."
+section: patterns
+group: Guidance
+nav_order: 2
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the Home Assistant specification catalogue, shared state and action starting points, and implementation boundaries."
+---
+
+# Home Assistant controls and flows
+
+Use these specifications when designing or reviewing a household task in Home Assistant. They combine the civica.uk [brand rules](../styles/brand-colour.html), [writing guide](../content/index.html) and reusable components with the capabilities that each integration actually provides.
+
+The catalogue covers the 30 design gaps recorded by the [component audit](../community/missing-components.html). A specification explains required behaviour and how to check it. Its invented examples do not connect to a household, replace a native editor or prove that an installed integration supports a command.
+
+## Start with state and actions
+
+Read [entity state, confidence and freshness](entity-state.html) before formatting a reading. Read [action results](action-results.html) before adding a command. These contracts distinguish a request, its acceptance and the state subsequently reported by a device. They also distinguish an unavailable entity, an unknown value, a valid zero and an old retained value.
+
+<%= example('local-status-pending') %>
+
+<%= example('local-device-unavailable') %>
+
+## Choose the right layer
+
+| Need | Use | Boundary |
+| --- | --- | --- |
+| A repeated visual or interaction element | [Components](../components/index.html), such as fields, cards and tables | Reuse the canonical owner and its complete examples |
+| A supported device control | The domain specification below and the native control | Capability, permission, mode and range come from Home Assistant |
+| A task across several controls | The flow specification below | Preserve unsaved work, native outcomes and recovery routes |
+| Native shell, colour settings or Energy presentation | [Compatibility register](compatibility-register.html) | Only the listed exact adapters claim maintained integration |
+| A new or third-party surface | Its native interface and documented variables | Matching colours alone do not establish behavioural support |
+
+## Controls and task specifications
+
+<% groups = section_groups('patterns').select { |name, _| name.start_with?('Home Assistant:') } %>
+<% groups.each do |name, pages| %>
+<h3><%= escape(name.sub('Home Assistant: ', '').capitalize) %></h3>
+<ul><% pages.each do |page| %><li><a href="<%= docs_path('/' + page.destination_path) %>"><%= escape(page.data.title) %></a> — <%= escape(page.data.description) %></li><% end %></ul>
+<% end %>
+
+## Check a real task
+
+1. Identify the exact Home Assistant version, integration, entity capabilities and user permissions.
+2. Follow the specification's state matrix and acceptance recipe using synthetic data first.
+3. Check keyboard use, narrow layouts, text resizing, reduced motion and the non-visual route. Record the browser and assistive technology actually used.
+4. Separate an automated example check from a native task test and a live device observation. Do not report an unrun check as a pass.
+5. Keep the native route available when a private host changes or an unsupported capability is encountered.
+
+The [native task accessibility](native-task-accessibility.html) and [compatibility register](compatibility-register.html) pages define these boundaries in detail. The [work-package checklist](../community/guidance-work-package.html) records the implementation and verification evidence for this documentation revision.

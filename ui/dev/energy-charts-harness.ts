@@ -77,6 +77,8 @@ function build(target: HTMLElement) {
   const checkbox = (text: string, checked = false) => { const label = element('label'), input = element('input'); input.type = 'checkbox'; input.checked = checked; label.append(input, text); return { label, input }; };
   const dark = checkbox('Dark example'), muted = checkbox('Muted chart colours'), enabled = checkbox('Apply civica chart styles', !new URLSearchParams(location.search).has('native'));
   const nextDay = element('button', 'Show next sample day'); nextDay.type = 'button';
+  nextDay.hidden = ['devices', 'empty'].includes(target.dataset.exampleChart ?? '');
+  if (!target.dataset.exampleChart) nextDay.textContent = 'Show next sample day for time charts';
   controls.append(paletteLabel, muted.label, dark.label, enabled.label, nextDay);
   const panel = document.createElement('ha-panel-energy'); const panelRoot = panel.attachShadow({ mode: 'open' });
   const panelStyle = element('style', ':host{display:block;min-width:0}.examples{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding:0 20px 20px}');
@@ -86,11 +88,11 @@ function build(target: HTMLElement) {
   const hidden = Object.fromEntries(['power', 'usage', 'devices', 'many', 'empty'].map(key => [key, new Set<string>()])) as Record<Key, Set<string>>;
   const nativeClicks: string[] = [];
   const descriptions: Record<Key, string> = {
-    power: 'Example power over three hours on 11 November 2026. Individual unfilled lines show kilowatts (kW), including exported power below zero. A gap means a value was unavailable.',
-    usage: 'Example hourly energy on 11 November 2026, compared with 10 November. Solid and patterned columns distinguish the periods. Stacked values remain separate in the data table.',
-    devices: 'Example energy by device for 11 November 2026 and the previous day. Values are in kilowatt hours (kWh). A zero is different from an unavailable reading.',
-    many: '24 named example devices, each with a stable colour and pattern. These use the same source shapes as Home Assistant’s individual device detail chart, including comparison periods.',
-    empty: 'Example gas chart with no values for the selected period. No readings have been invented to fill it.',
+    power: 'Example power from midnight to 3am on 11 November 2026 (GMT, Europe/London). Individual unfilled lines show kilowatts (kW), including exported power below zero. A gap means a value was unavailable.',
+    usage: 'Example hourly energy from midnight to 3am on 11 November 2026 (GMT, Europe/London), compared with 10 November. Solid and patterned columns distinguish the periods. Stacked values remain separate in the data table.',
+    devices: 'Fixed example energy by device for 11 November 2026 and 10 November 2026 (GMT, Europe/London). Values are in kilowatt hours (kWh). A zero is different from an unavailable reading.',
+    many: '24 named example devices from midnight to 3am on 11 November 2026, compared with 10 November (GMT, Europe/London), each with a stable colour and pattern. These use Home Assistant’s individual device detail chart shapes.',
+    empty: 'Fixed example gas chart with no values for 11 November 2026 (GMT, Europe/London). No readings have been invented to fill it.',
   };
   const specs: Array<[Key, string, string]> = [
     ['power', 'hui-power-sources-graph-card', 'Power over time'],
@@ -215,7 +217,8 @@ function build(target: HTMLElement) {
       if (!hosts[key]) continue;
       const host = hosts[key]; host.data = dataset(key).map(series => ({ ...series, data: series.data.map((point: any) => { const values = point.value ?? point, shifted = values.map((value: any, i: number) => i === 0 || i === 2 ? value + day * 24 * HOUR : value); return point.value ? { ...point, value: shifted } : shifted; }) }));
       host.options = { ...host.options, xAxis: { ...host.options.xAxis, min: T + day * 24 * HOUR, max: T + day * 24 * HOUR + 3 * HOUR } };
-      cards[key].shadowRoot!.querySelector('.chart-description')!.textContent = `Invented example values for ${11 + day} November 2026. See the table for the original times, period starts and units.`;
+      const date = (offset: number) => new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'long', year: 'numeric' }).format(T + offset * 24 * HOUR);
+      cards[key].shadowRoot!.querySelector('.chart-description')!.textContent = `Invented example values from midnight to 3am on ${date(day)}${key === 'power' ? '' : `, compared with ${date(day - 1)}`} (Europe/London). See the table for the original times, period starts and units.`;
       renderNative(key);
     }
     refresh();

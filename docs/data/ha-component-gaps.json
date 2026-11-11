@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewedOn": "2026-11-11",
-  "status": "review-complete-proposals-open",
+  "status": "specifications-complete",
   "purpose": "Specify missing or partial civica.uk design coverage for existing Home Assistant capabilities; no native feature is declared missing.",
   "baseline": {
     "guideCount": 147,
@@ -237,7 +237,7 @@
       "id": "HA-GAP-001",
       "title": "Entity state, confidence and freshness",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "entity rows",
@@ -254,19 +254,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/status.html.md.erb",
-          "line": 32,
-          "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
-          "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
-        },
-        {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 10,
-          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
-          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          "file": "docs/source/home-assistant/entity-state.html.md.erb",
+          "line": 19,
+          "excerpt": "# Entity state, confidence and freshness",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Extend the shared entity-state contract with source-backed confidence and freshness rules, separate from semantic severity.",
@@ -320,13 +314,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/status.html.md.erb",
+            "line": 32,
+            "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
+            "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+          },
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 10,
+            "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+            "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/entity-state.html.md.erb",
+        "url": "/home-assistant/entity-state.html",
+        "title": "Entity state, confidence and freshness",
+        "examples": [
+          "ha-state-zero",
+          "ha-state-missing",
+          "ha-state-assumed"
+        ],
+        "acceptance_anchor": "ha-ctrl-001-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-002",
       "title": "Action request, confirmation and partial completion",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "single-device actions",
@@ -343,25 +371,13 @@
         ]
       },
       "civicaRuntime": "native actions preserved; maintained lighting card adds room and recipe actions",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 10,
-          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
-          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
-        },
-        {
-          "file": "card/src/card.ts",
-          "line": 207,
-          "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
-          "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
-        },
-        {
-          "file": "docs/source/patterns/recovery.html.md.erb",
-          "line": 22,
-          "excerpt": "## Use the right state",
-          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+          "file": "docs/source/home-assistant/action-results.html.md.erb",
+          "line": 19,
+          "excerpt": "# Action requests and results",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify requested, accepted, confirmed, failed, timed-out and partially completed operations, including concurrent updates.",
@@ -404,13 +420,53 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 10,
+            "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+            "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          },
+          {
+            "file": "card/src/card.ts",
+            "line": 207,
+            "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
+            "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
+          },
+          {
+            "file": "docs/source/patterns/recovery.html.md.erb",
+            "line": 22,
+            "excerpt": "## Use the right state",
+            "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/action-results.html.md.erb",
+        "url": "/home-assistant/action-results.html",
+        "title": "Action requests and results",
+        "examples": [
+          "ha-action-request",
+          "ha-action-pending",
+          "ha-action-partial"
+        ],
+        "acceptance_anchor": "ha-ctrl-002-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-003",
       "title": "Continuous controls and discoverable alternatives",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "sliders",
@@ -428,19 +484,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 32,
-          "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
-          "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
-        },
-        {
-          "file": "docs/source/components/controls.html.md.erb",
-          "line": 28,
-          "excerpt": "## Fields",
-          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          "file": "docs/source/home-assistant/continuous-controls.html.md.erb",
+          "line": 19,
+          "excerpt": "# Continuous controls and alternatives",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Define a reusable control-family contract with native bindings, visible values and keyboard/touch alternatives.",
@@ -501,13 +551,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 32,
+            "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
+            "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+          },
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 28,
+            "excerpt": "## Fields",
+            "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/continuous-controls.html.md.erb",
+        "url": "/home-assistant/continuous-controls.html",
+        "title": "Continuous controls and alternatives",
+        "examples": [
+          "ha-control-range",
+          "ha-control-precise",
+          "ha-control-missing"
+        ],
+        "acceptance_anchor": "ha-ctrl-003-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-004",
       "title": "Lighting capabilities and colour controls",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "light tiles",
@@ -524,19 +608,13 @@
         ]
       },
       "civicaRuntime": "native light controls plus maintained civica-house-lighting-card and scoped native light-dialog scene actions",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 10,
-          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
-          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
-        },
-        {
-          "file": "card/src/card.ts",
-          "line": 207,
-          "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
-          "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
+          "file": "docs/source/home-assistant/lighting.html.md.erb",
+          "line": 19,
+          "excerpt": "# Lighting capabilities and colour",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Document on/off-only, brightness, colour temperature, colour and group-light variants with capability-driven visibility.",
@@ -586,13 +664,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 10,
+            "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+            "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          },
+          {
+            "file": "card/src/card.ts",
+            "line": 207,
+            "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
+            "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/lighting.html.md.erb",
+        "url": "/home-assistant/lighting.html",
+        "title": "Lighting capabilities and colour",
+        "examples": [
+          "ha-light-switch",
+          "ha-light-temperature",
+          "ha-light-mixed"
+        ],
+        "acceptance_anchor": "ha-ctrl-004-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-005",
       "title": "Climate, fan, humidity and water-heater controls",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "thermostat",
@@ -610,19 +722,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 38,
-          "excerpt": "Preserve modes and domain-specific state meanings. Heating, cooling, paused, playing and unavailable are not interchangeable brand accents. Media artwork remains useful content, not a surface to recolour with CSS filters.",
-          "supports": "Climate/media are acknowledged in one shared section."
-        },
-        {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 32,
-          "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
-          "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+          "file": "docs/source/home-assistant/climate-and-air.html.md.erb",
+          "line": 21,
+          "excerpt": "# Climate, fan and water-heater controls",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Add domain recipes for measured versus target values, operating state versus requested mode, and valid ranges.",
@@ -678,13 +784,48 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 38,
+            "excerpt": "Preserve modes and domain-specific state meanings. Heating, cooling, paused, playing and unavailable are not interchangeable brand accents. Media artwork remains useful content, not a surface to recolour with CSS filters.",
+            "supports": "Climate/media are acknowledged in one shared section."
+          },
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 32,
+            "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
+            "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/climate-and-air.html.md.erb",
+        "url": "/home-assistant/climate-and-air.html",
+        "title": "Climate, fan and water-heater controls",
+        "examples": [
+          "ha-climate-target",
+          "ha-climate-range",
+          "ha-climate-pending",
+          "ha-climate-related"
+        ],
+        "acceptance_anchor": "ha-ctrl-005-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-006",
       "title": "Locks, alarms, covers and valves",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "lock/unlock/open",
@@ -701,19 +842,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 44,
-          "excerpt": "Use unambiguous action labels. Display the current confirmed state and pending operation distinctly. Preserve confirmations for consequential actions. Do not place a whole-card tap target over separate lock or alarm buttons.",
-          "supports": "Consequential controls are acknowledged without a domain-by-domain decision matrix."
-        },
-        {
-          "file": "docs/source/components/dialogs.html.md.erb",
-          "line": 32,
-          "excerpt": "## Confirm consequential actions",
-          "supports": "Confirmation guidance exists; complete domain workflows remain native."
+          "file": "docs/source/home-assistant/access-and-movement.html.md.erb",
+          "line": 21,
+          "excerpt": "# Locks, alarms, covers and valves",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Define consequential-action recipes while retaining native authentication and safety behaviour.",
@@ -770,13 +905,48 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 44,
+            "excerpt": "Use unambiguous action labels. Display the current confirmed state and pending operation distinctly. Preserve confirmations for consequential actions. Do not place a whole-card tap target over separate lock or alarm buttons.",
+            "supports": "Consequential controls are acknowledged without a domain-by-domain decision matrix."
+          },
+          {
+            "file": "docs/source/components/dialogs.html.md.erb",
+            "line": 32,
+            "excerpt": "## Confirm consequential actions",
+            "supports": "Confirmation guidance exists; complete domain workflows remain native."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/access-and-movement.html.md.erb",
+        "url": "/home-assistant/access-and-movement.html",
+        "title": "Locks, alarms, covers and valves",
+        "examples": [
+          "ha-access-lock",
+          "ha-access-moving",
+          "ha-access-fault",
+          "ha-access-alarm-valve"
+        ],
+        "acceptance_anchor": "ha-ctrl-006-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-007",
       "title": "Appliances, vacuums and outdoor devices",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "appliance cycles",
@@ -793,19 +963,13 @@
         ]
       },
       "civicaRuntime": "three known household-card presentation adapters include pa-appliance-card; other devices remain native",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 52,
-          "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
-          "supports": "Three exact household cards receive presentation only."
-        },
-        {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 10,
-          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
-          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          "file": "docs/source/home-assistant/appliances-and-cleaning.html.md.erb",
+          "line": 19,
+          "excerpt": "# Appliances, vacuums and outdoor devices",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify capability-led layouts for progress, remaining time, remote-control permission, faults and supported commands.",
@@ -861,13 +1025,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 52,
+            "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
+            "supports": "Three exact household cards receive presentation only."
+          },
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 10,
+            "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+            "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/appliances-and-cleaning.html.md.erb",
+        "url": "/home-assistant/appliances-and-cleaning.html",
+        "title": "Appliances, vacuums and outdoor devices",
+        "examples": [
+          "ha-appliance-cycle",
+          "ha-appliance-returning",
+          "ha-appliance-error"
+        ],
+        "acceptance_anchor": "ha-ctrl-007-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-008",
       "title": "Entity, device, area and target pickers",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "automation target selector",
@@ -883,19 +1081,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/controls.html.md.erb",
-          "line": 28,
-          "excerpt": "## Fields",
-          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
-        },
-        {
-          "file": "ui/src/civica-ui.ts",
-          "line": 121,
-          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
-          "supports": "The adapter target list is bounded and does not include the missing specification families."
+          "file": "docs/source/home-assistant/target-pickers.html.md.erb",
+          "line": 23,
+          "excerpt": "# Entity, device and area pickers",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Add the native selection family to the design system instead of substituting a plain select or predictive text example.",
@@ -956,13 +1148,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 28,
+            "excerpt": "## Fields",
+            "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          },
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 121,
+            "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+            "supports": "The adapter target list is bounded and does not include the missing specification families."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/target-pickers.html.md.erb",
+        "url": "/home-assistant/target-pickers.html",
+        "title": "Entity, device and area pickers",
+        "examples": [
+          "ha-target-duplicates",
+          "ha-target-scope",
+          "ha-target-missing"
+        ],
+        "acceptance_anchor": "ha-ctrl-008-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-009",
       "title": "Automation and script editing",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "visual automation editor",
@@ -979,19 +1205,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "missing-dedicated-specification",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/controls.html.md.erb",
-          "line": 28,
-          "excerpt": "## Fields",
-          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
-        },
-        {
-          "file": "ui/src/civica-ui.ts",
-          "line": 121,
-          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
-          "supports": "The adapter target list is bounded and does not include the missing specification families."
+          "file": "docs/source/home-assistant/automation-editing.html.md.erb",
+          "line": 21,
+          "excerpt": "# Automation and script editing",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Document editor structure, nesting, save/run distinction, reorder alternatives, validation and troubleshooting.",
@@ -1048,13 +1268,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 28,
+            "excerpt": "## Fields",
+            "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          },
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 121,
+            "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+            "supports": "The adapter target list is bounded and does not include the missing specification families."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/automation-editing.html.md.erb",
+        "url": "/home-assistant/automation-editing.html",
+        "title": "Automation and script editing",
+        "examples": [
+          "ha-automation-outline",
+          "ha-automation-invalid",
+          "ha-automation-run"
+        ],
+        "acceptance_anchor": "ha-ctrl-009-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-010",
       "title": "Schedules, calendars, timers and recurrence",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "weekly schedule editor",
@@ -1071,19 +1325,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
-          "line": 21,
-          "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
-          "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
-        },
-        {
-          "file": "docs/source/components/controls.html.md.erb",
-          "line": 28,
-          "excerpt": "## Fields",
-          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          "file": "docs/source/home-assistant/schedules-and-time.html.md.erb",
+          "line": 19,
+          "excerpt": "# Schedules, calendars and timers",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Separate scheduling controls from publishing calendar pages and define time/date/recurrence semantics.",
@@ -1133,13 +1381,48 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+            "line": 21,
+            "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
+            "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
+          },
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 28,
+            "excerpt": "## Fields",
+            "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/schedules-and-time.html.md.erb",
+        "url": "/home-assistant/schedules-and-time.html",
+        "title": "Schedules, calendars and timers",
+        "examples": [
+          "ha-schedule-blocks",
+          "ha-schedule-overnight",
+          "ha-schedule-conflict",
+          "ha-schedule-timer"
+        ],
+        "acceptance_anchor": "ha-ctrl-010-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-011",
       "title": "History, activity and statistics outside Energy",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "History panel",
@@ -1155,19 +1438,13 @@
         ]
       },
       "civicaRuntime": "native History preserved; seven Energy Cartesian graph types alone receive the civica chart adapter",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 30,
-          "excerpt": "| History and other charts | Native behaviour and available colour tokens; no Energy adapter coverage | Fresh entry and native data access |",
-          "supports": "History is explicitly native and outside the Energy chart adapter."
-        },
-        {
-          "file": "ui/src/energy-charts.ts",
-          "line": 21,
-          "excerpt": "export const ENERGY_CHART_HOSTS = Object.freeze([",
-          "supports": "Seven exact native Energy graph types are adapted; this is not a universal chart adapter."
+          "file": "docs/source/home-assistant/history-and-statistics.html.md.erb",
+          "line": 19,
+          "excerpt": "# History, activity and statistics",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Add native History acceptance recipes without claiming the Energy adapter runs there.",
@@ -1223,13 +1500,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 30,
+            "excerpt": "| History and other charts | Native behaviour and available colour tokens; no Energy adapter coverage | Fresh entry and native data access |",
+            "supports": "History is explicitly native and outside the Energy chart adapter."
+          },
+          {
+            "file": "ui/src/energy-charts.ts",
+            "line": 21,
+            "excerpt": "export const ENERGY_CHART_HOSTS = Object.freeze([",
+            "supports": "Seven exact native Energy graph types are adapted; this is not a universal chart adapter."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/history-and-statistics.html.md.erb",
+        "url": "/home-assistant/history-and-statistics.html",
+        "title": "History, activity and statistics",
+        "examples": [
+          "ha-history-values",
+          "ha-history-empty",
+          "ha-history-unavailable"
+        ],
+        "acceptance_anchor": "ha-ctrl-011-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-012",
       "title": "Energy distribution and other unsupported charts",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "Energy distribution diagram",
@@ -1246,19 +1557,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/energy.html.md.erb",
-          "line": 46,
-          "excerpt": "## Energy distribution",
-          "supports": "The native distribution diagram is already documented as a controlled deviation."
-        },
-        {
-          "file": "ui/src/energy-charts.ts",
-          "line": 21,
-          "excerpt": "export const ENERGY_CHART_HOSTS = Object.freeze([",
-          "supports": "Seven exact native Energy graph types are adapted; this is not a universal chart adapter."
+          "file": "docs/source/home-assistant/energy-flow-and-other-charts.html.md.erb",
+          "line": 19,
+          "excerpt": "# Energy flow and other chart families",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Document acceptance for native flow diagrams and non-adapted chart families, using ONS principles where applicable.",
@@ -1313,13 +1618,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/energy.html.md.erb",
+            "line": 46,
+            "excerpt": "## Energy distribution",
+            "supports": "The native distribution diagram is already documented as a controlled deviation."
+          },
+          {
+            "file": "ui/src/energy-charts.ts",
+            "line": 21,
+            "excerpt": "export const ENERGY_CHART_HOSTS = Object.freeze([",
+            "supports": "Seven exact native Energy graph types are adapted; this is not a universal chart adapter."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/energy-flow-and-other-charts.html.md.erb",
+        "url": "/home-assistant/energy-flow-and-other-charts.html",
+        "title": "Energy flow and other chart families",
+        "examples": [
+          "ha-flow-values",
+          "ha-gauge-reading",
+          "ha-chart-unsupported"
+        ],
+        "acceptance_anchor": "ha-ctrl-012-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-013",
       "title": "Accounts, permissions and shared preferences",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "account profile",
@@ -1336,19 +1675,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/settings.html.md.erb",
-          "line": 30,
-          "excerpt": "Keep focus in the control. Do not navigate away, reload the page or ask for confirmation for an appearance choice. Do not modify other users' settings or call the backend-wide default-theme action for a personal preference.",
-          "supports": "Personal-theme scope is explicit; this does not define wider account permissions."
-        },
-        {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 35,
-          "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
-          "supports": "Authentication and companion branding remain outside current module coverage."
+          "file": "docs/source/home-assistant/accounts-and-permissions.html.md.erb",
+          "line": 23,
+          "excerpt": "# Accounts, permissions and shared settings",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify scope and permission-aware presentation while preserving native enforcement.",
@@ -1396,13 +1729,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/settings.html.md.erb",
+            "line": 30,
+            "excerpt": "Keep focus in the control. Do not navigate away, reload the page or ask for confirmation for an appearance choice. Do not modify other users' settings or call the backend-wide default-theme action for a personal preference.",
+            "supports": "Personal-theme scope is explicit; this does not define wider account permissions."
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 35,
+            "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
+            "supports": "Authentication and companion branding remain outside current module coverage."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/accounts-and-permissions.html.md.erb",
+        "url": "/home-assistant/accounts-and-permissions.html",
+        "title": "Accounts, permissions and shared settings",
+        "examples": [
+          "ha-account-scope",
+          "ha-account-rejected",
+          "ha-account-shared"
+        ],
+        "acceptance_anchor": "ha-ctrl-013-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-014",
       "title": "Presence, people and shared-screen privacy",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "person chips",
@@ -1420,25 +1787,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/home.html.md.erb",
-          "line": 41,
-          "excerpt": "## Responsive and shared use",
-          "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
-        },
-        {
-          "file": "docs/source/styles/images.html.md.erb",
-          "line": 8,
-          "excerpt": "# Icons and images",
-          "supports": "General imagery guidance is not a camera, media or location interaction specification."
-        },
-        {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 31,
-          "excerpt": "| Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |",
-          "supports": "Map preservation is documented, but no dedicated interaction specification is present."
+          "file": "docs/source/home-assistant/presence-and-privacy.html.md.erb",
+          "line": 21,
+          "excerpt": "# Presence, people and shared-screen privacy",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Define presence confidence, disclosure and shared-screen presentation with user-chosen data scope.",
@@ -1494,13 +1849,53 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/home.html.md.erb",
+            "line": 41,
+            "excerpt": "## Responsive and shared use",
+            "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+          },
+          {
+            "file": "docs/source/styles/images.html.md.erb",
+            "line": 8,
+            "excerpt": "# Icons and images",
+            "supports": "General imagery guidance is not a camera, media or location interaction specification."
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 31,
+            "excerpt": "| Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |",
+            "supports": "Map preservation is documented, but no dedicated interaction specification is present."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/presence-and-privacy.html.md.erb",
+        "url": "/home-assistant/presence-and-privacy.html",
+        "title": "Presence, people and shared-screen privacy",
+        "examples": [
+          "ha-presence-reported",
+          "ha-presence-missing",
+          "ha-presence-private"
+        ],
+        "acceptance_anchor": "ha-ctrl-014-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-015",
       "title": "Camera and live image surfaces",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "camera card",
@@ -1516,19 +1911,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "missing-dedicated-specification",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/styles/images.html.md.erb",
-          "line": 8,
-          "excerpt": "# Icons and images",
-          "supports": "General imagery guidance is not a camera, media or location interaction specification."
-        },
-        {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 10,
-          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
-          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          "file": "docs/source/home-assistant/cameras.html.md.erb",
+          "line": 21,
+          "excerpt": "# Cameras, streams and snapshots",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify live versus snapshot labels, loading/error states, privacy and playback controls.",
@@ -1585,13 +1974,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/styles/images.html.md.erb",
+            "line": 8,
+            "excerpt": "# Icons and images",
+            "supports": "General imagery guidance is not a camera, media or location interaction specification."
+          },
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 10,
+            "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+            "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/cameras.html.md.erb",
+        "url": "/home-assistant/cameras.html",
+        "title": "Cameras, streams and snapshots",
+        "examples": [
+          "ha-camera-snapshot",
+          "ha-camera-loading",
+          "ha-camera-failed"
+        ],
+        "acceptance_anchor": "ha-ctrl-015-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-016",
       "title": "Media playback and source selection",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "media control card",
@@ -1609,19 +2032,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 38,
-          "excerpt": "Preserve modes and domain-specific state meanings. Heating, cooling, paused, playing and unavailable are not interchangeable brand accents. Media artwork remains useful content, not a surface to recolour with CSS filters.",
-          "supports": "Climate/media are acknowledged in one shared section."
-        },
-        {
-          "file": "docs/source/styles/images.html.md.erb",
-          "line": 8,
-          "excerpt": "# Icons and images",
-          "supports": "General imagery guidance is not a camera, media or location interaction specification."
+          "file": "docs/source/home-assistant/media-playback.html.md.erb",
+          "line": 18,
+          "excerpt": "# Media playback and output selection",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Document playback states, selectable targets, artwork, elapsed/duration values and supported commands.",
@@ -1677,13 +2094,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 38,
+            "excerpt": "Preserve modes and domain-specific state meanings. Heating, cooling, paused, playing and unavailable are not interchangeable brand accents. Media artwork remains useful content, not a surface to recolour with CSS filters.",
+            "supports": "Climate/media are acknowledged in one shared section."
+          },
+          {
+            "file": "docs/source/styles/images.html.md.erb",
+            "line": 8,
+            "excerpt": "# Icons and images",
+            "supports": "General imagery guidance is not a camera, media or location interaction specification."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/media-playback.html.md.erb",
+        "url": "/home-assistant/media-playback.html",
+        "title": "Media playback and output selection",
+        "examples": [
+          "ha-flow-016-playing",
+          "ha-flow-016-source",
+          "ha-flow-016-unavailable"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-017",
       "title": "Maps, zones and geographic information",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "Map panel",
@@ -1699,13 +2150,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 31,
-          "excerpt": "| Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |",
-          "supports": "Map preservation is documented, but no dedicated interaction specification is present."
+          "file": "docs/source/home-assistant/maps-and-zones.html.md.erb",
+          "line": 18,
+          "excerpt": "# Maps, zones and location records",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Add a map-specific contract with attribution, markers, interaction and an accessible textual location route.",
@@ -1761,13 +2212,41 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 31,
+            "excerpt": "| Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |",
+            "supports": "Map preservation is documented, but no dedicated interaction specification is present."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/maps-and-zones.html.md.erb",
+        "url": "/home-assistant/maps-and-zones.html",
+        "title": "Maps, zones and location records",
+        "examples": [
+          "ha-flow-017-locations",
+          "ha-flow-017-zone",
+          "ha-flow-017-private"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-018",
       "title": "Connection loss, reconnecting and stale views",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "application connection",
@@ -1785,19 +2264,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/recovery.html.md.erb",
-          "line": 22,
-          "excerpt": "## Use the right state",
-          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
-        },
-        {
-          "file": "ui/src/civica-ui.ts",
-          "line": 34,
-          "excerpt": "const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&",
-          "supports": "Safe/recovery mode and theme activation gate the companion presentation."
+          "file": "docs/source/home-assistant/connection-and-recovery.html.md.erb",
+          "line": 16,
+          "excerpt": "# Connection loss and recovery",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify distinct application, integration and device connectivity messages and recovery behaviour.",
@@ -1847,13 +2320,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/recovery.html.md.erb",
+            "line": 22,
+            "excerpt": "## Use the right state",
+            "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+          },
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 34,
+            "excerpt": "const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&",
+            "supports": "Safe/recovery mode and theme activation gate the companion presentation."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/connection-and-recovery.html.md.erb",
+        "url": "/home-assistant/connection-and-recovery.html",
+        "title": "Connection loss and recovery",
+        "examples": [
+          "ha-flow-018-disconnected",
+          "ha-flow-018-entity",
+          "ha-flow-018-save"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-019",
       "title": "Backup, restore and destructive recovery",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "backup creation",
@@ -1869,19 +2376,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "missing-dedicated-specification",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/recovery.html.md.erb",
-          "line": 22,
-          "excerpt": "## Use the right state",
-          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
-        },
-        {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 35,
-          "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
-          "supports": "Authentication and companion branding remain outside current module coverage."
+          "file": "docs/source/home-assistant/backup-and-restore.html.md.erb",
+          "line": 18,
+          "excerpt": "# Backups, restore and recovery copies",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Add backup/restore progress, scope and confirmation recipes; keep native encryption and recovery procedures authoritative.",
@@ -1938,13 +2439,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/recovery.html.md.erb",
+            "line": 22,
+            "excerpt": "## Use the right state",
+            "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 35,
+            "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
+            "supports": "Authentication and companion branding remain outside current module coverage."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/backup-and-restore.html.md.erb",
+        "url": "/home-assistant/backup-and-restore.html",
+        "title": "Backups, restore and recovery copies",
+        "examples": [
+          "ha-flow-019-destinations",
+          "ha-flow-019-restore",
+          "ha-flow-019-recovery"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-020",
       "title": "Updates, repairs and maintenance",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "update entities",
@@ -1961,19 +2496,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/notification-badge.html.md.erb",
-          "line": 8,
-          "excerpt": "# Notification badge",
-          "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
-        },
-        {
-          "file": "docs/source/patterns/recovery.html.md.erb",
-          "line": 22,
-          "excerpt": "## Use the right state",
-          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+          "file": "docs/source/home-assistant/updates-and-repairs.html.md.erb",
+          "line": 16,
+          "excerpt": "# Updates, repairs and maintenance",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Define maintenance severity, progress, release information, restart consequences and genuine remediation routes.",
@@ -2024,13 +2553,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/notification-badge.html.md.erb",
+            "line": 8,
+            "excerpt": "# Notification badge",
+            "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
+          },
+          {
+            "file": "docs/source/patterns/recovery.html.md.erb",
+            "line": 22,
+            "excerpt": "## Use the right state",
+            "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/updates-and-repairs.html.md.erb",
+        "url": "/home-assistant/updates-and-repairs.html",
+        "title": "Updates, repairs and maintenance",
+        "examples": [
+          "ha-flow-020-skipped",
+          "ha-flow-020-progress",
+          "ha-flow-020-repair"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-021",
       "title": "Onboarding, integration setup and reauthentication",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "first-run onboarding",
@@ -2047,19 +2610,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "missing-dedicated-specification",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 35,
-          "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
-          "supports": "Authentication and companion branding remain outside current module coverage."
-        },
-        {
-          "file": "docs/source/components/controls.html.md.erb",
-          "line": 28,
-          "excerpt": "## Fields",
-          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          "file": "docs/source/home-assistant/onboarding-and-sign-in.html.md.erb",
+          "line": 16,
+          "excerpt": "# Onboarding, integration setup and sign-in",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Document the coverage boundary and task requirements for setup and credential flows before considering an adapter.",
@@ -2115,13 +2672,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 35,
+            "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
+            "supports": "Authentication and companion branding remain outside current module coverage."
+          },
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 28,
+            "excerpt": "## Fields",
+            "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/onboarding-and-sign-in.html.md.erb",
+        "url": "/home-assistant/onboarding-and-sign-in.html",
+        "title": "Onboarding, integration setup and sign-in",
+        "examples": [
+          "ha-flow-021-start",
+          "ha-flow-021-discovered",
+          "ha-flow-021-reauth"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-022",
       "title": "Dashboard composition and editing",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "card picker",
@@ -2138,19 +2729,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/home.html.md.erb",
-          "line": 41,
-          "excerpt": "## Responsive and shared use",
-          "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
-        },
-        {
-          "file": "ui/src/civica-ui.ts",
-          "line": 121,
-          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
-          "supports": "The adapter target list is bounded and does not include the missing specification families."
+          "file": "docs/source/home-assistant/dashboard-editing.html.md.erb",
+          "line": 16,
+          "excerpt": "# Dashboard composition and editing",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify edit-mode affordances, selection, movement, preview and configuration validation without changing saved layouts.",
@@ -2207,13 +2792,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/home.html.md.erb",
+            "line": 41,
+            "excerpt": "## Responsive and shared use",
+            "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+          },
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 121,
+            "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+            "supports": "The adapter target list is bounded and does not include the missing specification families."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/dashboard-editing.html.md.erb",
+        "url": "/home-assistant/dashboard-editing.html",
+        "title": "Dashboard composition and editing",
+        "examples": [
+          "ha-flow-022-draft",
+          "ha-flow-022-move",
+          "ha-flow-022-invalid"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-023",
       "title": "Locale, units, time zones and bidirectional layout",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "profile localisation",
@@ -2231,19 +2850,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/patterns/settings.html.md.erb",
-          "line": 30,
-          "excerpt": "Keep focus in the control. Do not navigate away, reload the page or ask for confirmation for an appearance choice. Do not modify other users' settings or call the backend-wide default-theme action for a personal preference.",
-          "supports": "Personal-theme scope is explicit; this does not define wider account permissions."
-        },
-        {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 32,
-          "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
-          "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+          "file": "docs/source/home-assistant/locale-units-and-time.html.md.erb",
+          "line": 18,
+          "excerpt": "# Locale, units and time",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Create a cross-component localisation contract, separating UK house style from the user's HA locale.",
@@ -2305,13 +2918,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/settings.html.md.erb",
+            "line": 30,
+            "excerpt": "Keep focus in the control. Do not navigate away, reload the page or ask for confirmation for an appearance choice. Do not modify other users' settings or call the backend-wide default-theme action for a personal preference.",
+            "supports": "Personal-theme scope is explicit; this does not define wider account permissions."
+          },
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 32,
+            "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
+            "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/locale-units-and-time.html.md.erb",
+        "url": "/home-assistant/locale-units-and-time.html",
+        "title": "Locale, units and time",
+        "examples": [
+          "ha-flow-023-numbers",
+          "ha-flow-023-clock",
+          "ha-flow-023-date"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-024",
       "title": "Native task accessibility and dense/shared displays",
       "priority": "P1",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "native editors",
@@ -2329,25 +2976,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/accessibility/testing.html.md.erb",
-          "line": 48,
-          "excerpt": "## Native Home Assistant checks",
-          "supports": "Existing release checks name broad routes; detailed task matrices are not recorded here."
-        },
-        {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 64,
-          "excerpt": "## CSS cannot correct everything",
-          "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
-        },
-        {
-          "file": "docs/source/patterns/home.html.md.erb",
-          "line": 41,
-          "excerpt": "## Responsive and shared use",
-          "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+          "file": "docs/source/home-assistant/native-task-accessibility.html.md.erb",
+          "line": 18,
+          "excerpt": "# Native task accessibility and evidence",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Expand the current route checklist into representative task/state/device matrices and record failures honestly.",
@@ -2413,13 +3048,53 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/accessibility/testing.html.md.erb",
+            "line": 48,
+            "excerpt": "## Native Home Assistant checks",
+            "supports": "Existing release checks name broad routes; detailed task matrices are not recorded here."
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 64,
+            "excerpt": "## CSS cannot correct everything",
+            "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
+          },
+          {
+            "file": "docs/source/patterns/home.html.md.erb",
+            "line": 41,
+            "excerpt": "## Responsive and shared use",
+            "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/native-task-accessibility.html.md.erb",
+        "url": "/home-assistant/native-task-accessibility.html",
+        "title": "Native task accessibility and evidence",
+        "examples": [
+          "ha-flow-024-evidence",
+          "ha-flow-024-unexecuted",
+          "ha-flow-024-checklist"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-025",
       "title": "Assist, conversation and voice controls",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "Assist dialog",
@@ -2436,19 +3111,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "missing-dedicated-specification",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "ui/src/civica-ui.ts",
-          "line": 121,
-          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
-          "supports": "The adapter target list is bounded and does not include the missing specification families."
-        },
-        {
-          "file": "docs/source/components/devices.html.md.erb",
-          "line": 10,
-          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
-          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          "file": "docs/source/home-assistant/assist-and-voice.html.md.erb",
+          "line": 18,
+          "excerpt": "# Assist, conversation and voice",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Document voice-state feedback, text alternatives, recognition uncertainty and command confirmation boundaries.",
@@ -2505,13 +3174,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 121,
+            "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+            "supports": "The adapter target list is bounded and does not include the missing specification families."
+          },
+          {
+            "file": "docs/source/components/devices.html.md.erb",
+            "line": 10,
+            "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+            "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/assist-and-voice.html.md.erb",
+        "url": "/home-assistant/assist-and-voice.html",
+        "title": "Assist, conversation and voice",
+        "examples": [
+          "ha-flow-025-typed",
+          "ha-flow-025-clarify",
+          "ha-flow-025-unconfirmed"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-026",
       "title": "To-do lists, reminders and household tasks",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "to-do cards",
@@ -2528,19 +3231,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
-          "line": 21,
-          "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
-          "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
-        },
-        {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 52,
-          "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
-          "supports": "Three exact household cards receive presentation only."
+          "file": "docs/source/home-assistant/todo-and-reminders.html.md.erb",
+          "line": 16,
+          "excerpt": "# To-do lists, reminders and household tasks",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Separate native task editing from a GOV.UK task-list navigation specimen and define saved completion states.",
@@ -2596,13 +3293,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+            "line": 21,
+            "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
+            "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 52,
+            "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
+            "supports": "Three exact household cards receive presentation only."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/todo-and-reminders.html.md.erb",
+        "url": "/home-assistant/todo-and-reminders.html",
+        "title": "To-do lists, reminders and household tasks",
+        "examples": [
+          "ha-flow-026-due",
+          "ha-flow-026-add",
+          "ha-flow-026-sync"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-027",
       "title": "Weather, environmental readings and source warnings",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "weather forecasts",
@@ -2619,19 +3350,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/status.html.md.erb",
-          "line": 32,
-          "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
-          "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
-        },
-        {
-          "file": "docs/source/styles/images.html.md.erb",
-          "line": 8,
-          "excerpt": "# Icons and images",
-          "supports": "General imagery guidance is not a camera, media or location interaction specification."
+          "file": "docs/source/home-assistant/weather-and-warnings.html.md.erb",
+          "line": 16,
+          "excerpt": "# Weather, environmental readings and warnings",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify observed versus forecast values, source freshness, uncertainty, units and warning applicability.",
@@ -2693,13 +3418,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/status.html.md.erb",
+            "line": 32,
+            "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
+            "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+          },
+          {
+            "file": "docs/source/styles/images.html.md.erb",
+            "line": 8,
+            "excerpt": "# Icons and images",
+            "supports": "General imagery guidance is not a camera, media or location interaction specification."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/weather-and-warnings.html.md.erb",
+        "url": "/home-assistant/weather-and-warnings.html",
+        "title": "Weather, environmental readings and warnings",
+        "examples": [
+          "ha-flow-027-observed",
+          "ha-flow-027-empty",
+          "ha-flow-027-unavailable"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-028",
       "title": "Notification delivery, acknowledgement and alerts",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "persistent notifications",
@@ -2716,19 +3475,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/notification-badge.html.md.erb",
-          "line": 8,
-          "excerpt": "# Notification badge",
-          "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
-        },
-        {
-          "file": "docs/source/components/status.html.md.erb",
-          "line": 32,
-          "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
-          "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+          "file": "docs/source/home-assistant/notifications-and-delivery.html.md.erb",
+          "line": 16,
+          "excerpt": "# Notifications, acknowledgement and alerts",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Define message type, audience, persistence and acknowledgement without treating badge presentation as delivery logic.",
@@ -2785,13 +3538,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/notification-badge.html.md.erb",
+            "line": 8,
+            "excerpt": "# Notification badge",
+            "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
+          },
+          {
+            "file": "docs/source/components/status.html.md.erb",
+            "line": 32,
+            "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
+            "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/notifications-and-delivery.html.md.erb",
+        "url": "/home-assistant/notifications-and-delivery.html",
+        "title": "Notifications, acknowledgement and alerts",
+        "examples": [
+          "ha-flow-028-delivery",
+          "ha-flow-028-dismissed",
+          "ha-flow-028-preview"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-029",
       "title": "Registry tables, bulk actions and saved filters",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "entities table",
@@ -2809,19 +3596,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/components/controls.html.md.erb",
-          "line": 28,
-          "excerpt": "## Fields",
-          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
-        },
-        {
-          "file": "ui/src/civica-ui.ts",
-          "line": 121,
-          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
-          "supports": "The adapter target list is bounded and does not include the missing specification families."
+          "file": "docs/source/home-assistant/registries-and-bulk-actions.html.md.erb",
+          "line": 16,
+          "excerpt": "# Registry tables and bulk actions",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Specify selected-row counts, scoped filters, sort state and bulk-action confirmation beyond the local fixed-record finder.",
@@ -2878,13 +3659,47 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 28,
+            "excerpt": "## Fields",
+            "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+          },
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 121,
+            "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+            "supports": "The adapter target list is bounded and does not include the missing specification families."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/registries-and-bulk-actions.html.md.erb",
+        "url": "/home-assistant/registries-and-bulk-actions.html",
+        "title": "Registry tables and bulk actions",
+        "examples": [
+          "ha-flow-029-selection",
+          "ha-flow-029-partial",
+          "ha-flow-029-empty"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     },
     {
       "id": "HA-GAP-030",
       "title": "Native versus third-party compatibility contracts",
       "priority": "P2",
-      "status": "proposed",
+      "status": "specification-complete",
       "scope": "design-specification-and-acceptance-coverage",
       "surfaces": [
         "custom cards",
@@ -2901,25 +3716,13 @@
         ]
       },
       "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
-      "designCoverage": "partial",
+      "designCoverage": "dedicated-specification-with-complete-examples",
       "evidence": [
         {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 64,
-          "excerpt": "## CSS cannot correct everything",
-          "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
-        },
-        {
-          "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 52,
-          "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
-          "supports": "Three exact household cards receive presentation only."
-        },
-        {
-          "file": "ui/src/civica-ui.ts",
-          "line": 121,
-          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
-          "supports": "The adapter target list is bounded and does not include the missing specification families."
+          "file": "docs/source/home-assistant/compatibility-register.html.md.erb",
+          "line": 16,
+          "excerpt": "# Compatibility register and native fallback",
+          "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
       ],
       "proposal": "Keep an explicit feature/adapter/recipe compatibility register with versioned evidence and fallback behaviour.",
@@ -2980,6 +3783,46 @@
       "ruleReview": {
         "status": "consistent-proposal",
         "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 64,
+            "excerpt": "## CSS cannot correct everything",
+            "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 52,
+            "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
+            "supports": "Three exact household cards receive presentation only."
+          },
+          {
+            "file": "ui/src/civica-ui.ts",
+            "line": 121,
+            "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+            "supports": "The adapter target list is bounded and does not include the missing specification families."
+          }
+        ]
+      },
+      "specification": {
+        "path": "docs/source/home-assistant/compatibility-register.html.md.erb",
+        "url": "/home-assistant/compatibility-register.html",
+        "title": "Compatibility register and native fallback",
+        "examples": [
+          "ha-flow-030-supported",
+          "ha-flow-030-unsupported",
+          "ha-flow-030-cleanup"
+        ],
+        "acceptance_anchor": "integration-acceptance",
+        "review_scope": "Dedicated design contract and synthetic reference examples, independently source-reviewed and rendered-tested; native task and physical outcomes need installation evidence."
+      },
+      "resolution": {
+        "summary": "The linked specification covers each original requirement with native capability boundaries, state decisions and concrete examples. Integration acceptance is prescribed, not automatically claimed as executed.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "nativeFeatureImplemented": false
       }
     }
   ],
@@ -3010,6 +3853,7 @@
     "Read-only source and requirements audit; no live Home Assistant inspection or commands.",
     "Current development-source presence is not evidence of the installed frontend version or tested behaviour.",
     "A reference example demonstrates its local behaviour, not an installed HA integration.",
-    "Proposals do not authorize replacing native controls, changing device semantics or modifying saved dashboards."
+    "Proposals do not authorize replacing native controls, changing device semantics or modifying saved dashboards.",
+    "Thirty dedicated specifications and their synthetic examples are delivered. Native task, assistive-technology and live equipment acceptance remain separately recorded; no missing-native-feature claim is made."
   ]
 }

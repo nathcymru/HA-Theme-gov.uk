@@ -33,6 +33,8 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .key { font-weight: 700; margin: 0; }
 .sub { display: block; font-weight: 400; font-size: var(--civica-font-size-small, 16px); line-height: 1.5; color: var(--secondary-text-color); }
 .sub:empty { display: none; }
+.request-status { grid-column:1 / -1; margin:0; font-size:var(--civica-font-size-small,16px); color:var(--secondary-text-color); }
+.request-status:empty { display:none; }
 .act { margin: 0; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .plan { display: block; width: 100%; height: auto; margin-bottom: 15px; }

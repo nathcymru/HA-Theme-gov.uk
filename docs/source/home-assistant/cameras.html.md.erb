@@ -1,0 +1,86 @@
+---
+title: Cameras, streams and snapshots
+description: Distinguish live viewing, still images, recording reports and privacy boundaries.
+section: patterns
+group: "Home Assistant: controls"
+status: reference
+gap_id: HA-GAP-015
+contract_id: HA-CTRL-015
+source_url: https://www.home-assistant.io/integrations/camera/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+updates:
+  - date: 2026-11-11
+    description: Corrected the original camera-diagram provenance to match its actual canvas and recorded its checksum; aligned authored permission wording.
+  - date: 2026-11-11
+    description: Added cameras, streams and snapshots contract, domain-specific acceptance checks and synthetic reference examples.
+---
+
+# Cameras, streams and snapshots
+
+A camera surface needs evidence about what is being displayed. The viewer’s connection, a still image’s capture time and the camera entity’s reported state are related but different. Preserve useful imagery without recolouring, obscuring or exaggerating it.
+
+**HA-CTRL-015 — reference design specification.** This specifies the local design coverage requested by HA-GAP-015 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-015-capabilities">Task and capability contract</h2>
+
+| Source capability | Required presentation |
+| --- | --- |
+| Still image | Identify it as a snapshot; use a supplied capture time when available. A fetch time is not automatically capture time. |
+| Playable stream | Keep native playback, fullscreen and audio controls where supported. Label loading, connected and failed viewer states from actual evidence. |
+| Recording state | Show only a reported recording state. Seeing a stream does not establish recording, and Idle can mean the integration does not report it. |
+| Privacy or power control | Only expose the actual supported control and explain its scope; closing a viewer does not necessarily stop the camera. |
+| Credentials and image URL | Retain native authorisation and avoid leaking tokens, direct private URLs or household images into public examples. |
+
+<h2 id="ha-ctrl-015-states">States, pending work and failure</h2>
+
+Never leave a Live label over a retained snapshot or stalled image without evidence. If playback stalls, preserve the native error and label any remaining still with its known capture time. If no capture timestamp exists, say that the capture time is not provided; do not invent one from page load.
+
+A stream failure, denied permission, unavailable entity and privacy mode are different conditions. Give the supplied reason and a supported recovery route. Retrying playback must not disable privacy mode, start recording or bypass authentication. Closing a modal stops that viewing surface only to the extent the native viewer specifies; it is not a promise that the physical camera stops streaming or recording.
+
+Avoid automatic audio or motion that surprises people on shared screens. Do not infer that a doorway is clear or a person is absent from one still image. Keep imagery as evidence rather than using brand filters to make it fit the page.
+
+<h2 id="ha-ctrl-015-content">Content and interpretation</h2>
+
+Place the camera name and viewing state outside unpredictable imagery, or use a proven contrast surface. Use “Snapshot captured at…” only for a capture timestamp. A decorative placeholder needs no fabricated scene description; essential image content needs an appropriate alternative for the actual task. Do not claim that a generic camera name describes everything happening in a live video.
+
+<h2 id="ha-ctrl-015-accessibility">Accessibility and interaction</h2>
+
+Keep native media controls keyboard-operable and named. Test fullscreen exit and focus return, audio state and controls over light/dark frames. A viewer needs an accessible camera name and textual state; essential event information may require a separate supported text source. Do not invent live audio description, captions or incident detection. Respect reduced motion and provide a way to stop non-essential playback where the native viewer supports it; record remaining limits.
+
+<h2 id="ha-ctrl-015-integration">Native integration boundary</h2>
+
+Use the native Camera and stream implementation. Camera entity Idle can coexist with a visible feed on integrations that do not report activity. The examples use an original invented diagram and static states; they do not open a real camera or implement a new viewer. Any future camera adapter must preserve authentication, stream lifecycle and controls and must document privacy and accessible-media limitations for the tested integration/browser.
+
+<h2 id="ha-ctrl-015-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-camera-snapshot') %>
+
+<%= example('ha-camera-loading') %>
+
+<%= example('ha-camera-failed') %>
+
+<h2 id="ha-ctrl-015-acceptance">Acceptance and evidence</h2>
+
+1. Exercise a timestamped snapshot, unknown capture time, loading stream, playable stream, stalled stream and denied access. No stale image may retain an unsupported Live claim.
+2. Compare entity Idle/Streaming/Recording where supplied with the actual viewer state. Do not infer recording solely from a feed or absence from Idle.
+3. Test keyboard playback/fullscreen/exit, focus return, control contrast on varied frames and supported motion/audio controls. Record missing alternatives honestly.
+4. Review shared-display content and public evidence for real faces, addresses, tokens and private URLs. Verify that retry or closing the viewer does not secretly change camera privacy or recording settings.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-015-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Camera](https://www.home-assistant.io/integrations/camera/)
+- [Picture entity card](https://www.home-assistant.io/dashboards/picture-entity/)
+- [Stream](https://www.home-assistant.io/integrations/stream/)
+
+Applicable frozen rules: [BG-ILL-08](../styles/illustration.html#bg-ill-08), [BG-ILL-09](../styles/illustration.html#bg-ill-09), [WG-011](../content/voice-and-language.html#wg-011), [WG-033](../content/interface-copy.html#wg-033), [WG-061](../content/inclusive-content.html#wg-061), [WG-082](../content/accessible-content.html#wg-082). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.
