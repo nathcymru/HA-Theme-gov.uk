@@ -4,7 +4,9 @@ import { execFileSync } from 'node:child_process';
 execFileSync(process.execPath, ['scripts/generate-themes.mjs'], { stdio: 'inherit' });
 execFileSync(process.execPath, ['scripts/check-brand.mjs'], { stdio: 'inherit' });
 await build({ entryPoints: ['card/src/card.ts'], bundle: true, format: 'esm', outfile: 'card/dist/govuk-house-lighting-card.js', target: 'es2022' });
-await build({ entryPoints: ['ui/src/civica-ui.ts'], bundle: true, format: 'esm', outfile: 'ui/dist/civica-ui.js', target: 'es2022' });
+// Bundle the deferred entry as one file: no extra chunk or second network
+// request, but component evaluation must remain behind the HA-ready boundary.
+await build({ entryPoints: ['ui/src/index.ts'], bundle: true, format: 'esm', outfile: 'ui/dist/civica-ui.js', target: 'es2022' });
 // A newer archive supersedes the complete old package. Remove stale filenames
 // so previous-generation artwork cannot leak into an installation ZIP.
 rmSync('ui/dist/brand', { recursive: true, force: true });

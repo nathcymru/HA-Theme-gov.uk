@@ -6,7 +6,7 @@
     "generate": "node lighting/scripts/generate.mjs && node lighting/scripts/generate-ha.mjs && node lighting/scripts/generate-groups.mjs",
     "check:ha": "python3 lighting/scripts/check-ha.py",
     "build": "node scripts/build.mjs",
-    "typecheck": "tsc --noEmit --allowImportingTsExtensions --strict --target es2022 --module esnext --moduleResolution bundler --resolveJsonModule --lib es2022,dom card/src/card.ts ui/src/civica-ui.ts",
+    "typecheck": "tsc --noEmit --allowImportingTsExtensions --strict --target es2022 --module esnext --moduleResolution bundler --resolveJsonModule --lib es2022,dom card/src/card.ts ui/src/index.ts",
     "test": "node lighting/scripts/generate.mjs --check && node scripts/generate-themes.mjs --check && node --test lighting/test/*.test.mjs test/*.test.mjs",
     "generate:themes": "node scripts/generate-themes.mjs",
     "test:browser": "playwright test",

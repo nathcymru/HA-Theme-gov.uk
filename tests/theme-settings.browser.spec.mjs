@@ -185,3 +185,67 @@ test('legacy alias uses Cobalt Vivid artwork and unknown civica names do not rep
   });
   await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', '../../brand/civica/icons/favicon.ico');
 });
+
+test('production bundle waits for HA registry replacement before registering or starting its lifecycle', async ({ context }) => {
+  const startup = await context.newPage();
+  try {
+    await startup.route('**/startup-registry-fixture', route => route.fulfill({
+      contentType: 'text/html', body: '<!doctype html><html lang="en"><title>Startup boundary fixture</title><body><home-assistant></home-assistant></body></html>',
+    }));
+    await startup.goto('/startup-registry-fixture');
+    await startup.evaluate(() => {
+      const native = window.customElements;
+      let resolveReady;
+      const readiness = new Promise(resolve => { resolveReady = resolve; });
+      const state = window.bootstrap = { earlyDefinitions: [], finalDefinitions: [], waits: [], listeners: [], observers: 0, loaded: false };
+      const addListener = window.addEventListener.bind(window);
+      window.addEventListener = (type, ...args) => { state.listeners.push(type); return addListener(type, ...args); };
+      const Observer = window.MutationObserver;
+      window.MutationObserver = class extends Observer { constructor(callback) { super(callback); state.observers++; } };
+      const early = {
+        get: native.get.bind(native),
+        define: (name, constructor) => { state.earlyDefinitions.push(name); native.define(name, constructor); },
+        whenDefined: name => { state.waits.push(name); return name === 'home-assistant' ? readiness : native.whenDefined(name); },
+      };
+      Object.defineProperty(window, 'customElements', { configurable: true, value: early });
+      state.start = import('/ui/dist/civica-ui.js?startup-registry-regression').then(() => { state.loaded = true; });
+      state.finishStartup = async () => {
+        const finalRegistry = {
+          get: native.get.bind(native),
+          define: (name, constructor) => { state.finalDefinitions.push(name); native.define(name, constructor); },
+          whenDefined: native.whenDefined.bind(native),
+        };
+        Object.defineProperty(window, 'customElements', { configurable: true, value: finalRegistry });
+        class HomeAssistant extends HTMLElement {}
+        finalRegistry.define('home-assistant', HomeAssistant);
+        // The scoped-registry polyfill defines a native stand-in, resolving
+        // the readiness promise captured before the registry was replaced.
+        resolveReady(HomeAssistant);
+        await state.start;
+      };
+    });
+    await expect.poll(() => startup.evaluate(() => window.bootstrap.waits)).toContain('home-assistant');
+    expect(await startup.evaluate(() => ({
+      definitions: window.bootstrap.earlyDefinitions,
+      lifecycle: Boolean(window.__civicaUiInstalled),
+      cards: window.customCards || [],
+      observers: window.bootstrap.observers,
+      loaded: window.bootstrap.loaded,
+    }))).toEqual({ definitions: [], lifecycle: false, cards: [], observers: 0, loaded: false });
+    await startup.evaluate(() => window.bootstrap.finishStartup());
+    expect(await startup.evaluate(() => ({
+      early: window.bootstrap.earlyDefinitions,
+      registered: Boolean(customElements.get('civica-theme-settings')),
+      definitions: window.bootstrap.finalDefinitions,
+      lifecycle: window.__civicaUiInstalled,
+      observers: window.bootstrap.observers,
+    }))).toEqual({ early: [], registered: true, definitions: ['home-assistant', 'civica-theme-settings'], lifecycle: true, observers: 1 });
+    await startup.evaluate(async () => { await import('/ui/dist/civica-ui.js?startup-registry-second-instance'); });
+    expect(await startup.evaluate(() => ({
+      definitions: window.bootstrap.finalDefinitions,
+      observers: window.bootstrap.observers,
+      navigationListeners: window.bootstrap.listeners.filter(type => type === 'location-changed').length,
+      cards: window.customCards.filter(card => card.type === 'civica-theme-settings').length,
+    }))).toEqual({ definitions: ['home-assistant', 'civica-theme-settings'], observers: 1, navigationListeners: 1, cards: 1 });
+  } finally { await startup.close(); }
+});

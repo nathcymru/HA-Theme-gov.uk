@@ -27,7 +27,9 @@ Run the `frontend.reload_themes` action, or restart Home Assistant after a confi
 
 HACS's Theme category installs the theme files. It does not install the optional JavaScript module or image files automatically.
 
-## Build the installation archive
+## Download or build the installation archive
+
+Download `civica-home-assistant.zip` and its checksum from the [latest release](https://github.com/nathcymru/HA-Theme-gov.uk/releases/latest).
 
 To build an installation archive from this checkout, run these commands from the repository root:
 
@@ -36,7 +38,7 @@ npm ci
 npm run package
 ```
 
-The archive is `dist/civica-home-assistant.zip`. Its `INSTALL.md` gives the complete installation instructions. To include the rendered documentation site, build `/docs` before packaging.
+The archive is `dist/civica-home-assistant.zip`. Its `README.md` gives the complete installation instructions. To include the rendered documentation site, build `/docs` before packaging.
 
 ## Install the optional interface module
 

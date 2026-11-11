@@ -1,4 +1,6 @@
-import '../dist/civica-ui.js';
+// The standalone fixture supplies the same readiness boundary as real HA.
+if (!customElements.get('home-assistant')) customElements.define('home-assistant', class extends HTMLElement {});
+await import('../dist/civica-ui.js');
 const palettes = await fetch('../../design-system/palettes.json').then(r => r.json());
 const source = await fetch('../../design-system/themes.json').then(r => r.json());
 // Filled from the same generated values as the installed theme, not a hand-

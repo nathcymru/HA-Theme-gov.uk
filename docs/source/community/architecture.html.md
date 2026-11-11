@@ -46,3 +46,7 @@ Run `python3 docs/scripts/sync-brand.py --check` from the repository root to ver
 Commit content, configuration and the lockfile. Do not commit `build/`, `vendor/` or `.bundle/`. Publish the generated `build/` directory through the repository's chosen static hosting workflow.
 
 The [Tech Docs Template](https://github.com/alphagov/tech-docs-template) explains its Middleman origin and non-government branding requirements.
+
+## Frontend startup
+
+The global module waits for Home Assistant to define `home-assistant` before loading the colour settings and branding components. This keeps component registration in Home Assistant’s final custom-element registry, including older frontend versions that replace it during startup. The production-bundle regression simulates that replacement and duplicate module URLs. One bundled file is served; the readiness boundary does not add a network chunk.

@@ -8,6 +8,8 @@ This is an independent project. It is not a government service or an official Ho
 
 The comprehensive [design system in `/docs`](docs/README.md) uses the **GOV.UK Tech Docs Template (`govuk_tech_docs` 6.6.0), powered by Middleman**. Its Get started, Styles, Components, Patterns, Community and Accessibility sections follow the official GOV.UK Design System's information architecture. That upstream website uses Node; this site deliberately implements the same organisation with the requested Middleman template.
 
+- [Live design system](https://nathcymru.github.io/HA-Theme-gov.uk/)
+- [Download the installation package](https://github.com/nathcymru/HA-Theme-gov.uk/releases/latest)
 - [Install and upgrade](docs/source/get-started/install.html.md)
 - [Colour palettes and display modes](docs/source/styles/colour.html.md)
 - [Brand and artwork](ARTWORK.md)
@@ -41,7 +43,7 @@ Restart after changing `configuration.yaml`. For theme-file changes alone, run *
 
 ## Add the colour toggle and branding
 
-Build the installation archive with `npm ci && npm run package`, then extract `dist/civica-home-assistant.zip`. Copy the archive's `www/civica/` folder into Home Assistant's `config/www/civica/` and its `themes/civica/` into `config/themes/civica/`.
+Download `civica-home-assistant.zip` from the [latest release](https://github.com/nathcymru/HA-Theme-gov.uk/releases/latest), or build it with `npm ci && npm run package`. Extract the archive. Copy the archive's `www/civica/` folder into Home Assistant's `config/www/civica/` and its `themes/civica/` into `config/themes/civica/`.
 
 Add the companion to the same frontend configuration:
 
