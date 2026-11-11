@@ -1,0 +1,123 @@
+---
+title: "Brand data guidance"
+description: "Apply GOV.UK data principles without replacing the native Energy, ONS and stable colour contracts."
+section: "styles"
+group: "Brand guidance"
+source_url: "https://brand.design-system.service.gov.uk/data/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
+---
+
+# Brand data guidance
+
+Apply the brand guidance’s clarity, accessibility and accuracy principles to real household questions. Operational charts follow [Charts and tables](../components/charts.html), [Chart colour](chart-colour.html) and the production Energy adapter. Marketing-style infographics are a separate output, not a reason to change measured values or native interactions.
+
+## Examples
+
+These reference examples use invented household details. They do not operate devices or establish that every native Home Assistant surface has adopted this guidance.
+
+<%= example('bg-data-operational-power') %>
+
+<%= example('bg-data-editorial-summary') %>
+
+<%= example('bg-data-location-alternative') %>
+
+<h2 id="bg-dat-01">BG-DAT-01: Start with a household question</h2>
+
+**Local requirement: MUST.** Applies to dashboard and publication data presentation.
+
+Define what the person needs to know before choosing a graphic: what is using power now, how usage changed, which device is unavailable, or where a sensor is located. A frequently refreshed overview suits monitoring; a detailed explanation may need a report or a small set of related charts.
+
+Keep the main observation visible without requiring exploratory clicks. Do not invent a reassuring narrative when readings are missing. For operational titles, a neutral label such as “Power sources” is more honest than a fixed claim that consumption is falling.
+
+Source: [Data principles](https://brand.design-system.service.gov.uk/data/), [Dashboards](https://brand.design-system.service.gov.uk/data/dashboards/).
+
+<h2 id="bg-dat-02">BG-DAT-02: Choose a chart type for the data relationship</h2>
+
+**Local requirement: MUST.** Applies to chart type choice and maintained Energy chart scope.
+
+Use lines for a time series, columns for interval quantities, and horizontal bars for comparing devices. Preserve the distinction between power in kW and energy in kWh. Use a map only where location answers the question. A pictorial percentage in a release graphic is not a template for a live consumption chart.
+
+The maintained Energy implementation uses individual unfilled, unsmoothed Power lines and opaque consumption/device bars. It retains valid native bar stacks. Other chart families remain native unless their adapter contract explicitly lists them. Do not replace all charts with one decorative shape to look consistent.
+
+Source: [Data principles](https://brand.design-system.service.gov.uk/data/), [Data examples](https://brand.design-system.service.gov.uk/data/examples/).
+
+<h2 id="bg-dat-03">BG-DAT-03: Give each chart enough context</h2>
+
+**Local requirement: MUST.** Applies to operational charts, static charts and exported data.
+
+Provide a meaningful title, measure/unit, selected period and source. In Home Assistant, the card title, native axis, date selector and source/device labels can supply this together; do not duplicate every label into the plot. Give exported data a self-contained caption because dashboard controls may not travel with it.
+
+State a forecast, comparison period, signed export convention or missing-data limitation in words. Keep a short annotation near its point and repeat essential context in text or the table. Avoid fixed annotations that claim knowledge the integration has not supplied.
+
+Source: [Charts](https://brand.design-system.service.gov.uk/data/charts/).
+
+<h2 id="bg-dat-04">BG-DAT-04: Protect the underlying observations</h2>
+
+**Local requirement: MUST.** Applies to native chart adaptation, data alternatives and lifecycle restoration.
+
+Keep native values, IDs, timestamps, units, nulls and controls intact. Missing readings are gaps, not invented zeroes. Do not smooth away a peak, force a line scale to zero or use a thick plot edge to imply a zero baseline outside the visible range. Comparisons retain their original observation dates.
+
+The Power adapter’s bounded signed projection selects the existing signed sample from verified complementary native pairs; it does not calculate a new reading. Ambiguous pairs remain unchanged. Data tables and plots must refer to the same rendered period, including during native updates. Restore current native presentation without resurrecting stale observations.
+
+Source: [Data principles](https://brand.design-system.service.gov.uk/data/).
+
+<h2 id="bg-dat-05">BG-DAT-05: Use the operational chart specification</h2>
+
+**Local requirement: MUST.** Applies to supported operational Energy plots, legends and tooltip markers.
+
+Use the shared stable [chart-colour generator](chart-colour.html), matching line/pattern legend keys, opaque paints and the shared **1.5px** line width in normal and interaction states. The narrow native Energy surface is a documented adaptation of ONS’s standalone 3px line reference. Hover must not thicken lines or fade all other series.
+
+Brand changes leave source identity colours stable. Vivid/Muted and Light/Dark use the generator’s declared variants. Comparisons share the source colour and add hatching. Chart hatches, markers and functional strokes are intentional non-colour cues; illustration-only prohibitions do not apply. GOV.UK’s separate infographic accents and official chart palette do not replace this established contract.
+
+Source: [Chart colour](https://brand.design-system.service.gov.uk/colour/charts/), [Data examples](https://brand.design-system.service.gov.uk/data/examples/).
+
+<h2 id="bg-dat-06">BG-DAT-06: Retain useful native interaction</h2>
+
+**Local requirement: MUST.** Applies to maintained native Energy adapter and existing chart interaction.
+
+Date changes, source visibility and device comparison answer repeated household questions. Preserve native keyboard controls, Chart2Music, zoom, legends and tooltips where supplied. Add explanation where the interaction is unfamiliar; do not replace a functioning native chart with an inaccessible image.
+
+The brand dashboard page cautions against third-party packages when they reduce control. Here Home Assistant already owns ECharts and its data lifecycle. The maintained adapter uses ECharts public chart APIs such as `getOption` and `setOption`, with a separately documented, private and version-sensitive [Home Assistant host adapter](../get-started/compatibility.html). Verify that host contract against the supported frontend version rather than importing a second chart renderer. This is a local integration decision, not a general rejection of the source guidance.
+
+Source: [Charts](https://brand.design-system.service.gov.uk/data/charts/), [Dashboards](https://brand.design-system.service.gov.uk/data/dashboards/).
+
+<h2 id="bg-dat-07">BG-DAT-07: Provide a usable alternative and honest scope</h2>
+
+**Local requirement: MUST.** Applies to supported Energy data tables and proposed chart alternatives.
+
+Use **View data** for supported Energy series, with source names, original dates, units and signed values. Keep the native chart accessible name and keyboard interface. Explain that the table contains selected-period plotted values, including hidden series, rather than a complete meter export. A missing interval cannot be reconstructed from an omitted native point.
+
+For a new chart or static report, provide the corresponding table or clear text summary. Label example data as invented. Do not claim that an accessible table alone validates the chart’s colour, focus order or interaction. Test both the visual and alternative routes.
+
+Source: [Data principles](https://brand.design-system.service.gov.uk/data/), [Charts](https://brand.design-system.service.gov.uk/data/charts/).
+
+<h2 id="bg-dat-08">BG-DAT-08: Treat maps as operational evidence</h2>
+
+**Local requirement: MUST.** Applies to native map content and future spatial adapters.
+
+Keep useful place labels, source attribution, observation time and an appropriate extent. A spatial marker needs a label or distinguishable shape as well as colour. If distance matters, retain a meaningful scale. Supply a text location/status list for people who cannot use the map.
+
+Do not recolour tiles, obscure a weather/flood layer or move a position marker to make a brand composition. Retain important legend thresholds and source warnings. Distinguish a static floor plan from a geographic map and label invented diagrams. These requirements guide future map work; the Energy adapter does not restyle native map providers.
+
+Source: [Maps](https://brand.design-system.service.gov.uk/data/maps/), [Map colour](https://brand.design-system.service.gov.uk/colour/maps/).
+
+<h2 id="bg-dat-09">BG-DAT-09: Separate publishing graphics from live monitoring</h2>
+
+**Local requirement: MUST.** Applies to publishing summaries versus operational monitoring.
+
+A release graphic may summarise a fixed, sourced result with a simple shape or large number. State its date, denominator, rounding and source, and provide the facts as real text. Do not use area, size or decorative motion to exaggerate the result. A synthetic example must say so beside the graphic.
+
+Operational dashboards need repeatable comparison and accurate current state. Do not carry campaign gradients, oversized strokes, celebratory colours or unsupported claims into them. Review charts at actual narrow and desktop sizes, with long labels and many devices, then verify the maintained adapter on the live route before making deployment claims.
+
+Source: [Data examples](https://brand.design-system.service.gov.uk/data/examples/), [Chart colour](https://brand.design-system.service.gov.uk/colour/charts/).
+
+## Review and evidence
+
+The source inventory and rule checklist are maintained in `docs/data/brand-guidance-inventory.json` and `docs/data/brand-guidance-checklist.json`. A reviewed source is evidence for a design decision, not a pass for an interface. Record the page or component, theme/mode, test result and remaining issue before closing a checklist item. Recheck after source, palette, component or renderer changes.

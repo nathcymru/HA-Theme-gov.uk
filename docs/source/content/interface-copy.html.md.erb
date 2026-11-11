@@ -1,0 +1,93 @@
+---
+title: "Interface copy and truthful states"
+description: "Write controls, confirmations and missing states that match what Home Assistant actually supports and knows."
+section: "styles"
+group: "Writing guide"
+nav_order: 3
+source_url: "https://service-manual.nhs.uk/content/how-we-write"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for interface copy and truthful states."
+---
+
+# Interface copy and truthful states
+
+A good interface label tells a person what they can do. A good status tells them what is known. They must not be interchangeable: a request, a stored setting and a physical result are different facts.
+
+<h2 id="wg-030">WG-030 — Name the action and its object</h2>
+
+**SHOULD.** Use a concrete verb and enough context to identify the effect of a control.
+
+Prefer “Save schedule” or “Turn on reading lamp” where the object would otherwise be unclear. Repeated cards need distinct accessible names that include their visible label. Use “Continue” for a genuine next step, not for an irreversible action whose effect would be hidden. Do not replace native labels merely to make them longer.
+
+<h2 id="wg-031">WG-031 — Separate state from action</h2>
+
+**MUST.** Label a current or last reported state separately from the operation a button requests.
+
+A lamp reporting “Off” can offer “Turn on”. A switch must retain the semantics of its actual checked state. If a custom control shows an optimistic value before confirmation, make the pending state explicit rather than presenting it as a reported device result.
+
+<%= example('wg-state-action') %>
+
+<h2 id="wg-032">WG-032 — Distinguish a request from a confirmed result</h2>
+
+**MUST.** Only claim completion when the integration’s documented confirmation condition is met; distinguish sending, acceptance, reported state and lack of confirmation.
+
+A successful service-call response may only mean that Home Assistant accepted the request. Some integrations use assumed state and cannot confirm a physical result. Say “Request sent” or “Home Assistant reports…” as appropriate. Do not imply an independent physical check. When confirmation does not arrive, explain uncertainty before offering a retry that might duplicate an operation.
+
+<%= example('wg-command-progress') %>
+
+<h2 id="wg-033">WG-033 — Keep unavailable, unknown, stale and offline distinct</h2>
+
+**MUST.** Describe missing information using the actual source state and timestamp; claim offline only when connection evidence supports it.
+
+Unknown means a usable state has not been supplied. Unavailable means the entity cannot currently provide its state. A retained old value may be useful but is not a fresh reading. Define any “stale” threshold by the source’s expected reporting behaviour: a contact sensor may legitimately remain unchanged for a long time. A last-changed timestamp alone does not prove a lost connection.
+
+<h2 id="wg-034">WG-034 — Explain actual capability and permission limits</h2>
+
+**MUST.** Offer only supported actions and explain a relevant restriction without claiming that the interface can grant device or account permissions.
+
+Separate “this integration does not support remote start” from “remote control is off” and “your account cannot perform this action”. Recheck permissions when an action is submitted. Do not invent Start, Pause, Dock or Reset controls because another appliance has them. Do not encourage bypassing a physical interlock or remote-control requirement.
+
+<h2 id="wg-035">WG-035 — Distinguish saved, enabled and running</h2>
+
+**MUST.** Describe configuration persistence, future automatic starts and current execution as separate states.
+
+Saving an automation does not prove that it ran. Turning off future starts may not stop a run already in progress. A scene request may change several entities, each with a different response. Where partial results are known, name them rather than reporting that the whole household task succeeded.
+
+<%= example('wg-automation-status') %>
+
+<h2 id="wg-036">WG-036 — Describe cancellation and destructive effects precisely</h2>
+
+**MUST.** State what Cancel, Stop, Remove and Delete affect, including any operation that may continue or cannot be undone.
+
+Closing a dialog may cancel an unsaved edit without cancelling a request already sent. “Stop automation” must match the supported execution operation, not just close its progress display. Before a destructive action, identify the record and meaningful effect. Say an undo is available only when the actual system can restore the affected state.
+
+<h2 id="wg-037">WG-037 — Set a truthful destination expectation</h2>
+
+**MUST.** Identify external services, downloads and changes of context when they affect a person’s choice; do not disguise device actions as navigation.
+
+“Open manufacturer support” is clearer than “More” when it leaves Home Assistant. Do not describe an external service as local or imply that a link works without internet access. Prefer staying in the same tab unless the task needs another context. Do not put personal data, credentials or access tokens in authored links.
+
+<h2 id="wg-038">WG-038 — Make questions and empty states unambiguous</h2>
+
+**MUST.** Give each input a visible label, explain necessary formats and conditions, and distinguish no results from missing data or access restrictions.
+
+Use “No devices match these filters” for a successful empty search, “No devices have been added” only when that is known, and “Devices could not be loaded” for a failed request. A placeholder is not a label. Mark optional questions as optional; offer “I do not know” only when the workflow has a valid route for that answer.
+
+
+## Sources and adaptation
+
+- [NHS: How we write](https://service-manual.nhs.uk/content/how-we-write)
+- [NHS forms: Forms as a conversation](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/think-of-the-form-as-a-conversation)
+- [NHS forms: Supporting form content](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form)
+- [NHS forms: Filter questions](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users)
+- [GOV.UK: Clear titles](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-titles/)
+- [GOV.UK: Add links](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/add-links/)
+- [Home Office: Content style guide](https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

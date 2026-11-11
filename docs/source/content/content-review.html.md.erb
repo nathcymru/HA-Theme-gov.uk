@@ -1,0 +1,83 @@
+---
+title: "Review and maintain content"
+description: "Record evidence, exceptions and meaningful changes without overstating what was checked."
+section: "styles"
+group: "Writing guide"
+nav_order: 9
+source_url: "https://service-manual.nhs.uk/content/standard-for-creating-health-content"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for review and maintain content."
+---
+
+# Review and maintain content
+
+Review content as part of the feature, not as decoration added at the end. Check the words against the implementation, then check whether people can use them. Keep a record of what was reviewed so a future change can be assessed without guessing.
+
+<h2 id="wg-090">WG-090 — Record ownership, sources and scope</h2>
+
+**MUST.** Give authored guidance an owner or review responsibility, a meaningful version/date record and the sources or implementation evidence behind its claims.
+
+For a native integration instruction, record the supported frontend or integration context. For a writing rule, record the source reviewed and the adaptation. Do not imply that a linked source was checked more recently than it was. Trigger a new review when a capability, permission model, source state or important upstream label changes.
+
+<%= example('wg-review-record') %>
+
+<h2 id="wg-091">WG-091 — Explain changes that alter meaning</h2>
+
+**SHOULD.** Write a change note that says what changed and how it affects the task when behaviour, scope or interpretation changes.
+
+“Clarified the effect of turning off an automation” is useful; “Updated content” is not. A spelling correction may not need a prominent user-facing note, but a changed safety limitation or interpretation does. Do not claim that people were notified about a change unless a real notification mechanism was used.
+
+<%= example('wg-change-note') %>
+
+<h2 id="wg-092">WG-092 — Keep editorial dates separate from device dates</h2>
+
+**MUST.** Label publication, content update, content review and data timestamps according to what actually happened.
+
+“Reviewed on” means a stated review occurred. “Updated on” means the content changed. “Last reported” belongs to a source reading. Do not infer that a maintenance task happened from the date someone edited a dashboard record. A generated page date alone is not evidence of substantive review.
+
+<h2 id="wg-093">WG-093 — Record exceptions and confirmed findings</h2>
+
+**MUST.** For an applicable rule, record pass, finding, not applicable or a justified SHOULD deviation with evidence; propose any MUST contract change explicitly.
+
+A finding identifies the page or control, the exact problem and the correction needed. Separate a current defect from a proposed future feature. Do not mark all native Home Assistant screens compliant because a civica example passes. A documented limitation must describe the actual boundary rather than excuse a misleading claim.
+
+<h2 id="wg-094">WG-094 — Review facts, language and presentation separately</h2>
+
+**SHOULD.** Check the technical truth first, then wording and structure, then the rendered result with realistic data and relevant users.
+
+A useful sequence is: verify source/capability; inspect all states; read the copy aloud; proof names, numbers and links; inspect the rendered result; ask another reviewer to check high-consequence wording. Test long user names, missing values, permission changes, pending requests, narrow screens and locale differences. Proofreading is not limited to spelling.
+
+<h2 id="wg-095">WG-095 — Report validation within its limits</h2>
+
+**MUST.** Separate source review, automated checks, manual interaction checks, user research and live-device verification in the evidence record.
+
+A local example can prove that its button produces local feedback; it cannot prove that a washing machine starts. A browser accessibility scan covers that rendered page and tool’s rules; it is not a complete accessibility assessment. A clinical review process described by the NHS does not certify this household guide. State what remains unverified.
+
+## A practical review sequence
+
+1. Identify the task, content owner and affected surfaces.
+2. Read the relevant rule families and the actual implementation contract.
+3. Check every reachable state, including empty, missing, permission-limited, pending, partial, failed and cancelled outcomes.
+4. Review names, units, periods, source evidence and privacy.
+5. Review structure, links, alternatives and language with the rendered content.
+6. Record findings with a rule ID, exact evidence, proposed change and acceptance check.
+7. Retest the changed content and update its meaningful history.
+
+The JSON checklist is a review template. Leave unknown results unresolved rather than filling them with a blanket pass. Its evidence fields are intentionally empty until a reviewer performs the relevant checks.
+
+## Sources and adaptation
+
+- [NHS: Standard for creating health content](https://service-manual.nhs.uk/content/standard-for-creating-health-content)
+- [NHS forms: Test questions](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/test-your-questions)
+- [NHS: Health literacy](https://service-manual.nhs.uk/content/health-literacy)
+- [GOV.UK: Change notes](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/change-notes/)
+- [Plain English Campaign: free guides](https://www.plainenglish.co.uk/free-guides)
+- [Worcestershire County Council: What is SCULPT?](https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

@@ -1,0 +1,113 @@
+---
+title: "Brand colour in context"
+description: "How GOV.UK brand colour principles become civica.uk interface, state, data and output-channel rules."
+section: "styles"
+group: "Brand guidance"
+source_url: "https://brand.design-system.service.gov.uk/colour/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
+---
+
+# Brand colour in context
+
+Apply GOV.UK’s role-based colour discipline to civica.uk, while preserving our supplied palettes and independent operational meanings. This page explains the decisions behind [Colour](colour.html); it does not introduce another palette. Official government brand requirements are source material, not instructions to replace the user’s identity.
+
+## Examples
+
+These reference examples use invented household details. They do not operate devices or establish that every native Home Assistant surface has adopted this guidance.
+
+<%= example('bg-colour-role-separation') %>
+
+<%= example('bg-colour-boundaries') %>
+
+<%= example('bg-colour-state-labels') %>
+
+<h2 id="bg-col-01">BG-COL-01: Keep the civica.uk palette authoritative</h2>
+
+**Local requirement: MUST.** Applies to service identity, theme selection and brand assets.
+
+Use the exact ten supplied [brand palettes](colour.html), each with Vivid and Muted variants. Select the matching supplied civica.uk artwork rather than recolouring a logo. Civic Cobalt shares a blue value with GOV.UK; that does not make civica.uk an official government service.
+
+GOV.UK’s blue/teal identity, restrictions on inventing its colours, and internal brand-team approval process apply to that identity. They do not replace the user-approved civica palette or authorise its crown, wordmark or graphic device. The [brand asset rules](brand.html) remain authoritative for supplied geometry and provenance.
+
+Source: [GOV.UK is a blue brand](https://brand.design-system.service.gov.uk/colour/govuk-blue/).
+
+<h2 id="bg-col-02">BG-COL-02: Choose a colour by its job</h2>
+
+**Local requirement: MUST.** Applies to interface colour tokens and semantic states.
+
+Use separate roles for identity, reading, interaction, state and data. The palette primary identifies the service and navigation. Text tokens support reading. Focus and validation tokens identify an interaction state. Device colours may express a native domain state. Chart colours identify a source.
+
+Do not use a red brand primary as an error token or a green primary as proof of success. A yellow lighting scene is a light recipe, not a warning. Choose a semantic fill and its paired text colour together; a dark-mode error text colour is not automatically a safe button background.
+
+Source: [Web colour](https://brand.design-system.service.gov.uk/colour/web/).
+
+<h2 id="bg-col-03">BG-COL-03: Test combinations and retain another cue</h2>
+
+**Local requirement: MUST.** Applies to rendered text, controls and meaningful graphical objects.
+
+Meet the project’s [accessibility requirements](../accessibility/index.html) for actual foreground/background pairs. Normal text needs 4.5:1 contrast; large text needs 3:1. Meaningful control boundaries and graphical objects need 3:1 where the applicable WCAG criterion requires it. A quiet decorative divider is not a substitute for a visible control boundary.
+
+Give statuses words, selections a checked/current state, and chart series names plus patterns or shapes. Do not infer a successful action from colour alone. Test focus on its real surface, including a dark masthead. A colour-blindness simulation is a useful review tool, not evidence that all users can distinguish every pair.
+
+Source: [Colour](https://brand.design-system.service.gov.uk/colour/), [Map colour](https://brand.design-system.service.gov.uk/colour/maps/).
+
+<h2 id="bg-col-04">BG-COL-04: Separate dividers from editable boundaries</h2>
+
+**Local requirement: MUST.** Applies to structural borders, inputs and native control geometry.
+
+Use `civica-border-quiet` for structural dividers and restrained card edges: light-mode `#CECECE`, with its documented dark counterpart. Use `civica-border-interactive` for boundaries needed to recognise controls and `civica-input-border` for editable fields. Preserve the strong input and focus treatments.
+
+Avoid outlining every dashboard region in black. Group content first with headings and spacing. Conversely, do not lighten every border globally: a text field, focus ring and card separator serve different purposes. Keep native circle/pill geometry where it conveys a switch, radio, badge, avatar or gauge.
+
+Source: [Web colour](https://brand.design-system.service.gov.uk/colour/web/).
+
+<h2 id="bg-col-05">BG-COL-05: Preserve device, warning and notification meaning</h2>
+
+**Local requirement: MUST.** Applies to device state, manufacturer identifiers and attention counts.
+
+Retain native entity/domain icon semantics and meaningful state colours, with the device name and state still readable. An unavailable sensor is not a zero reading or an off device. Manufacturer marks may support identification; they are content, not the service identity.
+
+The [notification badge](../components/notification-badge.html) uses its fixed attention colour and rounded shape across palettes. Do not use that count as an alarm severity or replace a warning message with a coloured dot. Confirmed success, pending action and failure require distinct wording as well as presentation.
+
+Source: [Web colour](https://brand.design-system.service.gov.uk/colour/web/), [App colour](https://brand.design-system.service.gov.uk/colour/app/).
+
+<h2 id="bg-col-06">BG-COL-06: Review every display context</h2>
+
+**Local requirement: MUST.** Applies to affected components in all supported tone/mode and accessibility contexts.
+
+Vivid/Muted and Light/Dark are independent choices. Use the documented derived dark tokens and retain the supplied primary on its matching brand header. Do not turn the supplied off-white canvas into a claimed dark palette. Do not create Muted by adding transparency.
+
+Allow forced-colour modes to use system colours for text, links, focus and controls. Preserve borders, labels and symbols if fills disappear; avoid blanket `forced-color-adjust: none`. Check actual native dialogs, dense settings tables and editors as well as the spacious examples. A documentation preview is not a forty-combination runtime audit.
+
+Source: [App colour](https://brand.design-system.service.gov.uk/colour/app/), [Social colour](https://brand.design-system.service.gov.uk/colour/social/).
+
+<h2 id="bg-col-07">BG-COL-07: Keep chart and map scales independent</h2>
+
+**Local requirement: MUST.** Applies to categorical chart identities and proposed quantitative map/chart scales.
+
+Operational charts use the stable identity generator in [Chart colour](chart-colour.html). Brand selection must not change the meaning of a grid, solar or device series; tone and mode may change its tested rendering. A categorical palette identifies distinct things. A sequential scale represents increasing values; a divergent scale needs a meaningful centre. Do not use a categorical rainbow to imply a measured progression.
+
+For a new heatmap or map layer, document its scale, units, endpoints and unavailable state before choosing colours. These are reference requirements, not a claim that all native map layers are rethemed. Retain source attribution and a textual route to the data.
+
+Source: [Chart colour](https://brand.design-system.service.gov.uk/colour/charts/), [Map colour](https://brand.design-system.service.gov.uk/colour/maps/).
+
+<h2 id="bg-col-08">BG-COL-08: Adapt the output channel without importing identity</h2>
+
+**Local requirement: MUST.** Applies to screen, promotional and print colour output.
+
+Dashboard controls need calm, repeated use. A release graphic may use a larger headline or a limited supporting illustration palette, but must still read as civica.uk and retain accessible text. Do not import GOV.UK social companion colours, accent-dot animations or official headers as a second theme.
+
+For print, preserve the supplied CMYK and RAL/descriptive metadata as references, not measured matches. Use screen hex in sRGB for the application; check a separate print proof for exported materials. Never change a screen token to approximate a paint or print sample. Illustration colour choices follow [Illustration](illustration.html).
+
+Source: [Social colour](https://brand.design-system.service.gov.uk/colour/social/), [Print colour](https://brand.design-system.service.gov.uk/colour/print/), [Illustration colour](https://brand.design-system.service.gov.uk/colour/illustrations/).
+
+## Review and evidence
+
+The source inventory and rule checklist are maintained in `docs/data/brand-guidance-inventory.json` and `docs/data/brand-guidance-checklist.json`. A reviewed source is evidence for a design decision, not a pass for an interface. Record the page or component, theme/mode, test result and remaining issue before closing a checklist item. Recheck after source, palette, component or renderer changes.

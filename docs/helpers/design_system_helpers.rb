@@ -19,10 +19,10 @@ module DesignSystemHelpers
   end
 
   def section_groups(section)
-    pages = guide_pages.select { |resource| section_for(resource) == section && !resource.destination_path.end_with?('/index.html') }
+    pages = guide_pages.select { |resource| section_for(resource) == section && (!resource.destination_path.end_with?('/index.html') || resource.destination_path == 'content/index.html') }
     pages.group_by { |resource| resource.data.group || (section == 'components' ? 'Home Assistant components' : 'Guidance') }
-      .sort_by { |group, _| ['Guidance', 'Home Assistant components', 'Form elements', 'Content presentation', 'Navigation', 'Inclusive content', 'Task patterns', 'Page patterns', 'Publishing components', 'Publishing patterns', 'Page templates'].index(group) || 99 }
-      .map { |group, resources| [group, resources.sort_by { |resource| resource.data.title.downcase }] }
+      .sort_by { |group, _| ['Guidance', 'Brand guidance', 'Writing guide', 'Home Assistant components', 'Form elements', 'Content presentation', 'Navigation', 'Inclusive content', 'Task patterns', 'Page patterns', 'Publishing components', 'Publishing patterns', 'Page templates'].index(group) || 99 }
+      .map { |group, resources| [group, resources.sort_by { |resource| [resource.data.nav_order || 100, resource.data.title.downcase] }] }
   end
 
   def example(id)

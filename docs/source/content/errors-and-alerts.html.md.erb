@@ -1,0 +1,82 @@
+---
+title: "Errors, warnings and notifications"
+description: "Explain recovery and urgency without inventing causes, capabilities or safety assurances."
+section: "styles"
+group: "Writing guide"
+nav_order: 4
+source_url: "https://service-manual.nhs.uk/content/how-we-write"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for errors, warnings and notifications."
+---
+
+# Errors, warnings and notifications
+
+Explain the problem, its effect and the next useful step. An error is not automatically a warning, and a maintenance reminder is not an emergency alarm. Severity must come from evidence and a documented purpose, not the amount of visual emphasis available.
+
+<h2 id="wg-040">WG-040 — Give a recovery supported by the known cause</h2>
+
+**MUST.** Name the affected task and explain an available next step without inventing a diagnosis, retained work or a successful retry.
+
+A timeout does not prove the router failed. An expired session can justify a sign-in route if that is the actual cause. “Try again” is only helpful when a retry is supported and its consequences are understood. Keep technical details available for diagnosis without making a raw exception or stack trace the entire user message.
+
+<%= example('wg-recoverable-error') %>
+
+<h2 id="wg-041">WG-041 — Distinguish validation from service failure</h2>
+
+**MUST.** Use a field error for a correctable answer, a task-level message for a failed request, and status copy for unavailable information.
+
+For a malformed time, state the accepted format beside the field and link to it from the error summary. For an unavailable device, retain the valid input and explain the task limitation. Do not validate before the person has had a reasonable opportunity to answer. Preserve their input when the implementation can do so safely.
+
+<%= example('wg-availability') %>
+
+<h2 id="wg-042">WG-042 — Choose urgency from evidence</h2>
+
+**MUST.** Use severity words and presentation only for a defined condition, keeping informational records, required actions and immediate hazard signals distinct.
+
+A date entered by a person can support “Record needs checking”. It cannot prove that a boiler is unsafe or that a service took place. A validated detector state can be reported as a detector alarm, with its source and freshness. Do not invent an emergency classification from a generic unavailable state, a low battery or a missed reminder.
+
+<%= example('wg-warning-context') %>
+
+<h2 id="wg-043">WG-043 — Respect the boundary of household safety information</h2>
+
+**MUST.** Do not claim that Home Assistant replaces a physical safety check, certified alarm, qualified advice or an authoritative emergency procedure.
+
+A displayed lock state is not proof of physical security. A socket’s off state is not safe electrical isolation. A household health-related reading is not a diagnosis. Where a task genuinely needs safety instructions, use current authoritative guidance and identify its scope; do not improvise a repair procedure or bury essential safety information in a tooltip.
+
+<h2 id="wg-044">WG-044 — Explain pending and uncertain outcomes</h2>
+
+**MUST.** Keep a pending message distinct from failure and success, and explain when an operation may still complete after the interface stops waiting.
+
+Use a meaningful progress statement instead of an endless unexplained spinner. A Cancel button must say what it can actually cancel. Do not replace an old reported state with “Failed” if only the acknowledgement is missing. Give a known time or refresh condition where it helps, without inventing a deadline.
+
+<%= example('wg-permission') %>
+
+<h2 id="wg-045">WG-045 — Keep notifications truthful and private</h2>
+
+**MUST.** Adapt message detail to the supported delivery channel, intended recipient and shared-screen context without changing the underlying meaning.
+
+An in-app explanation can contain more context than a lock-screen preview. Do not expose a person’s absence, medical routine or security status unnecessarily. Identify the device or task when that is needed to act, using a privacy-appropriate description. Do not claim a push message, email, acknowledgement or delivery has occurred unless the system confirms that stage. Sending a message is not proof that someone read it.
+
+<h2 id="wg-046">WG-046 — Avoid blame and alarm fatigue</h2>
+
+**SHOULD.** Keep errors factual, avoid repeated announcements of unchanged problems, and reserve assertive interruptions for genuinely urgent information.
+
+Say “Enter a time” instead of “You entered an invalid value”. Show useful recovery beside the problem. Announce a changed outcome once through the appropriate live region; do not read every changing meter value or poll result aloud. A persistent issue can stay visible without repeatedly interrupting the person.
+
+
+## Sources and adaptation
+
+- [NHS: How we write](https://service-manual.nhs.uk/content/how-we-write)
+- [NHS: Voice and tone](https://service-manual.nhs.uk/content/voice-and-tone)
+- [NHS: Writing messages](https://service-manual.nhs.uk/content/writing-nhs-messages)
+- [NHS forms: Supporting form content](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form)
+- [NHS: Standard for creating health content](https://service-manual.nhs.uk/content/standard-for-creating-health-content)
+- [GOV.UK: Right tone](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

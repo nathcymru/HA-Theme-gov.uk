@@ -1,0 +1,2091 @@
+{
+  "schema_version": 1,
+  "title": "civica household writing guide",
+  "reviewed_on": "2026-11-11",
+  "status": "authored guide; source scope and implementation boundaries apply",
+  "normative_levels": {
+    "MUST": "Required civica content contract within its stated scope. Not a claim of law or universal native HA conformance.",
+    "SHOULD": "Default; exceptions need a recorded reason and verification.",
+    "MAY": "Permitted contextual choice; mandatory contracts still apply."
+  },
+  "sources": [
+    {
+      "id": "NHS-WRITE",
+      "url": "https://service-manual.nhs.uk/content/how-we-write",
+      "title": "NHS: How we write",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "accuracy",
+        "plain English",
+        "specialist terms",
+        "reading effort"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "783c271a731d20dd9be6443e94fec0706bc788964da37d8b4b0f414e7f6af0fc",
+      "rule_ids": [
+        "WG-010",
+        "WG-011",
+        "WG-013",
+        "WG-031",
+        "WG-032",
+        "WG-033",
+        "WG-035",
+        "WG-042",
+        "WG-043",
+        "WG-044",
+        "WG-066",
+        "WG-071",
+        "WG-074",
+        "WG-076",
+        "WG-078"
+      ]
+    },
+    {
+      "id": "NHS-VOICE",
+      "url": "https://service-manual.nhs.uk/content/voice-and-tone",
+      "title": "NHS: Voice and tone",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "neutral language",
+        "direct address",
+        "context"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "42ff394301c205d588f3fb227f4b9dc13918321c6c8f20d55d46cba38fcfcbc0",
+      "rule_ids": [
+        "WG-012",
+        "WG-042",
+        "WG-046"
+      ]
+    },
+    {
+      "id": "NHS-LITERACY",
+      "url": "https://service-manual.nhs.uk/content/health-literacy",
+      "title": "NHS: Health literacy",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "comprehension",
+        "numeracy",
+        "stress",
+        "user testing"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "7f2d6b5d8dd164889d0ad4466d5f9141ea8ef35d1310232214796e309ce2d9fa",
+      "rule_ids": [
+        "WG-015",
+        "WG-055",
+        "WG-070",
+        "WG-078",
+        "WG-086",
+        "WG-094"
+      ]
+    },
+    {
+      "id": "NHS-FORMAT",
+      "url": "https://service-manual.nhs.uk/content/formatting",
+      "title": "NHS: Formatting",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "headings",
+        "lists",
+        "links",
+        "emphasis",
+        "abbreviations"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "c5c536ffc2c68f4defd521baf6bcc4170d85d14ec0e91907128455be07df935d",
+      "rule_ids": [
+        "WG-002",
+        "WG-020",
+        "WG-024",
+        "WG-025",
+        "WG-037",
+        "WG-077",
+        "WG-080",
+        "WG-082",
+        "WG-083"
+      ]
+    },
+    {
+      "id": "NHS-PUNCT",
+      "url": "https://service-manual.nhs.uk/content/punctuation",
+      "title": "NHS: Punctuation",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "sentence case",
+        "contractions",
+        "punctuation"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "9d533af867d565706a9e9ec9bae26069a90ad2386ea510dd52ed4633a1875d6e",
+      "rule_ids": [
+        "WG-014",
+        "WG-023"
+      ]
+    },
+    {
+      "id": "NHS-NUMBERS",
+      "url": "https://service-manual.nhs.uk/content/numbers-measurements-dates-time",
+      "title": "NHS: Numbers, measurements, dates and time",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "numeracy",
+        "units",
+        "precision",
+        "date and time"
+      ],
+      "scope": "General numeracy reviewed. Clinical thresholds and general rounding/UK clock defaults do not override Home Assistant measurements, precision or locale.",
+      "retrieved_html_sha256": "7567fb897ce151321963b869b091c1adb99dc05a789030beff2944a51746e5ef",
+      "rule_ids": [
+        "WG-033",
+        "WG-070",
+        "WG-071",
+        "WG-072",
+        "WG-073",
+        "WG-074",
+        "WG-075",
+        "WG-076",
+        "WG-077",
+        "WG-078",
+        "WG-092"
+      ]
+    },
+    {
+      "id": "NHS-MESSAGES",
+      "url": "https://service-manual.nhs.uk/content/writing-nhs-messages",
+      "title": "NHS: Writing messages",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "priority information",
+        "channel adaptation",
+        "sender and destination"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "2cddf1661c22ffa4d47111649d117dbd9530b1b30cb46410394274d5a716c1f4",
+      "rule_ids": [
+        "WG-037",
+        "WG-040",
+        "WG-044",
+        "WG-045",
+        "WG-066"
+      ]
+    },
+    {
+      "id": "NHS-REVIEW",
+      "url": "https://service-manual.nhs.uk/content/standard-for-creating-health-content",
+      "title": "NHS: Standard for creating health content",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "ownership",
+        "evidence",
+        "review lifecycle"
+      ],
+      "scope": "Editorial ownership and review only. No clinical assurance, medical certification, medical-device or regulatory claim is transferred.",
+      "retrieved_html_sha256": "33fe0ef678cedefc14e070c7e5ca1b0c9525327ccaf9047b1bb8ef92d3c90f4e",
+      "rule_ids": [
+        "WG-004",
+        "WG-043",
+        "WG-090",
+        "WG-092",
+        "WG-093",
+        "WG-095"
+      ]
+    },
+    {
+      "id": "NHS-DOCUMENTS",
+      "url": "https://service-manual.nhs.uk/content/pdfs-and-other-non-html-documents",
+      "title": "NHS: PDFs and other non-HTML documents",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "HTML first",
+        "accessible alternatives",
+        "document structure"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "0126c39be1dece10cee763c33bd7bebe9369ead17e4aa62b36f90f9c41a97694",
+      "rule_ids": [
+        "WG-056",
+        "WG-064",
+        "WG-085"
+      ]
+    },
+    {
+      "id": "NHS-BSL",
+      "url": "https://service-manual.nhs.uk/content/british-sign-language-bsl-quality-assurance-standard",
+      "title": "NHS: BSL quality assurance standard",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "qualified translation",
+        "independent checking",
+        "version control"
+      ],
+      "scope": "Translation quality principles only. No signed household media is supplied and no NHS clinical assurance is claimed.",
+      "retrieved_html_sha256": "a70a8675aa4d5b9c0e5aa56d03ccb684278bf8e57e56a49523fb3e98379767d2",
+      "rule_ids": [
+        "WG-004",
+        "WG-056",
+        "WG-064",
+        "WG-085"
+      ]
+    },
+    {
+      "id": "NHS-INCLUSIVE",
+      "url": "https://service-manual.nhs.uk/content/inclusive-content",
+      "title": "NHS: Inclusive content",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "respectful language",
+        "audience research"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "855ad2d08abefcb81fbf8d2418b64df75cdf818e131b5a1a7fcabb0fabbf146d",
+      "rule_ids": [
+        "WG-022",
+        "WG-060"
+      ]
+    },
+    {
+      "id": "NHS-AGE",
+      "url": "https://service-manual.nhs.uk/content/inclusive-content/age",
+      "title": "NHS: Age",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "relevance",
+        "precise inclusive age boundaries"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "9ebea7edde5bfae960090658074cad80134b3d9e1c5ac739b93ba0e7e5c6a8ae",
+      "rule_ids": [
+        "WG-060"
+      ]
+    },
+    {
+      "id": "NHS-DISABILITY",
+      "url": "https://service-manual.nhs.uk/content/inclusive-content/disabilities-and-conditions",
+      "title": "NHS: Disabilities and conditions",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "respectful language",
+        "social barriers"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "084fd6d4132c2ceb34d013845232e578856326880f56b6f0517ca2492314d15b",
+      "rule_ids": [
+        "WG-062",
+        "WG-063"
+      ]
+    },
+    {
+      "id": "NHS-ETHNICITY",
+      "url": "https://service-manual.nhs.uk/content/inclusive-content/ethnicity-religion-and-nationality",
+      "title": "NHS: Ethnicity, religion and nationality",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "relevance",
+        "specific self-description"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "b793f1b7f8e851eb50896f1074c31607ea473c521eff922cb3ee730088d58913",
+      "rule_ids": [
+        "WG-061",
+        "WG-062"
+      ]
+    },
+    {
+      "id": "NHS-GENDER",
+      "url": "https://service-manual.nhs.uk/content/inclusive-content/sex-gender-and-sexuality",
+      "title": "NHS: Sex, gender and sexuality",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "relevance",
+        "gender-neutral wording",
+        "community terminology"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "099fe25ba0f5ceca38ee72492e36cc1eb2b73438e53021655f0e6160d0c65a3d",
+      "rule_ids": [
+        "WG-060",
+        "WG-062"
+      ]
+    },
+    {
+      "id": "NHS-AZ",
+      "url": "https://service-manual.nhs.uk/content/a-to-z-of-nhs-health-writing",
+      "title": "NHS: A to Z of health writing (selected entries)",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "abbreviations",
+        "acronyms",
+        "accessibility"
+      ],
+      "scope": "Selected non-clinical entries reviewed. This guide does not reproduce the dictionary or adopt its clinical vocabulary and thresholds.",
+      "retrieved_html_sha256": "87635b11c2f2fd08005b91851749ae4df1d2bf28bbcc98f8eac77a336b753ca7",
+      "rule_ids": [
+        "WG-024"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-NEED",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/understand-the-problem-before-you-write-your-questions",
+      "title": "NHS forms: Understand the problem",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "understand the problem"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "7f28b2ee785908ca43296985185b38a2a82cebd5517c2cf30801125c78646242",
+      "rule_ids": [
+        "WG-001",
+        "WG-051"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-MIN",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/make-sure-you-need-each-question",
+      "title": "NHS forms: Need each question",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "need each question"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "0f08fbe96de5dec4efcf5dcba6e8e752683e44b433d27fdd4705a09a5c2d6503",
+      "rule_ids": [
+        "WG-038",
+        "WG-054",
+        "WG-061"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-SENSITIVE",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/consider-the-sensitivities-around-your-questions",
+      "title": "NHS forms: Sensitive questions",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "sensitive questions"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "978593bdd52d5b70521f35301b5751b4650fb23d8c2aea3340754216043e8090",
+      "rule_ids": [
+        "WG-045",
+        "WG-054",
+        "WG-061",
+        "WG-066"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-ROUTES",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users",
+      "title": "NHS forms: Filter questions",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "filter questions"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "9077cf563c42d231dbaff3992db1ce01af1f3fe67cb597f1f601572f4c627d6c",
+      "rule_ids": [
+        "WG-034",
+        "WG-038",
+        "WG-054"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-ORDER",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/get-the-questions-into-order",
+      "title": "NHS forms: Question order",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "question order"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "57c5949e823defc387fc542b9e23628a41a4c129d8df8b5cc6ebdf0ff6c177b3",
+      "rule_ids": [
+        "WG-050"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-TONE",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/think-of-the-form-as-a-conversation",
+      "title": "NHS forms: Forms as a conversation",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "forms as a conversation"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "2d231cca248a4dbd1d23ffd851bd18d1195081c2f3ac76f0fed876e50f5e97cb",
+      "rule_ids": [
+        "WG-030",
+        "WG-031",
+        "WG-036",
+        "WG-053"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-HELP",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form",
+      "title": "NHS forms: Supporting form content",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "supporting form content"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "bd1074a5349aa829bfdaa94a541dc892f740c3e8fef3eec1dee718e491a3192b",
+      "rule_ids": [
+        "WG-021",
+        "WG-038",
+        "WG-040",
+        "WG-041",
+        "WG-051",
+        "WG-052",
+        "WG-053",
+        "WG-075",
+        "WG-084"
+      ]
+    },
+    {
+      "id": "NHS-FORMS-TEST",
+      "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/test-your-questions",
+      "title": "NHS forms: Test questions",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "test questions"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "4e1ecfa4c590cdb85ce9f10b2a1ae1aea4c5dc258c6ea671aed1a351751b30af",
+      "rule_ids": [
+        "WG-015",
+        "WG-041",
+        "WG-055",
+        "WG-056",
+        "WG-065",
+        "WG-086",
+        "WG-093",
+        "WG-094",
+        "WG-095"
+      ]
+    },
+    {
+      "id": "HO-AZ",
+      "url": "https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide",
+      "title": "Home Office: Content style guide",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "A–Z",
+        "familiar words",
+        "terminology",
+        "case",
+        "direct interaction"
+      ],
+      "scope": "The A–Z was reviewed for language, interaction and terminology. Immigration/legal-status rules are excluded; native Home Assistant labels are preserved even where the general glossary prefers another word.",
+      "retrieved_html_sha256": "bbf57f0963de5871a11c989aed433d4b7b7d351e4b22f04bf1be70d86a761701",
+      "rule_ids": [
+        "WG-002",
+        "WG-004",
+        "WG-010",
+        "WG-020",
+        "WG-021",
+        "WG-023",
+        "WG-025",
+        "WG-030",
+        "WG-052"
+      ]
+    },
+    {
+      "id": "HO-ENGLISH",
+      "url": "https://design.homeoffice.gov.uk/design-and-content/content/designing-for-limited-english",
+      "title": "Home Office: Designing for limited English",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "translation",
+        "literal language",
+        "expanded contractions",
+        "testing"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "d5eb7f25d74ce4534909be2da61d5542fab92dae411f1b51fec22c121455f1c0",
+      "rule_ids": [
+        "WG-014",
+        "WG-021",
+        "WG-024",
+        "WG-065",
+        "WG-072"
+      ]
+    },
+    {
+      "id": "HO-VOICE",
+      "url": "https://design.homeoffice.gov.uk/design-and-content/content/voice-and-tone",
+      "title": "Home Office: Voice and tone",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "human",
+        "respectful",
+        "clear",
+        "context"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "fb260c8be27daed1224a2312705dbb79a5f6b395c6f2046de7e10f45634a7c08",
+      "rule_ids": [
+        "WG-012"
+      ]
+    },
+    {
+      "id": "HO-READABILITY",
+      "url": "https://design.homeoffice.gov.uk/accessibility/written-content/readability",
+      "title": "Home Office: Readability",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "plain language",
+        "language attributes",
+        "reading effort"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "e336d4b3cd5710012343a3406be3d4768eea6c8c8a52dcb6065d7931f1f3fcfd",
+      "rule_ids": [
+        "WG-015",
+        "WG-063",
+        "WG-065",
+        "WG-081"
+      ]
+    },
+    {
+      "id": "HO-INCLUSIVE",
+      "url": "https://design.homeoffice.gov.uk/accessibility/written-content/inclusive-language",
+      "title": "Home Office: Inclusive language",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "relevance",
+        "identity",
+        "avoid assumptions"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "a0fbe3ebdc170c4edb94cda6d55666d8b137ed4c77b0aea2854f22102dc12385",
+      "rule_ids": [
+        "WG-022",
+        "WG-045",
+        "WG-060",
+        "WG-061",
+        "WG-062"
+      ]
+    },
+    {
+      "id": "GOV-NEEDS",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+      "title": "GOV.UK: Meet user needs",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "task purpose",
+        "necessary content"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "5e5f54fdf3cec993287f36076e04e3fd77d2806234e88632494af16cd844c0fc",
+      "rule_ids": [
+        "WG-001",
+        "WG-034"
+      ]
+    },
+    {
+      "id": "GOV-LANGUAGE",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/",
+      "title": "GOV.UK: Clear language",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "plain English",
+        "active voice",
+        "technical language",
+        "contractions"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "ef3badbaec02bf2046b1abcf2487d90248e032f4e7b4a4f0a5553438d91ee1f6",
+      "rule_ids": [
+        "WG-003",
+        "WG-010",
+        "WG-013",
+        "WG-014",
+        "WG-024",
+        "WG-036"
+      ]
+    },
+    {
+      "id": "GOV-STRUCTURE",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+      "title": "GOV.UK: Clear structure",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "important information first",
+        "headings",
+        "lists",
+        "steps"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "e2c7ca751ecead1060593c750a517056f492f4468db4c2551788e785b0b4ec81",
+      "rule_ids": [
+        "WG-050",
+        "WG-055",
+        "WG-080"
+      ]
+    },
+    {
+      "id": "GOV-TONE",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/",
+      "title": "GOV.UK: Right tone",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "specific",
+        "neutral",
+        "direct",
+        "inclusive"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "fc2642da48bc08ea8a4863d6c0fce95f3f2be483bee3302b5e95b13f4865dd97",
+      "rule_ids": [
+        "WG-011",
+        "WG-012",
+        "WG-023",
+        "WG-032",
+        "WG-035",
+        "WG-040",
+        "WG-046"
+      ]
+    },
+    {
+      "id": "GOV-LINKS",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/add-links/",
+      "title": "GOV.UK: Add links",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "destination",
+        "link purpose",
+        "downloads",
+        "maintenance"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "fa79c2fba7e5900a38aa162e3080824e29b3b8deaf1435e65fcd151fca3c4c85",
+      "rule_ids": [
+        "WG-037",
+        "WG-083"
+      ]
+    },
+    {
+      "id": "GOV-TITLES",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-titles/",
+      "title": "GOV.UK: Clear titles",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "specific titles",
+        "task language",
+        "search"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "6dd18df714f55835f28ea7f9dd8e59009bd856f8f085b14e55cf83a6c5b2e378",
+      "rule_ids": [
+        "WG-030"
+      ]
+    },
+    {
+      "id": "GOV-SUMMARIES",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/summaries/",
+      "title": "GOV.UK: Summaries",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "useful context",
+        "concise summaries"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "b0ab1364a5f607188530180f5bcf3a429c450924efba07b03006db3525afe9cc",
+      "rule_ids": []
+    },
+    {
+      "id": "GOV-CHANGES",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/change-notes/",
+      "title": "GOV.UK: Change notes",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "meaningful changes",
+        "user impact"
+      ],
+      "scope": "Reviewed for transferable content principles; original household adaptation, not source-system functionality.",
+      "retrieved_html_sha256": "a950b1dea1c03409d46bd797b52348e392edd919facd088da147efd3c6ce59e7",
+      "rule_ids": [
+        "WG-091",
+        "WG-092"
+      ]
+    },
+    {
+      "id": "PEC",
+      "url": "https://www.plainenglish.co.uk/free-guides",
+      "title": "Plain English Campaign: free guides",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "How to write in plain English",
+        "Design and layout",
+        "How to write in plain English for forms",
+        "Proofreading"
+      ],
+      "scope": "Four listed guides reviewed by the project researcher. Canonical index used because download URLs expire. Original synthesis only; no guide, word list, logo or endorsement is reproduced. Website/readability PDFs that were inaccessible were not treated as reviewed.",
+      "rule_ids": [
+        "WG-001",
+        "WG-004",
+        "WG-010",
+        "WG-013",
+        "WG-050",
+        "WG-054",
+        "WG-090",
+        "WG-094"
+      ]
+    },
+    {
+      "id": "SCULPT",
+      "url": "https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt",
+      "title": "Worcestershire County Council: What is SCULPT?",
+      "reviewed_on": "2026-11-11",
+      "topics": [
+        "structure",
+        "colour, contrast, captions and checkers",
+        "images and alt text",
+        "links and logical order",
+        "plain language",
+        "tables, text and transcripts"
+      ],
+      "scope": "Updated mnemonic and 2024 infographic reviewed by the project researcher. Attribution: Helen Wilson and Worcestershire County Council. Source poster is CC BY-NC-SA 4.0, not MIT; poster/logo are not bundled. Checklist wording here is original.",
+      "rule_ids": [
+        "WG-004",
+        "WG-063",
+        "WG-073",
+        "WG-077",
+        "WG-080",
+        "WG-081",
+        "WG-082",
+        "WG-083",
+        "WG-084",
+        "WG-085",
+        "WG-086",
+        "WG-095"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "slug": "index",
+      "title": "Writing for a connected home",
+      "description": "A practical writing standard for civica household controls, states, help and documentation.",
+      "path": "content/index.html",
+      "source_ids": [
+        "GOV-NEEDS",
+        "GOV-TITLES",
+        "GOV-SUMMARIES",
+        "HO-AZ",
+        "NHS-REVIEW",
+        "PEC",
+        "SCULPT"
+      ],
+      "rule_ids": [
+        "WG-001",
+        "WG-002",
+        "WG-003",
+        "WG-004"
+      ],
+      "example_ids": [
+        "wg-task-first",
+        "wg-scope"
+      ]
+    },
+    {
+      "slug": "voice-and-language",
+      "title": "Voice and language",
+      "description": "Use calm, precise household language that stays truthful under stress and uncertainty.",
+      "path": "content/voice-and-language.html",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-VOICE",
+        "NHS-LITERACY",
+        "HO-VOICE",
+        "HO-ENGLISH",
+        "GOV-LANGUAGE",
+        "GOV-TONE",
+        "PEC"
+      ],
+      "rule_ids": [
+        "WG-010",
+        "WG-011",
+        "WG-012",
+        "WG-013",
+        "WG-014",
+        "WG-015"
+      ],
+      "example_ids": [
+        "wg-plain-precision",
+        "wg-calm-tone",
+        "wg-critical-contraction"
+      ]
+    },
+    {
+      "slug": "words-and-style",
+      "title": "Words and style",
+      "description": "Choose consistent household terms while preserving native labels, user names and exact identifiers.",
+      "path": "content/words-and-style.html",
+      "source_ids": [
+        "HO-AZ",
+        "HO-ENGLISH",
+        "NHS-FORMAT",
+        "NHS-PUNCT",
+        "NHS-AZ",
+        "GOV-LANGUAGE"
+      ],
+      "rule_ids": [
+        "WG-020",
+        "WG-021",
+        "WG-022",
+        "WG-023",
+        "WG-024",
+        "WG-025"
+      ],
+      "example_ids": [
+        "wg-household-terms",
+        "wg-literal-identifiers"
+      ]
+    },
+    {
+      "slug": "interface-copy",
+      "title": "Interface copy and truthful states",
+      "description": "Write controls, confirmations and missing states that match what Home Assistant actually supports and knows.",
+      "path": "content/interface-copy.html",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-FORMS-TONE",
+        "NHS-FORMS-HELP",
+        "NHS-FORMS-ROUTES",
+        "GOV-TITLES",
+        "GOV-LINKS",
+        "HO-AZ"
+      ],
+      "rule_ids": [
+        "WG-030",
+        "WG-031",
+        "WG-032",
+        "WG-033",
+        "WG-034",
+        "WG-035",
+        "WG-036",
+        "WG-037",
+        "WG-038"
+      ],
+      "example_ids": [
+        "wg-state-action",
+        "wg-command-progress",
+        "wg-automation-status"
+      ]
+    },
+    {
+      "slug": "errors-and-alerts",
+      "title": "Errors, warnings and notifications",
+      "description": "Explain recovery and urgency without inventing causes, capabilities or safety assurances.",
+      "path": "content/errors-and-alerts.html",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-VOICE",
+        "NHS-MESSAGES",
+        "NHS-FORMS-HELP",
+        "NHS-REVIEW",
+        "GOV-TONE"
+      ],
+      "rule_ids": [
+        "WG-040",
+        "WG-041",
+        "WG-042",
+        "WG-043",
+        "WG-044",
+        "WG-045",
+        "WG-046"
+      ],
+      "example_ids": [
+        "wg-recoverable-error",
+        "wg-availability",
+        "wg-warning-context",
+        "wg-permission"
+      ]
+    },
+    {
+      "slug": "instructions-and-learning",
+      "title": "Instructions, questions and learning",
+      "description": "Write useful task steps and forms with clear prerequisites, honest examples and relevant help.",
+      "path": "content/instructions-and-learning.html",
+      "source_ids": [
+        "NHS-FORMS-NEED",
+        "NHS-FORMS-MIN",
+        "NHS-FORMS-SENSITIVE",
+        "NHS-FORMS-ROUTES",
+        "NHS-FORMS-ORDER",
+        "NHS-FORMS-TONE",
+        "NHS-FORMS-HELP",
+        "NHS-FORMS-TEST",
+        "GOV-STRUCTURE",
+        "PEC"
+      ],
+      "rule_ids": [
+        "WG-050",
+        "WG-051",
+        "WG-052",
+        "WG-053",
+        "WG-054",
+        "WG-055",
+        "WG-056"
+      ],
+      "example_ids": [
+        "wg-instructions",
+        "wg-form-purpose"
+      ]
+    },
+    {
+      "slug": "inclusive-content",
+      "title": "Inclusive household content",
+      "description": "Respect different households, languages and abilities while protecting presence and personal information.",
+      "path": "content/inclusive-content.html",
+      "source_ids": [
+        "NHS-INCLUSIVE",
+        "NHS-AGE",
+        "NHS-DISABILITY",
+        "NHS-ETHNICITY",
+        "NHS-GENDER",
+        "NHS-BSL",
+        "HO-INCLUSIVE",
+        "HO-ENGLISH",
+        "HO-READABILITY"
+      ],
+      "rule_ids": [
+        "WG-060",
+        "WG-061",
+        "WG-062",
+        "WG-063",
+        "WG-064",
+        "WG-065",
+        "WG-066"
+      ],
+      "example_ids": [
+        "wg-inclusion",
+        "wg-bsl-status",
+        "wg-presence"
+      ]
+    },
+    {
+      "slug": "numbers-and-data",
+      "title": "Numbers, dates and household data",
+      "description": "Preserve units, precision, missing readings and time context in values, charts and comparisons.",
+      "path": "content/numbers-and-data.html",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "NHS-LITERACY",
+        "NHS-WRITE",
+        "NHS-FORMAT",
+        "SCULPT"
+      ],
+      "rule_ids": [
+        "WG-070",
+        "WG-071",
+        "WG-072",
+        "WG-073",
+        "WG-074",
+        "WG-075",
+        "WG-076",
+        "WG-077",
+        "WG-078"
+      ],
+      "example_ids": [
+        "wg-data-meaning",
+        "wg-data-gaps",
+        "wg-comparison-period"
+      ]
+    },
+    {
+      "slug": "accessible-content",
+      "title": "Accessible content",
+      "description": "Use structure, meaningful alternatives and clear interaction text, informed by SCULPT.",
+      "path": "content/accessible-content.html",
+      "source_ids": [
+        "SCULPT",
+        "NHS-FORMAT",
+        "NHS-DOCUMENTS",
+        "NHS-BSL",
+        "NHS-FORMS-HELP",
+        "GOV-STRUCTURE",
+        "GOV-LINKS",
+        "PEC"
+      ],
+      "rule_ids": [
+        "WG-080",
+        "WG-081",
+        "WG-082",
+        "WG-083",
+        "WG-084",
+        "WG-085",
+        "WG-086"
+      ],
+      "example_ids": [
+        "wg-accessible-structure",
+        "wg-accessible-links"
+      ]
+    },
+    {
+      "slug": "content-review",
+      "title": "Review and maintain content",
+      "description": "Record evidence, exceptions and meaningful changes without overstating what was checked.",
+      "path": "content/content-review.html",
+      "source_ids": [
+        "NHS-REVIEW",
+        "NHS-FORMS-TEST",
+        "NHS-LITERACY",
+        "GOV-CHANGES",
+        "PEC",
+        "SCULPT"
+      ],
+      "rule_ids": [
+        "WG-090",
+        "WG-091",
+        "WG-092",
+        "WG-093",
+        "WG-094",
+        "WG-095"
+      ],
+      "example_ids": [
+        "wg-review-record",
+        "wg-change-note"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "WG-001",
+      "level": "SHOULD",
+      "title": "Start with a real household need",
+      "requirement": "State who needs the content, what they need to do or understand, and the context in which they will use it.",
+      "check": "A short user need identifies the task and audience; content that does not help that need is removed.",
+      "source_ids": [
+        "GOV-NEEDS",
+        "NHS-FORMS-NEED",
+        "PEC"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "local_path": "/content/index.html#wg-001"
+    },
+    {
+      "id": "WG-002",
+      "level": "MUST",
+      "title": "Apply the guide to content we own",
+      "requirement": "Change civica-authored labels and explanatory content without silently rewriting native Home Assistant translations, user names or integration values.",
+      "check": "The change identifies owned strings; native labels, user text and literal values remain intact.",
+      "source_ids": [
+        "HO-AZ",
+        "NHS-FORMAT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "local_path": "/content/index.html#wg-002"
+    },
+    {
+      "id": "WG-003",
+      "level": "MUST",
+      "title": "Use requirement levels deliberately",
+      "requirement": "Interpret MUST as a required civica content contract, SHOULD as a tested default with a documented reason for an exception, and MAY as an allowed contextual choice.",
+      "check": "Each exception names its rule, reason, scope and verification; normative terms are not mistaken for legal obligations.",
+      "source_ids": [
+        "GOV-LANGUAGE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "local_path": "/content/index.html#wg-003"
+    },
+    {
+      "id": "WG-004",
+      "level": "MUST",
+      "title": "Keep source-system claims in their proper scope",
+      "requirement": "Adapt transferable writing principles without importing clinical assurance, government identity, legal rules or unsupported services.",
+      "check": "No content claims endorsement, clinical review, emergency monitoring, translation provision or a household capability without evidence.",
+      "source_ids": [
+        "NHS-REVIEW",
+        "NHS-BSL",
+        "HO-AZ",
+        "PEC",
+        "SCULPT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "local_path": "/content/index.html#wg-004"
+    },
+    {
+      "id": "WG-010",
+      "level": "SHOULD",
+      "title": "Use familiar, concrete language",
+      "requirement": "Prefer the shortest familiar wording that preserves the technical meaning and necessary conditions.",
+      "check": "A reader can identify the device, state or action without translating unnecessary jargon.",
+      "source_ids": [
+        "NHS-WRITE",
+        "GOV-LANGUAGE",
+        "PEC",
+        "HO-AZ"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "local_path": "/content/voice-and-language.html#wg-010"
+    },
+    {
+      "id": "WG-011",
+      "level": "MUST",
+      "title": "Match certainty to the evidence",
+      "requirement": "Qualify estimates, last reported states and unconfirmed outcomes; do not turn them into facts by simplifying the wording.",
+      "check": "Every assertion of completion, cause, presence or safety has a defined source and confirmation condition.",
+      "source_ids": [
+        "NHS-WRITE",
+        "GOV-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "local_path": "/content/voice-and-language.html#wg-011"
+    },
+    {
+      "id": "WG-012",
+      "level": "SHOULD",
+      "title": "Be calm without false reassurance",
+      "requirement": "Use neutral, respectful language and give useful context instead of humour, blame, panic or unsupported reassurance.",
+      "check": "Failure and high-consequence messages remain factual and identify an appropriate next step.",
+      "source_ids": [
+        "NHS-VOICE",
+        "HO-VOICE",
+        "GOV-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "local_path": "/content/voice-and-language.html#wg-012"
+    },
+    {
+      "id": "WG-013",
+      "level": "SHOULD",
+      "title": "Make sentences easy to follow",
+      "requirement": "Prefer one main idea per sentence, an explicit actor when useful, and short paragraphs with meaningful headings.",
+      "check": "A read-aloud review finds clear actors, actions and conditions; sentences are shortened without losing qualifiers.",
+      "source_ids": [
+        "GOV-LANGUAGE",
+        "NHS-WRITE",
+        "PEC"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "local_path": "/content/voice-and-language.html#wg-013"
+    },
+    {
+      "id": "WG-014",
+      "level": "SHOULD",
+      "title": "Expand contractions where clarity matters",
+      "requirement": "Use cannot, do not and other expanded forms in critical conditions, warnings and short task instructions; use positive contractions only when they remain clear for the audience.",
+      "check": "Important negative conditions are easy to distinguish, translate and read aloud.",
+      "source_ids": [
+        "HO-ENGLISH",
+        "NHS-PUNCT",
+        "GOV-LANGUAGE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "local_path": "/content/voice-and-language.html#wg-014"
+    },
+    {
+      "id": "WG-015",
+      "level": "MUST",
+      "title": "Treat readability scores as diagnostic tools",
+      "requirement": "Do not present a reading-age score, sentence count or automated language check as proof that people understand the content.",
+      "check": "Review includes task comprehension and relevant user feedback, with automated measures described as limited checks.",
+      "source_ids": [
+        "NHS-LITERACY",
+        "HO-READABILITY",
+        "NHS-FORMS-TEST"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "local_path": "/content/voice-and-language.html#wg-015"
+    },
+    {
+      "id": "WG-020",
+      "level": "SHOULD",
+      "title": "Use a small, deliberate household vocabulary",
+      "requirement": "Choose consistent authored terms for the same operation and different terms for different operations.",
+      "check": "A terminology review maps each verb to an actual operation and finds no contradictory synonyms.",
+      "source_ids": [
+        "HO-AZ",
+        "NHS-FORMAT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "local_path": "/content/words-and-style.html#wg-020"
+    },
+    {
+      "id": "WG-021",
+      "level": "MUST",
+      "title": "Preserve native labels and translations",
+      "requirement": "Use the actual Home Assistant label for a feature, setting or control when referring people to it, in the language of that interface.",
+      "check": "Instructions and authored help match the supported interface version and locale; native strings are not rewritten by styling.",
+      "source_ids": [
+        "HO-AZ",
+        "HO-ENGLISH",
+        "NHS-FORMS-HELP"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "local_path": "/content/words-and-style.html#wg-021"
+    },
+    {
+      "id": "WG-022",
+      "level": "MUST",
+      "title": "Respect names supplied by people",
+      "requirement": "Display names as supplied, including meaningful spelling, case, punctuation and language; distinguish a display-name edit from an identifier change.",
+      "check": "Names remain unchanged across cards, dialogs, confirmations and accessible names.",
+      "source_ids": [
+        "NHS-INCLUSIVE",
+        "HO-INCLUSIVE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "local_path": "/content/words-and-style.html#wg-022"
+    },
+    {
+      "id": "WG-023",
+      "level": "SHOULD",
+      "title": "Use sentence case and restrained punctuation",
+      "requirement": "Use sentence case for authored English headings and labels, conventional UK English spelling, and punctuation that helps meaning.",
+      "check": "Headings and controls avoid block capitals and unnecessary punctuation while proper names remain intact.",
+      "source_ids": [
+        "NHS-PUNCT",
+        "GOV-TONE",
+        "HO-AZ"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "local_path": "/content/words-and-style.html#wg-023"
+    },
+    {
+      "id": "WG-024",
+      "level": "SHOULD",
+      "title": "Explain necessary abbreviations at the point of need",
+      "requirement": "Expand unfamiliar abbreviations when first needed and provide a short practical explanation of a technical term.",
+      "check": "A new reader can understand the term without leaving the task; repeated expansions do not overwhelm compact controls.",
+      "source_ids": [
+        "NHS-FORMAT",
+        "NHS-AZ",
+        "GOV-LANGUAGE",
+        "HO-ENGLISH"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "local_path": "/content/words-and-style.html#wg-024"
+    },
+    {
+      "id": "WG-025",
+      "level": "MUST",
+      "title": "Keep literal values literal",
+      "requirement": "Preserve the exact syntax, case and meaningful punctuation of entity IDs, codes, paths, version strings and values someone needs to copy.",
+      "check": "Displayed and copied literal values match the supplied source; prose punctuation is outside the value.",
+      "source_ids": [
+        "NHS-FORMAT",
+        "HO-AZ"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "local_path": "/content/words-and-style.html#wg-025"
+    },
+    {
+      "id": "WG-030",
+      "level": "SHOULD",
+      "title": "Name the action and its object",
+      "requirement": "Use a concrete verb and enough context to identify the effect of a control.",
+      "check": "The label remains understandable in its visible context and accessible name.",
+      "source_ids": [
+        "GOV-TITLES",
+        "HO-AZ",
+        "NHS-FORMS-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-030"
+    },
+    {
+      "id": "WG-031",
+      "level": "MUST",
+      "title": "Separate state from action",
+      "requirement": "Label a current or last reported state separately from the operation a button requests.",
+      "check": "An On or Off state cannot be mistaken for the action taken by activating the control.",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-FORMS-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-031"
+    },
+    {
+      "id": "WG-032",
+      "level": "MUST",
+      "title": "Distinguish a request from a confirmed result",
+      "requirement": "Only claim completion when the integration’s documented confirmation condition is met; distinguish sending, acceptance, reported state and lack of confirmation.",
+      "check": "Tests cover accepted requests without a state change, reported success, rejection and timeout.",
+      "source_ids": [
+        "NHS-WRITE",
+        "GOV-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-032"
+    },
+    {
+      "id": "WG-033",
+      "level": "MUST",
+      "title": "Keep unavailable, unknown, stale and offline distinct",
+      "requirement": "Describe missing information using the actual source state and timestamp; claim offline only when connection evidence supports it.",
+      "check": "Unknown and unavailable values are not rendered as zero, off, safe or definitely disconnected; retained readings are labelled with their time.",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-NUMBERS"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-033"
+    },
+    {
+      "id": "WG-034",
+      "level": "MUST",
+      "title": "Explain actual capability and permission limits",
+      "requirement": "Offer only supported actions and explain a relevant restriction without claiming that the interface can grant device or account permissions.",
+      "check": "Unsupported actions are absent; disabled supported actions have an accurate reason and a verified next step where one exists.",
+      "source_ids": [
+        "NHS-FORMS-ROUTES",
+        "GOV-NEEDS"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-034"
+    },
+    {
+      "id": "WG-035",
+      "level": "MUST",
+      "title": "Distinguish saved, enabled and running",
+      "requirement": "Describe configuration persistence, future automatic starts and current execution as separate states.",
+      "check": "Copy for automations, schedules and scenes does not imply that saving, enabling or selecting one has the same effect.",
+      "source_ids": [
+        "NHS-WRITE",
+        "GOV-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-035"
+    },
+    {
+      "id": "WG-036",
+      "level": "MUST",
+      "title": "Describe cancellation and destructive effects precisely",
+      "requirement": "State what Cancel, Stop, Remove and Delete affect, including any operation that may continue or cannot be undone.",
+      "check": "Confirmation text names the target and consequence; cancellation outcomes match what the implementation actually cancels.",
+      "source_ids": [
+        "NHS-FORMS-TONE",
+        "GOV-LANGUAGE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-036"
+    },
+    {
+      "id": "WG-037",
+      "level": "MUST",
+      "title": "Set a truthful destination expectation",
+      "requirement": "Identify external services, downloads and changes of context when they affect a person’s choice; do not disguise device actions as navigation.",
+      "check": "Links lead to the stated destination; downloads have accurate type and available size; new-window behaviour is disclosed when necessary.",
+      "source_ids": [
+        "GOV-LINKS",
+        "NHS-FORMAT",
+        "NHS-MESSAGES"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-037"
+    },
+    {
+      "id": "WG-038",
+      "level": "MUST",
+      "title": "Make questions and empty states unambiguous",
+      "requirement": "Give each input a visible label, explain necessary formats and conditions, and distinguish no results from missing data or access restrictions.",
+      "check": "Labels, hints and validation are associated with their controls; each empty state gives the right reason and supported next step.",
+      "source_ids": [
+        "NHS-FORMS-MIN",
+        "NHS-FORMS-HELP",
+        "NHS-FORMS-ROUTES"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "local_path": "/content/interface-copy.html#wg-038"
+    },
+    {
+      "id": "WG-040",
+      "level": "MUST",
+      "title": "Give a recovery supported by the known cause",
+      "requirement": "Name the affected task and explain an available next step without inventing a diagnosis, retained work or a successful retry.",
+      "check": "Every recovery action has an implementation or verified destination; promises about saved input and recovery are tested.",
+      "source_ids": [
+        "NHS-FORMS-HELP",
+        "NHS-MESSAGES",
+        "GOV-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-040"
+    },
+    {
+      "id": "WG-041",
+      "level": "MUST",
+      "title": "Distinguish validation from service failure",
+      "requirement": "Use a field error for a correctable answer, a task-level message for a failed request, and status copy for unavailable information.",
+      "check": "A person is not asked to correct a valid answer because the network, integration or permission check failed.",
+      "source_ids": [
+        "NHS-FORMS-HELP",
+        "NHS-FORMS-TEST"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-041"
+    },
+    {
+      "id": "WG-042",
+      "level": "MUST",
+      "title": "Choose urgency from evidence",
+      "requirement": "Use severity words and presentation only for a defined condition, keeping informational records, required actions and immediate hazard signals distinct.",
+      "check": "The content names its source condition and does not classify ordinary maintenance data as a live emergency.",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-VOICE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-042"
+    },
+    {
+      "id": "WG-043",
+      "level": "MUST",
+      "title": "Respect the boundary of household safety information",
+      "requirement": "Do not claim that Home Assistant replaces a physical safety check, certified alarm, qualified advice or an authoritative emergency procedure.",
+      "check": "Safety-related wording has a named evidence source and appropriate review; no unverified procedure or medical claim is added.",
+      "source_ids": [
+        "NHS-REVIEW",
+        "NHS-WRITE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-043"
+    },
+    {
+      "id": "WG-044",
+      "level": "MUST",
+      "title": "Explain pending and uncertain outcomes",
+      "requirement": "Keep a pending message distinct from failure and success, and explain when an operation may still complete after the interface stops waiting.",
+      "check": "Slow, interrupted, partial and timed-out operations have accurate copy and do not encourage unsafe duplicate requests.",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-MESSAGES"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-044"
+    },
+    {
+      "id": "WG-045",
+      "level": "MUST",
+      "title": "Keep notifications truthful and private",
+      "requirement": "Adapt message detail to the supported delivery channel, intended recipient and shared-screen context without changing the underlying meaning.",
+      "check": "Notifications avoid unnecessary location, identity and sensitive household detail; channels and recipients exist and are authorised by the implementation.",
+      "source_ids": [
+        "NHS-MESSAGES",
+        "NHS-FORMS-SENSITIVE",
+        "HO-INCLUSIVE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-045"
+    },
+    {
+      "id": "WG-046",
+      "level": "SHOULD",
+      "title": "Avoid blame and alarm fatigue",
+      "requirement": "Keep errors factual, avoid repeated announcements of unchanged problems, and reserve assertive interruptions for genuinely urgent information.",
+      "check": "Messages remain understandable without blame, exaggerated punctuation or repeated identical alerts.",
+      "source_ids": [
+        "NHS-VOICE",
+        "GOV-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "local_path": "/content/errors-and-alerts.html#wg-046"
+    },
+    {
+      "id": "WG-050",
+      "level": "SHOULD",
+      "title": "Order instructions around the task",
+      "requirement": "Put necessary preparation first, use numbered steps for a sequence, and keep each step centred on one action or decision.",
+      "check": "A person can follow the steps in order without searching backwards for a prerequisite.",
+      "source_ids": [
+        "GOV-STRUCTURE",
+        "PEC",
+        "NHS-FORMS-ORDER"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-050"
+    },
+    {
+      "id": "WG-051",
+      "level": "MUST",
+      "title": "State real prerequisites and consequences",
+      "requirement": "Explain required permissions, supported capabilities and significant effects before the person commits to the task.",
+      "check": "Preparation and consequence text matches the actual implementation, including remote-control requirements and destructive effects.",
+      "source_ids": [
+        "NHS-FORMS-NEED",
+        "NHS-FORMS-HELP"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-051"
+    },
+    {
+      "id": "WG-052",
+      "level": "MUST",
+      "title": "Refer to the actual interface",
+      "requirement": "Use verified control names and supported navigation for the stated version, and identify when an illustration is a simplified example.",
+      "check": "Steps are checked against the target interface or explicitly marked reference-only; screenshots do not invent controls.",
+      "source_ids": [
+        "NHS-FORMS-HELP",
+        "HO-AZ"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-052"
+    },
+    {
+      "id": "WG-053",
+      "level": "SHOULD",
+      "title": "Give useful help near the decision",
+      "requirement": "Place essential conditions and short format hints next to the relevant question; put optional explanation in a clearly named details section.",
+      "check": "A person can answer safely without opening a tooltip or following a generic help link.",
+      "source_ids": [
+        "NHS-FORMS-HELP",
+        "NHS-FORMS-TONE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-053"
+    },
+    {
+      "id": "WG-054",
+      "level": "SHOULD",
+      "title": "Ask only necessary questions",
+      "requirement": "Use a question protocol that records purpose, who must answer, validation, optionality and what happens when an answer is missing.",
+      "check": "Each question is justified and tested; unnecessary personal information and repeated questions are removed.",
+      "source_ids": [
+        "NHS-FORMS-MIN",
+        "NHS-FORMS-SENSITIVE",
+        "NHS-FORMS-ROUTES",
+        "PEC"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-054"
+    },
+    {
+      "id": "WG-055",
+      "level": "SHOULD",
+      "title": "Support learning without overloading the task",
+      "requirement": "Introduce concepts in the order people need them and use worked examples that connect a control to its effect.",
+      "check": "Help explains unfamiliar concepts without requiring memorised identifiers, long uninterrupted instructions or irrelevant technical background.",
+      "source_ids": [
+        "NHS-LITERACY",
+        "NHS-FORMS-TEST",
+        "GOV-STRUCTURE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-055"
+    },
+    {
+      "id": "WG-056",
+      "level": "MUST",
+      "title": "Keep examples and alternative formats honest",
+      "requirement": "Label synthetic data, illustrative controls and unavailable formats; do not imply that a prototype performs a live action or supplies a translation that does not exist.",
+      "check": "Examples state their scope, local actions remain local, and every advertised download, video or alternative format is available and reviewed.",
+      "source_ids": [
+        "NHS-BSL",
+        "NHS-DOCUMENTS",
+        "NHS-FORMS-TEST"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "local_path": "/content/instructions-and-learning.html#wg-056"
+    },
+    {
+      "id": "WG-060",
+      "level": "MUST",
+      "title": "Avoid unnecessary assumptions about people",
+      "requirement": "Do not infer relationships, ownership, gender, age, technical ability or physical access when the task does not establish them.",
+      "check": "Copy works for different household arrangements and does not assign a task by stereotype.",
+      "source_ids": [
+        "NHS-INCLUSIVE",
+        "NHS-AGE",
+        "NHS-GENDER",
+        "HO-INCLUSIVE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-060"
+    },
+    {
+      "id": "WG-061",
+      "level": "MUST",
+      "title": "Ask for personal information only when needed",
+      "requirement": "Collect and display only the identity or household detail required for the stated task, and explain a sensitive question’s purpose.",
+      "check": "Forms and messages justify sensitive fields and offer a meaningful alternative where the service supports one.",
+      "source_ids": [
+        "NHS-FORMS-SENSITIVE",
+        "NHS-FORMS-MIN",
+        "HO-INCLUSIVE",
+        "NHS-ETHNICITY"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-061"
+    },
+    {
+      "id": "WG-062",
+      "level": "SHOULD",
+      "title": "Use respectful, specific language",
+      "requirement": "Use the person’s stated name and relevant self-description; avoid labels, euphemisms and stereotypes that define someone by an assumed condition.",
+      "check": "Content is checked with the intended audience and respects self-description without collecting unnecessary identity data.",
+      "source_ids": [
+        "NHS-DISABILITY",
+        "NHS-GENDER",
+        "NHS-ETHNICITY",
+        "HO-INCLUSIVE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-062"
+    },
+    {
+      "id": "WG-063",
+      "level": "SHOULD",
+      "title": "Avoid assuming one way to perceive or act",
+      "requirement": "Write directions that work without relying on colour, vision, hearing, a pointer or a particular physical ability.",
+      "check": "Instructions identify controls by name and purpose and include verified alternatives when the task needs them.",
+      "source_ids": [
+        "NHS-DISABILITY",
+        "HO-READABILITY",
+        "SCULPT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-063"
+    },
+    {
+      "id": "WG-064",
+      "level": "MUST",
+      "title": "Describe BSL and other formats accurately",
+      "requirement": "Only advertise a signed or translated version when that version exists, matches the content and has the appropriate quality review.",
+      "check": "Format links resolve to actual content with a known version and review; captions, transcripts and BSL are not presented as interchangeable.",
+      "source_ids": [
+        "NHS-BSL",
+        "NHS-DOCUMENTS"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-064"
+    },
+    {
+      "id": "WG-065",
+      "level": "MUST",
+      "title": "Preserve language and translation integrity",
+      "requirement": "Preserve native locale behaviour and supplied names, identify authored translations honestly, and do not treat machine translation as validated content.",
+      "check": "Critical translations receive appropriate human review; language metadata is correct and sensitive text is not sent to unapproved external tools.",
+      "source_ids": [
+        "HO-ENGLISH",
+        "HO-READABILITY",
+        "NHS-FORMS-TEST"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-065"
+    },
+    {
+      "id": "WG-066",
+      "level": "MUST",
+      "title": "Treat presence as sensitive and uncertain",
+      "requirement": "Describe tracker-derived presence as a reported or inferred state, and limit personal detail on shared displays and notifications.",
+      "check": "Presence wording names the evidence and time where relevant; privacy claims match what the display actually hides.",
+      "source_ids": [
+        "NHS-FORMS-SENSITIVE",
+        "NHS-MESSAGES",
+        "NHS-WRITE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "local_path": "/content/inclusive-content.html#wg-066"
+    },
+    {
+      "id": "WG-070",
+      "level": "MUST",
+      "title": "Name the measured quantity",
+      "requirement": "Identify the quantity and distinguish rates, totals, settings, estimates and reported measurements.",
+      "check": "Labels match the source metadata and do not interchange power, energy, temperature, target temperature or cost.",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "NHS-LITERACY"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-070"
+    },
+    {
+      "id": "WG-071",
+      "level": "MUST",
+      "title": "Preserve meaningful precision",
+      "requirement": "Do not round, convert or calculate a displayed value in a way that changes its meaning or implies greater accuracy than the source supports.",
+      "check": "Display precision, conversions and derived values are documented and do not alter the underlying data.",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "NHS-WRITE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-071"
+    },
+    {
+      "id": "WG-072",
+      "level": "MUST",
+      "title": "Respect number and date preferences",
+      "requirement": "Use Home Assistant’s configured locale, number format, clock and time-zone preferences for dynamic values.",
+      "check": "Tests include a language/number-format mismatch, 12- and 24-hour preferences and the supported time-zone choices.",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "HO-ENGLISH"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-072"
+    },
+    {
+      "id": "WG-073",
+      "level": "MUST",
+      "title": "Keep units attached to their values",
+      "requirement": "Show the correct unit or a clearly associated column or axis unit, and preserve the distinction between similarly named units.",
+      "check": "Values remain interpretable when read aloud, in a table or outside the surrounding chart.",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "SCULPT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-073"
+    },
+    {
+      "id": "WG-074",
+      "level": "MUST",
+      "title": "Identify the time represented by data",
+      "requirement": "Label an observation time, interval start, interval end or selected period according to the actual data model.",
+      "check": "A chart/table timestamp is not described as period start when it represents a sample or midpoint.",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "NHS-WRITE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-074"
+    },
+    {
+      "id": "WG-075",
+      "level": "MUST",
+      "title": "Make ambiguous times and schedules explicit",
+      "requirement": "Explain the relevant time zone and boundaries when a schedule, comparison or repeated clock time could be misunderstood.",
+      "check": "Tests cover a zone difference and daylight-saving changes where the feature supports affected dates.",
+      "source_ids": [
+        "NHS-NUMBERS",
+        "NHS-FORMS-HELP"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-075"
+    },
+    {
+      "id": "WG-076",
+      "level": "MUST",
+      "title": "Preserve missing readings and real zeros",
+      "requirement": "Show a missing, unknown or unavailable value as missing; preserve a genuine zero and identify incomplete totals.",
+      "check": "Tables, charts and summaries distinguish null, zero, gaps and incomplete coverage.",
+      "source_ids": [
+        "NHS-WRITE",
+        "NHS-NUMBERS"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-076"
+    },
+    {
+      "id": "WG-077",
+      "level": "MUST",
+      "title": "Give charts equivalent context and readable data",
+      "requirement": "Provide a meaningful title, quantity, period and accessible data alternative that describes the same values and uncertainty as the chart.",
+      "check": "Chart and table use the same selected-period model, units, source identities and missing-value semantics.",
+      "source_ids": [
+        "SCULPT",
+        "NHS-NUMBERS",
+        "NHS-FORMAT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-077"
+    },
+    {
+      "id": "WG-078",
+      "level": "MUST",
+      "title": "Make comparisons like for like",
+      "requirement": "Name both periods, their coverage and any calculation behind a change or saving claim.",
+      "check": "Partial and complete periods are not compared as if equal; percentage calculations handle zero and missing baselines.",
+      "source_ids": [
+        "NHS-LITERACY",
+        "NHS-NUMBERS",
+        "NHS-WRITE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "local_path": "/content/numbers-and-data.html#wg-078"
+    },
+    {
+      "id": "WG-080",
+      "level": "MUST",
+      "title": "Use meaningful document structure",
+      "requirement": "Give a page a clear main heading, use a logical heading hierarchy, and use real lists and table relationships instead of visual imitation.",
+      "check": "The reading order, headings, lists and table headers remain meaningful without styling.",
+      "source_ids": [
+        "SCULPT",
+        "NHS-FORMAT",
+        "GOV-STRUCTURE"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-080"
+    },
+    {
+      "id": "WG-081",
+      "level": "MUST",
+      "title": "Make meaning independent of colour and position",
+      "requirement": "Include text or another accessible distinction for important states and instructions; do not rely only on colour, shape, location or sound.",
+      "check": "States and actions remain understandable in monochrome, without icons and when read by assistive technology.",
+      "source_ids": [
+        "SCULPT",
+        "HO-READABILITY"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-081"
+    },
+    {
+      "id": "WG-082",
+      "level": "MUST",
+      "title": "Write useful alternatives for meaningful images",
+      "requirement": "Describe the information or function needed for the task, and mark purely decorative images as decorative.",
+      "check": "Alternative text communicates purpose without duplicating adjacent text or inventing details absent from the image.",
+      "source_ids": [
+        "SCULPT",
+        "NHS-FORMAT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-082"
+    },
+    {
+      "id": "WG-083",
+      "level": "MUST",
+      "title": "Write descriptive links and preserve logical order",
+      "requirement": "Use link text that identifies the destination or task, and keep content order meaningful for keyboard and screen-reader navigation.",
+      "check": "Links make sense in context and repeated generic labels have sufficient accessible context; visual rearrangement does not reverse task order.",
+      "source_ids": [
+        "SCULPT",
+        "GOV-LINKS",
+        "NHS-FORMAT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-083"
+    },
+    {
+      "id": "WG-084",
+      "level": "MUST",
+      "title": "Keep help and outcomes available to assistive technology",
+      "requirement": "Associate labels, hints and errors with their controls, and announce relevant changing outcomes without unnecessary repeated interruption.",
+      "check": "Keyboard and assistive-technology checks confirm the label, error, pending and final outcome relationships.",
+      "source_ids": [
+        "NHS-FORMS-HELP",
+        "SCULPT"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-084"
+    },
+    {
+      "id": "WG-085",
+      "level": "MUST",
+      "title": "Provide honest, usable media and document alternatives",
+      "requirement": "Use structured HTML for routine guidance where practical, and supply accurate captions, transcripts and accessible document alternatives when the content requires them.",
+      "check": "Advertised alternatives exist, match the current content and are checked in their actual format.",
+      "source_ids": [
+        "SCULPT",
+        "NHS-DOCUMENTS",
+        "NHS-BSL"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-085"
+    },
+    {
+      "id": "WG-086",
+      "level": "MUST",
+      "title": "Describe accessibility evidence accurately",
+      "requirement": "Report what was tested and any known limitations without treating a checker, checklist, score or theme as a guarantee of accessibility.",
+      "check": "Claims identify the scope, method and remaining manual checks; no unsupported certification is implied.",
+      "source_ids": [
+        "SCULPT",
+        "NHS-LITERACY",
+        "NHS-FORMS-TEST"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "local_path": "/content/accessible-content.html#wg-086"
+    },
+    {
+      "id": "WG-090",
+      "level": "MUST",
+      "title": "Record ownership, sources and scope",
+      "requirement": "Give authored guidance an owner or review responsibility, a meaningful version/date record and the sources or implementation evidence behind its claims.",
+      "check": "The review record identifies the content, relevant version, evidence and responsible review route.",
+      "source_ids": [
+        "NHS-REVIEW",
+        "PEC"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "local_path": "/content/content-review.html#wg-090"
+    },
+    {
+      "id": "WG-091",
+      "level": "SHOULD",
+      "title": "Explain changes that alter meaning",
+      "requirement": "Write a change note that says what changed and how it affects the task when behaviour, scope or interpretation changes.",
+      "check": "A reader can identify the relevant difference without comparing entire versions.",
+      "source_ids": [
+        "GOV-CHANGES"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "local_path": "/content/content-review.html#wg-091"
+    },
+    {
+      "id": "WG-092",
+      "level": "MUST",
+      "title": "Keep editorial dates separate from device dates",
+      "requirement": "Label publication, content update, content review and data timestamps according to what actually happened.",
+      "check": "A review date is not automatically advanced by a build, and it cannot be confused with a device reading or service record.",
+      "source_ids": [
+        "NHS-REVIEW",
+        "GOV-CHANGES",
+        "NHS-NUMBERS"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "local_path": "/content/content-review.html#wg-092"
+    },
+    {
+      "id": "WG-093",
+      "level": "MUST",
+      "title": "Record exceptions and confirmed findings",
+      "requirement": "For an applicable rule, record pass, finding, not applicable or a justified SHOULD deviation with evidence; propose any MUST contract change explicitly.",
+      "check": "Every finding links a stable rule ID to specific copy or behaviour and has a concrete acceptance check.",
+      "source_ids": [
+        "NHS-REVIEW",
+        "NHS-FORMS-TEST"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "local_path": "/content/content-review.html#wg-093"
+    },
+    {
+      "id": "WG-094",
+      "level": "SHOULD",
+      "title": "Review facts, language and presentation separately",
+      "requirement": "Check the technical truth first, then wording and structure, then the rendered result with realistic data and relevant users.",
+      "check": "Review evidence covers factual accuracy, read-aloud wording, state scenarios and the actual rendered layout.",
+      "source_ids": [
+        "PEC",
+        "NHS-FORMS-TEST",
+        "NHS-LITERACY"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "local_path": "/content/content-review.html#wg-094"
+    },
+    {
+      "id": "WG-095",
+      "level": "MUST",
+      "title": "Report validation within its limits",
+      "requirement": "Separate source review, automated checks, manual interaction checks, user research and live-device verification in the evidence record.",
+      "check": "A result never claims an unperformed check or a broader scope than the evidence supports.",
+      "source_ids": [
+        "SCULPT",
+        "NHS-FORMS-TEST",
+        "NHS-REVIEW"
+      ],
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "local_path": "/content/content-review.html#wg-095"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "topic": "Contractions",
+      "resolution": "Expanded negative and critical-condition forms; positive contractions only when clear for the audience. Native translations remain intact."
+    },
+    {
+      "topic": "Reading age and length",
+      "resolution": "Use scores and length as diagnostic prompts; task comprehension and correctness decide."
+    },
+    {
+      "topic": "Numbers and time",
+      "resolution": "Preserve HA precision, units, timezone and locale; do not import NHS clinical thresholds, general rounding or UK clock defaults."
+    },
+    {
+      "topic": "Headings",
+      "resolution": "Descriptive headings for explanatory articles; genuine questions remain valid form labels and legends."
+    },
+    {
+      "topic": "Native terminology",
+      "resolution": "Preserve Notifications, Entity ID, Turn on and other actual translated labels despite generic glossary preferences."
+    },
+    {
+      "topic": "Print guidance",
+      "resolution": "Do not import old print point sizes or restrictions that would remove web link underlines; web tokens and accessible interaction apply."
+    },
+    {
+      "topic": "Health, legal and brand scope",
+      "resolution": "No clinical assurance, immigration rules, official identity or external endorsement transferred."
+    }
+  ],
+  "excluded_topics": [
+    {
+      "source": "NHS inclusive skin symptoms and clinical A–Z entries",
+      "reason": "Clinical content does not define household device states, diagnoses or safety thresholds."
+    },
+    {
+      "source": "Home Office immigration and legal status instructions",
+      "reason": "Not a household permission or eligibility model."
+    },
+    {
+      "source": "Plain English website/readability PDFs inaccessible during review",
+      "reason": "Not treated as reviewed."
+    }
+  ]
+}

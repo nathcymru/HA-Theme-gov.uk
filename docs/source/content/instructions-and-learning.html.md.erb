@@ -1,0 +1,82 @@
+---
+title: "Instructions, questions and learning"
+description: "Write useful task steps and forms with clear prerequisites, honest examples and relevant help."
+section: "styles"
+group: "Writing guide"
+nav_order: 5
+source_url: "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/understand-the-problem-before-you-write-your-questions"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for instructions, questions and learning."
+---
+
+# Instructions, questions and learning
+
+Help people finish a task without making them memorise an unfamiliar interface. Explain prerequisites, show the sequence, and describe how to recognise the result. A tutorial should teach a usable mental model; it should not disguise an example as an installed feature.
+
+<h2 id="wg-050">WG-050 — Order instructions around the task</h2>
+
+**SHOULD.** Put necessary preparation first, use numbered steps for a sequence, and keep each step centred on one action or decision.
+
+Use bullets for independent options, not steps that must happen in order. State the expected result after a meaningful action. Avoid “as above”, unexplained shortcuts and directions based only on position or colour. A short task does not need a separate start page, summary, checklist and tutorial if those repeat the same instruction.
+
+<%= example('wg-instructions') %>
+
+<h2 id="wg-051">WG-051 — State real prerequisites and consequences</h2>
+
+**MUST.** Explain required permissions, supported capabilities and significant effects before the person commits to the task.
+
+For an installation guide, distinguish copying files, enabling a resource, reloading themes and restarting Home Assistant. For a household control, distinguish editing a display from changing a device. Do not instruct people to grant broad permissions when the task only needs an existing authorised control. If an operation may interrupt an active process, say so before its confirmation.
+
+<h2 id="wg-052">WG-052 — Refer to the actual interface</h2>
+
+**MUST.** Use verified control names and supported navigation for the stated version, and identify when an illustration is a simplified example.
+
+Bold can identify the visible label: “Select **Save schedule**.” Keep language neutral about input method: “select” works for a pointer, keyboard and touch. Do not replace native “Turn on” with a glossary synonym that people cannot find. If layouts differ by screen size, describe the control’s name and purpose instead of “the button on the right”.
+
+<h2 id="wg-053">WG-053 — Give useful help near the decision</h2>
+
+**SHOULD.** Place essential conditions and short format hints next to the relevant question; put optional explanation in a clearly named details section.
+
+Explain why a question is needed before asking for sensitive or unexpected information. Do not duplicate the label in the hint. A hint such as “Use the household time zone” is useful only when that zone is identified and used by the implementation. Offer an alternative route only if it works; do not add an “I do not know” option that leads to an unusable answer.
+
+<%= example('wg-form-purpose') %>
+
+<h2 id="wg-054">WG-054 — Ask only necessary questions</h2>
+
+**SHOULD.** Use a question protocol that records purpose, who must answer, validation, optionality and what happens when an answer is missing.
+
+Start with one clear question per page or short dialog, then group related questions when research supports it. Route people past irrelevant questions. Preserve their answers when going back if the implementation supports it. A valid empty answer is not the same as an unknown sensor reading or a failed data request.
+
+<h2 id="wg-055">WG-055 — Support learning without overloading the task</h2>
+
+**SHOULD.** Introduce concepts in the order people need them and use worked examples that connect a control to its effect.
+
+A device picker can show a name and room before exposing an entity ID. A worked automation can explain trigger, condition and action with a small household example, while making clear that saving it does not run it. Keep advanced diagnostics available separately. Test understanding by asking what someone expects to happen, not only whether the wording looks clear.
+
+<h2 id="wg-056">WG-056 — Keep examples and alternative formats honest</h2>
+
+**MUST.** Label synthetic data, illustrative controls and unavailable formats; do not imply that a prototype performs a live action or supplies a translation that does not exist.
+
+Use a local preview message such as “Example answer received; no schedule was saved.” Do not show a play button for a future BSL video. Screenshots should state the relevant version and avoid real credentials, presence details or private device names. A text transcript is useful, but it is not a signed translation.
+
+
+## Sources and adaptation
+
+- [NHS forms: Understand the problem](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/understand-the-problem-before-you-write-your-questions)
+- [NHS forms: Need each question](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/make-sure-you-need-each-question)
+- [NHS forms: Sensitive questions](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/consider-the-sensitivities-around-your-questions)
+- [NHS forms: Filter questions](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users)
+- [NHS forms: Question order](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/get-the-questions-into-order)
+- [NHS forms: Forms as a conversation](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/think-of-the-form-as-a-conversation)
+- [NHS forms: Supporting form content](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form)
+- [NHS forms: Test questions](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/test-your-questions)
+- [GOV.UK: Clear structure](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/)
+- [Plain English Campaign: free guides](https://www.plainenglish.co.uk/free-guides)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

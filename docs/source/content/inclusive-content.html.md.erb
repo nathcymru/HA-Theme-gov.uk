@@ -1,0 +1,83 @@
+---
+title: "Inclusive household content"
+description: "Respect different households, languages and abilities while protecting presence and personal information."
+section: "styles"
+group: "Writing guide"
+nav_order: 6
+source_url: "https://service-manual.nhs.uk/content/inclusive-content"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for inclusive household content."
+---
+
+# Inclusive household content
+
+A connected home may be shared, rented, temporary or used by one person. People have different languages, identities, abilities, relationships and access to devices. Write for the task without assuming a standard household.
+
+<h2 id="wg-060">WG-060 — Avoid unnecessary assumptions about people</h2>
+
+**MUST.** Do not infer relationships, ownership, gender, age, technical ability or physical access when the task does not establish them.
+
+Prefer “the person who manages this dashboard” to “the homeowner” unless ownership is genuinely relevant. Say “someone who can help” rather than assuming a spouse or carer. Do not use age as a proxy for technical ability. If a real age boundary matters, state inclusive endpoints clearly rather than an ambiguous “over” or “under”.
+
+<%= example('wg-inclusion') %>
+
+<h2 id="wg-061">WG-061 — Ask for personal information only when needed</h2>
+
+**MUST.** Collect and display only the identity or household detail required for the stated task, and explain a sensitive question’s purpose.
+
+Lighting setup does not normally need a title, gender, ethnicity, religion or date of birth. Do not import healthcare demographic questions into a household workflow. When personal information is genuinely needed, make the request specific and explain how it is used. An optional answer must remain optional in validation and downstream behaviour.
+
+<h2 id="wg-062">WG-062 — Use respectful, specific language</h2>
+
+**SHOULD.** Use the person’s stated name and relevant self-description; avoid labels, euphemisms and stereotypes that define someone by an assumed condition.
+
+Use “you” or a clear neutral reference where gender is irrelevant. Do not describe someone as “confined” to a mobility aid or assume that a disability means they need another person to use the interface. Terminology varies between communities and individuals; research the audience rather than enforcing a single label on user-supplied names.
+
+<h2 id="wg-063">WG-063 — Avoid assuming one way to perceive or act</h2>
+
+**SHOULD.** Write directions that work without relying on colour, vision, hearing, a pointer or a particular physical ability.
+
+Use “Select **Save**” instead of “Click the green button”. Do not say “listen for the alarm” as the only way to recognise a result when a visible or other accessible signal is supported. Avoid promising that an alternative exists before it has been implemented. A household member may also be interrupted, tired or using the interface in poor light.
+
+<h2 id="wg-064">WG-064 — Describe BSL and other formats accurately</h2>
+
+**MUST.** Only advertise a signed or translated version when that version exists, matches the content and has the appropriate quality review.
+
+British Sign Language is a language, not English represented by captions. For a signed household guide, involve Deaf BSL users, use qualified translation and an independent check, and keep the signer visible. Record the source-content version and update the signed version when meaning changes. These practices do not make a household video NHS clinically assured.
+
+<%= example('wg-bsl-status') %>
+
+<h2 id="wg-065">WG-065 — Preserve language and translation integrity</h2>
+
+**MUST.** Preserve native locale behaviour and supplied names, identify authored translations honestly, and do not treat machine translation as validated content.
+
+Use clear literal wording in the source language. Check labels, hints, conditional content and errors, not just the first screen. Back-translation can reveal a problem but does not prove accuracy. Do not translate a diagnostic identifier or concatenate fragments that break grammar. Use the actual language and direction attributes where authored content changes language or reading direction.
+
+<h2 id="wg-066">WG-066 — Treat presence as sensitive and uncertain</h2>
+
+**MUST.** Describe tracker-derived presence as a reported or inferred state, and limit personal detail on shared displays and notifications.
+
+A device being at home does not prove that its owner is available, safe or alone. A missing tracker update does not prove that someone left. Do not infer family relationships or schedules from a person’s name. If a shared-screen mode says details are hidden, make sure they are also absent from accessible names, notification previews and other visible routes in that mode.
+
+<%= example('wg-presence') %>
+
+
+## Sources and adaptation
+
+- [NHS: Inclusive content](https://service-manual.nhs.uk/content/inclusive-content)
+- [NHS: Age](https://service-manual.nhs.uk/content/inclusive-content/age)
+- [NHS: Disabilities and conditions](https://service-manual.nhs.uk/content/inclusive-content/disabilities-and-conditions)
+- [NHS: Ethnicity, religion and nationality](https://service-manual.nhs.uk/content/inclusive-content/ethnicity-religion-and-nationality)
+- [NHS: Sex, gender and sexuality](https://service-manual.nhs.uk/content/inclusive-content/sex-gender-and-sexuality)
+- [NHS: BSL quality assurance standard](https://service-manual.nhs.uk/content/british-sign-language-bsl-quality-assurance-standard)
+- [Home Office: Inclusive language](https://design.homeoffice.gov.uk/accessibility/written-content/inclusive-language)
+- [Home Office: Designing for limited English](https://design.homeoffice.gov.uk/design-and-content/content/designing-for-limited-english)
+- [Home Office: Readability](https://design.homeoffice.gov.uk/accessibility/written-content/readability)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

@@ -1,0 +1,91 @@
+---
+title: "Numbers, dates and household data"
+description: "Preserve units, precision, missing readings and time context in values, charts and comparisons."
+section: "styles"
+group: "Writing guide"
+nav_order: 7
+source_url: "https://service-manual.nhs.uk/content/numbers-measurements-dates-time"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for numbers, dates and household data."
+---
+
+# Numbers, dates and household data
+
+A useful number needs a meaning, a unit and a time context. Keep what the source measured separate from estimates and editorial interpretation. A neat display must not hide uncertainty or change the result.
+
+<h2 id="wg-070">WG-070 — Name the measured quantity</h2>
+
+**MUST.** Identify the quantity and distinguish rates, totals, settings, estimates and reported measurements.
+
+Watts describe power; kilowatt-hours describe energy over a period. A target temperature is not the measured room temperature. An estimated cost is not necessarily a bill or tariff charge. Use the integration’s documented quantity and source metadata; do not infer it solely from a friendly name.
+
+<%= example('wg-data-meaning') %>
+
+<h2 id="wg-071">WG-071 — Preserve meaningful precision</h2>
+
+**MUST.** Do not round, convert or calculate a displayed value in a way that changes its meaning or implies greater accuracy than the source supports.
+
+NHS general-number advice is not a rule to round every sensor to a whole number. Keep the native display precision where supplied. If a summary rounds a value, distinguish it from an exact exported or tabular value when the difference matters. Avoid long decimal strings produced only by floating-point arithmetic, and do not invent decimal places to make a measurement look more precise.
+
+<h2 id="wg-072">WG-072 — Respect number and date preferences</h2>
+
+**MUST.** Use Home Assistant’s configured locale, number format, clock and time-zone preferences for dynamic values.
+
+A person using an English interface may prefer a comma decimal separator. Do not force UK punctuation or a 12-hour clock into native values because this guide uses UK English prose. For static documentation, state the example’s convention and date context; the synthetic examples here use Europe/London where relevant.
+
+<h2 id="wg-073">WG-073 — Keep units attached to their values</h2>
+
+**MUST.** Show the correct unit or a clearly associated column or axis unit, and preserve the distinction between similarly named units.
+
+Use a leading zero for a fractional prose value. Explain an unfamiliar unit near the task, not by replacing its symbol with an incorrect word. Keep kW and kWh distinct. If a unit conversion is offered, perform the conversion correctly and identify the resulting unit; changing only the label is never a content fix.
+
+<h2 id="wg-074">WG-074 — Identify the time represented by data</h2>
+
+**MUST.** Label an observation time, interval start, interval end or selected period according to the actual data model.
+
+Native power points can represent observation or display times; energy bars can represent intervals. State the selected date or range and the relevant zone. A “last changed” time is different from “last reported” or “last updated”. Do not use those labels interchangeably or describe a documentation review date as the time a sensor last reported.
+
+<h2 id="wg-075">WG-075 — Make ambiguous times and schedules explicit</h2>
+
+**MUST.** Explain the relevant time zone and boundaries when a schedule, comparison or repeated clock time could be misunderstood.
+
+A schedule may use the household zone while a viewer uses a different browser zone. State which controls the action. For repeated clock times around daylight-saving changes, include the offset or another unambiguous distinction when needed. Do not claim that every calendar day contains the same number of hourly intervals or that a scheduled action ran solely because its time passed.
+
+<h2 id="wg-076">WG-076 — Preserve missing readings and real zeros</h2>
+
+**MUST.** Show a missing, unknown or unavailable value as missing; preserve a genuine zero and identify incomplete totals.
+
+A blank interval must not become zero consumption. A line must not silently bridge a gap if that implies unobserved readings. If the available data supports only a partial total, label its coverage. For a device group, include unavailable members in the explanation rather than saying “all lights off” based only on available lights.
+
+<%= example('wg-data-gaps') %>
+
+<h2 id="wg-077">WG-077 — Give charts equivalent context and readable data</h2>
+
+**MUST.** Provide a meaningful title, quantity, period and accessible data alternative that describes the same values and uncertainty as the chart.
+
+A table is not equivalent if it advances to a new period while the chart still shows the previous one. Preserve series names and stable identities. State whether the data covers all selected-period values or only a filtered subset. Colour, a legend key or an interactive tooltip alone cannot supply all essential meaning.
+
+<h2 id="wg-078">WG-078 — Make comparisons like for like</h2>
+
+**MUST.** Name both periods, their coverage and any calculation behind a change or saving claim.
+
+“Today so far” and “yesterday” are not equal periods. A percentage decrease is meaningless without a defined baseline and may be undefined when that baseline is zero. Keep energy change separate from money saved, and measured data separate from forecasts. Do not imply causation from a visual correlation.
+
+<%= example('wg-comparison-period') %>
+
+
+## Sources and adaptation
+
+- [NHS: Numbers, measurements, dates and time](https://service-manual.nhs.uk/content/numbers-measurements-dates-time)
+- [NHS: Health literacy](https://service-manual.nhs.uk/content/health-literacy)
+- [NHS: How we write](https://service-manual.nhs.uk/content/how-we-write)
+- [NHS: Formatting](https://service-manual.nhs.uk/content/formatting)
+- [Worcestershire County Council: What is SCULPT?](https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

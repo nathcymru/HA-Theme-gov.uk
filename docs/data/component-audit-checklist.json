@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-11",
+  "status": "requirements-and-taxonomy-review-complete",
+  "owner": "Home Assistant requirements and component taxonomy reviewer",
+  "scope": "Explicit repeatable audit loops; does not duplicate the separate full-page brand/writing review ledgers.",
+  "allowedStatuses": [
+    "pass-source",
+    "pass-proposal",
+    "pass-scope",
+    "pending",
+    "future-acceptance",
+    "pending-root-integration",
+    "pending-decision"
+  ],
+  "loops": [
+    {
+      "id": "AUDIT-LOOP-01",
+      "name": "Inventory and classify",
+      "status": "completed-source-review",
+      "gate": "Run before rule compliance review.",
+      "iterations": [
+        {
+          "iteration": 1,
+          "result": "147 guides, 263 examples, 130 source entries and 68 component pages mapped; no unreferenced examples.",
+          "evidence": [
+            "docs/data/component-rationalisation.json"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "id": "INV-01",
+          "question": "Is every baseline guide URL mapped exactly once?",
+          "status": "pass-source",
+          "resultCount": 147
+        },
+        {
+          "id": "INV-02",
+          "question": "Is every core and publishing component assigned one canonical family and owner?",
+          "status": "pass-source",
+          "resultCount": 68
+        },
+        {
+          "id": "INV-03",
+          "question": "Is every example owned and linked to its referencing pages?",
+          "status": "pass-source",
+          "resultCount": 263
+        },
+        {
+          "id": "INV-04",
+          "question": "Are shared GOV.UK/NHS routes counted once as local pages?",
+          "status": "pass-source",
+          "resultCount": 28
+        },
+        {
+          "id": "INV-05",
+          "question": "Are all official catalogue mappings retained?",
+          "status": "pass-source",
+          "resultCount": 130
+        },
+        {
+          "id": "INV-06",
+          "question": "Are preserved native features distinguished from actual adapters and reference examples?",
+          "status": "pass-source",
+          "evidence": [
+            "docs/data/ha-component-gaps.json",
+            "ui/src/civica-ui.ts:121",
+            "ui/src/energy-charts.ts:21"
+          ]
+        }
+      ],
+      "repeatWhen": [
+        "A source catalogue changes.",
+        "A guide or example is added, renamed or removed.",
+        "A new adapter changes the runtime coverage boundary."
+      ]
+    },
+    {
+      "id": "AUDIT-LOOP-02",
+      "name": "Requirements and scope",
+      "status": "completed-baseline-proposals",
+      "gate": "Requirements may be inventoried before guideline freeze; compliance may not.",
+      "iterations": [
+        {
+          "iteration": 1,
+          "result": "30 proposed HA design/acceptance gaps, each retaining native capability status and source evidence.",
+          "evidence": [
+            "docs/data/ha-component-gaps.json"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "id": "REQ-01",
+          "question": "Does every required household family have an explicit finding or supported coverage decision?",
+          "status": "pass-source",
+          "families": {
+            "state-and-action": [
+              "HA-GAP-001",
+              "HA-GAP-002"
+            ],
+            "controls-and-domain-capabilities": [
+              "HA-GAP-003",
+              "HA-GAP-004",
+              "HA-GAP-005",
+              "HA-GAP-006",
+              "HA-GAP-007"
+            ],
+            "entity-and-device-selection": [
+              "HA-GAP-008",
+              "HA-GAP-029"
+            ],
+            "automation-editor": [
+              "HA-GAP-009"
+            ],
+            "scheduling": [
+              "HA-GAP-010"
+            ],
+            "history-and-data": [
+              "HA-GAP-011",
+              "HA-GAP-012"
+            ],
+            "permissions-and-multiuser": [
+              "HA-GAP-013"
+            ],
+            "presence": [
+              "HA-GAP-014"
+            ],
+            "camera-media-maps": [
+              "HA-GAP-015",
+              "HA-GAP-016",
+              "HA-GAP-017"
+            ],
+            "offline-and-connectivity": [
+              "HA-GAP-018"
+            ],
+            "backups-updates-onboarding": [
+              "HA-GAP-019",
+              "HA-GAP-020",
+              "HA-GAP-021"
+            ],
+            "dashboard-composition": [
+              "HA-GAP-022"
+            ],
+            "localisation": [
+              "HA-GAP-023"
+            ],
+            "accessibility": [
+              "HA-GAP-024"
+            ],
+            "voice": [
+              "HA-GAP-025"
+            ],
+            "tasks": [
+              "HA-GAP-026"
+            ],
+            "weather-and-warnings": [
+              "HA-GAP-027"
+            ],
+            "notifications": [
+              "HA-GAP-028"
+            ],
+            "compatibility": [
+              "HA-GAP-030"
+            ]
+          }
+        },
+        {
+          "id": "REQ-02",
+          "question": "Does every proposed change have priority, scope, evidence, acceptance and dependencies?",
+          "status": "pass-source",
+          "resultCount": 44
+        },
+        {
+          "id": "REQ-03",
+          "question": "Are capability presence and tested native runtime behaviour kept separate?",
+          "status": "pass-source"
+        },
+        {
+          "id": "REQ-04",
+          "question": "Are current official sources distinguished from the supported runtime version?",
+          "status": "pass-source",
+          "evidence": [
+            "Home Assistant dev source b1164739c3a853a28ba1c425415e96a17eb6286e is source-review only."
+          ]
+        }
+      ],
+      "repeatWhen": [
+        "A native Home Assistant release changes a reviewed domain.",
+        "A gap receives an implementation or new acceptance evidence."
+      ]
+    },
+    {
+      "id": "AUDIT-LOOP-03",
+      "name": "Review against frozen brand and writing rules",
+      "status": "completed-proposal-source-review",
+      "gate": "Both authoring agents must identify the final rule files and revision/hash before audit conclusions.",
+      "iterations": [
+        {
+          "iteration": 1,
+          "result": "Reviewed 33 frozen brand rules and 68 frozen writing rules; attached relevant rule dependencies to all 44 proposals. Kept native/local scope and new-artwork applicability explicit.",
+          "evidence": [
+            "docs/data/brand-guidance-inventory.json",
+            "docs/data/writing-guide-inventory.json",
+            "docs/data/ha-component-gaps.json",
+            "docs/data/component-rationalisation.json"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "id": "RULE-01",
+          "question": "Record final brand source files, rule IDs and snapshot hashes.",
+          "status": "pass-source"
+        },
+        {
+          "id": "RULE-02",
+          "question": "Record final writing source files, rule IDs and snapshot hashes.",
+          "status": "pass-source"
+        },
+        {
+          "id": "RULE-03",
+          "question": "Cross-check the proposed ownership and gaps against those frozen rules.",
+          "status": "pass-source"
+        },
+        {
+          "id": "RULE-04",
+          "question": "Distinguish binding civica rules, source guidance, justified deviations and unresolved proposals.",
+          "status": "pass-source"
+        },
+        {
+          "id": "RULE-05",
+          "question": "Reconcile any contradictory vocabulary, privacy, state, icon or identity requirements with their authors.",
+          "status": "pass-source"
+        },
+        {
+          "id": "RULE-06",
+          "question": "Author clear proposed audit pages without implying remediation, publication or live validation.",
+          "status": "pass-source"
+        }
+      ],
+      "repeatWhen": [
+        "The frozen rule revision changes.",
+        "A proposal conflicts with a documented exception."
+      ]
+    },
+    {
+      "id": "AUDIT-LOOP-04",
+      "name": "Proposal and URL preservation review",
+      "status": "completed-proposal-review",
+      "gate": "No redirect, deletion or consolidation is authorized by this audit.",
+      "iterations": [
+        {
+          "iteration": 1,
+          "result": "14 COMP proposals;39 route relationships; all published URLs retained.",
+          "evidence": [
+            "docs/data/component-rationalisation.json"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "id": "MAP-01",
+          "question": "Does each existing route have a valid existing canonical owner?",
+          "status": "pass-source"
+        },
+        {
+          "id": "MAP-02",
+          "question": "Are distinct interaction variants retained rather than merged solely by similar styling?",
+          "status": "pass-proposal"
+        },
+        {
+          "id": "MAP-03",
+          "question": "Are withdrawn source guidance and legacy runtime aliases treated separately?",
+          "status": "pass-proposal"
+        },
+        {
+          "id": "MAP-04",
+          "question": "Are all redirects/deletions currently unimplemented and all existing URLs retained?",
+          "status": "pass-source"
+        },
+        {
+          "id": "MAP-05",
+          "question": "Before any future redirect, compare content, examples, fragments, inbound links and source attribution.",
+          "status": "future-acceptance"
+        },
+        {
+          "id": "MAP-06",
+          "question": "Before any future implementation, agree scope and preserve saved dashboards/native data.",
+          "status": "future-acceptance"
+        }
+      ],
+      "repeatWhen": [
+        "A consolidation or deprecation is proposed for implementation.",
+        "Any owner page is removed, redirected or materially narrowed."
+      ]
+    },
+    {
+      "id": "AUDIT-LOOP-05",
+      "name": "Evidence and final handoff",
+      "status": "completed-with-root-ledger-integration-separate",
+      "gate": "Baseline evidence is not remediation, deployment or complete accessibility certification.",
+      "iterations": [
+        {
+          "iteration": 1,
+          "result": "JSON/evidence/mapping checks pass. Human audit pages mirror these records. No build, runtime test, live Home Assistant access or implementation change was performed by this reviewer.",
+          "evidence": [
+            "docs/source/community/component-audit.html.md.erb",
+            "docs/source/community/missing-components.html.md.erb"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "id": "EVID-01",
+          "question": "Machine-validate JSON, unique IDs, mappings, source references, example coverage and evidence lines.",
+          "status": "pass-source"
+        },
+        {
+          "id": "EVID-02",
+          "question": "Attach the independent page-by-page rule-review ledgers maintained by the other reviewers.",
+          "status": "pending-root-integration"
+        },
+        {
+          "id": "EVID-03",
+          "question": "Separate source review, synthetic browser checks, native live checks and assistive-technology checks.",
+          "status": "pass-scope"
+        },
+        {
+          "id": "EVID-04",
+          "question": "State untested native domains and that no live mutation or build was performed in this audit.",
+          "status": "pass-scope"
+        },
+        {
+          "id": "EVID-05",
+          "question": "Record accepted, rejected or deferred proposal decisions without silently marking them implemented.",
+          "status": "pass-scope",
+          "result": "All 44 items remain proposed/open. Acceptance and implementation decisions are future work, not failed audit steps."
+        }
+      ],
+      "repeatWhen": [
+        "New evidence changes a finding.",
+        "A proposed change is approved, implemented or released."
+      ]
+    }
+  ],
+  "stopConditions": [
+    "Do not infer compliance with unfinished or unreviewed guidelines.",
+    "Do not label native Home Assistant functionality missing because a civica guide is absent.",
+    "Do not treat a locally working specimen as a connected backend.",
+    "Do not change published URLs or runtime behaviour during an audit-only task."
+  ],
+  "completionDefinition": "Requirements and taxonomy review complete; root integrates independent per-page ledgers and rendered validation separately. Proposals remain open until approved work meets their acceptance criteria.",
+  "guidanceReview": {
+    "status": "completed-proposal-source-review",
+    "reviewedOn": "2026-11-11",
+    "brand": {
+      "file": "docs/data/brand-guidance-inventory.json",
+      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "ruleCount": 33,
+      "authorFreezeConfirmed": true
+    },
+    "writing": {
+      "file": "docs/data/writing-guide-inventory.json",
+      "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+      "ruleCount": 68,
+      "authorFreezeConfirmed": true
+    },
+    "result": "Proposed requirements and taxonomy were checked against the frozen rule scopes. Relevant rule dependencies are attached to every proposal. This is not a pass for existing component implementation or live Home Assistant.",
+    "scopeCautions": [
+      "Writing requirements apply to civica-authored strings, not wholesale rewriting of native translations or user names.",
+      "Illustration restrictions do not remove functional icon strokes, chart patterns or operational imagery.",
+      "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
+      "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
+    ]
+  }
+}

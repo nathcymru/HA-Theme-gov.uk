@@ -1,0 +1,72 @@
+---
+title: "Words and style"
+description: "Choose consistent household terms while preserving native labels, user names and exact identifiers."
+section: "styles"
+group: "Writing guide"
+nav_order: 2
+source_url: "https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for words and style."
+---
+
+# Words and style
+
+Keep words consistent by meaning, not by replacing every occurrence with a preferred synonym. A control label, an integration identifier and a person’s own device name serve different purposes.
+
+<h2 id="wg-020">WG-020 — Use a small, deliberate household vocabulary</h2>
+
+**SHOULD.** Choose consistent authored terms for the same operation and different terms for different operations.
+
+Use “Save” to retain an edit, “Delete” to remove a record, “Turn off” for the supported off operation, and “Cancel” to leave an unfinished step when nothing else is implied. “Remove from this dashboard” must not silently mean “Delete the device”. A scene is a saved set of device states; an automation’s configured triggers start a run, and its conditions determine whether its actions run. A condition becoming true does not by itself trigger the automation. Explain these distinctions where needed rather than relabelling native features.
+
+<%= example('wg-household-terms') %>
+
+<h2 id="wg-021">WG-021 — Preserve native labels and translations</h2>
+
+**MUST.** Use the actual Home Assistant label for a feature, setting or control when referring people to it, in the language of that interface.
+
+A general glossary may prefer “message” to “notification” or spell out “identification”. Home Assistant’s “Notifications” and “Entity ID” remain recognisable feature labels. Likewise, “Turn on” is an established control phrase even though some limited-English guidance discourages phrasal verbs. Explain a native term once if it is unfamiliar. Do not promise that an English screenshot matches every translation.
+
+<h2 id="wg-022">WG-022 — Respect names supplied by people</h2>
+
+**MUST.** Display names as supplied, including meaningful spelling, case, punctuation and language; distinguish a display-name edit from an identifier change.
+
+Do not title-case “Nain’s lamp”, translate a person’s name, expand a household nickname or infer a relationship from it. Use safe text rendering without changing the name’s meaning. Where the name alone is ambiguous, add available context such as the room; do not invent a location. Wrap identifiers or long names sensibly without inserting characters into their copied value.
+
+<h2 id="wg-023">WG-023 — Use sentence case and restrained punctuation</h2>
+
+**SHOULD.** Use sentence case for authored English headings and labels, conventional UK English spelling, and punctuation that helps meaning.
+
+Use “Save schedule”, not “SAVE SCHEDULE” or “Save Schedule”. Full sentences in explanatory text take full stops; short button labels and headings usually do not. Keep proper names, product terms and abbreviations in their correct case. Use consistent punctuation within a list. Prefer “to” for a prose range; retain exact syntax in code and identifiers. Use bold sparingly to identify an actual control, not to simulate a heading.
+
+<h2 id="wg-024">WG-024 — Explain necessary abbreviations at the point of need</h2>
+
+**SHOULD.** Expand unfamiliar abbreviations when first needed and provide a short practical explanation of a technical term.
+
+Do not expand common units inside every value or turn a compact chart legend into a glossary. Explain watts and kilowatt-hours in nearby help when the task requires that distinction. Keep the unit symbol with the number. If a technical term is only useful in diagnostics, place it in a clearly named details section rather than in the primary action label.
+
+<h2 id="wg-025">WG-025 — Keep literal values literal</h2>
+
+**MUST.** Preserve the exact syntax, case and meaningful punctuation of entity IDs, codes, paths, version strings and values someone needs to copy.
+
+Use code styling for a literal identifier such as `light.reading_lamp`. Do not replace underscores with spaces, hyphens with typographic dashes or straight code quotes with curly quotes. Explain the role of an identifier without inviting people to paste passwords or access tokens into unrelated fields. Label synthetic identifiers as examples.
+
+<%= example('wg-literal-identifiers') %>
+
+
+## Sources and adaptation
+
+- [Home Office: Content style guide](https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide)
+- [Home Office: Designing for limited English](https://design.homeoffice.gov.uk/design-and-content/content/designing-for-limited-english)
+- [NHS: Formatting](https://service-manual.nhs.uk/content/formatting)
+- [NHS: Punctuation](https://service-manual.nhs.uk/content/punctuation)
+- [NHS: A to Z of health writing (selected entries)](https://service-manual.nhs.uk/content/a-to-z-of-nhs-health-writing)
+- [GOV.UK: Clear language](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

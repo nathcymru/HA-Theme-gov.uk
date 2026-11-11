@@ -253,7 +253,14 @@
     "actions": "Specific active verbs",
     "emptyIsUnavailable": false,
     "missingIsZero": false,
-    "successBeforeConfirmation": false
+    "successBeforeConfirmation": false,
+    "guide": "content/index.html",
+    "rules": "reference/writing-guide.json",
+    "normativeLevels": {
+      "MUST": "Required within the stated local scope",
+      "SHOULD": "Default; record a specific reason for an exception",
+      "MAY": "Optional when it helps the household task"
+    }
   },
   "accessibility": {
     "target": "WCAG 2.2 AA",
@@ -337,7 +344,11 @@
     },
     "navigation": "six primary sections; page groups generated from source metadata",
     "homepageIllustrations": "original repository-native SVG; supplied identity unchanged",
-    "referenceStatus": "catalogue coverage is not native Home Assistant implementation coverage"
+    "referenceStatus": "catalogue coverage is not native Home Assistant implementation coverage",
+    "guidanceWorkPackage": "community/guidance-work-package.html",
+    "complianceAudit": "reference/design-system-audit.json",
+    "auditCompleteMeansAllFindingsFixed": false,
+    "reviewResponsibility": "civica.uk repository maintainers; see content/content-review.html"
   },
   "sources": [
     "https://design-system.service.gov.uk/",
@@ -358,7 +369,16 @@
     "https://design-patterns.service.justice.gov.uk/components/notification-badge/",
     "https://components.publishing.service.gov.uk/component-guide/action_link",
     "https://components.publishing.service.gov.uk/component-guide/search",
-    "https://design-guide.publishing.service.gov.uk/"
+    "https://design-guide.publishing.service.gov.uk/",
+    "https://brand.design-system.service.gov.uk/colour/",
+    "https://brand.design-system.service.gov.uk/typography/",
+    "https://brand.design-system.service.gov.uk/data/",
+    "https://brand.design-system.service.gov.uk/illustration/",
+    "https://service-manual.nhs.uk/content",
+    "https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide",
+    "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+    "https://www.plainenglish.co.uk/free-guides",
+    "https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt"
   ],
   "visualHierarchy": {
     "structuralBorders": {
@@ -408,5 +428,27 @@
       "gauges"
     ],
     "darkValuesAreLocalAdaptation": true
+  },
+  "brandGuidance": {
+    "rules": "reference/brand-guidance.json",
+    "chapters": [
+      "styles/brand-colour.html",
+      "styles/brand-typography.html",
+      "styles/brand-data.html",
+      "styles/illustration.html"
+    ],
+    "excluded": [
+      "official graphic device",
+      "official logo system",
+      "official brand-in-use assets"
+    ],
+    "preserve": [
+      "ten exact supplied civica.uk palettes",
+      "supplied V3.2 artwork",
+      "Arial",
+      "deterministic chart identity colours",
+      "1.5px Energy lines"
+    ],
+    "functionalAndDecorativeScopesSeparate": true
   }
 }

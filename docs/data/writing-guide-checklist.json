@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "title": "civica writing review checklist template",
+  "reviewed_on": "2026-11-11",
+  "instructions": "Record pass, finding, not_applicable or documented_deviation with evidence for every applicable rule. A MUST failure is a finding; proposed contract changes need review. Automated results do not prove complete accessibility or comprehension.",
+  "rules": [
+    {
+      "rule_id": "WG-001",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "check": "A short user need identifies the task and audience; content that does not help that need is removed.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-002",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "check": "The change identifies owned strings; native labels, user text and literal values remain intact.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-003",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "check": "Each exception names its rule, reason, scope and verification; normative terms are not mistaken for legal obligations.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-004",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/index.html",
+      "check": "No content claims endorsement, clinical review, emergency monitoring, translation provision or a household capability without evidence.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-010",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "check": "A reader can identify the device, state or action without translating unnecessary jargon.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-011",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "check": "Every assertion of completion, cause, presence or safety has a defined source and confirmation condition.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-012",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "check": "Failure and high-consequence messages remain factual and identify an appropriate next step.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-013",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "check": "A read-aloud review finds clear actors, actions and conditions; sentences are shortened without losing qualifiers.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-014",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "check": "Important negative conditions are easy to distinguish, translate and read aloud.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-015",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/voice-and-language.html",
+      "check": "Review includes task comprehension and relevant user feedback, with automated measures described as limited checks.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-020",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "check": "A terminology review maps each verb to an actual operation and finds no contradictory synonyms.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-021",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "check": "Instructions and authored help match the supported interface version and locale; native strings are not rewritten by styling.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-022",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "check": "Names remain unchanged across cards, dialogs, confirmations and accessible names.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-023",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "check": "Headings and controls avoid block capitals and unnecessary punctuation while proper names remain intact.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-024",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "check": "A new reader can understand the term without leaving the task; repeated expansions do not overwhelm compact controls.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-025",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/words-and-style.html",
+      "check": "Displayed and copied literal values match the supplied source; prose punctuation is outside the value.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-030",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "The label remains understandable in its visible context and accessible name.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-031",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "An On or Off state cannot be mistaken for the action taken by activating the control.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-032",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Tests cover accepted requests without a state change, reported success, rejection and timeout.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-033",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Unknown and unavailable values are not rendered as zero, off, safe or definitely disconnected; retained readings are labelled with their time.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-034",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Unsupported actions are absent; disabled supported actions have an accurate reason and a verified next step where one exists.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-035",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Copy for automations, schedules and scenes does not imply that saving, enabling or selecting one has the same effect.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-036",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Confirmation text names the target and consequence; cancellation outcomes match what the implementation actually cancels.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-037",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Links lead to the stated destination; downloads have accurate type and available size; new-window behaviour is disclosed when necessary.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-038",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/interface-copy.html",
+      "check": "Labels, hints and validation are associated with their controls; each empty state gives the right reason and supported next step.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-040",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "Every recovery action has an implementation or verified destination; promises about saved input and recovery are tested.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-041",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "A person is not asked to correct a valid answer because the network, integration or permission check failed.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-042",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "The content names its source condition and does not classify ordinary maintenance data as a live emergency.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-043",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "Safety-related wording has a named evidence source and appropriate review; no unverified procedure or medical claim is added.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-044",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "Slow, interrupted, partial and timed-out operations have accurate copy and do not encourage unsafe duplicate requests.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-045",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "Notifications avoid unnecessary location, identity and sensitive household detail; channels and recipients exist and are authorised by the implementation.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-046",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/errors-and-alerts.html",
+      "check": "Messages remain understandable without blame, exaggerated punctuation or repeated identical alerts.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-050",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "A person can follow the steps in order without searching backwards for a prerequisite.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-051",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "Preparation and consequence text matches the actual implementation, including remote-control requirements and destructive effects.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-052",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "Steps are checked against the target interface or explicitly marked reference-only; screenshots do not invent controls.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-053",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "A person can answer safely without opening a tooltip or following a generic help link.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-054",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "Each question is justified and tested; unnecessary personal information and repeated questions are removed.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-055",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "Help explains unfamiliar concepts without requiring memorised identifiers, long uninterrupted instructions or irrelevant technical background.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-056",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/instructions-and-learning.html",
+      "check": "Examples state their scope, local actions remain local, and every advertised download, video or alternative format is available and reviewed.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-060",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Copy works for different household arrangements and does not assign a task by stereotype.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-061",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Forms and messages justify sensitive fields and offer a meaningful alternative where the service supports one.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-062",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Content is checked with the intended audience and respects self-description without collecting unnecessary identity data.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-063",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Instructions identify controls by name and purpose and include verified alternatives when the task needs them.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-064",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Format links resolve to actual content with a known version and review; captions, transcripts and BSL are not presented as interchangeable.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-065",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Critical translations receive appropriate human review; language metadata is correct and sensitive text is not sent to unapproved external tools.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-066",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/inclusive-content.html",
+      "check": "Presence wording names the evidence and time where relevant; privacy claims match what the display actually hides.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-070",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Labels match the source metadata and do not interchange power, energy, temperature, target temperature or cost.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-071",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Display precision, conversions and derived values are documented and do not alter the underlying data.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-072",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Tests include a language/number-format mismatch, 12- and 24-hour preferences and the supported time-zone choices.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-073",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Values remain interpretable when read aloud, in a table or outside the surrounding chart.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-074",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "A chart/table timestamp is not described as period start when it represents a sample or midpoint.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-075",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Tests cover a zone difference and daylight-saving changes where the feature supports affected dates.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-076",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Tables, charts and summaries distinguish null, zero, gaps and incomplete coverage.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-077",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Chart and table use the same selected-period model, units, source identities and missing-value semantics.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-078",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/numbers-and-data.html",
+      "check": "Partial and complete periods are not compared as if equal; percentage calculations handle zero and missing baselines.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-080",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "The reading order, headings, lists and table headers remain meaningful without styling.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-081",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "States and actions remain understandable in monochrome, without icons and when read by assistive technology.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-082",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "Alternative text communicates purpose without duplicating adjacent text or inventing details absent from the image.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-083",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "Links make sense in context and repeated generic labels have sufficient accessible context; visual rearrangement does not reverse task order.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-084",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "Keyboard and assistive-technology checks confirm the label, error, pending and final outcome relationships.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-085",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "Advertised alternatives exist, match the current content and are checked in their actual format.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-086",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/accessible-content.html",
+      "check": "Claims identify the scope, method and remaining manual checks; no unsupported certification is implied.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-090",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "check": "The review record identifies the content, relevant version, evidence and responsible review route.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-091",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "check": "A reader can identify the relevant difference without comparing entire versions.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-092",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "check": "A review date is not automatically advanced by a build, and it cannot be confused with a device reading or service record.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-093",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "check": "Every finding links a stable rule ID to specific copy or behaviour and has a concrete acceptance check.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-094",
+      "level": "SHOULD",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "check": "Review evidence covers factual accuracy, read-aloud wording, state scenarios and the actual rendered layout.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    },
+    {
+      "rule_id": "WG-095",
+      "level": "MUST",
+      "scope": "civica-authored content; preserve native Home Assistant strings and user-supplied names",
+      "page": "content/content-review.html",
+      "check": "A result never claims an unperformed check or a broader scope than the evidence supports.",
+      "evidence_required": "A source/implementation reference, reviewed copy or observed test result appropriate to this check.",
+      "result": null,
+      "evidence": []
+    }
+  ],
+  "status": "template: not an executed review"
+}

@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "title": "Brand, writing and design-system audit work package",
+  "reviewed_on": "2026-11-11",
+  "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
+  "scope": "Integrate guidance, audit the complete authored design system and propose remediation. This package does not implement the proposed runtime/component backlog or claim live Home Assistant verification.",
+  "completion_meaning": "A completed review means its documented scope has been covered. Open audit findings remain open until their acceptance evidence exists.",
+  "phases": [
+    {
+      "id": "WP-BRAND",
+      "title": "Brand guidance",
+      "items": [
+        {
+          "id": "B1",
+          "task": "Review the four requested Brand sections and their relevant linked guidance.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/brand-guidance-inventory.json: 31 sources, 33 scoped rules, 4 guides",
+            "docs/data/brand-guidance-examples.yml: 12 original examples",
+            "docs/data/audit-foundations-review.json: independent guide review"
+          ]
+        },
+        {
+          "id": "B2",
+          "task": "Write civica.uk colour, typography, data and illustration rules with stable identifiers.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/brand-guidance-inventory.json: 31 sources, 33 scoped rules, 4 guides",
+            "docs/data/brand-guidance-examples.yml: 12 original examples",
+            "docs/data/audit-foundations-review.json: independent guide review"
+          ]
+        },
+        {
+          "id": "B3",
+          "task": "Record identity exclusions and preserve the supplied palettes, artwork and chart decisions.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/brand-guidance-inventory.json: 31 sources, 33 scoped rules, 4 guides",
+            "docs/data/brand-guidance-examples.yml: 12 original examples",
+            "docs/data/audit-foundations-review.json: independent guide review"
+          ]
+        },
+        {
+          "id": "B4",
+          "task": "Provide contextual examples, source mappings and source-specific review records.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/brand-guidance-inventory.json: 31 sources, 33 scoped rules, 4 guides",
+            "docs/data/brand-guidance-examples.yml: 12 original examples",
+            "docs/data/audit-foundations-review.json: independent guide review"
+          ]
+        },
+        {
+          "id": "B5",
+          "task": "Cross-review the guidance against writing rules and implementation boundaries.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/brand-guidance-inventory.json: 31 sources, 33 scoped rules, 4 guides",
+            "docs/data/brand-guidance-examples.yml: 12 original examples",
+            "docs/data/audit-foundations-review.json: independent guide review"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WP-WRITING",
+      "title": "Writing for home automation",
+      "items": [
+        {
+          "id": "W1",
+          "task": "Review NHS, Home Office, GOV.UK publishing, Plain English Campaign and SCULPT.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/writing-guide-inventory.json: 39 source records, 68 rules, 10 chapters",
+            "docs/data/writing-guide-examples.yml: 26 original examples",
+            "docs/data/audit-foundations-review.json: independent review; Plain English and SCULPT rights checked"
+          ]
+        },
+        {
+          "id": "W2",
+          "task": "Cover purpose, voice, style, interface copy, errors, instructions, inclusion, data, accessible content and review.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/writing-guide-inventory.json: 39 source records, 68 rules, 10 chapters",
+            "docs/data/writing-guide-examples.yml: 26 original examples",
+            "docs/data/audit-foundations-review.json: independent review; Plain English and SCULPT rights checked"
+          ]
+        },
+        {
+          "id": "W3",
+          "task": "Distinguish required rules, defaults and optional choices; resolve source conflicts.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/writing-guide-inventory.json: 39 source records, 68 rules, 10 chapters",
+            "docs/data/writing-guide-examples.yml: 26 original examples",
+            "docs/data/audit-foundations-review.json: independent review; Plain English and SCULPT rights checked"
+          ]
+        },
+        {
+          "id": "W4",
+          "task": "Provide household examples for pending, confirmed, unavailable, permission and safety states.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/writing-guide-inventory.json: 39 source records, 68 rules, 10 chapters",
+            "docs/data/writing-guide-examples.yml: 26 original examples",
+            "docs/data/audit-foundations-review.json: independent review; Plain English and SCULPT rights checked"
+          ]
+        },
+        {
+          "id": "W5",
+          "task": "Record provenance and reuse boundaries without copying proprietary guides or artwork.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/writing-guide-inventory.json: 39 source records, 68 rules, 10 chapters",
+            "docs/data/writing-guide-examples.yml: 26 original examples",
+            "docs/data/audit-foundations-review.json: independent review; Plain English and SCULPT rights checked"
+          ]
+        },
+        {
+          "id": "W6",
+          "task": "Cross-review the guide for factual meaning, consistency and practical acceptance checks.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/writing-guide-inventory.json: 39 source records, 68 rules, 10 chapters",
+            "docs/data/writing-guide-examples.yml: 26 original examples",
+            "docs/data/audit-foundations-review.json: independent review; Plain English and SCULPT rights checked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WP-AUDIT",
+      "title": "Whole-system compliance audit",
+      "items": [
+        {
+          "id": "A1",
+          "task": "Freeze the brand and writing rule sets before the compliance review.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json: 165 pages, 301 examples, 16 confirmed findings and 4 separate recommendations",
+            "docs/data/audit-components-review.json and audit-patterns-review.json: reviewed paths, example records and exact evidence",
+            "Independent challenge corrected artwork classification, unavailable/unknown scope and implementation wording"
+          ]
+        },
+        {
+          "id": "A2",
+          "task": "Inventory every editorial page, example, shared presentation source and maintained runtime surface.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json: 165 pages, 301 examples, 16 confirmed findings and 4 separate recommendations",
+            "docs/data/audit-components-review.json and audit-patterns-review.json: reviewed paths, example records and exact evidence",
+            "Independent challenge corrected artwork classification, unavailable/unknown scope and implementation wording"
+          ]
+        },
+        {
+          "id": "A3",
+          "task": "Read every guidance page against the applicable rules and record the outcome by path.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json: 165 pages, 301 examples, 16 confirmed findings and 4 separate recommendations",
+            "docs/data/audit-components-review.json and audit-patterns-review.json: reviewed paths, example records and exact evidence",
+            "Independent challenge corrected artwork classification, unavailable/unknown scope and implementation wording"
+          ]
+        },
+        {
+          "id": "A4",
+          "task": "Review the example catalogue and shared templates, styles, tokens and maintained runtime.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json: 165 pages, 301 examples, 16 confirmed findings and 4 separate recommendations",
+            "docs/data/audit-components-review.json and audit-patterns-review.json: reviewed paths, example records and exact evidence",
+            "Independent challenge corrected artwork classification, unavailable/unknown scope and implementation wording"
+          ]
+        },
+        {
+          "id": "A5",
+          "task": "Confirm findings with rule identifiers, file evidence, priority, proposed changes and acceptance criteria.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json: 165 pages, 301 examples, 16 confirmed findings and 4 separate recommendations",
+            "docs/data/audit-components-review.json and audit-patterns-review.json: reviewed paths, example records and exact evidence",
+            "Independent challenge corrected artwork classification, unavailable/unknown scope and implementation wording"
+          ]
+        },
+        {
+          "id": "A6",
+          "task": "Repeat the coverage and independent-review loop; record untested boundaries explicitly.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/design-system-audit.json: 165 pages, 301 examples, 16 confirmed findings and 4 separate recommendations",
+            "docs/data/audit-components-review.json and audit-patterns-review.json: reviewed paths, example records and exact evidence",
+            "Independent challenge corrected artwork classification, unavailable/unknown scope and implementation wording"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WP-COMPONENTS",
+      "title": "Component organisation and missing specifications",
+      "items": [
+        {
+          "id": "C1",
+          "task": "Map every current core and publishing component URL to a canonical family.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json: 68 component routes, 58 canonical owners, 14 proposals",
+            "docs/data/ha-component-gaps.json: 30 missing/partial local specifications; 26 official source records",
+            "docs/data/component-audit-checklist.json: five recorded review loops and frozen rule hashes"
+          ]
+        },
+        {
+          "id": "C2",
+          "task": "Separate shared upstream mappings from genuine duplication or competing local guidance.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json: 68 component routes, 58 canonical owners, 14 proposals",
+            "docs/data/ha-component-gaps.json: 30 missing/partial local specifications; 26 official source records",
+            "docs/data/component-audit-checklist.json: five recorded review loops and frozen rule hashes"
+          ]
+        },
+        {
+          "id": "C3",
+          "task": "Propose ownership, aliases, redirects and deprecation steps that preserve public URLs.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json: 68 component routes, 58 canonical owners, 14 proposals",
+            "docs/data/ha-component-gaps.json: 30 missing/partial local specifications; 26 official source records",
+            "docs/data/component-audit-checklist.json: five recorded review loops and frozen rule hashes"
+          ]
+        },
+        {
+          "id": "C4",
+          "task": "Compare Home Assistant surface families against existing design specifications and maintained adapters.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json: 68 component routes, 58 canonical owners, 14 proposals",
+            "docs/data/ha-component-gaps.json: 30 missing/partial local specifications; 26 official source records",
+            "docs/data/component-audit-checklist.json: five recorded review loops and frozen rule hashes"
+          ]
+        },
+        {
+          "id": "C5",
+          "task": "Prioritise missing specifications with native-capability boundaries, dependencies and acceptance criteria.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json: 68 component routes, 58 canonical owners, 14 proposals",
+            "docs/data/ha-component-gaps.json: 30 missing/partial local specifications; 26 official source records",
+            "docs/data/component-audit-checklist.json: five recorded review loops and frozen rule hashes"
+          ]
+        },
+        {
+          "id": "C6",
+          "task": "Cross-check the component and gap registers against the finished brand and writing rules.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/component-rationalisation.json: 68 component routes, 58 canonical owners, 14 proposals",
+            "docs/data/ha-component-gaps.json: 30 missing/partial local specifications; 26 official source records",
+            "docs/data/component-audit-checklist.json: five recorded review loops and frozen rule hashes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WP-VERIFY",
+      "title": "Publication and verification",
+      "items": [
+        {
+          "id": "V1",
+          "task": "Integrate navigation, existing entry points, source coverage, attribution and machine-readable references.",
+          "status": "complete",
+          "evidence": [
+            "Styles navigation includes Brand guidance and ordered Writing guide; existing public entry points retained.",
+            "Source/licensing/coverage/AI contract and JSON references integrated; common footer names review responsibility."
+          ]
+        },
+        {
+          "id": "V2",
+          "task": "Validate source mappings, rule identifiers, audit coverage and checklist evidence.",
+          "status": "complete",
+          "evidence": [
+            "check:guidance passed: 101 rules, 165 guides, 301 examples, 16 findings, 4 recommendations, 68 component routes and 44 proposals.",
+            "Frozen hashes, evidence excerpts, rule anchors, unique IDs and three public checklist JSON records match their sources."
+          ]
+        },
+        {
+          "id": "V3",
+          "task": "Build the documentation and check local links, unchanged supplied artwork and generated palette parity.",
+          "status": "complete",
+          "evidence": [
+            "Middleman build succeeded; check-docs validated 466 HTML pages and their local links/anchors.",
+            "Brand check: 176 supplied assets and 20 palette variants unchanged; documentation sync: 67 artwork files and generated palette parity passed.",
+            "Type checks, 50 Node tests and HA template checks (9 scripts, 6 room wrappers, 88 templates) passed."
+          ]
+        },
+        {
+          "id": "V4",
+          "task": "Check all generated guides and examples for accessibility, narrow layout and safe local behaviour.",
+          "status": "complete",
+          "evidence": [
+            "Full browser run: 529 of 530 passed; one new audit-page overflow corrected. All 3 affected guide tests and 1 new expanded-coverage regression then passed.",
+            "Added regression for audit heading navigation, keyboard disclosure, 165 coverage rows, 320px reflow and accessibility.",
+            "Chrome visual review:writing desktop, original illustration examples and corrected audit at 390px. No screen-reader or live-device certification claimed."
+          ]
+        },
+        {
+          "id": "V5",
+          "task": "Publish through the repository checks and inspect the deployed site in Chrome.",
+          "status": "pending",
+          "evidence": []
+        }
+      ]
+    }
+  ],
+  "loops": [
+    {
+      "id": "loop-1",
+      "title": "Loop 1: source coverage and local rules",
+      "outcome": "Reviewed requested sources and resolved identity, typeface, source-rights and home-automation scope conflicts before freezing 101 rules.",
+      "checks": [
+        "4 brand guides, 33 rules and 12 examples reconciled.",
+        "10 writing chapters, 68 rules and 26 examples reconciled.",
+        "Official identity and unrelated brand applications excluded; original prose and examples used."
+      ]
+    },
+    {
+      "id": "loop-2",
+      "title": "Loop 2: independent rule review and complete page reading",
+      "outcome": "Independent review corrected evidence paths, print-size certainty, chart adapter ownership and automation terminology before applying the guides to the system.",
+      "checks": [
+        "Read all current guides and example records in three bounded review ledgers.",
+        "Kept synthetic examples distinct from implemented/live Home Assistant controls.",
+        "Recorded 16 confirmed findings separately from 4 migration or completeness recommendations."
+      ]
+    },
+    {
+      "id": "loop-3",
+      "title": "Loop 3: challenge findings and reconcile coverage",
+      "outcome": "Challenged findings, separated new-asset rules from older-artwork recommendations, and reconciled the component, page and example registers.",
+      "checks": [
+        "165 page review records and 301 example ownership records assembled.",
+        "68 component URLs assigned to 58 owners; 14 organisation proposals preserve routes.",
+        "30 Home Assistant gaps distinguish missing specifications from native functionality; 44 proposals link frozen rules.",
+        "Build, automated checks and live publication remain separate verification steps."
+      ]
+    },
+    {
+      "id": "loop-4",
+      "title": "Loop 4: build, browser checks and correction",
+      "outcome": "The full run found long evidence links overflowing the new audit page. Visual inspection also found three raw Markdown headings. Fixed the new page, refreshed its review hash, and passed the affected checks plus an added regression.",
+      "checks": [
+        "466 HTML files pass local link/anchor checks; 101 rule anchors and all coverage records reconcile.",
+        "50 Node tests, type checks, supplied-asset/palette parity and HA template compilation pass.",
+        "529 browser checks passed initially; the one failing guide and two edited guides pass on rerun. A new keyboard, heading, expanded-table and reflow test also passes.",
+        "Existing audit findings remain proposals. No runtime or native Home Assistant change was made."
+      ]
+    }
+  ],
+  "limitations": [
+    "Automated accessibility checks are not full WCAG conformance evidence.",
+    "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
+    "Reference examples use invented household data and do not control devices."
+  ]
+}
