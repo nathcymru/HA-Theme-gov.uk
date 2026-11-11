@@ -1,15 +1,19 @@
 ---
-title: "Confirm completed household tasks"
-description: "Show a verified result and explain what happens next without overstating device success."
-section: "patterns"
-group: "Page patterns"
-source_url: "https://service-manual.nhs.uk/design-system/patterns/confirmation-page"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
+title: Confirm completed household tasks
+description: Show a verified result and explain what happens next without overstating device success.
+section: patterns
+group: Page patterns
+source_url: https://service-manual.nhs.uk/design-system/patterns/confirmation-page
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
 updates:
-  - date: "2026-11-11"
-    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS confirmation-page pattern."
+  - date: 2026-11-11
+    description: Changed the interrupted-save specimen to an explicitly unconfirmed result and preserved the draft-review route.
+  - date: 2026-11-11
+    description: Added civica household guidance, isolated examples and explicit boundaries for the NHS confirmation-page pattern.
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 ---
 
 # Confirm completed household tasks
@@ -36,7 +40,7 @@ Home Assistant may accept a request before an integration reports a device chang
 
 ## Handle an uncertain result
 
-When the connection drops, say what is known and what is not. Preserve the draft where possible. A timeout can mean that the result is unknown rather than that nothing happened. Before retrying a non-idempotent action, help the person inspect the current state or existing record.
+When the connection drops, say what is known and what is not. The example therefore says “The save could not be confirmed”, rather than claiming the schedule was not saved. Preserve the draft where possible. A timeout can mean that the result is unknown rather than that nothing happened. Before retrying a non-idempotent action, help the person inspect the current state or existing record.
 
 <%= example('nhs-confirmation-not-saved') %>
 

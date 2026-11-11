@@ -33,6 +33,7 @@
 <main class="technical-documentation c-content" id="main-content" tabindex="-1">
 <nav class="c-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="<%= docs_path('/index.html') %>">Home</a></li><% if section && '/' + current_page.destination_path != section.path %><li><a href="<%= docs_path(section.path) %>"><%= section.title %></a></li><% end %><li><%= escape(current_page.data.title) %></li></ol></nav>
 <%= yield %>
+<%= partial 'partials/component_family' %>
 <%= partial 'partials/history' %>
 <div class="c-contribute"><h2>Help improve this guidance</h2><p>Review responsibility: the civica.uk repository maintainers. Follow the <a href="<%= docs_path('/content/content-review.html') %>">content review process</a> when changing this guidance.</p><p><a href="https://github.com/nathcymru/HA-Theme-gov.uk/issues/new">Report an issue or suggest a change</a>. Include the page, the task you were trying to complete and what happened. Do not include household credentials or private sensor data.</p><p><a href="https://github.com/nathcymru/HA-Theme-gov.uk/blob/main/docs/source/<%= current_page.source_file.sub(root + '/source/', '') %>">View this page’s source</a></p></div>
 </main></div><% end %>

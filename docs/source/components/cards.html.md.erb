@@ -1,62 +1,164 @@
 ---
-title: "Cards"
-description: "Cards for the civica.uk Home Assistant design system."
+title: Cards
+description: Complete navigation, image, information and device cards with accessible layouts and truthful household states.
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: Recorded the preserved runtime lighting-card alias separately from the expanded HTML reference examples.
+  - date: 2026-11-11
+    description: Rebuilt the guide with fourteen complete card examples, original image assets, responsive groups and explicit pending, unknown, unavailable and missing-image states.
+  - date: 2026-11-11
+    description: Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild.
+  - date: 2026-11-11
+    description: First published in the civica.uk design system.
 ---
 
 # Cards
 
-Use a card to group related information and actions. A card has a meaningful heading, useful content and a clear relationship between state and control.
+A card groups one useful subject: a room destination, a device and its controls, a reading, or a message that needs attention. Give it enough information to understand the subject and its state. A border, heading and unfinished button are not a complete card.
 
+These are reference examples for component authors. Every household value and room is invented. Links open complete local sections; preview buttons only show local feedback. The examples do not install new Home Assistant cards, grant permissions or send device commands.
 
-## Examples
+## Preserve the installed lighting-card name
 
-These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
+The examples above are reference HTML. The maintained runtime lighting card is registered as `civica-house-lighting-card`; existing dashboards using `govuk-house-lighting-card` continue to use the compatibility alias. The distributed legacy bundle filename also remains supported. Do not replace saved element names with redirects or remove the alias while reorganising this documentation.
+
+Use civica.uk for the public identity and follow the [compatibility record](../get-started/compatibility.html) for tested native and custom-card boundaries. Retaining an internal name does not permit official GOV.UK artwork or branding.
+
+## Choose the card by its job
+
+| Card | Use it for | Interaction |
+| --- | --- | --- |
+| Navigation | Open a named room, guide or collection | One clear heading link |
+| Information | Read a value or a concise summary | Usually no action |
+| Device action | Inspect a device or explicit group and request a supported change | Separate buttons and detail links |
+| Image card | Help recognise a room, device or explanatory relationship | The image supplements the same navigation or information contract |
+| Status | Understand pending, unknown, unavailable or partially known state | A supported next step, or an explained disabled control |
+| Chart | Inspect a trend with units and period context | Use the separate [chart component](charts.html) and its data alternative |
+
+A short list is often better than a card for every item. Do not use cards to box every paragraph in a long guide, turn every sensor into a competing headline or add a dark border around an already grouped control. For larger collections, follow the [hub pattern](../patterns/hub.html).
+
+## A navigation card needs a useful destination
+
+Keep the card heading and destination consistent. This example opens an actual local Kitchen overview containing named readings, an observation time and an explanation of its scope. Only the heading link is interactive. There is no whole-card anchor, hidden action or pointer-only click handler.
 
 <%= example('nhs-card-navigation') %>
 
-<%= example('local-card-actions') %>
+If a card needs several links or a device button, each control remains separately focusable. Do not stretch a link over those controls. Preserve ordinary link behaviour, keyboard activation, visible focus and the browser’s navigation functions.
+
+## An information card can be complete without a button
+
+A reading needs its quantity, unit, source and observation time. An information card does not need a pretend “Preview” or “Reset” action to look finished. The measured room temperature remains distinct from a heating target.
 
 <%= example('nhs-card-information') %>
 
+Use the device’s actual precision, native number and time preferences, and source timestamp in production. Fixed documentation examples name their synthetic date and zone so they remain understandable when copied or opened later.
 
-## Choose the right card
+## A device card separates request and state
 
-| Type | Purpose | Example |
-| --- | --- | --- |
-| Navigation card | Open a destination | Kitchen overview |
-| Device card | Inspect and control one device or coherent group | Living room lights |
-| Information card | Show a reading or summary | Indoor temperature |
-| Chart card | Show a useful trend with context | Electricity use today |
-| Status card | Explain a problem or important condition | Front door unavailable |
+Show the last reported state before the action. Give the button a meaningful request label, keep device details separately reachable, and offer only supported capabilities. A group action must resolve the actual eligible members; a shared room label does not prove group membership.
 
-## Interaction
+<%= example('local-card-actions') %>
 
-A navigation card can have one clear heading link. A card with several actions must not be wrapped in one large link. Keep separate controls separately focusable and avoid nested interactive elements.
+The preview button reports a local acknowledgement and deliberately leaves the stated observations unchanged. In a connected component, request acceptance is not proof of a physical result. Recheck capability and permissions, prevent duplicate submissions while pending, and show an appropriate rejected or uncertain outcome. Keep native control behaviour and the existing lighting safety exclusions.
 
-Use the same heading alignment, padding, border and surface tokens across maintained cards. Do not give every sensor a different accent colour.
+## Cards with images
 
-## Visual hierarchy
+An image can help identify a room or device or explain a useful spatial relationship. Keep the title, state, controls and explanatory text outside the image. Do not rely on a dark overlay to make essential text readable, crop away identifying detail or imply that an illustration is a live camera frame.
 
-Use a quiet 1px structural edge where an outer boundary is needed. Separate internal groups with space and headings before adding another rule. A sensor reading, section title or status line does not need an ink box. Preserve stronger boundaries on actual inputs and clear focus on every action. See the [border roles](../styles/layout.html#surfaces-and-borders).
+The new artwork is original, flat SVG geometry with a recorded purpose, licence and alternative-text decision. It uses an explicitly illustrated Civic Cobalt canvas; the surrounding interface uses the shared documentation colour and typography roles. The artwork does not encode live state or change supplied civica.uk brand assets.
 
-Repeated actions should have a clear hierarchy: one main action for the current task, quieter secondary actions and visible text for their meaning. Removing a heavy outline must not make a button indistinguishable from static text. Keep the existing floor plan's room hit regions and state labels independent of the decorative card edge.
+### Image above a room destination
 
-The maintained lighting card uses 15px content gutters on small screens and 20px above 640px, with 15px separation around room rows. Scene actions use the secondary button treatment and labelled native icons; the scene group does not add another heavy vertical inset rule. These are bounded density choices for this card, not global overrides of every native HA layout.
+The kitchen illustration supports recognition. Its heading remains the only navigation target, and the destination includes useful room context. A real installation may use a cleared household photograph instead, with an appropriate privacy decision and the same readable text structure.
 
-## Images and values
+<%= example('card-image-room') %>
 
-Room photos and device artwork may help identification. Keep text readable outside the image. Always show units and the meaning of a numeric value. An isolated “23” is not a useful sensor summary.
+### Device artwork with independent controls
 
-## Responsive layout
+The lamp drawing identifies the example object; it does not glow or change colour to announce a state. The written reported state and time remain authoritative. The button and details link are independent controls.
 
-Allow the content to determine height. Cards can stack in a single column. A long device name must wrap without hiding its state or pushing controls outside the card.
+<%= example('card-image-device') %>
 
-## Source and local decisions
+### Image beside the content
 
-[NHS cards](https://service-manual.nhs.uk/design-system/components/card) support grouped content, imagery and actions and warn against wrapping an entire card in an anchor. [MoJ cards](https://design-patterns.service.justice.gov.uk/components/card/) inform simple dashboard links, but are currently experimental. Home Assistant device cards are a local extension with additional interaction states.
+Use a horizontal arrangement only when there is enough width for both the image and full text. This specimen stacks in the same source order on a small screen. Its sensor marker explains an invented location rather than a measurement or a hazard.
 
-## Choosing and testing variants
+<%= example('card-horizontal-guide') %>
 
-Use the navigation-card example for one destination and the action-card example where a device has independent controls. Keep a single meaningful heading. Do not make the whole action card clickable or put a button inside a link. Check long names, missing values and disabled actions at 320px and with enlarged text. A quiet structural edge groups content; it does not supply a control’s accessible name or current state.
+### Image with a measured value
+
+An image may help identify which sensor produced a reading, but it cannot replace the measurement, unit or time. Keep the complete alternative in text. The blue marker in this example identifies a location; it is not a status scale.
+
+<%= example('card-image-information') %>
+
+### Missing image
+
+Do not remove a card’s heading, state or destination because its image is absent. Omit a failed decorative image. Where an image carries necessary information, retain the same information in text and give a concise explanation of the missing media.
+
+This specimen intentionally contains no broken image URL. It demonstrates the authored missing-image state and keeps its local destination working without JavaScript. A production component must connect that state to its actual image-loading outcome.
+
+<%= example('card-image-missing') %>
+
+## Pending and missing states are complete variants
+
+### Request accepted, result not confirmed
+
+Keep the accepted request and the earlier observation separate. Explain why the action is temporarily unavailable. Do not silently advance the state to On or say the request failed because a newer observation has not arrived. A static example must not imply that it will finish after an invented delay.
+
+<%= example('card-device-pending') %>
+
+### Entity unavailable
+
+Keep the device identity and a useful details route. If an earlier state is retained, label it with its date and make clear that it is not current. The disabled control in this specimen is explained in ordinary text; unavailable does not mean off, offline or safe.
+
+<%= example('card-device-unavailable') %>
+
+### No usable reading supplied
+
+Unknown differs from unavailable. If the integration has never supplied a usable value or observation time, say so. Do not manufacture a zero, percentage or freshness timestamp to fill the card.
+
+<%= example('card-unknown-reading') %>
+
+### Part of a group is unavailable
+
+A group summary must account for every configured member within its stated scope. Do not remove an unavailable light from the denominator and then describe the remaining lights as the whole group. This specimen names the two reported Off members and the unavailable third member separately.
+
+<%= example('card-group-partial') %>
+
+## Responsive groups and long names
+
+Use a semantic list for related cards and retain a useful reading order. Let each card grow with its content. Do not truncate a device name, reduce its text size or hide a status merely to align card bottoms. Separate groups with headings and space before adding more borders.
+
+<%= example('card-responsive-group') %>
+
+A user-supplied name may contain several words, punctuation or another language. Preserve it. This specimen keeps a long household name, reported state and details route visible without a fixed height or hover-only expansion.
+
+<%= example('card-long-name') %>
+
+## Visual and accessibility contract
+
+Use a quiet 1px structural edge, square card corners and the shared surface role. Content gutters are 20px in these reference specimens; groups use responsive gaps. Inputs keep their stronger boundaries and every interactive element keeps visible focus. The card boundary is not a substitute for a labelled button or field.
+
+Use an appropriate heading level in the containing page. Each specimen supplies its own heading and complete content. Meaningful images need useful alternatives; repeated decorative images can have empty alt text when adjacent wording carries the full meaning. Do not make images extra keyboard stops for the same destination.
+
+The maintained lighting card has its own bounded density adaptation: 15px content gutters on small screens and 20px above 640px. Its scene actions use labelled native icons and secondary-button styling. These choices do not authorise global changes to native Home Assistant control geometry or typography.
+
+## Acceptance checks
+
+- Read the title, state, unit and time without the image or colour cues.
+- Follow every destination and confirm that the promised content exists.
+- Use each control by keyboard; ensure that no interactive element is nested inside another.
+- Test a long name and explanatory text at 320 CSS pixels and enlarged text. Cards should grow and groups should stack without clipping controls.
+- Test known, unknown, unavailable, pending, rejected and partially known results. Keep physical outcomes separate from accepted requests.
+- Test absent imagery without losing the card’s useful content or exposing a deliberately broken placeholder.
+- In a connected implementation, verify the actual integration’s capabilities, permissions, eligible targets and native details route. The documentation examples cannot prove these live behaviours.
+
+## Sources, artwork and local decisions
+
+The current [NHS card guidance](https://service-manual.nhs.uk/design-system/components/card) describes primary and secondary prominence, clickable and non-clickable variants, images, separate actions and groups. It advises against wrapping the whole card in an anchor. civica adapts those principles using its own square surfaces, typography and household state contracts; no NHS identity or clinical care category is copied. All examples here are original household adaptations.
+
+Read the [illustration rules](../styles/illustration.html), [writing rules for states](../content/interface-copy.html), [numbers and data guidance](../content/numbers-and-data.html) and [quiet border roles](../styles/layout.html#surfaces-and-borders). Per-asset provenance is published in the [documentation artwork record](../reference/documentation-artwork.json). Existing example IDs are preserved so previously published links continue to resolve.

@@ -1,0 +1,82 @@
+---
+title: "Entity state, confidence and freshness"
+description: "Present device values, uncertainty and observation times without inventing missing information."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-001"
+contract_id: "HA-CTRL-001"
+source_url: "https://www.home-assistant.io/docs/configuration/state_object/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added entity state, confidence and freshness contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Entity state, confidence and freshness
+
+A person checking a room needs to know what the entity reports and whether that information answers the current question. Keep the entity name visible when its reading disappears. Confidence and freshness qualify a reading; they are not severity levels.
+
+**HA-CTRL-001 — reference design specification.** This specifies the local design coverage requested by HA-GAP-001 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-001-capabilities">Task and capability contract</h2>
+
+| Input from the integration | Local presentation contract |
+| --- | --- |
+| Entity ID, domain and supplied name | Bind updates to the stable ID; display the native formatted name and state. Do not rename an entity to make it fit. |
+| Unit and device class | Keep the correct quantity and unit. An icon supplements the name and never establishes capability. |
+| `assumed_state` | Qualify the state as assumed; do not present an optimistic command value as confirmation. |
+| Source observation time or documented reporting cadence | State exactly what the timestamp measures and how a freshness threshold was chosen. |
+| `last_changed`, `last_updated`, `last_reported` | These describe state bookkeeping, not a universal sensor heartbeat. Verify the integration's write behaviour before using one to assess freshness. |
+
+<h2 id="ha-ctrl-001-states">States, pending work and failure</h2>
+
+A valid numeric zero remains zero. `unknown` means no state value is known; `unavailable` means the entity cannot provide a state. An absent or `null` optional attribute does not invalidate other available values. Preserve non-numeric states rather than coercing every entity into a number.
+
+An unchanged temperature can be valid for hours. Do not mark it stale from `last_changed` alone. Even `last_reported` depends on when the integration writes its state; it is not proof that every physical transmission reached Home Assistant. Where no freshness contract exists, show the available timestamp with its true label, or say that observation time is not provided.
+
+If an entity disappears from the current state collection, retain its configured identity in an error view. Distinguish a deleted entity from a temporary unavailable state only when registry evidence establishes deletion.
+
+<h2 id="ha-ctrl-001-content">Content and interpretation</h2>
+
+Put the reading before secondary diagnostics. Use “Last reading: 12.5 °C, observed at…” for retained data, and “Assumed on” for an unconfirmed actuator. Do not turn either into “Safe”, “Working” or “Offline”. Format dynamic numbers and timestamps using the person's Home Assistant preferences; these fixed examples state their own time zone.
+
+<h2 id="ha-ctrl-001-accessibility">Accessibility and interaction</h2>
+
+Use text for every missing or confidence state. Keep status updates polite and announce a meaningful transition, not every periodic sample. Preserve focus while the value changes. At 320px and 200% text size, the name, qualification, sign and unit must remain available without hover. In forced colours, the state words must still distinguish all cases.
+
+<h2 id="ha-ctrl-001-integration">Native integration boundary</h2>
+
+Read the native state object and its domain formatting; do not create substitute entities or intercept subscriptions to manufacture a heartbeat. A dedicated confidence badge is a proposed presentation recipe, not a runtime feature installed by this page. Existing native More info remains the detailed route. Any future adapter must remove its presentation cleanly when the theme is changed and must never write back a displayed fallback value.
+
+<h2 id="ha-ctrl-001-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-state-zero') %>
+
+<%= example('ha-state-missing') %>
+
+<%= example('ha-state-assumed') %>
+
+<h2 id="ha-ctrl-001-acceptance">Acceptance and evidence</h2>
+
+1. Use fixtures for valid 0, negative readings, unknown, unavailable, assumed state, absent attribute and explicit null; compare both visible text and accessible names.
+2. Hold a value constant while reports arrive, and stop reports under a documented cadence. Only the second case may become stale. Test integrations that do not rewrite unchanged states.
+3. Remove and restore the entity during an open details view. Preserve identity and focus; do not resurrect an older value as current.
+4. Check long names, native locale, a repeated daylight-saving hour, dark mode and forced colours. Record source review separately from connected-device verification.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-001-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [State and state object](https://www.home-assistant.io/docs/configuration/state_object/)
+
+Applicable frozen rules: [BG-COL-05](../styles/brand-colour.html#bg-col-05), [BG-DAT-04](../styles/brand-data.html#bg-dat-04), [WG-011](../content/voice-and-language.html#wg-011), [WG-031](../content/interface-copy.html#wg-031), [WG-033](../content/interface-copy.html#wg-033), [WG-076](../content/numbers-and-data.html#wg-076). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

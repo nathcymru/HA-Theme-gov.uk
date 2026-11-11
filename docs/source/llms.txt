@@ -75,8 +75,11 @@ Reference catalogue coverage does not mean those components have replaced native
 - [Brand colour](styles/brand-colour.html), [brand typography](styles/brand-typography.html), [data communication](styles/brand-data.html), [illustration](styles/illustration.html): selected GOV.UK Brand guidance adapted to civica.uk; local rule IDs and explicit exclusions.
 - [Writing guide](content/index.html): bespoke household content rules, with examples and source decisions.
 - [Brand rules and evidence](reference/brand-guidance.json), [writing rules and evidence](reference/writing-guide.json): machine-readable rules and source coverage.
-- [Work-package checklist](community/guidance-work-package.html): phases, evidence and review loops; completed audit does not mean all findings are remediated.
+- [Work-package checklist](community/guidance-work-package.html): original review and follow-up remediation phases, evidence and repeatable checks.
 - [Whole-system audit](community/design-system-audit.html) and [audit data](reference/design-system-audit.json): evidence, affected rules, priorities and acceptance criteria.
-- [Component organisation](community/component-audit.html) and [missing Home Assistant specifications](community/missing-components.html): proposals with stable URLs and native capability boundaries.
+- [Component organisation](community/component-audit.html) and [Home Assistant specification coverage](community/missing-components.html): shared owners, 30 dedicated native-task specifications, stable URLs and implementation boundaries.
 
 Apply MUST rules to their stated scope. SHOULD rules allow an evidenced exception. Do not treat audit proposals as implemented features or infer live Home Assistant verification from documentation checks.
+
+- [Native controls and flows](home-assistant/index.html): state/capability contracts, complete synthetic examples and integration acceptance for all 30 identified design gaps.
+- [Compatibility register](home-assistant/compatibility-register.html): exact maintained adapters and native fallback.

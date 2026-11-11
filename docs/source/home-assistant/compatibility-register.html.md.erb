@@ -1,0 +1,99 @@
+---
+title: "Compatibility register and native fallback"
+description: "Complete design specification for compatibility register and native fallback, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-030
+source_url: https://www.home-assistant.io/integrations/frontend/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated compatibility register and native fallback specification and three complete synthetic examples."
+---
+
+# Compatibility register and native fallback
+
+Every compatibility claim needs a scope, version context, evidence type and usable fallback. Theme variables, exact presentation adapters, custom components and documentation specimens are different kinds of support. Matching colours alone do not prove a native task is supported.
+
+## Scope and native ownership
+
+Home Assistant supports theme variables and extra frontend modules, while custom cards have a separate API. Private native structures are not public compatibility promises. The register below describes the current repository’s explicit targets and separates inspected source from historical executed evidence. [Official Home Assistant source](https://www.home-assistant.io/integrations/frontend/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-030**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Token-only coverage | State which public variables the component consumes. | Do not promise access to a closed or private root. |
+| Exact adapter supported | Name host, owned changes, evidence and cleanup. | Do not extend an exact selector to all similar cards. |
+| Target changed / absent | Preserve native interface and surface-specific fallback. | Do not delete controls or throw into the host lifecycle. |
+| Default theme / recovery | Remove owned presentation and preserve current native values. | Do not restore stale user data or hide native diagnostics. |
+| Reference example | Label synthetic behaviour and integration requirements. | A working local form is not a connected Home Assistant component. |
+
+## Integration contract
+
+1. For every new adapter, record repository version/commit, Core/frontend and custom-card versions, exact host/engine, discovery boundary, owned styles/attributes and restoration rules.
+2. Separate source review, automated fixture execution, manual browser interaction and live installation evidence. An inspected development commit is not the installed frontend.
+3. Use bounded discovery and avoid browser-prototype patches. Repeated imports, node replacement, navigation and changing theme must not accumulate observers, listeners or duplicate controls.
+4. On removal, restore only values still owned by the adapter. Preserve later native updates and the latest source data; never write .storage or dashboard configuration to repair a presentation failure.
+
+## Accessible interaction
+
+- Fallback must retain accessible native controls, names, focus and diagnostics. A source-shape fixture pass does not cover a newly changed private structure.
+- Check both light/dark and forced colours for owned elements, then assess the actual surrounding native component.
+- Document unsupported interactions and closed roots plainly. Do not make a native component appear available while masking its rejection or missing capability.
+
+## Failure and recovery
+
+- If Profile insertion is unavailable, retain the native theme dropdown and documented standalone settings card.
+- If an Energy renderer is absent, disposed or unsupported, remove owned plot/table presentation and retain the native route; do not synthesize readings.
+- If a custom card changes structure, remove the exact compatibility sheet rather than broadening selectors to unrelated descendants.
+
+## Current implementation register
+
+| Surface and exact boundary | Coverage and ownership | Evidence and fallback |
+| --- | --- | --- |
+| Native theme variables | Generated civica themes; component consumes supported tokens | Palette/unit checks; unsupported private variables retain native behaviour |
+| `ha-pick-theme-row` | Companion adds palette/tone controls; native theme event/persistence remain authoritative | Theme-settings fixture; native dropdown and standalone `custom:civica-theme-settings` fallback |
+| `ha-sidebar` | Supplied identity, icon contrast and numeric MOJ-derived attention badge | Theme/badge fixtures; restore owned attributes and disconnect observer when inactive |
+| `hass-subpage`, `ha-top-app-bar-fixed` | Scoped toolbar icon/focus contrast | Nested native-shaped fixture; no replacement of toolbar actions |
+| `pa-appliance-card`, `home-next-collection-card`, `pa-gas-safety-card` | Exact adopted presentation sheets only | Legacy-card fixture; card data, permissions, actions and native markup remain authoritative |
+| `ha-panel-energy` and seven supported Cartesian hosts | Existing ECharts presentation, stable colours, signed Power view and read-only values table | Real-renderer/source-shape fixtures; restore owned options and retain native data when unsupported |
+| `custom:civica-action-links` | Maintained real local anchors and existing fragment destinations | Action-link fixture; no device commands or invented destinations |
+| `custom:civica-house-lighting-card` | Maintained light summary/control card and bounded native more-info scene presentation | Lighting fixture; supported service capabilities, reserved ownership and native dialog lifecycle remain explicit |
+| History, native Energy distribution, Map, authentication, arbitrary third-party cards | No Energy/private-brand adapter claim for these families | Native behaviour and supported public tokens; separate task-specific live acceptance |
+
+The exact Energy hosts are `hui-power-sources-graph-card`, `hui-energy-usage-graph-card`, `hui-energy-solar-graph-card`, `hui-energy-gas-graph-card`, `hui-energy-water-graph-card`, `hui-energy-devices-graph-card` and `hui-energy-devices-detail-graph-card`. The native Energy distribution diagram is not an ONS Sankey. History and non-ECharts/custom renderers do not gain the Energy values table through this adapter.
+
+Read [the installation compatibility contract](../get-started/compatibility.html), [chart specification](../components/charts.html), [card presentation](../components/cards.html) and [native task matrix](native-task-accessibility.html) alongside the register. Repository implementation evidence is in [the companion](https://github.com/nathcymru/HA-Theme-gov.uk/blob/main/ui/src/civica-ui.ts), [Energy adapter](https://github.com/nathcymru/HA-Theme-gov.uk/blob/main/ui/src/energy-charts.ts) and [lighting card](https://github.com/nathcymru/HA-Theme-gov.uk/tree/main/card/src). Mutable source links describe current ownership; record an immutable commit with each executed test.
+
+## Versioned evidence boundary
+
+The Energy source contract explicitly identifies frontend **20261028.5**. The [published fc393e4 verification record](https://github.com/nathcymru/HA-Theme-gov.uk/blob/fc393e49205926b753d1c531358c5e627c9c2af6/VERIFICATION.md) distinguishes historical fixture checks from release-specific live observations. The [published 531-check browser run](https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43103696048) covers that documentation/fixture revision; it does not certify this expanded specification or an uninspected installation. Current official documentation was reviewed on 11 November 2026; that source review is a separate evidence type.
+
+A compatibility release record must name the actual Core/frontend/browser and every relevant custom-card version, the tasks/states executed, the theme context, result, artifacts, unresolved limits and rollback preconditions. Until those fields are completed, keep a new installation or changed private host **not tested**.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-030-supported') %>
+
+<%= example('ha-flow-030-unsupported') %>
+
+<%= example('ha-flow-030-cleanup') %>
+
+## Integration acceptance
+
+- Verify mount/unmount, duplicate imports, native node replacement, safe/recovery mode and default-theme restoration for every supported adapter.
+- Check the installed release and component versions before upgrading a compatibility claim from source-inspected to tested.
+- Every new claimed family has a versioned evidence row and fallback; unsupported families remain explicit.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-COL-04](../styles/brand-colour.html#bg-col-04), [BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [WG-002](../content/index.html#wg-002), [WG-004](../content/index.html#wg-004), [WG-052](../content/instructions-and-learning.html#wg-052), [WG-086](../content/accessible-content.html#wg-086), [WG-095](../content/content-review.html#wg-095).

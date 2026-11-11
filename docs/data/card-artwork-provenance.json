@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-11",
+  "source_guidance": "https://service-manual.nhs.uk/design-system/components/card",
+  "scope": "Original documentation artwork only. No supplied civica brand assets are changed and no actual household imagery is published.",
+  "assets": [
+    {
+      "path": "docs/source/images/card-kitchen.svg",
+      "sha256": "b09c41ecd9a301478e12b7510beb6a9c74f18a73ff07fe15e186f37474622593",
+      "creator": "civica.uk project; Codex-assisted original SVG markup",
+      "created_on": "2026-11-11",
+      "licence": "MIT, original project documentation code under LICENSE",
+      "provenance": "New original geometric vector artwork authored in this repository; no external illustration, photograph, logo, identity path or font copied.",
+      "purpose": "Identify an invented kitchen in a room-navigation specimen.",
+      "intended_background": "Fixed Civic Cobalt illustration palette on a light #F3F6F9 canvas; surrounding text and card use documentation semantic tokens.",
+      "alternative_text_decision": "Informative where the room illustration helps identification; empty alt in the grouped variant where the complete room destination already carries the meaning.",
+      "review_status": "XML/viewBox and metadata checked; rendered image and responsive-card review recorded separately by release acceptance."
+    },
+    {
+      "path": "docs/source/images/card-reading-lamp.svg",
+      "sha256": "f8a6bc789016d58327b5d2417e1a65b758af17138c7cfb8de42118e6fc427fe6",
+      "creator": "civica.uk project; Codex-assisted original SVG markup",
+      "created_on": "2026-11-11",
+      "licence": "MIT, original project documentation code under LICENSE",
+      "provenance": "New original geometric vector artwork authored in this repository; no external illustration, photograph, logo, identity path or font copied.",
+      "purpose": "Identify an invented lamp in a device-control or room-guide specimen.",
+      "intended_background": "Fixed Civic Cobalt illustration palette on a light #F3F6F9 canvas; surrounding text and card use documentation semantic tokens.",
+      "alternative_text_decision": "Informative device depiction; explicitly does not encode whether the lamp is on. Empty alt in redundant grouped navigation.",
+      "review_status": "XML/viewBox and metadata checked; rendered image and responsive-card review recorded separately by release acceptance."
+    },
+    {
+      "path": "docs/source/images/card-room-schematic.svg",
+      "sha256": "d4209d9e24bf04e75ae55fef1cbdf28ce0d89ed1a53e2bc2b01134ec9d028a34",
+      "creator": "civica.uk project; Codex-assisted original SVG markup",
+      "created_on": "2026-11-11",
+      "licence": "MIT, original project documentation code under LICENSE",
+      "provenance": "New original geometric vector artwork authored in this repository; no external illustration, photograph, logo, identity path or font copied.",
+      "purpose": "Explain the relative room and sensor location in a fictional spatial diagram.",
+      "intended_background": "Fixed Civic Cobalt illustration palette on a light #F3F6F9 canvas; surrounding text and card use documentation semantic tokens.",
+      "alternative_text_decision": "Informative alternative describes right-hand room and sensor marker; full spatial meaning remains in adjacent text. Empty alt in redundant grouped navigation.",
+      "review_status": "XML/viewBox and metadata checked; rendered image and responsive-card review recorded separately by release acceptance."
+    }
+  ]
+}

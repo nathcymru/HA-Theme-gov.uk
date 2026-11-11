@@ -1,6 +1,6 @@
 ---
 title: "Component organisation review"
-description: "A complete component ownership map and proposed consolidation that preserves published URLs and native Home Assistant behaviour."
+description: "A complete component ownership map and shared ownership that preserves published URLs and native Home Assistant behaviour."
 section: community
 group: Review
 status: reference
@@ -8,12 +8,14 @@ published_on: 2026-11-11
 updated_on: 2026-11-11
 updates:
   - date: 2026-11-11
+    description: "Implemented canonical owners, reciprocal family navigation and preserved route relationships."
+  - date: 2026-11-11
     description: "Inventoried the existing component catalogue and proposed shared owners after reviewing the frozen brand and writing rules."
 ---
 
 # Component organisation review
 
-Keep one main guide for each shared behaviour, retain useful variants and preserve every published URL. This review proposes an organisation for the catalogue. It does not merge pages, add redirects or change Home Assistant.
+Keep one main guide for each shared behaviour, retain useful variants and preserve every published URL. The catalogue now uses the shared owners below. Related guides link to their owner and retain their own source context, complete examples and stable URL.
 
 The baseline contains **147 guides and 263 examples**, including **68 component pages**: 57 in the main component section and 11 in the publishing section. The new brand and writing chapters are additional review standards, not retroactive additions to that baseline. The [whole-system audit](design-system-audit.html) records the wider final review.
 
@@ -27,7 +29,7 @@ The baseline contains **147 guides and 263 examples**, including **68 component 
 | 130 official catalogue entries | 37 GOV.UK components, 38 NHS components, 13 NHS patterns and 42 publishing components, patterns and templates |
 | 28 shared GOV.UK and NHS routes | Two source entries already point to one local page; these are not duplicate local implementations |
 | 68 component pages | Existing component URLs reviewed individually |
-| 58 proposed main guides for those components | A maintenance owner for shared rules; distinct interaction variants remain documented |
+| 58 main guides for those components | A maintenance owner for shared rules; distinct interaction variants remain documented |
 | 263 examples | Inspectable documentation specimens, with every example linked to an owning guide and its other references |
 
 The machine-readable [organisation record](../reference/component-rationalisation.json) also maps all 147 baseline guides and all 130 source entries. Its 108 owners across the whole guide set include patterns, foundations and governance pages. That number is not a count of installed components.
@@ -36,15 +38,16 @@ The machine-readable [organisation record](../reference/component-rationalisatio
 
 **Components** define a repeatable interaction or presentation: a button, field, breadcrumb, status tag or table. **Patterns** combine components for a task, such as checking answers or recovering from a failed request. **Page templates** organise authored information, such as a guide, collection or finder. A publishing template does not install a backend or replace a native automation editor.
 
-Home Assistant has a further layer of native domain controls and task flows. A light colour picker, climate control, entity selector or schedule editor needs its own capability and state contract. The [missing-specification register](missing-components.html) records those gaps without describing existing native features as missing.
+Home Assistant has a further layer of native domain controls and task flows. A light colour picker, climate control, entity selector or schedule editor needs its own capability and state contract. The [missing-specification register](missing-components.html) links the 30 completed specifications without describing existing native features as missing.
 
-## Proposed changes
+## Implemented organisation
 
-Each proposal has a stable identifier, evidence and acceptance criteria. Priorities describe the order of design work: **P1** protects task meaning, consequential actions or coverage claims; **P2** improves consistency and maintenance. These proposals remain open.
+Each proposal has a stable identifier, evidence and acceptance criteria. Priorities describe the order of design work: **P1** protects task meaning, consequential actions or coverage claims; **P2** improves consistency and maintenance. The original proposals and acceptance criteria remain below as a review record; each item links to its implemented resolution.
 
 <% audit['findings'].each do |finding| %>
 <h3 id="<%= escape(finding['id'].downcase) %>"><%= escape(finding['id']) %>: <%= escape(finding['title']) %></h3>
-<p><strong><%= escape(finding['priority']) %> · Proposal.</strong> <%= escape(finding['proposal']) %></p>
+<p><strong><%= escape(finding['priority']) %> · <%= escape(finding['status'].tr('-', ' ')) %>.</strong> <%= escape(finding['proposal']) %></p>
+<% if finding['resolution'] %><p><strong>Resolution:</strong> <%= escape(finding['resolution']['summary']) %></p><% end %>
 <p>Affected guides: <% finding['surfaces'].each_with_index do |url, index| %><%= ', ' unless index.zero? %><a href="<%= docs_path(url) %>"><%= escape(pages_by_url.fetch(url)['title']) %></a><% end %>.</p>
 <ul><% finding['acceptanceCriteria'].each do |check| %><li><%= escape(check) %></li><% end %></ul>
 <p>Rule dependencies: <% finding['ruleDependencies'].each_with_index do |rule, index| %><%= ', ' unless index.zero? %><a href="<%= docs_path(rule['localPath']) %>"><%= escape(rule['id']) %></a><% end %>.</p>
@@ -52,7 +55,7 @@ Each proposal has a stable identifier, evidence and acceptance criteria. Priorit
 
 ## Complete component map
 
-Every existing component URL appears once below. “Main guide” identifies the proposed owner of shared rules. A variant page retains its own context, examples, source attribution and URL. Similar appearance alone is not a reason to merge behaviours.
+Every existing component URL appears once below. “Main guide” identifies the owner of shared rules. A variant page retains its own context, examples, source attribution and URL. Similar appearance alone is not a reason to merge behaviours.
 
 <table>
 <caption>Ownership of all 68 baseline component pages</caption>
@@ -66,7 +69,7 @@ Every existing component URL appears once below. “Main guide” identifies the
 
 ## Preserve URLs and distinct behaviour
 
-The 39 proposed route relationships across the whole guide set keep their existing pages. A future consolidation needs a separate content and fragment review, retained source attribution and an explicit migration decision. No redirect is currently proposed as an immediate implementation step.
+The 39 route relationships across the whole guide set keep their existing pages. The shared family navigation points directly to each owner and related variant. No route or fragment is removed; a future redirect still requires an explicit equivalence and migration review.
 
 Keep the withdrawn NHS review-date page as a source record and distinguish its editorial review schedule from actual publication history. Keep the legacy lighting-card registration as a runtime compatibility alias: changing a guide's owner must not break saved dashboards.
 
@@ -74,7 +77,7 @@ An accordion remains different from a single details disclosure. A chapter link 
 
 ## Record a decision
 
-These existing local examples show how to record an issue and a bounded design decision. They do not apply any of the proposals above.
+These existing local examples show how to record an issue and a bounded design decision. They show how to maintain the evidence when a shared contract changes.
 
 <%= example('local-community-issue') %>
 
@@ -86,4 +89,4 @@ This requirements and taxonomy review read the existing guides, their example re
 
 The [audit checklist](../reference/component-audit-checklist.json) records five repeatable loops: inventory; requirements; frozen-rule review; URL-preserving proposals; evidence and handoff. Repeat the affected loop when a source, component, rule or coverage claim changes.
 
-No build, live Home Assistant inspection, device command or interface change was performed by this reviewer. Source review establishes the proposed scope and evidence; rendered checks, assistive-technology use and live acceptance remain separate records.
+The original taxonomy review was a source inspection. The subsequent implementation adds canonical guidance and family navigation, with build and rendered-browser evidence recorded in the [work package](guidance-work-package.html). Native assistive-technology use and physical device acceptance remain separate checks.

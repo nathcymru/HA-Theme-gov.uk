@@ -1,0 +1,81 @@
+---
+title: "Continuous controls and alternatives"
+description: "Specify sliders, numeric inputs and visible alternatives to gesture-only actions."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-003"
+contract_id: "HA-CTRL-003"
+source_url: "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/components/ha-control-slider.ts"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added continuous controls and alternatives contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Continuous controls and alternatives
+
+Use continuous controls when a person needs to adjust a meaningful range. Preserve the native control when it already supplies the right keyboard, touch and accessible-value behaviour. A decorative dial is not a substitute for a usable input.
+
+**HA-CTRL-003 — reference design specification.** This specifies the local design coverage requested by HA-GAP-003 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-003-capabilities">Task and capability contract</h2>
+
+| Domain input | Contract |
+| --- | --- |
+| Minimum, maximum and step | Use the integration's range and increments; allow decimal steps. Do not reuse a brightness percentage range for temperature or position. |
+| Current value versus draft | Label the draft separately until the native contract confirms the change. |
+| Unit and format | Give a visible unit and a meaningful accessible value, such as “19.5 degrees Celsius”, not an unlabelled number. |
+| Commit behaviour | Decide from the native component whether changes are sent while dragging or on commit. Do not add a second subscription that duplicates requests. |
+| Essential hold/double-tap action | Provide an ordinary visible control or native details route to the same task. |
+
+<h2 id="ha-ctrl-003-states">States, pending work and failure</h2>
+
+Retain valid minimum and maximum values; do not use a minimum to stand for unknown. When a value is missing, replace the active numeric interaction with an explicit explanation and retain the device name. If the integration changes its supported range while a person edits, preserve the draft for review and explain the new constraint rather than silently sending a clamped value.
+
+For rapidly updating controls, distinguish a local draft from incoming reported values. Do not fight the pointer by resetting the thumb on every unrelated update. A failed commit must show the latest reported value and the unsent or unconfirmed draft honestly. A physical switch changing the value during an edit requires reconciliation, not a claim that the local draft won.
+
+<h2 id="ha-ctrl-003-content">Content and interpretation</h2>
+
+Write “Brightness”, “Target temperature” or “Volume” with the device context. Use on/off words alongside switch state. Provide a number-entry or step-control route when precision matters and the integration supports it. Do not expose several equivalent inputs that silently disagree. The local percentage example updates only its draft; it is not a live dimmer.
+
+<h2 id="ha-ctrl-003-accessibility">Accessibility and interaction</h2>
+
+Check arrow, Home and End behaviour against the chosen native control; do not promise shortcuts that the actual component lacks. Keep visible focus, large touch targets and a label outside a moving thumb. Preserve a slider's semantic bounds and accessible value. At 320px, 200% text and forced colours, the label and current value must remain clear. Respect circular or pill geometry where it conveys the control; strong focus and input boundaries remain distinct from quiet card dividers.
+
+<h2 id="ha-ctrl-003-integration">Native integration boundary</h2>
+
+The native slider and card-action contracts are the starting point. The source review recorded `ha-control-slider` at frontend commit `b1164739c3a853a28ba1c425415e96a17eb6286e`; that review does not establish compatibility for every installed frontend. A new private adapter needs its own versioned tests. The HTML form examples demonstrate labels and constraints, not replacement Home Assistant components.
+
+<h2 id="ha-ctrl-003-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-control-range') %>
+
+<%= example('ha-control-precise') %>
+
+<%= example('ha-control-missing') %>
+
+<h2 id="ha-ctrl-003-acceptance">Acceptance and evidence</h2>
+
+1. Test a 0.5-unit step, a negative range and exact endpoints. Verify the accessible value and native formatted display agree.
+2. Use only a keyboard to adjust and reach any essential action configured for hold or double tap. Test touch without relying on hover.
+3. Load unknown and unavailable values; neither may announce a numeric minimum as a reading.
+4. Change capabilities and reported values during an edit. Check duplicate request prevention, error recovery, zoom and theme removal without overwriting native control behaviour.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-003-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Native slider source](https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/components/ha-control-slider.ts)
+- [Dashboard actions](https://www.home-assistant.io/dashboards/actions/)
+
+Applicable frozen rules: [BG-COL-04](../styles/brand-colour.html#bg-col-04), [BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [BG-TYP-05](../styles/brand-typography.html#bg-typ-05), [WG-030](../content/interface-copy.html#wg-030), [WG-034](../content/interface-copy.html#wg-034), [WG-063](../content/inclusive-content.html#wg-063), [WG-084](../content/accessible-content.html#wg-084). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

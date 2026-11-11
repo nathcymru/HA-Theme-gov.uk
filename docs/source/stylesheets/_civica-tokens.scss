@@ -1,0 +1,17 @@
+// Documentation roles match the maintained light-theme semantic contract.
+// Brand palettes and chart identities remain independent of these meanings.
+$civica-primary: #1d70b8;
+$civica-text: #0b0c0c;
+$civica-secondary-text: #505a5f;
+$civica-border: #cecece;
+$civica-success: #0f7a52;
+$civica-error: #ca3535;
+$govuk-functional-colours: (
+  "brand": $civica-primary,
+  "text": $civica-text,
+  "secondary-text": $civica-secondary-text,
+  "success": $civica-success,
+  "error": $civica-error,
+  "border": $civica-border,
+  "input-border": $civica-text
+);

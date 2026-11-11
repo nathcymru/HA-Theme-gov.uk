@@ -1,17 +1,19 @@
 ---
-title: "Header"
-description: "A header identifies the service and gives consistent access to its main destinations."
-section: "components"
-group: "Navigation"
-source_url: "https://service-manual.nhs.uk/design-system/components/header"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Header
+description: A header identifies the service and gives consistent access to its main destinations.
+section: components
+group: Navigation
+source_url: https://service-manual.nhs.uk/design-system/components/header
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed header guidance and 2 Home Assistant reference examples."
+    description: Established one header identity family with focused and service-navigation responsibilities kept distinct.
+  - date: 2026-11-11
+    description: Added NHS-informed header guidance and 2 Home Assistant reference examples.
 ---
 
 # Header
@@ -19,6 +21,12 @@ updates:
 A header identifies the service and gives consistent access to its main destinations.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## Identity and navigation have separate responsibilities
+
+This page owns the civica.uk header identity contract. Use the [generic-header variant](generic-header.html) for a focused identity and home link. Add [service navigation](service-navigation.html) only when the page needs several stable destinations; that component owns current-route and small-screen menu behaviour.
+
+All variants use supplied civica.uk artwork and the permitted local font stack. A source reference to a government or NHS header does not authorise its identity assets. A documentation header is not proof that a native login, account screen or onboarding flow has been redesigned. Preserve Home Assistant’s actual authentication and routing boundaries.
 
 ## When to use it
 

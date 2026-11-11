@@ -1,6 +1,6 @@
 ---
-title: "Accordion"
-description: "Let people inspect several related sections without losing the surrounding page."
+title: Accordion
+description: Let people inspect several related sections without losing the surrounding page.
 section: components
 group: Content presentation
 status: reference
@@ -8,12 +8,20 @@ published_on: 2026-11-11
 updated_on: 2026-11-11
 updates:
   - date: 2026-11-11
-    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+    description: Separated grouped accordion behaviour from native Details and expander presentation.
+  - date: 2026-11-11
+    description: Added the civica.uk guidance, contextual examples and implementation boundaries.
 ---
 
 # Accordion
 
 Let people inspect several related sections without losing the surrounding page.
+
+## Keep grouped behaviour distinct
+
+The [disclosure decision guide](details.html#choose-an-optional-disclosure) covers when to use Details, expanders or an accordion. This page owns the grouped enhanced interaction: section buttons, expanded-state announcements and show-all behaviour. Its readable unenhanced content differs from a browser’s native `details` control.
+
+Retain the upstream component’s one state owner. Do not add competing custom toggles or assume that a visual expander can replace the accordion script. Test both individual and show-all controls, and preserve all readable content when enhancement is unavailable.
 
 ## When to use
 

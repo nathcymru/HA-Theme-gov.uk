@@ -1,0 +1,674 @@
+{
+  "reviewed_on": "2026-11-11",
+  "reviewer": "theme_palettes; independent of original flow-guide author",
+  "baseline": {
+    "branch": "codex/complete-design-audit-fixes",
+    "head": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+    "working_tree": true
+  },
+  "scope": "All 15 flow guide bodies and 45 referenced example HTML records, read in full against the 101 frozen rule scopes. Static source review and bounded local HTML constraint probes; no build, styling acceptance, assistive-technology study or live HA verification.",
+  "rule_sets": [
+    {
+      "path": "docs/data/brand-guidance-inventory.json",
+      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "rule_count": 33
+    },
+    {
+      "path": "docs/data/writing-guide-inventory.json",
+      "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+      "rule_count": 68
+    }
+  ],
+  "primary_rechecks": [
+    {
+      "url": "https://www.home-assistant.io/dashboards/map/",
+      "reviewed_on": "2026-11-11"
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/media_player/",
+      "reviewed_on": "2026-11-11"
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/update/",
+      "reviewed_on": "2026-11-11"
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/todo/",
+      "reviewed_on": "2026-11-11"
+    },
+    {
+      "url": "https://www.home-assistant.io/common-tasks/general/backups/",
+      "reviewed_on": "2026-11-11"
+    },
+    {
+      "url": "https://www.home-assistant.io/dashboards/actions/",
+      "reviewed_on": "2026-11-11"
+    }
+  ],
+  "pages": [
+    {
+      "path": "docs/source/home-assistant/media-playback.html.md.erb",
+      "gap_id": "HA-GAP-016",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Preserves playback/output/input distinctions, unsupported seek and command confirmation. Three source-complete examples use local feedback only; volume draft now uses the shared range-target class.",
+      "example_ids": [
+        "ha-flow-016-playing",
+        "ha-flow-016-source",
+        "ha-flow-016-unavailable"
+      ],
+      "sha256_after": "c4934d9b9e0a92f7e72a7de2abf74745e7f67f354139f9914538e70715ded43e"
+    },
+    {
+      "path": "docs/source/home-assistant/maps-and-zones.html.md.erb",
+      "gap_id": "HA-GAP-017",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "findings_fixed",
+      "finding_ids": [
+        "AUD-FLOW-003",
+        "AUD-FLOW-008"
+      ],
+      "note": "Current official Map source confirms grouping, accuracy circles and panel lists. Zone editing remains configuration; privacy is presentation, not authorization. Synthetic radius constraints and an explicit disclosure choice are now enforced.",
+      "example_ids": [
+        "ha-flow-017-locations",
+        "ha-flow-017-zone",
+        "ha-flow-017-private"
+      ],
+      "sha256_after": "5a4c6820a135cb767ac79f7788b7f5ac62e0bb6edd78cfe13643312980b66b45"
+    },
+    {
+      "path": "docs/source/home-assistant/connection-and-recovery.html.md.erb",
+      "gap_id": "HA-GAP-018",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Connection, entity and authentication failures remain distinct; retained readings are dated and uncertain save outcomes are inspected before retry. All three links lead to complete local recovery explanations.",
+      "example_ids": [
+        "ha-flow-018-disconnected",
+        "ha-flow-018-entity",
+        "ha-flow-018-save"
+      ],
+      "sha256_after": "cffb597a742239019b055413f004af182f9fa4c1b0b1fbf4a03589b1c404069a"
+    },
+    {
+      "path": "docs/source/home-assistant/backup-and-restore.html.md.erb",
+      "gap_id": "HA-GAP-019",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "findings_fixed",
+      "finding_ids": [
+        "AUD-FLOW-004"
+      ],
+      "note": "Native contents and default encryption were checked against current official backup guidance. Local/remote copies, hashes and restore evidence remain distinct. Both example review statements must now be checked before local completion feedback.",
+      "example_ids": [
+        "ha-flow-019-destinations",
+        "ha-flow-019-restore",
+        "ha-flow-019-recovery"
+      ],
+      "sha256_after": "ae948d76defdd516c149f195a9af93cc356a96a6f86c7562c9c262dc22b48262"
+    },
+    {
+      "path": "docs/source/home-assistant/updates-and-repairs.html.md.erb",
+      "gap_id": "HA-GAP-020",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Official update source confirms off can mean a skipped release. Examples retain actual version names, missing progress and a real guidance route without invented install/cancel/repair actions.",
+      "example_ids": [
+        "ha-flow-020-skipped",
+        "ha-flow-020-progress",
+        "ha-flow-020-repair"
+      ],
+      "sha256_after": "15b6a3c076a2baf17e114eed6a27e20998f08d16bcba88ac4c6341ed6aecd92f"
+    },
+    {
+      "path": "docs/source/home-assistant/onboarding-and-sign-in.html.md.erb",
+      "gap_id": "HA-GAP-021",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Native owner creation, restore, discovery, configuration and reauthentication remain separate. No example collects secrets or navigates to a fake sign-in endpoint; all local destinations exist.",
+      "example_ids": [
+        "ha-flow-021-start",
+        "ha-flow-021-discovered",
+        "ha-flow-021-reauth"
+      ],
+      "sha256_after": "c6959e37aea9e3149bd9866c848b1afbbae10c8c9f1aab6a33a41b980e14cf41"
+    },
+    {
+      "path": "docs/source/home-assistant/dashboard-editing.html.md.erb",
+      "gap_id": "HA-GAP-022",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Configuration scope, invalid identifiers and saved versus draft values are explicit. Move review cannot operate a device and does not claim native keyboard reordering. Actual editor limitations remain acceptance work.",
+      "example_ids": [
+        "ha-flow-022-draft",
+        "ha-flow-022-move",
+        "ha-flow-022-invalid"
+      ],
+      "sha256_after": "63d3d84a6c2005eff252a4dccb48a9a418563a65ecfda68047c5753ec0dd95b8"
+    },
+    {
+      "path": "docs/source/home-assistant/locale-units-and-time.html.md.erb",
+      "gap_id": "HA-GAP-023",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "findings_fixed",
+      "finding_ids": [
+        "AUD-FLOW-002"
+      ],
+      "note": "Number formatting, date-only values and repeated-hour offsets preserve their data types. Corrected the to-do entity label to identify the containing list rather than an individual task.",
+      "example_ids": [
+        "ha-flow-023-numbers",
+        "ha-flow-023-clock",
+        "ha-flow-023-date"
+      ],
+      "sha256_after": "89ba36ffbed64319dd77f64db4d83d1c90a09fba46e4050d45bc51732f20f02a"
+    },
+    {
+      "path": "docs/source/home-assistant/native-task-accessibility.html.md.erb",
+      "gap_id": "HA-GAP-024",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "findings_fixed",
+      "finding_ids": [
+        "AUD-FLOW-005",
+        "AUD-FLOW-006"
+      ],
+      "note": "Historical source/fixture/live scopes are kept separate and untested native/assistive tasks are visible. Matrix reference corrected; the example record is now a complete unexecuted plan with required evidence fields rather than an ambiguously complete result.",
+      "example_ids": [
+        "ha-flow-024-evidence",
+        "ha-flow-024-unexecuted",
+        "ha-flow-024-checklist"
+      ],
+      "sha256_after": "cdf6af9ea32681f931aa822ab165e609deaefe931dddb3d354b080e37aee07ef"
+    },
+    {
+      "path": "docs/source/home-assistant/assist-and-voice.html.md.erb",
+      "gap_id": "HA-GAP-025",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "findings_fixed",
+      "finding_ids": [
+        "AUD-FLOW-001",
+        "AUD-FLOW-007"
+      ],
+      "note": "Typed, recognition, acknowledgement and device-result meanings remain distinct. Corrected the blanket no-listening-on-open rule to preserve explicit native start_listening shortcuts; ambiguous-target example now requires a deliberate choice.",
+      "example_ids": [
+        "ha-flow-025-typed",
+        "ha-flow-025-clarify",
+        "ha-flow-025-unconfirmed"
+      ],
+      "sha256_after": "6f5bab0cbf3d9cebd966a50c1f5ce56a7c264d69a28064d1065116be33ee9f04"
+    },
+    {
+      "path": "docs/source/home-assistant/todo-and-reminders.html.md.erb",
+      "gap_id": "HA-GAP-026",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "List count, item status, due-date type, notification and deletion remain separate. Local add feedback explicitly saves nothing; the failed-sync specimen preserves the original item and avoids duplicate recovery.",
+      "example_ids": [
+        "ha-flow-026-due",
+        "ha-flow-026-add",
+        "ha-flow-026-sync"
+      ],
+      "sha256_after": "6381967239971685150e1f1e9c1f30b526ea0ada8e162a43b507ce0ca6455e4f"
+    },
+    {
+      "path": "docs/source/home-assistant/weather-and-warnings.html.md.erb",
+      "gap_id": "HA-GAP-027",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Observations, forecasts, source scope, issue/valid times and warning severity remain distinct. Successful empty and failed warning responses have different complete examples with no all-clear or safety claim.",
+      "example_ids": [
+        "ha-flow-027-observed",
+        "ha-flow-027-empty",
+        "ha-flow-027-unavailable"
+      ],
+      "sha256_after": "b1417057e5a90ddc66ef9c36c515b822d8cb7cbe0e6c0cd507af1c30ade716e7"
+    },
+    {
+      "path": "docs/source/home-assistant/notifications-and-delivery.html.md.erb",
+      "gap_id": "HA-GAP-028",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Acceptance, delivery/read evidence, dismissal and condition resolution remain separate. Shared previews contain no sensitive data and state their authorization boundary. Native badge presentation is not described as delivery logic.",
+      "example_ids": [
+        "ha-flow-028-delivery",
+        "ha-flow-028-dismissed",
+        "ha-flow-028-preview"
+      ],
+      "sha256_after": "2988b4682341b0061a30eaccdafb5a916c898892d8b2ed8ada70b1cd7f8d1642"
+    },
+    {
+      "path": "docs/source/home-assistant/registries-and-bulk-actions.html.md.erb",
+      "gap_id": "HA-GAP-029",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Selection scope, hidden selected rows and per-member outcomes are explicit. The static empty-filter specimen does not advertise a nonfunctional reset control. Stable IDs, authorization and native persistence remain authoritative.",
+      "example_ids": [
+        "ha-flow-029-selection",
+        "ha-flow-029-partial",
+        "ha-flow-029-empty"
+      ],
+      "sha256_after": "0ffc1a58ea3990a464307fa67e0349a7f576799c06b489ad1295d9ed57ae01ae"
+    },
+    {
+      "path": "docs/source/home-assistant/compatibility-register.html.md.erb",
+      "gap_id": "HA-GAP-030",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-000 scope",
+        "WG-010 language",
+        "WG-020 terminology",
+        "WG-030 interface",
+        "WG-040 errors",
+        "WG-050 instructions",
+        "WG-060 inclusion/privacy",
+        "WG-070 data/time",
+        "WG-080 accessibility",
+        "WG-090 review/evidence"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Exact hosts, public tokens, maintained components and reference examples are separated. Historical checks and current source review are not new live passes; cleanup and unsupported fallback retain current native data.",
+      "example_ids": [
+        "ha-flow-030-supported",
+        "ha-flow-030-unsupported",
+        "ha-flow-030-cleanup"
+      ],
+      "sha256_after": "04c051845268e13fbcc41cfcdfd254193d1ba61b7c838d703677365b4fe49bae"
+    }
+  ],
+  "findings": [
+    {
+      "id": "AUD-FLOW-001",
+      "priority": "P2",
+      "kind": "confirmed_scope_conflict",
+      "rule_ids": [
+        "WG-002",
+        "WG-034",
+        "WG-052"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-001",
+        "path": "docs/source/home-assistant/assist-and-voice.html.md.erb",
+        "line": 30,
+        "excerpt": "| Ready / listening | Name the listening state and the actual stop control. | Do not start recording because a panel opened. |"
+      },
+      "finding": "The blanket opening/listening prohibition would also forbid an explicitly configured native Assist shortcut.",
+      "change": "Limit the prohibition to ordinary navigation/theme changes; preserve clearly labelled native start_listening actions.",
+      "acceptance": "Source text distinguishes incidental navigation from deliberate voice activation; native shortcut behaviour remains to be tested in its actual environment.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-002",
+      "priority": "P2",
+      "kind": "confirmed_semantic_error",
+      "rule_ids": [
+        "WG-025",
+        "WG-052"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-002",
+        "path": "docs/data/ha-flows-examples.yml",
+        "line": 752,
+        "excerpt": "<dt class=\"govuk-summary-list__key\">Task identifier</dt>"
+      },
+      "finding": "The locale specimen called todo.example_filter a task identifier although the domain entity identifies a list.",
+      "change": "Label it List entity identifier and retain the exact sample literal.",
+      "acceptance": "The specimen and official to-do list model agree; individual item identity is not conflated with the list entity.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-003",
+      "priority": "P3",
+      "kind": "example_constraint_improvement",
+      "rule_ids": [
+        "WG-038",
+        "WG-055",
+        "WG-056"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-003",
+        "path": "docs/data/ha-flows-examples.yml",
+        "line": 176,
+        "excerpt": "<input class=\"govuk-input\" id=\"zone-radius\" name=\"zone-radius\" type=\"number\" value=\"40\" aria-describedby=\"zone-radius-hint\" required>"
+      },
+      "finding": "The synthetic radius field accepted negative numbers while purporting to review a zone radius.",
+      "change": "Declare an example-only 1–500 metre whole-number range and validate it without claiming those are native universal limits.",
+      "acceptance": "Local HTML validity rejects -1 and accepts 40; the hint states the synthetic scope and native bounds remain authoritative.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-004",
+      "priority": "P3",
+      "kind": "example_completion_improvement",
+      "rule_ids": [
+        "WG-032",
+        "WG-038"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-004",
+        "path": "docs/data/ha-flows-examples.yml",
+        "line": 368,
+        "excerpt": "<input class=\"govuk-checkboxes__input\" id=\"restore-review-0\" name=\"restore-review\" type=\"checkbox\" value=\"0\">"
+      },
+      "finding": "The restore-review exercise could announce review complete without either review statement selected.",
+      "change": "Require both statements and make that local exercise condition explicit.",
+      "acceptance": "Local HTML validity rejects none/one checked and accepts both; no archive or restore action is performed.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-005",
+      "priority": "P3",
+      "kind": "editorial_correction",
+      "rule_ids": [
+        "WG-083"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-005",
+        "path": "docs/source/home-assistant/native-task-accessibility.html.md.erb",
+        "line": 93,
+        "excerpt": "- Every matrix row below is exercised or explicitly not tested for a release, with unresolved failures retained."
+      },
+      "finding": "The acceptance text referred to a matrix below although the matrix precedes it.",
+      "change": "Refer to Every matrix row without an incorrect spatial direction.",
+      "acceptance": "The text identifies the matrix without a false location cue.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-006",
+      "priority": "P3",
+      "kind": "example_completeness_improvement",
+      "rule_ids": [
+        "WG-090",
+        "WG-095"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-006",
+        "path": "docs/data/ha-flows-examples.yml",
+        "line": 778,
+        "excerpt": "title: \"A complete scoped test record\""
+      },
+      "finding": "The record advertised completeness but deferred versions, steps, expected result and artifacts to later prose.",
+      "change": "Make it a complete unexecuted plan with explicit fields and no claimed observation.",
+      "acceptance": "Plan includes method, state, display context, steps, expected result, execution status and evidence location; absent execution is not a pass.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-007",
+      "priority": "P2",
+      "kind": "confirmed_default_choice_conflict",
+      "rule_ids": [
+        "WG-034",
+        "WG-038"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-007",
+        "path": "docs/data/ha-flows-examples.yml",
+        "line": 941,
+        "excerpt": "<select class=\"govuk-select\" id=\"assist-target\" name=\"assist-target\">"
+      },
+      "finding": "The ambiguous Assist target form preselected the first matching lamp and used arbitrary numeric values.",
+      "change": "Start with a required empty prompt and submit the chosen synthetic entity identity.",
+      "acceptance": "Local validity rejects the untouched form; choosing a lamp produces its labelled stable sample ID without any device request.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    },
+    {
+      "id": "AUD-FLOW-008",
+      "priority": "P3",
+      "kind": "privacy_choice_improvement",
+      "rule_ids": [
+        "BG-ILL-09",
+        "WG-061"
+      ],
+      "status": "fixed_in_working_tree",
+      "evidence_before": {
+        "id": "AUD-FLOW-008",
+        "path": "docs/data/ha-flows-examples.yml",
+        "line": 191,
+        "excerpt": "<select class=\"govuk-select\" id=\"map-privacy\" name=\"map-privacy\" aria-describedby=\"map-privacy-hint\">"
+      },
+      "finding": "The new shared-display disclosure exercise silently selected Zone names only before an explicit choice.",
+      "change": "Use a required empty prompt and named disclosure values.",
+      "acceptance": "The local form is invalid until a person chooses; no native privacy setting is claimed or saved.",
+      "verification": "Source review; local source-HTML constraints where applicable. Integrated styling/browser suite remains with root."
+    }
+  ],
+  "validation_file": "/tmp/civica-flow-validation.json",
+  "remaining_acceptance": [
+    "Integrated docs build and rendered examples checks, including 320px, enlarged text, range target and forms with/without JavaScript.",
+    "Native behaviours and private-host compatibility require installed-version evidence; no new live test is claimed."
+  ],
+  "summary": {
+    "pages_read": 15,
+    "examples_read": 45,
+    "rule_count": 101,
+    "confirmed_scope_or_semantic_corrections": 3,
+    "additional_reference_improvements": 5,
+    "unresolved_confirmed_content_findings": 0
+  }
+}

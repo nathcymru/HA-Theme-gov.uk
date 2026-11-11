@@ -1,15 +1,17 @@
 ---
-title: "Complete multiple household tasks"
-description: "Support longer setup work that people may need to pause, revisit or share."
-section: "patterns"
-group: "Task patterns"
-source_url: "https://service-manual.nhs.uk/design-system/patterns/complete-multiple-tasks"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
+title: Complete multiple household tasks
+description: Support longer setup work that people may need to pause, revisit or share.
+section: patterns
+group: Task patterns
+source_url: https://service-manual.nhs.uk/design-system/patterns/complete-multiple-tasks
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
 updates:
-  - date: "2026-11-11"
-    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS complete-multiple-tasks pattern."
+  - date: 2026-11-11
+    description: Linked task progress to question and task-list owners without implying a native automation editor.
+  - date: 2026-11-11
+    description: Added civica household guidance, isolated examples and explicit boundaries for the NHS complete-multiple-tasks pattern.
 ---
 
 # Complete multiple household tasks
@@ -17,6 +19,12 @@ updates:
 **Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
 
 A task list describes work to finish, not every feature on the dashboard. It is useful when setup has several independent parts and people cannot complete them in one sitting.
+
+## Progress is a composition, not an automation
+
+Use [question pages](question-pages.html#compose-the-task-without-replacing-its-owner) for each input and its retained answers. This pattern owns the progress view and dependencies across those tasks. The [task-list component](../components/task-list.html) owns the task-row presentation.
+
+Opening or completing a documentation task must not enable an automation. Keep a saved draft, a reviewed setup and an enabled native rule as separate facts. Route to an actual supported editor only when the installation provides it; otherwise state that the example is a reference and preserve the implementation gap.
 
 ## The NHS principle we adapt
 

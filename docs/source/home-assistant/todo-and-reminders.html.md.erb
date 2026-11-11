@@ -1,0 +1,75 @@
+---
+title: "To-do lists, reminders and household tasks"
+description: "Complete design specification for to-do lists, reminders and household tasks, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-026
+source_url: https://www.home-assistant.io/integrations/todo/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated to-do lists, reminders and household tasks specification and three complete synthetic examples."
+---
+
+# To-do lists, reminders and household tasks
+
+A native to-do item is editable data, not a navigation step in a GOV.UK task list. Keep adding, completing, deleting and dismissing a reminder distinct. The person needs to know whether a change was saved and what remains outstanding.
+
+## Scope and native ownership
+
+Home Assistant represents each to-do list as an entity, with its state reflecting incomplete-item count. Integrations vary in supported item fields and operations. Native to-do cards own item persistence; these specifications and local examples do not add a task backend. [Official Home Assistant source](https://www.home-assistant.io/integrations/todo/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-026**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Needs action | Show item text and due context if supplied. | Do not invent a due time for a date-only item. |
+| Completion requested | Keep a pending result separate from saved completion. | A checked visual control alone is not backend confirmation. |
+| Completed | Retain a route to supported completed-item operations. | Completion is not deletion or dismissal of every related reminder. |
+| Sync failed / uncertain | Retain the item and factual save outcome. | Do not duplicate it automatically on reconnect. |
+| Empty list / empty filter | Describe whether no tasks exist or no tasks match. | A failed fetch must not say All done. |
+
+## Integration contract
+
+1. Read supported item fields and operations from the integration. Preserve item identifiers, title, status and due-date type; do not assume all lists accept descriptions, recurrence or due times.
+2. Keep configuration of a reminder separate from list completion. A saved reminder rule is not evidence that a notification was delivered or read.
+3. Use the native item/persistence path and account scope. Prevent unintended duplicate submission while an add/update is pending; reconcile the actual returned item before retrying.
+4. For deletion or clearing completed items, name the count and scope before confirmation. Do not promise undo unless the implementation supplies it.
+
+## Accessible interaction
+
+- A completion control needs the full item name and current status. Keep keyboard focus meaningful when a completed item moves into another section.
+- Provide textual due dates and overdue state; do not depend on a coloured dot. Explain time zone for timed reminders.
+- Keep long task descriptions, notes and error messages readable at narrow widths; avoid placing interactive links inside another interactive row.
+
+## Failure and recovery
+
+- If a list becomes unavailable, retain only clearly labelled last-known items and stop claiming its count is current.
+- If adding returns an unknown outcome, inspect the current list before repeating; an identical title is not proof of identical item identity.
+- For partial clear/delete operations, enumerate the remaining items and failed scope rather than saying the list was cleared.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-026-due') %>
+
+<%= example('ha-flow-026-add') %>
+
+<%= example('ha-flow-026-sync') %>
+
+## Integration acceptance
+
+- Test add, update, complete, delete and clear only where supported, including repeated submit and uncertain sync.
+- Verify date-only items, timed reminders and completed-item navigation retain their meanings.
+- Check keyboard focus after reordering/filtering and distinguish empty results from unavailable data.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-TYP-03](../styles/brand-typography.html#bg-typ-03), [WG-032](../content/interface-copy.html#wg-032), [WG-035](../content/interface-copy.html#wg-035), [WG-036](../content/interface-copy.html#wg-036), [WG-074](../content/numbers-and-data.html#wg-074), [WG-075](../content/numbers-and-data.html#wg-075).

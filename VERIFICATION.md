@@ -1,5 +1,13 @@
 # Verification — 11 November 2026
 
+## v1.3.3 documentation and lighting request remediation
+
+The documentation now contains 196 guides and 405 complete examples, including 14 card variants and 30 dedicated Home Assistant specifications. The 16 confirmed findings, 4 recommendations and 14 canonical ownership decisions are implemented with retained history and stable URLs. Shared dividers, semantic colours, body sizing, original artwork and truthful state, action and date examples follow the local guidance.
+
+The maintained lighting card retains unknown and unavailable members in summaries, prevents duplicate per-room requests, distinguishes acceptance from observed state and retires pending batches when disconnected or reconfigured. A retired request cannot dispatch later rooms or unlock a newer batch. No physical commands were issued by validation. The legacy element and bundle remain available. Chart source colours, types and 1.5px production line weights are unchanged; sample-date navigation now has valid month boundaries and explicit scope.
+
+Build, type checking, 50 Node regressions, 601 HTML link checks, 88 Home Assistant templates and all 176 supplied artwork hashes pass. All 767 unique browser cases pass across the full run and corrective reruns, including 39 retained family routes, 30 specification mappings, 14 card specimens and 200% text reflow. The [machine-readable remediation record](docs/data/remediation-verification.json) separates local execution, browser observations and publication status. Native task usability, assistive-technology studies and live equipment outcomes remain separate acceptance work.
+
 ## v1.3.2 native redraw recovery
 
 ECharts could leave secondary split-sign geometry on the Canvas after a native legend or theme redraw even when its current data array was empty. Power series now use the renderer's zero-duration update path to finish in-flight transitions immediately. This changes no readings or axes and restores the native animation options when the theme is removed.

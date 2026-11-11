@@ -55,6 +55,19 @@ async function assertReflow(page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 }
 
+test('search includes landing pages and shared example roles use canonical colours and readable text', async ({ page }) => {
+  await page.goto('/docs/build/search.html');
+  for (const route of ['styles/index.html', 'components/index.html', 'patterns/index.html', 'get-started/index.html']) {
+    await expect(page.locator(`[data-catalogue-item] a[href="${route}"]`)).toHaveCount(1);
+  }
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto('/docs/build/examples/local-card-actions.html');
+  expect(await page.locator('body').evaluate(el => getComputedStyle(el).fontSize)).toBe('18px');
+  expect(await page.locator('p').first().evaluate(el => getComputedStyle(el).fontSize)).toBe('18px');
+  await page.goto('/docs/build/examples/local-badge-count.html');
+  expect(await page.locator('.civica-badge').first().evaluate(el => getComputedStyle(el).backgroundColor)).toBe('rgb(202, 53, 53)');
+});
+
 test('audit findings and expanded coverage stay navigable at narrow widths', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 800 });
   await page.goto('/docs/build/community/design-system-audit.html');

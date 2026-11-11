@@ -1,17 +1,19 @@
 ---
-title: "Emergency banner"
-description: "The publishing emergency banner places urgent information above ordinary content. Its government-specific event categories do not transfer to a household dashboard."
-section: "components"
-group: "Publishing components"
-source_url: "https://design-guide.publishing.service.gov.uk/components/emergency-banner/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Emergency banner
+description: The publishing emergency banner places urgent information above ordinary content. Its government-specific event categories do not transfer to a household dashboard.
+section: components
+group: Publishing components
+source_url: https://design-guide.publishing.service.gov.uk/components/emergency-banner/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Emergency banner
@@ -19,6 +21,10 @@ updates:
 The publishing emergency banner places urgent information above ordinary content. Its government-specific event categories do not transfer to a household dashboard. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/emergency-banner/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Keep urgency separate from presentation
+
+Use the [message decision guide](../../components/status.html#choose-the-right-message) before selecting this variant. It keeps a distinct urgency and freshness requirement within the broader [banner family](../../components/notification-banners.html). National event categories are source context, not household states, and a missing reading must never be styled as an affirmative all-clear.
 
 ## When to use it
 

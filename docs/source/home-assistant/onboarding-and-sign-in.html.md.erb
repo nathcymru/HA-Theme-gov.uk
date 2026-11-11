@@ -1,0 +1,75 @@
+---
+title: "Onboarding, integration setup and sign-in"
+description: "Complete design specification for onboarding, integration setup and sign-in, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-021
+source_url: https://www.home-assistant.io/getting-started/onboarding/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated onboarding, integration setup and sign-in specification and three complete synthetic examples."
+---
+
+# Onboarding, integration setup and sign-in
+
+Explain what is being set up, what information is required and when a discovered device becomes usable. Preserve Home Assistant’s native ownership and authentication flow. The installed civica companion does not replace onboarding, sign-in, multi-factor authentication or native app identity.
+
+## Scope and native ownership
+
+Native onboarding offers creating a new installation or restoring a backup and then establishing its configuration. Integration setup and reauthentication belong to their native configuration flows. These examples are guidance specimens, not a credential collector. [Official Home Assistant source](https://www.home-assistant.io/getting-started/onboarding/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-021**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| New installation / restore | Explain the distinct starting paths and their consequences. | Do not imply creating an owner restores an existing home. |
+| Discovered | Name the candidate device/service and the next supported setup step. | Discovered does not mean configured or connected. |
+| Configuring / awaiting provider | Retain the chosen integration and real flow state. | Do not fabricate completion while waiting for authorization. |
+| Configured, no entities yet | Explain the actual reported condition and available diagnostics. | Do not silently treat an empty entity list as failure or success. |
+| Reauthentication required | Identify the provider and affected integration. | Never ask for a password in a generic themed alert. |
+
+## Integration contract
+
+1. Keep owner creation, login credentials, people records and device discovery separate. Appearance cannot grant administrative access.
+2. Use the native integration schema and provider redirect. Explain actual requested permissions and account scope before proceeding; do not promise local processing for an external provider.
+3. Preserve the selected device, non-secret setup answers and native validation where supported. Do not copy credentials into URLs, example source, logs or analytics.
+4. After configuration, distinguish the integration entry being saved from devices/entities reporting useful state. An authentication success alone does not prove device readiness.
+
+## Accessible interaction
+
+- Use visible labels and programmatic hints/errors; do not disable password managers or paste in actual native credential fields.
+- Support a clear return path after an external authorization step and preserve keyboard focus on the native error or next task.
+- Keep location, analytics and optional discovery choices explicit. Explain why sensitive data are requested rather than making all choices appear required.
+
+## Failure and recovery
+
+- When discovery shows duplicate candidates, use verified identifiers to distinguish them without displaying unnecessary secrets.
+- For rejected authorization, preserve the native error and account scope; offer the actual retry or cancel route.
+- Cancelling setup must describe whether a partial integration entry remains. Do not invent removal of an already configured integration.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-021-start') %>
+
+<%= example('ha-flow-021-discovered') %>
+
+<%= example('ha-flow-021-reauth') %>
+
+## Integration acceptance
+
+- Check new-install and restore routes without applying companion branding to authentication.
+- Verify discovered, configuring, configured-without-state and rejected authorization examples keep their meanings distinct.
+- Confirm synthetic examples contain no real credentials and never navigate to a fake sign-in endpoint.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-COL-01](../styles/brand-colour.html#bg-col-01), [WG-002](../content/index.html#wg-002), [WG-004](../content/index.html#wg-004), [WG-034](../content/interface-copy.html#wg-034), [WG-051](../content/instructions-and-learning.html#wg-051), [WG-061](../content/inclusive-content.html#wg-061).

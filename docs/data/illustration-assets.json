@@ -1,0 +1,72 @@
+{
+  "reviewed_on": "2026-11-11",
+  "creator": "civica.uk project contributors",
+  "licence": "MIT (original repository illustrations only)",
+  "family": "Flat Civic Cobalt household and documentation illustrations",
+  "assets": [
+    {
+      "path": "docs/source/images/design-system-hero.svg",
+      "sha256": "30ed80ab58e25d2987f83106fd91b7903a70fcb62718cb78a03502f399e86f1b",
+      "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
+      "purpose": "Introduce household lighting and room controls.",
+      "palette": [
+        "#103E65",
+        "#1D70B8",
+        "#8EB8DC",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Civic Cobalt primary for the hero; #F3F6F9 within category assets.",
+      "alt_decision": "Empty alt on homepage: adjacent headings and prose carry the meaning. The informative image specimen supplies a room-scene description and caption.",
+      "status": "Decorative/reference artwork, not a screenshot or evidence of a live device state."
+    },
+    {
+      "path": "docs/source/images/category-styles.svg",
+      "sha256": "aceacde36a73c9428910e7808caaf4b26496b411bb88fdfdb91c54b13999ab0d",
+      "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
+      "purpose": "Introduce typography and colour foundations.",
+      "palette": [
+        "#103E65",
+        "#1D70B8",
+        "#8EB8DC",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Civic Cobalt primary for the hero; #F3F6F9 within category assets.",
+      "alt_decision": "Empty alt on homepage: adjacent headings and prose carry the meaning.",
+      "status": "Decorative/reference artwork, not a screenshot or evidence of a live device state."
+    },
+    {
+      "path": "docs/source/images/category-components.svg",
+      "sha256": "644d61975ffda965546acc09342cd86730c79e9e3981f9b9176308c72f94eb15",
+      "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
+      "purpose": "Introduce reusable interface parts.",
+      "palette": [
+        "#103E65",
+        "#1D70B8",
+        "#8EB8DC",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Civic Cobalt primary for the hero; #F3F6F9 within category assets.",
+      "alt_decision": "Empty alt on homepage: adjacent headings and prose carry the meaning.",
+      "status": "Decorative/reference artwork, not a screenshot or evidence of a live device state."
+    },
+    {
+      "path": "docs/source/images/category-patterns.svg",
+      "sha256": "c72ba2f82ba4961515a355e0e93dfc9a92f69c6476ebb1820f404c1a64f1fabd",
+      "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
+      "purpose": "Introduce a sequence of related task steps.",
+      "palette": [
+        "#103E65",
+        "#1D70B8",
+        "#8EB8DC",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Civic Cobalt primary for the hero; #F3F6F9 within category assets.",
+      "alt_decision": "Empty alt on homepage: adjacent headings and prose carry the meaning.",
+      "status": "Decorative/reference artwork, not a screenshot or evidence of a live device state."
+    }
+  ]
+}

@@ -1,17 +1,21 @@
 ---
-title: "Table"
-description: "Use a table when shared columns help people compare values and understand relationships."
-section: "components"
-group: "Content presentation"
-source_url: "https://service-manual.nhs.uk/design-system/components/table"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Table
+description: Use a table when shared columns help people compare values and understand relationships.
+section: components
+group: Content presentation
+source_url: https://service-manual.nhs.uk/design-system/components/table
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed table guidance and 3 Home Assistant reference examples."
+    description: Separated shared table semantics from the chart adapter and its native data and compatibility contract.
+  - date: 2026-11-11
+    description: Added observation dates, interval context and calendar dates to all three measurement tables.
+  - date: 2026-11-11
+    description: Added NHS-informed table guidance and 3 Home Assistant reference examples.
 ---
 
 # Table
@@ -19,6 +23,12 @@ updates:
 Use a table when shared columns help people compare values and understand relationships.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## Table semantics and chart composition
+
+This page owns captions, header associations, numeric columns and accessible overflow. Use it for original tabular content and for a chart’s data alternative. The [chart component](charts.html) separately owns plotted geometry, legend behaviour, data projection and native Energy compatibility; the [working chart examples](chart-examples.html) use its production adapter.
+
+A static measurement table does not connect to History or Energy. A live chart table must use the same supported values and period as its plot, keep missing values distinct from zero and state whether hidden series are included. Reuse these table semantics without copying synthetic rows into a connected view.
 
 ## When to use it
 

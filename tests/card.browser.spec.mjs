@@ -20,7 +20,7 @@ async function mountDialogFixture(page, entityId = 'light.govuk_lights_lounge') 
 
 test('mobile reflow, named controls, unavailable explanation and accessibility', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 800 }); await openCard(page);
-  await expect(page.getByText('Lights unavailable', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 light unavailable', { exact: true })).toBeVisible();
   await expect(page.getByText('No lights assigned', { exact: true })).toHaveCount(2);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const controls = page.locator('civica-house-lighting-card button');
@@ -32,6 +32,154 @@ test('mobile reflow, named controls, unavailable explanation and accessibility',
   expect(await page.locator('civica-house-lighting-card .status').evaluate(el => getComputedStyle(el).fontSize)).toBe('16px');
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
+});
+
+test('room counts retain unavailable and unknown members while excluding reserved lights', async ({ page }) => {
+  await openCard(page);
+  const hall = page.locator('[data-room="hall"].row');
+  await expect(hall.locator('[data-role=sub]')).toHaveText('1 of 2 available lights on; 1 light unavailable');
+  await page.evaluate(() => { window.fixtureHass.states['light.h2'].state = 'unknown'; window.card.hass = window.fixtureHass; });
+  await expect(hall.locator('[data-role=sub]')).toHaveText('1 of 1 available light on; 1 light unavailable; 1 light unknown');
+  await page.evaluate(() => { delete window.fixtureHass.states['light.h3']; window.card.hass = window.fixtureHass; });
+  await expect(hall.locator('[data-role=sub]')).toHaveText('1 light unavailable; 2 lights unknown');
+  await expect(hall.locator('[data-role=toggle]')).toBeDisabled();
+});
+
+test('off summaries retain unknown and unavailable members and never count a reserved light as managed', async ({ page }) => {
+  await openCard(page);
+  const hall = page.locator('[data-room="hall"].row');
+  const cases = [
+    { states: ['off', 'off', 'unavailable'], text: '2 of 2 available lights off; 1 light unavailable', enabled: true },
+    { states: ['unknown', 'off', 'unavailable'], text: '1 of 1 available light off; 1 light unavailable; 1 light unknown', enabled: true },
+    { states: ['unknown', 'unknown', 'unknown'], text: '3 lights unknown', enabled: false },
+    { states: ['off', 'off', 'off'], text: '3 of 3 lights off', enabled: true },
+  ];
+  for (const { states, text, enabled } of cases) {
+    await page.evaluate(states => {
+      // A reserved, physically on light must not change the managed denominator.
+      window.fixtureHass.states['light.h1'].state = 'on';
+      ['light.h2', 'light.h3', 'light.hue'].forEach((id, i) => { window.fixtureHass.states[id].state = states[i]; });
+      window.card.hass = window.fixtureHass;
+    }, states);
+    await expect(hall.locator('[data-role=sub]')).toHaveText(text);
+    await expect(page.locator('.hit[data-room="hall"]')).toHaveAccessibleName(`Hallway, ${text}.${enabled ? ' Open lighting settings.' : ''}`);
+    if (enabled) await expect(hall.locator('[data-role=toggle]')).toHaveText('Turn on');
+    await expect(hall.locator('[data-role=toggle]')).toBeEnabled({ enabled });
+  }
+  await page.evaluate(() => {
+    for (const id of ['light.h2', 'light.h3', 'light.hue']) window.fixtureHass.entities[id].labels = ['govuk_lighting_reserved'];
+    window.card.hass = window.fixtureHass;
+  });
+  await expect(hall.locator('[data-role=sub]')).toHaveText('Lights controlled elsewhere');
+  await expect(hall.locator('[data-role=toggle]')).toBeDisabled();
+  expect(await page.evaluate(() => window.calls)).toEqual([]);
+});
+
+test('all off does not operate unknown members or mistake a reserved on light for a managed room state', async ({ page }) => {
+  await openCard(page);
+  await page.evaluate(() => {
+    for (const id of ['light.l1', 'light.l2', 'light.b1', 'light.h3']) window.fixtureHass.states[id].state = 'off';
+    window.fixtureHass.states['light.h2'].state = 'unknown';
+    window.fixtureHass.states['light.h1'].state = 'on'; // reserved for the door automation
+    window.card.hass = window.fixtureHass;
+  });
+  await page.getByRole('button', { name: 'Turn all off', exact: true }).click();
+  expect(await page.evaluate(() => window.calls)).toEqual([]);
+  await expect(page.locator('[data-room="hall"].row [data-role=sub]')).toHaveText('1 of 1 available light off; 1 light unavailable; 1 light unknown');
+  await expect(page.locator('civica-house-lighting-card .status')).toHaveText('0 of 3 available rooms on');
+});
+
+for (const retirement of ['disconnect', 'reconfigure']) {
+  test(`a ${retirement} retires a pending batch without sending later rooms or unlocking its replacement`, async ({ page }) => {
+    await openCard(page);
+    await page.evaluate(() => {
+      window.batchResolvers = [];
+      window.fixtureHass.callService = (domain, service, data, target) => {
+        window.calls.push({ domain, service, data, target });
+        return new Promise(resolve => window.batchResolvers.push(resolve));
+      };
+    });
+    const allOn = page.getByRole('button', { name: 'Turn all on', exact: true });
+    await allOn.click();
+    expect(await page.evaluate(() => window.calls.length)).toBe(1);
+    await page.evaluate(retirement => {
+      if (retirement === 'disconnect') {
+        const parent = window.card.parentElement;
+        window.card.remove(); parent.append(window.card);
+      } else window.card.setConfig({ type: 'custom:civica-house-lighting-card' });
+    }, retirement);
+    await expect(allOn).toBeEnabled();
+    await expect(page.locator('[data-room="lounge"].row [data-role=request-status]')).toBeEmpty();
+    await allOn.click();
+    expect(await page.evaluate(() => window.calls.length)).toBe(2);
+    await page.evaluate(async () => {
+      // Completing a retired service call cannot cancel its physical operation;
+      // it must only stop that old UI batch from dispatching further rooms.
+      window.batchResolvers[0]();
+      await new Promise(resolve => setTimeout(resolve, 0));
+    });
+    expect(await page.evaluate(() => window.calls.length)).toBe(2);
+    await expect(page.locator('[data-room="lounge"].row [data-role=request-status]')).toContainText('Sending the request');
+    // Hall has no request of its own yet: this specifically checks that the
+    // old finally block cannot clear the newer batch's global pending state.
+    await expect(page.locator('[data-room="hall"].row [data-role=toggle]')).toBeDisabled();
+    await expect(allOn).toBeDisabled();
+    await page.evaluate(() => window.card.remove());
+  });
+}
+
+test('room request suppresses duplicates and distinguishes acceptance from reported state', async ({ page }) => {
+  await openCard(page);
+  await page.evaluate(() => { window.fixtureHass.callService = (...args) => { window.calls.push(args); return new Promise(resolve => { window.finishRequest = resolve; }); }; });
+  const room = page.locator('[data-room="lounge"].row'), toggle = room.locator('[data-role=toggle]'), status = room.locator('[role=status]');
+  await toggle.click();
+  await expect(toggle).toBeDisabled();
+  await expect(toggle).toHaveAccessibleName('Request pending for Lounge');
+  await expect(status).toContainText('Sending the request');
+  await expect(page.getByRole('button', { name: 'Turn all on', exact: true })).toBeDisabled();
+  await toggle.evaluate(button => { button.click(); button.click(); });
+  expect(await page.evaluate(() => window.calls.length)).toBe(1);
+  await page.evaluate(() => window.finishRequest());
+  await expect(status).toHaveText('Request accepted. Waiting for the requested lights to report off.');
+  await expect(toggle).toBeDisabled();
+  await page.evaluate(() => {
+    for (const id of ['light.l1', 'light.l2']) { window.fixtureHass.states[id].state = 'off'; window.fixtureHass.states[id].attributes.assumed_state = true; }
+    window.card.hass = window.fixtureHass;
+  });
+  await expect(toggle).toBeDisabled();
+  await page.evaluate(() => { for (const id of ['light.l1', 'light.l2']) delete window.fixtureHass.states[id].attributes.assumed_state; window.card.hass = window.fixtureHass; });
+  await expect(status).toContainText('The requested lights reported off');
+  await expect(toggle).toBeEnabled();
+  await expect(toggle).toHaveText('Turn on');
+  await expect(page.getByRole('button', { name: 'Turn all on', exact: true })).toBeEnabled();
+});
+
+test('unconfirmed timeout offers recovery without inventing failure or cancelling an in-flight request', async ({ page }) => {
+  await page.clock.install(); await openCard(page);
+  await page.evaluate(() => { window.fixtureHass.callService = () => new Promise(resolve => { window.finishRequest = resolve; }); });
+  const room = page.locator('[data-room="lounge"].row'), toggle = room.locator('[data-role=toggle]'), status = room.locator('[role=status]');
+  await toggle.click(); await page.clock.fastForward(20001);
+  await expect(status).toContainText('The requested change is not confirmed');
+  await expect(status).toContainText('The original request is still pending');
+  await expect(toggle).toBeDisabled();
+  await expect(room.getByRole('button', { name: 'Settings for Lounge' })).toBeEnabled();
+  await page.evaluate(() => window.finishRequest());
+  await expect(toggle).toBeEnabled();
+  await expect(status).not.toContainText('original request is still pending');
+  await expect(status).not.toContainText('reported off');
+});
+
+test('rejected and disconnected room requests do not leave stale pending controls', async ({ page }) => {
+  await openCard(page); await page.evaluate(() => { window.failNext = true; });
+  const room = page.locator('[data-room="lounge"].row');
+  await room.locator('[data-role=toggle]').click();
+  await expect(room.locator('[role=status]')).toContainText('The request was not confirmed');
+  await expect(room.locator('[data-role=toggle]')).toBeEnabled();
+  await page.evaluate(() => { window.fixtureHass.callService = () => new Promise(resolve => { window.finishRequest = resolve; }); });
+  await room.locator('[data-role=toggle]').click();
+  await page.evaluate(() => { const parent = window.card.parentElement; window.card.remove(); parent.append(window.card); window.finishRequest(); });
+  await expect(room.locator('[role=status]')).toBeEmpty();
+  await expect(room.locator('[data-role=toggle]')).toBeEnabled();
 });
 
 test('all on includes partially lit rooms and excludes reserved or unavailable lights', async ({ page }) => {

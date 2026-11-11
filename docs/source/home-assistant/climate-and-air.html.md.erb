@@ -1,0 +1,88 @@
+---
+title: Climate, fan and water-heater controls
+description: Separate measurements, targets, selected modes and current activity across climate-related domains.
+section: patterns
+group: "Home Assistant: controls"
+status: reference
+gap_id: HA-GAP-005
+contract_id: HA-CTRL-005
+source_url: https://www.home-assistant.io/integrations/climate/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+updates:
+  - date: 2026-11-11
+    description: Completed the supplied water-heater mode and distinguished unsupported oscillation from an unavailable reading.
+  - date: 2026-11-11
+    description: Added climate, fan and water-heater controls contract, domain-specific acceptance checks and synthetic reference examples.
+---
+
+# Climate, fan and water-heater controls
+
+Someone adjusting comfort needs to know both the current reading and what the equipment has been asked to do. A thermostat mode, fan preset, humidity target and hot-water programme are different controls and must not be merged into one generic dial.
+
+**HA-CTRL-005 — reference design specification.** This specifies the local design coverage requested by HA-GAP-005 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-005-capabilities">Task and capability contract</h2>
+
+| Domain | Required distinctions and capability gates |
+| --- | --- |
+| Climate | `current_temperature` versus target; selected HVAC mode versus reported `hvac_action`; single target versus supported lower/upper targets. |
+| Fan | On/off, percentage, preset, oscillation and direction are separate capabilities. A preset name must remain the supplied name. |
+| Humidifier/dehumidifier | Measured humidity versus target; device class identifies adding or removing moisture. Do not reverse the meaning to fit an icon. |
+| Water heater | Reported operation mode, available target and current measurement. Offer only supplied controls; retain equipment-specific instructions and protections. |
+| Every numeric target | Native unit, limits, increment and precision; validate dual-target constraints before any request. |
+
+<h2 id="ha-ctrl-005-states">States, pending work and failure</h2>
+
+Selected Heat with reported Idle is valid: it does not mean a fault or active heating. Off is not unavailable. Keep a known target visible when a current measurement is missing, with separate labels. If the target is not known, do not fill it with the measured temperature.
+
+A requested target stays a draft or pending value until the documented confirmation condition is met. If modes change during an edit, do not send a target to a now-unsupported mode. Preserve the entered draft for review where the application actually does so. For a rejected target, identify the range error at the field; for a failed request, identify the task-level failure. Avoid diagnosing a boiler, refrigerant or air-quality fault from an unconfirmed UI request.
+
+<h2 id="ha-ctrl-005-content">Content and interpretation</h2>
+
+Use “Measured temperature”, “Target temperature”, “Selected mode” and “Reported activity” where ambiguity would otherwise arise. Keep °C/°F and percentage units associated with each value. Humidity settings are not a medical assessment. Water-heater recipes must defer to equipment instructions and competent advice; this design system does not prescribe a safe temperature or alter protective programmes.
+
+<h2 id="ha-ctrl-005-accessibility">Accessibility and interaction</h2>
+
+Expose target values and modes as labelled native controls, with keyboard adjustment and readable units. Do not require a drag around a circular thermostat to enter a precise value. Announce target changes once, separately from frequent temperature readings. Keep both setpoints readable at enlarged text; never hide one behind a tooltip or colour alone.
+
+<h2 id="ha-ctrl-005-integration">Native integration boundary</h2>
+
+Use native Climate, Fan, Humidifier and Water heater controls and their actual supported modes/features. Preserve the entity's unit conversion and precision. The pinned climate source in the gap inventory is source evidence, not live verification of every device. These examples are design recipes; no new thermostat, fan service or hot-water automation is installed by this documentation.
+
+<h2 id="ha-ctrl-005-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-climate-target') %>
+
+<%= example('ha-climate-range') %>
+
+<%= example('ha-climate-pending') %>
+
+<%= example('ha-climate-related') %>
+
+<h2 id="ha-ctrl-005-acceptance">Acceptance and evidence</h2>
+
+1. Check Heat/Idle, Heat/Heating, Off, unknown and unavailable independently. A mode change must not falsely update measured temperature.
+2. Exercise decimal steps, Celsius and Fahrenheit, single and dual targets, invalid ordering and a mode removed while editing.
+3. Test a fan without oscillation, a dehumidifier with no current humidity and a water heater without a reported temperature. No invented controls or zeroes.
+4. Reject a target request and delay another beyond the waiting limit. Preserve native safety/code flows, keyboard access, source precision and meaningful pending text.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-005-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Climate](https://www.home-assistant.io/integrations/climate/)
+- [Climate entity contract](https://contributors.home-assistant.io/core/entities/climate/)
+- [Fan](https://www.home-assistant.io/integrations/fan/)
+- [Humidifier](https://www.home-assistant.io/integrations/humidifier/)
+- [Water heater](https://www.home-assistant.io/integrations/water_heater/)
+
+Applicable frozen rules: [BG-COL-05](../styles/brand-colour.html#bg-col-05), [BG-TYP-03](../styles/brand-typography.html#bg-typ-03), [WG-034](../content/interface-copy.html#wg-034), [WG-070](../content/numbers-and-data.html#wg-070), [WG-071](../content/numbers-and-data.html#wg-071), [WG-073](../content/numbers-and-data.html#wg-073). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

@@ -1,14 +1,38 @@
 ---
-title: "Buttons and forms"
-description: "Buttons and forms for the civica.uk Home Assistant design system."
+title: Buttons and forms
+description: Buttons and forms for the civica.uk Home Assistant design system.
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: Added the forms decision overview and canonical links for buttons, selections and native device controls.
+  - date: 2026-11-11
+    description: Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild.
+  - date: 2026-11-11
+    description: First published in the civica.uk design system.
 ---
 
 # Buttons and forms
 
 Use native Home Assistant form components wherever they already provide the required behaviour. Apply civica.uk typography, boundary, focus and colour tokens consistently.
 
+
+## Choose the control by its meaning
+
+This page is the forms and interaction overview. The individual components own their markup and behaviour:
+
+| User intent | Use | Meaning |
+| --- | --- | --- |
+| Request an operation or submit answers | [Button](buttons.html) | A request, with pending and outcome feedback |
+| Choose several independent options | [Checkboxes](checkboxes.html) | Each option has its own selected state |
+| Choose one answer from a short set | [Radios](radios.html) | One mutually exclusive selection |
+| Choose from a longer set | [Select](select.html) | One labelled saved or draft value |
+| Change a supported live two-state device | Its native switch/control; see [device controls](devices.html) | Reported device state remains separate from an accepted command |
+| Move to another page or detail view | [Navigation link](navigation.html) | A destination, without a device command |
+
+State whether a preference applies immediately or on a named submit action. Do not invent a Save step for an immediate theme setting. A checkbox selecting a device for a later task must not also operate that device. Keep validation and retained-answer rules here, and use the component owner for detailed interaction requirements.
 
 ## Examples
 

@@ -1,0 +1,784 @@
+{
+  "reviewed_on": "2026-11-11",
+  "scope": "Independent complete read of 15 new control guides and all 48 referenced specimens. Applicable frozen writing/brand rules assessed for authored static content, semantics, capability claims, complete examples and provenance. This is not rendered, assistive-technology or live-device verification.",
+  "rule_sets": [
+    {
+      "path": "docs/data/brand-guidance-inventory.json",
+      "rules": 33
+    },
+    {
+      "path": "docs/data/writing-guide-inventory.json",
+      "rules": 68
+    }
+  ],
+  "pages": [
+    {
+      "path": "docs/source/home-assistant/access-and-movement.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-COL-05",
+        "BG-ILL-07",
+        "WG-032",
+        "WG-034",
+        "WG-036",
+        "WG-043"
+      ],
+      "examples": [
+        "ha-access-lock",
+        "ha-access-moving",
+        "ha-access-fault",
+        "ha-access-alarm-valve"
+      ],
+      "finding_ids": [
+        "CTRL-REV-007"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Separates locked/unlocked/open, pending motion and Stop; no implied physical security or code bypass. The local unlock dialog performs no action."
+    },
+    {
+      "path": "docs/source/home-assistant/accounts-and-permissions.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-ILL-09",
+        "WG-002",
+        "WG-034",
+        "WG-051",
+        "WG-061"
+      ],
+      "examples": [
+        "ha-account-scope",
+        "ha-account-rejected",
+        "ha-account-shared"
+      ],
+      "finding_ids": [
+        "CTRL-REV-002",
+        "CTRL-REV-007"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Keeps native roles, client/account/installation scopes and person entities distinct. Removed assumed new privacy choice; the example still changes no permissions."
+    },
+    {
+      "path": "docs/source/home-assistant/action-results.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-COL-05",
+        "WG-032",
+        "WG-036",
+        "WG-044"
+      ],
+      "examples": [
+        "ha-action-request",
+        "ha-action-pending",
+        "ha-action-partial"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Distinguishes request acceptance, observed state, rejected request, waiting limit and per-member outcomes. No claim that state updates prove causation or timeout means rollback."
+    },
+    {
+      "path": "docs/source/home-assistant/appliances-and-cleaning.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-ILL-07",
+        "BG-ILL-08",
+        "WG-011",
+        "WG-032",
+        "WG-034",
+        "WG-044"
+      ],
+      "examples": [
+        "ha-appliance-cycle",
+        "ha-appliance-returning",
+        "ha-appliance-error"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Gates each appliance/robot capability and remote permission; qualifies estimates and exact synthetic fault code without diagnosis or automatic retry."
+    },
+    {
+      "path": "docs/source/home-assistant/automation-editing.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-TYP-04",
+        "WG-035",
+        "WG-036",
+        "WG-051",
+        "WG-080",
+        "WG-084"
+      ],
+      "examples": [
+        "ha-automation-outline",
+        "ha-automation-invalid",
+        "ha-automation-run"
+      ],
+      "finding_ids": [
+        "CTRL-REV-004"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Separates draft/save/enable/run; corrected a specimen that made interface error feedback look like a configured automation action. Native editor/trace limitations remain explicit."
+    },
+    {
+      "path": "docs/source/home-assistant/cameras.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-ILL-08",
+        "BG-ILL-09",
+        "WG-011",
+        "WG-033",
+        "WG-061",
+        "WG-082"
+      ],
+      "examples": [
+        "ha-camera-snapshot",
+        "ha-camera-loading",
+        "ha-camera-failed"
+      ],
+      "finding_ids": [
+        "CTRL-REV-006",
+        "CTRL-REV-007"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Distinguishes still capture, fetch/viewer activity and source-reported recording. Original diagram is visibly synthetic, with corrected canvas provenance and checksum; no live-media or privacy-control claim."
+    },
+    {
+      "path": "docs/source/home-assistant/climate-and-air.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-COL-05",
+        "BG-TYP-03",
+        "WG-034",
+        "WG-070",
+        "WG-071",
+        "WG-073"
+      ],
+      "examples": [
+        "ha-climate-target",
+        "ha-climate-range",
+        "ha-climate-pending",
+        "ha-climate-related"
+      ],
+      "finding_ids": [
+        "CTRL-REV-003"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Separates measured value, target, mode and activity; completed a supplied mode and separated unsupported oscillation from unavailable data. No prescribed water-heater safety setting."
+    },
+    {
+      "path": "docs/source/home-assistant/continuous-controls.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-COL-04",
+        "BG-TYP-04",
+        "BG-TYP-05",
+        "WG-030",
+        "WG-034",
+        "WG-063",
+        "WG-084"
+      ],
+      "examples": [
+        "ha-control-range",
+        "ha-control-precise",
+        "ha-control-missing"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Keeps native range/step/units and draft/commit rules; missing values do not become minimums. Keyboard and precision alternatives are specified without promising untested native shortcuts."
+    },
+    {
+      "path": "docs/source/home-assistant/energy-flow-and-other-charts.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-DAT-02",
+        "BG-DAT-06",
+        "BG-DAT-07",
+        "WG-004",
+        "WG-077",
+        "WG-095"
+      ],
+      "examples": [
+        "ha-flow-values",
+        "ha-gauge-reading",
+        "ha-chart-unsupported"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Keeps native distribution, gauges, pie and third-party cards outside the exact Energy adapter; synthetic flow table makes no balancing/whole-total or ONS Sankey claim."
+    },
+    {
+      "path": "docs/source/home-assistant/entity-state.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-COL-05",
+        "BG-DAT-04",
+        "WG-011",
+        "WG-031",
+        "WG-033",
+        "WG-076"
+      ],
+      "examples": [
+        "ha-state-zero",
+        "ha-state-missing",
+        "ha-state-assumed"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Preserves zero, unknown, unavailable, null/absent attributes and assumed state; timestamps are bookkeeping unless an integration-specific freshness contract establishes more."
+    },
+    {
+      "path": "docs/source/home-assistant/history-and-statistics.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-DAT-03",
+        "BG-DAT-04",
+        "BG-DAT-07",
+        "WG-074",
+        "WG-076",
+        "WG-077"
+      ],
+      "examples": [
+        "ha-history-values",
+        "ha-history-empty",
+        "ha-history-unavailable"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Separates observations, events and aggregates; retained data keeps its old period, and missing attribution does not imply physical-button causation. No Energy table/export claim for unsupported hosts."
+    },
+    {
+      "path": "docs/source/home-assistant/lighting.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-COL-05",
+        "BG-ILL-07",
+        "WG-031",
+        "WG-034",
+        "WG-035"
+      ],
+      "examples": [
+        "ha-light-switch",
+        "ha-light-temperature",
+        "ha-light-mixed"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Gates brightness/colour/kelvin/effects by actual capability and preserves mixed-group members. Brand palette choices do not issue lighting requests."
+    },
+    {
+      "path": "docs/source/home-assistant/presence-and-privacy.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-ILL-09",
+        "WG-011",
+        "WG-022",
+        "WG-045",
+        "WG-061",
+        "WG-066"
+      ],
+      "examples": [
+        "ha-presence-reported",
+        "ha-presence-missing",
+        "ha-presence-private"
+      ],
+      "finding_ids": [
+        "CTRL-REV-007"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Qualifies tracker-derived presence and stale reports; omitting personal detail does not imply backend access restriction. Names and all household records are invented."
+    },
+    {
+      "path": "docs/source/home-assistant/schedules-and-time.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-TYP-03",
+        "WG-035",
+        "WG-072",
+        "WG-074",
+        "WG-075"
+      ],
+      "examples": [
+        "ha-schedule-blocks",
+        "ha-schedule-overnight",
+        "ha-schedule-conflict",
+        "ha-schedule-timer"
+      ],
+      "finding_ids": [],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Distinguishes recurring blocks, all-day dates and timer durations; boundaries/overnight support confirmed against official source. DST and provider behaviour require actual-version acceptance."
+    },
+    {
+      "path": "docs/source/home-assistant/target-pickers.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-001–004",
+        "WG-010–015",
+        "WG-020–025",
+        "WG-030–038",
+        "WG-040–046",
+        "WG-050–056",
+        "WG-060–066",
+        "WG-070–078",
+        "WG-080–086",
+        "WG-090–095"
+      ],
+      "explicit_rule_links": [
+        "BG-TYP-04",
+        "BG-TYP-05",
+        "WG-022",
+        "WG-025",
+        "WG-034",
+        "WG-038",
+        "WG-084"
+      ],
+      "examples": [
+        "ha-target-duplicates",
+        "ha-target-scope",
+        "ha-target-missing"
+      ],
+      "finding_ids": [
+        "CTRL-REV-001",
+        "CTRL-REV-005"
+      ],
+      "result": "no_remaining_confirmed_static_finding",
+      "note": "Preserves whole native target/exclusions and disambiguating names. Corrected index-based values and assumed first selection; completed the explicitly included/excluded member review."
+    }
+  ],
+  "findings": [
+    {
+      "id": "CTRL-REV-001",
+      "priority": "P2",
+      "rule_ids": [
+        "WG-022",
+        "WG-025",
+        "WG-038"
+      ],
+      "result": "corrected",
+      "before": "The unanswered duplicate-name selection was preselected and used order-based 0/1 values instead of the displayed entity IDs.",
+      "resolution": "Removed the default answer, required a deliberate choice, and used stable synthetic entity IDs as values.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 232,
+          "example_id": "ha-target-duplicates"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-REV-002",
+      "priority": "P2",
+      "rule_ids": [
+        "WG-054",
+        "WG-061"
+      ],
+      "result": "corrected",
+      "before": "A new shared-display privacy question silently selected its first answer.",
+      "resolution": "Both options now start unanswered, with explicit local scope and a required choice.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 412,
+          "example_id": "ha-account-shared"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-REV-003",
+      "priority": "P2",
+      "rule_ids": [
+        "WG-001",
+        "WG-033",
+        "WG-034",
+        "WG-070"
+      ],
+      "result": "corrected",
+      "before": "The water-heater row said only that an operation mode was supplied, and oscillation was called unavailable where the example intended unsupported.",
+      "resolution": "Added the actual synthetic reported Eco mode and explicit not-supported oscillation wording.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 152,
+          "example_id": "ha-climate-related"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-REV-004",
+      "priority": "P2",
+      "rule_ids": [
+        "WG-020",
+        "WG-035",
+        "WG-056"
+      ],
+      "result": "corrected",
+      "before": "Interface error handling was nested within the automation action sequence.",
+      "resolution": "Moved it into a separate interface-feedback paragraph and kept the automation outline to trigger, condition and action.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 262,
+          "example_id": "ha-automation-outline"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-REV-005",
+      "priority": "P3",
+      "rule_ids": [
+        "WG-051",
+        "WG-055"
+      ],
+      "result": "corrected",
+      "before": "The target review gave included counts but omitted the included member identities.",
+      "resolution": "Named both included synthetic entity IDs alongside the excluded entity; the count now has complete review context.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 242,
+          "example_id": "ha-target-scope"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-REV-006",
+      "priority": "P3",
+      "rule_ids": [
+        "BG-ILL-10"
+      ],
+      "result": "corrected",
+      "before": "The provenance said white canvas and polygon geometry, while the SVG uses a #F3F6F9 canvas and rectangles.",
+      "resolution": "Corrected the asset-specific metadata and recorded its SHA-256 without changing the original artwork.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 452,
+          "example_id": "ha-camera-snapshot"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-REV-007",
+      "priority": "P3",
+      "rule_ids": [
+        "WG-023"
+      ],
+      "result": "corrected",
+      "before": "Some authored explanatory permission wording used US spelling without being a native label or code value.",
+      "resolution": "Used UK-English authorisation/authorised/serialisation in prose, preserving native labels, identifiers and URLs.",
+      "evidence": [
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 162,
+          "example_id": "ha-access-lock"
+        },
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 192,
+          "example_id": "ha-access-alarm-valve"
+        },
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 412,
+          "example_id": "ha-account-shared"
+        },
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 442,
+          "example_id": "ha-presence-private"
+        },
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "line": 482,
+          "example_id": "ha-camera-failed"
+        }
+      ]
+    }
+  ],
+  "source_spot_checks": [
+    {
+      "url": "https://www.home-assistant.io/docs/blueprint/selectors/",
+      "checked": "Whole target output and exclude block; correct to preserve intact."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/schedule/",
+      "checked": "Touching/overnight boundaries and no overlap; guide agrees."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/camera/",
+      "checked": "Idle can be reported while viewing a feed when activity is not reported; guide qualifies correctly."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/water_heater/",
+      "checked": "Eco is a native supplied operation-mode label; used only as a synthetic reported mode, with no temperature or safety prescription."
+    }
+  ],
+  "artwork": [
+    {
+      "path": "docs/source/images/card-kitchen.svg",
+      "record": "docs/data/card-artwork-provenance.json",
+      "sha256": "b09c41ecd9a301478e12b7510beb6a9c74f18a73ff07fe15e186f37474622593",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/card-reading-lamp.svg",
+      "record": "docs/data/card-artwork-provenance.json",
+      "sha256": "f8a6bc789016d58327b5d2417e1a65b758af17138c7cfb8de42118e6fc427fe6",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/card-room-schematic.svg",
+      "record": "docs/data/card-artwork-provenance.json",
+      "sha256": "d4209d9e24bf04e75ae55fef1cbdf28ce0d89ed1a53e2bc2b01134ec9d028a34",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/design-system-hero.svg",
+      "record": "docs/data/illustration-assets.json",
+      "sha256": "30ed80ab58e25d2987f83106fd91b7903a70fcb62718cb78a03502f399e86f1b",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/category-styles.svg",
+      "record": "docs/data/illustration-assets.json",
+      "sha256": "aceacde36a73c9428910e7808caaf4b26496b411bb88fdfdb91c54b13999ab0d",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/category-components.svg",
+      "record": "docs/data/illustration-assets.json",
+      "sha256": "644d61975ffda965546acc09342cd86730c79e9e3981f9b9176308c72f94eb15",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/category-patterns.svg",
+      "record": "docs/data/illustration-assets.json",
+      "sha256": "c72ba2f82ba4961515a355e0e93dfc9a92f69c6476ebb1820f404c1a64f1fabd",
+      "result": "source-and-hash-checked"
+    },
+    {
+      "path": "docs/source/images/ha-controls-camera-scene.svg",
+      "record": "docs/data/ha-controls-examples.yml#ha-camera-snapshot",
+      "sha256": "0c7fd17ac0ac4908864001eb35c9db9b1da89cbd7d156580b2d29a6cbb7b72c2",
+      "result": "geometry-canvas-alt-rights-and-hash-checked"
+    }
+  ],
+  "validation": {
+    "examples": 48,
+    "unique_ids_aria_labels_fragment_targets_and_images": "passed",
+    "synthetic_scope_and_no_live_actions": "checked",
+    "guide_frontmatter": "15 passed",
+    "source_count": "101 governing rules; per-rule applicability follows static content scope, not an unqualified 101-rule runtime pass",
+    "deferred": "Actual colour contrast, keyboard focus/runtime handlers, 320px/zoom rendering, forced colours, assistive technology, native integration and physical outcomes require root integrated checks or separately recorded acceptance."
+  }
+}

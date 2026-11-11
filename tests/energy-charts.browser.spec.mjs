@@ -13,6 +13,22 @@ async function openTable(page, title) {
   return table;
 }
 
+test('sample date changes cross month boundaries and fixed examples have no no-op date control', async ({ page }) => {
+  await openExamples(page);
+  const next = page.getByRole('button', { name: 'Show next sample day for time charts', exact: true });
+  // Advance synchronously to avoid waiting on twenty decorative animations.
+  await next.evaluate(button => { for (let index = 0; index < 20; index++) button.click(); });
+  await expect(page.locator('hui-power-sources-graph-card .chart-description')).toContainText('1 December 2026');
+  await expect(page.locator('hui-energy-usage-graph-card .chart-description')).toContainText('compared with 30 November 2026');
+  await page.getByRole('checkbox', { name: 'Muted chart colours' }).check();
+  await expect(page.locator('hui-power-sources-graph-card .chart-description')).toContainText('1 December 2026');
+  for (const id of ['local-chart-devices', 'local-chart-empty']) {
+    await page.goto(`/docs/build/examples/${id}.html`);
+    await expect(page.getByRole('button', { name: /Show next sample day/ })).toHaveCount(0);
+    await expect(page.locator('.chart-description')).toContainText('Fixed example');
+  }
+});
+
 test('real ECharts receives ONS presentation while data, native legend, zoom and tooltip survive', async ({ page }) => {
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await openExamples(page);
@@ -166,7 +182,7 @@ test('adapter restores native presentation and handles renderer replacement with
   expect(await page.evaluate(() => window.energyFixture.hosts.devices.chart.getOption().series[0].data[0].itemStyle.borderRadius)).toBe(0);
   await page.evaluate(() => window.energyFixture.recreateChart('power'));
   await expect.poll(() => page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series[0].lineStyle.width)).toBe(1.5);
-  await page.getByRole('button', { name: 'Show next sample day', exact: true }).click();
+  await page.getByRole('button', { name: 'Show next sample day for time charts', exact: true }).click();
   const table = await openTable(page, 'Power over time'); await expect(table).toContainText('12 Nov 2026');
   await page.evaluate(() => {
     window.latestEnergyValues = JSON.stringify(window.energyFixture.hosts.power.data);
@@ -399,7 +415,7 @@ test('verified Power sign pairs give one signed line, tooltip and table across h
   await expect(tooltip.locator('[data-series-id="grid-negative"]')).toHaveCount(0);
   await expect(tooltip).toContainText('Grid power: -0.16 kW');
   expect(await page.evaluate(() => window.energyFixture.hosts.power.data === window.powerNativeReference && JSON.stringify(window.energyFixture.hosts.power.data) === window.powerNativeText)).toBe(true);
-  await page.getByRole('button', { name: 'Show next sample day', exact: true }).click();
+  await page.getByRole('button', { name: 'Show next sample day for time charts', exact: true }).click();
   await expect(table).toContainText('12 Nov 2026'); await expect(table).not.toContainText('11 Nov 2026');
   await page.evaluate(() => window.energyFixture.setActive(false));
   const restored = await page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series.filter(series => ['grid', 'grid-negative'].includes(series.id)).map(series => ({ id: series.id, values: series.data.map(point => (point.value ?? point)[1]) })));
@@ -591,7 +607,7 @@ test('native legend and theme redraws cannot leave animated sign-pair geometry b
   const solar = page.locator('hui-power-sources-graph-card .label[data-id=solar]');
   for (const action of ['hide solar', 'show solar', 'dark', 'light', 'next day']) {
     if (action === 'hide solar' || action === 'show solar') await solar.click();
-    else if (action === 'next day') await page.getByRole('button', { name: 'Show next sample day', exact: true }).click();
+    else if (action === 'next day') await page.getByRole('button', { name: 'Show next sample day for time charts', exact: true }).click();
     else await page.evaluate(mode => window.energyFixture.setMode(mode), action);
     const expected = { drawn: action === 'hide solar' ? 3 : 4, coordinatesMatch: true, emptySeriesClear: true };
     await expect.poll(geometry).toEqual(expected);

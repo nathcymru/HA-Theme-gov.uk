@@ -1,17 +1,19 @@
 ---
-title: "Transaction"
-description: "A transaction start page explains a task and directs users to the service that performs it."
-section: "patterns"
-group: "Page templates"
-source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/transaction/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Transaction
+description: A transaction start page explains a task and directs users to the service that performs it.
+section: patterns
+group: Page templates
+source_url: https://design-guide.publishing.service.gov.uk/frontend-templates/transaction/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Transaction
@@ -19,6 +21,10 @@ updates:
 A transaction start page explains a task and directs users to the service that performs it. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/transaction/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Task entry has its own owner
+
+The [start-page pattern](../../patterns/start-page.html) owns prerequisites and a clear destination. [Question pages](../../patterns/question-pages.html#compose-the-task-without-replacing-its-owner) own the answers if the supported flow actually asks questions. This publishing template remains a task-entry composition; it cannot establish a backend, save or device action by presentation alone.
 
 ## When to use it
 

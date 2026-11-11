@@ -1,8 +1,17 @@
 ---
-title: "Errors and recovery"
-description: "Errors and recovery for the civica.uk Home Assistant design system."
+title: Errors and recovery
+description: Errors and recovery for the civica.uk Home Assistant design system.
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: Separated unknown, unavailable, retained readings, confirmed rejection and unconfirmed request outcomes.
+  - date: 2026-11-11
+    description: Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild.
+  - date: 2026-11-11
+    description: First published in the civica.uk design system.
 ---
 
 # Errors and recovery
@@ -24,8 +33,11 @@ These isolated examples illustrate the decisions on this page. Any household val
 | Situation | Explain | Avoid |
 | --- | --- | --- |
 | Successful request with no warnings | No current warnings | Unavailable |
-| Sensor has no current reading | Reading unavailable | 0 |
-| Device command failed | The device did not respond | Success confirmation |
+| Entity has not supplied a usable state | Reading unknown | 0 or Off |
+| Entity currently reports unavailable | Reading unavailable | Definitely offline |
+| Only an earlier observation is available | Last reported value, with its date and time | Presenting it as a new reading |
+| A request was explicitly rejected | Request rejected, with the known reason | The device did not respond |
+| A request was accepted but no new state arrived | Request accepted; result not confirmed | Failed, succeeded or safe to repeat without checking |
 | Theme was not installed | This theme is not available. Reload themes after installing it. | Silent fallback to a different palette |
 | Profile adapter cannot attach | Use the native theme selector or settings card | Hiding the native settings |
 

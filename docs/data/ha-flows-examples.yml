@@ -1,0 +1,1421 @@
+examples:
+  ha-flow-016-playing:
+    title: "Playing with a known duration"
+    description: "A complete invented playback record and a local command-feedback exercise."
+    html: |
+      <h2 class="govuk-heading-m">Living room speaker</h2>
+      <p class="govuk-body">Example recorded at 18:30 on 11 November 2026, Europe/London.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Item</dt>
+      <dd class="govuk-summary-list__value">Evening piano — Sample artist</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Playback</dt>
+      <dd class="govuk-summary-list__value">Playing</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Position</dt>
+      <dd class="govuk-summary-list__value">2 minutes 10 seconds of 5 minutes</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Volume</dt>
+      <dd class="govuk-summary-list__value">35%</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example request recorded locally. The displayed playback snapshot has not changed; no speaker command was sent.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="media-volume">Example volume (%)</label>
+      <div class="govuk-hint" id="media-volume-hint">Adjust this local draft using the arrow keys. It does not change the reported speaker volume.</div>
+      <input class="civica-control-range" id="media-volume" name="media-volume" type="range" min="0" max="100" step="1" value="35" aria-describedby="media-volume-hint" data-demo-range>
+      <output for="media-volume" data-demo-range-output>35%</output>
+      </div>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="media-command">Example operation</label>
+      <select class="govuk-select" id="media-command" name="media-command">
+      <option value="0">Pause playback</option>
+      <option value="1">Mute speaker</option>
+      <option value="2">Stop playback</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Practise request</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  ha-flow-016-source:
+    title: "Choose a supported input"
+    description: "Selection and output names are separate; the example does not transfer playback."
+    html: |
+      <h2 class="govuk-heading-m">Kitchen receiver</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Reported input</dt>
+      <dd class="govuk-summary-list__value">Radio</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Playback</dt>
+      <dd class="govuk-summary-list__value">Idle</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Supported inputs</dt>
+      <dd class="govuk-summary-list__value">Radio; line input</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example selection reviewed locally. The receiver input has not changed.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="media-source">Requested input</label>
+      <div class="govuk-hint" id="media-source-hint">These are invented supported inputs for this receiver.</div>
+      <select class="govuk-select" id="media-source" name="media-source" aria-describedby="media-source-hint">
+      <option value="0">Radio</option>
+      <option value="1">Line input</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Practise input selection</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What changes in a connected interface?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Selecting an input sends an operation to the named receiver. Keep the reported input visible until the integration confirms its new state.</p>
+      </div>
+      </details>
+  ha-flow-016-unavailable:
+    title: "Playback result is unconfirmed"
+    description: "An interrupted request preserves a dated last report and provides a useful recovery explanation."
+    html: |
+      <h2 class="govuk-heading-m">Bedroom speaker</h2>
+      <p class="govuk-body">
+      <strong>We could not confirm the pause request.</strong>
+      </p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last report</dt>
+      <dd class="govuk-summary-list__value">Playing at 18:28 on 11 November 2026, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current connection</dt>
+      <dd class="govuk-summary-list__value">Home Assistant connection lost</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Duration</dt>
+      <dd class="govuk-summary-list__value">Not supplied</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#media-recovery">Read the playback recovery steps</a>
+      </p>
+      <section id="media-recovery" tabindex="-1">
+      <h2 class="govuk-heading-m">Check playback after reconnecting</h2>
+      <p class="govuk-body">Wait for the native connection indicator to recover. Read the speaker’s new reported state before sending Pause again. This example does not reconnect or replay a request.</p>
+      </section>
+  ha-flow-017-locations:
+    title: "Text alternative to map markers"
+    description: "Invented zone records give the map task an accessible text route."
+    html: |
+      <h2 class="govuk-heading-m">Example locations</h2>
+      <p class="govuk-body">Synthetic records observed at 08:15 on 11 November 2026, Europe/London. Exact coordinates are omitted.</p>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Location records</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Entity</th>
+      <th class="govuk-table__header" scope="col">Reported location</th>
+      <th class="govuk-table__header" scope="col">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Sample bicycle</th>
+      <td class="govuk-table__cell">Home zone</td>
+      <td class="govuk-table__cell">Tracker report; accuracy 30 metres</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Sample tablet</th>
+      <td class="govuk-table__cell">Not supplied</td>
+      <td class="govuk-table__cell">No current location value</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#map-record">Read the bicycle location details</a>
+      </p>
+      <section id="map-record" tabindex="-1">
+      <h2 class="govuk-heading-m">Bicycle location details</h2>
+      <p class="govuk-body">The tracker reported a point within the Home zone. The 30-metre accuracy does not confirm the bicycle is in a specific room or outbuilding.</p>
+      </section>
+  ha-flow-017-zone:
+    title: "Review a zone before editing"
+    description: "A complete zone review makes configuration effects distinct from map browsing."
+    html: |
+      <h2 class="govuk-heading-m">Example garden zone</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Purpose</dt>
+      <dd class="govuk-summary-list__value">Group outdoor presence reports</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Radius</dt>
+      <dd class="govuk-summary-list__value">40 metres</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Used by</dt>
+      <dd class="govuk-summary-list__value">Example arrival reminder</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Change effect</dt>
+      <dd class="govuk-summary-list__value">A radius change can alter when a tracker is considered inside the zone</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example radius reviewed locally. No zone or automation was changed.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="zone-radius">Proposed radius in metres</label>
+      <div class="govuk-hint" id="zone-radius-hint">This synthetic draft accepts whole-number radii from 1 to 500 metres. The actual native editor must enforce its own supported bounds.</div>
+      <input class="govuk-input" id="zone-radius" name="zone-radius" type="number" min="1" max="500" step="1" value="40" aria-describedby="zone-radius-hint" required>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example radius</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  ha-flow-017-private:
+    title: "Shared display location choice"
+    description: "A local preference exercise shows approximate and withheld detail without exposing coordinates."
+    html: |
+      <h2 class="govuk-heading-m">Location detail on this example display</h2>
+      <form data-demo-form data-demo-success="Example choice reviewed locally. No location visibility or account setting was saved.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="map-privacy">Example disclosure</label>
+      <div class="govuk-hint" id="map-privacy-hint">This demonstrates wording; it does not change account permissions.</div>
+      <select class="govuk-select" id="map-privacy" name="map-privacy" aria-describedby="map-privacy-hint" required>
+      <option value="" selected disabled>Choose the example display scope</option>
+      <option value="zones-only">Zone names only</option>
+      <option value="omit-people">Do not show people</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Practise display choice</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">When map tiles do not load</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Keep the textual records and their observation times available. Tile failure does not tell you whether a person is at home. Do not replace missing records with guessed markers.</p>
+      </div>
+      </details>
+  ha-flow-018-disconnected:
+    title: "Disconnected with a retained reading"
+    description: "The last observation is useful but explicitly not a live reading."
+    html: |
+      <h2 class="govuk-heading-m">Home Assistant connection lost</h2>
+      <p class="govuk-body">New readings cannot be received in this example state.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Hall temperature</dt>
+      <dd class="govuk-summary-list__value">Last reported 18.5 °C</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Observation time</dt>
+      <dd class="govuk-summary-list__value">07:55 on 11 November 2026, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Connection lost</dt>
+      <dd class="govuk-summary-list__value">08:00 on 11 November 2026, Europe/London</dd>
+      </div>
+      </dl>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What remains available?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">You can read retained information. Wait for a new report before treating it as current. This static example does not reconnect.</p>
+      </div>
+      </details>
+  ha-flow-018-entity:
+    title: "One entity cannot supply its state"
+    description: "A local device problem is not described as the whole application being offline."
+    html: |
+      <h2 class="govuk-heading-m">Kitchen readings</h2>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example reports at 08:10 on 11 November 2026, Europe/London</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Entity</th>
+      <th class="govuk-table__header" scope="col">Report</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Window sensor</th>
+      <td class="govuk-table__cell">Closed</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Air sensor</th>
+      <td class="govuk-table__cell">Unavailable — no current reading</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">The Home Assistant connection is available. The air sensor’s state does not establish the cause of its missing report.</p>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#connection-check">Read the air-sensor check</a>
+      </p>
+      <section id="connection-check" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the integration status</h2>
+      <p class="govuk-body">Use the native integration and entity diagnostics. Keep the window sensor’s valid report visible; do not replace either reading with zero.</p>
+      </section>
+  ha-flow-018-save:
+    title: "Save outcome cannot be confirmed"
+    description: "A retained non-secret draft and an inspection-first recovery path avoid a duplicate operation."
+    html: |
+      <h2 class="govuk-heading-m">Schedule save interrupted</h2>
+      <p class="govuk-body">
+      <strong>We could not confirm the save.</strong> Check the stored schedule before submitting it again.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Draft name</dt>
+      <dd class="govuk-summary-list__value">Evening lights</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Draft period</dt>
+      <dd class="govuk-summary-list__value">18:00 to 21:00, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Retention</dt>
+      <dd class="govuk-summary-list__value">This example retains these displayed draft values only</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#stored-schedule">Inspect the example stored schedule</a>
+      </p>
+      <section id="stored-schedule" tabindex="-1">
+      <h2 class="govuk-heading-m">Example stored schedule</h2>
+      <p class="govuk-body">The stored version shown for this exercise still says 18:30 to 21:00. A connected application must fetch its actual saved version; this specimen is not a live comparison.</p>
+      </section>
+  ha-flow-019-destinations:
+    title: "Backup created, one upload failed"
+    description: "A complete per-destination result avoids an overbroad success message."
+    html: |
+      <h2 class="govuk-heading-m">Example backup: evening settings</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Created</dt>
+      <dd class="govuk-summary-list__value">11 November 2026 at 19:00, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Contents</dt>
+      <dd class="govuk-summary-list__value">Home Assistant settings and history</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Not included</dt>
+      <dd class="govuk-summary-list__value">External database and media</dd>
+      </div>
+      </dl>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Storage results</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Destination</th>
+      <th class="govuk-table__header" scope="col">Result</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Local backup storage</th>
+      <td class="govuk-table__cell">Created</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Example remote storage</th>
+      <td class="govuk-table__cell">Upload failed</td>
+      </tr>
+      </tbody>
+      </table>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What does this result mean?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">A local archive exists in this invented scenario. The remote destination does not yet have a confirmed copy. No backup or upload runs in this example.</p>
+      </div>
+      </details>
+  ha-flow-019-restore:
+    title: "Review replacement before restore"
+    description: "A local confirmation exercise names scope without performing destructive work."
+    html: |
+      <h2 class="govuk-heading-m">Review the example restore</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Archive</dt>
+      <dd class="govuk-summary-list__value">Example settings backup, 10 November 2026 at 19:00, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Replaces</dt>
+      <dd class="govuk-summary-list__value">Selected Home Assistant settings</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Not restored</dt>
+      <dd class="govuk-summary-list__value">Media and external databases</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <strong>In a connected restore, the selected current settings would be replaced.</strong> This exercise has no archive, encryption key or restore connection.</p>
+      <form data-demo-form data-demo-success="Example review complete. No archive was read and no restore was started.">
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">For this exercise, check both statements before continuing</legend>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="restore-review-0" name="restore-review" type="checkbox" value="0" required>
+      <label class="govuk-label govuk-checkboxes__label" for="restore-review-0">I have checked the selected contents and their date</label>
+      </div>
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="restore-review-1" name="restore-review" type="checkbox" value="1" required>
+      <label class="govuk-label govuk-checkboxes__label" for="restore-review-1">I have a separate recovery plan for omitted data</label>
+      </div>
+      </div>
+      </fieldset>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example only</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  ha-flow-019-recovery:
+    title: "Theme recovery is a selected-file rollback"
+    description: "A record explicitly separates byte integrity from a full system backup."
+    html: |
+      <h2 class="govuk-heading-m">Example theme recovery record</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Scope</dt>
+      <dd class="govuk-summary-list__value">Companion JavaScript and theme YAML only</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Integrity check</dt>
+      <dd class="govuk-summary-list__value">Recorded hashes match the selected files</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">System backup</dt>
+      <dd class="govuk-summary-list__value">Not provided by this recovery copy</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Restore test</dt>
+      <dd class="govuk-summary-list__value">Not performed in this example</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#recovery-limits">Read what this recovery cannot restore</a>
+      </p>
+      <section id="recovery-limits" tabindex="-1">
+      <h2 class="govuk-heading-m">Recovery limits</h2>
+      <p class="govuk-body">This copy does not restore Home Assistant’s database, devices, automation history or external services. A guarded rollback must verify that the current files still match its expected installed version.</p>
+      </section>
+  ha-flow-020-skipped:
+    title: "A skipped release is visible"
+    description: "An invented version record avoids claiming the latest release is installed."
+    html: |
+      <h2 class="govuk-heading-m">Example thermostat update</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Installed version</dt>
+      <dd class="govuk-summary-list__value">4.2.0</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Offered version</dt>
+      <dd class="govuk-summary-list__value">4.3.0</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Latest release choice</dt>
+      <dd class="govuk-summary-list__value">4.3.0 skipped</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Checked</dt>
+      <dd class="govuk-summary-list__value">11 November 2026 at 12:00, Europe/London</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#update-notes">Read example release information</a>
+      </p>
+      <section id="update-notes" tabindex="-1">
+      <h2 class="govuk-heading-m">Example release information</h2>
+      <p class="govuk-body">Version 4.3.0 changes the fictional display layout. This is invented content, not a real manufacturer release or an installable package.</p>
+      </section>
+  ha-flow-020-progress:
+    title: "Installation without measured progress"
+    description: "A native stage is shown without an invented percentage or unsupported Cancel."
+    html: |
+      <h2 class="govuk-heading-m">Example receiver update</h2>
+      <p class="govuk-body">
+      <strong>Installing version 2.6.0</strong>
+      </p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Previous version</dt>
+      <dd class="govuk-summary-list__value">2.5.1</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Progress percentage</dt>
+      <dd class="govuk-summary-list__value">Not supplied</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Playback</dt>
+      <dd class="govuk-summary-list__value">May be interrupted during this example operation</dd>
+      </div>
+      </dl>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Why is there no Cancel button?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">This fictional integration does not expose cancellation. In a real interface, preserve the provider’s controls and do not suggest that closing the page stops installation.</p>
+      </div>
+      </details>
+  ha-flow-020-repair:
+    title: "Repair needs a manual step"
+    description: "The record supplies an actionable explanation without falsely resolving the issue."
+    html: |
+      <h2 class="govuk-heading-m">Example connection repair</h2>
+      <p class="govuk-body">The sample integration needs its account connection reviewed. This is routine maintenance, not a household emergency.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">State</dt>
+      <dd class="govuk-summary-list__value">Needs attention</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Automatic repair</dt>
+      <dd class="govuk-summary-list__value">Not supplied</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Acknowledged</dt>
+      <dd class="govuk-summary-list__value">No acknowledgement recorded</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#repair-instructions">Read the example repair steps</a>
+      </p>
+      <section id="repair-instructions" tabindex="-1">
+      <h2 class="govuk-heading-m">Review the integration connection</h2>
+      <p class="govuk-body">In a connected installation, open the named integration’s native reauthentication flow. Verify its provider and account before signing in. This example requests no credentials and does not resolve a repair.</p>
+      </section>
+  ha-flow-021-start:
+    title: "Choose the setup path"
+    description: "Two genuine local guidance destinations explain new installation and restore."
+    html: |
+      <h2 class="govuk-heading-m">Plan an example installation</h2>
+      <p class="govuk-body">This page explains the options. It does not create an account or connect to Home Assistant.</p>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#setup-new">Read about a new installation</a>
+      </p>
+      <section id="setup-new" tabindex="-1">
+      <h2 class="govuk-heading-m">New installation</h2>
+      <p class="govuk-body">Use native onboarding to create the owner and review location and optional data-sharing choices. Keep the owner credentials in the native flow.</p>
+      </section>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#setup-restore">Read about restoring an existing installation</a>
+      </p>
+      <section id="setup-restore" tabindex="-1">
+      <h2 class="govuk-heading-m">Restore an existing installation</h2>
+      <p class="govuk-body">Use the native restore path with the required backup and encryption material. Review what it will replace before proceeding.</p>
+      </section>
+  ha-flow-021-discovered:
+    title: "Discovered is not yet ready"
+    description: "A complete invented setup summary separates discovery from configured entities."
+    html: |
+      <h2 class="govuk-heading-m">Sample bridge discovered</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Discovery</dt>
+      <dd class="govuk-summary-list__value">Found on the example network</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Integration configuration</dt>
+      <dd class="govuk-summary-list__value">Not completed</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Usable entities</dt>
+      <dd class="govuk-summary-list__value">Not yet confirmed</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example candidate reviewed locally. No integration was configured.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="setup-device">Example candidate</label>
+      <select class="govuk-select" id="setup-device" name="setup-device">
+      <option value="0">Sample bridge A — identifier ending 102</option>
+      <option value="1">Sample bridge B — identifier ending 208</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example candidate</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <p class="govuk-body">In Home Assistant, continue through the native integration flow and verify the resulting entities.</p>
+  ha-flow-021-reauth:
+    title: "Reauthentication without a credential field"
+    description: "The example points to a real explanation instead of collecting a password."
+    html: |
+      <h2 class="govuk-heading-m">Example account connection needs attention</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Integration</dt>
+      <dd class="govuk-summary-list__value">Sample media service</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Reported issue</dt>
+      <dd class="govuk-summary-list__value">Authorization expired</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Playback state</dt>
+      <dd class="govuk-summary-list__value">Not confirmed by this message</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#reauth-guide">Read the reauthentication guidance</a>
+      </p>
+      <section id="reauth-guide" tabindex="-1">
+      <h2 class="govuk-heading-m">Use the native provider flow</h2>
+      <p class="govuk-body">Open the affected integration in Home Assistant and follow its reauthentication step. Check the provider’s identity and requested permissions. This documentation has no sign-in form and stores no account secret.</p>
+      </section>
+  ha-flow-022-draft:
+    title: "A card draft has a clear scope"
+    description: "A local form demonstrates editing context without changing a dashboard."
+    html: |
+      <h2 class="govuk-heading-m">Edit example kitchen light card</h2>
+      <p class="govuk-body">Scope: shared Example home dashboard. This exercise changes no dashboard or light.</p>
+      <form data-demo-form data-demo-success="Example draft reviewed locally. No dashboard configuration was saved.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="card-title">Card title</label>
+      <div class="govuk-hint" id="card-title-hint">The entity target remains light.example_kitchen.</div>
+      <input class="govuk-input" id="card-title" name="card-title" type="text" value="Kitchen light" aria-describedby="card-title-hint" required>
+      </div>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="card-layout">Example width</label>
+      <select class="govuk-select" id="card-layout" name="card-layout">
+      <option value="0">One column</option>
+      <option value="1">Two columns</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example draft</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Entity target</dt>
+      <dd class="govuk-summary-list__value">
+      <code>light.example_kitchen</code>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Saved title</dt>
+      <dd class="govuk-summary-list__value">Kitchen light</dd>
+      </div>
+      </dl>
+  ha-flow-022-move:
+    title: "Review a move without operating devices"
+    description: "The source and destination identify the configuration operation."
+    html: |
+      <h2 class="govuk-heading-m">Move example heating card</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">From</dt>
+      <dd class="govuk-summary-list__value">Overview, position 2</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">To</dt>
+      <dd class="govuk-summary-list__value">Climate section, position 1</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Changes</dt>
+      <dd class="govuk-summary-list__value">Card placement only</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Does not change</dt>
+      <dd class="govuk-summary-list__value">Heating mode or temperature</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example move reviewed locally. No layout or device state changed.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="move-destination">Example destination</label>
+      <select class="govuk-select" id="move-destination" name="move-destination">
+      <option value="0">Climate section, position 1</option>
+      <option value="1">Climate section, position 2</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example move</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <p class="govuk-body">A connected editor must supply its real supported movement controls; this specimen is not proof of native keyboard reordering.</p>
+  ha-flow-022-invalid:
+    title: "Keep an invalid target visible"
+    description: "A complete error review preserves the identifier and separates draft from saved state."
+    html: |
+      <h2 class="govuk-heading-m">Example card draft needs attention</h2>
+      <p class="govuk-body">
+      <strong>No entity matches this ID in the example’s available targets.</strong>
+      </p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Draft target</dt>
+      <dd class="govuk-summary-list__value">
+      <code>light.example_missing</code>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Saved target</dt>
+      <dd class="govuk-summary-list__value">
+      <code>light.example_kitchen</code>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Save state</dt>
+      <dd class="govuk-summary-list__value">Rejected in this synthetic scenario</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#dashboard-target">Read how to check the target</a>
+      </p>
+      <section id="dashboard-target" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the target before saving</h2>
+      <p class="govuk-body">Choose from the authorized native target list or correct the identifier. An existing but unavailable entity is a different state and must not be relabelled missing.</p>
+      </section>
+  ha-flow-023-numbers:
+    title: "One reading, two display conventions"
+    description: "A static comparison keeps the underlying quantity and unit unchanged."
+    html: |
+      <h2 class="govuk-heading-m">Example energy reading</h2>
+      <p class="govuk-body">The invented stored quantity is 1234.5 kWh. These are two display conventions, not different readings.</p>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Number display comparison</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Convention</th>
+      <th class="govuk-table__header" scope="col">Displayed value</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Decimal point</th>
+      <td class="govuk-table__cell">1,234.5 kWh</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Decimal comma</th>
+      <td class="govuk-table__cell">1.234,5 kWh</td>
+      </tr>
+      </tbody>
+      </table>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What must remain unchanged?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">The energy quantity, unit and source precision remain the same. A locale preference changes formatting, not the measurement or chart identity.</p>
+      </div>
+      </details>
+  ha-flow-023-clock:
+    title: "Two distinct instants share a clock label"
+    description: "The repeated UK hour is disambiguated with offsets."
+    html: |
+      <h2 class="govuk-heading-m">Example readings during the clock change</h2>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">25 October 2026, Europe/London</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Local observation time</th>
+      <th class="govuk-table__header" scope="col">UTC offset</th>
+      <th class="govuk-table__header" scope="col">Reading</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">01:30</th>
+      <td class="govuk-table__cell">+01:00</td>
+      <td class="govuk-table__cell">18.0 °C</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">01:30</th>
+      <td class="govuk-table__cell">+00:00</td>
+      <td class="govuk-table__cell">17.8 °C</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">These observations are one hour apart. Both clock labels are valid; the offset distinguishes them. No values have been interpolated.</p>
+  ha-flow-023-date:
+    title: "A due date is not a midnight reading"
+    description: "A date-only task and its containing list’s entity identifier retain their different meanings."
+    html: |
+      <h2 class="govuk-heading-m">Example filter check</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Due date</dt>
+      <dd class="govuk-summary-list__value">12 November 2026 — date only</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">List entity identifier</dt>
+      <dd class="govuk-summary-list__value">
+      <bdi>
+      <code>todo.example_filter</code>
+      </bdi>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Time zone</dt>
+      <dd class="govuk-summary-list__value">No instant is supplied for this date-only item</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example preference reviewed locally. The due date and identifier have not changed; no profile preference was saved.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="locale-clock">Example clock preference</label>
+      <select class="govuk-select" id="locale-clock" name="locale-clock">
+      <option value="0">24-hour clock</option>
+      <option value="1">12-hour clock</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Practise display choice</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <p class="govuk-body">A clock preference does not create a due time for this task.</p>
+  ha-flow-024-evidence:
+    title: "A complete scoped test record"
+    description: "A complete planning template names the evidence fields while explicitly leaving execution unclaimed."
+    html: |
+      <h2 class="govuk-heading-m">Synthetic task test plan</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Task</dt>
+      <dd class="govuk-summary-list__value">Open a room dialog and return to its trigger</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Environment</dt>
+      <dd class="govuk-summary-list__value">Example fixture; Chromium; keyboard only</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Revision</dt>
+      <dd class="govuk-summary-list__value">Illustrative revision, not a release identifier</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">State</dt>
+      <dd class="govuk-summary-list__value">Room has one available light and one unavailable light</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Observed result</dt>
+      <dd class="govuk-summary-list__value">Not observed — this is an unexecuted plan</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Evidence status</dt>
+      <dd class="govuk-summary-list__value">Synthetic example — not an executed test</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Execution date</dt>
+      <dd class="govuk-summary-list__value">Not executed; template reviewed on 11 November 2026</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Versions and fixture revision</dt>
+      <dd class="govuk-summary-list__value">Must be recorded before testing; none is claimed by this synthetic plan</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Planned display context</dt>
+      <dd class="govuk-summary-list__value">320px viewport; 100% browser zoom; Civic Cobalt Vivid, light mode</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Steps</dt>
+      <dd class="govuk-summary-list__value">Focus the room trigger; press Enter; inspect the dialog; press Escape</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Expected result</dt>
+      <dd class="govuk-summary-list__value">The dialog closes and focus returns to the same named trigger; no device command is sent</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Evidence location</dt>
+      <dd class="govuk-summary-list__value">None yet — attach the actual artifact or log after execution</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">Before executing this plan, fill the exact versions and fixture revision. Afterwards, record the observed result and link its evidence. Until then, the task remains not tested.</p>
+  ha-flow-024-unexecuted:
+    title: "Untested cases stay visible"
+    description: "A reusable matrix separates execution methods and states."
+    html: |
+      <h2 class="govuk-heading-m">Example acceptance matrix</h2>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Illustrative review status</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Task and method</th>
+      <th class="govuk-table__header" scope="col">State</th>
+      <th class="govuk-table__header" scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Volume: keyboard</th>
+      <td class="govuk-table__cell">Paused player</td>
+      <td class="govuk-table__cell">Not tested</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Zone edit: non-drag route</th>
+      <td class="govuk-table__cell">Existing zone</td>
+      <td class="govuk-table__cell">Blocked: test installation unavailable</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Dialog: screen reader</th>
+      <td class="govuk-table__cell">Rejected request</td>
+      <td class="govuk-table__cell">Not tested</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">These are planning records, not failures proven in Home Assistant. Complete them with actual method, version and result evidence.</p>
+  ha-flow-024-checklist:
+    title: "Record a finding with enough context"
+    description: "A local form demonstrates a useful task-based finding rather than an accessibility score."
+    html: |
+      <h2 class="govuk-heading-m">Record an example task finding</h2>
+      <form data-demo-form data-demo-success="Example finding reviewed locally. No issue was sent and no real accessibility result was recorded.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="a11y-task">Task</label>
+      <div class="govuk-hint" id="a11y-task-hint">Describe the person’s goal, not just a component name.</div>
+      <input class="govuk-input" id="a11y-task" name="a11y-task" type="text" value="Change the example volume" aria-describedby="a11y-task-hint" required>
+      </div>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="a11y-method">Method</label>
+      <select class="govuk-select" id="a11y-method" name="a11y-method">
+      <option value="0">Keyboard</option>
+      <option value="1">Screen reader</option>
+      <option value="2">Touch</option>
+      <option value="3">400% browser zoom</option>
+      </select>
+      </div>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="a11y-result">Observed limitation</label>
+      <div class="govuk-hint" id="a11y-result-hint">Invented observation for this exercise.</div>
+      <input class="govuk-input" id="a11y-result" name="a11y-result" type="text" value="Unable to reach the example slider" aria-describedby="a11y-result-hint" required>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example finding</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  ha-flow-025-typed:
+    title: "Typed alternative to voice"
+    description: "A complete local request exercise has explicit scope and no household connection."
+    html: |
+      <h2 class="govuk-heading-m">Example Assist request</h2>
+      <p class="govuk-body">This exercise accepts text locally. It does not use a microphone, recognition service or Home Assistant.</p>
+      <form data-demo-form data-demo-success="Example text reviewed locally. Nothing was sent to Assist and no device action was performed.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="assist-text">Example request</label>
+      <div class="govuk-hint" id="assist-text-hint">Do not enter private household details.</div>
+      <input class="govuk-input" id="assist-text" name="assist-text" type="text" value="What is the hall temperature?" aria-describedby="assist-text-hint" required>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example request</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">In a connected interface</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Use the selected native Assist pipeline and show its actual processing scope. Keep a typed route available when speaking is unsuitable.</p>
+      </div>
+      </details>
+  ha-flow-025-clarify:
+    title: "Clarify an ambiguous target"
+    description: "A named choice replaces a guessed device action."
+    html: |
+      <h2 class="govuk-heading-m">Which example lamp do you mean?</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Recognised request</dt>
+      <dd class="govuk-summary-list__value">Turn on the reading lamp</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Matching names</dt>
+      <dd class="govuk-summary-list__value">Living room reading lamp; bedroom reading lamp</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Action result</dt>
+      <dd class="govuk-summary-list__value">No action submitted in this scenario</dd>
+      </div>
+      </dl>
+      <form data-demo-form data-demo-success="Example target reviewed locally. No request was submitted and neither lamp changed.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="assist-target">Example target</label>
+      <select class="govuk-select" id="assist-target" name="assist-target" required>
+      <option value="" selected disabled>Choose a lamp</option>
+      <option value="light.example_living_reading">Living room reading lamp</option>
+      <option value="light.example_bedroom_reading">Bedroom reading lamp</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example target</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  ha-flow-025-unconfirmed:
+    title: "Spoken request has no confirmed outcome"
+    description: "An interrupted conversation retains the request and last state without claiming success."
+    html: |
+      <h2 class="govuk-heading-m">We could not confirm the example request</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Request</dt>
+      <dd class="govuk-summary-list__value">Pause the kitchen speaker</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last reported playback</dt>
+      <dd class="govuk-summary-list__value">Playing at 18:40 on 11 November 2026, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current result</dt>
+      <dd class="govuk-summary-list__value">Not confirmed after connection interruption</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#assist-next">Read the next step</a>
+      </p>
+      <section id="assist-next" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the speaker state</h2>
+      <p class="govuk-body">After reconnecting, read its newly reported playback state before repeating the request. Stopping listening does not undo an operation already accepted by Home Assistant.</p>
+      </section>
+  ha-flow-026-due:
+    title: "Task list with date-only and timed items"
+    description: "Two complete records show different due semantics and saved status."
+    html: |
+      <h2 class="govuk-heading-m">Example household list</h2>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Invented items as at 11 November 2026, 09:00 Europe/London</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Task</th>
+      <th class="govuk-table__header" scope="col">Due</th>
+      <th class="govuk-table__header" scope="col">Saved status</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Check filter</th>
+      <td class="govuk-table__cell">12 November 2026; no time</td>
+      <td class="govuk-table__cell">Needs action</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Put out recycling</th>
+      <td class="govuk-table__cell">11 November 2026 at 19:00, Europe/London</td>
+      <td class="govuk-table__cell">Needs action</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Clean shelf</th>
+      <td class="govuk-table__cell">No due date</td>
+      <td class="govuk-table__cell">Completed</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">These are static records. A completed list item does not establish that a reminder was dismissed.</p>
+  ha-flow-026-add:
+    title: "Add an example item without a backend"
+    description: "A complete practice form keeps its scope and persistence limits explicit."
+    html: |
+      <h2 class="govuk-heading-m">Draft an example task</h2>
+      <form data-demo-form data-demo-success="Example task reviewed locally. No to-do item or reminder was created.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="todo-title">Task</label>
+      <div class="govuk-hint" id="todo-title-hint">Use a specific action; this exercise saves nothing.</div>
+      <input class="govuk-input" id="todo-title" name="todo-title" type="text" value="Check spare batteries" aria-describedby="todo-title-hint" required>
+      </div>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="todo-date">Due date</label>
+      <div class="govuk-hint" id="todo-date-hint">Date only: this does not set a reminder time.</div>
+      <input class="govuk-input" id="todo-date" name="todo-date" type="date" value="2026-11-14" aria-describedby="todo-date-hint">
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Review example task</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <p class="govuk-body">A connected list must use its supported item fields and show the actual saved result.</p>
+  ha-flow-026-sync:
+    title: "Completion is not confirmed after sync failure"
+    description: "The original item remains visible instead of moving into a false completed list."
+    html: |
+      <h2 class="govuk-heading-m">Example task completion is unconfirmed</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Task</dt>
+      <dd class="govuk-summary-list__value">Check garage filter</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last saved status</dt>
+      <dd class="govuk-summary-list__value">Needs action</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Requested change</dt>
+      <dd class="govuk-summary-list__value">Mark completed</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Result</dt>
+      <dd class="govuk-summary-list__value">No confirmation received</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#todo-reconcile">Read how to reconcile the item</a>
+      </p>
+      <section id="todo-reconcile" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the stored item</h2>
+      <p class="govuk-body">Refresh through the native list after reconnecting and inspect this item’s saved status. Do not add a duplicate task or announce completion solely because a request was sent.</p>
+      </section>
+  ha-flow-027-observed:
+    title: "Observed and forecast values are separated"
+    description: "A complete invented weather record identifies quantity, period and source."
+    html: |
+      <h2 class="govuk-heading-m">Example garden weather</h2>
+      <p class="govuk-body">Synthetic provider: Example weather. Location: example garden; Europe/London.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Observed temperature</dt>
+      <dd class="govuk-summary-list__value">8.2 °C at 09:00 on 11 November 2026</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Forecast period</dt>
+      <dd class="govuk-summary-list__value">10:00 to 11:00 on 11 November 2026</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Forecast temperature</dt>
+      <dd class="govuk-summary-list__value">9 °C</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Forecast precipitation probability</dt>
+      <dd class="govuk-summary-list__value">40%</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">The 40% figure is a probability, not 40 mm of rain. These figures are invented and provide no weather advice.</p>
+  ha-flow-027-empty:
+    title: "A successful empty warning response"
+    description: "No matching results are scoped to a request, not presented as a universal all-clear."
+    html: |
+      <h2 class="govuk-heading-m">No matching warnings in this example response</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Checked area</dt>
+      <dd class="govuk-summary-list__value">Fictional sample area A</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Request result</dt>
+      <dd class="govuk-summary-list__value">Successful; zero matching records</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Retrieved</dt>
+      <dd class="govuk-summary-list__value">11 November 2026 at 09:05, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Meaning</dt>
+      <dd class="govuk-summary-list__value">No records matched this example request</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">This is synthetic data. It is not a statement about current conditions, other areas or the safety of a household.</p>
+  ha-flow-027-unavailable:
+    title: "Warning information could not be updated"
+    description: "A failed request does not reuse an earlier empty result as current."
+    html: |
+      <h2 class="govuk-heading-m">Example warning information is unavailable</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current request</dt>
+      <dd class="govuk-summary-list__value">Failed at 09:10 on 11 November 2026, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Previous successful request</dt>
+      <dd class="govuk-summary-list__value">09:05 on 11 November 2026, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current warning status</dt>
+      <dd class="govuk-summary-list__value">Not known from this response</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#warning-source">Read the source-check guidance</a>
+      </p>
+      <section id="warning-source" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the authoritative source</h2>
+      <p class="govuk-body">Use the real provider’s current published information for the relevant area. This example contains no current warning feed and must not be used to make a safety decision.</p>
+      </section>
+  ha-flow-028-delivery:
+    title: "Sending is not evidence of reading"
+    description: "A complete channel result states the limit of its acknowledgement."
+    html: |
+      <h2 class="govuk-heading-m">Example maintenance message</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Channel</dt>
+      <dd class="govuk-summary-list__value">Sample phone notification</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Request</dt>
+      <dd class="govuk-summary-list__value">Accepted at 10:00 on 11 November 2026, Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Delivery receipt</dt>
+      <dd class="govuk-summary-list__value">Not supplied</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Read receipt</dt>
+      <dd class="govuk-summary-list__value">Not supplied</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">This record does not show that anyone received or read the message. It is synthetic; no notification was sent.</p>
+  ha-flow-028-dismissed:
+    title: "Dismissal does not resolve the issue"
+    description: "Notification and underlying maintenance states are visible together."
+    html: |
+      <h2 class="govuk-heading-m">Example filter reminder</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Frontend message</dt>
+      <dd class="govuk-summary-list__value">Dismissed in this synthetic record</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Filter task</dt>
+      <dd class="govuk-summary-list__value">Still needs action</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Task completion</dt>
+      <dd class="govuk-summary-list__value">No completed state recorded</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#notification-task">Read the example task detail</a>
+      </p>
+      <section id="notification-task" tabindex="-1">
+      <h2 class="govuk-heading-m">Filter task detail</h2>
+      <p class="govuk-body">The reminder was removed from view. The filter task remains incomplete until its own workflow records completion. This example does not inspect or certify a physical filter.</p>
+      </section>
+  ha-flow-028-preview:
+    title: "A shared display has a minimal preview"
+    description: "The preview avoids private content and explains its access boundary."
+    html: |
+      <h2 class="govuk-heading-m">One example account message</h2>
+      <p class="govuk-body">Details are withheld from this shared-display specimen.</p>
+      <form data-demo-form data-demo-success="Example choice reviewed locally. No notification or display preference was changed.">
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="notification-preview">Example preview choice</label>
+      <select class="govuk-select" id="notification-preview" name="notification-preview">
+      <option value="0">Show message type only</option>
+      <option value="1">Hide this message preview</option>
+      </select>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" type="submit">Practise preview choice</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Does hiding the preview change access?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">No. A presentation preference is not backend authorization. A connected application must preserve the native account and detail-access controls.</p>
+      </div>
+      </details>
+  ha-flow-029-selection:
+    title: "Review selected entities before a bulk change"
+    description: "A complete static selection record makes visible and hidden scope explicit."
+    html: |
+      <h2 class="govuk-heading-m">Review example label assignment</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Requested label</dt>
+      <dd class="govuk-summary-list__value">Winter checks</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Selected entities</dt>
+      <dd class="govuk-summary-list__value">2</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Visible in current filter</dt>
+      <dd class="govuk-summary-list__value">1</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Selected outside filter</dt>
+      <dd class="govuk-summary-list__value">1</dd>
+      </div>
+      </dl>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Selected targets</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Entity</th>
+      <th class="govuk-table__header" scope="col">Current visibility</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">
+      <code>sensor.example_hall</code>
+      </th>
+      <td class="govuk-table__cell">Visible</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">
+      <code>sensor.example_shed</code>
+      </th>
+      <td class="govuk-table__cell">Outside current filter</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">This example preserves hidden selection explicitly. A real registry must use its native selection contract rather than copying this assumption. No label is assigned here.</p>
+  ha-flow-029-partial:
+    title: "A bulk operation has mixed results"
+    description: "Per-record feedback preserves successful work without inventing a universal retry."
+    html: |
+      <h2 class="govuk-heading-m">Example label update results</h2>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Three selected entities</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Entity</th>
+      <th class="govuk-table__header" scope="col">Result</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Hall sensor</th>
+      <td class="govuk-table__cell">Label saved</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Shed sensor</th>
+      <td class="govuk-table__cell">Rejected: permission changed</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Garage sensor</th>
+      <td class="govuk-table__cell">No confirmation received</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">One result succeeded, one was rejected and one is unconfirmed in this synthetic scenario.</p>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#bulk-recovery">Read the bulk recovery steps</a>
+      </p>
+      <section id="bulk-recovery" tabindex="-1">
+      <h2 class="govuk-heading-m">Review the remaining targets</h2>
+      <p class="govuk-body">Keep the successful result. Recheck permissions for the rejected record and inspect the stored label for the unconfirmed record before offering a supported retry.</p>
+      </section>
+  ha-flow-029-empty:
+    title: "No matching records is not an empty registry"
+    description: "The filter context and reset explanation are complete without a fake backend."
+    html: |
+      <h2 class="govuk-heading-m">No example records match these filters</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Text filter</dt>
+      <dd class="govuk-summary-list__value">Garage</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Domain filter</dt>
+      <dd class="govuk-summary-list__value">Climate</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Request result</dt>
+      <dd class="govuk-summary-list__value">Successful sample query; zero matches</dd>
+      </div>
+      </dl>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">How would a connected registry recover?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Provide a real Clear filters action that restores the default query and records the new result count. A failed or unauthorized request requires its own message and must not use this no-results state.</p>
+      </div>
+      </details>
+      <p class="govuk-body">This specimen is a fixed empty-result record. It does not advertise an interactive filter or saved query.</p>
+  ha-flow-030-supported:
+    title: "A bounded compatibility record"
+    description: "The exact adapter and evidence type are visible instead of a universal supported badge."
+    html: |
+      <h2 class="govuk-heading-m">Example compatibility record: Profile colour controls</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Coverage</dt>
+      <dd class="govuk-summary-list__value">Exact presentation adapter: ha-pick-theme-row</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Native owner</dt>
+      <dd class="govuk-summary-list__value">Home Assistant theme settings and saved preference flow</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Fixture evidence</dt>
+      <dd class="govuk-summary-list__value">See the repository’s versioned theme-settings tests</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Fallback</dt>
+      <dd class="govuk-summary-list__value">Native theme selector; standalone civica settings card</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">This example</dt>
+      <dd class="govuk-summary-list__value">Static record, not a check of your installed frontend</dd>
+      </div>
+      </dl>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What is not covered?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">This adapter does not replace authentication, grant permissions or guarantee compatibility with every future Profile structure.</p>
+      </div>
+      </details>
+  ha-flow-030-unsupported:
+    title: "An unsupported private card stays native"
+    description: "A complete boundary record avoids silently extending selector coverage."
+    html: |
+      <h2 class="govuk-heading-m">Example third-party chart</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Coverage</dt>
+      <dd class="govuk-summary-list__value">No dedicated civica adapter</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Theme variables</dt>
+      <dd class="govuk-summary-list__value">Only variables the card itself supports</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Engine</dt>
+      <dd class="govuk-summary-list__value">Unverified private renderer</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Data and controls</dt>
+      <dd class="govuk-summary-list__value">Remain owned by the card</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#compat-report">Read what to record for a compatibility request</a>
+      </p>
+      <section id="compat-report" tabindex="-1">
+      <h2 class="govuk-heading-m">Useful compatibility evidence</h2>
+      <p class="govuk-body">Record the exact card/frontend versions, supported public styling API, task, state, steps and privacy-safe reproduction. A screenshot with matching colours is not sufficient evidence of accessible behaviour.</p>
+      </section>
+  ha-flow-030-cleanup:
+    title: "Recovery mode preserves native behaviour"
+    description: "A recovery record states what is removed and what must remain."
+    html: |
+      <h2 class="govuk-heading-m">Example recovery-mode boundary</h2>
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Presentation ownership</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Owned adaptation</th>
+      <th class="govuk-table__header" scope="col">Required fallback</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Civica branding</th>
+      <td class="govuk-table__cell">Restore native identity</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Colour controls</th>
+      <td class="govuk-table__cell">Disabled while safe/recovery mode applies</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Unsupported Energy renderer</th>
+      <td class="govuk-table__cell">No fabricated chart or table</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Native diagnostics</th>
+      <td class="govuk-table__cell">Remain visible</td>
+      </tr>
+      </tbody>
+      </table>
+      <p class="govuk-body">This is a synthetic review record. Entering recovery mode and inspecting an actual installation are separate native operations; this page performs neither.</p>

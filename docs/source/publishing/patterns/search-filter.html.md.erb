@@ -1,19 +1,21 @@
 ---
-title: "Search filter"
-description: "The publishing search-filter pattern narrows a result set with facets and adapts their placement on small screens."
-section: "patterns"
-group: "Publishing patterns"
-source_url: "https://design-guide.publishing.service.gov.uk/patterns/search-filter/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Search filter
+description: The publishing search-filter pattern narrows a result set with facets and adapts their placement on small screens.
+section: patterns
+group: Publishing patterns
+source_url: https://design-guide.publishing.service.gov.uk/patterns/search-filter/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Established the shared filtering owner and exact fixed-record query, facet and no-JavaScript contract.
+  - date: 2026-11-11
+    description: Added working local example behaviour with a safe no-JavaScript fallback and no connected backend.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Search filter
@@ -21,6 +23,12 @@ updates:
 The publishing search-filter pattern narrows a result set with facets and adapts their placement on small screens. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/patterns/search-filter/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Share the filtering contract
+
+The [search input](../../components/search-input.html) owns the query field, while this pattern owns how query, facets and results work together. The [finder](../frontend-templates/finder.html) composes this contract for a named collection. Its source-specific child pages do not define new filter algorithms or household services.
+
+For these local examples, all query words must match a record, selected values within one Area facet are alternatives, and the query combines with the selected facet. Apply and Clear operate on the same fixed record set. Keep the visible count, result list and no-match message consistent. Without JavaScript, expose the records and keep submission disabled rather than sending the query to the current page. A real implementation needs its own permitted dataset, loading and error behaviour.
 
 ## When to use it
 

@@ -1,17 +1,19 @@
 ---
-title: "Smart answer"
-description: "A smart answer asks questions and uses the responses to route someone to a relevant outcome."
-section: "patterns"
-group: "Page templates"
-source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Smart answer
+description: A smart answer asks questions and uses the responses to route someone to a relevant outcome.
+section: patterns
+group: Page templates
+source_url: https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
-  - date: "2026-11-11"
-    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+  - date: 2026-11-11
+    description: Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary.
+  - date: 2026-11-11
+    description: Added the civica.uk adaptation, applicability limits and two local examples.
 ---
 
 # Smart answer
@@ -19,6 +21,10 @@ updates:
 A smart answer asks questions and uses the responses to route someone to a relevant outcome. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/).
 
 **Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## Reuse the question contract
+
+Use [question pages](../../patterns/question-pages.html#compose-the-task-without-replacing-its-owner) for input, back navigation and retained answers. This template adds a bounded route to explanatory outcomes. Its reference examples do not configure native triggers, conditions or actions, and must not be described as an implemented automation or diagnostic editor.
 
 ## When to use it
 

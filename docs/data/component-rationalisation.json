@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewedOn": "2026-11-11",
-  "status": "review-complete-proposals-open",
+  "status": "organisation-implemented",
   "scope": "All 147 baseline guide URLs and 263 examples; all 68 component pages have exactly one canonical family and owner. New brand and writing guidance supplied the separately frozen review standard.",
   "baseline": {
     "guides": 147,
@@ -20,7 +20,7 @@
     "Preserve every published page and fragment until an explicitly reviewed migration exists.",
     "A canonical family is a maintenance owner, not permission to merge distinct behaviour.",
     "Prefer native Home Assistant capability/state contracts over importing publishing backends.",
-    "No implementation, redirect, deletion or native UI change is performed by this audit."
+    "Shared ownership and related-page navigation are implemented; all published URLs and runtime aliases are retained. Native behaviours remain owned by Home Assistant."
   ],
   "families": [
     {
@@ -1290,6 +1290,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/index.html.erb",
+        "line": 2,
+        "excerpt": "title: \"Home\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/index.html.erb",
         "line": 2
       }
     },
@@ -1313,6 +1319,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/search.html.erb",
+        "line": 2,
+        "excerpt": "title: \"Search the Design System\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/search.html.erb",
         "line": 2
       }
     },
@@ -1335,6 +1347,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/sitemap.html.erb",
+        "line": 2,
+        "excerpt": "title: \"Sitemap\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/sitemap.html.erb",
         "line": 2
       }
@@ -1362,6 +1380,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/accessibility/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Accessibility\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/accessibility/index.html.md.erb",
         "line": 8
       }
     },
@@ -1387,6 +1411,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/accessibility/testing.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Test the interface\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/accessibility/testing.html.md.erb",
         "line": 8
       }
@@ -1414,6 +1444,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/community/architecture.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Documentation architecture\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/community/architecture.html.md.erb",
         "line": 8
       }
     },
@@ -1439,6 +1475,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/community/coverage.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Source coverage and implementation status\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/community/coverage.html.md.erb",
         "line": 12
       }
@@ -1466,6 +1508,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/community/deviations.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Controlled deviations\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/community/deviations.html.md.erb",
         "line": 8
       }
     },
@@ -1491,6 +1539,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/community/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Maintain the system\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/community/index.html.md.erb",
         "line": 8
       }
@@ -1518,6 +1572,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/community/licensing.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Licensing and attribution\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/community/licensing.html.md.erb",
         "line": 8
       }
     },
@@ -1544,6 +1604,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/community/sources.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Sources and provenance\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/community/sources.html.md.erb",
         "line": 8
       }
     },
@@ -1569,6 +1635,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/community/visual-audit.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Visual review: borders, icons and badges\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/community/visual-audit.html.md.erb",
         "line": 8
       }
@@ -1597,6 +1669,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/accordion.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Accordion"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/accordion.html.md.erb",
         "line": 14
       }
@@ -1628,6 +1706,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/action-links.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Action links"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/action-links.html.md.erb",
         "line": 8
       }
     },
@@ -1657,6 +1741,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/back-link.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Back link\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/back-link.html.md.erb",
         "line": 17
       }
     },
@@ -1685,6 +1775,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/breadcrumbs.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Breadcrumbs"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/breadcrumbs.html.md.erb",
         "line": 17
       }
@@ -1716,6 +1812,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/buttons.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Buttons"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/buttons.html.md.erb",
         "line": 17
       }
@@ -1749,6 +1851,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/cards.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Cards"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/cards.html.md.erb",
         "line": 8
       }
     },
@@ -1777,6 +1885,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/character-count.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Character count"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/character-count.html.md.erb",
         "line": 17
       }
@@ -1811,6 +1925,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/chart-examples.html.erb",
+        "line": 2,
+        "excerpt": "title: \"Chart examples\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/chart-examples.html.erb",
         "line": 2
       }
     },
@@ -1842,6 +1962,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/charts.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Charts and tables"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/charts.html.md.erb",
         "line": 8
       }
     },
@@ -1871,6 +1997,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/checkboxes.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Checkboxes"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/checkboxes.html.md.erb",
         "line": 17
       }
     },
@@ -1899,6 +2031,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/contents-list.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Contents list"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/contents-list.html.md.erb",
         "line": 17
       }
     },
@@ -1924,6 +2062,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/controls.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Buttons and forms"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/controls.html.md.erb",
         "line": 8
       }
@@ -1952,6 +2096,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/cookie-banner.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Cookie banner\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/cookie-banner.html.md.erb",
         "line": 14
       }
@@ -1982,6 +2132,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/date-input.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Date input"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/date-input.html.md.erb",
         "line": 17
       }
     },
@@ -2010,6 +2166,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/details.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Details"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/details.html.md.erb",
         "line": 17
       }
@@ -2041,6 +2203,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/devices.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Device controls\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/devices.html.md.erb",
         "line": 8
       }
     },
@@ -2069,6 +2237,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/dialogs.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Dialogs\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/dialogs.html.md.erb",
         "line": 8
       }
     },
@@ -2096,6 +2270,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/do-and-dont-lists.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Do and do not lists"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/do-and-dont-lists.html.md.erb",
         "line": 17
       }
@@ -2126,6 +2306,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/error-message.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Error message\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/error-message.html.md.erb",
         "line": 17
       }
     },
@@ -2154,6 +2340,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/error-summary.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Error summary\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/error-summary.html.md.erb",
         "line": 17
       }
@@ -2185,6 +2377,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/example.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Example viewer"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/example.html.md.erb",
         "line": 14
       }
     },
@@ -2212,6 +2410,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/exit-this-page.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Exit this page\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/exit-this-page.html.md.erb",
         "line": 14
       }
@@ -2241,6 +2445,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/expander.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Expander"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/expander.html.md.erb",
         "line": 17
       }
     },
@@ -2268,6 +2478,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/feedback.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Feedback"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/feedback.html.md.erb",
         "line": 14
       }
@@ -2298,6 +2514,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/fieldset.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Fieldset\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/fieldset.html.md.erb",
         "line": 17
       }
     },
@@ -2326,6 +2548,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/file-upload.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"File upload\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/file-upload.html.md.erb",
         "line": 17
       }
@@ -2356,6 +2584,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/footer.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Footer\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/footer.html.md.erb",
         "line": 17
       }
     },
@@ -2385,6 +2619,12 @@
       ],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/generic-header.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Generic header"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/generic-header.html.md.erb",
         "line": 14
       }
@@ -2417,6 +2657,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/header.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Header"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/header.html.md.erb",
         "line": 17
       }
     },
@@ -2444,6 +2690,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/hint-text.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Hint text\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/hint-text.html.md.erb",
         "line": 17
       }
@@ -2473,6 +2725,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/images.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Images"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/images.html.md.erb",
         "line": 17
       }
     },
@@ -2495,6 +2753,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/index.html.erb",
+        "line": 2,
+        "excerpt": "title: \"Components\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/index.html.erb",
         "line": 2
       }
@@ -2525,6 +2789,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/inset-text.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Inset text\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/inset-text.html.md.erb",
         "line": 17
       }
     },
@@ -2552,6 +2822,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/language-navigation.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Language navigation\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/language-navigation.html.md.erb",
         "line": 14
       }
@@ -2581,6 +2857,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/navigation.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Navigation\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/navigation.html.md.erb",
         "line": 8
       }
     },
@@ -2608,6 +2890,12 @@
       ],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/notification-badge.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Notification badge"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/notification-badge.html.md.erb",
         "line": 8
       }
@@ -2638,6 +2926,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/notification-banners.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Notification banners"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/notification-banners.html.md.erb",
         "line": 17
       }
     },
@@ -2665,6 +2959,12 @@
       ],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/page-history.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Page metadata and history"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/page-history.html.md.erb",
         "line": 14
       }
@@ -2695,6 +2995,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/pagination.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Pagination\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/pagination.html.md.erb",
         "line": 17
       }
     },
@@ -2723,6 +3029,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/panel.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Panel\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/panel.html.md.erb",
         "line": 17
       }
@@ -2753,6 +3065,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/password-input.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Password input\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/password-input.html.md.erb",
         "line": 17
       }
     },
@@ -2780,6 +3098,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/phase-banner.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Phase banner\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/phase-banner.html.md.erb",
         "line": 14
       }
@@ -2809,6 +3133,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/radios.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Radios"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/radios.html.md.erb",
         "line": 17
       }
@@ -2840,6 +3170,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/review-date.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Review dates and freshness"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/review-date.html.md.erb",
         "line": 17
       }
     },
@@ -2867,6 +3203,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/search-input.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Search input"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/search-input.html.md.erb",
         "line": 17
       }
@@ -2897,6 +3239,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/select.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Select\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/select.html.md.erb",
         "line": 17
       }
     },
@@ -2924,6 +3272,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/service-navigation.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Service navigation"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/service-navigation.html.md.erb",
         "line": 14
       }
@@ -2954,6 +3308,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/skip-link.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Skip link\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/skip-link.html.md.erb",
         "line": 17
       }
     },
@@ -2980,6 +3340,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/status.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Status and notifications"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/status.html.md.erb",
         "line": 8
       }
@@ -3009,6 +3375,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/summary-list.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Summary list\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/summary-list.html.md.erb",
         "line": 17
       }
@@ -3040,6 +3412,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/table.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Table"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/table.html.md.erb",
         "line": 17
       }
     },
@@ -3068,6 +3446,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/tabs.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Tabs"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/tabs.html.md.erb",
         "line": 17
       }
@@ -3098,6 +3482,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/tag.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Tag"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/tag.html.md.erb",
         "line": 17
       }
     },
@@ -3126,6 +3516,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/task-list.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Task list\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/task-list.html.md.erb",
         "line": 17
       }
@@ -3156,6 +3552,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/text-input.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Text input\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/text-input.html.md.erb",
         "line": 17
       }
     },
@@ -3185,6 +3587,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/textarea.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Textarea"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/textarea.html.md.erb",
         "line": 17
       }
     },
@@ -3212,6 +3620,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/components/warning-callout.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Warning callout\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/components/warning-callout.html.md.erb",
         "line": 17
       }
@@ -3241,6 +3655,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/components/warning-text.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Warning text\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/components/warning-text.html.md.erb",
         "line": 14
       }
     },
@@ -3268,6 +3688,12 @@
       ],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/get-started/colour-settings.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Change theme colours\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/get-started/colour-settings.html.md.erb",
         "line": 8
       }
@@ -3298,6 +3724,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/get-started/compatibility.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Compatibility and limits\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/get-started/compatibility.html.md.erb",
         "line": 8
       }
     },
@@ -3324,6 +3756,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/get-started/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Get started\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/get-started/index.html.md.erb",
         "line": 8
       }
     },
@@ -3349,6 +3787,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/get-started/install.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Install civica.uk\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/get-started/install.html.md.erb",
         "line": 8
       }
@@ -3379,6 +3823,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/a-to-z.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Browse household guides from A to Z\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/a-to-z.html.md.erb",
         "line": 15
       }
     },
@@ -3408,6 +3858,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/british-sign-language.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Help people find British Sign Language content"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/british-sign-language.html.md.erb",
         "line": 15
       }
     },
@@ -3435,6 +3891,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/patterns/check-answers.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Check answers before saving\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/patterns/check-answers.html.md.erb",
         "line": 15
       }
@@ -3465,6 +3927,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/complete-multiple-tasks.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Complete multiple household tasks"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/complete-multiple-tasks.html.md.erb",
         "line": 15
       }
     },
@@ -3494,6 +3962,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/confirmation.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Confirm completed household tasks"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/confirmation.html.md.erb",
         "line": 15
       }
     },
@@ -3521,6 +3995,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/energy.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Energy and history\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/energy.html.md.erb",
         "line": 8
       }
     },
@@ -3546,6 +4026,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/patterns/home.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Home and rooms"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/patterns/home.html.md.erb",
         "line": 8
       }
@@ -3576,6 +4062,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/household-urgency.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Show household urgency clearly\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/household-urgency.html.md.erb",
         "line": 15
       }
     },
@@ -3604,6 +4096,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/hub.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Organise household help with hub pages\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/hub.html.md.erb",
         "line": 15
       }
     },
@@ -3626,6 +4124,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/patterns/index.html.erb",
+        "line": 2,
+        "excerpt": "title: \"Patterns\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/patterns/index.html.erb",
         "line": 2
       }
@@ -3656,6 +4160,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/interruption.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Pause before an exceptional consequence\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/interruption.html.md.erb",
         "line": 15
       }
     },
@@ -3683,6 +4193,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/patterns/mini-hub.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Explain one topic across a mini-hub"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/patterns/mini-hub.html.md.erb",
         "line": 15
       }
@@ -3713,6 +4229,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/question-pages.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Ask clear questions on pages and in dialogs"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/question-pages.html.md.erb",
         "line": 15
       }
     },
@@ -3738,6 +4260,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/patterns/recovery.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Errors and recovery"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/patterns/recovery.html.md.erb",
         "line": 8
       }
@@ -3770,6 +4298,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/review-dates.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Show when guidance was reviewed"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/review-dates.html.md.erb",
         "line": 15
       }
     },
@@ -3797,6 +4331,12 @@
       ],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/patterns/settings.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Settings and preferences\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/patterns/settings.html.md.erb",
         "line": 8
       }
@@ -3827,6 +4367,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/stable-identifiers.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Ask for device and entity identifiers"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/stable-identifiers.html.md.erb",
         "line": 15
       }
     },
@@ -3856,6 +4402,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/patterns/start-page.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Help people start a household task\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/patterns/start-page.html.md.erb",
         "line": 15
       }
     },
@@ -3878,6 +4430,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Publishing patterns for civica.uk\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/index.html.md.erb",
         "line": 17
       }
@@ -3905,6 +4463,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/source-history.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Publishing source history\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/source-history.html.md.erb",
         "line": 17
       }
     },
@@ -3930,6 +4494,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/styles/brand.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Brand\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/styles/brand.html.md.erb",
         "line": 8
       }
@@ -3957,6 +4527,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/styles/chart-colour.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Chart colour\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/styles/chart-colour.html.md.erb",
         "line": 8
       }
     },
@@ -3982,6 +4558,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/styles/colour.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Colour"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/styles/colour.html.md.erb",
         "line": 8
       }
@@ -4009,6 +4591,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/styles/content.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Content design\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/styles/content.html.md.erb",
         "line": 8
       }
     },
@@ -4034,6 +4622,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/styles/images.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Icons and images"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/styles/images.html.md.erb",
         "line": 8
       }
@@ -4061,6 +4655,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/styles/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Styles\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/styles/index.html.md.erb",
         "line": 8
       }
     },
@@ -4087,6 +4687,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/styles/layout.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Layout and spacing\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/styles/layout.html.md.erb",
         "line": 8
       }
     },
@@ -4112,6 +4718,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/styles/typography.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Typography\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/styles/typography.html.md.erb",
         "line": 8
       }
@@ -4141,6 +4753,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/attachment.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Attachment\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/attachment.html.md.erb",
         "line": 17
       }
     },
@@ -4168,6 +4786,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/components/breadcrumbs.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Breadcrumbs"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/components/breadcrumbs.html.md.erb",
         "line": 17
       }
@@ -4197,6 +4821,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/content-list.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Contents list"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/content-list.html.md.erb",
         "line": 17
       }
     },
@@ -4224,6 +4854,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/components/emergency-banner.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Emergency banner"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/components/emergency-banner.html.md.erb",
         "line": 17
       }
@@ -4253,6 +4889,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/feedback.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Feedback"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/feedback.html.md.erb",
         "line": 17
       }
     },
@@ -4281,6 +4923,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/global-banner.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Global banner"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/global-banner.html.md.erb",
         "line": 17
       }
     },
@@ -4303,6 +4951,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/components/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Publishing components\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/components/index.html.md.erb",
         "line": 17
       }
@@ -4332,6 +4986,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/previous-and-next-navigation.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Previous and next navigation\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/previous-and-next-navigation.html.md.erb",
         "line": 17
       }
     },
@@ -4359,6 +5019,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/components/print-link.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Print link\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/components/print-link.html.md.erb",
         "line": 19
       }
@@ -4388,6 +5054,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/related-navigation.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Related Navigation\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/related-navigation.html.md.erb",
         "line": 17
       }
     },
@@ -4415,6 +5087,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/components/search-autocomplete.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Search autocomplete"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/components/search-autocomplete.html.md.erb",
         "line": 19
       }
@@ -4444,6 +5122,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/components/single-page-notification-button.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Single page notification button\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/components/single-page-notification-button.html.md.erb",
         "line": 17
       }
     },
@@ -4471,6 +5155,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/answer.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Answer\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/answer.html.md.erb",
         "line": 17
       }
@@ -4500,6 +5190,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Calendar"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
         "line": 17
       }
     },
@@ -4527,6 +5223,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/completed-transaction.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Completed transaction\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/completed-transaction.html.md.erb",
         "line": 17
       }
@@ -4556,6 +5258,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/detailed-guide.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Detailed guide\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/detailed-guide.html.md.erb",
         "line": 17
       }
     },
@@ -4583,6 +5291,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/document-collections.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Document collections\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/document-collections.html.md.erb",
         "line": 17
       }
@@ -4612,6 +5326,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Finder"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/finder.html.md.erb",
         "line": 19
       }
     },
@@ -4639,6 +5359,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/guide.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Guide\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/guide.html.md.erb",
         "line": 17
       }
@@ -4668,6 +5394,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/homepage.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Homepage\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/homepage.html.md.erb",
         "line": 17
       }
     },
@@ -4690,6 +5422,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Page templates\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/index.html.md.erb",
         "line": 17
       }
@@ -4719,6 +5457,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/mainstream-browse.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Mainstream browse\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/mainstream-browse.html.md.erb",
         "line": 17
       }
     },
@@ -4746,6 +5490,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Smart answer"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
         "line": 17
       }
@@ -4775,6 +5525,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/special-route.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Special route\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/special-route.html.md.erb",
         "line": 17
       }
     },
@@ -4802,6 +5558,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/step-by-step-nav.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Step by step nav\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/step-by-step-nav.html.md.erb",
         "line": 17
       }
@@ -4831,6 +5593,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/topical-events.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Topical events\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/topical-events.html.md.erb",
         "line": 17
       }
     },
@@ -4859,6 +5627,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Transaction"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
         "line": 17
       }
     },
@@ -4881,6 +5655,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/patterns/index.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Publishing patterns\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/patterns/index.html.md.erb",
         "line": 17
       }
@@ -4910,6 +5690,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/patterns/search-filter.html.md.erb",
+        "line": 2,
+        "excerpt": "title: Search filter"
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/patterns/search-filter.html.md.erb",
         "line": 19
       }
     },
@@ -4937,6 +5723,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/finder/case-studies-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Case studies finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/finder/case-studies-finder.html.md.erb",
         "line": 19
       }
@@ -4966,6 +5758,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Departments, agencies and public bodies finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html.md.erb",
         "line": 19
       }
     },
@@ -4993,6 +5791,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/finder/groups-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Groups finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/finder/groups-finder.html.md.erb",
         "line": 19
       }
@@ -5022,6 +5826,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/finder/hmrc-contacts-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"HMRC contacts finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/finder/hmrc-contacts-finder.html.md.erb",
         "line": 19
       }
     },
@@ -5049,6 +5859,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"People finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
         "line": 19
       }
@@ -5078,6 +5894,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/finder/search.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Search\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/finder/search.html.md.erb",
         "line": 19
       }
     },
@@ -5105,6 +5927,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/finder/specialist-document-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Specialist document finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/finder/specialist-document-finder.html.md.erb",
         "line": 19
       }
@@ -5134,6 +5962,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/finder/statistical-data-sets-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Statistical data sets finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/finder/statistical-data-sets-finder.html.md.erb",
         "line": 19
       }
     },
@@ -5161,6 +5995,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/finder/supergroup-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Supergroup finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/finder/supergroup-finder.html.md.erb",
         "line": 19
       }
@@ -5190,6 +6030,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/finder/topical-events-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Topical events finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/finder/topical-events-finder.html.md.erb",
         "line": 19
       }
     },
@@ -5217,6 +6063,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"World organisation finder\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
         "line": 19
       }
@@ -5246,6 +6098,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/mainstream-browse/level-one.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Level one\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/mainstream-browse/level-one.html.md.erb",
         "line": 17
       }
     },
@@ -5273,6 +6131,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/mainstream-browse/level-two.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Level two\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/mainstream-browse/level-two.html.md.erb",
         "line": 17
       }
@@ -5302,6 +6166,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/smart-answer/github-smart-answer.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"GitHub smart answer\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/smart-answer/github-smart-answer.html.md.erb",
         "line": 17
       }
     },
@@ -5330,6 +6200,12 @@
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
         "file": "docs/source/publishing/frontend-templates/smart-answer/simple-smart-answer.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Simple smart answer\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "file": "docs/source/publishing/frontend-templates/smart-answer/simple-smart-answer.html.md.erb",
         "line": 17
       }
     },
@@ -5357,6 +6233,12 @@
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "A guide and its local examples do not establish runtime coverage beyond separately listed modules.",
       "evidence": {
+        "file": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"About page\""
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "file": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
         "line": 17
       }
@@ -10051,7 +10933,7 @@
       "id": "COMP-001",
       "title": "Count shared source mappings once",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/community/coverage.html",
@@ -10060,11 +10942,15 @@
       "evidence": [
         {
           "file": "docs/source/community/coverage.html.md.erb",
-          "line": 12
+          "line": 2,
+          "excerpt": "title: \"Source coverage and implementation status\"",
+          "supports": "Source mappings, unique component routes, current guide/example counts and the three maintained custom-card types are reported separately."
         },
         {
           "file": "docs/source/components/buttons.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Buttons",
+          "supports": "Source mappings, unique component routes, current guide/example counts and the three maintained custom-card types are reported separately."
         }
       ],
       "proposal": "Keep the 28 GOV.UK/NHS shared routes as single components with multiple official sources, not 75 separate local implementations.",
@@ -10096,15 +10982,34 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/community/coverage.html.md.erb",
+            "line": 12
+          },
+          {
+            "file": "docs/source/components/buttons.html.md.erb",
+            "line": 17
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Source mappings, unique component routes, current guide/example counts and the three maintained custom-card types are reported separately.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-002",
       "title": "One breadcrumb owner",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/breadcrumbs.html",
@@ -10113,11 +11018,15 @@
       "evidence": [
         {
           "file": "docs/source/components/breadcrumbs.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Breadcrumbs",
+          "supports": "Breadcrumbs owns the ordered hierarchy/current-page contract; publishing keeps its contextual examples and links to the owner."
         },
         {
           "file": "docs/source/publishing/components/breadcrumbs.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Breadcrumbs",
+          "supports": "Breadcrumbs owns the ordered hierarchy/current-page contract; publishing keeps its contextual examples and links to the owner."
         }
       ],
       "proposal": "Make the core breadcrumb page the behaviour owner; publishing page retains source notes and contextual examples.",
@@ -10155,15 +11064,34 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/breadcrumbs.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/publishing/components/breadcrumbs.html.md.erb",
+            "line": 17
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Breadcrumbs owns the ordered hierarchy/current-page contract; publishing keeps its contextual examples and links to the owner.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-003",
       "title": "One contents-navigation owner",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/contents-list.html",
@@ -10173,15 +11101,21 @@
       "evidence": [
         {
           "file": "docs/source/components/contents-list.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Contents list",
+          "supports": "Contents navigation owns fragment versus guide-route decisions; mini-hub and previous/next composition stay distinct."
         },
         {
           "file": "docs/source/publishing/components/content-list.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Contents list",
+          "supports": "Contents navigation owns fragment versus guide-route decisions; mini-hub and previous/next composition stay distinct."
         },
         {
           "file": "docs/source/patterns/mini-hub.html.md.erb",
-          "line": 15
+          "line": 2,
+          "excerpt": "title: Explain one topic across a mini-hub",
+          "supports": "Contents navigation owns fragment versus guide-route decisions; mini-hub and previous/next composition stay distinct."
         }
       ],
       "proposal": "Share contents navigation while naming in-page and multi-page variants distinctly.",
@@ -10219,15 +11153,38 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/contents-list.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/publishing/components/content-list.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/patterns/mini-hub.html.md.erb",
+            "line": 15
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Contents navigation owns fragment versus guide-route decisions; mini-hub and previous/next composition stay distinct.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-004",
       "title": "One feedback delivery contract",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/feedback.html",
@@ -10236,11 +11193,15 @@
       "evidence": [
         {
           "file": "docs/source/components/feedback.html.md.erb",
-          "line": 14
+          "line": 2,
+          "excerpt": "title: Feedback",
+          "supports": "Feedback owns delivery, privacy, acknowledgement and failure meaning; source variants link to that contract."
         },
         {
           "file": "docs/source/publishing/components/feedback.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Feedback",
+          "supports": "Feedback owns delivery, privacy, acknowledgement and failure meaning; source variants link to that contract."
         }
       ],
       "proposal": "Use one owner for destination, privacy, failure and confirmation behaviour.",
@@ -10284,15 +11245,34 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/feedback.html.md.erb",
+            "line": 14
+          },
+          {
+            "file": "docs/source/publishing/components/feedback.html.md.erb",
+            "line": 17
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Feedback owns delivery, privacy, acknowledgement and failure meaning; source variants link to that contract.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-005",
       "title": "Keep notification roles distinct",
       "priority": "P1",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/status.html",
@@ -10305,27 +11285,39 @@
       "evidence": [
         {
           "file": "docs/source/components/status.html.md.erb",
-          "line": 8
+          "line": 2,
+          "excerpt": "title: Status and notifications",
+          "supports": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning."
         },
         {
           "file": "docs/source/components/tag.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Tag",
+          "supports": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning."
         },
         {
           "file": "docs/source/components/notification-badge.html.md.erb",
-          "line": 8
+          "line": 2,
+          "excerpt": "title: Notification badge",
+          "supports": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning."
         },
         {
           "file": "docs/source/components/notification-banners.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Notification banners",
+          "supports": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning."
         },
         {
           "file": "docs/source/publishing/components/global-banner.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Global banner",
+          "supports": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning."
         },
         {
           "file": "docs/source/publishing/components/emergency-banner.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Emergency banner",
+          "supports": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning."
         }
       ],
       "proposal": "Use a decision guide for status, count, notice and urgent alert; do not merge them into one generic red box.",
@@ -10369,15 +11361,50 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/status.html.md.erb",
+            "line": 8
+          },
+          {
+            "file": "docs/source/components/tag.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/notification-badge.html.md.erb",
+            "line": 8
+          },
+          {
+            "file": "docs/source/components/notification-banners.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/publishing/components/global-banner.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/publishing/components/emergency-banner.html.md.erb",
+            "line": 17
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "The status decision table distinguishes count badges, state tags, notices and urgent alerts without merging geometry or delivery meaning.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-006",
       "title": "Separate search primitive, filter pattern and finder composition",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/search-input.html",
@@ -10388,19 +11415,27 @@
       "evidence": [
         {
           "file": "docs/source/components/search-input.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Search input",
+          "supports": "Search input, local filtering and finder composition now link through distinct shared contracts; native target picking has its own specification."
         },
         {
           "file": "docs/source/publishing/components/search-autocomplete.html.md.erb",
-          "line": 19
+          "line": 2,
+          "excerpt": "title: Search autocomplete",
+          "supports": "Search input, local filtering and finder composition now link through distinct shared contracts; native target picking has its own specification."
         },
         {
           "file": "docs/source/publishing/patterns/search-filter.html.md.erb",
-          "line": 19
+          "line": 2,
+          "excerpt": "title: Search filter",
+          "supports": "Search input, local filtering and finder composition now link through distinct shared contracts; native target picking has its own specification."
         },
         {
           "file": "docs/source/publishing/frontend-templates/finder.html.md.erb",
-          "line": 19
+          "line": 2,
+          "excerpt": "title: Finder",
+          "supports": "Search input, local filtering and finder composition now link through distinct shared contracts; native target picking has its own specification."
         }
       ],
       "proposal": "Share one search/filter behaviour contract and document native datalist as a local enhancement.",
@@ -10438,15 +11473,42 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/search-input.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/publishing/components/search-autocomplete.html.md.erb",
+            "line": 19
+          },
+          {
+            "file": "docs/source/publishing/patterns/search-filter.html.md.erb",
+            "line": 19
+          },
+          {
+            "file": "docs/source/publishing/frontend-templates/finder.html.md.erb",
+            "line": 19
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Search input, local filtering and finder composition now link through distinct shared contracts; native target picking has its own specification.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-007",
       "title": "Make finder variants reference contexts",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/publishing/frontend-templates/finder.html",
@@ -10456,15 +11518,21 @@
       "evidence": [
         {
           "file": "docs/source/publishing/frontend-templates/finder.html.md.erb",
-          "line": 19
+          "line": 2,
+          "excerpt": "title: Finder",
+          "supports": "The finder owner classifies all eleven retained context variants; family navigation exposes each context without inventing a household backend."
         },
         {
           "file": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
-          "line": 19
+          "line": 2,
+          "excerpt": "title: \"People finder\"",
+          "supports": "The finder owner classifies all eleven retained context variants; family navigation exposes each context without inventing a household backend."
         },
         {
           "file": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
-          "line": 19
+          "line": 2,
+          "excerpt": "title: \"World organisation finder\"",
+          "supports": "The finder owner classifies all eleven retained context variants; family navigation exposes each context without inventing a household backend."
         }
       ],
       "proposal": "Treat all 11 nested finder templates as contextual source variants under one finder/filter family, not independent household services.",
@@ -10502,15 +11570,38 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/publishing/frontend-templates/finder.html.md.erb",
+            "line": 19
+          },
+          {
+            "file": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
+            "line": 19
+          },
+          {
+            "file": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
+            "line": 19
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "The finder owner classifies all eleven retained context variants; family navigation exposes each context without inventing a household backend.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-008",
       "title": "Clarify forms overview versus button primitive",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/controls.html",
@@ -10521,19 +11612,27 @@
       "evidence": [
         {
           "file": "docs/source/components/controls.html.md.erb",
-          "line": 8
+          "line": 2,
+          "excerpt": "title: Buttons and forms",
+          "supports": "The forms overview routes requests, choices, immediate switches and navigation to their canonical primitive and native domain contract."
         },
         {
           "file": "docs/source/components/buttons.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Buttons",
+          "supports": "The forms overview routes requests, choices, immediate switches and navigation to their canonical primitive and native domain contract."
         },
         {
           "file": "docs/source/components/checkboxes.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Checkboxes",
+          "supports": "The forms overview routes requests, choices, immediate switches and navigation to their canonical primitive and native domain contract."
         },
         {
           "file": "docs/source/components/radios.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Radios",
+          "supports": "The forms overview routes requests, choices, immediate switches and navigation to their canonical primitive and native domain contract."
         }
       ],
       "proposal": "Keep controls as a decision/interaction overview and individual primitives as canonical implementations.",
@@ -10571,15 +11670,42 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/controls.html.md.erb",
+            "line": 8
+          },
+          {
+            "file": "docs/source/components/buttons.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/checkboxes.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/radios.html.md.erb",
+            "line": 17
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "The forms overview routes requests, choices, immediate switches and navigation to their canonical primitive and native domain contract.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-009",
       "title": "Keep tables separate from chart composition",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/table.html",
@@ -10589,15 +11715,21 @@
       "evidence": [
         {
           "file": "docs/source/components/table.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Table",
+          "supports": "Table semantics remain owned by the table guide; chart composition uses the production Energy adapter and data alternative."
         },
         {
           "file": "docs/source/components/charts.html.md.erb",
-          "line": 8
+          "line": 2,
+          "excerpt": "title: Charts and tables",
+          "supports": "Table semantics remain owned by the table guide; chart composition uses the production Energy adapter and data alternative."
         },
         {
           "file": "docs/source/components/chart-examples.html.erb",
-          "line": 2
+          "line": 2,
+          "excerpt": "title: \"Chart examples\"",
+          "supports": "Table semantics remain owned by the table guide; chart composition uses the production Energy adapter and data alternative."
         }
       ],
       "proposal": "Use the table page for tabular semantics and charts for plotted-value composition; retain the production chart harness.",
@@ -10647,15 +11779,38 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/table.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/charts.html.md.erb",
+            "line": 8
+          },
+          {
+            "file": "docs/source/components/chart-examples.html.erb",
+            "line": 2
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Table semantics remain owned by the table guide; chart composition uses the production Energy adapter and data alternative.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-010",
       "title": "Use one header family with source variants",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/header.html",
@@ -10665,15 +11820,21 @@
       "evidence": [
         {
           "file": "docs/source/components/header.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Header",
+          "supports": "Header variants share one ownership contract and preserve setup/context differences without claiming native authentication coverage."
         },
         {
           "file": "docs/source/components/generic-header.html.md.erb",
-          "line": 14
+          "line": 2,
+          "excerpt": "title: Generic header",
+          "supports": "Header variants share one ownership contract and preserve setup/context differences without claiming native authentication coverage."
         },
         {
           "file": "docs/source/components/service-navigation.html.md.erb",
-          "line": 14
+          "line": 2,
+          "excerpt": "title: Service navigation",
+          "supports": "Header variants share one ownership contract and preserve setup/context differences without claiming native authentication coverage."
         }
       ],
       "proposal": "Keep independent civica.uk identity under a shared header contract while retaining navigation as a separate responsibility.",
@@ -10711,15 +11872,38 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/header.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/generic-header.html.md.erb",
+            "line": 14
+          },
+          {
+            "file": "docs/source/components/service-navigation.html.md.erb",
+            "line": 14
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Header variants share one ownership contract and preserve setup/context differences without claiming native authentication coverage.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-011",
       "title": "Preserve disclosure interaction differences",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/details.html",
@@ -10729,15 +11913,21 @@
       "evidence": [
         {
           "file": "docs/source/components/details.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Details",
+          "supports": "Details, expander and accordion share related guidance while preserving single versus grouped disclosure behaviours."
         },
         {
           "file": "docs/source/components/expander.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Expander",
+          "supports": "Details, expander and accordion share related guidance while preserving single versus grouped disclosure behaviours."
         },
         {
           "file": "docs/source/components/accordion.html.md.erb",
-          "line": 14
+          "line": 2,
+          "excerpt": "title: Accordion",
+          "supports": "Details, expander and accordion share related guidance while preserving single versus grouped disclosure behaviours."
         }
       ],
       "proposal": "Group disclosure concepts without automatically merging accordion keyboard behaviour or expander presentation.",
@@ -10775,15 +11965,38 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/details.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/expander.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/accordion.html.md.erb",
+            "line": 14
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Details, expander and accordion share related guidance while preserving single versus grouped disclosure behaviours.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-012",
       "title": "Retire a withdrawn source without inventing dates",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/components/review-date.html",
@@ -10793,15 +12006,21 @@
       "evidence": [
         {
           "file": "docs/source/components/review-date.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Review dates and freshness",
+          "supports": "Withdrawn review-date provenance remains visible; actual publication/update history and scheduled review dates stay distinct."
         },
         {
           "file": "docs/source/components/page-history.html.md.erb",
-          "line": 14
+          "line": 2,
+          "excerpt": "title: Page metadata and history",
+          "supports": "Withdrawn review-date provenance remains visible; actual publication/update history and scheduled review dates stay distinct."
         },
         {
           "file": "docs/source/patterns/review-dates.html.md.erb",
-          "line": 15
+          "line": 2,
+          "excerpt": "title: Show when guidance was reviewed",
+          "supports": "Withdrawn review-date provenance remains visible; actual publication/update history and scheduled review dates stay distinct."
         }
       ],
       "proposal": "Keep review-date as a withdrawn-source reference and use metadata/history as the maintained owner.",
@@ -10833,15 +12052,38 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/review-date.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/components/page-history.html.md.erb",
+            "line": 14
+          },
+          {
+            "file": "docs/source/patterns/review-dates.html.md.erb",
+            "line": 15
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Withdrawn review-date provenance remains visible; actual publication/update history and scheduled review dates stay distinct.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-013",
       "title": "Separate task flow, content templates and native editors",
       "priority": "P1",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "catalogue-ownership-and-documentation",
       "surfaces": [
         "/patterns/question-pages.html",
@@ -10852,19 +12094,27 @@
       "evidence": [
         {
           "file": "docs/source/patterns/question-pages.html.md.erb",
-          "line": 15
+          "line": 2,
+          "excerpt": "title: Ask clear questions on pages and in dialogs",
+          "supports": "Task-flow, editorial template and native-editor guidance now cross-link with explicit backend boundaries and dedicated HA editor contracts."
         },
         {
           "file": "docs/source/patterns/complete-multiple-tasks.html.md.erb",
-          "line": 15
+          "line": 2,
+          "excerpt": "title: Complete multiple household tasks",
+          "supports": "Task-flow, editorial template and native-editor guidance now cross-link with explicit backend boundaries and dedicated HA editor contracts."
         },
         {
           "file": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Smart answer",
+          "supports": "Task-flow, editorial template and native-editor guidance now cross-link with explicit backend boundaries and dedicated HA editor contracts."
         },
         {
           "file": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
-          "line": 17
+          "line": 2,
+          "excerpt": "title: Transaction",
+          "supports": "Task-flow, editorial template and native-editor guidance now cross-link with explicit backend boundaries and dedicated HA editor contracts."
         }
       ],
       "proposal": "Keep page templates as documentation compositions, never substitutes for native automation, schedule or setup editors.",
@@ -10908,15 +12158,42 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/patterns/question-pages.html.md.erb",
+            "line": 15
+          },
+          {
+            "file": "docs/source/patterns/complete-multiple-tasks.html.md.erb",
+            "line": 15
+          },
+          {
+            "file": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
+            "line": 17
+          },
+          {
+            "file": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
+            "line": 17
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "Task-flow, editorial template and native-editor guidance now cross-link with explicit backend boundaries and dedicated HA editor contracts.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     },
     {
       "id": "COMP-014",
       "title": "Retain the legacy custom-card registration alias",
       "priority": "P2",
-      "status": "proposed",
+      "status": "implemented",
       "scope": "runtime-compatibility-naming-only",
       "surfaces": [
         "/components/cards.html",
@@ -10925,11 +12202,15 @@
       "evidence": [
         {
           "file": "docs/source/components/cards.html.md.erb",
-          "line": 8
+          "line": 2,
+          "excerpt": "title: Cards",
+          "supports": "The legacy lighting element registration and bundle filename remain available and are exercised by a browser compatibility check."
         },
         {
           "file": "docs/source/get-started/compatibility.html.md.erb",
-          "line": 8
+          "line": 2,
+          "excerpt": "title: \"Compatibility and limits\"",
+          "supports": "The legacy lighting element registration and bundle filename remain available and are exercised by a browser compatibility check."
         }
       ],
       "proposal": "Keep the legacy govuk-house-lighting-card registration and bundle filename as compatibility aliases while civica.uk is the public identity.",
@@ -10967,8 +12248,27 @@
         }
       ],
       "ruleReview": {
-        "status": "consistent-proposal",
-        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+        "status": "implemented-guidance-reviewed",
+        "meaning": "Shared owner/variant guidance is checked against frozen local rules; native and live scopes remain explicit."
+      },
+      "original_evidence": {
+        "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+        "records": [
+          {
+            "file": "docs/source/components/cards.html.md.erb",
+            "line": 8
+          },
+          {
+            "file": "docs/source/get-started/compatibility.html.md.erb",
+            "line": 8
+          }
+        ]
+      },
+      "resolution": {
+        "implementedOn": "2026-11-11",
+        "summary": "The legacy lighting element registration and bundle filename remain available and are exercised by a browser compatibility check.",
+        "evidenceRecord": "docs/data/remediation-verification.json",
+        "acceptanceScope": "Documentation ownership, retained routes, shared navigation and named runtime alias fixture; no new native backend."
       }
     }
   ],
@@ -10980,7 +12280,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Shared location trail; retain publishing source context and URL.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/components/content-list.html",
@@ -10989,7 +12291,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Shared labelled contents navigation; keep in-page and multi-page variants explicit.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/components/feedback.html",
@@ -10998,7 +12302,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Shared feedback scope and delivery contract; local demonstrations do not send reports.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/components/global-banner.html",
@@ -11007,7 +12313,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "A site-wide notice is a scope variant; preserve dismissal and audience differences.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/components/emergency-banner.html",
@@ -11016,7 +12324,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Urgency is a pattern decision; do not transfer government event categories or alert policy.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/components/previous-and-next-navigation.html",
@@ -11025,7 +12335,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Shared sequential navigation structure; chapters and result pages keep separate labels and current-state rules.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/components/search-autocomplete.html",
@@ -11034,7 +12346,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Native datalist example adds local suggestions; it is not the native HA entity picker or a predictive search service.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/components/generic-header.html",
@@ -11043,7 +12357,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "One independent civica.uk header family with focused/setup variants and preserved source attribution.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/components/expander.html",
@@ -11052,7 +12368,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Disclosure has a shared semantic base; NHS expander presentation remains a documented variant.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/components/review-date.html",
@@ -11061,7 +12379,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Retain the withdrawn NHS source route as historical guidance; distinguish review due dates from actual publication/update history.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/components/chart-examples.html",
@@ -11070,7 +12390,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Living chart demonstration uses production adapter; generic data tables remain a separate primitive.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/patterns/review-dates.html",
@@ -11079,7 +12401,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "A review workflow is a pattern layered on metadata, not another component implementation.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/patterns/mini-hub.html",
@@ -11088,7 +12412,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Chapter navigation composes contents, current topic and previous/next links.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder.html",
@@ -11097,7 +12423,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Finder composes query, facets, result count, empty state and results.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/answer.html",
@@ -11106,7 +12434,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Short and long guidance share article structure; keep distinct when-use advice and examples.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/guide.html",
@@ -11115,7 +12445,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Multi-page guidance shares topic navigation; retained source page explains publishing boundaries.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/homepage.html",
@@ -11124,7 +12456,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Documentation home composition differs from a live device overview; keep this boundary explicit.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/mainstream-browse.html",
@@ -11133,7 +12467,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Task/category browsing is a hub variant with bounded hierarchy.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/mainstream-browse/level-one.html",
@@ -11142,7 +12478,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep category depth as a variant, not an independent primitive.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/mainstream-browse/level-two.html",
@@ -11151,7 +12489,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep leaf/category depth as a variant with clear back/current context.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/smart-answer.html",
@@ -11160,7 +12500,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Guided questions require explicit branching and saved-answer rules beyond a static article.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/smart-answer/github-smart-answer.html",
@@ -11169,7 +12511,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "The upstream application architecture is provenance, not a new household backend.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/smart-answer/simple-smart-answer.html",
@@ -11178,7 +12522,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Simple branching remains a documented flow variant, not a new component primitive.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/transaction.html",
@@ -11187,7 +12533,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Task entry and scope precede native work; no fake transaction backend.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/completed-transaction.html",
@@ -11196,7 +12544,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "A completed-task page may claim completion only after the real task confirms it.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/step-by-step-nav.html",
@@ -11205,7 +12555,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Task navigation differs from device-state automation; preserve progress semantics.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/topical-events.html",
@@ -11214,7 +12566,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Time-bounded informational hub; keep native calendar editing separate.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/topical-events/about.html",
@@ -11223,7 +12577,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Context article belongs to guidance composition, not a separate control.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/case-studies-finder.html",
@@ -11232,7 +12588,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html",
@@ -11241,7 +12599,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/groups-finder.html",
@@ -11250,7 +12610,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/hmrc-contacts-finder.html",
@@ -11259,7 +12621,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/people-finder.html",
@@ -11268,7 +12632,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/search.html",
@@ -11277,7 +12643,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/specialist-document-finder.html",
@@ -11286,7 +12654,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/statistical-data-sets-finder.html",
@@ -11295,7 +12665,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/supergroup-finder.html",
@@ -11304,7 +12676,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/topical-events-finder.html",
@@ -11313,7 +12687,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     },
     {
       "from": "/publishing/frontend-templates/finder/world-organisation-finder.html",
@@ -11322,7 +12698,9 @@
       "proposal": "retain-as-source-or-variant-page",
       "redirectStatus": "not-proposed-until-equivalence-and-fragment-check",
       "reason": "Keep the official source route and context; reuse one query/filter/result contract rather than eleven independent search components.",
-      "publishedUrlRetained": true
+      "publishedUrlRetained": true,
+      "status": "retained-with-canonical-family-navigation",
+      "implementation": "docs/source/partials/_component_family.erb"
     }
   ],
   "deprecationProposals": [
@@ -11364,5 +12742,15 @@
       "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
       "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
     ]
+  },
+  "currentCoverage": {
+    "guides": 196,
+    "examples": 405,
+    "homeAssistantSpecifications": 30,
+    "componentRoutes": 68,
+    "componentOwners": 58,
+    "sourceMappings": 130,
+    "maintainedCustomCardTypes": 3,
+    "exactAdapters": "See /home-assistant/compatibility-register.html; not counted as additional custom cards."
   }
 }

@@ -1,0 +1,75 @@
+---
+title: "Registry tables and bulk actions"
+description: "Complete design specification for registry tables and bulk actions, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-029
+source_url: https://www.home-assistant.io/docs/organizing/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated registry tables and bulk actions specification and three complete synthetic examples."
+---
+
+# Registry tables and bulk actions
+
+Help people find the correct records, understand what is selected and predict the scope of a bulk operation. Entities, devices, areas, labels and categories are related but not interchangeable. Sorting or filtering must not silently broaden a selection.
+
+## Scope and native ownership
+
+Native organisation features distinguish areas, floors, labels, categories and groups. Registry screens own their selection, sorting and saved-view behaviour. The local Publishing finder is a fixed-record demonstration, not a replacement registry or permission system. [Official Home Assistant source](https://www.home-assistant.io/docs/organizing/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-029**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Loaded records | Show the current filter/sort context and meaningful names. | Do not conflate an entity row with a whole device. |
+| Selected rows | State the selected count and whether hidden filtered rows remain selected. | Do not infer Select all means every record on the server. |
+| No filter matches | Explain the active criteria and a real reset route. | Do not claim the registry has no entities. |
+| Unavailable / restricted data | Name the actual retrieval or access limitation. | Do not describe a failed response as an empty result. |
+| Partial bulk outcome | Show successful, failed and unconfirmed members separately. | Do not announce All updated while any result is missing. |
+
+## Integration contract
+
+1. Use native stable record IDs and the server’s authorized data. Keep display names separate from copyable entity identifiers.
+2. Before a bulk operation, resolve its exact target set and present a count plus meaningful review route. Retain native selection semantics through filter, sort and page changes; document them rather than guessing.
+3. Only expose operations supported by every target or make per-target restrictions explicit. An area assignment, label change, disable operation and removal have different consequences.
+4. Saved filters or views require the actual native persistence contract and scope. A locally filtered documentation table must never claim it saved an account preference.
+
+## Accessible interaction
+
+- Use real table headers or the native equivalent, visible sorting state and named row selection controls. Keyboard access must not require clicking an entire interactive row.
+- Announce changed result/selection counts without announcing the full table after each keystroke.
+- Keep row actions reachable at narrow widths and enlarged text. Provide a named way to review selected rows before a destructive operation.
+
+## Failure and recovery
+
+- If a selected row disappears or permission changes, revalidate the target set before execution and explain the change.
+- For partial failure, preserve successful results and expose only supported retry scopes; do not blindly repeat completed destructive work.
+- If the registry cannot load, retain filter inputs as supported but do not display previous data as a fresh authorized response.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-029-selection') %>
+
+<%= example('ha-flow-029-partial') %>
+
+<%= example('ha-flow-029-empty') %>
+
+## Integration acceptance
+
+- Test filtering/sorting with selected rows inside and outside the visible result set; verify the named target count.
+- Check bulk success, rejection, partial and unconfirmed responses without optimistic all-success copy.
+- Verify keyboard sorting/selection/actions and distinguish device, entity and category operations.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [WG-032](../content/interface-copy.html#wg-032), [WG-034](../content/interface-copy.html#wg-034), [WG-038](../content/interface-copy.html#wg-038), [WG-080](../content/accessible-content.html#wg-080), [WG-084](../content/accessible-content.html#wg-084).

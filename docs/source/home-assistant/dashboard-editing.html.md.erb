@@ -1,0 +1,75 @@
+---
+title: "Dashboard composition and editing"
+description: "Complete design specification for dashboard composition and editing, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-022
+source_url: https://www.home-assistant.io/dashboards/sections/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated dashboard composition and editing specification and three complete synthetic examples."
+---
+
+# Dashboard composition and editing
+
+Editing changes the interface configuration; using a dashboard can operate devices. Make those contexts unmistakable. Preserve the existing cards, entity targets, visibility conditions and unsaved changes when appearance changes.
+
+## Scope and native ownership
+
+Native Sections views arrange cards in a grid and supply editing, placement and visibility features. This specification provides task and acceptance rules around the native editor; it does not add a civica layout editor or promise a keyboard alternative that has not been verified. [Official Home Assistant source](https://www.home-assistant.io/dashboards/sections/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-022**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| View mode | Show household controls and navigation. | Do not display reorder handles as device controls. |
+| Edit mode | Name the dashboard and object being edited. | A move action must not activate the card’s primary device action. |
+| Draft changed | Distinguish the edited configuration from the saved version. | Do not label a preview as saved. |
+| Validation rejected | Associate the issue with its card/field and preserve supported draft data. | Do not discard unrelated card settings. |
+| Save result uncertain | Keep the draft and inspect the native stored version. | Do not blindly overwrite a concurrent edit. |
+
+## Integration contract
+
+1. Let the native editor own its configuration and persistence. Theme changes must not serialise, reorder or rewrite saved dashboard records.
+2. A card has a type, targets and layout/visibility configuration. Preserve unknown configuration fields when editing a supported subset.
+3. State whether a change affects this view, a shared dashboard or a per-browser preference. Dashboard visibility is not a replacement for backend authorization.
+4. Use native movement/resize mechanisms. Where drag is the only verified route, record that limitation and a supported editor alternative if one exists; CSS alone cannot make dragging keyboard accessible.
+
+## Accessible interaction
+
+- Label controls with their object, for example Edit kitchen light card. Maintain a logical focus order when a card moves or is removed.
+- Check that dense placement does not make visual order contradict reading and keyboard order for the task.
+- At 320px, enlarged text and touch zoom, keep save/cancel and validation reachable without overlaying a live device action.
+
+## Failure and recovery
+
+- If an entity disappears, retain its configured identifier and a useful invalid-target explanation rather than replacing the card silently.
+- If a save is rejected, keep supported draft edits and native validation. After an uncertain response, compare against the actual stored version.
+- Warn about the documented consequences of taking over an automatically maintained dashboard; do not promise a one-click reversal if unavailable.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-022-draft') %>
+
+<%= example('ha-flow-022-move') %>
+
+<%= example('ha-flow-022-invalid') %>
+
+## Integration acceptance
+
+- Verify view/edit modes cannot confuse navigation, configuration changes and device actions.
+- Exercise missing targets, invalid configuration, unsaved edits and theme switching without changing saved card data.
+- Record the actual keyboard movement/resize result for the installed frontend and any unresolved native limitation.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-TYP-04](../styles/brand-typography.html#bg-typ-04), [BG-COL-04](../styles/brand-colour.html#bg-col-04), [WG-031](../content/interface-copy.html#wg-031), [WG-035](../content/interface-copy.html#wg-035), [WG-036](../content/interface-copy.html#wg-036), [WG-084](../content/accessible-content.html#wg-084).

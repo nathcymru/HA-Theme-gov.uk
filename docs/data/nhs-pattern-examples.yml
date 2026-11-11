@@ -36,8 +36,8 @@ examples:
       </div>
       </details>
   nhs-identifier-error:
-    title: "Correct an identifier that cannot be found"
-    description: "The error identifies the problem, preserves the supplied value, and keeps a device-picker route available."
+    title: Correct an identifier that cannot be found
+    description: The misspelled identifier has no match within the profile’s authorised entities. A matched but unavailable entity is a separate case.
     height: 680
     html: |
       <h1 class="govuk-heading-l">Enter the entity ID</h1>
@@ -45,16 +45,16 @@ examples:
       <h2 class="govuk-error-summary__title" id="identifier-error-title">There is a problem</h2>
       <ul class="govuk-list govuk-error-summary__list">
       <li>
-      <a href="#entity-id">No available entity matches this ID</a>
+      <a href="#entity-id">No entity matches this ID</a>
       </li>
       </ul>
       </div>
       <form data-demo-form data-demo-success="Example saved in this preview. No Home Assistant setting was changed.">
       <div class="govuk-form-group govuk-form-group--error">
       <label class="govuk-label" for="entity-id">Entity ID</label>
-      <div class="govuk-hint" id="entity-hint">For example, light.example_reading_lamp. You can paste the full ID.</div>
+      <div class="govuk-hint" id="entity-hint">For example, light.example_reading_lamp. You can paste the full ID. Matching is limited to entities this profile is authorised to access.</div>
       <p class="govuk-error-message" id="entity-error">
-      <span class="govuk-visually-hidden">Error:</span> No available entity matches this ID. Check the spelling or choose a device.</p>
+      <span class="govuk-visually-hidden">Error:</span> No entity matches this ID. Check the spelling or choose a device. An entity that matches but has no current state needs a separate unavailable message.</p>
       <input class="govuk-input govuk-input--error" id="entity-id" name="entity-id" value="light.example_reading_lmp" spellcheck="false" autocapitalize="none" aria-invalid="true" aria-describedby="entity-hint entity-error" required>
       </div>
       <button type="submit" class="govuk-button">Continue</button>
@@ -368,8 +368,8 @@ examples:
       <p class="govuk-body">Check the reported device state separately. If the device is unavailable, the control cannot confirm a change.</p>
       </section>
   nhs-bsl-content-bundle:
-    title: "Prepare a translation without pretending it exists"
-    description: "A content-owner record shows what must be verified before a signed video link can be published. There is deliberately no player, thumbnail or play button."
+    title: Prepare a translation without pretending it exists
+    description: A content-owner record shows what must be verified before a signed video link can be published. There is deliberately no player, thumbnail or play button.
     height: 620
     html: |
       <h1 class="govuk-heading-l">Prepare British Sign Language guidance</h1>
@@ -401,7 +401,7 @@ examples:
       <span class="govuk-details__summary-text">Read the example written guide</span>
       </summary>
       <div class="govuk-details__text">
-      <p class="govuk-body">Open civica appearance settings. Choose a palette and choose Vivid or Muted. Preview the selection before saving. The change affects the interface; it does not change devices.</p>
+      <p class="govuk-body">Open civica.uk colours in your profile or the settings card. Choose a Colour palette and use the Use muted colours switch. Each selection applies through Home Assistant’s native theme flow; there is no separate Preview or Save button. The change affects the interface, not devices.</p>
       </div>
       </details>
       <p class="govuk-body">Publish a BSL link only after a real translation and its player have been checked with BSL users.</p>
@@ -427,12 +427,12 @@ examples:
       </div>
       </details>
   nhs-pattern-review-guidance:
-    title: "Review dates for household instructions"
-    description: "The date pair concerns the whole guidance page, not a device reading or a successful command."
+    title: Review dates for household instructions
+    description: The date pair concerns the whole guidance page, not a device reading or a successful command.
     height: 560
     html: |
       <h1 class="govuk-heading-l">How to use the household dashboard</h1>
-      <p class="govuk-body">Choose a room to find its controls. The availability label describes whether Home Assistant can currently reach each entity.</p>
+      <p class="govuk-body">Choose a room to find its controls. The availability label describes whether the integration supplies a usable current entity state. It is not an independent test of the device’s network connection.</p>
       <p class="govuk-body">Use the labelled device-information link to inspect an unavailable entity before trying again.</p>
       <div class="govuk-body-s">
       <p>Guidance last reviewed: <time datetime="2026-11-11">11 November 2026</time>
@@ -711,14 +711,14 @@ examples:
       </div>
       </details>
   nhs-confirmation-not-saved:
-    title: "A failed save preserves the draft"
-    description: "A rejected configuration update has a correction route instead of a misleading completion panel."
+    title: An interrupted save leaves an uncertain result
+    description: The connection ended before confirmation. The draft remains visible, but the example does not claim that the save failed or succeeded.
     height: 560
     html: |
-      <h1 class="govuk-heading-l">The schedule was not saved</h1>
+      <h1 class="govuk-heading-l">The save could not be confirmed</h1>
       <div class="govuk-inset-text">The connection was interrupted before Home Assistant confirmed the save.</div>
-      <p class="govuk-body">The example draft is still on this page. Check the saved schedules before retrying so you do not create a duplicate.</p>
-      <button type="button" class="govuk-button" data-demo-message="Example draft shown. No save request was made.">Review the draft</button>
+      <p class="govuk-body">The save may have completed. The example draft is still on this page. Check the saved schedules before retrying so you do not create a duplicate.</p>
+      <a class="govuk-link" href="#unsaved-draft">Review the example draft</a>
       <p class="govuk-body" data-demo-status role="status" aria-live="polite">
       </p>
       <details class="govuk-details" id="unsaved-draft">
@@ -1031,15 +1031,15 @@ examples:
       <p class="govuk-body">Previous step: choose the control. The selected example is Reading lamp.</p>
       </section>
   nhs-question-modal:
-    title: "The same principle in an accessible dialog"
-    description: "Open the example, edit the display name, then cancel or submit. This changes no Home Assistant entity or device."
+    title: The same principle in an accessible dialog
+    description: Open the dialog, edit the display name and check the example or cancel. The label and Home Assistant entity are not renamed.
     height: 500
     html: |
       <h1 class="govuk-heading-l">Reading lamp</h1>
-      <p class="govuk-body">Example dashboard card. Rename changes only the displayed label in this preview.</p>
+      <p class="govuk-body">Example dashboard card. You can edit the name in the dialog. Submitting shows local feedback only; it does not rename this preview or a Home Assistant entity.</p>
       <button type="button" class="govuk-button govuk-button--secondary" data-demo-open="rename-control-dialog">Rename this control</button>
       <dialog class="civica-pattern-dialog" id="rename-control-dialog" aria-labelledby="rename-control-title">
-      <form data-demo-form>
+      <form data-demo-form data-demo-success="Example name checked locally. The preview label and Home Assistant entity have not been renamed.">
       <h2 class="govuk-heading-m" id="rename-control-title">What should this control be called?</h2>
       <div class="govuk-form-group">
       <label class="govuk-label" for="control-display-name">Display name</label>
@@ -1047,7 +1047,7 @@ examples:
       <input class="govuk-input" id="control-display-name" name="display-name" value="Reading lamp" required maxlength="80" aria-describedby="control-display-hint">
       </div>
       <div class="govuk-button-group">
-      <button class="govuk-button" type="submit">Save display name</button>
+      <button class="govuk-button" type="submit">Check example name</button>
       <button class="govuk-button govuk-button--secondary" type="button" data-demo-close>Cancel</button>
       </div>
       <p class="govuk-body" data-demo-status role="status" aria-live="polite">

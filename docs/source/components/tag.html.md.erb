@@ -1,17 +1,19 @@
 ---
-title: "Tag"
-description: "A tag names a status. It is not an action."
-section: "components"
-group: "Content presentation"
-source_url: "https://service-manual.nhs.uk/design-system/components/tag"
-status: "reference"
-published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
-review_in: "3 months"
+title: Tag
+description: A tag names a status. It is not an action.
+section: components
+group: Content presentation
+source_url: https://service-manual.nhs.uk/design-system/components/tag
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
 updates:
   - date: 2026-11-11
-    description: "Added NHS-informed tag guidance and 2 Home Assistant reference examples."
+    description: Linked tags to the shared message decision and retained their distinct non-interactive status role.
+  - date: 2026-11-11
+    description: Added NHS-informed tag guidance and 2 Home Assistant reference examples.
 ---
 
 # Tag
@@ -19,6 +21,10 @@ updates:
 A tag names a status. It is not an action.
 
 These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## State label or attention count
+
+Use the [shared state vocabulary and message decision](status.html#choose-the-right-message). This page owns the rectangular, non-interactive status-label variant. Use the [notification badge](notification-badge.html) only for a count of new or unread items, and a [banner](notification-banners.html) when a complete message needs scope and an action. Do not turn a tag into any of those by changing its colour or adding a click handler.
 
 ## When to use it
 

@@ -31,14 +31,16 @@
       "height": 300
     },
     "local-status-failure": {
-      "title": "An action that did not complete",
-      "html": "<h2 class=\"govuk-heading-m\">Kitchen light did not respond</h2><p class=\"govuk-body\">The last confirmed state is off. Check that the light has power before trying again.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example retry complete. No device command was sent.\">Preview trying again</button><p role=\"status\" data-demo-status></p>",
-      "height": 300
+      "title": "A request explicitly rejected by permission checks",
+      "html": "<h2 class=\"govuk-heading-m\">The turn-on request was rejected</h2><p class=\"govuk-body\">In this example, Home Assistant rejected the request because this profile cannot control the kitchen light. No device command was sent.</p><p class=\"govuk-body\">Last reported state: Off, at <time datetime=\"2026-11-11T18:42:00+00:00\">18:42 GMT on 11 November 2026</time> (Europe/London).</p><a class=\"govuk-link\" href=\"#rejected-request-help\">Read about this permission limit</a><section id=\"rejected-request-help\" tabindex=\"-1\"><h2 class=\"govuk-heading-m\">Permission limit</h2><p class=\"govuk-body\">Use a profile authorised for the task or ask the system administrator for help. A confirmation dialog cannot grant device permission.</p></section>",
+      "height": 480,
+      "description": "A rejected request is different from an accepted request with no confirmed result."
     },
     "local-status-pending": {
-      "title": "Waiting for confirmation",
-      "html": "<h2 class=\"govuk-heading-m\">Kitchen light</h2><p class=\"govuk-body\"><strong>Waiting for the device to respond</strong></p><p class=\"govuk-body\">Keep the last confirmed state visible until a new state arrives. This static example does not complete automatically.</p>",
-      "height": 300
+      "title": "A pending request with the last reported state",
+      "html": "<section class=\"civica-card\" aria-labelledby=\"pending-kitchen-title\"><h2 class=\"govuk-heading-m\" id=\"pending-kitchen-title\">Kitchen light</h2><p class=\"govuk-body\"><strong>Waiting for a reported state</strong></p><dl class=\"govuk-summary-list\"><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Last reported state</dt><dd class=\"govuk-summary-list__value\">Off, at <time datetime=\"2026-11-11T18:42:00+00:00\">18:42 GMT on 11 November 2026</time></dd></div><div class=\"govuk-summary-list__row\"><dt class=\"govuk-summary-list__key\">Request</dt><dd class=\"govuk-summary-list__value\">Turn on request accepted at <time datetime=\"2026-11-11T18:43:00+00:00\">18:43 GMT on 11 November 2026</time></dd></div></dl><p class=\"govuk-body\">The request was accepted, but a newer device state has not arrived. The earlier Off state is not a confirmed result for this request.</p><p class=\"govuk-body\">Synthetic state; Europe/London. This static example does not complete automatically or operate a device.</p></section>",
+      "height": 560,
+      "description": "A complete static pending state, including the acknowledged request and earlier observation. It never completes automatically."
     },
     "local-badge-count": {
       "title": "An unread count on its destination",
@@ -71,9 +73,10 @@
       "height": 430
     },
     "local-card-actions": {
-      "title": "Device card with separate actions and a details route",
-      "html": "<section class=\"civica-card\"><h2 class=\"govuk-heading-m\">Living room lights</h2><p class=\"govuk-body\">Example confirmed state: off.</p><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example only. No lights were changed.\">Preview turning on</button><p role=\"status\" data-demo-status></p><a class=\"govuk-link\" href=\"#light-details\">View light details</a></section><div id=\"light-details\"><h2 class=\"govuk-heading-m\">Light details</h2><p class=\"govuk-body\">Brightness and colour controls would use the device\u2019s supported capabilities.</p></div>",
-      "height": 450
+      "title": "A device group card with a separate request and details route",
+      "html": "<article class=\"civica-card-demo\" aria-labelledby=\"legacy-lights-title\"><div class=\"civica-card-demo__body\"><h2 class=\"govuk-heading-m\" id=\"legacy-lights-title\">Living room lights</h2><p class=\"govuk-body\"><strong>2 of 2 example lights reported Off</strong></p><p class=\"govuk-body\">Reported on <time datetime=\"2026-11-11T18:42:00+00:00\">11 November 2026 at 18:42 GMT</time> (Europe/London).</p><div class=\"civica-card-demo__actions\"><button class=\"govuk-button\" type=\"button\" data-demo-message=\"Example request acknowledged locally. The earlier reported states are unchanged; no device command was sent.\">Preview turn-on request</button><a class=\"govuk-link\" href=\"#light-details\">View light details</a></div><p class=\"govuk-body\" role=\"status\" data-demo-status></p></div></article><section id=\"light-details\" tabindex=\"-1\"><h2 class=\"govuk-heading-m\">Light details</h2><ul class=\"govuk-list govuk-list--bullet\"><li>Reading lamp — reported Off; example supports on and off.</li><li>Ceiling light — reported Off; example supports on and off.</li></ul><p class=\"govuk-body\">Both observations use the time shown above. Only these two lights are included in the synthetic group. A real control must resolve its actual eligible members and preserve permissions, reserved-light exclusions and each device’s supported capabilities.</p></section>",
+      "height": 840,
+      "description": "Two configured example lights reported Off. The button produces truthful local request feedback; its details link remains a separate focus target."
     },
     "local-layout-grid": {
       "title": "Cards in a responsive grid",
@@ -112,8 +115,18 @@
     },
     "local-image-purpose": {
       "title": "An informative original illustration",
-      "html": "<figure class=\"civica-image\"><img src=\"../images/design-system-hero.svg\" alt=\"An interface assembled from typography, colours, a form and a chart\" width=\"420\" height=\"350\" style=\"background:#1d70b8\"><figcaption class=\"civica-image__caption\">An original civica.uk illustration. Its caption explains why it is included.</figcaption></figure>",
-      "height": 450
+      "html": "<figure class=\"civica-image\"><img src=\"../images/design-system-hero.svg\" alt=\"A cutaway house with two rooms, a window, a table lamp and a thermostat\" width=\"420\" height=\"350\" style=\"background:#1d70b8\"><figcaption class=\"civica-image__caption\">An original household illustration: the window is in the left room, the table lamp is in the right room, and a thermostat is above them. The artwork introduces room controls; it does not show whether a real light is on or give a temperature reading.</figcaption></figure>",
+      "height": 580,
+      "description": "An informative cutaway house illustration with a complete text description. It is original artwork, not a screenshot or a report of device state.",
+      "artwork": {
+        "creator": "civica.uk project contributors",
+        "licence": "MIT (original repository illustration only)",
+        "source": "docs/data/illustration-assets.json#docs/source/images/design-system-hero.svg",
+        "purpose": "Explain the household subjects represented in the original cutaway illustration.",
+        "intended_background": "Civic Cobalt illustration canvas; the surrounding component uses shared theme roles.",
+        "alternative_text_decision": "Informative alt identifies the rooms and objects; the caption supplies positions and prevents a live-state inference. The separate homepage instance retains empty alt.",
+        "review_status": "Source geometry and text reviewed on 2026-11-11; browser checks are recorded separately."
+      }
     },
     "local-brand-primary": {
       "title": "Supplied identity on the primary colour",

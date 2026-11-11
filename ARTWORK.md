@@ -22,6 +22,10 @@ No GOV.UK crown, official wordmark, crest or GDS Transport font is shipped in th
 
 Existing scene symbols and the house floor plan in `card/assets/` predate this revision. They are retained for compatibility; their presence is not a new rights verification. The small cog path follows the existing Material Design icon convention. Do not infer a blanket artwork licence from the software licence.
 
+## Original documentation illustrations
+
+The homepage household scene and three category illustrations form a flat Civic Cobalt family. They were redrawn on 11 November 2026 using a restrained set of blue tones and white, without decorative outlines. They are original repository illustrations under MIT, separate from the supplied brand marks. Per-file purpose, colour, background, alternative-text decisions and hashes are recorded in `docs/data/illustration-assets.json`. They are conceptual illustrations, not screenshots or evidence of a device state. The card specimens have their own original-artwork record in `docs/data/card-artwork-provenance.json`.
+
 ## Surface coverage
 
 The companion changes the authenticated sidebar label and browser icons only while a civica theme is selected. It restores native identity when the user switches away or enters safe/recovery mode. Home Assistant's login, startup, native app icon and installed PWA manifest are owned by Home Assistant and are not replaced by this theme. The native Energy and Map interfaces retain their names and functions.

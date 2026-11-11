@@ -1,0 +1,87 @@
+---
+title: Accounts, permissions and shared settings
+description: Make setting scope and authorisation limits clear without inventing new account roles.
+section: patterns
+group: "Home Assistant: controls"
+status: reference
+gap_id: HA-GAP-013
+contract_id: HA-CTRL-013
+source_url: https://www.home-assistant.io/docs/configuration/user-configuration/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+updates:
+  - date: 2026-11-11
+    description: Aligned authored permission wording with the UK-English style while preserving native labels and identifiers.
+  - date: 2026-11-11
+    description: Removed an assumed answer from the new shared-display policy question.
+  - date: 2026-11-11
+    description: Added accounts, permissions and shared settings contract, domain-specific acceptance checks and synthetic reference examples.
+---
+
+# Accounts, permissions and shared settings
+
+Before changing a preference, a person needs to know whose experience changes and whether they have permission. Preserve Home Assistant’s owner, administrator and other user roles; civica.uk is an appearance layer, not a new authorisation system.
+
+**HA-CTRL-013 — reference design specification.** This specifies the local design coverage requested by HA-GAP-013 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-013-capabilities">Task and capability contract</h2>
+
+| Scope | Required explanation |
+| --- | --- |
+| Account | Name the signed-in account's preference and verify whether it follows that account across clients. |
+| Browser or mobile app | Explain the current-client scope and any loss on sign-out or local-data removal. |
+| Dashboard | State which saved dashboard changes and who can view it under native rules. Visibility is not an entity permission boundary. |
+| Installation | Identify the system-wide effect, required native role and any consequential dependencies. |
+| Authentication | Preserve native password, multi-factor authentication, session and token management; never collect credentials in a theme control. |
+
+<h2 id="ha-ctrl-013-states">States, pending work and failure</h2>
+
+Distinguish a permitted edit, a pending save, a rejected request and a lost session. An enabled button is not proof that a backend operation is permitted. If permissions change while a form is open, handle the native rejection without announcing a saved result or revealing restricted data.
+
+A user account and a person entity have different purposes. Changing a display name, changing a login identifier, revoking a session and removing a tracked person are separate operations. Do not invent granular “guest room-only” permissions because a dashboard hides other cards.
+
+For shared devices, explain whether a change affects this browser or a reusable account. Do not make “shared” imply that the account has reduced backend access. A local-only login restriction concerns where authentication is permitted; it is not a room or device permission model.
+
+<h2 id="ha-ctrl-013-content">Content and interpretation</h2>
+
+Put scope near the control before submission: “For this browser” or “For your account”, based on the actual implementation. Refer to native settings labels in the current interface language. Never show access tokens, passwords or recovery material in examples, screenshots or copyable snippets. Keep an authorisation error factual and avoid promising that a different theme can fix it.
+
+<h2 id="ha-ctrl-013-accessibility">Accessibility and interaction</h2>
+
+Keep permission explanations readable even when an action is unavailable. Do not use disabled styling as the only account-status indicator. Native authentication inputs retain password-manager, keyboard and assistive-technology behaviour. An expired session must lead to the native sign-in flow without a keyboard trap or hidden focused form.
+
+<h2 id="ha-ctrl-013-integration">Native integration boundary</h2>
+
+Use native account/profile and authentication flows. The current documentation separates native profile preferences from client-only settings; verify the installed version and the civica companion's native event binding before making persistence claims. The examples are scope-review specimens, not a user-management implementation. Backend enforcement remains authoritative even when someone directly invokes an action or opens a hidden route.
+
+<h2 id="ha-ctrl-013-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-account-scope') %>
+
+<%= example('ha-account-rejected') %>
+
+<%= example('ha-account-shared') %>
+
+<h2 id="ha-ctrl-013-acceptance">Acceptance and evidence</h2>
+
+1. Review owner, administrator and non-administrator views with permitted test accounts. Verify rejected actions at the backend independently of visibility.
+2. Change an account preference and a client-only preference in two clients; record their actual persistence and sign-out behaviour.
+3. Expire a session and revoke a permission while an edit is open. No rejected or unconfirmed change may be labelled saved.
+4. Check keyboard access, private-field handling and shared-display scope. Confirm no token, secret or personal location appears in public evidence.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-013-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [People and user configuration](https://www.home-assistant.io/docs/configuration/user-configuration/)
+- [Authentication](https://www.home-assistant.io/docs/authentication/)
+
+Applicable frozen rules: [BG-ILL-09](../styles/illustration.html#bg-ill-09), [WG-002](../content/index.html#wg-002), [WG-034](../content/interface-copy.html#wg-034), [WG-051](../content/instructions-and-learning.html#wg-051), [WG-061](../content/inclusive-content.html#wg-061). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

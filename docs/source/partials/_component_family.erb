@@ -1,0 +1,12 @@
+<% ownership = component_family %>
+<% if ownership %>
+<nav class="c-component-family" aria-label="Related guidance in this family">
+<h2>Shared rules and related guidance</h2>
+<% owner = ownership[:pages].find { |item| item['url'] == ownership[:family]['canonicalOwner'] } %>
+<p><a href="<%= docs_path(owner['url']) %>"><%= escape(owner['title']) %></a> owns the shared rules for this family. Each related guide keeps its own task, examples and published address.</p>
+<ul><% ownership[:family]['memberPages'].reject { |url| url == ownership[:page]['url'] }.each do |url| %>
+<% page = ownership[:pages].find { |item| item['url'] == url } %>
+<li><a href="<%= docs_path(url) %>"><%= escape(page['title']) %><%= ' — publishing' if url.start_with?('/publishing/components/') %></a> — <%= escape(page['relationship'].tr('-', ' ')) %></li>
+<% end %></ul>
+</nav>
+<% end %>

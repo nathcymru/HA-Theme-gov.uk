@@ -1,0 +1,77 @@
+---
+title: "Assist, conversation and voice"
+description: "Complete design specification for assist, conversation and voice, with state contracts, synthetic examples and native acceptance boundaries."
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+gap_id: HA-GAP-025
+source_url: https://www.home-assistant.io/voice_control/
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the dedicated assist, conversation and voice specification and three complete synthetic examples."
+  - date: 2026-11-11
+    description: "Preserved explicit native start-listening shortcuts and required a deliberate ambiguous-target choice."
+---
+
+# Assist, conversation and voice
+
+Give people clear control over when listening begins, which request was understood and whether a command has a confirmed result. Voice must not be the only route to a household task. A theme change must never activate a microphone, submit text or operate a device.
+
+## Scope and native ownership
+
+Native Assist supports voice and typed interaction with configurable local or remote processing. Its actual pipeline and exposed entities define what is available. The civica theme does not replace recognition, conversation agents, authentication or device authorization. [Official Home Assistant source](https://www.home-assistant.io/voice_control/), reviewed 11 November 2026.
+
+This page completes the design specification for **HA-GAP-025**. Its examples are synthetic documentation, not a claim that a new native feature or adapter has been installed. The application integration must meet the task-specific acceptance below.
+
+## States and content decisions
+
+| Source condition | Required presentation | Boundary |
+| --- | --- | --- |
+| Ready / listening | Name the listening state and the actual stop control. | Ordinary navigation or a theme update must not start recording. An explicitly chosen native voice shortcut may start listening. |
+| Processing | Show the submitted request and pending stage where available. | Do not claim recognition equals successful action. |
+| Ambiguous target | Ask for a supported clarification with named choices. | Do not choose a device from a visually similar name. |
+| Request accepted | Describe what the backend accepted. | Do not claim a lock/light physically changed without its confirmation condition. |
+| Recognition or action failed | Distinguish not understood from a rejected or unconfirmed action. | Do not repeat a consequential request automatically. |
+
+## Integration contract
+
+1. Use the native typed route and current pipeline. Describe processing location only from actual configuration; do not promise that every Assist setup stays local.
+2. Only expose operations that the selected agent, entity capabilities and account allow. Theme appearance must not bypass exposure or authorization settings.
+3. Keep transcript, interpretation, request acknowledgement and reported device state separate. A conversational response can be insufficient evidence for physical completion.
+4. Microphone permission, listening and audio playback must remain under explicit native user controls. Preserve an intentionally configured voice shortcut: native dashboard Assist actions can use `start_listening`. Its label must make the listening action clear. Retain supported interruption behaviour without inventing cancellation of an already sent action. See [native dashboard Assist actions](https://www.home-assistant.io/dashboards/actions/).
+
+## Accessible interaction
+
+- Present listening/processing/error states in text as well as animation or sound; retain a usable typed alternative.
+- Avoid repeatedly announcing partial recognition text. Announce meaningful completion/error changes and provide transcript access without forcing audio.
+- Respect reduced motion and private/shared-screen preferences. Do not publish real voice recordings, transcripts or household names as test evidence.
+
+## Failure and recovery
+
+- If microphone access is denied, explain the affected route and offer typing; do not imply a theme can grant permission.
+- For an uncertain target, retain the request and ask for a specific supported clarification rather than guessing.
+- When the connection drops after submission, show unconfirmed result and inspect the reported device state before retrying.
+
+## Complete examples
+
+The examples use invented records. Forms validate and show local feedback only; they do not call Home Assistant, save preferences or claim a real device result. In-page links lead to the explanation shown in the same specimen.
+
+<%= example('ha-flow-025-typed') %>
+
+<%= example('ha-flow-025-clarify') %>
+
+<%= example('ha-flow-025-unconfirmed') %>
+
+## Integration acceptance
+
+- Test typed and voice routes separately with processing local/remote scope accurately disclosed.
+- Verify ordinary navigation, reloading and theme changes do not start listening or submit a command. Separately test an explicitly chosen, clearly labelled native voice shortcut with `start_listening`; do not disable that supported behaviour merely to apply the theme.
+- Test ambiguity, microphone denial and request timeout without inventing recognition or physical success.
+
+Record actual environment, versions, state, method and result using the [native task accessibility matrix](native-task-accessibility.html). Source review and a local example do not establish physical execution, screen-reader usability or live compatibility.
+
+## Applicable local rules
+
+[BG-ILL-07](../styles/illustration.html#bg-ill-07), [WG-032](../content/interface-copy.html#wg-032), [WG-044](../content/errors-and-alerts.html#wg-044), [WG-061](../content/inclusive-content.html#wg-061), [WG-063](../content/inclusive-content.html#wg-063), [WG-085](../content/accessible-content.html#wg-085).

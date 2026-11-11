@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewedOn": "2026-11-11",
-  "status": "requirements-and-taxonomy-review-complete",
+  "status": "original-review-and-remediation-complete",
   "owner": "Home Assistant requirements and component taxonomy reviewer",
   "scope": "Explicit repeatable audit loops; does not duplicate the separate full-page brand/writing review ledgers.",
   "allowedStatuses": [
@@ -25,6 +25,16 @@
           "result": "147 guides, 263 examples, 130 source entries and 68 component pages mapped; no unreferenced examples.",
           "evidence": [
             "docs/data/component-rationalisation.json"
+          ]
+        },
+        {
+          "iteration": 2,
+          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "evidence": [
+            "docs/data/remediation-verification.json",
+            "docs/data/design-system-audit.json",
+            "docs/data/remediation-controls-review.json",
+            "docs/data/remediation-flows-review.json"
           ]
         }
       ],
@@ -87,6 +97,16 @@
           "result": "30 proposed HA design/acceptance gaps, each retaining native capability status and source evidence.",
           "evidence": [
             "docs/data/ha-component-gaps.json"
+          ]
+        },
+        {
+          "iteration": 2,
+          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "evidence": [
+            "docs/data/remediation-verification.json",
+            "docs/data/design-system-audit.json",
+            "docs/data/remediation-controls-review.json",
+            "docs/data/remediation-flows-review.json"
           ]
         }
       ],
@@ -206,6 +226,16 @@
             "docs/data/ha-component-gaps.json",
             "docs/data/component-rationalisation.json"
           ]
+        },
+        {
+          "iteration": 2,
+          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "evidence": [
+            "docs/data/remediation-verification.json",
+            "docs/data/design-system-audit.json",
+            "docs/data/remediation-controls-review.json",
+            "docs/data/remediation-flows-review.json"
+          ]
         }
       ],
       "checks": [
@@ -256,6 +286,16 @@
           "result": "14 COMP proposals;39 route relationships; all published URLs retained.",
           "evidence": [
             "docs/data/component-rationalisation.json"
+          ]
+        },
+        {
+          "iteration": 2,
+          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "evidence": [
+            "docs/data/remediation-verification.json",
+            "docs/data/design-system-audit.json",
+            "docs/data/remediation-controls-review.json",
+            "docs/data/remediation-flows-review.json"
           ]
         }
       ],
@@ -308,6 +348,16 @@
           "evidence": [
             "docs/source/community/component-audit.html.md.erb",
             "docs/source/community/missing-components.html.md.erb"
+          ]
+        },
+        {
+          "iteration": 2,
+          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "evidence": [
+            "docs/data/remediation-verification.json",
+            "docs/data/design-system-audit.json",
+            "docs/data/remediation-controls-review.json",
+            "docs/data/remediation-flows-review.json"
           ]
         }
       ],
@@ -374,5 +424,12 @@
       "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
       "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
     ]
+  },
+  "remediation": {
+    "status": "verified-in-stated-scope",
+    "components": 14,
+    "home_assistant_specifications": 30,
+    "evidence": "docs/data/remediation-verification.json",
+    "scope": "Canonical documentation/navigation, complete specifications and synthetic browser acceptance; native task and live equipment acceptance remain separate."
   }
 }

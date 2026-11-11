@@ -1,0 +1,86 @@
+---
+title: "Schedules, calendars and timers"
+description: "Specify local-time boundaries, recurrence and timer recovery without inventing scheduling support."
+section: "patterns"
+group: "Home Assistant: controls"
+status: "reference"
+gap_id: "HA-GAP-010"
+contract_id: "HA-CTRL-010"
+source_url: "https://www.home-assistant.io/integrations/schedule/"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added schedules, calendars and timers contract, domain-specific acceptance checks and synthetic reference examples."
+---
+
+# Schedules, calendars and timers
+
+Choose a weekly Schedule helper for recurring time blocks, a calendar for dated events supported by its integration, and a timer for a countdown. These are different models. A publishing calendar page is not a schedule editor or a promise to run an automation.
+
+**HA-CTRL-010 — reference design specification.** This specifies the local design coverage requested by HA-GAP-010 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
+
+<h2 id="ha-ctrl-010-capabilities">Task and capability contract</h2>
+
+| Model | Contract |
+| --- | --- |
+| Weekly Schedule | Inclusive start, exclusive end, no overlapping blocks on a day. Split an overnight interval across consecutive days. |
+| Adjacent blocks | The schedule remains active across the touching boundary; block data may change. Do not manufacture an off/on event. |
+| Calendar | Distinguish all-day dates from timed events and preserve the provider's supported creation, editing and recurrence. |
+| Timer | Duration, active/paused/idle state and restore behaviour; a finished event is not a device completion report. |
+| Time input | State the schedule's time zone and preserve native locale/clock preferences. Browser display zone and installation schedule zone can differ. |
+
+<h2 id="ha-ctrl-010-states">States, pending work and failure</h2>
+
+Show unsaved block edits separately from the active saved schedule. Reject overlaps or invalid ordering at the relevant fields; retain the entered values where the editor does. Cancel discards the stated draft, not an already-running automation. Saving a helper can change conditions used by automations; explain that effect before confirmation.
+
+For daylight-saving changes, test local times that do not exist and that occur twice. Do not invent a universal “first occurrence” or “run twice” rule for every integration. Record the native behaviour for the actual helper/provider and the linked trigger. Distinguish an all-day event's date boundaries from a midnight timestamp converted to the viewer's zone.
+
+Timers can be restored if configured, but a finish event missed while Home Assistant was stopped does not automatically replay at startup. Keep paused duration separate from an estimated wall-clock finish. An unavailable calendar is not an empty day.
+
+<h2 id="ha-ctrl-010-content">Content and interpretation</h2>
+
+Name both boundaries and the zone near editing controls. Write “Ends at 12:00; 12:00 is outside this block” when the exclusive end matters. A recurring rule needs a readable summary and supported exceptions; omit recurrence controls the integration cannot save. Label publication dates separately from event dates and observed timer state.
+
+<h2 id="ha-ctrl-010-accessibility">Accessibility and interaction</h2>
+
+Provide a keyboard path to create and edit blocks without dragging. Each time field needs a day, start/end label and associated validation. Calendar list views can complement a visual grid but must preserve event dates and all-day meaning. Do not announce each countdown second. Test repeated-hour labels, narrow screens and enlarged text without relying on spatial placement alone.
+
+<h2 id="ha-ctrl-010-integration">Native integration boundary</h2>
+
+Keep native Schedule, Calendar and Timer editors, saved configuration and event semantics. The examples demonstrate review states, not a new scheduler. The source review establishes documented boundaries; actual daylight-saving and recurrence behaviour needs installed-version evidence. Do not add a script or helper just to make a documentation specimen appear interactive.
+
+<h2 id="ha-ctrl-010-examples">Reference examples</h2>
+
+These complete, isolated HTML specimens use synthetic data. Buttons and forms only demonstrate local feedback or draft validation. Static state examples are labelled as such; no action reaches a household.
+
+<%= example('ha-schedule-blocks') %>
+
+<%= example('ha-schedule-overnight') %>
+
+<%= example('ha-schedule-conflict') %>
+
+<%= example('ha-schedule-timer') %>
+
+<h2 id="ha-ctrl-010-acceptance">Acceptance and evidence</h2>
+
+1. Check exact start/end instants, touching blocks, overlap rejection and an overnight pair across two days. Verify the linked automation does not receive invented off/on transitions.
+2. Test an all-day event, a timed event, a read-only calendar and an unavailable provider. Preserve provider recurrence and exception limits.
+3. Check the installation zone, a different viewer zone, spring skipped time and autumn repeated time. Record actual native behaviour rather than assuming it.
+4. Pause/resume a timer and restart with restore enabled/disabled in a test setup. Verify missing finish-event recovery is explained; keyboard edit and save/cancel semantics remain usable.
+
+Record the integration/frontend version, browser, fixture or device, input state, expected result, observed result and evidence location. Source review and documentation checks are not live-device verification. Record unresolved native limitations explicitly; do not turn this checklist into an accessibility guarantee.
+
+<h2 id="ha-ctrl-010-sources">Sources and governing rules</h2>
+
+Primary sources reviewed on 11 November 2026. Current documentation may describe a newer frontend than an installed system; verify the actual controls before reproducing a route.
+
+- [Schedule](https://www.home-assistant.io/integrations/schedule/)
+- [Calendar](https://www.home-assistant.io/integrations/calendar/)
+- [Timer](https://www.home-assistant.io/integrations/timer/)
+
+Applicable frozen rules: [BG-TYP-03](../styles/brand-typography.html#bg-typ-03), [WG-035](../content/interface-copy.html#wg-035), [WG-072](../content/numbers-and-data.html#wg-072), [WG-074](../content/numbers-and-data.html#wg-074), [WG-075](../content/numbers-and-data.html#wg-075). The shared [brand guidance](../styles/brand.html) and [writing guide](../content/index.html) also govern any new implementation.
+
+Review owner: civica.uk maintainers. Recheck after native capability, source, renderer or interaction changes.

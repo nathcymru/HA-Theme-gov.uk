@@ -55,15 +55,15 @@ examples:
       </div>
       </form>
   nhs-count-over-limit:
-    title: "An answer above the limit"
-    description: "The full answer remains available to edit; it is not silently cut off."
+    title: An answer above the limit
+    description: The full answer remains available to edit; it is not silently cut off.
     height: 420
     html: |
       <form data-demo-form>
       <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="40">
       <div class="govuk-form-group govuk-form-group--error">
       <label class="govuk-label" for="long-note">Dashboard note</label>
-      <div class="govuk-hint" id="long-note-hint">Example limit:40 characters</div>
+      <div class="govuk-hint" id="long-note-hint">Example limit: 40 characters</div>
       <p class="govuk-error-message" id="long-note-error">
       <span class="govuk-visually-hidden">Error:</span> Dashboard note must be 40 characters or fewer</p>
       <textarea class="govuk-textarea govuk-js-character-count govuk-textarea--error" id="long-note" name="long-note" rows="4" aria-describedby="long-note-hint long-note-error long-note-info" aria-invalid="true">The side entrance will be used while the front path is being repaired.</textarea>
@@ -558,38 +558,29 @@ examples:
       </div>
       </form>
   nhs-textarea-description:
-    title: "Describe a dashboard"
-    description: "The audience and purpose of the text are stated before entry."
-    height: 340
+    title: Describe a dashboard
+    description: The audience and purpose of the text are stated before entry.
+    height: 470
     html: |
-      <form data-demo-form>
+      <form data-demo-form data-demo-success="Example description checked locally. No dashboard was saved.">
       <div class="govuk-form-group">
       <label class="govuk-label" for="dashboard-description">Dashboard description</label>
       <div class="govuk-hint" id="dashboard-description-hint">Shown to everyone who can open this dashboard</div>
       <textarea class="govuk-textarea" id="dashboard-description" name="dashboard-description" rows="4" aria-describedby="dashboard-description-hint" >Lights, heating and household tasks for shared areas.</textarea>
       </div>
-      </form>
+      <button class="govuk-button" type="submit">Check example description</button><p class="govuk-body" data-demo-status role="status"></p></form>
   nhs-textarea-error:
-    title: "Keep text when a save fails validation"
-    description: "The description remains editable after the failed attempt."
-    height: 340
-    html: |
-      <form data-demo-form>
-      <div class="govuk-form-group govuk-form-group--error">
-      <label class="govuk-label" for="required-description">Describe what this view includes</label>
-      <div class="govuk-hint" id="required-description-hint">Include the rooms or tasks covered</div>
-      <p class="govuk-error-message" id="required-description-error">
-      <span class="govuk-visually-hidden">Error:</span> Enter a description of this view</p>
-      <textarea class="govuk-textarea govuk-textarea--error" id="required-description" name="required-description" rows="4" aria-describedby="required-description-hint required-description-error" aria-invalid="true" >
-      </textarea>
-      </div>
-      </form>
+    title: Keep a description when another answer is missing
+    description: The existing description remains visible and editable while the missing view name is identified. Submitting shows local feedback only.
+    height: 760
+    html: <h1 class="govuk-heading-l">Check the view details</h1><div class="govuk-error-summary" aria-labelledby="description-summary-title" role="alert" tabindex="-1"><h2 class="govuk-error-summary__title" id="description-summary-title">There is a problem</h2><ul class="govuk-list govuk-error-summary__list"><li><a href="#description-view-name">Enter a view name</a></li></ul></div><form data-demo-form data-demo-success="Example answers checked locally. Your description is still shown; no view was saved."><div class="govuk-form-group govuk-form-group--error"><label class="govuk-label" for="description-view-name">View name</label><p class="govuk-error-message" id="description-name-error"><span class="govuk-visually-hidden">Error:</span> Enter a view name</p><input class="govuk-input govuk-input--error" id="description-view-name" name="view-name" required aria-invalid="true" aria-describedby="description-name-error"></div><div class="govuk-form-group"><label class="govuk-label" for="required-description">Describe what this view includes</label><div class="govuk-hint" id="required-description-hint">Shown to everyone who can open this example view. Do not include passwords or private household details.</div><textarea class="govuk-textarea" id="required-description" name="required-description" rows="4" aria-describedby="required-description-hint">Lights, temperature readings and shared household tasks for the kitchen and living room.</textarea></div><button class="govuk-button" type="submit">Check example answers</button><p class="govuk-body" data-demo-status role="status"></p></form>
   nhs-details-energy:
-    title: "Explain an Energy term"
-    description: "The definition is optional; the measurement stays outside the disclosure."
+    title: Explain an Energy term
+    description: The definition is optional; the measurement stays outside the disclosure.
     height: 340
     html: |
-      <p class="govuk-body">Electricity imported today:3.8 kWh</p>
+      <p class="govuk-body">Example electricity imported: 3.8 kWh</p>
+      <p class="govuk-body">Recorded from 00:00 to 14:00 on 11 November 2026, Europe/London (GMT). This is a synthetic partial-day total.</p>
       <details class="govuk-details">
       <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">What does imported electricity mean?</span>
@@ -613,8 +604,8 @@ examples:
       </div>
       </details>
   nhs-advice-dashboard:
-    title: "Maintain a shared dashboard"
-    description: "Positive and negative instructions remain meaningful when read individually."
+    title: Maintain a shared dashboard
+    description: Positive and negative instructions remain meaningful when read individually.
     height: 470
     html: |
       <section class="civica-do-list">
@@ -647,9 +638,18 @@ examples:
       </svg> do not use colour as the only status indicator</li>
       </ul>
       </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/nhs-component-examples.yml#nhs-advice-dashboard
+      provenance: Original simple geometry retained from the existing documentation example; no official identity paths or third-party artwork imported.
+      purpose: Reinforce the written Do and Do not groups without replacing the text.
+      intended_background: Light documentation surface; functional strokes use the component semantic text/state role.
+      alternative_text_decision: Decorative tick and cross SVGs are hidden from assistive technology; complete list wording carries the advice.
+      review_status: Static source/provenance recorded; rendered verification is tracked separately in the change acceptance.
   nhs-advice-notes:
-    title: "Write useful household notes"
-    description: "A single advice list is acceptable when there is no useful opposing set."
+    title: Write useful household notes
+    description: A single advice list is acceptable when there is no useful opposing set.
     height: 340
     html: |
       <section class="civica-dont-list">
@@ -667,6 +667,15 @@ examples:
       </svg> do not describe a command request as a confirmed device state</li>
       </ul>
       </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/nhs-component-examples.yml#nhs-advice-notes
+      provenance: Original simple geometry retained from the existing documentation example; no official identity paths or third-party artwork imported.
+      purpose: Reinforce the written Do and Do not groups without replacing the text.
+      intended_background: Light documentation surface; functional strokes use the component semantic text/state role.
+      alternative_text_decision: Decorative tick and cross SVGs are hidden from assistive technology; complete list wording carries the advice.
+      review_status: Static source/provenance recorded; rendered verification is tracked separately in the change acceptance.
   nhs-expander-energy:
     title: "Understand recorded energy"
     description: "A substantial reference explanation is grouped without hiding the live reading."
@@ -697,14 +706,23 @@ examples:
       </div>
       </details>
   nhs-image-floorplan:
-    title: "An informative room diagram"
-    description: "The text alternative describes the highlighted location; the caption explains the task."
+    title: An informative room diagram
+    description: The text alternative describes the highlighted location; the caption explains the task.
     height: 350
     html: |
       <figure class="civica-image">
       <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20480%20220%22%3E%3Crect%20width%3D%22480%22%20height%3D%22220%22%20fill%3D%22%23f3f2f1%22%2F%3E%3Cpath%20d%3D%22M20%2020H460V200H20ZM240%2020V200M20%20120H240%22%20fill%3D%22none%22%20stroke%3D%22%230b0c0c%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22345%22%20cy%3D%22100%22%20r%3D%2218%22%20fill%3D%22%231d70b8%22%2F%3E%3Ctext%20x%3D%2255%22%20y%3D%2270%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3EHall%3C%2Ftext%3E%3Ctext%20x%3D%2245%22%20y%3D%22165%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3EKitchen%3C%2Ftext%3E%3Ctext%20x%3D%22290%22%20y%3D%22160%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3ELiving%20room%3C%2Ftext%3E%3C%2Fsvg%3E" width="480" height="220" alt="Example floor plan: the living room is to the right of the hall and kitchen. A blue dot marks the living-room sensor.">
-      <figcaption class="civica-image__caption">Use the room name to check that you have selected the living-room sensor.</figcaption>
+      <figcaption class="civica-image__caption">Invented schematic, not a surveyed plan. The living room is to the right of the hall and kitchen; its marker identifies the living-room sensor. Use the room name when selecting a real entity.</figcaption>
       </figure>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/nhs-component-examples.yml#nhs-image-floorplan
+      provenance: Original simple geometry retained from the existing documentation example; no official identity paths or third-party artwork imported.
+      purpose: Show an invented room relationship and sensor location, not a surveyed floor plan or live map.
+      intended_background: "#F3F2F1 embedded schematic canvas on the light documentation surface"
+      alternative_text_decision: Informative img alternative describes the relative room positions and sensor marker; caption identifies the selection task.
+      review_status: Static source/provenance recorded; rendered verification is tracked separately in the change acceptance.
   nhs-image-decorative:
     title: "A decorative identity mark"
     description: "The nearby text names the service, so the repeated mark has an empty alt."
@@ -732,8 +750,8 @@ examples:
       <div class="govuk-inset-text">
       <span class="govuk-visually-hidden">Information:</span> Changing a dashboard’s display name does not rename the devices shown on it.</div>
   nhs-banner-maintenance:
-    title: "A planned interruption"
-    description: "The notice specifies the affected feature and the time window."
+    title: A planned interruption
+    description: The notice specifies the affected feature and the time window.
     height: 330
     html: |
       <div class="govuk-notification-banner" role="region" aria-labelledby="banner-title">
@@ -741,8 +759,8 @@ examples:
       <h2 class="govuk-notification-banner__title" id="banner-title">Scheduled maintenance</h2>
       </div>
       <div class="govuk-notification-banner__content">
-      <p class="govuk-notification-banner__heading">Energy history may be delayed tonight.</p>
-      <p class="govuk-body">The example recording service is scheduled for maintenance from 02:00 to 02:30. Device controls are not part of this example notice.</p>
+      <p class="govuk-notification-banner__heading">Example: energy history may be delayed on 12 November 2026.</p>
+      <p class="govuk-body">This fictional maintenance window runs from <time datetime="2026-11-12T02:00:00+00:00">02:00</time> to <time datetime="2026-11-12T02:30:00+00:00">02:30 GMT on 12 November 2026</time> (Europe/London). It concerns the example recording service only. No live outage is being announced.</p>
       </div>
       </div>
   nhs-banner-success:
@@ -840,12 +858,12 @@ examples:
       </div>
       </form>
   nhs-table-readings:
-    title: "Compare room temperatures"
-    description: "The caption and column heading state what the values mean."
+    title: Compare room temperatures
+    description: The caption and column heading state what the values mean.
     height: 340
     html: |
       <table class="govuk-table ">
-      <caption class="govuk-table__caption govuk-table__caption--m">Room temperatures</caption>
+      <caption class="govuk-table__caption govuk-table__caption--m">Example room temperatures reported on 11 November 2026 at 09:00 GMT (Europe/London)</caption>
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Room</th>
@@ -868,12 +886,12 @@ examples:
       </tbody>
       </table>
   nhs-table-missing:
-    title: "Distinguish zero from missing data"
-    description: "A missing reading remains text, not a fabricated zero."
+    title: Distinguish zero from missing data
+    description: A missing reading remains text, not a fabricated zero.
     height: 340
     html: |
       <table class="govuk-table civica-table--striped">
-      <caption class="govuk-table__caption govuk-table__caption--m">Electricity recorded by hour</caption>
+      <caption class="govuk-table__caption govuk-table__caption--m">Example hourly electricity — 11 November 2026, Europe/London (GMT)</caption>
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Period start (GMT)</th>
@@ -895,21 +913,22 @@ examples:
       </tr>
       </tbody>
       </table>
+      <p class="govuk-body">Each row starts a one-hour interval. The 10:00 interval has no reading; it is not zero and these rows do not form a complete total.</p>
   nhs-table-scroll:
-    title: "A wide comparison"
-    description: "The labelled region provides horizontal access without hiding columns."
+    title: A wide comparison
+    description: The labelled region provides horizontal access without hiding columns.
     height: 340
     html: |
       <div class="civica-table-scroll" role="region" aria-label="Weekly room-temperature comparison" tabindex="0">
       <table class="govuk-table ">
-      <caption class="govuk-table__caption govuk-table__caption--m">Room temperatures at 09:00 GMT</caption>
+      <caption class="govuk-table__caption govuk-table__caption--m">Example room temperatures at 09:00 GMT (Europe/London), 9 to 12 November 2026</caption>
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Room</th>
-      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Monday (°C)</th>
-      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tuesday (°C)</th>
-      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Wednesday (°C)</th>
-      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Thursday (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Monday 9 November (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tuesday 10 November (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Wednesday 11 November (°C)</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Thursday 12 November (°C)</th>
       </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -931,8 +950,8 @@ examples:
       </table>
       </div>
   nhs-tabs-device:
-    title: "Related device information"
-    description: "The panels contain different information, not steps in a form."
+    title: Related device information
+    description: The panels contain different information, not steps in a form.
     height: 380
     html: |
       <div class="govuk-tabs" data-module="govuk-tabs">
@@ -947,11 +966,11 @@ examples:
       </ul>
       <div class="govuk-tabs__panel" id="device-tabs-0">
       <h2 class="govuk-heading-m">Details</h2>
-      <p class="govuk-body">Living-room lamp. Connection available.</p>
+      <p class="govuk-body">Living-room lamp. The example integration has supplied a usable state. This is not an independent connection test.</p>
       </div>
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="device-tabs-1">
       <h2 class="govuk-heading-m">History</h2>
-      <p class="govuk-body">Last reported change:11 November 2026 at 14:00 GMT.</p>
+      <p class="govuk-body">Last reported change: 11 November 2026 at 14:00 GMT (Europe/London).</p>
       </div>
       </div>
   nhs-tabs-empty:
@@ -1399,38 +1418,18 @@ examples:
       </section>
       </main>
   nhs-card-navigation:
-    title: "A room navigation card"
-    description: "One clear heading link opens the related destination; controls are not nested inside it."
-    height: 350
-    html: |
-      <article class="civica-card">
-      <h2 class="govuk-heading-m">
-      <a class="govuk-link" href="#card-kitchen">Kitchen</a>
-      </h2>
-      <p class="govuk-body">Lights, temperature and appliance status.</p>
-      </article>
-      <section id="card-kitchen" tabindex="-1">
-      <h2 class="govuk-heading-m">Kitchen overview</h2>
-      <p class="govuk-body">Example destination.</p>
-      </section>
+    title: A room navigation card
+    description: A single heading link opens a useful local room overview. The card is navigation; it contains no nested device buttons.
+    height: 680
+    html: <article class="civica-card-demo" aria-labelledby="legacy-kitchen-title"><div class="civica-card-demo__body"><h2 class="govuk-heading-m" id="legacy-kitchen-title"><a class="govuk-link" href="#card-kitchen">Kitchen overview</a></h2><p class="govuk-body">Find the example ceiling light, temperature reading and room notes.</p><p class="govuk-body">The heading link opens the information below. It does not operate a device.</p></div></article><section id="card-kitchen" tabindex="-1"><h2 class="govuk-heading-m">Kitchen overview</h2><p class="govuk-body">Synthetic observations reported on <time datetime="2026-11-11T18:42:00+00:00">11 November 2026 at 18:42 GMT</time> (Europe/London).</p><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Ceiling light</dt><dd class="govuk-summary-list__value">Off</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Room temperature</dt><dd class="govuk-summary-list__value">19.8 °C</dd></div></dl><p class="govuk-body">These are independent example entities. No appliance capability or remote action is inferred from the room name.</p></section>
   nhs-card-information:
-    title: "A card with separate actions"
-    description: "An information card can contain several independently focusable actions."
-    height: 320
-    html: |
-      <article class="civica-card">
-      <h2 class="govuk-heading-m">Living-room view</h2>
-      <p class="govuk-body">Show lighting and temperature together.</p>
-      <div class="govuk-button-group">
-      <button type="button" class="govuk-button" data-demo-message="Example preview opened.">Preview view</button>
-      <button type="button" class="govuk-button govuk-button--secondary" data-demo-message="Example view reset.">Reset example</button>
-      </div>
-      <p class="govuk-body" data-demo-status role="status">
-      </p>
-      </article>
+    title: An information card with a complete reading
+    description: A non-clickable card shows the measured quantity, unit, source and observation time. It has no pretend preview or reset actions.
+    height: 500
+    html: <article class="civica-card-demo" aria-labelledby="information-temperature-title"><div class="civica-card-demo__body"><h2 class="govuk-heading-m" id="information-temperature-title">Living room temperature</h2><p class="govuk-body"><strong>20.5 °C</strong></p><p class="govuk-body">Reported by the example room sensor on <time datetime="2026-11-11T18:42:00+00:00">11 November 2026 at 18:42 GMT</time> (Europe/London).</p><p class="govuk-body">This is a synthetic measured air temperature, not a heating target. The card displays information and has no interactive controls.</p></div></article>
   nhs-action-link-journey:
-    title: "Start a dashboard setup journey"
-    description: "The NHS action-link pattern signals the start of a service or task."
+    title: Start a dashboard setup journey
+    description: The NHS action-link pattern signals the start of a service or task.
     height: 340
     html: |
       <div class="civica-action-link">
@@ -1448,9 +1447,18 @@ examples:
       <h2 class="govuk-heading-m">Set up a shared view</h2>
       <p class="govuk-body">Choose rooms and review their labels.</p>
       </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/nhs-component-examples.yml#nhs-action-link-journey
+      provenance: Original simple geometry retained from the existing documentation example; no official identity paths or third-party artwork imported.
+      purpose: Supplement a named navigation link with a recognisable directional cue.
+      intended_background: Light documentation surface; functional strokes use the component semantic text/state role.
+      alternative_text_decision: Decorative SVG hidden from assistive technology; the complete visible link text supplies its accessible name.
+      review_status: Static source/provenance recorded; rendered verification is tracked separately in the change acceptance.
   nhs-action-link-help:
-    title: "Start an account preference task"
-    description: "This is navigation to a task, not a button that saves a form."
+    title: Open display-colour help
+    description: A real local help destination explains palette, tone and mode without changing a preference.
     height: 340
     html: |
       <div class="civica-action-link">
@@ -1461,10 +1469,19 @@ examples:
       <path d="M12 20H28M22 14L28 20L22 26" fill="none" stroke="#0b0c0c" stroke-width="2">
       </path>
       </svg>
-      <span>Review display preferences</span>
+      <span>Understand display colours</span>
       </a>
       </div>
       <section id="review-preferences" tabindex="-1">
-      <h2 class="govuk-heading-m">Display preferences</h2>
-      <p class="govuk-body">Check your palette and colour mode.</p>
+      <h2 class="govuk-heading-m">Understand display colours</h2>
+      <p class="govuk-body">Choose a Colour palette for the interface’s brand colours. Use muted colours changes the tone; Home Assistant’s Light, Dark or Auto display mode stays separate. Selecting a palette applies through the native theme flow. Reading this help changes no preference.</p>
       </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/nhs-component-examples.yml#nhs-action-link-help
+      provenance: Original simple geometry retained from the existing documentation example; no official identity paths or third-party artwork imported.
+      purpose: Supplement a named navigation link with a recognisable directional cue.
+      intended_background: Light documentation surface; functional strokes use the component semantic text/state role.
+      alternative_text_decision: Decorative SVG hidden from assistive technology; the complete visible link text supplies its accessible name.
+      review_status: Static source/provenance recorded; rendered verification is tracked separately in the change acceptance.
