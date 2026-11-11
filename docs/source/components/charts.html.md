@@ -1,38 +1,78 @@
 ---
 title: "Charts and tables"
-description: "Charts and tables for the civica.uk Home Assistant design system."
+description: "ONS chart patterns adapted to Home Assistant's native charts, with accessible data and explicit compatibility limits."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 ---
 
 # Charts and tables
 
-Charts help users understand change and comparison. Preserve native Home Assistant Energy and History functionality, then apply clear labels and consistent presentation.
+Charts help people compare values and understand change. The civica.uk chart pattern adapts the **ONS Design System chart components**, their figure structure and their chart build specifications to Home Assistant. A change to series colours alone does not implement this pattern.
 
-## Required chart context
+Use the [Energy and history pattern](../patterns/energy.html) for consumption, power and distribution. The [machine-readable ONS source record](../reference/ons-chart-sources.json) records the upstream release, source hashes, reference values and controlled deviations.
 
-Show a concise title, the measure and unit, the time period and the data source or sensor context. Use local date and number formats. Explain estimates or missing data when they affect interpretation.
+Open the [working chart examples](chart-examples.html) to compare the pattern using labelled synthetic data and the same presentation adapter. The examples demonstrate the implementation; they do not display a household's live readings.
 
-Use a textual summary or accessible data table where the maintained component can provide it. Hover-only tooltips are not an adequate sole route to values. Preserve native data access when a chart's internals cannot be changed safely.
+## Source and implementation boundary
 
-## Choose a simple chart
+The reviewed ONS components are [bar charts](https://service-manual.ons.gov.uk/design-system/components/bar-chart-component), [column charts](https://service-manual.ons.gov.uk/design-system/components/column-chart-component) and [line charts](https://service-manual.ons.gov.uk/design-system/components/line-chart-component). Their published implementation uses Highcharts. This project applies the design to Home Assistant's existing ECharts renderer through the optional civica.uk companion; it does not install Highcharts or replace the Energy dashboard.
 
-Use lines for change over time and bars for comparisons or period totals. Do not add three-dimensional effects, decorative gradients or animation that obscures values. Start bar charts at zero unless a clearly explained specialist case requires otherwise.
+The source baseline is [ONS Design System 74.0.0](https://github.com/ONSdigital/design-system/releases/tag/74.0.0), reviewed on 11 November 2026. The companion must leave native chart data, unit conversion, statistics, routing, selection and date handling under Home Assistant's control. Theme YAML provides colour roles; the companion is required for chart geometry, captions and data alternatives. See [installation](../get-started/install.html).
 
-Keep the default view useful without interaction. Add filtering or zoom only where it helps the user's question.
+The v1.2.0 adapter targets seven chart cards inside the native Energy panel: power sources, energy usage, solar, gas, water, devices and device details. Its Home Assistant frontend compatibility baseline is **20261028.5**. Only their native Cartesian line and bar series are adapted. History, pie charts, the Energy distribution diagram and third-party chart cards retain their native implementation.
 
-## Colours and series
+## Figure structure
 
-Use stable semantic series colours across the interface. A theme palette change must not silently exchange solar, grid, battery or gas meanings. Avoid treating all series as shades of the selected brand colour.
+Keep a concise native heading, then identify the measure, unit and displayed period. Preserve meaningful sensor or source names. A neutral descriptive title is appropriate for a live dashboard: do not invent a conclusion about savings or consumption from incomplete readings.
 
-Prefer five or fewer categorical colours. Use direct labels, markers or line styles to supplement colour. Review actual combinations: an official chart palette is not proof of sufficient contrast for every use.
+Provide a named chart region and a route to its values without hovering. Supporting text and the data table belong to the same chart. Do not add publication figure numbers, fake downloads, empty footnotes or repeated headings. The ONS [figure component](https://service-manual.ons.gov.uk/design-system/components/figure) supplies the structural model; it explicitly treats captions, footnotes and downloads as conditional content.
 
-## Tables
+## Visual rules
 
-Use real table headers and a caption or nearby heading. Align numbers consistently, preserve units and distinguish a missing value from zero. Allow a genuinely wide table to scroll within its own region rather than making the whole page overflow.
+These are chart roles, separate from card borders and input boundaries. Values are CSS pixels at the default text scale.
 
-## Native limitations
+| Element | ONS reference | civica.uk adaptation |
+| --- | --- | --- |
+| Plot | Transparent background; no decorative frame | Inherit the themed card canvas; no extra plot box |
+| Numeric grid | `#D9D9D9`, 1px | `#D9D9D9` in light mode; `#50565A` in dark mode |
+| Zero reference | `#B3B3B3`, 1.5px | Use the true zero crossing where established; dark-mode reference colour `#9BA4AA` |
+| Axis labels | At least 14px, horizontal | Use the civica.uk font, respect user text scaling and reduce tick density before shrinking text |
+| Legend text | At least 14px, normal weight | Keep native labels and expose values in the accompanying table |
+| Filled-series key | 12px circle | Retain native checked/unchecked circular icons at 12px inside 44px controls |
+| Line-series key | 20px wide, 3px stroke | Retain native selectable legend icons; the ONS line-shaped key is a reference, not an implemented replacement |
+| Data line | 3px, round ends | Keep native point positions, gaps, stacking and interpolation semantics |
+| Columns | Square ends, no decorative border | Retain interval widths and native grouping; avoid pill-shaped bars |
 
-Theme variables can improve the chart container, typography and available chart tokens. They cannot guarantee accessible internals for every native or custom chart. Record the specific gap and preserve native functionality.
+The plot has a 280px minimum height, while larger native explicit heights are preserved. Column width is limited to 75px on wider charts and 55px below the adapter's narrow-chart breakpoint. These presentation choices do not replace native period aggregation.
 
-Sources: ONS [principles](https://service-manual.ons.gov.uk/data-visualisation/guidance/principles), [chart text](https://service-manual.ons.gov.uk/data-visualisation/guidance/chart-text), [chart colours](https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts) and [interactive charts](https://service-manual.ons.gov.uk/data-visualisation/guidance/interactive-charts-and-animations).
+Grid and key dimensions come from the ONS [chart elements specification](https://service-manual.ons.gov.uk/data-visualisation/build-specifications/chart-elements). Text roles come from [chart typography](https://service-manual.ons.gov.uk/data-visualisation/build-specifications/typography). Column and line treatment is checked against the [versioned component source](https://github.com/ONSdigital/design-system/tree/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart).
+
+For time series, use horizontal value gridlines and readable time ticks, without a second grid on the time axis. Keep the plot wide enough for its labels. Use fewer ticks at narrow widths, without removing observations. Filled bars must retain their zero baseline; negative values remain on the correct side of zero. Native scale bounds and comparison relationships must not change merely to make a chart resemble an example. See ONS [axes and gridlines](https://service-manual.ons.gov.uk/data-visualisation/guidance/axes-and-gridlines).
+
+Place the legend above the plot, aligned left, and wrap whole labelled items. Preserve Home Assistant's series visibility controls and their state. This is an intentional difference from the reviewed ONS component, which disables legend selection. Hidden series must not silently disappear from an accessible table without an indication of their visibility state.
+
+## Colour and typography deviations
+
+ONS 74.0.0's primary categorical palette is `#206095`, `#A8BD3A`, `#871A5B`, `#F66068`, `#05341A`, `#27A0CC`; its line variant exchanges the last two positions. These are reference values, not a replacement brand palette or a guarantee that every pair is distinguishable.
+
+civica.uk keeps stable semantic colours for grid, solar, gas, water and battery roles across all ten brand palettes. The brand colour toggle must not recolour every series. Text uses the civica.uk Arial stack rather than importing ONS Open Sans. The adapter uses ONS label grey `#414042` and numeric-axis grey `#707071` in light mode; dark equivalents are `#FFFFFF` and `#CBD0D3`. These chart roles preserve the same hierarchy across themes.
+
+Prefer five or fewer categories in a newly authored chart, following ONS [colour guidance](https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts). An existing Home Assistant chart may contain more: **never truncate, regroup or discard native series** to fit the ONS component's six-series primary or five-series alternate limit. Use names, data values and preserved line styles to supplement colour. Audit the actual rendered combinations.
+
+## Accessible values
+
+An accessible data alternative is part of this pattern. A tooltip is supplementary. Each supported chart has a keyboard-operable **View data** disclosure immediately after it, containing a semantic table with a caption and header cells. Its accessible name includes the chart title. It remains available on touch screens and at narrow widths.
+
+Read the current native chart's values. Preserve series names, timestamps or categories, units, negative signs and precision; present missing values as missing, distinct from zero. Exclude decorative helper series only when they are positively identified. Do not infer a total, average, saving or flow that the native data does not contain.
+
+The table includes all supported values supplied to the chart, including series hidden through the legend; zoom does not filter it. This scope is stated above the table. Comparison rows identify the comparison and use the original source timestamp when supplied, rather than the shifted plotting position. Two-value power samples use a **Time** column; energy points with an explicit original interval start use **Period start**. Device charts use native device labels. Unsupported series produce a visible explanation; absent units are labelled **Not supplied**, rather than guessed.
+
+Wide tables scroll inside a named, keyboard-focusable region. Numeric values are aligned and headings wrap. Tables paginate at **100 rows**, with previous/next controls and a row count; there is no silent total-row cap. A data change refreshes an open table and resets pagination. These are the chart's supplied values, not an export of every meter reading. Formatting follows Home Assistant's number separators, grouping, 12/24-hour and local/server time-zone preferences. Dates include the time-zone offset to distinguish repeated local times at clock changes.
+
+ONS's component supplies its own Highcharts accessibility implementation. Our semantic table and native ECharts adaptation are separate work and must be tested directly; importing visual rules does not confer that implementation's accessibility. ONS [interactive-chart guidance](https://service-manual.ons.gov.uk/data-visualisation/guidance/interactive-charts-and-animations) also supports keeping the initial view useful and avoiding motion as the only source of information.
+
+## Compatibility and acceptance
+
+The adapter must be reversible: selecting a non-civica theme restores native options and removes added presentation. Unsupported chart internals fail back to Home Assistant. A third-party chart is not covered simply because it uses a canvas or resembles an Energy card.
+
+Accept a change only when rendered options, visual output and data preservation agree. Check light and dark modes, a 320px viewport, keyboard access, text scaling, legend changes, date changes, missing values, comparison series, repeated navigation and theme restoration. A mock chart proves the adapter contract; a fresh load of the installed native Energy route proves that the adapter actually runs there. Record those separately.

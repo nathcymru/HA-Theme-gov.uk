@@ -99,10 +99,12 @@
       "ha-top-app-bar-fixed",
       "pa-appliance-card",
       "home-next-collection-card",
-      "pa-gas-safety-card"
+      "pa-gas-safety-card",
+      "ha-panel-energy",
+      "ha-chart-base"
     ],
     "legacyCardPresentation": "Adopted stylesheets scoped to the three exact known custom-card hosts; no device, permission or record changes",
-    "observation": "Document theme style attribute and sidebar badge text only; bounded host discovery on startup, navigation and theme changes",
+    "observation": "Document theme style, sidebar badge text and scoped native Energy chart lifecycle; bounded discovery on startup/navigation/theme changes; no application-wide state observer",
     "failure": "Keep native controls usable and retain standalone settings card",
     "cleanup": "Remove scoped styling/identity and restore original favicon attributes when switching away"
   },
@@ -144,7 +146,30 @@
       "arrowProvenance": "Original simple SVG, decorative and hidden from assistive technology; no copied GOV.UK artwork",
       "responsive": "Wrapping links and labels; no card box or built-in heading"
     },
-    "charts": "Titles, units, period, stable series and text/data alternatives where supported",
+    "charts": {
+      "introducedIn": "1.2.0",
+      "scope": "Supported native Energy charts under ha-panel-energy only",
+      "source": "https://service-manual.ons.gov.uk/design-system/components/bar-chart-component",
+      "sourceSnapshot": "reference/ons-chart-sources.json",
+      "implementation": "ONS presentation rules adapted to native ECharts; no second production chart engine",
+      "nativeFeaturesPreserved": [
+        "statistics",
+        "series identities and values",
+        "date selection",
+        "comparison",
+        "legend selection",
+        "tooltips",
+        "zoom",
+        "keyboard sonification",
+        "downloads"
+      ],
+      "dataAlternative": "View data disclosure for native plotted series with original comparison dates, units, missing values and pagination",
+      "semanticColours": "Stable existing energy roles, independent of brand palette; local deviation from ONS categorical palette",
+      "flowDiagram": "Native Energy distribution diagram remains a documented controlled deviation",
+      "nonEnergyCharts": "Unchanged; no claim that History or arbitrary third-party charts use this adapter",
+      "examples": "components/chart-examples.html",
+      "compatibilityBaseline": "Home Assistant frontend 20261028.5, ECharts 6.1.0"
+    },
     "iconPolicy": {
       "universalGovukIconPack": false,
       "officialHomepageSymbols": "Purpose-specific publishing Search and Action link symbols",

@@ -1,5 +1,13 @@
 # Verification — 11 November 2026
 
+## v1.2.0 ONS-based Energy charts
+
+The earlier chart page specified general principles and colour roles but did not implement ONS chart presentation in the native Energy panel. This release adds a scoped, reversible adapter for the supported ECharts bar/line hosts, a current-values data table and working examples built with the same adapter and ECharts 6.1.0. The compatibility baseline is Home Assistant frontend 20261028.5; the official source record pins ONS Design System 74.0.0.
+
+Build and strict type checking pass, with **43 Node checks**, **41 browser checks** and **36 documentation pages** validated. Real-renderer tests cover native data/options/callback identity, source comparison dates, missing/zero/negative values, device labels, all 251 paginated sample rows, daylight-saving offsets, legend and zoom preservation, renderer replacement, light/dark 320px accessibility checks and removal of owned styling. All 176 supplied V3.2 artwork hashes remain unchanged.
+
+The standalone documentation bundle contains ECharts; the Home Assistant companion uses its existing native renderer. Synthetic examples are visibly labelled and do not establish live acceptance. Release notes record the installed-version checks separately. Native Energy distribution, History and arbitrary third-party charts are outside the adapter's stated scope.
+
 ## v1.1.1 live-review refinements
 
 The live review exposed an older HACS palette file overriding a manually installed copy. Installation guidance now requires one theme owner and puts recovery copies outside the included themes directory. The running installation was reconciled to the HACS-managed path. Navigation circles now use the GOV.UK-like 20% brand tint and ink/white arrows; native section headings use the shared scaled 24px bold title tokens.

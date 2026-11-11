@@ -7,3 +7,5 @@ playwright-report/
 test-results/
 .venv/
 artifacts/
+ui/dev/energy-charts-harness.js
+docs/source/javascripts/energy-chart-examples.js

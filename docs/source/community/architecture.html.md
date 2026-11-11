@@ -39,7 +39,7 @@ Set `show_govuk_logo: false`, replace the shell and favicon paths, omit default 
 
 ## Build and preview
 
-Use Ruby 3.3 and Bundler. From `/docs`, run `bundle install`, then `bundle exec middleman build`. Use `bundle exec middleman server` for a local preview. Run the documentation validator after building.
+Use Ruby 3.3 and Bundler. First run `npm ci` and `npm run build` from the repository root to build the shared chart examples. From `/docs`, run `bundle install`, then `bundle exec middleman build`. Use `bundle exec middleman server` for a local preview. Run the documentation validator after building.
 
 Run `python3 docs/scripts/sync-brand.py --check` from the repository root to verify the V3.2 documentation artwork against `brand/civica/`.
 
@@ -50,3 +50,5 @@ The [Tech Docs Template](https://github.com/alphagov/tech-docs-template) explain
 ## Frontend startup
 
 The global module waits for Home Assistant to define `home-assistant` before loading the colour settings and branding components. This keeps component registration in Home Assistant’s final custom-element registry, including older frontend versions that replace it during startup. The production-bundle regression simulates that replacement and duplicate module URLs. One bundled file is served; the readiness boundary does not add a network chunk.
+
+The Energy presentation adapter uses Home Assistant's existing ECharts instance. The separate documentation/example bundle includes ECharts only to demonstrate that same adapter without connecting to a home. Build both from the shared source; do not maintain a different illustrative implementation in the docs.

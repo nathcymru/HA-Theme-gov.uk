@@ -15,6 +15,8 @@ GOV.UK, MoJ, DWP, Home Office and ONS guidance informs this local system. Their 
 
 The GOV.UK Tech Docs Template and its code are MIT licensed. Its documentation identifies separate Crown copyright/Open Government Licence treatment. Preserve dependency notices and the repository's existing attribution.
 
+Standalone chart examples include Apache ECharts, zrender and their supporting code. Their [licences and notices](../reference/chart-demo-licenses.txt) accompany the examples. The Home Assistant companion uses the native renderer and does not distribute another production chart engine. ONS visual specifications are adapted through original local code; the ONS Highcharts implementation is not included.
+
 ## Brand assets
 
 The civica.uk V3.2 files were supplied by the user. Their provenance and mechanical verification records are retained in `brand/civica/`. Do not infer a new licence or legal clearance from the presence of those files. The included source artwork remains unchanged.

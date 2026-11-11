@@ -37,6 +37,9 @@
 ## Components and patterns
 
 - [Components](components/index.html): navigation, controls, devices, cards, status, dialogs and charts.
+- [ONS-based Energy charts](components/charts.html): implemented native chart adapter, geometry, data alternatives, supported hosts and limits from v1.2.0.
+- [Working chart examples](components/chart-examples.html): real-renderer demonstrations with invented values; not live household evidence.
+- [ONS chart source snapshot](reference/ons-chart-sources.json): versioned source evidence and deliberate local adaptations.
 - [Action links](components/action-links.html): manual card configuration, native navigation and existing fragment pop-ups.
 - [Patterns](patterns/index.html): home/rooms, native Energy, settings and recovery.
 - [Colour settings](get-started/colour-settings.html): native preference flow and standalone-card fallback.

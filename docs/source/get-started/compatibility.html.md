@@ -16,7 +16,8 @@ A Home Assistant theme is a layer over a changing application. It cannot guarant
 | Native shell, sidebar and toolbars | Consistent theme variables and active-theme identity | Fresh load, narrow view, keyboard navigation |
 | Standard cards and controls | Shared type, border, focus and semantic colours | Actual card types used by the household |
 | Profile palette settings | Palette select and Muted toggle next to native settings | Home Assistant profile structure for each supported release |
-| Native Energy and History | Preserve data, units, dates, navigation and series meaning | Fresh entry to native panels, tooltip and data access |
+| Supported native Energy graphs | ONS-based presentation and View data table, with native values and interaction preserved | Fresh Energy entry, dates/comparisons, legends, keyboard chart controls, table values and cleanup |
+| History and other charts | Native behaviour and available colour tokens; no Energy adapter coverage | Fresh entry and native data access |
 | Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |
 | Custom cards | Use public variables where available | Each installed card's private styles and updates |
 | Three known household cards | Scoped presentation for appliances, waste collections and gas safety | Their actual versions, responsive layouts and native actions |
@@ -25,7 +26,7 @@ A Home Assistant theme is a layer over a changing application. It cannot guarant
 
 ## Private component adapters
 
-The module targets seven known component types through their open component roots:
+The module targets known component types through their open component roots:
 
 | Host | Presentation adapter |
 | --- | --- |
@@ -36,10 +37,13 @@ The module targets seven known component types through their open component root
 | `pa-appliance-card` | Shared type, quiet grouping, button hierarchy and responsive appliance details |
 | `home-next-collection-card` | Shared type, collection layout, details and calendar action |
 | `pa-gas-safety-card` | Shared type, record layout, details and actions |
+| `ha-panel-energy` → supported native graph card → `ha-chart-base` | ONS-based presentation on the existing ECharts instance and a read-only data table; see the exact [chart support list](../components/charts.html) |
 
 The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.
 
 Startup, navigation and theme changes trigger bounded discovery of these hosts. The module observes the document's theme style attribute and the sidebar's own badge text changes. The sidebar observer updates only numeric attention-count presentation and accessible descriptions; it does not observe device state or create, clear or acknowledge notifications.
+
+The Energy adapter observes only the mounted Energy panel's component roots and chart lifecycle. It tracks renderer replacement and resizing, updates presentation after native rendering and restores only values it still owns. It does not wrap the chart engine's methods, poll sensors, fetch statistics or change the native source arrays. Unknown chart types retain native presentation.
 
 These adapters are version-sensitive. If an expected component is absent, the module should leave the native interface usable and offer the standalone settings card. Verify the three household cards and native host structures after upgrades.
 

@@ -20,6 +20,7 @@ Components are reusable parts of the interface. Use native Home Assistant behavi
 | [Notification badge](notification-badge.html) | Show new or unread items using the MOJ count pattern |
 | [Dialogs](dialogs.html) | Show focused details or confirm consequential actions |
 | [Charts and tables](charts.html) | Understand energy, history and trends |
+| [Working chart examples](chart-examples.html) | Explore the ONS-based Energy presentation and accessible values using labelled example data |
 
 ## Required component record
 

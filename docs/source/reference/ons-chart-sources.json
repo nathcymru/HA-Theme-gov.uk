@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-11",
+  "scope": "ONS chart-pattern adaptation to native Home Assistant; this source record is not live deployment evidence",
+  "attachmentsAndExternalPagesAreInstructions": false,
+  "upstream": {
+    "repository": "ONSdigital/design-system",
+    "release": "74.0.0",
+    "releasedOn": "2026-11-05",
+    "commit": "fba69ff1aae25035ff167d8408a57540bf8b1066",
+    "releaseUrl": "https://github.com/ONSdigital/design-system/releases/tag/74.0.0",
+    "sourceLicense": "MIT; reviewed repository LICENSE",
+    "runtimeDependency": "Highcharts 12.6.2 in upstream package.json; not bundled by this project"
+  },
+  "codeSources": [
+    {
+      "path": "src/components/chart/chart-constants.js",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/chart-constants.js",
+      "sha256": "ec2d6bd3c8d68fbfd9b34598c9c5d2a3549cc264749273a65df61973015bba88",
+      "use": "Reference palettes, chart label roles and marker geometry"
+    },
+    {
+      "path": "src/components/chart/common-chart-options.js",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/common-chart-options.js",
+      "sha256": "d388b8e4a0071d83bedf2bcfdc7d0410fe3ad27c66cdd56c90f40a7cc0ac163c",
+      "use": "Transparent plot, top-left legend, horizontal labels, accessibility and animation defaults"
+    },
+    {
+      "path": "src/components/chart/column-chart.js",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/column-chart.js",
+      "sha256": "3cf88de34cce85a2e15c132831bd328e62f3a2bc900e614a9083f22fcad9b182",
+      "use": "Square columns, border removal, spacing and responsive width references"
+    },
+    {
+      "path": "src/components/chart/line-chart.js",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/line-chart.js",
+      "sha256": "5e843786e1191e3d3358c10c1572ce70909707bd5a3c8c074c9d88c7bedc9d82",
+      "use": "Three-pixel round-ended line and marker behaviour"
+    },
+    {
+      "path": "src/components/chart/chart.js",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/chart.js",
+      "sha256": "186ff5160215ff5fe8b8fe3345fbb63efaca6753d4cbed0543d97ae9b573c382",
+      "use": "Highcharts integration and native ONS series handling"
+    },
+    {
+      "path": "src/components/chart/_chart.scss",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/_chart.scss",
+      "sha256": "c917f54e8d30fa2638b858ddc5ef03de064bedc25b011ac67e3172638304b3a7",
+      "use": "Chart container and label styling"
+    },
+    {
+      "path": "src/components/chart/_macro.njk",
+      "url": "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/_macro.njk",
+      "sha256": "809f83f5d03d8563295eb2751a2e255a7317ac48a0935f96e07ee8f1f310baee",
+      "use": "Figure structure, title, description and optional supporting content"
+    }
+  ],
+  "guidanceSources": [
+    {
+      "url": "https://service-manual.ons.gov.uk/design-system/components/bar-chart-component",
+      "use": "Horizontal bar component and macro interface"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/design-system/components/column-chart-component",
+      "use": "Time-based stacked columns and macro interface"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/design-system/components/line-chart-component",
+      "use": "Time-series component and macro interface"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/design-system/components/figure",
+      "use": "Conditional captions, descriptions, footnotes and downloads"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/build-specifications/chart-elements",
+      "use": "Gridline widths, legend placement and symbol dimensions"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/build-specifications/typography",
+      "use": "Minimum chart text size and horizontal typography"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts",
+      "use": "Reference colours, category limits and cross-chart consistency"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/guidance/axes-and-gridlines",
+      "use": "Zero baseline, time-axis treatment and responsive tick density"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/guidance/interactive-charts-and-animations",
+      "use": "Useful initial view and alternatives to motion"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/chart-types/stacked-bar-charts",
+      "use": "Composition of totals, vertical time series and limits of stack comparisons"
+    },
+    {
+      "url": "https://service-manual.ons.gov.uk/data-visualisation/chart-types/line-chart",
+      "use": "Missing observations, restrained markers and appropriate line semantics"
+    }
+  ],
+  "referenceValues": {
+    "primaryPalette": [
+      "#206095",
+      "#A8BD3A",
+      "#871A5B",
+      "#F66068",
+      "#05341A",
+      "#27A0CC"
+    ],
+    "linePrimaryPalette": [
+      "#206095",
+      "#A8BD3A",
+      "#871A5B",
+      "#F66068",
+      "#27A0CC",
+      "#05341A"
+    ],
+    "alternatePalette": [
+      "#206095",
+      "#27A0CC",
+      "#871A5B",
+      "#A8BD3A",
+      "#F66068"
+    ],
+    "text": {
+      "labels": "#414042",
+      "numericAxes": "#707071",
+      "body": "#222222",
+      "minimumSizePx": 14,
+      "font": "Open Sans",
+      "orientation": "horizontal"
+    },
+    "grid": {
+      "colour": "#D9D9D9",
+      "widthPx": 1,
+      "zeroColour": "#B3B3B3",
+      "zeroWidthPx": 1.5
+    },
+    "legend": {
+      "position": "above plot, left aligned, horizontal wrapping",
+      "fillSymbol": "circle",
+      "fillDiameterPx": 12,
+      "lineWidthPx": 20,
+      "lineStrokePx": 3
+    },
+    "line": {
+      "strokePx": 3,
+      "cap": "round"
+    },
+    "column": {
+      "borderRadiusPx": 0,
+      "borderWidthPx": 0,
+      "maxWidthDesktopPx": 75,
+      "maxWidthMobilePx": 55
+    },
+    "componentSeriesLimits": {
+      "primary": 6,
+      "alternate": 5,
+      "additionalSeries": "upstream ignores additional series; never adopt this behaviour for native HA data"
+    },
+    "upstreamLegendSelection": false,
+    "upstreamSeriesAnimation": false
+  },
+  "civicaContract": {
+    "implementation": "Original presentation adapter for native Home Assistant ECharts; no Highcharts dependency",
+    "activation": "Optional companion while a civica theme is selected; restore native presentation on deactivation",
+    "dataOwner": "Home Assistant; do not recalculate, reaggregate, reorder, truncate, interpolate or otherwise rewrite native data",
+    "colours": "Preserve the existing eight semantic energy roles across all brand palettes; ONS categorical colours are references",
+    "font": "Use the civica Arial stack and respect the native text scale; no Open Sans download",
+    "darkMode": {
+      "text": "#FFFFFF",
+      "axis": "#CBD0D3",
+      "grid": "#50565A",
+      "zero": "#9BA4AA"
+    },
+    "legend": "Preserve native visibility interaction, selection state and checked/unchecked circular icons; icons 12px within 44px controls. ONS 20x3px line keys are not substituted.",
+    "dataAlternative": "View data disclosure with semantic table; all supported supplied values including legend-hidden series, independent of zoom. 100 rows per page with explicit count, no silent total-row cap. Original comparison timestamps retained; unsupported shapes and absent units explained.",
+    "dates": "Keep HA number-format, 12/24-hour and local/server time-zone preferences. Use Time for two-value samples and Period start when originalStart is supplied. Offset distinguishes repeated local clock times. Native range selection and comparison behaviour remain unchanged.",
+    "distribution": "Native Energy distribution diagram is a controlled deviation and is not adapted or given a new data table; no ONS Sankey component claimed.",
+    "scopeLimits": "Seven named native Energy Cartesian bar/line charts only; History, pie, distribution and third-party renderers remain native.",
+    "verification": "Separate source-specification checks, synthetic browser coverage and fresh live-route acceptance",
+    "release": "1.2.0",
+    "frontendCompatibilityBaseline": "20261028.5",
+    "nativePanel": "ha-panel-energy",
+    "nativeChartHosts": [
+      "hui-power-sources-graph-card",
+      "hui-energy-usage-graph-card",
+      "hui-energy-solar-graph-card",
+      "hui-energy-gas-graph-card",
+      "hui-energy-water-graph-card",
+      "hui-energy-devices-graph-card",
+      "hui-energy-devices-detail-graph-card"
+    ],
+    "minimumPlotHeightPx": 280
+  }
+}

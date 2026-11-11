@@ -53,6 +53,8 @@ sections:
         path: /components/dialogs.html
       - title: Charts and tables
         path: /components/charts.html
+      - title: Chart examples
+        path: /components/chart-examples.html
   - id: patterns
     title: Patterns
     path: /patterns/index.html

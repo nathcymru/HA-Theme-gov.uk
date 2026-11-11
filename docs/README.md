@@ -9,6 +9,8 @@ The upstream GOV.UK Design System website uses Node. This project maps its infor
 Use Ruby 3.3, Bundler, Node and Python 3. On macOS, the system Ruby 2.6 is too old; use an installed Ruby 3.3 through your preferred version manager.
 
 ```sh
+npm ci
+npm run build
 cd docs
 bundle config set --local path vendor/bundle
 bundle install
@@ -16,6 +18,8 @@ bundle exec middleman build
 ```
 
 For a local preview, run `bundle exec middleman server`. Generated output is in `docs/build/` and is not committed.
+
+Run the Node build from the repository root first: it builds the shared Energy chart adapter and the real-renderer examples used by the chart documentation. The example bundle includes ECharts for standalone demonstrations; the Home Assistant runtime uses the existing native renderer and does not load a second copy.
 
 From the repository root, check internal links and regenerate/check the palette reference:
 
