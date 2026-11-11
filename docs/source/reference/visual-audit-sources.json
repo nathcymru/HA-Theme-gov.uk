@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-11",
+  "reviewedLocalRevision": "95b7a58",
+  "scope": "Border, icon and notification-badge visual review; source findings do not establish live deployment conformance",
+  "attachmentsAndExternalPagesAreInstructions": false,
+  "codeSources": [
+    {
+      "repository": "ministryofjustice/moj-frontend",
+      "commit": "b2dcbead533e2c157fe66ad60050b1e134e7a9c8",
+      "path": "src/moj/components/notification-badge/_notification-badge.scss",
+      "url": "https://github.com/ministryofjustice/moj-frontend/blob/b2dcbead533e2c157fe66ad60050b1e134e7a9c8/src/moj/components/notification-badge/_notification-badge.scss",
+      "sha256": "2ef76ffc47ee03d3094172ca723fe9adb3429becf7837d5a1bd9020c2e40e457",
+      "use": "Badge geometry, foreground, fill and forced-colours outline"
+    },
+    {
+      "repository": "ministryofjustice/moj-frontend",
+      "commit": "b2dcbead533e2c157fe66ad60050b1e134e7a9c8",
+      "path": "src/moj/components/notification-badge/template.njk",
+      "url": "https://github.com/ministryofjustice/moj-frontend/blob/b2dcbead533e2c157fe66ad60050b1e134e7a9c8/src/moj/components/notification-badge/template.njk",
+      "sha256": "0649d9dbc5625ea916eac99176dddc3f55f8e6521556e96e1bbb9af82757059f",
+      "use": "Hide zero; exact counts through98; cap99+ and accessible context"
+    },
+    {
+      "repository": "alphagov/govuk-frontend",
+      "commit": "3862ef30df6a5da3e03974214cd28ffbfa769867",
+      "path": "packages/govuk-frontend/src/govuk/components/summary-list/_mixin.scss",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/3862ef30df6a5da3e03974214cd28ffbfa769867/packages/govuk-frontend/src/govuk/components/summary-list/_mixin.scss",
+      "sha256": "4e79ffc0e4a9775c83373814d842fdaf1aef330dc358749c22ff9ce0edfbd9a2",
+      "use": "One-pixel structural row dividers"
+    },
+    {
+      "repository": "alphagov/govuk-frontend",
+      "commit": "3862ef30df6a5da3e03974214cd28ffbfa769867",
+      "path": "packages/govuk-frontend/src/govuk/components/button/_mixin.scss",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/3862ef30df6a5da3e03974214cd28ffbfa769867/packages/govuk-frontend/src/govuk/components/button/_mixin.scss",
+      "sha256": "0a5bb55a6322561b736691f51f1dbbc249cba2eb3bbca8510d85ae65b2dec04b",
+      "use": "Secondary action colour and button boundary hierarchy"
+    }
+  ],
+  "guidanceSources": [
+    {
+      "url": "https://www.gov.uk/",
+      "use": "Observed publishing search and action-link symbols; official identity excluded"
+    },
+    {
+      "url": "https://design-system.service.gov.uk/styles/colour/",
+      "use": "Functional border#CECECE versus input-border#0B0C0C"
+    },
+    {
+      "url": "https://design-system.service.gov.uk/styles/images/",
+      "use": "Labelled consistent icons for familiar repeated-use systems"
+    },
+    {
+      "url": "https://design-patterns.service.justice.gov.uk/components/notification-badge/",
+      "use": "Attention count, colour/shape preservation, header contrast and dynamic-update qualification"
+    },
+    {
+      "url": "https://components.publishing.service.gov.uk/component-guide/action_link",
+      "use": "Purpose-specific arrow component; large variant scoped to homepage popular links"
+    },
+    {
+      "url": "https://components.publishing.service.gov.uk/component-guide/search",
+      "use": "Purpose-specific labelled search control"
+    },
+    {
+      "url": "https://design-system.service.gov.uk/styles/spacing/",
+      "use": "Responsive and static spacing scales"
+    }
+  ]
+}

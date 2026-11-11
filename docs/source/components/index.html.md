@@ -12,10 +12,12 @@ Components are reusable parts of the interface. Use native Home Assistant behavi
 | Component family | Use |
 | --- | --- |
 | [Navigation](navigation.html) | Move between dashboards, rooms and native panels |
+| [Action links](action-links.html) | Show a short group of clear dashboard destinations |
 | [Buttons and forms](controls.html) | Make choices, enter settings and submit changes |
 | [Device controls](devices.html) | Switch, adjust and inspect connected devices |
 | [Cards](cards.html) | Group related content and actions |
 | [Status and notifications](status.html) | Explain current state, problems and completed actions |
+| [Notification badge](notification-badge.html) | Show new or unread items using the MOJ count pattern |
 | [Dialogs](dialogs.html) | Show focused details or confirm consequential actions |
 | [Charts and tables](charts.html) | Understand energy, history and trends |
 

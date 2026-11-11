@@ -66,10 +66,14 @@ The generator blends interaction tints 72% towards white in dark mode. Dark toke
 | --- | --- | --- |
 | Main text | `#0B0C0C` | Use against the tested light canvas or card surface |
 | Secondary text | `#484949` | Keep readable; do not fade with arbitrary opacity |
+| Structural border | `#CECECE` | Quiet card edges and dividers, normally 1px |
+| Input border | `#0B0C0C` | Strong editable-field boundary, normally 2px |
 | Error | `#CA3535` | Error text/icon role; use dedicated fill/on-fill pair for banners |
 | Success | `#0F7A52` | Confirmed success; independent of palette |
 | Warning text | `#8A6100` | Dark ochre is a local contrast adaptation |
 | Focus | Yellow `#FFDD00` and ink `#0B0C0C` | Custom controls use both colours; yellow alone is insufficient on white |
+
+See [Layout and spacing](layout.html#surfaces-and-borders) for structural, interactive and input boundary roles. The [notification badge](../components/notification-badge.html) keeps its MOJ red and rounded geometry across palettes; it is not a status tag.
 
 Native Home Assistant controls that expose only one outline colour use ink on light surfaces and yellow on dark surfaces. Dark brand masthead controls receive a scoped yellow treatment. Preserve native circle/pill shapes for switches, radio controls, avatars and gauges where their meaning depends on them.
 

@@ -29,7 +29,7 @@ A success message cannot appear before the service confirms success. A warning m
 
 ## Tags and badges
 
-A status tag is not a button. Give it a text label and avoid underlining it like a link. Notification counts should have a meaningful accessible name, including what the count represents.
+A status tag is not a button. Give it a text label and avoid underlining it like a link. For new or unread items needing attention, use the explicit [MOJ notification badge adaptation](notification-badge.html). Its red rounded count is distinct from a rectangular status tag. Plain sensor totals and the number of devices belong in ordinary text, not an attention badge.
 
 ## Household alerts
 

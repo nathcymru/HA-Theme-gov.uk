@@ -1,14 +1,17 @@
 import { selectedVariant } from './theme-settings';
 import type { CivicaThemeSettings, ThemeHass } from './theme-settings';
+import { badgeStyles, updateBadges } from './sidebar-badges';
+import { LEGACY_CARD_STYLES } from './legacy-card-styles';
 
 // The theme tokens are the supported foundation. This small optional adapter
-// is deliberately limited to four known HA elements; it does not patch Lit,
+// is limited to known HA elements and three documented project cards; it does not patch Lit,
 // attachShadow, routing, native controls, Energy, Map or device services.
 const assetBase = new URL('./brand/', import.meta.url);
 type App = HTMLElement & { hass?: ThemeHass };
 const originalTitles = new Map<HTMLElement, Node[]>();
 const originalIcons = new Map<HTMLLinkElement, Record<string, string | null>>();
 const sidebarStyles = new Set<HTMLStyleElement>();
+const legacySheets = new Map<ShadowRoot, CSSStyleSheet>();
 let ownIcon: HTMLLinkElement | undefined;
 let queued: ReturnType<typeof setTimeout> | undefined;
 let remaining = 0;
@@ -28,7 +31,23 @@ function updateBrand(app: App, targets: HTMLElement[]) {
   const variant = selectedVariant(app.hass);
   const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&
     Boolean(app.hass?.themes.themes[name]) && Boolean(variant);
+  updateBadges(undefined, active);
+  // Compatibility styles are deliberately scoped to these three project cards.
+  // Adopted sheets survive their ordinary innerHTML updates without observers.
+  for (const [root, sheet] of legacySheets) {
+    if (active && root.host.isConnected) continue;
+    root.adoptedStyleSheets = root.adoptedStyleSheets.filter(value => value !== sheet);
+    legacySheets.delete(root);
+  }
+  if (active) for (const host of targets) {
+    const css = LEGACY_CARD_STYLES[host.localName];
+    if (!css || !host.shadowRoot || legacySheets.has(host.shadowRoot)) continue;
+    const sheet = new CSSStyleSheet(); sheet.replaceSync(css);
+    host.shadowRoot.adoptedStyleSheets = [...host.shadowRoot.adoptedStyleSheets, sheet];
+    legacySheets.set(host.shadowRoot, sheet);
+  }
   if (!active) {
+    updateBadges(undefined, false);
     for (const [title, children] of originalTitles) title.replaceChildren(...children);
     originalTitles.clear();
     for (const style of sidebarStyles) style.remove();
@@ -62,9 +81,10 @@ function updateBrand(app: App, targets: HTMLElement[]) {
       // HA's adopted stylesheet comes after injected styles and sets the icon
       // colour from sidebar-icon-color. Scope that input instead of competing
       // with its equally specific colour declaration.
-      style.textContent = `.menu { --sidebar-icon-color: var(--sidebar-menu-button-text-color); --wa-focus-ring-color: var(--ha-color-focus); } .menu ha-icon-button { ${iconForeground('--sidebar-menu-button-text-color')} }`;
+      style.textContent = `.menu { --sidebar-icon-color: var(--sidebar-menu-button-text-color); --wa-focus-ring-color: var(--ha-color-focus); } .menu ha-icon-button { ${iconForeground('--sidebar-menu-button-text-color')} } ${badgeStyles}`;
       sidebar.shadowRoot.append(style); sidebarStyles.add(style);
     }
+    updateBadges(sidebar.shadowRoot || undefined);
     const title = sidebar.shadowRoot?.querySelector<HTMLElement>('.title');
     if (!title) continue;
     let logo = title.querySelector<HTMLImageElement>('img[data-civica-logo]');
@@ -95,7 +115,7 @@ export function enhance() {
   if (!app?.hass || !app.shadowRoot) return;
   // Query only on startup/navigation/theme changes, with bounded retries for
   // lazy-rendered roots. Never observe state updates across the whole app.
-  const targets = findAll(app.shadowRoot, 'ha-pick-theme-row,ha-sidebar,hass-subpage,ha-top-app-bar-fixed');
+  const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed', ...Object.keys(LEGACY_CARD_STYLES)].join(','));
   for (const row of targets.filter(el => el.localName === 'ha-pick-theme-row')) {
     const root = row.shadowRoot;
     const native = root?.querySelector('ha-theme-settings');

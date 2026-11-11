@@ -25,6 +25,14 @@ A navigation card can have one clear heading link. A card with several actions m
 
 Use the same heading alignment, padding, border and surface tokens across maintained cards. Do not give every sensor a different accent colour.
 
+## Visual hierarchy
+
+Use a quiet 1px structural edge where an outer boundary is needed. Separate internal groups with space and headings before adding another rule. A sensor reading, section title or status line does not need an ink box. Preserve stronger boundaries on actual inputs and clear focus on every action. See the [border roles](../styles/layout.html#surfaces-and-borders).
+
+Repeated actions should have a clear hierarchy: one main action for the current task, quieter secondary actions and visible text for their meaning. Removing a heavy outline must not make a button indistinguishable from static text. Keep the existing floor plan's room hit regions and state labels independent of the decorative card edge.
+
+The maintained lighting card uses 15px content gutters on small screens and 20px above 640px, with 15px separation around room rows. Scene actions use the secondary button treatment and labelled native icons; the scene group does not add another heavy vertical inset rule. These are bounded density choices for this card, not global overrides of every native HA layout.
+
 ## Images and values
 
 Room photos and device artwork may help identification. Keep text readable outside the image. Always show units and the meaning of a numeric value. An isolated “23” is not a useful sensor summary.

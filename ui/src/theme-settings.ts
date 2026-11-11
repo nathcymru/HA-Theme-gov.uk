@@ -20,7 +20,7 @@ export function selectedVariant(hass?: ThemeHass) {
 const CSS = `
 :host { display:block; font-family:var(--ha-font-family-body, Arial, sans-serif); font-size:var(--civica-font-size-body, 19px); line-height:1.5; color:var(--primary-text-color, #0b0c0c); }
 * { box-sizing:border-box; }
-section { margin:16px 0; padding:24px; border:1px solid var(--divider-color, #b1b4b6); background:var(--card-background-color, white); }
+section { margin:20px 0; padding:20px 0 0; border-top:1px solid var(--civica-border-quiet, #cecece); background:var(--card-background-color, white); }
 h2 { margin:0 0 16px; font-size:var(--civica-font-size-heading, 24px); line-height:1.25; }
 p { max-width:65ch; line-height:1.5; margin:12px 0; }
 label { display:block; font-weight:700; margin-bottom:8px; }
@@ -30,7 +30,6 @@ input { width:24px; height:24px; flex:none; accent-color:var(--primary-color, #1
 select:focus-visible, input:focus-visible { outline:3px solid #ffdd00; outline-offset:2px; box-shadow:0 0 0 5px #0b0c0c; }
 .hint { font-size:var(--civica-font-size-small, 16px); color:var(--secondary-text-color, #484949); }
 [role=status] { font-size:var(--civica-font-size-small, 16px); min-height:1.5em; }
-@media(max-width:400px) { section { padding:16px; } }
 @media(forced-colors:active) { select:focus-visible, input:focus-visible { outline-color:Highlight; box-shadow:none; } }
 `;
 

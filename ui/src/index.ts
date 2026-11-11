@@ -4,4 +4,5 @@
 // Current HA also guards extra modules; this remains safe after that boundary.
 await customElements.whenDefined('home-assistant');
 await import('./civica-ui');
+await import('./action-links');
 export {};

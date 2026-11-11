@@ -239,14 +239,14 @@ test('production bundle waits for HA registry replacement before registering or 
       definitions: window.bootstrap.finalDefinitions,
       lifecycle: window.__civicaUiInstalled,
       observers: window.bootstrap.observers,
-    }))).toEqual({ early: [], registered: true, definitions: ['home-assistant', 'civica-theme-settings'], lifecycle: true, observers: 1 });
+    }))).toEqual({ early: [], registered: true, definitions: ['home-assistant', 'civica-theme-settings', 'civica-action-links'], lifecycle: true, observers: 1 });
     await startup.evaluate(async () => { await import('/ui/dist/civica-ui.js?startup-registry-second-instance'); });
     expect(await startup.evaluate(() => ({
       definitions: window.bootstrap.finalDefinitions,
       observers: window.bootstrap.observers,
       navigationListeners: window.bootstrap.listeners.filter(type => type === 'location-changed').length,
       cards: window.customCards.filter(card => card.type === 'civica-theme-settings').length,
-    }))).toEqual({ definitions: ['home-assistant', 'civica-theme-settings'], observers: 1, navigationListeners: 1, cards: 1 });
+    }))).toEqual({ definitions: ['home-assistant', 'civica-theme-settings', 'civica-action-links'], observers: 1, navigationListeners: 1, cards: 1 });
   } finally { await startup.close(); }
 });
 
@@ -333,6 +333,6 @@ test('adopted HA styles keep nested masthead icons white without recolouring sid
   });
   await expect(page.locator('ha-sidebar [data-civica-sidebar]')).toHaveCount(0);
   await expect(page.locator('[data-civica-toolbar]')).toHaveCount(0);
-  await expect(masthead).toHaveCSS('color', 'rgb(11, 12, 12)');
+  await expect(masthead).toHaveCSS('color', 'rgb(72, 73, 73)');
   for (const button of headerButtons) await expect(button).toHaveCSS('color', 'rgb(11, 12, 12)');
 });

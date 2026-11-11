@@ -60,12 +60,23 @@ test('keyboard focus survives hover in dark mode', async ({ page }) => {
 });
 
 test('native dialog adapter scopes scene actions and cleans up after entity navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await openCard(page); await mountDialogFixture(page);
+  await page.locator('#preview-mode').selectOption('dark');
   await page.getByRole('button', { name: 'Settings for Lounge', exact: true }).click();
   const scenes = page.getByRole('region', { name: 'Scenes for Lounge' });
   await expect(scenes).toBeVisible();
-  await expect(scenes.getByRole('button', { name: 'Christmas', exact: true })).toBeVisible();
-  await scenes.getByRole('button', { name: 'Christmas', exact: true }).click();
+  const christmas = scenes.getByRole('button', { name: 'Christmas', exact: true });
+  await expect(christmas).toBeVisible();
+  await expect(christmas.locator('ha-icon')).toHaveAttribute('icon', 'mdi:string-lights');
+  await expect(christmas.locator('ha-icon')).toHaveAttribute('aria-hidden', 'true');
+  expect(await scenes.evaluate(element => element.getAnimations({ subtree: true }).length)).toBe(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.keyboard.press('Tab'); await christmas.focus(); await christmas.hover();
+  expect(await christmas.evaluate(element => getComputedStyle(element).color)).toBe('rgb(11, 12, 12)');
+  expect(await christmas.locator('ha-icon').evaluate(element => getComputedStyle(element).color)).toBe('rgb(11, 12, 12)');
+  await page.keyboard.press('Enter');
   await expect(scenes.getByRole('status')).toContainText('Christmas requested');
   await expect(page.getByRole('slider', { name: 'Brightness' })).toBeVisible();
   await page.evaluate(() => { window.fixtureLight.stateObj = { entity_id: 'light.other' }; window.fixtureLight.shadowRoot.append(document.createElement('span')); });

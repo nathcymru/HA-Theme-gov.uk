@@ -19,11 +19,29 @@ A Home Assistant theme is a layer over a changing application. It cannot guarant
 | Native Energy and History | Preserve data, units, dates, navigation and series meaning | Fresh entry to native panels, tooltip and data access |
 | Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |
 | Custom cards | Use public variables where available | Each installed card's private styles and updates |
+| Three known household cards | Scoped presentation for appliances, waste collections and gas safety | Their actual versions, responsive layouts and native actions |
+| civica.uk action links | Native local links and existing fragment navigation | Each configured destination and pop-up |
 | Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |
 
 ## Private component adapters
 
-The module targets four known component types: `ha-pick-theme-row`, `ha-sidebar`, `hass-subpage` and `ha-top-app-bar-fixed`. It places the colour settings, brands the sidebar and corrects toolbar icon/focus contrast through those open component roots. These adapters are version-sensitive. If an expected component is absent, the module should leave the native interface usable and offer the standalone settings card.
+The module targets seven known component types through their open component roots:
+
+| Host | Presentation adapter |
+| --- | --- |
+| `ha-pick-theme-row` | Place the colour settings alongside native preferences |
+| `ha-sidebar` | Supplied brand identity, masthead icon contrast and numeric attention badges |
+| `hass-subpage` | Toolbar icon and focus contrast |
+| `ha-top-app-bar-fixed` | Toolbar icon and focus contrast |
+| `pa-appliance-card` | Shared type, quiet grouping, button hierarchy and responsive appliance details |
+| `home-next-collection-card` | Shared type, collection layout, details and calendar action |
+| `pa-gas-safety-card` | Shared type, record layout, details and actions |
+
+The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.
+
+Startup, navigation and theme changes trigger bounded discovery of these hosts. The module observes the document's theme style attribute and the sidebar's own badge text changes. The sidebar observer updates only numeric attention-count presentation and accessible descriptions; it does not observe device state or create, clear or acknowledge notifications.
+
+These adapters are version-sensitive. If an expected component is absent, the module should leave the native interface usable and offer the standalone settings card. Verify the three household cards and native host structures after upgrades.
 
 Safe and recovery modes disable colour controls and restore native branding. Repeated module imports must not add duplicate controls or listeners.
 

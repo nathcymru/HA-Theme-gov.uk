@@ -18,6 +18,8 @@ These official sources were reviewed on 11 November 2026. They inform the local 
 | [GOV.UK website repository](https://github.com/alphagov/govuk-design-system) | Navigation and documentation organisation | Upstream is Node; this site uses Middleman |
 | [Tech Docs Template](https://github.com/alphagov/tech-docs-template) | Actual documentation build and template foundations | Pinned gem, local unbranded layout |
 | [MoJ design system](https://design-patterns.service.justice.gov.uk/) | Navigation and modal/card pattern references | Modal and card pages are experimental |
+| [MOJ notification badge](https://design-patterns.service.justice.gov.uk/components/notification-badge/) | Rounded attention count, count limits and accessible context | Official source component; HA drawer and live updates are local adaptations |
+| [GOV.UK publishing components](https://components.publishing.service.gov.uk/component-guide) | Exact search/action-link symbol references used by the public homepage | Component-specific symbols, not a general device-icon catalogue |
 | [NHS design system](https://service-manual.nhs.uk/design-system) | Cards and useful imagery | No NHS branding imported |
 | [DWP design system](https://design-system.dwp.gov.uk/) | Explicit current status and information hierarchy | No claim/case terminology imposed on households |
 | [Home Office design system](https://design.homeoffice.gov.uk/design-system) | Internal-system adaptations, purposeful images and accessibility | No Home Office colour/font identity imported |
@@ -33,6 +35,9 @@ These official sources were reviewed on 11 November 2026. They inform the local 
 - `docs/source/reference/brand-assets.json`: published artwork source mapping and hashes.
 - `docs/source/design-contract.json`: machine-readable local rules.
 - `docs/source/llms.txt`: reading order for agents and automated tooling.
+- [Visual audit sources](../reference/visual-audit-sources.json): reviewed official code commits and file hashes for border, icon and badge decisions.
+
+The [visual review](visual-audit.html) explains how the public homepage, reusable Design System and native Home Assistant interface differ. Do not treat a homepage screenshot as a specification for every control.
 
 ## Verify claims at the right level
 

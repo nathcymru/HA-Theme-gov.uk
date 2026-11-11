@@ -96,8 +96,13 @@
       "ha-pick-theme-row",
       "ha-sidebar",
       "hass-subpage",
-      "ha-top-app-bar-fixed"
+      "ha-top-app-bar-fixed",
+      "pa-appliance-card",
+      "home-next-collection-card",
+      "pa-gas-safety-card"
     ],
+    "legacyCardPresentation": "Adopted stylesheets scoped to the three exact known custom-card hosts; no device, permission or record changes",
+    "observation": "Document theme style attribute and sidebar badge text only; bounded host discovery on startup, navigation and theme changes",
     "failure": "Keep native controls usable and retain standalone settings card",
     "cleanup": "Remove scoped styling/identity and restore original favicon attributes when switching away"
   },
@@ -118,7 +123,89 @@
     "icons": "Supplement labels; consistent meaning and accessible names",
     "dialogs": "Preserve focus trap, inert background, close route and focus return",
     "cards": "No nested interactive controls or whole-card links around multiple actions",
-    "charts": "Titles, units, period, stable series and text/data alternatives where supported"
+    "actionLinks": {
+      "cardType": "custom:civica-action-links",
+      "module": "/local/civica/civica-ui.js",
+      "introducedIn": "1.1.0",
+      "source": "https://components.publishing.service.gov.uk/component-guide/action_link",
+      "requiredConfig": "links: [{name, path}]",
+      "destinations": "Root-relative local paths or nonempty current-page fragments only",
+      "navigation": "Real same-tab anchors; native browser keyboard, modifier keys, history and hashchange",
+      "fragmentPrerequisite": "Destination pop-up behaviour must already exist in the dashboard",
+      "controlsDevicesOrServices": false,
+      "labelSizePx": 19,
+      "labelWeight": 700,
+      "labelUnderlined": true,
+      "visitedState": false,
+      "minimumTargetPx": 44,
+      "circleSizePx": 40,
+      "arrowSizePx": 24,
+      "arrowStrokePx": 2,
+      "arrowProvenance": "Original simple SVG, decorative and hidden from assistive technology; no copied GOV.UK artwork",
+      "responsive": "Wrapping links and labels; no card box or built-in heading"
+    },
+    "charts": "Titles, units, period, stable series and text/data alternatives where supported",
+    "iconPolicy": {
+      "universalGovukIconPack": false,
+      "officialHomepageSymbols": "Purpose-specific publishing Search and Action link symbols",
+      "deviceVocabulary": "Native Home Assistant domain icons and meaningful state variants",
+      "maintainedShellActions": "One coherent vector symbol for each action; record source and licence for replacements",
+      "visibleLabelPreferred": true,
+      "iconOnlyAccessibleNameRequired": true,
+      "preserveViewBoxAndAspectRatio": true,
+      "minimumCustomHitTargetPx": 44,
+      "noMixedEmojiFontGlyphAndUnrelatedPictogramFamilies": true,
+      "decorativeSvgHiddenFromAssistiveTechnology": true,
+      "preserveMeaningfulStateAndManufacturerArtwork": true,
+      "lightingSceneIcons": [
+        "mdi:string-lights",
+        "mdi:soccer",
+        "mdi:rugby",
+        "mdi:halloween",
+        "mdi:alarm-light-outline"
+      ],
+      "lightingSceneIconSizePx": 24,
+      "lightingSceneLabelsRequired": true
+    },
+    "notificationBadge": {
+      "source": "https://design-patterns.service.justice.gov.uk/components/notification-badge/",
+      "sourceCommit": "b2dcbead533e2c157fe66ad60050b1e134e7a9c8",
+      "purpose": "New or unread items requiring attention; not routine device totals",
+      "fontFamily": "Arial, Helvetica, sans-serif",
+      "fontSizePx": 16,
+      "fontWeight": 700,
+      "minimumContentWidth": "0.75em",
+      "minimumContentHeight": "1.25em",
+      "padding": "1px 0.25em 0",
+      "radius": "10em",
+      "outline": "4px solid #CA3535",
+      "outlineOffset": "-0.1em",
+      "background": "#CA3535",
+      "foreground": "#FFFFFF",
+      "colourIndependentOfPaletteAndMode": true,
+      "tokenPrefix": "civica-notification-badge-",
+      "notAFixed24pxSquare": true,
+      "counts": {
+        "zero": "hidden",
+        "oneTo98": "exact",
+        "99OrMore": "99+",
+        "accessibleCap": "99 or more"
+      },
+      "accessibleContext": "Preserve parent control name and native count meaning; expose the count once",
+      "standaloneTabStop": false,
+      "nativeAction": "Retain HA notification drawer control and its translated semantics",
+      "liveUpdates": "Local adaptation; maintain current count without repeated unsolicited announcements",
+      "mustNotCreateClearOrAcknowledgeNotifications": true,
+      "unsupportedHost": "Leave native control available; never fabricate a count",
+      "checkSurroundingBackgroundContrast": true,
+      "sourceAccessibilityDoesNotCertifyAdaptation": true,
+      "marginLeft": "0.5em",
+      "darkSidebarBackground": "#17191B",
+      "contrastChecks": [
+        "white count against red",
+        "fixed red against sidebar surface"
+      ]
+    }
   },
   "content": {
     "language": "Clear UK English for maintained documentation/copy; preserve native translations and user device names",
@@ -184,7 +271,9 @@
       "accessibility"
     ],
     "upstreamWebsiteIsMiddleman": false,
-    "publishedOfficialBrandAssets": false
+    "publishedOfficialBrandAssets": false,
+    "visualAudit": "community/visual-audit.html",
+    "visualSourceSnapshot": "reference/visual-audit-sources.json"
   },
   "sources": [
     "https://design-system.service.gov.uk/",
@@ -198,6 +287,61 @@
     "https://design-system.dwp.gov.uk/",
     "https://design.homeoffice.gov.uk/",
     "https://service-manual.ons.gov.uk/design-system",
-    "https://service-manual.ons.gov.uk/data-visualisation"
-  ]
+    "https://service-manual.ons.gov.uk/data-visualisation",
+    "https://www.gov.uk/",
+    "https://design-system.service.gov.uk/styles/colour/",
+    "https://design-system.service.gov.uk/styles/images/",
+    "https://design-patterns.service.justice.gov.uk/components/notification-badge/",
+    "https://components.publishing.service.gov.uk/component-guide/action_link",
+    "https://components.publishing.service.gov.uk/component-guide/search"
+  ],
+  "visualHierarchy": {
+    "structuralBorders": {
+      "light": "#CECECE",
+      "dark": "#50565A",
+      "token": "civica-border-quiet",
+      "typicalWidthPx": 1,
+      "uses": [
+        "card edges",
+        "row dividers",
+        "section rules"
+      ]
+    },
+    "essentialControlOutline": {
+      "light": "#6F777B",
+      "dark": "#9BA4AA",
+      "token": "civica-border-interactive"
+    },
+    "editableInputBorder": {
+      "light": "#0B0C0C",
+      "dark": "#FFFFFF",
+      "token": "civica-input-border",
+      "typicalWidthPx": 2
+    },
+    "groupingOrder": [
+      "spacing",
+      "headings",
+      "flat surfaces",
+      "quiet border when needed"
+    ],
+    "prohibited": [
+      "using input ink for all card separators",
+      "nested boxes around every content group",
+      "global zeroing of generic HA radius tokens"
+    ],
+    "squareCornersScopedTo": [
+      "maintained cards",
+      "buttons",
+      "editable fields",
+      "dialogs"
+    ],
+    "preserveShapeSensitiveComponents": [
+      "notification badges",
+      "radio controls",
+      "switches",
+      "avatars",
+      "gauges"
+    ],
+    "darkValuesAreLocalAdaptation": true
+  }
 }

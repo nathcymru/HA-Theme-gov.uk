@@ -50,8 +50,9 @@ const common = {
   'ha-button-border-radius': '0px', 'ha-button-height': '44px',
   'ha-dialog-border-radius': '0px', 'ha-picture-border-radius': '0px', 'ha-picture-border-radius-sm': '0px',
   'ha-border-radius-square': '0px',
-  // Preserve native circle/pill tokens: radios, switches, avatars and gauges need them.
-  ...Object.fromEntries(['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'].map((size) => [`ha-border-radius-${size}`, '0px'])),
+  // Preserve the entire native radius scale. HA's notification badge uses xl
+  // (and md when collapsed), not circle/pill. Shape is a component decision:
+  // cards, fields, buttons and dialogs are squared above, not every HA element.
   'ha-border-width-sm': '1px', 'ha-border-width-md': '2px', 'ha-border-width-lg': '3px',
   'ha-switch-size': '28px', 'ha-switch-thumb-size': '20px', 'ha-switch-width': '48px',
   'ha-switch-min-touch-size': '44px', 'ha-switch-thumb-box-shadow': 'none',
@@ -65,6 +66,22 @@ const common = {
   'civica-success-fill': SEMANTIC.success, 'civica-on-success': WHITE,
   'civica-warning-fill': FOCUS, 'civica-on-warning': INK,
   'civica-notice-fill': INK, 'civica-on-notice': WHITE,
+  // MOJ notification-badge geometry and fixed semantic red. These do not vary
+  // with brand palette or dark mode. The sidebar adapter owns count semantics.
+  // https://design-patterns.service.justice.gov.uk/components/notification-badge/
+  'civica-notification-badge-background': '#CA3535',
+  'civica-notification-badge-color': WHITE,
+  'civica-notification-badge-border-radius': '10em',
+  'civica-notification-badge-font-size': 'calc(16px * var(--ha-font-size-scale, 1))',
+  'civica-notification-badge-font-weight': '700',
+  'civica-notification-badge-line-height': '1.25',
+  'civica-notification-badge-min-width': '.75em',
+  'civica-notification-badge-min-height': '1.25em',
+  'civica-notification-badge-padding': '1px .25em 0',
+  'civica-notification-badge-margin-left': '.5em',
+  'civica-notification-badge-outline': '4px solid var(--civica-notification-badge-background)',
+  'civica-notification-badge-outline-offset': '-.1em',
+  'civica-navigation-icon-masthead-color': WHITE,
   'ha-color-white': WHITE, 'ha-color-black': INK, 'white-color': WHITE, 'black-color': INK,
 };
 
@@ -84,7 +101,10 @@ function roleTokens(role, source, dark) {
   for (const [volume, resting, hover] of [['quiet', quiet, normal], ['normal', normal, normalHover], ['loud', loud, loudHover]]) {
     for (const [state, value] of [['resting', resting], ['hover', hover], ['active', resting]]) out[`ha-color-fill-${role}-${volume}-${state}`] = value;
     out[`ha-color-on-${role}-${volume}`] = volume === 'loud' ? (dark ? INK : WHITE) : on;
-    out[`ha-color-border-${role}-${volume}`] = on;
+    // Quiet borders group content. Normal/loud borders identify controls.
+    // Mapping every volume to the text colour makes ordinary cards look like
+    // input fields; neutral structural borders are resolved explicitly below.
+    out[`ha-color-border-${role}-${volume}`] = volume === 'quiet' ? mix(source, dark ? INK : WHITE, 0.50) : on;
   }
   return out;
 }
@@ -97,15 +117,21 @@ export function modeTokens(palette, tone, dark) {
   const secondarySurface = dark ? '#30363A' : '#F3F2F1';
   const text = dark ? WHITE : INK;
   const secondary = dark ? '#CBD0D3' : '#484949';
-  const border = dark ? '#9BA4AA' : '#6F777B';
+  const quietBorder = dark ? '#50565A' : '#CECECE';
+  const interactiveBorder = dark ? '#9BA4AA' : '#6F777B';
   const active = dark ? mix(primary, WHITE, 0.72) : primary;
   const hover = dark ? mix(primary, WHITE, 0.82) : mix(primary, INK, 0.20);
   const onActive = dark ? INK : WHITE;
+  const navigationActive = dark ? active : mix(primary, INK, 0.25);
   const colours = Object.fromEntries(Object.entries(SEMANTIC).map(([key, value]) => [key, dark ? mix(value, WHITE, 0.72) : value]));
   const tokens = {
     'civica-palette': palette.id, 'civica-tone': tone,
     'civica-brand-primary': primary, 'civica-brand-canvas': suppliedCanvas,
     'civica-canvas': canvas, 'civica-surface': surface,
+    'civica-border-quiet': quietBorder, 'civica-border-interactive': interactiveBorder,
+    'civica-input-border': text,
+    'civica-navigation-icon-color': secondary,
+    'civica-navigation-icon-active-color': navigationActive,
     'civica-action': active, 'civica-action-hover': hover, 'civica-on-action': onActive,
     'primary-color': active, 'dark-primary-color': hover, 'darker-primary-color': hover,
     'light-primary-color': dark ? mix(primary, WHITE, 0.82) : mix(primary, WHITE, 0.90),
@@ -126,7 +152,8 @@ export function modeTokens(palette, tone, dark) {
     'ha-color-surface-default-inverted': dark ? WHITE : '#24282B',
     'ha-color-surface-low-inverted': dark ? '#F3F2F1' : '#17191B',
     'ha-color-surface-lower-inverted': dark ? '#E4E7E9' : INK,
-    'ha-card-border-color': border, 'divider-color': border, 'outline-color': border,
+    'ha-card-border-color': quietBorder, 'divider-color': quietBorder,
+    'outline-color': interactiveBorder,
     'outline-hover-color': text, 'shadow-color': 'transparent', 'scrollbar-thumb-color': secondary,
     // The native outline has one colour; use ink on light surfaces and yellow on dark.
     // Custom civica controls use the yellow/ink two-colour focus treatment.
@@ -135,11 +162,14 @@ export function modeTokens(palette, tone, dark) {
     'success-color': colours.success, 'info-color': colours.info,
     'state-icon-color': text, 'state-active-color': active, 'state-inactive-color': secondary,
     'state-unavailable-color': secondary, 'state-icon-error-color': colours.danger,
-    'sidebar-background-color': surface, 'sidebar-text-color': text, 'sidebar-icon-color': text,
+    // Keep the fixed MOJ notification red distinct from the sidebar in dark
+    // mode: the existing dark canvas gives >3:1, whereas the raised card surface
+    // gives only 2.88:1. Do not recolour the badge to match a brand palette.
+    'sidebar-background-color': dark ? canvas : surface, 'sidebar-text-color': text, 'sidebar-icon-color': secondary,
     'sidebar-menu-button-background-color': primary, 'sidebar-menu-button-text-color': WHITE,
     'sidebar-selected-background-color': dark ? '#30363A' : '#E8EEF3',
-    'sidebar-selected-text-color': dark ? active : mix(primary, INK, 0.25),
-    'sidebar-selected-icon-color': dark ? active : mix(primary, INK, 0.25),
+    'sidebar-selected-text-color': navigationActive,
+    'sidebar-selected-icon-color': navigationActive,
     'app-header-background-color': primary, 'app-header-text-color': WHITE,
     'app-theme-color': primary,
     'app-header-border-bottom': `4px solid ${primary}`,
@@ -166,10 +196,10 @@ export function modeTokens(palette, tone, dark) {
     'ha-switch-checked-thumb-border-color': onActive, 'ha-switch-checked-thumb-border-color-hover': onActive,
     'switch-checked-color': active, 'switch-checked-button-color': onActive, 'switch-checked-track-color': active,
     'switch-unchecked-color': text, 'switch-unchecked-button-color': text, 'switch-unchecked-track-color': surface,
-    'slider-color': active, 'slider-secondary-color': border, 'slider-track-color': border,
+    'slider-color': active, 'slider-secondary-color': interactiveBorder, 'slider-track-color': interactiveBorder,
     'paper-slider-knob-color': active, 'paper-slider-active-color': active,
     'mdc-dialog-heading-ink-color': text, 'mdc-dialog-content-ink-color': text,
-    'mdc-dialog-scroll-divider-color': border, 'mdc-tab-text-label-color-default': text,
+    'mdc-dialog-scroll-divider-color': quietBorder, 'mdc-tab-text-label-color-default': text,
     'mdc-theme-primary': active, 'mdc-theme-secondary': active, 'mdc-theme-error': colours.danger,
     'mdc-theme-surface': surface, 'mdc-theme-background': canvas,
     'mdc-theme-on-primary': onActive, 'mdc-theme-on-secondary': onActive,
@@ -178,7 +208,7 @@ export function modeTokens(palette, tone, dark) {
     'yellow-color': dark ? '#FFE56B' : '#8A6100', 'orange-color': colours.warning,
     'purple-color': dark ? '#D9BFE8' : '#7D4A9A', 'pink-color': dark ? '#F4BCD3' : '#A73469',
     'brown-color': dark ? '#DFC5B3' : '#6B4C3B', 'teal-color': dark ? '#A8DFDB' : '#007F7B',
-    'grey-color': secondary, 'dark-grey-color': secondary, 'light-grey-color': border,
+    'grey-color': secondary, 'dark-grey-color': secondary, 'light-grey-color': quietBorder,
     'label-badge-red': colours.danger, 'label-badge-green': colours.success,
     'label-badge-blue': colours.info, 'label-badge-yellow': colours.warning, 'label-badge-grey': secondary,
     ...roleTokens('primary', primary, dark),
@@ -186,6 +216,15 @@ export function modeTokens(palette, tone, dark) {
     ...roleTokens('danger', SEMANTIC.danger, dark),
     ...roleTokens('warning', SEMANTIC.warning, dark),
     ...roleTokens('success', SEMANTIC.success, dark),
+    // Separate decorative divisions from controls; do not weaken input/focus
+    // boundaries to satisfy the visually quieter card treatment.
+    'ha-color-border-neutral-quiet': quietBorder,
+    'ha-color-border-neutral-normal': interactiveBorder,
+    'ha-color-border-neutral-loud': text,
+    'wa-color-surface-border': quietBorder,
+    'wa-color-neutral-border-quiet': quietBorder,
+    'wa-color-neutral-border-normal': interactiveBorder,
+    'wa-color-neutral-border-loud': text,
   };
   // Web Awesome uses this core-token shortcut rather than the semantic border.
   // Resolve it explicitly so dark charcoal variants retain a visible outline.

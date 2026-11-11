@@ -748,10 +748,10 @@ var STYLES = `
 :host { display: block; min-width: 0; }
 *, *::before, *::after { box-sizing: border-box; }
 ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-serif); font-size: var(--civica-font-size-body, 19px); line-height: 1.5; color: var(--primary-text-color); background: var(--card-background-color); border: 1px solid var(--divider-color); border-radius: 0; box-shadow: none; }
-.body { padding: 16px; }
-.head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 15px; margin-bottom: 8px; }
+.body { padding: 15px; }
+.head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 15px; margin-bottom: 15px; }
 .title { margin: 0; font-size: var(--ha-card-header-font-size, 24px); font-weight: var(--ha-font-weight-heading, 700); }
-.status { margin: 0 0 16px; font-size: var(--civica-font-size-small, 16px); color: var(--secondary-text-color); }
+.status { margin: 0 0 20px; font-size: var(--civica-font-size-small, 16px); color: var(--secondary-text-color); }
 .actions { display: flex; flex-wrap: wrap; gap: 15px; }
 /* GOV.UK button: theme body size (19px), weight 400, 2px border, padding 8px 10px 7px = 38px + 2px shadow, matching --ha-button-height. */
 .btn { font: inherit; font-size: var(--civica-font-size-body, 19px); font-weight: 400; line-height: 1.3; min-width: 44px; min-height: 44px; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
@@ -769,11 +769,10 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .btn-icon { flex: none; }
 .btn[hidden] { display: none; }
 .btn:focus-visible { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--civica-focus-text, var(--black-color)); }
-.tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
-.tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
-.rooms { margin: 0 0 24px; padding: 0; }
-.row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+.rooms { margin: 0 0 20px; padding: 0; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px 15px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--divider-color); }
 @media (min-width: 540px) { .row { grid-template-columns: minmax(0, 1fr) auto; } }
+@media (min-width: 641px) { .body { padding: 20px; } .rooms { margin-bottom: 30px; } }
 .row > * { min-width: 0; overflow-wrap: anywhere; }
 .row[hidden] { display: none; }
 .key { font-weight: 700; margin: 0; }
@@ -781,7 +780,7 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .sub:empty { display: none; }
 .act { margin: 0; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.plan { display: block; width: 100%; height: auto; }
+.plan { display: block; width: 100%; height: auto; margin-bottom: 15px; }
 .shade { transition: opacity 0.3s; }
 .shade--off { fill: var(--primary-text-color); opacity: 0.45; }
 .shade--lit { opacity: 0.28; mix-blend-mode: soft-light; }
@@ -792,14 +791,6 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 .dlg[open] { display: flex; }
 .dlg-title { margin: 0 0 16px; font-size: var(--civica-font-size-heading, 24px); }
 .dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
-.tiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.tile { position: relative; display: block; width: 44px; height: 44px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
-.tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
-.swatch { position: absolute; inset: 0; display: block; }
-/* Icons are drawn as solid white: brightness(0) flattens every colour to black, invert(1) turns it white. */
-.tile-icon { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
-.swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
 .error-summary:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
 .form-group--error:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
@@ -835,21 +826,23 @@ ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-se
 
 // card/src/dialog.ts
 var SCENES_CSS = `
-.civica-scenes { margin-block: 20px; padding-inline-start: 15px; border-inline-start: 5px solid var(--divider-color); color: var(--primary-text-color); font: var(--civica-font-size-body, 19px)/1.5 var(--ha-font-family-body, Arial, sans-serif); }
-.civica-scenes h3 { margin: 0 0 12px; font: inherit; font-weight: 700; }
-.civica-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.civica-scenes { margin-block: 30px 20px; color: var(--primary-text-color); font: var(--civica-font-size-body, 19px)/1.5 var(--ha-font-family-body, Arial, sans-serif); }
+.civica-scenes h3 { margin: 0 0 15px; font: inherit; font-weight: 700; }
+.civica-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; }
 .civica-scenes li { min-width: 0; max-width: 100%; }
-.civica-scene { display: flex; align-items: center; gap: 8px; position: relative; min-width: 44px; min-height: 44px; max-width: 100%; padding: 6px 10px; cursor: pointer; background: var(--card-background-color); color: var(--primary-text-color); border: 2px solid var(--primary-text-color); border-radius: 0; font: inherit; text-align: start; overflow-wrap: anywhere; }
-.civica-scene:hover { background: var(--secondary-background-color); }
+.civica-scene { display: flex; align-items: center; gap: 10px; position: relative; min-width: 44px; min-height: 44px; max-width: 100%; box-sizing: border-box; padding: 8px 10px 11px; cursor: pointer; background: var(--secondary-background-color); color: var(--primary-text-color); border: 2px solid transparent; border-radius: 0; box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 41%, var(--secondary-background-color)); font: inherit; line-height: 1.3; text-align: start; overflow-wrap: anywhere; }
+.civica-scene:hover { background: color-mix(in srgb, var(--primary-text-color) 10%, var(--secondary-background-color)); }
+.civica-scene:active { top: 2px; }
 .civica-scene:disabled { cursor: wait; opacity: .65; }
-.civica-scene:focus-visible { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; box-shadow: 0 0 0 5px var(--civica-focus-text, var(--black-color)); }
-.civica-scene-icon { flex: 0 0 28px; width: 28px; height: 28px; position: relative; overflow: hidden; }
-.civica-scene-icon img { position: absolute; inset: 3px; width: 22px; height: 22px; object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
-.civica-swatch { position: absolute; inset: 0; display: block; }
-.civica-swatch::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--black-color) 65%, transparent); }
-.civica-scene-status { margin: 12px 0 0; }
+.civica-scene:focus-visible { outline: 3px solid transparent; border-color: var(--ha-color-focus); background: var(--ha-color-focus); color: var(--civica-focus-text, var(--black-color)); box-shadow: 0 2px 0 var(--civica-focus-text, var(--black-color)); }
+.civica-scene-icon { flex: 0 0 24px; width: 24px; height: 24px; --mdc-icon-size: 24px; color: inherit; pointer-events: none; }
+/* Scene colours describe the lights, not the icon or action. Keep labels and
+   monochrome Home Assistant icons readable throughout the preview animation. */
+.civica-swatch { position: absolute; inset-inline: 0; bottom: 0; height: 3px; display: block; pointer-events: none; }
+.civica-scene:focus-visible .civica-swatch { visibility: hidden; }
+.civica-scene-status { margin: 15px 0 0; }
 .civica-scene-status:empty { display: none; }
-@media (forced-colors: active) { .civica-scene:focus-visible { outline-color: Highlight; } }
+@media (forced-colors: active) { .civica-scene { border-color: ButtonText; } .civica-scene:focus-visible { outline-color: Highlight; } .civica-swatch { display: none; } }
 `;
 function findDeep(root, selector) {
   const hit = root.querySelector(selector);
@@ -899,19 +892,17 @@ function tuneMoreInfo(spec) {
         const button = document.createElement("button");
         button.type = "button";
         button.className = "civica-scene";
-        const icon = document.createElement("span");
+        const icon = document.createElement("ha-icon");
         icon.className = "civica-scene-icon";
         icon.setAttribute("aria-hidden", "true");
+        icon.setAttribute("icon", scene.icon);
         const swatch = document.createElement("span");
         swatch.className = "civica-swatch";
+        swatch.setAttribute("aria-hidden", "true");
         scene.fill(swatch);
-        const image = document.createElement("img");
-        image.src = scene.iconUrl;
-        image.alt = "";
-        icon.append(swatch, image);
         const label = document.createElement("span");
         label.textContent = scene.label;
-        button.append(icon, label);
+        button.append(icon, label, swatch);
         button.addEventListener("click", async () => {
           if (cancelled || control.stateObj?.entity_id !== spec.entityId) return;
           const buttons = Array.from(section.querySelectorAll("button"));
@@ -964,6 +955,7 @@ function tuneMoreInfo(spec) {
 // card/src/card.ts
 var SVG = "http://www.w3.org/2000/svg";
 var RECIPE_LIST = recipes_default;
+var SCENE_ICONS = { christmas: "mdi:string-lights", football: "mdi:soccer", rugby: "mdi:rugby", halloween: "mdi:halloween", emergency: "mdi:alarm-light-outline" };
 var COG = "M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.86,17.38L11.25,20H12.75L13.12,17.4C14.32,17.14 15.38,16.5 16.15,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.38C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z";
 var AREAS_DOCS = "https://www.home-assistant.io/docs/organizing/areas/";
 var SAFE_CSS = /^(#[0-9A-Fa-f]{6}|linear-gradient\(90deg(, #[0-9A-Fa-f]{6} \d{1,3}%)+\))$/;
@@ -1102,7 +1094,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
   buildRow(v) {
     const name = v.cfg.name ?? v.cfg.id;
     const toggle = el("button", { class: "btn", type: "button", "data-role": "toggle", onclick: () => this.toggle(v) });
-    const icon = svg("svg", { viewBox: "0 0 24 24", width: 19, height: 19, class: "btn-icon", "aria-hidden": "true", focusable: "false" });
+    const icon = svg("svg", { viewBox: "0 0 24 24", width: 24, height: 24, class: "btn-icon", "aria-hidden": "true", focusable: "false" });
     icon.append(svg("path", { d: COG, fill: "currentColor" }));
     const settings = el("button", { class: "btn btn--secondary", type: "button", "data-role": "settings", title: "Settings", onclick: () => this.openMoreInfo(v.cfg.id) }, icon, el("span", { class: "vh" }, `Settings for ${name}`));
     const row = el("div", { class: "row", "data-room": v.cfg.id }, el("dt", { class: "key" }, name, el("span", { class: "sub", "data-role": "sub" })), el("dd", { class: "act" }, toggle, settings), el("dd", { class: "scenes-slot", "data-role": "scenes" }));
@@ -1171,7 +1163,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
         id: r.id,
         label: r.label,
         pressed: v.owner === r.id,
-        iconUrl: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href,
+        icon: SCENE_ICONS[r.id] ?? "mdi:lightbulb-outline",
         fill: (swatch) => this.animateSwatch(swatch, r, v)
       })),
       onPick: async (id) => {
