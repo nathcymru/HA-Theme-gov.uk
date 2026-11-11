@@ -1,0 +1,506 @@
+{
+  "patterns/energy.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "patterns/settings.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "patterns/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "patterns/home.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "patterns/recovery.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/brand.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/images.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/content.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/typography.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/chart-colour.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/layout.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "styles/colour.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/notification-badge.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/action-links.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/status.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/controls.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/navigation.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/devices.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/dialogs.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/cards.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/chart-examples.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "components/charts.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/deviations.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added shared examples and publication history, and corrected the chart deviation record to the implemented 1.5px line and legend weight."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/licensing.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/visual-audit.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/sources.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/architecture.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "accessibility/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "accessibility/testing.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "get-started/install.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "get-started/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "get-started/compatibility.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "get-started/colour-settings.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-11",
+    "updates": [
+      {
+        "date": "2026-11-11",
+        "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "First published in the civica.uk design system."
+      }
+    ]
+  }
+}

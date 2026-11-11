@@ -1,0 +1,60 @@
+---
+title: "Contents list"
+description: "A contents list gives a short route to sections within a long page or to chapters in a guide."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/content-list/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Contents list
+
+A contents list gives a short route to sections within a long page or to chapters in a guide. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/content-list/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use it on substantial installation, recovery or maintenance guidance. Write section names that describe the user task. Reduce unnecessary sections before adding more navigation. A three-sentence card does not need its own contents list.
+
+## Structure and behaviour
+
+Generate links from stable heading IDs and keep their order the same as the document. Label the navigation "On this page" for local anchors and "In this guide" for other pages. A current chapter is plain text. One nested level may help a technical guide; deeper nesting is a sign to restructure.
+
+## Home Assistant boundary
+
+The local contents list is a documentation pattern, not an injection into every HA panel. Sticky positioning must not hide the target under the header or consume the whole mobile viewport. Do not make a table of contents look like a progress checklist.
+
+## Installation contents
+
+Three working section links inside the example.
+
+<%= example("pub-components-content-list-1") %>
+
+## Short recovery guide
+
+Use only the sections needed for a bounded task.
+
+<%= example("pub-components-content-list-2") %>
+
+## Acceptance checks
+
+- Every anchor reaches the intended visible heading.
+- Heading hierarchy and list nesting agree.
+- Keyboard focus remains visible after following a link.
+- Long headings wrap in both sidebar and main content.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

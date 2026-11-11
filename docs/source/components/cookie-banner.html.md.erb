@@ -1,0 +1,44 @@
+---
+title: "Cookie banner"
+description: "Explain optional storage and let people make an informed choice before it is used."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Cookie banner
+
+Explain optional storage and let people make an informed choice before it is used.
+
+## When to use
+
+First establish what the application actually stores and why. Distinguish essential sign-in or security state from optional measurement. A banner cannot make an inaccurate description acceptable. Do not add an empty consent ritual to every local dashboard.
+
+This documentation site has no analytics integration. The following examples illustrate a future service’s choice and confirmation; they do not set cookies or change Home Assistant’s storage.
+
+## Offer equally clear choices
+
+<%= example('core-cookie-choice') %>
+
+## Confirm a recorded choice
+
+<%= example('core-cookie-confirmation') %>
+
+## Behaviour and content
+
+State the purpose of each optional category in plain language. Accept and reject must have equivalent prominence. Provide a durable route back to preferences, and honour a rejection before loading optional code. In a real implementation, confirmation follows a successful save; failures leave the choice available with an explanation.
+
+Keep the banner in document flow so it does not cover focused content. Do not use a preselected checkbox or a dismiss action as implied consent. Document storage lifetime and how the preference works across browsers using verified service facts.
+
+## Accessibility and testing
+
+Check logical reading order, meaningful control labels and keyboard reachability. Test reject, accept, revisiting, changing a preference, unavailable storage and JavaScript failure. Inspect actual network and storage behaviour; the visual example alone cannot verify it.
+
+## Home Assistant boundary and source
+
+The theme does not manage authentication, telemetry or cookie consent. Preserve native Home Assistant preferences. Consult the [GOV.UK Cookie banner guidance](https://design-system.service.gov.uk/components/cookie-banner/) when building a separate service, and review that service’s privacy requirements before connecting this reference.

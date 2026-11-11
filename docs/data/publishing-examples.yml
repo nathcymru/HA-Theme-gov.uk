@@ -1,0 +1,2227 @@
+examples:
+  pub-components-attachment-1:
+    title: "Manual preview"
+    description: "A local HTML manual extract; no file download is implied."
+    html: |
+      <h2 class="govuk-heading-m">Sample lamp instructions</h2>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#manual">Read the lamp instructions</a> (HTML)</p>
+      <section id="manual" tabindex="-1">
+      <h2 class="govuk-heading-m">Lamp instructions</h2>
+      <p class="govuk-body">This invented lamp example illustrates the document layout. Use the instructions supplied with the real product.</p>
+      </section>
+  pub-components-attachment-2:
+    title: "Revision and format"
+    description: "A document entry with meaningful revision information and a local text alternative."
+    html: |
+      <h2 class="govuk-heading-m">Sample maintenance notes</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Format</dt>
+      <dd class="govuk-summary-list__value">HTML</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Revision</dt>
+      <dd class="govuk-summary-list__value">Example revision 2</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Language</dt>
+      <dd class="govuk-summary-list__value">English</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#notes">View maintenance notes</a>
+      </p>
+      <section id="notes" tabindex="-1">
+      <h2 class="govuk-heading-m">Maintenance notes</h2>
+      <p class="govuk-body">Record the date and outcome of each inspection in the real maintenance system. No inspection is recorded by this example.</p>
+      </section>
+  pub-components-breadcrumbs-1:
+    title: "Two-level help trail"
+    description: "Working in-page destinations illustrate a help hierarchy."
+    html: |
+      <nav aria-label="Help breadcrumbs">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#help">Help</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#lights">Lighting</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="help" tabindex="-1">
+      <h2 class="govuk-heading-m">Help</h2>
+      <p class="govuk-body">Choose a subject for household guidance.</p>
+      </section>
+      <section id="lights" tabindex="-1">
+      <h2 class="govuk-heading-m">Lighting</h2>
+      <p class="govuk-body">This section contains sample lighting guidance.</p>
+      </section>
+  pub-components-breadcrumbs-2:
+    title: "Current page shown"
+    description: "The current item is plain text with aria-current."
+    html: |
+      <nav aria-label="Manual breadcrumbs">
+      <ol class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#manuals">Manuals</a>
+      </li>
+      <li aria-current="page">Heating timer</li>
+      </ol>
+      </nav>
+      <section id="manuals" tabindex="-1">
+      <h2 class="govuk-heading-m">Manuals</h2>
+      <p class="govuk-body">Sample collection of equipment instructions.</p>
+      </section>
+  pub-components-content-list-1:
+    title: "Installation contents"
+    description: "Three working section links inside the example."
+    html: |
+      <nav aria-label="On this page">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#prepare">Prepare</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#install">Install</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#check">Check the result</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="prepare" tabindex="-1">
+      <h2 class="govuk-heading-m">Prepare</h2>
+      <p class="govuk-body">Read the current installation requirements.</p>
+      </section>
+      <section id="install" tabindex="-1">
+      <h2 class="govuk-heading-m">Install</h2>
+      <p class="govuk-body">Use the installation method that matches your setup.</p>
+      </section>
+      <section id="check" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the result</h2>
+      <p class="govuk-body">Confirm the selected theme and companion version.</p>
+      </section>
+  pub-components-content-list-2:
+    title: "Short recovery guide"
+    description: "Use only the sections needed for a bounded task."
+    html: |
+      <nav aria-label="Recovery guide contents">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#symptom">Identify the symptom</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#restore">Restore the previous version</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="symptom" tabindex="-1">
+      <h2 class="govuk-heading-m">Identify the symptom</h2>
+      <p class="govuk-body">Record what stopped working and whether the native theme works.</p>
+      </section>
+      <section id="restore" tabindex="-1">
+      <h2 class="govuk-heading-m">Restore the previous version</h2>
+      <p class="govuk-body">Follow the verified recovery instructions for the installed version.</p>
+      </section>
+  pub-components-emergency-banner-1:
+    title: "Urgent-message specimen"
+    description: "Static fictional message; this is not a live household alert."
+    html: |
+      <div class="govuk-notification-banner" role="region" aria-labelledby="alert-title">
+      <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="alert-title">Example urgent message</h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">A sample alert requires attention</p>
+      <p class="govuk-body">Source: demonstration only. No current condition is being reported.</p>
+      </div>
+      </div>
+  pub-components-emergency-banner-2:
+    title: "Stale source"
+    description: "Unknown freshness must remain explicit."
+    html: |
+      <h2 class="govuk-heading-m">Example alert source unavailable</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Source</dt>
+      <dd class="govuk-summary-list__value">Demonstration sensor</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current reading</dt>
+      <dd class="govuk-summary-list__value">Unavailable</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Meaning</dt>
+      <dd class="govuk-summary-list__value">The example cannot establish the current condition</dd>
+      </div>
+      </dl>
+  pub-components-feedback-1:
+    title: "Local feedback interaction"
+    description: "Type invented feedback. The demonstration does not send or save it."
+    html: |
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="sample-input">What could be clearer?</label>
+      <div id="sample-hint" class="govuk-hint">Example only: nothing is sent or stored.</div>
+      <input class="govuk-input" type="text" id="sample-input" name="sample" aria-describedby="sample-hint">
+      </div>
+      <button type="submit" class="govuk-button">Check example</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  pub-components-feedback-2:
+    title: "Public issue route"
+    description: "This real repository link opens the public issue list."
+    html: |
+      <h2 class="govuk-heading-m">Report a documentation problem</h2>
+      <p class="govuk-body">Do not include passwords, tokens or household details in a public report.</p>
+      <p class="govuk-body">
+      <a class="govuk-link" href="https://github.com/nathcymru/HA-Theme-gov.uk/issues">Open the civica.uk repository issues</a>
+      </p>
+  pub-components-global-banner-1:
+    title: "Planned maintenance message"
+    description: "Static, fictional maintenance information with a working detail anchor."
+    html: |
+      <h2 class="govuk-heading-m">Example service notice</h2>
+      <p class="govuk-body">A demonstration maintenance window is planned. No live outage is announced.</p>
+      <p class="govuk-body">
+      <a class="govuk-link" href="#maintenance">Read the example maintenance scope</a>
+      </p>
+      <section id="maintenance" tabindex="-1">
+      <h2 class="govuk-heading-m">Maintenance scope</h2>
+      <p class="govuk-body">Only this documentation example is affected; no household service changes.</p>
+      </section>
+  pub-components-global-banner-2:
+    title: "Dismissal semantics"
+    description: "The button reports local demonstration activity; it does not change a saved preference."
+    html: |
+      <h2 class="govuk-heading-m">Example update information</h2>
+      <p class="govuk-body">A message may offer a dismissal when it is safe to do so.</p>
+      <button type="button" class="govuk-button govuk-button--secondary" data-demo-message="Example acknowledged locally. No notification preference was changed.">Acknowledge example</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+  pub-components-previous-and-next-navigation-1:
+    title: "Between chapters"
+    description: "Previous and next links resolve to labelled sections."
+    html: |
+      <nav aria-label="Guide pages">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#before">Previous: Prepare Home Assistant</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#after">Next: Verify the theme</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="before" tabindex="-1">
+      <h2 class="govuk-heading-m">Prepare Home Assistant</h2>
+      <p class="govuk-body">Check the supported version and installation requirements.</p>
+      </section>
+      <section id="after" tabindex="-1">
+      <h2 class="govuk-heading-m">Verify the theme</h2>
+      <p class="govuk-body">Check the theme selector and the native Energy route.</p>
+      </section>
+  pub-components-previous-and-next-navigation-2:
+    title: "First chapter"
+    description: "Only a valid next destination is provided."
+    html: |
+      <nav aria-label="Guide pages">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#next">Next: Choose the installation method</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="next" tabindex="-1">
+      <h2 class="govuk-heading-m">Choose the installation method</h2>
+      <p class="govuk-body">Select the instructions matching HACS or the manual package.</p>
+      </section>
+  pub-components-print-link-1:
+    title: "Print a recovery note"
+    description: "The button opens the browser print dialog for this isolated example. It does not upload a file or claim that printing succeeded."
+    html: |
+      <h2 class="govuk-heading-m">Example recovery note</h2>
+      <p class="govuk-body">Keep the verified recovery instructions with the installed version. This fictional note contains no credentials or household configuration.</p>
+      <div class="govuk-!-display-none-print">
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-print data-publishing-status="print-status" disabled>Print this example</button>
+      <p class="govuk-body" id="print-status" role="status">
+      </p>
+      <noscript>
+      <p class="govuk-body">Use your browser’s Print command. The example button needs JavaScript.</p>
+      </noscript>
+      </div>
+  pub-components-print-link-2:
+    title: "Print a structured reference"
+    description: "A second example preserves clear labels and explanatory content in the browser print preview."
+    html: |
+      <h2 class="govuk-heading-m">Example installation reference</h2>
+      <p class="govuk-body">Check the supported frontend version, installation ownership and recovery instructions before an upgrade.</p>
+      <div class="govuk-!-display-none-print">
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-print data-publishing-status="print-status" disabled>Print this example</button>
+      <p class="govuk-body" id="print-status" role="status">
+      </p>
+      <noscript>
+      <p class="govuk-body">Use your browser’s Print command. The example button needs JavaScript.</p>
+      </noscript>
+      </div>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Scope</dt>
+      <dd class="govuk-summary-list__value">Synthetic documentation specimen</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Live changes</dt>
+      <dd class="govuk-summary-list__value">None</dd>
+      </div>
+      </dl>
+  pub-components-related-navigation-1:
+    title: "Related theme guidance"
+    description: "Two real in-page destinations illustrate a small curated set."
+    html: |
+      <nav aria-label="More about themes">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#colour">Colour settings</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#compatibility">Compatibility</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="colour" tabindex="-1">
+      <h2 class="govuk-heading-m">Colour settings</h2>
+      <p class="govuk-body">Palette and tone are separate from the native light or dark mode.</p>
+      </section>
+      <section id="compatibility" tabindex="-1">
+      <h2 class="govuk-heading-m">Compatibility</h2>
+      <p class="govuk-body">Check the supported frontend version before upgrading.</p>
+      </section>
+  pub-components-related-navigation-2:
+    title: "Device documentation"
+    description: "A narrow related group complements a sample record."
+    html: |
+      <h2 class="govuk-heading-m">Sample heating timer</h2>
+      <nav aria-label="Heating timer documents">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#manual">Operating instructions</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#record">Maintenance record</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="manual" tabindex="-1">
+      <h2 class="govuk-heading-m">Operating instructions</h2>
+      <p class="govuk-body">Use the instructions for the installed model.</p>
+      </section>
+      <section id="record" tabindex="-1">
+      <h2 class="govuk-heading-m">Maintenance record</h2>
+      <p class="govuk-body">A real record belongs to the household’s chosen maintenance system.</p>
+      </section>
+  pub-components-search-autocomplete-1:
+    title: "Autocomplete known documentation titles"
+    description: "Native browser suggestions use three actual local example titles. Submit a title or your own query to filter the records."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Find example documentation</label>
+      <div class="govuk-hint" id="sample-hint">Suggestions come from the fixed example list. Choose one or type your own query.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint" list="sample-suggestions" autocomplete="off">
+      <datalist id="sample-suggestions">
+      <option value="Colour settings">
+      </option>
+      <option value="Charts and tables">
+      </option>
+      <option value="Install the theme">
+      </option>
+      </datalist>
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example documentation</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Colour settings</span>
+      </summary>
+      <div class="govuk-details__text">Vivid and Muted are separate from the native Light and Dark display mode.</div>
+      </details>
+      <p class="govuk-body">Guidance</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Charts and tables</span>
+      </summary>
+      <div class="govuk-details__text">Energy charts use a shared visual contract and provide an accessible data table.</div>
+      </details>
+      <p class="govuk-body">Component reference</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Install the theme</span>
+      </summary>
+      <div class="govuk-details__text">Choose the verified installation method matching ownership of your theme files.</div>
+      </details>
+      <p class="govuk-body">Installation guide</p>
+      </li>
+      </ul>
+      </section>
+  pub-components-search-autocomplete-2:
+    title: "Autocomplete example equipment"
+    description: "Suggestions and matching results use the same fixed, invented equipment records; nothing is queried from Home Assistant."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Find example equipment</label>
+      <div class="govuk-hint" id="sample-hint">Suggestions come from the fixed example list. Choose one or type your own query.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint" list="sample-suggestions" autocomplete="off">
+      <datalist id="sample-suggestions">
+      <option value="Example hall lamp">
+      </option>
+      <option value="Example kitchen lamp">
+      </option>
+      <option value="Example kitchen thermometer">
+      </option>
+      </datalist>
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example equipment</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record data-publishing-area="Hall">
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example hall lamp</span>
+      </summary>
+      <div class="govuk-details__text">A fictional light record for demonstrating name lookup.</div>
+      </details>
+      <p class="govuk-body">Light · Hall</p>
+      </li>
+      <li data-publishing-record data-publishing-area="Kitchen">
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example kitchen lamp</span>
+      </summary>
+      <div class="govuk-details__text">A second fictional light record; no device control is connected.</div>
+      </details>
+      <p class="govuk-body">Light · Kitchen</p>
+      </li>
+      <li data-publishing-record data-publishing-area="Kitchen">
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example kitchen thermometer</span>
+      </summary>
+      <div class="govuk-details__text">A fictional temperature-sensor record.</div>
+      </details>
+      <p class="govuk-body">Sensor · Kitchen</p>
+      </li>
+      </ul>
+      </section>
+  pub-components-single-page-notification-button-1:
+    title: "Opt-in wording"
+    description: "Local demonstration; no notification is enabled."
+    html: |
+      <h2 class="govuk-heading-m">Example reminder preference</h2>
+      <p class="govuk-body">A real preference would name the event and destination before enabling it.</p>
+      <button type="button" class="govuk-button govuk-button--secondary" data-demo-message="Example only. No reminder or notification channel was changed.">Review reminder options</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+  pub-components-single-page-notification-button-2:
+    title: "Subscribed state specimen"
+    description: "Static confirmed-state wording is labelled as an example."
+    html: |
+      <h2 class="govuk-heading-m">Example subscription state</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Status</dt>
+      <dd class="govuk-summary-list__value">Example: subscribed</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Event</dt>
+      <dd class="govuk-summary-list__value">Documentation updates</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Destination</dt>
+      <dd class="govuk-summary-list__value">Not connected in this demonstration</dd>
+      </div>
+      </dl>
+      <button type="button" class="govuk-button govuk-button--secondary" data-demo-message="Example only. No subscription was stopped.">Review stopping updates</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+  pub-patterns-search-filter-1:
+    title: "Search and area filters"
+    description: "Try a name, select Kitchen or Hall, and apply the filters. Choices within Area are alternatives; the query and area criteria combine."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Equipment name or type</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Area</legend>
+      <div class="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="area-kitchen" name="area" type="checkbox" value="Kitchen" data-publishing-facet="area">
+      <label class="govuk-label govuk-checkboxes__label" for="area-kitchen">Kitchen</label>
+      </div>
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="area-hall" name="area" type="checkbox" value="Hall" data-publishing-facet="area">
+      <label class="govuk-label govuk-checkboxes__label" for="area-hall">Hall</label>
+      </div>
+      </div>
+      </fieldset>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example equipment records</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record data-publishing-area="Hall">
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example hall lamp</span>
+      </summary>
+      <div class="govuk-details__text">A fictional light record for demonstrating name lookup.</div>
+      </details>
+      <p class="govuk-body">Light · Hall</p>
+      </li>
+      <li data-publishing-record data-publishing-area="Kitchen">
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example kitchen lamp</span>
+      </summary>
+      <div class="govuk-details__text">A second fictional light record; no device control is connected.</div>
+      </details>
+      <p class="govuk-body">Light · Kitchen</p>
+      </li>
+      <li data-publishing-record data-publishing-area="Kitchen">
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example kitchen thermometer</span>
+      </summary>
+      <div class="govuk-details__text">A fictional temperature-sensor record.</div>
+      </details>
+      <p class="govuk-body">Sensor · Kitchen</p>
+      </li>
+      </ul>
+      </section>
+  pub-patterns-search-filter-2:
+    title: "Recover from no matches"
+    description: "Enter an unmatched word such as bedroom to see the empty state, then clear filters to restore all three documentation records."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Document title</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example documentation records</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Colour settings</span>
+      </summary>
+      <div class="govuk-details__text">Vivid and Muted are separate from the native Light and Dark display mode.</div>
+      </details>
+      <p class="govuk-body">Guidance</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Charts and tables</span>
+      </summary>
+      <div class="govuk-details__text">Energy charts use a shared visual contract and provide an accessible data table.</div>
+      </details>
+      <p class="govuk-body">Component reference</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Install the theme</span>
+      </summary>
+      <div class="govuk-details__text">Choose the verified installation method matching ownership of your theme files.</div>
+      </details>
+      <p class="govuk-body">Installation guide</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-answer-1:
+    title: "Theme answer"
+    description: "The content answers a real design-system question."
+    html: |
+      <h2 class="govuk-heading-m">Does Muted mean dark mode?</h2>
+      <p class="govuk-body">No. Muted changes the palette’s primary and canvas colours. Home Assistant’s Light and Dark setting is a separate choice.</p>
+  pub-frontend-templates-answer-2:
+    title: "Chart answer"
+    description: "The answer explains the actual chart contract."
+    html: |
+      <h2 class="govuk-heading-m">Do chart colours change with the brand palette?</h2>
+      <p class="govuk-body">Chart identities stay stable across brand palettes. Vivid and Muted adjust their colour strength; Light and Dark adjust surface contrast.</p>
+  pub-frontend-templates-calendar-1:
+    title: "Household agenda"
+    description: "Invented appointments show an agenda structure."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example agenda">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example agenda</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date</th>
+      <th scope="col" class="govuk-table__header">Time</th>
+      <th scope="col" class="govuk-table__header">Event</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">12 November 2026</th>
+      <td class="govuk-table__cell">09:00</td>
+      <td class="govuk-table__cell">Example maintenance visit</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">14 November 2026</th>
+      <td class="govuk-table__cell">All day</td>
+      <td class="govuk-table__cell">Example household reminder</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-calendar-2:
+    title: "Empty period"
+    description: "No invented appointment is inserted to fill a calendar."
+    html: |
+      <h2 class="govuk-heading-m">Example calendar: selected week</h2>
+      <p class="govuk-body">There are no events in this demonstration period.</p>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Calendar source</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Synthetic example data. No household calendar is connected.</p>
+      </div>
+      </details>
+  pub-frontend-templates-completed-transaction-1:
+    title: "Confirmed outcome specimen"
+    description: "A labelled example of a saved preference, not a real setting change."
+    html: |
+      <h2 class="govuk-heading-m">Example: preference saved</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Preference</dt>
+      <dd class="govuk-summary-list__value">Display tone</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Example result</dt>
+      <dd class="govuk-summary-list__value">Muted</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Live changes</dt>
+      <dd class="govuk-summary-list__value">None</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">Return to the setting if you need to review it.</p>
+  pub-frontend-templates-completed-transaction-2:
+    title: "Pending device outcome"
+    description: "Do not turn a pending response into a false completion."
+    html: |
+      <h2 class="govuk-heading-m">Example: request sent</h2>
+      <p class="govuk-body">The sample interface is waiting for a device response. This demonstration does not control a device.</p>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Why this is not complete</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">An accepted request is not evidence that the physical device reached the requested state.</p>
+      </div>
+      </details>
+  pub-frontend-templates-detailed-guide-1:
+    title: "Task-oriented structure"
+    description: "A bounded outline for a real theme installation guide."
+    html: |
+      <nav aria-label="Guide sections">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#before">Before you start</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#verify">Verify the installation</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="before" tabindex="-1">
+      <h2 class="govuk-heading-m">Before you start</h2>
+      <p class="govuk-body">Check the documented frontend baseline and choose the correct installation method.</p>
+      </section>
+      <section id="verify" tabindex="-1">
+      <h2 class="govuk-heading-m">Verify the installation</h2>
+      <p class="govuk-body">Confirm the selected theme, companion resource and version after a fresh load.</p>
+      </section>
+  pub-frontend-templates-detailed-guide-2:
+    title: "Honest guide metadata"
+    description: "These are labelled example dates and changes."
+    html: |
+      <h2 class="govuk-heading-m">Example guide history</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Published</dt>
+      <dd class="govuk-summary-list__value">Example: 1 November 2026</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last updated</dt>
+      <dd class="govuk-summary-list__value">Example: 11 November 2026</dd>
+      </div>
+      </dl>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Show example updates</span>
+      </summary>
+      <div class="govuk-details__text">
+      <ol class="govuk-list">
+      <li>
+      <time datetime="2026-11-11">11 November 2026</time> — Clarified the verification step in this fictional guide.</li>
+      <li>
+      <time datetime="2026-11-01">1 November 2026</time> — Created this fictional guide.</li>
+      </ol>
+      </div>
+      </details>
+  pub-frontend-templates-document-collections-1:
+    title: "Equipment documents"
+    description: "A small collection with working local document extracts."
+    html: |
+      <h2 class="govuk-heading-m">Example equipment documents</h2>
+      <nav aria-label="Document collection">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#lighting">Lighting notes</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#heating">Heating notes</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="lighting" tabindex="-1">
+      <h2 class="govuk-heading-m">Lighting notes</h2>
+      <p class="govuk-body">Example guidance about where to find the installed lamp model’s instructions.</p>
+      </section>
+      <section id="heating" tabindex="-1">
+      <h2 class="govuk-heading-m">Heating notes</h2>
+      <p class="govuk-body">Example guidance about keeping the installed controller’s manual available.</p>
+      </section>
+  pub-frontend-templates-document-collections-2:
+    title: "Release reading"
+    description: "Group documents by purpose rather than file extension."
+    html: |
+      <h2 class="govuk-heading-m">Example release documents</h2>
+      <nav aria-label="Release reading">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#install-notes">Installation notes</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#change-notes">Change notes</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="install-notes" tabindex="-1">
+      <h2 class="govuk-heading-m">Installation notes</h2>
+      <p class="govuk-body">Describe the requirements for the selected version.</p>
+      </section>
+      <section id="change-notes" tabindex="-1">
+      <h2 class="govuk-heading-m">Change notes</h2>
+      <p class="govuk-body">Explain what changed and how it affects users.</p>
+      </section>
+  pub-frontend-templates-finder-1:
+    title: "Scoped catalogue search"
+    description: "A local form demonstrates the input contract only."
+    html: |
+      <h2 class="govuk-heading-m">Find an example document</h2>
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="sample-input">Document name</label>
+      <div id="sample-hint" class="govuk-hint">This local form does not query Home Assistant.</div>
+      <input class="govuk-input" type="search" id="sample-input" name="sample" aria-describedby="sample-hint">
+      </div>
+      <button type="submit" class="govuk-button">Check example</button>
+      <p class="govuk-body" data-demo-status role="status">
+      </p>
+      </form>
+  pub-frontend-templates-finder-2:
+    title: "Search this example document collection"
+    description: "The local finder filters three labelled records. Open a record to read its content, or clear filters to restore the list."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Document title</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example document results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Colour settings</span>
+      </summary>
+      <div class="govuk-details__text">Vivid and Muted are separate from the native Light and Dark display mode.</div>
+      </details>
+      <p class="govuk-body">Guidance</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Charts and tables</span>
+      </summary>
+      <div class="govuk-details__text">Energy charts use a shared visual contract and provide an accessible data table.</div>
+      </details>
+      <p class="govuk-body">Component reference</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Install the theme</span>
+      </summary>
+      <div class="govuk-details__text">Choose the verified installation method matching ownership of your theme files.</div>
+      </details>
+      <p class="govuk-body">Installation guide</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-guide-1:
+    title: "Chapter list"
+    description: "An example current chapter and one real destination."
+    html: |
+      <nav aria-label="In this guide">
+      <ol class="govuk-list">
+      <li aria-current="page">Prepare the installation</li>
+      <li>
+      <a class="govuk-link" href="#chapter-two">Choose an installation method</a>
+      </li>
+      </ol>
+      </nav>
+      <section id="chapter-two" tabindex="-1">
+      <h2 class="govuk-heading-m">Choose an installation method</h2>
+      <p class="govuk-body">Use the instructions that match the actual installation ownership.</p>
+      </section>
+  pub-frontend-templates-guide-2:
+    title: "Chapter ending"
+    description: "The destination title supplies context."
+    html: |
+      <h2 class="govuk-heading-m">Check the result</h2>
+      <p class="govuk-body">A guide should explain how to verify the outcome before moving on.</p>
+      <nav aria-label="Next chapter">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#recovery">Next: Recovery</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="recovery" tabindex="-1">
+      <h2 class="govuk-heading-m">Recovery</h2>
+      <p class="govuk-body">Use the previous verified package and recovery instructions when needed.</p>
+      </section>
+  pub-frontend-templates-homepage-1:
+    title: "Task-focused overview"
+    description: "Working local routes; no live readings are shown."
+    html: |
+      <h2 class="govuk-heading-m">Example home</h2>
+      <nav aria-label="Household tasks">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#rooms">Rooms</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#energy">Energy</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="rooms" tabindex="-1">
+      <h2 class="govuk-heading-m">Rooms</h2>
+      <p class="govuk-body">Browse controls by the areas already configured in Home Assistant.</p>
+      </section>
+      <section id="energy" tabindex="-1">
+      <h2 class="govuk-heading-m">Energy</h2>
+      <p class="govuk-body">Use the native Energy panel for source data and period controls.</p>
+      </section>
+  pub-frontend-templates-homepage-2:
+    title: "Documentation entry"
+    description: "Prioritise a few useful starting points."
+    html: |
+      <h2 class="govuk-heading-m">civica.uk design guidance</h2>
+      <nav aria-label="Start here">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#start">Get started</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#components">Components</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="start" tabindex="-1">
+      <h2 class="govuk-heading-m">Get started</h2>
+      <p class="govuk-body">Understand installation, theme choices and compatibility.</p>
+      </section>
+      <section id="components" tabindex="-1">
+      <h2 class="govuk-heading-m">Components</h2>
+      <p class="govuk-body">Read the component rules and inspect their examples.</p>
+      </section>
+  pub-frontend-templates-mainstream-browse-1:
+    title: "Household subjects"
+    description: "A readable list uses real local section destinations."
+    html: |
+      <nav aria-label="Household subjects">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#lighting">Lighting</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#heating">Heating</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#maintenance">Maintenance</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="lighting" tabindex="-1">
+      <h2 class="govuk-heading-m">Lighting</h2>
+      <p class="govuk-body">Controls and guidance for the configured lights.</p>
+      </section>
+      <section id="heating" tabindex="-1">
+      <h2 class="govuk-heading-m">Heating</h2>
+      <p class="govuk-body">Controls and guidance for configured heating equipment.</p>
+      </section>
+      <section id="maintenance" tabindex="-1">
+      <h2 class="govuk-heading-m">Maintenance</h2>
+      <p class="govuk-body">Records and guidance about maintaining the setup.</p>
+      </section>
+  pub-frontend-templates-mainstream-browse-2:
+    title: "Documentation subjects"
+    description: "A second purpose illustrates the same browse structure."
+    html: |
+      <nav aria-label="Documentation subjects">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#appearance">Appearance</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#interaction">Interaction</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="appearance" tabindex="-1">
+      <h2 class="govuk-heading-m">Appearance</h2>
+      <p class="govuk-body">Colour, typography, spacing and brand guidance.</p>
+      </section>
+      <section id="interaction" tabindex="-1">
+      <h2 class="govuk-heading-m">Interaction</h2>
+      <p class="govuk-body">Controls, navigation, focus and feedback guidance.</p>
+      </section>
+  pub-frontend-templates-smart-answer-1:
+    title: "Bounded display question"
+    description: "Two local links lead to actual explanations."
+    html: |
+      <h2 class="govuk-heading-m">What looks wrong in this example?</h2>
+      <nav aria-label="Choose the display symptom">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#colour">The colour looks wrong</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#layout">The layout looks wrong</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="colour" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the colour selection</h2>
+      <p class="govuk-body">Review the selected palette, tone and native light/dark mode.</p>
+      </section>
+      <section id="layout" tabindex="-1">
+      <h2 class="govuk-heading-m">Check compatibility</h2>
+      <p class="govuk-body">Confirm the installed companion and supported frontend version.</p>
+      </section>
+  pub-frontend-templates-smart-answer-2:
+    title: "Unknown answer"
+    description: "Offer a useful route without guessing."
+    html: |
+      <h2 class="govuk-heading-m">Is the companion loaded?</h2>
+      <nav aria-label="Choose what you know">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#unknown">I do not know</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="unknown" tabindex="-1">
+      <h2 class="govuk-heading-m">Check the installation record</h2>
+      <p class="govuk-body">Follow the documented resource verification step before drawing a conclusion.</p>
+      </section>
+  pub-frontend-templates-special-route-1:
+    title: "Route contract"
+    description: "A fictional custom route is described without a broken navigation link."
+    html: |
+      <h2 class="govuk-heading-m">Example custom page contract</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Purpose</dt>
+      <dd class="govuk-summary-list__value">Read-only equipment notes</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Data owner</dt>
+      <dd class="govuk-summary-list__value">An explicitly configured document source</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Writes</dt>
+      <dd class="govuk-summary-list__value">None</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Availability</dt>
+      <dd class="govuk-summary-list__value">Design specimen only</dd>
+      </div>
+      </dl>
+  pub-frontend-templates-special-route-2:
+    title: "Unavailable custom source"
+    description: "The empty/error message remains useful."
+    html: |
+      <h2 class="govuk-heading-m">Example notes are unavailable</h2>
+      <p class="govuk-body">The demonstration has no connected document source.</p>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What to check</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">In a real component, verify the configured source and permissions before retrying.</p>
+      </div>
+      </details>
+  pub-frontend-templates-step-by-step-nav-1:
+    title: "Installation journey"
+    description: "An ordered list links to existing local step text."
+    html: |
+      <ol class="govuk-list govuk-list--number">
+      <li>
+      <a class="govuk-link" href="#requirements">Check requirements</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#verification">Verify the result</a>
+      </li>
+      </ol>
+      <section id="requirements" tabindex="-1">
+      <h2 class="govuk-heading-m">Check requirements</h2>
+      <p class="govuk-body">Read the supported version and installation options.</p>
+      </section>
+      <section id="verification" tabindex="-1">
+      <h2 class="govuk-heading-m">Verify the result</h2>
+      <p class="govuk-body">Confirm the actual installed behaviour after a fresh load.</p>
+      </section>
+  pub-frontend-templates-step-by-step-nav-2:
+    title: "Guidance disclosure"
+    description: "Native details expands guidance without claiming saved progress."
+    html: |
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Step 1: Choose a method</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Select the documented installation method that matches ownership of the theme files.</p>
+      </div>
+      </details>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Step 2: Check the result</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Follow the verification instructions; expanding this step does not mark it complete.</p>
+      </div>
+      </details>
+  pub-frontend-templates-topical-events-1:
+    title: "Maintenance project"
+    description: "A fictional, time-bounded collection."
+    html: |
+      <h2 class="govuk-heading-m">Example: household documentation review</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Status</dt>
+      <dd class="govuk-summary-list__value">Example planning stage</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Scope</dt>
+      <dd class="govuk-summary-list__value">Review document labels</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Live household changes</dt>
+      <dd class="govuk-summary-list__value">None</dd>
+      </div>
+      </dl>
+      <nav aria-label="Project information">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#about">About this example project</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="about" tabindex="-1">
+      <h2 class="govuk-heading-m">About this example project</h2>
+      <p class="govuk-body">The specimen demonstrates a project information structure.</p>
+      </section>
+  pub-frontend-templates-topical-events-2:
+    title: "Closed project"
+    description: "An archived state remains distinct from current work."
+    html: |
+      <h2 class="govuk-heading-m">Example project archive</h2>
+      <p class="govuk-body">
+      <strong class="govuk-tag govuk-tag--grey">Example: closed</strong>
+      </p>
+      <p class="govuk-body">This fictional project is complete. Its notes remain available as a record, not a current task.</p>
+  pub-frontend-templates-transaction-1:
+    title: "Guided settings entry"
+    description: "A working local anchor demonstrates a task destination."
+    html: |
+      <h2 class="govuk-heading-m">Choose a theme</h2>
+      <p class="govuk-body">Review palette and tone before changing the appearance.</p>
+      <p class="govuk-body">
+      <a class="govuk-button" href="#settings">Review example settings</a>
+      </p>
+      <section id="settings" tabindex="-1">
+      <h2 class="govuk-heading-m">Example settings</h2>
+      <p class="govuk-body">This destination describes settings; it does not change Home Assistant.</p>
+      </section>
+  pub-frontend-templates-transaction-2:
+    title: "External service boundary"
+    description: "The real public repository is clearly identified."
+    html: |
+      <h2 class="govuk-heading-m">Read release information</h2>
+      <p class="govuk-body">Continue to the public civica.uk repository on GitHub.</p>
+      <p class="govuk-body">
+      <a class="govuk-link" href="https://github.com/nathcymru/HA-Theme-gov.uk/releases">Read releases on GitHub</a>
+      </p>
+  pub-frontend-templates-finder-case-studies-finder-1:
+    title: "Example projects"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example projects">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example projects</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Lighting scene example</th>
+      <td class="govuk-table__cell">Synthetic example</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Energy chart example</th>
+      <td class="govuk-table__cell">Documented pattern</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-case-studies-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Lighting scene example</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Synthetic project</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Energy chart example</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Documented pattern</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Theme setup example</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Synthetic project</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-departments-agencies-public-bodies-finder-1:
+    title: "Example integration catalogue"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example integration catalogue">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example integration catalogue</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Sample calendar source</th>
+      <td class="govuk-table__cell">Calendar data</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Sample light integration</th>
+      <td class="govuk-table__cell">Lighting data</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-departments-agencies-public-bodies-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Sample calendar source</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Calendar data</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Sample light integration</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Lighting data</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Sample weather source</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Weather data</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-groups-finder-1:
+    title: "Example group catalogue"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example group catalogue">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example group catalogue</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Downstairs example</th>
+      <td class="govuk-table__cell">Area group</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Reading lights example</th>
+      <td class="govuk-table__cell">Explicit light group</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-groups-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Downstairs example</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Area group</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Reading lights example</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Explicit light group</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Outdoor example</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Label group</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-hmrc-contacts-finder-1:
+    title: "Example support directory"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example support directory">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example support directory</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Theme appearance</th>
+      <td class="govuk-table__cell">Documentation guidance</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Integration setup</th>
+      <td class="govuk-table__cell">Integration documentation</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-hmrc-contacts-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Theme appearance</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Documentation guidance</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Integration setup</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Integration documentation</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Maintenance records</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Household guidance specimen</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-people-finder-1:
+    title: "Example responsibility roles"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example responsibility roles">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example responsibility roles</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">System maintainer</th>
+      <td class="govuk-table__cell">Reviews installed versions</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Document owner</th>
+      <td class="govuk-table__cell">Keeps instructions current</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-people-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">System maintainer</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Reviews installed versions</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Document owner</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Keeps instructions current</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Household viewer</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Reads shared guidance</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-search-1:
+    title: "Example site results"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example site results">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example site results</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Colour settings</th>
+      <td class="govuk-table__cell">Guidance</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Charts and tables</th>
+      <td class="govuk-table__cell">Component reference</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-search-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Colour settings</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Guidance</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Charts and tables</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Component reference</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Install the theme</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Installation guide</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-specialist-document-finder-1:
+    title: "Example technical documents"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example technical documents">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example technical documents</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Timer model A notes</th>
+      <td class="govuk-table__cell">Example revision 2</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Lamp model B notes</th>
+      <td class="govuk-table__cell">Example revision 1</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-specialist-document-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Timer model A notes</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Example revision 2</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Lamp model B notes</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Example revision 1</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Meter model C notes</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Example revision 3</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-statistical-data-sets-finder-1:
+    title: "Example dataset descriptions"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example dataset descriptions">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example dataset descriptions</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Energy by period</th>
+      <td class="govuk-table__cell">Aggregated kWh example</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Power samples</th>
+      <td class="govuk-table__cell">Time-series kW example</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-statistical-data-sets-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Energy by period</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Aggregated kWh example</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Power samples</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Time-series kW example</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Water by period</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Aggregated cubic-metre example</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-supergroup-finder-1:
+    title: "Example guidance purposes"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example guidance purposes">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example guidance purposes</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Using the system</th>
+      <td class="govuk-table__cell">Everyday tasks</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Maintaining the system</th>
+      <td class="govuk-table__cell">Upgrades and recovery</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-supergroup-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Using the system</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Everyday tasks</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Maintaining the system</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Upgrades and recovery</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Configuring the system</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Setup guidance</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-topical-events-finder-1:
+    title: "Example project archive"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example project archive">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example project archive</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Documentation review</th>
+      <td class="govuk-table__cell">Example: planned</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Theme review</th>
+      <td class="govuk-table__cell">Example: closed</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-topical-events-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Documentation review</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Example: planned</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Theme review</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Example: closed</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Lighting review</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Example: planning</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-finder-world-organisation-finder-1:
+    title: "Example installation catalogue"
+    description: "Two invented entries demonstrate the result metadata."
+    html: |
+      <div tabindex="0" role="region" aria-label="Example installation catalogue">
+      <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Example installation catalogue</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Title</th>
+      <th scope="col" class="govuk-table__header">Context</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Example home A</th>
+      <td class="govuk-table__cell">Read-only documentation</td>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__cell">Example home B</th>
+      <td class="govuk-table__cell">Read-only documentation</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+  pub-frontend-templates-finder-world-organisation-finder-2:
+    title: "Search within this collection"
+    description: "Type a word from a title or its context, then find records. The fixed local list and its disclosures work without a backend."
+    html: |
+      <form data-publishing-filter data-publishing-target="sample-results">
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="sample-query">Search the example collection</label>
+      <div class="govuk-hint" id="sample-hint">Search this fixed example list. No household data is connected.</div>
+      <input class="govuk-input" id="sample-query" name="query" type="search" aria-describedby="sample-hint">
+      </div>
+      <div class="govuk-button-group govuk-!-display-none-print">
+      <button type="submit" class="govuk-button" data-publishing-enable disabled>Find example records</button>
+      <button type="button" class="govuk-button govuk-button--secondary" data-publishing-enable data-publishing-reset disabled>Clear filters</button>
+      </div>
+      <p class="govuk-body" data-publishing-status role="status">3 example records. No live data is connected.</p>
+      <noscript>
+      <p class="govuk-body">Filtering needs JavaScript. Read every example record below; this form cannot submit your query.</p>
+      </noscript>
+      </form>
+      <section id="sample-results" aria-labelledby="sample-results-title">
+      <h2 class="govuk-heading-m" id="sample-results-title">Example collection results</h2>
+      <p class="govuk-body" data-publishing-empty hidden>No example records match. Clear filters or try a different query.</p>
+      <ul class="govuk-list">
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example home A</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Read-only documentation</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example home B</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Read-only documentation</p>
+      </li>
+      <li data-publishing-record>
+      <details class="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example home C</span>
+      </summary>
+      <div class="govuk-details__text">This synthetic record demonstrates the catalogue structure. It does not describe a configured household item.</div>
+      </details>
+      <p class="govuk-body">Read-only documentation</p>
+      </li>
+      </ul>
+      </section>
+  pub-frontend-templates-mainstream-browse-level-one-1:
+    title: "Lighting topic"
+    description: "Subtopics link to existing local explanatory sections."
+    html: |
+      <h2 class="govuk-heading-m">Example topic: Lighting</h2>
+      <nav aria-label="Lighting subjects">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#controls">Using controls</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#scenes">Understanding scenes</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="controls" tabindex="-1">
+      <h2 class="govuk-heading-m">Using controls</h2>
+      <p class="govuk-body">Use the labels and capabilities exposed by the actual integration.</p>
+      </section>
+      <section id="scenes" tabindex="-1">
+      <h2 class="govuk-heading-m">Understanding scenes</h2>
+      <p class="govuk-body">A scene represents configured target states; do not infer support for unavailable actions.</p>
+      </section>
+  pub-frontend-templates-mainstream-browse-level-one-2:
+    title: "System topic"
+    description: "A second subject shows topic-level grouping."
+    html: |
+      <h2 class="govuk-heading-m">Example topic: Maintaining the system</h2>
+      <nav aria-label="Maintenance subjects">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#updates">Updates</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#recovery">Recovery</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="updates" tabindex="-1">
+      <h2 class="govuk-heading-m">Updates</h2>
+      <p class="govuk-body">Read the compatibility and release information before upgrading.</p>
+      </section>
+      <section id="recovery" tabindex="-1">
+      <h2 class="govuk-heading-m">Recovery</h2>
+      <p class="govuk-body">Keep the verified previous package and recovery instructions available.</p>
+      </section>
+  pub-frontend-templates-mainstream-browse-level-two-1:
+    title: "Ordered installation reading"
+    description: "Real local section links reflect a reading sequence."
+    html: |
+      <nav aria-label="Installation reading">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#requirements">Check requirements</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#method">Choose a method</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#verify">Verify the result</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="requirements" tabindex="-1">
+      <h2 class="govuk-heading-m">Check requirements</h2>
+      <p class="govuk-body">Confirm the supported version.</p>
+      </section>
+      <section id="method" tabindex="-1">
+      <h2 class="govuk-heading-m">Choose a method</h2>
+      <p class="govuk-body">Match the method to theme ownership.</p>
+      </section>
+      <section id="verify" tabindex="-1">
+      <h2 class="govuk-heading-m">Verify the result</h2>
+      <p class="govuk-body">Check the actual loaded interface.</p>
+      </section>
+  pub-frontend-templates-mainstream-browse-level-two-2:
+    title: "Alphabetical reference list"
+    description: "A clear known-item list needs no hidden categories."
+    html: |
+      <nav aria-label="Appearance reference">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#colour">Colour</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#layout">Layout</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#type">Typography</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="colour" tabindex="-1">
+      <h2 class="govuk-heading-m">Colour</h2>
+      <p class="govuk-body">Read palette and contrast rules.</p>
+      </section>
+      <section id="layout" tabindex="-1">
+      <h2 class="govuk-heading-m">Layout</h2>
+      <p class="govuk-body">Read spacing and responsive behaviour.</p>
+      </section>
+      <section id="type" tabindex="-1">
+      <h2 class="govuk-heading-m">Typography</h2>
+      <p class="govuk-body">Read text size and scaling rules.</p>
+      </section>
+  pub-frontend-templates-smart-answer-github-smart-answer-1:
+    title: "Decision rule record"
+    description: "A readable rule specification rather than an unimplemented calculator."
+    html: |
+      <h2 class="govuk-heading-m">Example rule: theme loading check</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Input</dt>
+      <dd class="govuk-summary-list__value">Whether the companion resource is confirmed loaded</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">If confirmed</dt>
+      <dd class="govuk-summary-list__value">Continue with compatibility checks</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">If unknown</dt>
+      <dd class="govuk-summary-list__value">Follow the resource verification guide</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Device action</dt>
+      <dd class="govuk-summary-list__value">None</dd>
+      </div>
+      </dl>
+  pub-frontend-templates-smart-answer-github-smart-answer-2:
+    title: "Bounded branch navigation"
+    description: "Both example outcomes exist as local sections."
+    html: |
+      <h2 class="govuk-heading-m">What has been verified?</h2>
+      <nav aria-label="Verification result">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#known">The resource was found</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#unknown">The resource was not checked</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="known" tabindex="-1">
+      <h2 class="govuk-heading-m">Review compatibility</h2>
+      <p class="govuk-body">Check the installed version against the documented baseline.</p>
+      </section>
+      <section id="unknown" tabindex="-1">
+      <h2 class="govuk-heading-m">Verify the resource first</h2>
+      <p class="govuk-body">Do not infer a device or theme fault from an unverified installation.</p>
+      </section>
+  pub-frontend-templates-smart-answer-simple-smart-answer-1:
+    title: "Choose a guidance route"
+    description: "Simple choices navigate to actual local explanations."
+    html: |
+      <h2 class="govuk-heading-m">What do you want to do?</h2>
+      <nav aria-label="Choose a task">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#install">Install the theme</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#change">Change the colours</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="install" tabindex="-1">
+      <h2 class="govuk-heading-m">Installation guidance</h2>
+      <p class="govuk-body">Choose the documented method for your setup.</p>
+      </section>
+      <section id="change" tabindex="-1">
+      <h2 class="govuk-heading-m">Colour guidance</h2>
+      <p class="govuk-body">Review palette, tone and native display mode.</p>
+      </section>
+  pub-frontend-templates-smart-answer-simple-smart-answer-2:
+    title: "Known or unknown setup"
+    description: "An uncertainty branch remains useful."
+    html: |
+      <h2 class="govuk-heading-m">Do you know how the theme was installed?</h2>
+      <nav aria-label="Installation knowledge">
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#yes">Yes</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#unsure">I am not sure</a>
+      </li>
+      </ul>
+      </nav>
+      <section id="yes" tabindex="-1">
+      <h2 class="govuk-heading-m">Use the matching guide</h2>
+      <p class="govuk-body">Follow the method that owns the installed theme files.</p>
+      </section>
+      <section id="unsure" tabindex="-1">
+      <h2 class="govuk-heading-m">Check ownership first</h2>
+      <p class="govuk-body">Review the installation record before replacing any files.</p>
+      </section>
+  pub-frontend-templates-topical-events-about-1:
+    title: "Project scope"
+    description: "A fictional documentation project with a clear boundary."
+    html: |
+      <h2 class="govuk-heading-m">About the example review</h2>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Purpose</dt>
+      <dd class="govuk-summary-list__value">Improve document labels</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Included</dt>
+      <dd class="govuk-summary-list__value">Reference titles and navigation</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Excluded</dt>
+      <dd class="govuk-summary-list__value">Device settings and automation logic</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Owner</dt>
+      <dd class="govuk-summary-list__value">Example documentation maintainer</dd>
+      </div>
+      </dl>
+  pub-frontend-templates-topical-events-about-2:
+    title: "Parent route"
+    description: "A working local link returns to the example project summary."
+    html: |
+      <p class="govuk-body">
+      <a class="govuk-link" href="#project">Return to the example project</a>
+      </p>
+      <section id="project" tabindex="-1">
+      <h2 class="govuk-heading-m">Example documentation review</h2>
+      <p class="govuk-body">Planning specimen only. No household task is scheduled or changed.</p>
+      </section>

@@ -1,0 +1,62 @@
+---
+title: "Print link"
+description: "The publishing print control either invokes the browser print dialog or links to an existing print view."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/print-link/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Print link
+
+The publishing print control either invokes the browser print dialog or links to an existing print view. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/print-link/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Printing can help with offline recovery guidance, maintenance notes and a household quick reference. Include the page title, revision and meaningful text in the print output. A chart printout also needs its unit, selected period and data alternative.
+
+## Structure and behaviour
+
+Use a button for a browser action and a real link for a separate printable page. Hide action controls and decorative navigation in print styles while preserving warnings and content. For a multi-part guide, assemble a complete print view before offering a link to it.
+
+## Home Assistant boundary
+
+Both examples invoke window.print() only when the person selects Print this example. This opens the browser print dialog for the isolated example document. The action controls are omitted from print output, while the example content remains. No PDF is generated or uploaded, and opening the dialog does not claim a successful print. Without JavaScript, use the browser’s own Print command; the example button remains disabled. Test the real print preview, including expanded and collapsed history.
+
+## Print a recovery note
+
+The button opens the browser print dialog for this isolated example. It does not upload a file or claim that printing succeeded.
+
+<%= example("pub-components-print-link-1") %>
+
+## Print a structured reference
+
+A second example preserves clear labels and explanatory content in the browser print preview.
+
+<%= example("pub-components-print-link-2") %>
+
+## Acceptance checks
+
+- A separate print URL exists if advertised.
+- Print output contains the title, relevant dates and units.
+- No essential information depends on a background colour.
+- Hidden interactive controls do not leave unexplained gaps.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

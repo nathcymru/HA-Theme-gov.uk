@@ -1,0 +1,63 @@
+---
+title: "Summary list"
+description: "Present labelled values when each label has one or more associated answers."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/summary-list"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed summary list guidance and 2 Home Assistant reference examples."
+---
+
+# Summary list
+
+Present labelled values when each label has one or more associated answers.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for device details or a review of settings before saving. A summary card can separate several instances of the same thing, each with a unique title.
+
+## When not to use it
+
+Do not use a description list for rows that need comparison across shared columns, a navigation menu or a sequence of tasks. Choose a table, list or task list for those structures.
+
+## Home Assistant adaptation
+
+A device summary should distinguish a friendly name, room and connection state. A settings summary can offer a change link without making the whole row a button. Returning from a change must preserve the existing answer and the path back to the review.
+
+## Accessibility and behaviour
+
+Use dl, dt and dd semantics. Add hidden context to repeated “Change” links, or use a complete visible link label. Keep action targets independent and ensure long values wrap on small screens.
+
+## Examples
+
+### Read-only device details
+
+Key-value pairs describe one device without implying tabular comparison.
+
+<%= example('nhs-summary-device') %>
+
+### Review and change a display name
+
+The change link has an unambiguous accessible name and an actual example destination.
+
+<%= example('nhs-summary-change') %>
+
+## Check the implementation
+
+Test an absent value, a very long device name, repeated action names and reading order at 320px. Do not display a blank cell where “Not supplied” or “Unavailable” is the accurate meaning.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS summary list](https://service-manual.nhs.uk/design-system/components/summary-list) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [cards](cards.html).

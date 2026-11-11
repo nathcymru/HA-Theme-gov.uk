@@ -1,0 +1,50 @@
+---
+title: "Page metadata and history"
+description: "Show when guidance was published, what changed and when it last changed."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Page metadata and history
+
+Show when guidance was published, what changed and when it last changed.
+
+## When to use
+
+Every editorial guidance page in this design system has publication metadata and an expandable update history. The homepage is excluded. Standalone example canvases are linked demonstrations; their owning guidance page records their changes.
+
+Do not confuse publication dates with a sensor timestamp, a household event log or a review deadline. Use the [review-dates pattern](../patterns/review-dates.html) for planned content review and native HA history for device events.
+
+## A material update
+
+<%= example('system-history-expanded') %>
+
+## A correction explained in plain language
+
+<%= example('system-history-correction') %>
+
+## Record real changes
+
+Keep the first publication date stable. Add the newest substantive update first and explain its practical effect. Use ISO dates in `<time datetime>` and a readable British date in visible text. Do not replace all dates on each build or imply that unchanged content has been reviewed.
+
+For existing pages, this rebuild retains the first publication date found in repository history and records the actual documentation-shell change. New pages declare their dates and notes in frontmatter. The layout refuses to build a guide without a history record. Future editors must append an accurate entry when guidance or its examples materially change.
+
+## Expandable history behaviour
+
+Use a native `details` element with “See all updates” as its summary. The ordered list is newest first. Enter and Space toggle the disclosure; its state is available without custom JavaScript. Keep the metadata visible and make the history readable when printed.
+
+## Publishing-component provenance
+
+The GOV.UK publishing library merged Published dates into Metadata in [PR #5572](https://github.com/alphagov/govuk_publishing_components/pull/5572), released in 66.9.0. The current full-history parameter is `page_history`, with `first_published` and `last_updated`; `see_updates_link` supports the upper-page link. The old standalone component was subsequently removed. The simple `history` field is not the full update array, and `show_history` is not the option used by the current source.
+
+This Middleman site implements the same editorial pattern with semantic HTML. It does not install the Rails publishing gem. Its own frontmatter names are `published_on`, `updated_on` and `updates`, mapped by the shared layout.
+
+## Testing and content ownership
+
+Check a new page, a page with several changes, long notes, keyboard operation and no JavaScript. The displayed dates must match the authored record. A build date, dependency release or Git commit time alone does not establish a content review. Keep ownership and source links near the guidance, and use the repository issue route to report inaccuracies.

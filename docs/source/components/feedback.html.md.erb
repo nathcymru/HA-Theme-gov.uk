@@ -1,0 +1,44 @@
+---
+title: "Feedback"
+description: "Give people a quiet, clearly named route to report problems with a page or task."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Feedback
+
+Give people a quiet, clearly named route to report problems with a page or task.
+
+## When to use
+
+Place feedback after the main task or article. It should be available without interrupting device controls or requiring a positive rating. Distinguish product feedback from urgent household alerts and technical support.
+
+The official GOV.UK component is in trial. Our adaptation uses a short invitation and a direct route to a maintained channel. Do not imply that someone monitors feedback continuously unless that is true.
+
+## Feedback invitation
+
+<%= example('core-feedback-invitation') %>
+
+## Confirmation without overstating delivery
+
+<%= example('core-feedback-confirmation') %>
+
+## Behaviour and content
+
+State where feedback goes, what information is needed and whether a reply is expected. Use an ordinary link for an external issue tracker and a form only when a real receiving service exists. Preserve typed feedback if submission fails. Explain how to remove private information before posting publicly.
+
+Do not automatically attach household configuration, sensor values or screenshots. Keep a separate support route when users need help completing a task. Feedback must never delay a safety-related action.
+
+## Accessibility and implementation
+
+Keep labels visible, associate errors with fields and announce the submission outcome without moving focus unnecessarily. Test with an empty comment, a long comment, server failure and repeated submission. This example uses local feedback only. The documentation footer links to the real repository issue form; the theme does not create a new HA feedback service.
+
+## Source
+
+[GOV.UK Feedback](https://design-system.service.gov.uk/components/feedback/), reviewed 11 November 2026. The local wording and privacy boundaries are specific to household software.

@@ -1,0 +1,55 @@
+---
+title: "Show when guidance was reviewed"
+description: "Distinguish reviewed household guidance, individual updates and the freshness of live data."
+section: "patterns"
+group: "Inclusive content"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS know-that-a-page-is-up-to-date pattern."
+---
+
+# Show when guidance was reviewed
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A review date describes an editorial check of information. It is not a heartbeat from Home Assistant and it cannot confirm the state of a household device.
+
+## The NHS principle we adapt
+
+The [NHS review-date pattern](https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date) gives a last review and a planned next review for an information page. It separates whole-page review from a small update and places embedded-content dates beside that content. civica applies those distinctions to maintained help and household reference material, not form steps.
+
+## Review the whole guidance page
+
+Use dates on instructions that depend on a particular integration, interface or household arrangement. Record the owner and review scope in the content source. Check the wording, linked routes, supported controls and accessibility together before updating the last-reviewed date.
+
+<%= example('nhs-pattern-review-guidance') %>
+
+Do not add a review footer to every brightness dialog or setup question. A live screen needs availability and request feedback; an editorial review date adds a different kind of information that can be mistaken for freshness.
+
+<%= example('nhs-review-distinct-times') %>
+
+## Keep three clocks separate
+
+- **Guidance reviewed:** a person checked the complete instructions.
+- **Content updated:** a specific part changed; describe what changed.
+- **Reading received:** a device or integration supplied an observation at this time.
+
+An asset such as a real tutorial video can have its own review record. Review it when labels, navigation or device behaviour change, even if the surrounding page text stays the same. Do not silently extend its review date during an unrelated documentation build.
+
+<%= example('nhs-review-overdue') %>
+
+## Accessibility and content
+
+Use full, unambiguous dates and semantic `time` elements. Include the time zone for observations where it matters. Place the guidance dates near the end of the content they describe. Do not use only a green “Current” badge: readers need to know what was checked and when. An overdue date should remain visible until a real review happens.
+
+## Home Assistant implementation boundary
+
+Documentation metadata should record both the review event and subsequent edits. A deployment, generated asset hash or successful build is not evidence that a person reviewed the instructions. For live values, use the actual integration timestamps and documented freshness rules; do not substitute the page render time. If there is no reliable observation time, say that it is unknown.
+
+## Maintenance decisions
+
+Choose a review interval appropriate to the content and its owner. Trigger an earlier review after a relevant Home Assistant change, a broken route or user feedback. Archive or withdraw guidance that cannot be maintained rather than resetting its date to make it appear current. The dates in the previews are labelled examples and do not attest to an actual household inspection.

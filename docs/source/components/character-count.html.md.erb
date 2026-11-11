@@ -1,0 +1,63 @@
+---
+title: "Character count"
+description: "Show a remaining count only when a real limit applies to an answer."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/character-count"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed character count guidance and 2 Home Assistant reference examples."
+---
+
+# Character count
+
+Show a remaining count only when a real limit applies to an answer.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for a bounded dashboard note or message field whose receiving system has a documented limit. Include that limit before the field, not just in a changing counter.
+
+## When not to use it
+
+Do not invent limits to make cards fit. Increase an unnecessary storage restriction instead of asking people to shorten useful instructions. Do not prevent pasting a complete answer.
+
+## Home Assistant adaptation
+
+The example uses the GOV.UK character-count enhancement. It allows editing beyond the limit and provides feedback; submission validation still belongs to the component that stores the note. A household note is not a monitored message to a support team. State its audience and purpose.
+
+## Accessibility and behaviour
+
+Keep the visible counter below the textarea. Associate hints and count with the field, retain the static maximum when JavaScript is unavailable, and avoid announcing every keystroke. The enhanced component schedules screen-reader updates.
+
+## Examples
+
+### A short dashboard note
+
+An example limit of 120 characters is explained before typing.
+
+<%= example('nhs-count-note') %>
+
+### An answer above the limit
+
+The full answer remains available to edit; it is not silently cut off.
+
+<%= example('nhs-count-over-limit') %>
+
+## Check the implementation
+
+Test pasting, deleting, emoji and an over-limit save. The backend and frontend must count the same units. Keep entered text after an error.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS character count](https://service-manual.nhs.uk/design-system/components/character-count) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

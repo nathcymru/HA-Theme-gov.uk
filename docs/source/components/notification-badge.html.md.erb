@@ -1,0 +1,63 @@
+---
+title: "Notification badge"
+description: "The MOJ notification badge pattern and its bounded Home Assistant adaptation."
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+---
+
+# Notification badge
+
+Use the [Ministry of Justice notification badge](https://design-patterns.service.justice.gov.uk/components/notification-badge/) for new or unread items that need attention. Associate it with the destination that opens those items. Do not use it for routine device totals or to label a sensor state.
+
+
+## Examples
+
+These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
+
+<%= example('local-badge-count') %>
+
+<%= example('local-badge-overflow') %>
+
+
+## Shape and colour
+
+Keep the red rounded form and white count, independently of the selected palette. The current [MOJ stylesheet](https://github.com/ministryofjustice/moj-frontend/blob/b2dcbead533e2c157fe66ad60050b1e134e7a9c8/src/moj/components/notification-badge/_notification-badge.scss) uses the following geometry. It is not specified as a fixed 24px square.
+
+| Property | Value |
+| --- | --- |
+| Text | 16px, bold; Arial in civica.uk |
+| Minimum content width | `0.75em` |
+| Minimum content height | `1.25em` |
+| Padding | `1px 0.25em 0` |
+| Space before badge | `0.5em` |
+| Radius | `10em` |
+| Outline | 4px red, offset `-0.1em` |
+| Foreground and fill | White on `#CA3535` |
+
+Retain the outline in forced colours: the source uses it to preserve the number's boundary without affecting layout. Do not replace this geometry with the theme's square card corners or recolour it to the current palette. Check its surrounding background; the source explicitly warns against placing it on an unsuitable header.
+
+In dark mode, civica.uk uses its existing `#17191B` canvas for the sidebar so the fixed red badge retains a visible boundary. This changes the surrounding surface, not the MOJ red. White count text and the red-to-sidebar contrast are tested separately.
+
+## Counts and accessible text
+
+The [MOJ template](https://github.com/ministryofjustice/moj-frontend/blob/b2dcbead533e2c157fe66ad60050b1e134e7a9c8/src/moj/components/notification-badge/template.njk) provides these count rules:
+
+| Items | Visible badge | Accessible count |
+| --- | --- | --- |
+| None | No badge | Keep the destination's name |
+| 1 to 98 | Exact count | Count with a meaningful descriptor |
+| 99 or more | `99+` | “99 or more” with a descriptor |
+
+Include context such as unread notifications in the destination's accessible name. Expose the count once; hide a duplicate visible numeral from assistive technology. The badge is part of the destination control, not an extra tab stop.
+
+## Home Assistant adaptation
+
+Home Assistant can open its notification drawer with a button rather than a document link. Preserve that native action, keyboard behaviour, translated name and notification data. Apply the badge presentation only to its count; do not rename an unrelated update count as unread notifications.
+
+The source component normally changes when a page reloads. Home Assistant updates in place, so this is a documented local adaptation. Keep the current count available to assistive technology without announcing every background change. Let the notification interface report an explicit dismissal or failure; a disappearing number alone is inadequate feedback. Styling must not create, clear or acknowledge notifications.
+
+For updates, retain Home Assistant's own description of what is available. A theme cannot decide that an item has been read. If the host stops exposing the expected badge or count, preserve the native control and report the compatibility limit rather than manufacturing a replacement value.
+
+## Acceptance checks
+
+Check counts 0, 1, 9, 10, 98, 99 and 100; no clipping at 200% text scaling; one accessible announcement of the count; keyboard activation of the parent control; live count changes; forced colours; all palette headers; and restoration when switching away from civica.uk. Confirm that radios, switches, avatars and ordinary status tags retain their own shapes.

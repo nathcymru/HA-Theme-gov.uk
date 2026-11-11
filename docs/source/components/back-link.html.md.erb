@@ -1,0 +1,63 @@
+---
+title: "Back link"
+description: "A back link returns to the previous step of a task in the state the user left it."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/back-link"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed back link guidance and 2 Home Assistant reference examples."
+---
+
+# Back link
+
+A back link returns to the previous step of a task in the state the user left it.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it in a multi-step setup or form when returning to change an answer is useful. Keep the destination predictable and preserve non-secret answers.
+
+## When not to use it
+
+Do not add a back link to every dashboard card, use it alongside breadcrumbs, or treat browser history as a guaranteed parent route. A deep link may have no meaningful in-app previous page.
+
+## Home Assistant adaptation
+
+Home Assistant already owns routing and many back controls. Reuse the native route and editor state rather than inserting a second competing control. The examples use local section targets so no real dashboard is left or modified.
+
+## Accessibility and behaviour
+
+Use a real link when navigating. If returning requires saving a form answer, use the owning form’s submit behaviour rather than disguising a state-changing operation as a link. Position it before main content and after the service header.
+
+## Examples
+
+### Return to a previous setup step
+
+The local destination represents a previous step and the entered answer stays intact.
+
+<%= example('nhs-back-step') %>
+
+### Return to the settings review
+
+A specific destination is clearer than guessing from browser history.
+
+<%= example('nhs-back-review') %>
+
+## Check the implementation
+
+Test an edited answer, unsaved changes, a deep-linked page, browser Back and keyboard focus after return. Use a specific label when “Back” would be ambiguous.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS back link](https://service-manual.nhs.uk/design-system/components/back-link) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

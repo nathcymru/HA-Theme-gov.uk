@@ -1,0 +1,53 @@
+---
+title: "Organise household help with hub pages"
+description: "Give related content a clear hierarchy and make common household tasks easy to find."
+section: "patterns"
+group: "Page patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/hub-page"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS hub-page pattern."
+---
+
+# Organise household help with hub pages
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A hub gives people routes into groups of information. Its structure should reflect what household members are trying to do, not the implementation of integrations and services.
+
+## The NHS principle we adapt
+
+The [NHS hub pattern](https://service-manual.nhs.uk/design-system/patterns/hub-page) separates a few important shortcuts from primary content groups and less prominent related topics. civica adopts this hierarchy using its own square cards, typography and palette. Navigation remains consistent across the rest of the application.
+
+## Prioritise useful routes
+
+Use descriptive headings and a short explanation of what each group contains. Reserve top shortcuts for evidenced frequent or important tasks; keep them few. A top task should reach its useful destination directly, rather than point to the same intermediate page as a primary card.
+
+<%= example('nhs-hub-household') %>
+
+## Keep cards proportionate
+
+A hub is useful for a substantial help collection. If there are only a few pages, a list is easier to scan and cheaper to maintain. Do not make a large card for every toggle, entity state or small configuration question.
+
+<%= example('nhs-hub-small') %>
+
+## Separate navigation from control
+
+A room dashboard may contain both a route to room information and controls for lights. Keep their purposes clear. A navigation card should have one destination and must not also contain a button that performs a device action inside the same clickable region. A device control card remains a different component with its own labels, state and feedback.
+
+Avoid putting unrelated images or decorative icons on every help card. Use a consistent domain icon only when it helps recognition and retain the text. Quiet structural borders and spacing should define groups; do not turn each navigation card into a heavy input-style box.
+
+## Accessibility and content
+
+Make the heading link meaningful out of context. Follow a logical heading order and DOM order. A visual grid must become a single readable column at narrow widths and high zoom. If the whole card is made clickable in a production implementation, keep one actual link, preserve keyboard behaviour and avoid overlapping or nested interactive elements. Focus must remain visible on the chosen palette.
+
+## Home Assistant implementation boundary
+
+The hub routes to actual available help or configuration pages. It must not replace Home Assistant's global navigation, hide native settings, or guess routes for custom integrations. Respect profile permissions when showing administrative destinations. An unavailable device must not make its recovery help disappear.
+
+## Review the information architecture
+
+Test the group names with household members and observe whether they can find a task without knowing an integration name. Use a start page when a route begins a consequential setup journey, and use a mini-hub for one complex explanatory topic. A hub is not a substitute for either pattern. The preview destinations are local explanatory sections and never operate devices.

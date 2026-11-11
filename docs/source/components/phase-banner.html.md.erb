@@ -1,0 +1,44 @@
+---
+title: "Phase banner"
+description: "Tell people when a service or feature is being evaluated and what that means for their task."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Phase banner
+
+Tell people when a service or feature is being evaluated and what that means for their task.
+
+## When to use
+
+Use a phase banner for a clearly bounded prototype or trial that people may otherwise mistake for a stable feature. It belongs near the service header. A phase label should explain a real limitation, not decorate an already released household dashboard.
+
+The government service-assessment rules in upstream guidance do not apply to civica.uk. Our labels describe the actual project status and must never imply a government assessment or approval.
+
+## Demonstration environment
+
+<%= example('core-phase-demo') %>
+
+## Limited feature trial
+
+<%= example('core-phase-trial') %>
+
+## Behaviour and content
+
+Keep the message short and relevant across the pages where it appears. Explain whether data, actions or reliability differ from the normal service. Provide the ordinary route when it is needed. Collect feedback through a separately named link or [feedback component](feedback.html), not by turning the phase label into a button.
+
+Remove the banner when its condition ends. Record the change in release notes or the page history. Do not reuse a phase banner for a device fault or a failed save; those need a contextual status or error message.
+
+## Accessibility and implementation
+
+The tag is text, not an interactive element. Use a readable sentence alongside it so meaning does not depend on colour or knowledge of “alpha” and “beta”. Test long translated messages and wrapping at narrow widths. Do not announce an unchanged banner every time a sensor updates.
+
+## Source and Home Assistant boundary
+
+[GOV.UK Phase banner](https://design-system.service.gov.uk/components/phase-banner/), reviewed 11 November 2026. These reference examples do not add a global trial banner to the installed theme.

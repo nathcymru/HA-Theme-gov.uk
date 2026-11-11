@@ -1,0 +1,60 @@
+---
+title: "Simple smart answer"
+description: "A simple smart answer uses a straightforward question-and-outcome tree without complex calculations."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/simple-smart-answer/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Simple smart answer
+
+A simple smart answer uses a straightforward question-and-outcome tree without complex calculations. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/smart-answer/simple-smart-answer/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a small decision aid when a person needs to choose between a few guidance routes. Ask about something they can reasonably know, such as whether they want installation instructions or colour-setting guidance. Each outcome should lead to a clear next step.
+
+## Structure and behaviour
+
+Keep questions short, choices mutually understandable and an alternative for uncertainty. Preserve the chosen answer while reviewing the result. A simple decision can often be an ordinary list of links with explanatory text; do not add a wizard just to imitate a template.
+
+## Home Assistant boundary
+
+The examples use direct, working section links. They do not store answers or create a configuration. A more complex dependency graph belongs in a specified and tested implementation, not an expanding collection of ad hoc conditional markup.
+
+## Choose a guidance route
+
+Simple choices navigate to actual local explanations.
+
+<%= example("pub-frontend-templates-smart-answer-simple-smart-answer-1") %>
+
+## Known or unknown setup
+
+An uncertainty branch remains useful.
+
+<%= example("pub-frontend-templates-smart-answer-simple-smart-answer-2") %>
+
+## Acceptance checks
+
+- All choices have useful destinations.
+- Questions use language the intended audience understands.
+- The user can return and choose differently.
+- No outcome claims an action was completed.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](../index.html).

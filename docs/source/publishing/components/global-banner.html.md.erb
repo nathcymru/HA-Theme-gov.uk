@@ -1,0 +1,60 @@
+---
+title: "Global banner"
+description: "A global banner communicates a site-wide message that is important but does not use the emergency treatment."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/global-banner/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Global banner
+
+A global banner communicates a site-wide message that is important but does not use the emergency treatment. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/global-banner/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a global message for a bounded service interruption or a change that affects the whole interface. State the scope and expected next step. A room-specific device problem belongs with that device; a release announcement usually belongs in update information rather than every dashboard.
+
+## Structure and behaviour
+
+Keep a short heading, one concise paragraph and at most one primary destination. If the message can be dismissed, give the action a visible label and define whether dismissal applies per user, browser or message revision. Important operational faults must remain discoverable after dismissal.
+
+## Home Assistant boundary
+
+The official guide describes a limited display-count cookie for some government campaigns. That is not the civica policy. This reference adds no cookie, cross-site tracking or global HA message injection. Persistence requires an explicit implementation and a documented lifecycle.
+
+## Planned maintenance message
+
+Static, fictional maintenance information with a working detail anchor.
+
+<%= example("pub-components-global-banner-1") %>
+
+## Dismissal semantics
+
+The button reports local demonstration activity; it does not change a saved preference.
+
+<%= example("pub-components-global-banner-2") %>
+
+## Acceptance checks
+
+- The message is relevant to every page where it appears.
+- Dismissal does not conceal an unresolved safety or operational condition.
+- A revised message is distinguishable from a dismissed old one.
+- The banner does not repeatedly steal focus.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

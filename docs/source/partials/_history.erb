@@ -1,0 +1,8 @@
+<% history = page_history %>
+<div class="c-history" aria-label="Page publication history">
+  <p>Published <time datetime="<%= history[:published] %>"><%= readable_date(history[:published]) %></time><br>
+  Last updated <time datetime="<%= history[:updated] %>"><%= readable_date(history[:updated]) %></time></p>
+  <details id="full-publication-update-history"><summary>See all updates</summary>
+    <ol><% history[:changes].each do |change| %><li><time datetime="<%= change['date'] %>"><%= readable_date(change['date']) %></time><p><%= escape(change['description']) %></p></li><% end %></ol>
+  </details>
+</div>

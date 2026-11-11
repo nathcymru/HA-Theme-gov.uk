@@ -1,0 +1,63 @@
+---
+title: "Expander"
+description: "A prominent disclosure can divide an overwhelming reference topic into manageable sections."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/expander"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed expander guidance and 2 Home Assistant reference examples."
+---
+
+# Expander
+
+A prominent disclosure can divide an overwhelming reference topic into manageable sections.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for substantial help that a broad audience may need, after testing a shorter page with ordinary headings. It is more prominent than a small details disclosure.
+
+## When not to use it
+
+Do not put expanders around live device controls, form questions, critical alerts or the only explanation of a failed action. Avoid nesting them inside other disclosures.
+
+## Home Assistant adaptation
+
+For Home Assistant help, expanders may organise explanations of recorded Energy values or dashboard visibility. They are a reference-content pattern, not a new container for every card. Preserve the user’s open sections when unrelated readings change.
+
+## Accessibility and behaviour
+
+Use semantic details and summary with clear text, a visible focus treatment and a programmatically exposed expanded state. Multiple sections can remain open for comparison. Keep the summary free of separate interactive controls.
+
+## Examples
+
+### Understand recorded energy
+
+A substantial reference explanation is grouped without hiding the live reading.
+
+<%= example('nhs-expander-energy') %>
+
+### Several related help sections
+
+Independent sections can stay open together.
+
+<%= example('nhs-expander-guide') %>
+
+## Check the implementation
+
+Test several open sections, keyboard navigation, long content and mobile scrolling. Confirm that a user can understand the page before opening every section.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS expander](https://service-manual.nhs.uk/design-system/components/expander) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [charts and tables](charts.html).

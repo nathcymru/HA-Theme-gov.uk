@@ -1,0 +1,57 @@
+---
+title: "Help people start a household task"
+description: "Set expectations before a setup journey and provide useful routes when prerequisites are missing."
+section: "patterns"
+group: "Page patterns"
+source_url: "https://service-manual.nhs.uk/design-system/patterns/start-page"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added civica household guidance, isolated examples and explicit boundaries for the NHS start-page pattern."
+---
+
+# Help people start a household task
+
+**Reference pattern.** These examples are local design guidance. They do not install new Home Assistant screens or perform device actions.
+
+A start page helps people decide whether a task is right for them and what they need to complete it. It should not become an obstacle before every ordinary control.
+
+## The NHS principle we adapt
+
+The [NHS start-page pattern](https://service-manual.nhs.uk/design-system/patterns/start-page) names the service, explains essential expectations, provides a clear start action and identifies other available routes. civica adapts this to meaningful household setup journeys. The NHS source notes limited evidence for some signed-in app contexts, so the adaptation needs household usability testing.
+
+## Put essentials before the start action
+
+Explain what will be configured, what information or permission is needed, and whether anything will activate immediately. Keep supporting detail brief. A person should not need to start a wizard to discover that it requires an unavailable integration or administrative access.
+
+<%= example('nhs-start-notifications') %>
+
+## Handle missing prerequisites honestly
+
+Where setup is unavailable, explain the actual requirement and provide a useful route to meet it. Do not leave a disabled “Start now” button without explanation. Do not invent an eligible sensor, imply an integration can supply a measurement it does not have, or turn a power sensor into an energy total through presentation alone.
+
+<%= example('nhs-start-requirement') %>
+
+## Recognise returning users
+
+If a draft exists, make the resume option clear and show enough context to identify it. A saved draft is not an enabled automation. Starting again must not silently discard previous work or create a duplicate rule.
+
+<%= example('nhs-start-resume') %>
+
+## Accessibility and content
+
+Use the household task as the main heading and keep the required information above the start button. Put optional explanations in concise sections or details components. Avoid unsupported promises about completion time, especially when the duration depends on a device discovery process or the person's access needs. Use a meaningful title and preserve the normal navigation context.
+
+An alternative route must actually exist in the installation. Do not copy NHS phone, relay or clinical-service links into household setup. If the only supported route is native Home Assistant configuration, say so and link to it using the product's verified routing mechanism.
+
+## Home Assistant implementation boundary
+
+Starting a setup journey should open the first question; it should not execute a device command as a side effect. Check access rights and capabilities before displaying administrative tasks. Keep the setup model separate from activation and require an explicit, named final action where activation matters.
+
+These previews use local status feedback. They do not inspect a real installation, add an integration, configure Energy or send notifications. A production start page must keep its eligibility information aligned with the installed Home Assistant version and must remain understandable when an integration is unavailable.
+
+## Choose a simpler route when appropriate
+
+Directly show a small reversible preference instead of putting a start page in front of it. Use a start page when preparation, prerequisites or consequences genuinely help people begin. Use a hub to find the right task and a task list to resume longer work after it begins.

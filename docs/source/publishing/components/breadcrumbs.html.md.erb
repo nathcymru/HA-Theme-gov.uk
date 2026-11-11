@@ -1,0 +1,60 @@
+---
+title: "Breadcrumbs"
+description: "Publishing breadcrumbs expose the parent hierarchy of an information page. They are navigation, not transaction progress."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/breadcrumbs/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Breadcrumbs
+
+Publishing breadcrumbs expose the parent hierarchy of an information page. They are navigation, not transaction progress. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/breadcrumbs/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a short hierarchy when a person can arrive directly at a device guide or a nested documentation page. Link the real parent area and its collection. A dashboard already oriented by its sidebar and room title may not need another trail.
+
+## Structure and behaviour
+
+Use a named navigation landmark and an ordered list. Keep each parent label consistent with its destination title. If the current page is shown, use plain text or aria-current="page". Decorative separators must not be read as extra content. The local site shell remains the owner of the primary breadcrumb implementation.
+
+## Home Assistant boundary
+
+A breadcrumb does not describe browser history. Do not manufacture a parent route from a dashboard URL, assume that every entity belongs to one room, or copy a government topic taxonomy into Home Assistant.
+
+## Two-level help trail
+
+Working in-page destinations illustrate a help hierarchy.
+
+<%= example("pub-components-breadcrumbs-1") %>
+
+## Current page shown
+
+The current item is plain text with aria-current.
+
+<%= example("pub-components-breadcrumbs-2") %>
+
+## Acceptance checks
+
+- Follow every parent link and confirm the real hierarchy.
+- Check the trail wraps without clipping at 320px.
+- Distinguish it from the previous-page control.
+- Avoid two navigation landmarks with the same accessible name.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

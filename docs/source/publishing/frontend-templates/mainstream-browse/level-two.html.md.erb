@@ -1,0 +1,60 @@
+---
+title: "Level two"
+description: "The second browse level lists detailed destinations within a subtopic, either curated or alphabetically ordered."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/level-two/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Level two
+
+The second browse level lists detailed destinations within a subtopic, either curated or alphabetically ordered. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/mainstream-browse/level-two/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use this level for a focused set of guides, device instructions or settings explanations. At this point people should be able to select a task directly rather than navigate through another vague category. Include short descriptions where two destinations sound similar.
+
+## Structure and behaviour
+
+Give the page a specific subtopic title and a route to its parent. Choose an order intentionally: the user’s likely sequence for a procedure, or alphabetical order for known-item lookup. Make each link’s destination type clear when mixing a guide, native page and external document.
+
+## Home Assistant boundary
+
+The example subtopics are documentation structures, not installed HA routes. Avoid hidden accordion groups that make a short list harder to scan. Do not imply that changing the browse order changes device priority or automation behaviour.
+
+## Ordered installation reading
+
+Real local section links reflect a reading sequence.
+
+<%= example("pub-frontend-templates-mainstream-browse-level-two-1") %>
+
+## Alphabetical reference list
+
+A clear known-item list needs no hidden categories.
+
+<%= example("pub-frontend-templates-mainstream-browse-level-two-2") %>
+
+## Acceptance checks
+
+- Links describe the task rather than a generic “Read more”.
+- The ordering is consistent and defensible.
+- All essential links remain visible without JavaScript.
+- The parent route is available without using browser history.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](../index.html).

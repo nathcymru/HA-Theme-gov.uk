@@ -1,0 +1,62 @@
+---
+title: "Finder"
+description: "A finder searches one defined collection and uses relevant filters to narrow its results."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/finder/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Finder
+
+A finder searches one defined collection and uses relevant filters to narrow its results. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/finder/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+The household equivalent is a device, automation, guide or maintenance-record finder with a clearly stated scope. Start from the permitted native dataset. Explain whether the search covers entity names, friendly names, model numbers or document text. Do not combine unrelated datasets without labelling the result types.
+
+## Structure and behaviour
+
+Use a labelled search, useful facets, a result count and clear result links. Each result needs a stable title and enough metadata to tell it apart. Keep the current criteria when returning from a result. Provide explicit loading, no-match and unavailable states. The local finder filters three fixed example records, with readable disclosures, a matching count and a clear-filters action. It does not search Home Assistant. Without JavaScript, all records remain available and the form cannot submit.
+
+## Home Assistant boundary
+
+This is a reference pattern; the theme does not replace HA search or invent a registry endpoint. The child pages document every official finder variant and its local applicability. Government directory types that do not fit a household are recorded as boundaries, not implemented as fake services.
+
+## Scoped catalogue search
+
+A local form demonstrates the input contract only.
+
+<%= example("pub-frontend-templates-finder-1") %>
+
+## Search this example document collection
+
+The local finder filters three labelled records. Open a record to read its content, or clear filters to restore the list.
+
+<%= example("pub-frontend-templates-finder-2") %>
+
+## Acceptance checks
+
+- Scope and result count are visible.
+- A user can remove filters without re-entering the whole query.
+- Permission filtering happens before data is exposed.
+- Empty and unavailable states are distinct.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

@@ -1,0 +1,63 @@
+---
+title: "Header"
+description: "A header identifies the service and gives consistent access to its main destinations."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/header"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed header guidance and 2 Home Assistant reference examples."
+---
+
+# Header
+
+A header identifies the service and gives consistent access to its main destinations.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use a minimal identity header for a focused journey and add only the navigation, search or account information that users need. Keep the service name visible.
+
+## When not to use it
+
+Do not reproduce NHS branding or add a second application header inside Home Assistant views. A theme companion adapts supported native shell elements; it does not replace routing or authentication.
+
+## Home Assistant adaptation
+
+The NHS header’s identity rules apply to NHS services, not this project. civica.uk uses the supplied lockup and palette masthead. Preserve Home Assistant’s native menu, account actions and permissions. A constrained task may need fewer exits than a browsing dashboard.
+
+## Accessibility and behaviour
+
+Use a header landmark, an appropriately named home link and labelled navigation. Keep text and icons visible on every masthead colour, including yellow focus. Expose current navigation state without relying solely on an underline or colour.
+
+## Examples
+
+### A focused setup header
+
+Only identity and the task’s service name are present.
+
+<%= example('nhs-header-minimal') %>
+
+### A service header with a few destinations
+
+The civica lockup replaces NHS and GOV.UK identity assets.
+
+<%= example('nhs-header-navigation') %>
+
+## Check the implementation
+
+Test long service names, keyboard focus, account names, menu expansion and small-screen wrapping. The example navigation uses in-frame destinations; real links must retain native Home Assistant routes.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS header](https://service-manual.nhs.uk/design-system/components/header) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

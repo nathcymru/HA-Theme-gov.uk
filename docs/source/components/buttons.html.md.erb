@@ -1,0 +1,75 @@
+---
+title: "Buttons"
+description: "A button changes something or submits an answer. Its text names the outcome."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/buttons"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed buttons guidance and 4 Home Assistant reference examples."
+---
+
+# Buttons
+
+A button changes something or submits an answer. Its text names the outcome.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use one main action for a local task, with quieter secondary actions. A household dashboard can contain several independent device tasks: it does not need one global primary button for the whole home.
+
+## When not to use it
+
+Use a link for navigation. Do not make every room tile look like a submit button, or use a red button merely because the selected brand palette is red.
+
+## Home Assistant adaptation
+
+Keep native service permissions and pending states. A command is not a confirmed device state: after an action, describe that a request was sent until the integration reports the result. The reference actions below only update example text. Destructive confirmation uses explicit wording and the fixed danger role; it is not a palette variant.
+
+## Accessibility and behaviour
+
+Use a real button, give non-submit controls type="button", and retain a visible focus indicator. Keep repeat actions at least 44px high in this system. Explain an unavailable action beside the control instead of relying on a faded disabled appearance. Preserve focus while a request completes.
+
+## Examples
+
+### Save dashboard preferences
+
+The primary action names what is saved; the example does not change Home Assistant.
+
+<%= example('nhs-button-primary') %>
+
+### Primary and secondary actions
+
+A separate secondary action changes only the local example message.
+
+<%= example('nhs-button-secondary') %>
+
+### Confirm removing a saved view
+
+This is an explicit final confirmation example, not a live deletion.
+
+<%= example('nhs-button-warning') %>
+
+### Explain why an action is unavailable
+
+The reason remains readable even when the control cannot be used.
+
+<%= example('nhs-button-unavailable') %>
+
+## Check the implementation
+
+Check keyboard activation, repeated clicks, delayed results, failure and narrow-screen wrapping. Do not mix compact and standard heights within one action group.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS buttons](https://service-manual.nhs.uk/design-system/components/buttons) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

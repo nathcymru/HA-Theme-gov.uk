@@ -1,0 +1,60 @@
+---
+title: "Previous and next navigation"
+description: "Previous and next links connect ordered pages and include the destination context."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/previous-and-next-navigation/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Previous and next navigation
+
+Previous and next links connect ordered pages and include the destination context. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/previous-and-next-navigation/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use this navigation for chapters in installation or recovery guidance. Use native date controls for Energy periods and native pagination controls for a results table; they are not automatically the same pattern.
+
+## Structure and behaviour
+
+Give the navigation landmark a distinct name. Include both direction and destination title in each link. On the first or last chapter, omit the unavailable direction instead of adding an inert link. Decorative arrow artwork is optional; words must carry the meaning.
+
+## Home Assistant boundary
+
+Moving between guide pages must not submit a form or issue a device command. The examples use real section anchors to demonstrate ordering inside one isolated page. A production multi-page guide needs durable URLs and a consistent chapter list.
+
+## Between chapters
+
+Previous and next links resolve to labelled sections.
+
+<%= example("pub-components-previous-and-next-navigation-1") %>
+
+## First chapter
+
+Only a valid next destination is provided.
+
+<%= example("pub-components-previous-and-next-navigation-2") %>
+
+## Acceptance checks
+
+- First and last pages omit impossible destinations.
+- Link text distinguishes direction and chapter.
+- Browser back and modifier-key navigation still work.
+- Long chapter names wrap without shrinking below the body scale.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

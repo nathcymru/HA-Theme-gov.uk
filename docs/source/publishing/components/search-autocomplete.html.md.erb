@@ -1,0 +1,62 @@
+---
+title: "Search autocomplete"
+description: "The publishing search autocomplete suggests queries for a large search service. The guide distinguishes it from a static component-name autocomplete."
+section: "components"
+group: "Publishing components"
+source_url: "https://design-guide.publishing.service.gov.uk/components/search-autocomplete/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Search autocomplete
+
+The publishing search autocomplete suggests queries for a large search service. The guide distinguishes it from a static component-name autocomplete. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/components/search-autocomplete/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+A small documentation catalogue usually needs a labelled search or filter rather than predicted queries. For HA entities, prefer the native entity picker so permissions, names and keyboard behaviour remain consistent. Suggestions must be derived from the permitted local dataset, never invented entity IDs.
+
+## Structure and behaviour
+
+The local examples use a labelled native input with a datalist populated from the same fixed records shown below it. Browser-native suggestions reduce typing; a submitted query filters the visible records by their title and context. People can type a different query, open a record, inspect a no-match result and clear the filters. A polite status reports the result count without moving focus. Do not add conflicting custom combobox roles to the native control.
+
+## Home Assistant boundary
+
+These are working local autocomplete and search specimens, not the government’s predictive query model. The browser controls how datalist suggestions are presented; their keyboard and assistive-technology behaviour needs testing in supported browsers. Filtering uses a small, fixed dataset and does not query HA. No cloud model, query logging, storage or external search API is connected. Without JavaScript, all records and native details remain readable and submit buttons stay disabled.
+
+## Autocomplete known documentation titles
+
+Native browser suggestions use three actual local example titles. Submit a title or your own query to filter the records.
+
+<%= example("pub-components-search-autocomplete-1") %>
+
+## Autocomplete example equipment
+
+Suggestions and matching results use the same fixed, invented equipment records; nothing is queried from Home Assistant.
+
+<%= example("pub-components-search-autocomplete-2") %>
+
+## Acceptance checks
+
+- The component still works when no suggestion matches.
+- Keyboard and touch users can submit their own query.
+- Suggestions do not reveal entities outside the user’s scope.
+- Test magnification and long result labels before adopting an overlay.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse publishing components](index.html).

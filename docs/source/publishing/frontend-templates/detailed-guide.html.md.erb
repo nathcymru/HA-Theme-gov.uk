@@ -1,0 +1,60 @@
+---
+title: "Detailed guide"
+description: "A detailed guide supports a specific task that needs substantial, maintained instructions."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/detailed-guide/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Detailed guide
+
+A detailed guide supports a specific task that needs substantial, maintained instructions. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/detailed-guide/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use it for installing the companion, upgrading a supported version or recovering a known configuration. Start with the intended outcome, supported baseline and prerequisites. Place steps in the order people must perform them, with checks at the points where mistakes would otherwise go unnoticed.
+
+## Structure and behaviour
+
+Include a contents list, meaningful headings, concise code blocks where necessary, and verified recovery information. Publish a real first-publication date and maintain dated change notes. In current publishing metadata, page-history entries belong to page_history; do not build new guidance around the removed published-dates component.
+
+## Home Assistant boundary
+
+The guide is instructional content, not an automated installer. Never imply that reading a step completed it. Do not invent a supported Home Assistant version, release URL or backup location. Keep security-sensitive credentials and private household details out of public examples.
+
+## Task-oriented structure
+
+A bounded outline for a real theme installation guide.
+
+<%= example("pub-frontend-templates-detailed-guide-1") %>
+
+## Honest guide metadata
+
+These are labelled example dates and changes.
+
+<%= example("pub-frontend-templates-detailed-guide-2") %>
+
+## Acceptance checks
+
+- Instructions match the version being documented.
+- Each potentially disruptive step has a practical validation point.
+- Code and links are verified against the package.
+- Change notes explain user-visible changes rather than every internal edit.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

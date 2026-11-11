@@ -1,0 +1,63 @@
+---
+title: "Select"
+description: "A select is a compact choice control for a longer, familiar list."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/select"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed select guidance and 2 Home Assistant reference examples."
+---
+
+# Select
+
+A select is a compact choice control for a longer, familiar list.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it only after considering whether a shorter question or visible radio group would be clearer. The ten named civica palettes are an explicit settings use: the labels are familiar, the choice is reversible and keyboard selection is native.
+
+## When not to use it
+
+Do not use a multi-select list for rooms or hide two simple choices in a dropdown. Do not use the first option as an accidental answer to an unanswered question.
+
+## Home Assistant adaptation
+
+Preselect the saved palette when editing theme settings. Keep its name in text and provide an immediate visual preview; a colour swatch alone does not identify the choice. Selecting an appearance must not issue device commands or reset the selected Energy period.
+
+## Accessibility and behaviour
+
+Provide a visible label and useful hint. Keep the native select keyboard behaviour and avoid replacing it with a custom menu unless its full accessibility contract is implemented. Label a required unanswered option explicitly.
+
+## Examples
+
+### Choose a saved palette
+
+A named, reversible settings list is the local reason for retaining a select.
+
+<%= example('nhs-select-palettes') %>
+
+### An unanswered required choice
+
+The placeholder cannot be mistaken for an actual saved dashboard.
+
+<%= example('nhs-select-error') %>
+
+## Check the implementation
+
+Test keyboard arrows, typing a matching option, mobile pickers, saved state and errors. Confirm that a change affects only the documented preference.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS select](https://service-manual.nhs.uk/design-system/components/select) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

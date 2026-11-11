@@ -1,0 +1,63 @@
+---
+title: "Text input"
+description: "Use a labelled input for a short answer on one line."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/text-input"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed text input guidance and 2 Home Assistant reference examples."
+---
+
+# Text input
+
+Use a labelled input for a short answer on one line.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for a room name, a display label or a known identifier. Match the width to the expected answer where that helps, while allowing the control to shrink to its container.
+
+## When not to use it
+
+Do not use placeholder text as the label or force a paragraph into a one-line field. Avoid number inputs for codes with leading zeros.
+
+## Home Assistant adaptation
+
+Use friendly names for ordinary household tasks; show entity identifiers only when the task requires them. For measurements, state the unit in the label as well as any visual suffix. Accept sensible formatting instead of rejecting an answer solely for harmless spaces.
+
+## Accessibility and behaviour
+
+Associate a persistent label, hint and any error. Choose an appropriate input mode without changing the underlying meaning of the value. Keep copy and paste available. Use personal-data autocomplete only when the field actually requests that personal information.
+
+## Examples
+
+### A household-friendly name
+
+The answer is human-readable rather than an internal entity ID.
+
+<%= example('nhs-input-room') %>
+
+### A measurement with its unit
+
+The unit is explicit in the accessible label as well as beside the input.
+
+<%= example('nhs-input-measurement') %>
+
+## Check the implementation
+
+Test long names, accented characters, decimal entry, leading zeros and zoom. Read the label and unit through a screen reader; a visual suffix alone is insufficient.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS text input](https://service-manual.nhs.uk/design-system/components/text-input) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

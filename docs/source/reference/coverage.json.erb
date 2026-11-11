@@ -1,0 +1,4 @@
+---
+layout: false
+---
+<%= JSON.pretty_generate({schema_version: 1, reviewed_on: '2026-11-11', inventories: %w[govuk-components-inventory nhs-components-inventory nhs-patterns-inventory publishing-inventory].map { |name| JSON.parse(File.read(File.join(root, 'data', name + '.json'))) }, guidance_pages: guide_pages.sort_by(&:destination_path).map { |resource| {title: resource.data.title, path: '/' + resource.destination_path, status: resource.data.status || 'maintained guidance'} }, examples: config[:civica_examples].map { |id, item| {id: id, title: item['title'], path: '/examples/' + id + '.html'} }}) %>

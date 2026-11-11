@@ -1,0 +1,63 @@
+---
+title: "Footer"
+description: "A footer offers consistent supporting links at the end of a standalone site."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/footer"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed footer guidance and 2 Home Assistant reference examples."
+---
+
+# Footer
+
+A footer offers consistent supporting links at the end of a standalone site.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for the design-system website or a separate service page. Include useful accessibility, help and information-handling links without overloading the end of a task.
+
+## When not to use it
+
+Do not inject a website footer into every Home Assistant card or mobile-app view. NHS guidance itself distinguishes web pages from mobile apps. A footer is not a place for critical device controls.
+
+## Home Assistant adaptation
+
+Use civica.uk identity and the project’s actual licence and ownership information. Do not copy NHS or Crown copyright claims. Help links must lead to a known destination and appear consistently. An application’s native settings and about screens may be the appropriate home for equivalent information.
+
+## Accessibility and behaviour
+
+Use a footer landmark and label any navigation inside it. Keep visible focus, readable link text and enough space between targets. A large footer can use grouped headings, but preserve a sensible reading order when columns stack.
+
+## Examples
+
+### A small documentation footer
+
+A few supporting links remain easy to scan.
+
+<%= example('nhs-footer-simple') %>
+
+### Information-handling links
+
+These local targets illustrate placement; production needs the real policies.
+
+<%= example('nhs-footer-information') %>
+
+## Check the implementation
+
+Test the last keyboard stops, zoom, small-screen wrapping and every support link. Do not promise a support channel or response time that the project does not provide.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS footer](https://service-manual.nhs.uk/design-system/components/footer) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

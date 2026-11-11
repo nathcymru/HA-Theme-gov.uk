@@ -10,8 +10,8 @@ The comprehensive [design system in `/docs`](docs/README.md) uses the **GOV.UK T
 
 - [Live design system](https://nathcymru.github.io/HA-Theme-gov.uk/)
 - [Download the installation package](https://github.com/nathcymru/HA-Theme-gov.uk/releases/latest)
-- [Install and upgrade](docs/source/get-started/install.html.md)
-- [Colour palettes and display modes](docs/source/styles/colour.html.md)
+- [Install and upgrade](https://nathcymru.github.io/HA-Theme-gov.uk/get-started/install.html)
+- [Colour palettes and display modes](https://nathcymru.github.io/HA-Theme-gov.uk/styles/colour.html)
 - [Brand and artwork](ARTWORK.md)
 - [AI reading guide](docs/source/llms.txt)
 - [Canonical palette data](design-system/palettes.json) and [resolved theme variables](design-system/themes.json)
@@ -20,7 +20,7 @@ The comprehensive [design system in `/docs`](docs/README.md) uses the **GOV.UK T
 
 - **20 native themes:** Civic Cobalt, Racing Moss, Imperial Damson, Sovereign Crimson, Regimental Plum, Oxford Midnight, Ink Charcoal, Heritage Ochre, Kiln Terracotta and Umber Bronze, each in Vivid and Muted tones.
 - **One shared token system:** native panels, dashboards, tables, forms, buttons, switches, dialogs, the lighting card and examples use consistent colours and surfaces. Error, warning and chart meanings stay independent of the selected brand palette.
-- **ONS-based Energy charts:** the companion applies individual unfilled power lines, opaque consumption columns, consistent 2px strokes and matching keys to supported native Energy graphs, with an accessible View data table. A shared identity-based colour generator supplies Vivid/Muted and Light/Dark variants, 24 fallback slots and an extensible range for named series. Native statistics, date controls, comparisons and chart interaction are retained. See the [chart specification](docs/source/components/charts.html.md) and [working examples](https://nathcymru.github.io/HA-Theme-gov.uk/components/chart-examples.html).
+- **ONS-based Energy charts:** the companion applies individual unfilled power lines, opaque consumption columns, consistent 1.5px strokes and matching keys to supported native Energy graphs, with an accessible View data table. A shared identity-based colour generator supplies Vivid/Muted and Light/Dark variants, 24 fallback slots and an extensible range for named series. Native statistics, date controls, comparisons and chart interaction are retained. See the [chart specification](https://nathcymru.github.io/HA-Theme-gov.uk/components/charts.html) and [working examples](https://nathcymru.github.io/HA-Theme-gov.uk/components/chart-examples.html).
 - **Colour controls:** a palette selector and “Use muted colours” toggle beside Profile theme settings, plus a dashboard card fallback. Home Assistant handles application and preference storage. Light/Dark/Auto is preserved.
 - **civica.uk assets:** supplied logos and icons, used without redrawing or recolouring. Original files and their checksum manifest are retained.
 - **Lighting card repairs:** visible unavailable states, accessible errors, keyboard focus, touch targets, responsive layout and native dialog scrolling. Existing lighting automation and reserved-device behaviour are retained.
@@ -75,7 +75,7 @@ The Profile adapter is a small, version-sensitive enhancement. The themes themse
 
 If old borders or colours remain after a theme reload, inspect every YAML file under the included `config/themes/` directory for duplicate `civica …` or `govuk` definitions. A HACS copy under `themes/govuk/` and a manual copy under `themes/civica/` must not both remain included.
 
-Keep one installation owner, update its files, and move the superseded civica YAML to a backup **outside** the included themes directory, such as `config/civica-theme-backups/`. A backup subfolder inside `config/themes/` can still be loaded. Preserve unrelated themes. Then run `frontend.reload_themes`, reload the browser and reselect the theme. See the [installation guide](docs/source/get-started/install.html.md#resolve-duplicate-theme-definitions) for the recovery sequence.
+Keep one installation owner, update its files, and move the superseded civica YAML to a backup **outside** the included themes directory, such as `config/civica-theme-backups/`. A backup subfolder inside `config/themes/` can still be loaded. Preserve unrelated themes. Then run `frontend.reload_themes`, reload the browser and reselect the theme. See the [installation guide](https://nathcymru.github.io/HA-Theme-gov.uk/get-started/install.html#resolve-duplicate-theme-definitions) for the recovery sequence.
 
 ## Lighting card and examples
 

@@ -1,0 +1,60 @@
+---
+title: "Transaction"
+description: "A transaction start page explains a task and directs users to the service that performs it."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/transaction/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Transaction
+
+A transaction start page explains a task and directs users to the service that performs it. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/transaction/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use this structure when a household task needs context before opening the native HA flow or an external service. Explain what the person can do, what they need and where they will go. Common immediate device controls do not need a separate start page.
+
+## Structure and behaviour
+
+Use a task-oriented title and one clear primary destination. A link that opens a flow is navigation; an action that immediately operates a device needs a button and the existing command safeguards. Explain any external account or service boundary before the person leaves.
+
+## Home Assistant boundary
+
+This reference does not create device commands or bypass authentication. Avoid a vague “Start now” label when “Open theme settings” conveys the task. Never link to an unverified local route or make a documentation button appear to operate the household.
+
+## Guided settings entry
+
+A working local anchor demonstrates a task destination.
+
+<%= example("pub-frontend-templates-transaction-1") %>
+
+## External service boundary
+
+The real public repository is clearly identified.
+
+<%= example("pub-frontend-templates-transaction-2") %>
+
+## Acceptance checks
+
+- The destination exists and matches the promised task.
+- Prerequisites appear before the primary link.
+- Leaving the current service is clear.
+- Opening the page cannot itself issue a device command.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

@@ -174,6 +174,9 @@ function build(target: HTMLElement) {
     }
   }
   for (const [key, tag, title] of specs) {
+    // Standalone documentation examples isolate one chart while sharing the
+    // same renderer, native-shaped fixture data and production adapter.
+    if (target.dataset.exampleChart && target.dataset.exampleChart !== key) continue;
     const card = document.createElement(tag), cardRoot = card.attachShadow({ mode: 'open' }); cards[key] = card;
     const shell = document.createElement('ha-card'), heading = element('h2', title); heading.className = 'card-header';
     const description = element('p', descriptions[key]); description.className = 'chart-description';
@@ -209,6 +212,7 @@ function build(target: HTMLElement) {
   nextDay.onclick = () => {
     day++;
     for (const key of ['power', 'usage', 'many'] as Key[]) {
+      if (!hosts[key]) continue;
       const host = hosts[key]; host.data = dataset(key).map(series => ({ ...series, data: series.data.map((point: any) => { const values = point.value ?? point, shifted = values.map((value: any, i: number) => i === 0 || i === 2 ? value + day * 24 * HOUR : value); return point.value ? { ...point, value: shifted } : shifted; }) }));
       host.options = { ...host.options, xAxis: { ...host.options.xAxis, min: T + day * 24 * HOUR, max: T + day * 24 * HOUR + 3 * HOUR } };
       cards[key].shadowRoot!.querySelector('.chart-description')!.textContent = `Invented example values for ${11 + day} November 2026. See the table for the original times, period starts and units.`;

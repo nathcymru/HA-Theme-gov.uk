@@ -1,0 +1,63 @@
+---
+title: "Skip link"
+description: "Let keyboard users bypass repeated navigation and reach the main content."
+section: "components"
+group: "Navigation"
+source_url: "https://service-manual.nhs.uk/design-system/components/skip-link"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed skip link guidance and 2 Home Assistant reference examples."
+---
+
+# Skip link
+
+Let keyboard users bypass repeated navigation and reach the main content.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use a skip link at the start of a standalone page with repeated header or navigation controls. Its destination is the main content, not the first decorative heading.
+
+## When not to use it
+
+Do not add duplicate skip links inside every card or point to an absent fragment. A link that scrolls without moving focus may leave the keyboard user at the start of navigation.
+
+## Home Assistant adaptation
+
+The civica documentation shell supplies page-level navigation. In Home Assistant, routing and shadow roots require integration with the native focus target; a fragment in one shadow tree cannot automatically focus another. Do not claim a global skip enhancement from an isolated HTML example.
+
+## Accessibility and behaviour
+
+Keep the link visually hidden until focused, then reveal it with strong contrast. Use a real anchor and a focusable main target, commonly tabindex="-1". Its position should let it skip the back link and other repeated controls as well.
+
+## Examples
+
+### Skip a repeated header
+
+Press Tab inside the example or open it separately to reveal the link.
+
+<%= example('nhs-skip-main') %>
+
+### Reach the task directly
+
+The main target comes after the repeated navigation and back link.
+
+<%= example('nhs-skip-form') %>
+
+## Check the implementation
+
+Open the standalone example, press Tab and activate the skip link. Verify the next keyboard action begins in main content. Repeat after route changes, with zoom and with a screen reader.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS skip link](https://service-manual.nhs.uk/design-system/components/skip-link) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

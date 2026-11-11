@@ -1,0 +1,56 @@
+---
+title: "Example viewer"
+description: "Present a working preview, its exact markup and a standalone route in a consistent, accessible frame."
+section: components
+group: Content presentation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Example viewer
+
+Present a working preview, its exact markup and a standalone route in a consistent, accessible frame.
+
+## When to use
+
+Use this component on every component and task-pattern page. A useful example demonstrates a decision: a default state, an alternative layout, an error, missing information or a different content length. Prefer several small, labelled examples to one screen containing every possible option.
+
+Examples must be safe to explore. Use invented readings and local demonstration actions. Do not embed a logged-in Home Assistant session, connect a service call or publish real household data.
+
+## A simple content example
+
+<%= example('system-example-reading') %>
+
+## An interactive example
+
+<%= example('system-example-interactive') %>
+
+## Structure
+
+Each frame has a descriptive label, an optional explanation, an iframe preview, a new-tab link and a code disclosure. The disclosure contains HTML and usage tabs. The HTML is escaped from the same record used to render the preview; it is not a separately maintained screenshot or approximation. The copy button copies that exact source and reports success or failure.
+
+A standalone example is a demonstration canvas, not an editorial guidance page. It contains a visible example notice. The owning guide carries publication history, source attribution, usage decisions and testing guidance. Examples are excluded from search indexing to keep search results focused on that guidance.
+
+## Author an example
+
+Add a uniquely named record under `examples` in a `docs/data/*examples.yml` file. Supply `title`, optional `description`, `html` and optional initial `height`. Use `<%%= example('system-example-reading') %>` in an ERB-enabled guide. Middleman creates the standalone page and the helper creates the frame.
+
+Use unique IDs within each example. Separate iframes allow independent examples to demonstrate the same field identifier without colliding. Use actual targets for every link. Safe forms use `data-demo-form` and a local `data-demo-status` region. These hooks are documentation behaviours; applications must implement their own validation and state handling.
+
+## Accessibility and fallback
+
+Give each iframe a specific title. Keep code available without JavaScript; tab enhancement must not remove the underlying content. Arrow keys, Home and End move between enhanced code tabs. Copy is optional, and failure must leave the code selectable. Preview content remains keyboard accessible; do not trap focus inside the frame.
+
+Height updates are accepted only from the same-origin iframe that sent them. An isolated preview has its own document styles and IDs. It is not a security sandbox for untrusted submissions: example records are reviewed repository code.
+
+## Acceptance checks
+
+Check preview/source parity, new-tab rendering, 320px reflow, code-tab keyboard behaviour, copy feedback, JavaScript-disabled reading and every demonstrated action. Add a real default, error or content variant when a page introduces a new rule. Test the owning application separately before describing a component as deployed.
+
+## Source
+
+The presentation follows the preview and HTML-example approach on the [GOV.UK Design System](https://design-system.service.gov.uk/components/button/). The Middleman helper and local demonstration behaviours are civica.uk implementations.

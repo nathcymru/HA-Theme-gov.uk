@@ -1,0 +1,1153 @@
+# Original civica household examples. All data is synthetic; no device operations.
+examples:
+  nhs-identifier-route:
+    title: "Choose a device without memorising its ID"
+    description: "A filter question offers the normal device picker as an equal route. All device names are synthetic."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Find the device to add</h1>
+      <p class="govuk-body">Choose a device by its name and room, or enter an entity ID from Home Assistant.</p>
+      <form data-demo-form data-demo-success="Example saved in this preview. No Home Assistant setting was changed.">
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">How would you like to find the device?</legend>
+      <div class="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="identifier-route-0" name="identifier-route" type="radio" value="0" required>
+      <label class="govuk-label govuk-radios__label" for="identifier-route-0">Choose from my devices</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="identifier-route-1" name="identifier-route" type="radio" value="1">
+      <label class="govuk-label govuk-radios__label" for="identifier-route-1">Enter an entity ID</label>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">Continue</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+      <details class="govuk-details" id="identifier-help">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Where to find an entity ID</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Open the entity settings in Home Assistant. An example ID is light.example_reading_lamp. Do not enter an account password or access token.</p>
+      </div>
+      </details>
+  nhs-identifier-error:
+    title: "Correct an identifier that cannot be found"
+    description: "The error identifies the problem, preserves the supplied value, and keeps a device-picker route available."
+    height: 680
+    html: |
+      <h1 class="govuk-heading-l">Enter the entity ID</h1>
+      <div class="govuk-error-summary" tabindex="-1" role="alert" aria-labelledby="identifier-error-title">
+      <h2 class="govuk-error-summary__title" id="identifier-error-title">There is a problem</h2>
+      <ul class="govuk-list govuk-error-summary__list">
+      <li>
+      <a href="#entity-id">No available entity matches this ID</a>
+      </li>
+      </ul>
+      </div>
+      <form data-demo-form data-demo-success="Example saved in this preview. No Home Assistant setting was changed.">
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="entity-id">Entity ID</label>
+      <div class="govuk-hint" id="entity-hint">For example, light.example_reading_lamp. You can paste the full ID.</div>
+      <p class="govuk-error-message" id="entity-error">
+      <span class="govuk-visually-hidden">Error:</span> No available entity matches this ID. Check the spelling or choose a device.</p>
+      <input class="govuk-input govuk-input--error" id="entity-id" name="entity-id" value="light.example_reading_lmp" spellcheck="false" autocapitalize="none" aria-invalid="true" aria-describedby="entity-hint entity-error" required>
+      </div>
+      <button type="submit" class="govuk-button">Continue</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+      <details class="govuk-details" id="pick-device">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Choose a device instead</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Example available device: Reading lamp — Living room. The production picker shows only entities this user can access.</p>
+      </div>
+      </details>
+  nhs-identifier-match:
+    title: "Confirm a matched entity"
+    description: "A readable name, room and precise entity reference prevent a plausible-looking ID from selecting the wrong control."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Check the device</h1>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Device</dt>
+      <dd class="govuk-summary-list__value">Reading lamp</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Room</dt>
+      <dd class="govuk-summary-list__value">Living room</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Entity ID</dt>
+      <dd class="govuk-summary-list__value">
+      <code>light.example_reading_lamp</code>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Available control</dt>
+      <dd class="govuk-summary-list__value">On and off</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">This ID identifies the example entity. It does not sign you in or grant permission to control it.</p>
+      <button type="button" class="govuk-button" data-demo-message="Example device selected. No device command was sent.">Use this device</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+  nhs-check-answers-scene:
+    title: "Review a lighting scene before saving"
+    description: "A summary states that saving a configuration does not run the scene. Change links lead to the corresponding fields in this preview."
+    height: 1100
+    html: |
+      <h1 class="govuk-heading-l">Check the scene before saving</h1>
+      <p class="govuk-body">Saving adds the scene to your controls. It will not change any lights now.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Scene name</dt>
+      <dd class="govuk-summary-list__value">Reading</dd>
+      <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#scene-name">Change<span class="govuk-visually-hidden"> scene name</span>
+      </a>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Room</dt>
+      <dd class="govuk-summary-list__value">Living room</dd>
+      <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#scene-room">Change<span class="govuk-visually-hidden"> room</span>
+      </a>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Lights</dt>
+      <dd class="govuk-summary-list__value">Reading lamp and ceiling light</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Notes</dt>
+      <dd class="govuk-summary-list__value">Not provided</dd>
+      <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#scene-notes">Change<span class="govuk-visually-hidden"> notes</span>
+      </a>
+      </dd>
+      </div>
+      </dl>
+      <button type="button" class="govuk-button" data-demo-message="Example scene configuration saved. The lights have not changed.">Confirm and save scene</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      <details class="govuk-details" id="edit-scene" open>
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example change fields</span>
+      </summary>
+      <div class="govuk-details__text">
+      <label class="govuk-label" for="scene-name">Scene name</label>
+      <input class="govuk-input" id="scene-name" value="Reading">
+      <label class="govuk-label" for="scene-room">Room</label>
+      <input class="govuk-input" id="scene-room" value="Living room">
+      <label class="govuk-label" for="scene-notes">Notes (optional)</label>
+      <textarea class="govuk-textarea" id="scene-notes" rows="2">
+      </textarea>
+      </div>
+      </details>
+  nhs-check-answers-changed:
+    title: "Handle a device that changed during review"
+    description: "A device becoming unavailable invalidates the pending save rather than silently accepting stale configuration."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Check the notification rule</h1>
+      <div class="govuk-error-summary" tabindex="-1" role="alert" aria-labelledby="review-problem">
+      <h2 class="govuk-error-summary__title" id="review-problem">Check the selected sensor</h2>
+      <ul class="govuk-list govuk-error-summary__list">
+      <li>
+      <a href="#review-sensor">The selected sensor is no longer available</a>
+      </li>
+      </ul>
+      </div>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Event</dt>
+      <dd class="govuk-summary-list__value">Front door left open for 5 minutes</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Sensor</dt>
+      <dd class="govuk-summary-list__value">
+      <span id="review-sensor">Front door contact — unavailable</span>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Notification</dt>
+      <dd class="govuk-summary-list__value">Household dashboard</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">Your draft is still available. Choose an available sensor before saving.</p>
+      <button type="button" class="govuk-button" data-demo-message="Example picker would open here. No notification rule was saved.">Choose another sensor</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+  nhs-tasks-household-setup:
+    title: "Resume a household setup"
+    description: "Completed tasks remain editable; a real dependency is explained in text without a dead link."
+    height: 620
+    html: |
+      <h1 class="govuk-heading-l">Set up household notifications</h1>
+      <p class="govuk-body">1 of 3 tasks completed. You can return later; this example stores no data.</p>
+      <ul class="govuk-task-list">
+      <li class="govuk-task-list__item">
+      <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="#task-people" aria-describedby="task-people-status">Choose who receives notifications</a>
+      </div>
+      <div class="govuk-task-list__status" id="task-people-status">Completed</div>
+      </li>
+      <li class="govuk-task-list__item">
+      <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="#task-events" aria-describedby="task-events-status">Choose household events</a>
+      </div>
+      <div class="govuk-task-list__status" id="task-events-status">
+      <strong class="govuk-tag govuk-tag--blue">Incomplete</strong>
+      </div>
+      </li>
+      <li class="govuk-task-list__item">
+      <div class="govuk-task-list__name-and-hint">Review and enable notifications<div class="govuk-task-list__hint">Choose at least one event first.</div>
+      </div>
+      <div class="govuk-task-list__status">Cannot start yet</div>
+      </li>
+      </ul>
+      <details class="govuk-details" id="task-people">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Notification recipients</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Example recipient: household dashboard. You can change the selection before enabling notifications.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="task-events">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Household events</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Choose which supported events should appear. No event is selected in this example.</p>
+      </div>
+      </details>
+  nhs-tasks-resume-draft:
+    title: "A saved draft is not a completed task"
+    description: "A person can leave a task incomplete while checking details with another household member."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Check the quiet hours</h1>
+      <p class="govuk-body">Draft: 22:00 to 07:00, Europe/London. Notifications have not been enabled.</p>
+      <form data-demo-form data-demo-success="Example saved in this preview. No Home Assistant setting was changed.">
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Have you finished checking these times?</legend>
+      <div class="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="task-complete-0" name="task-complete" type="radio" value="0" required>
+      <label class="govuk-label govuk-radios__label" for="task-complete-0">Yes, this task is complete</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="task-complete-1" name="task-complete" type="radio" value="1">
+      <label class="govuk-label govuk-radios__label" for="task-complete-1">No, I will come back later</label>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">Continue</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+      <details class="govuk-details" id="task-save">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What is saved?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">In a production flow, the times and task state are saved separately from the enabled notification rule. This preview saves neither.</p>
+      </div>
+      </details>
+  nhs-tasks-repair:
+    title: "A task needs attention after a device change"
+    description: "An actionable error is distinct from an unfinished task; the reason is visible beside the task."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Continue setting up energy</h1>
+      <p class="govuk-body">Your saved choices are still available.</p>
+      <ul class="govuk-task-list">
+      <li class="govuk-task-list__item">
+      <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="#meter-repair" aria-describedby="meter-status meter-hint">Select electricity meter</a>
+      <div class="govuk-task-list__hint" id="meter-hint">The selected meter was removed. Choose a replacement or restore the integration.</div>
+      </div>
+      <div class="govuk-task-list__status" id="meter-status">
+      <strong class="govuk-tag govuk-tag--red">There is a problem</strong>
+      </div>
+      </li>
+      </ul>
+      <details class="govuk-details" id="meter-repair">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Review the meter selection</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Previous selection: Example electricity total. No replacement has been selected.</p>
+      </div>
+      </details>
+  nhs-household-routine:
+    title: "A routine maintenance reminder"
+    description: "A dated maintenance record is ordinary content, with a clear next step and no emergency styling."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Household maintenance</h1>
+      <section class="civica-pattern-urgency" aria-labelledby="maintenance-title">
+      <h2 class="govuk-heading-m" id="maintenance-title">Plan the extractor filter check</h2>
+      <p class="govuk-body">The household reminder is due on 18 November 2026.</p>
+      <p class="govuk-body">This is a saved reminder, not a reading from the appliance.</p>
+      <a class="govuk-link" href="#maintenance-record">View the maintenance record</a>
+      </section>
+      <details class="govuk-details" id="maintenance-record">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example maintenance record</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Last recorded check: 18 August 2026. The household owner set a three-month reminder. Follow the appliance manufacturer’s actual maintenance instructions.</p>
+      </div>
+      </details>
+  nhs-household-action:
+    title: "A current event with a specific response"
+    description: "The example gives the observation, source time and one contextual next step. Its severity is explicitly configured."
+    height: 600
+    html: |
+      <h1 class="govuk-heading-l">A household event needs attention</h1>
+      <section class="civica-pattern-urgency civica-pattern-urgency--action" aria-labelledby="freezer-title">
+      <h2 class="govuk-heading-m" id="freezer-title">Check the freezer door</h2>
+      <p class="govuk-body">The example contact sensor has reported “Open” for 5 minutes.</p>
+      <p class="govuk-body">Last received: <time datetime="2026-11-11T10:42:00Z">11 November 2026 at 10:42 GMT</time>.</p>
+      <p class="govuk-body">This message reports the door contact. It does not measure food condition.</p>
+      <a class="govuk-link" href="#freezer-details">View the sensor details</a>
+      </section>
+      <details class="govuk-details" id="freezer-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example sensor details</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Freezer door contact — Utility room. Household rule: show an attention message after the open state lasts 5 minutes. No remote door-closing control is available.</p>
+      </div>
+      </details>
+  nhs-household-unknown:
+    title: "Unavailable information is not reassurance"
+    description: "An unknown sensor state has its own message, without an invented all-clear or emergency claim."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Sensor information is unavailable</h1>
+      <section class="civica-pattern-urgency civica-pattern-urgency--unknown" aria-labelledby="sensor-unknown-title">
+      <h2 class="govuk-heading-m" id="sensor-unknown-title">The utility room sensor has not updated</h2>
+      <p class="govuk-body">Its current reading is unknown. The last received update was <time datetime="2026-11-10T16:15:00Z">10 November 2026 at 16:15 GMT</time>.</p>
+      <p class="govuk-body">A missing update does not confirm the condition of the room.</p>
+      <a class="govuk-link" href="#unknown-details">Review the connection information</a>
+      </section>
+      <details class="govuk-details" id="unknown-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example connection information</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">The integration is unavailable. Keep this condition separate from any event that was already reported; do not clear an existing event because the connection failed.</p>
+      </div>
+      </details>
+  nhs-bsl-discovery:
+    title: "Honest British Sign Language availability"
+    description: "No signed translation ships with this example. The page states that clearly and offers existing text guidance without claiming it is equivalent."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Help using household controls</h1>
+      <p class="govuk-body">British Sign Language (BSL) guidance is not yet available for this example.</p>
+      <p class="govuk-body">You can read the written guidance below. Written English and captions are not substitutes for a BSL translation.</p>
+      <a class="govuk-link" href="#written-controls">Read the written controls guide</a>
+      <section id="written-controls">
+      <h2 class="govuk-heading-m">Written controls guide</h2>
+      <p class="govuk-body">Choose a room, then select a labelled device control. A status message tells you whether Home Assistant accepted the request.</p>
+      <p class="govuk-body">Check the reported device state separately. If the device is unavailable, the control cannot confirm a change.</p>
+      </section>
+  nhs-bsl-content-bundle:
+    title: "Prepare a translation without pretending it exists"
+    description: "A content-owner record shows what must be verified before a signed video link can be published. There is deliberately no player, thumbnail or play button."
+    height: 620
+    html: |
+      <h1 class="govuk-heading-l">Prepare British Sign Language guidance</h1>
+      <p class="govuk-body">Editorial example only. No signed video is available in this preview.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Topic</dt>
+      <dd class="govuk-summary-list__value">Changing a dashboard colour theme</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Written guide</dt>
+      <dd class="govuk-summary-list__value">Reviewed example text available below</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">BSL translation</dt>
+      <dd class="govuk-summary-list__value">Not commissioned</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Translation review</dt>
+      <dd class="govuk-summary-list__value">Not complete</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Publish video link</dt>
+      <dd class="govuk-summary-list__value">Not ready</dd>
+      </div>
+      </dl>
+      <details class="govuk-details" id="bsl-written-guide">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Read the example written guide</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Open civica appearance settings. Choose a palette and choose Vivid or Muted. Preview the selection before saving. The change affects the interface; it does not change devices.</p>
+      </div>
+      </details>
+      <p class="govuk-body">Publish a BSL link only after a real translation and its player have been checked with BSL users.</p>
+  nhs-bsl-link-unavailable:
+    title: "When an existing translation cannot be loaded"
+    description: "A failed translation does not become a silent broken embed. The available text remains reachable and the failed media is not represented by a fake player."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">British Sign Language guidance could not be loaded</h1>
+      <p class="govuk-body">This is a demonstration of an unavailable-content message. It contains no video.</p>
+      <p class="govuk-body">Keep the written guide available while the signed translation is restored. Do not describe the written guide as a BSL version.</p>
+      <a class="govuk-link" href="#bsl-unavailable-text">Read the written guide</a>
+      <section id="bsl-unavailable-text">
+      <h2 class="govuk-heading-m">Written guide</h2>
+      <p class="govuk-body">Choose the named control and wait for its result message. If no result arrives, check the device information before repeating the action.</p>
+      </section>
+      <details class="govuk-details" id="bsl-owner-note">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Content-owner note</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">In production, retain a verified direct link to the real translation only if that destination remains available. Report the outage through an existing support route; do not invent a contact service.</p>
+      </div>
+      </details>
+  nhs-pattern-review-guidance:
+    title: "Review dates for household instructions"
+    description: "The date pair concerns the whole guidance page, not a device reading or a successful command."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">How to use the household dashboard</h1>
+      <p class="govuk-body">Choose a room to find its controls. The availability label describes whether Home Assistant can currently reach each entity.</p>
+      <p class="govuk-body">Use the labelled device-information link to inspect an unavailable entity before trying again.</p>
+      <div class="govuk-body-s">
+      <p>Guidance last reviewed: <time datetime="2026-11-11">11 November 2026</time>
+      <br>Next guidance review: <time datetime="2027-05-11">11 May 2027</time>
+      </p>
+      </div>
+      <details class="govuk-details" id="review-scope">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What was reviewed?</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Example review scope: wording, control labels, supported navigation, keyboard access and links. This is a content record, not a check of household devices.</p>
+      </div>
+      </details>
+  nhs-review-distinct-times:
+    title: "Keep content review separate from sensor freshness"
+    description: "A live-style value has its own observation time. The guidance review remains clearly labelled and visually secondary."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Understand electricity readings</h1>
+      <section aria-labelledby="review-reading-title">
+      <h2 class="govuk-heading-m" id="review-reading-title">Example electricity reading</h2>
+      <p class="govuk-body">0.42 kW</p>
+      <p class="govuk-body">Reading received: <time datetime="2026-11-11T10:42:00Z">11 November 2026 at 10:42 GMT</time>.</p>
+      <p class="govuk-body">Synthetic reading. This is not live household data.</p>
+      </section>
+      <p class="govuk-body">The chart shows recorded readings. A gap means no value was available for that interval; it does not mean zero use.</p>
+      <p class="govuk-body-s">Guidance last reviewed: <time datetime="2026-11-11">11 November 2026</time>
+      <br>Next guidance review: <time datetime="2027-02-11">11 February 2027</time>
+      </p>
+  nhs-review-overdue:
+    title: "An overdue review remains visible"
+    description: "A content owner sees the missed review rather than an automatically renewed date."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Help for a retired integration</h1>
+      <div class="govuk-inset-text">This guidance is awaiting review. The integration described here may have changed.</div>
+      <p class="govuk-body">Use the current integration documentation before relying on these instructions.</p>
+      <p class="govuk-body-s">Guidance last reviewed: <time datetime="2025-11-01">1 November 2025</time>
+      <br>Review was due: <time datetime="2026-11-01">1 November 2026</time>
+      </p>
+      <details class="govuk-details" id="review-history">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example update record</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">11 November 2026: added the overdue-review notice. The whole guidance page has not been reviewed again.</p>
+      </div>
+      </details>
+  nhs-az-household-guides:
+    title: "Browse one subject by familiar names"
+    description: "A compact A to Z of appliance guides uses real in-page destinations, not an alphabetical list of service-call IDs."
+    height: 850
+    html: |
+      <h1 class="govuk-heading-l">Appliance guides A to Z</h1>
+      <p class="govuk-body">Example guides for household appliances. Letters without guides are plain text.</p>
+      <div id="az-top">
+      </div>
+      <nav aria-label="Guide letters">
+      <ul class="civica-pattern-alphabet govuk-list">
+      <li>
+      <span>A</span>
+      </li>
+      <li>
+      <span>B</span>
+      </li>
+      <li>
+      <span>C</span>
+      </li>
+      <li>
+      <span>D</span>
+      </li>
+      <li>
+      <span>E</span>
+      </li>
+      <li>
+      <a class="govuk-link" href="#az-F">F</a>
+      </li>
+      <li>
+      <span>G</span>
+      </li>
+      <li>
+      <span>H</span>
+      </li>
+      <li>
+      <span>I</span>
+      </li>
+      <li>
+      <span>J</span>
+      </li>
+      <li>
+      <span>K</span>
+      </li>
+      <li>
+      <a class="govuk-link" href="#az-L">L</a>
+      </li>
+      <li>
+      <span>M</span>
+      </li>
+      <li>
+      <span>N</span>
+      </li>
+      <li>
+      <span>O</span>
+      </li>
+      <li>
+      <span>P</span>
+      </li>
+      <li>
+      <span>Q</span>
+      </li>
+      <li>
+      <span>R</span>
+      </li>
+      <li>
+      <span>S</span>
+      </li>
+      <li>
+      <span>T</span>
+      </li>
+      <li>
+      <span>U</span>
+      </li>
+      <li>
+      <span>V</span>
+      </li>
+      <li>
+      <a class="govuk-link" href="#az-W">W</a>
+      </li>
+      <li>
+      <span>X</span>
+      </li>
+      <li>
+      <span>Y</span>
+      </li>
+      <li>
+      <span>Z</span>
+      </li>
+      </ul>
+      </nav>
+      <section id="az-F">
+      <h2 class="govuk-heading-m">F</h2>
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#guide-F">Fridge and freezer</a>
+      </li>
+      </ul>
+      <a class="govuk-link" href="#az-top">Back to top</a>
+      </section>
+      <section id="az-L">
+      <h2 class="govuk-heading-m">L</h2>
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#guide-L">Laundry</a>
+      </li>
+      </ul>
+      <a class="govuk-link" href="#az-top">Back to top</a>
+      </section>
+      <section id="az-W">
+      <h2 class="govuk-heading-m">W</h2>
+      <ul class="govuk-list">
+      <li>
+      <a class="govuk-link" href="#guide-W">Washing machine</a>
+      </li>
+      </ul>
+      <a class="govuk-link" href="#az-top">Back to top</a>
+      </section>
+      <details class="govuk-details" id="guide-F">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Fridge and freezer guide</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Check the named sensor and its observation time. A door contact reports a door state; it does not assess food condition.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="guide-L">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Laundry guide</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Check the appliance’s supported controls and current availability. Starting remotely may require permission on the appliance.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="guide-W">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Washing machine guide</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">An available control depends on the integration and appliance state. Do not show a start command if the integration does not support it.</p>
+      </div>
+      </details>
+  nhs-az-aliases:
+    title: "Help people using another name"
+    description: "A common alternative points to the canonical guide without duplicating conflicting instructions."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Appliance guide names</h1>
+      <p class="govuk-body">Use the name you know. Each alternative leads to the same maintained guide.</p>
+      <ul class="govuk-list govuk-list--spaced">
+      <li>Hoover — <a class="govuk-link" href="#vacuum-guide">see Vacuum cleaner</a>
+      </li>
+      <li>Robot vacuum — <a class="govuk-link" href="#vacuum-guide">see Vacuum cleaner</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#vacuum-guide">Vacuum cleaner</a>
+      </li>
+      </ul>
+      <section id="vacuum-guide">
+      <h2 class="govuk-heading-m">Vacuum cleaner</h2>
+      <p class="govuk-body">The guide covers the controls exposed by the installed integration. Some devices report battery and errors but do not expose a start, pause or dock command.</p>
+      </section>
+  nhs-az-empty:
+    title: "An empty letter has an explicit result"
+    description: "The selected letter is explained without implying that household devices are missing."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">No appliance guides under X</h1>
+      <p class="govuk-body">There are no example guides beginning with X. This describes the guide index, not the devices connected to your home.</p>
+      <a class="govuk-link" href="#available-guides">Browse available guides</a>
+      <section id="available-guides">
+      <h2 class="govuk-heading-m">Available example guide</h2>
+      <a class="govuk-link" href="#empty-guide-washer">Washing machine</a>
+      </section>
+      <details class="govuk-details" id="empty-guide-washer">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Washing machine guide</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Use the appliance’s verified controls and read any permission or availability message before acting.</p>
+      </div>
+      </details>
+  nhs-confirmation-saved:
+    title: "Confirm a saved dashboard choice"
+    description: "The completed result is specific; it does not imply a physical device changed."
+    height: 560
+    html: |
+      <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Dashboard preferences saved</h1>
+      <div class="govuk-panel__body">Living room is now your starting view.</div>
+      </div>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">The next time you open this example dashboard, it would start in Living room. No device settings were changed.</p>
+      <a class="govuk-link" href="#saved-summary">View the saved example preferences</a>
+      <details class="govuk-details" id="saved-summary">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Saved example preferences</span>
+      </summary>
+      <div class="govuk-details__text">
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Starting view</dt>
+      <dd class="govuk-summary-list__value">Living room</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Available on</dt>
+      <dd class="govuk-summary-list__value">This example profile</dd>
+      </div>
+      </dl>
+      </div>
+      </details>
+  nhs-confirmation-pending:
+    title: "A request has not yet been confirmed"
+    description: "Pending work uses ordinary status content. It does not show a success panel before the reported state is known."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Waiting for the light to respond</h1>
+      <p class="govuk-body">Home Assistant accepted the example request to turn on the reading lamp. A new device state has not arrived.</p>
+      <p class="govuk-body" role="status">Request pending. The lamp’s current state is not confirmed.</p>
+      <a class="govuk-link" href="#pending-details">View device information</a>
+      <details class="govuk-details" id="pending-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example device information</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Last known state: Off. A production interface would show the actual timestamp and allow a deliberate retry after checking the request outcome.</p>
+      </div>
+      </details>
+  nhs-confirmation-not-saved:
+    title: "A failed save preserves the draft"
+    description: "A rejected configuration update has a correction route instead of a misleading completion panel."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">The schedule was not saved</h1>
+      <div class="govuk-inset-text">The connection was interrupted before Home Assistant confirmed the save.</div>
+      <p class="govuk-body">The example draft is still on this page. Check the saved schedules before retrying so you do not create a duplicate.</p>
+      <button type="button" class="govuk-button" data-demo-message="Example draft shown. No save request was made.">Review the draft</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      <details class="govuk-details" id="unsaved-draft">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example draft</span>
+      </summary>
+      <div class="govuk-details__text">
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Schedule</dt>
+      <dd class="govuk-summary-list__value">Reading lights</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Start</dt>
+      <dd class="govuk-summary-list__value">20:00 Europe/London</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Status</dt>
+      <dd class="govuk-summary-list__value">Save not confirmed</dd>
+      </div>
+      </dl>
+      </div>
+      </details>
+  nhs-hub-household:
+    title: "A household help hub with clear priorities"
+    description: "A small shortcut list precedes grouped guidance. Cards navigate; they do not contain nested device controls."
+    height: 850
+    html: |
+      <h1 class="govuk-heading-l">Help with your home</h1>
+      <nav aria-label="Common help tasks">
+      <ul class="govuk-list govuk-list--spaced">
+      <li>
+      <a class="govuk-link" href="#hub-unavailable">Find an unavailable device</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#hub-notifications">Change notification choices</a>
+      </li>
+      </ul>
+      </nav>
+      <h2 class="govuk-heading-m">Explore guidance</h2>
+      <div class="civica-pattern-grid">
+      <section class="civica-pattern-card">
+      <h2 class="govuk-heading-m">
+      <a class="govuk-link" href="#hub-controls">Household controls</a>
+      </h2>
+      <p class="govuk-body">Understand rooms, device availability and supported controls.</p>
+      </section>
+      <section class="civica-pattern-card">
+      <h2 class="govuk-heading-m">
+      <a class="govuk-link" href="#hub-energy">Energy readings</a>
+      </h2>
+      <p class="govuk-body">Read your power chart, units and missing intervals.</p>
+      </section>
+      </div>
+      <details class="govuk-details" id="hub-unavailable">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Find an unavailable device</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Inspect the entity information and its integration status. Keep the last reported reading separate from the current unknown state.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="hub-notifications">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Change notification choices</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Review the events and recipients before saving. Changing a preference does not send a test notification.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="hub-controls">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Household controls</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Choose a room, then use the labelled controls supported by each integration.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="hub-energy">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Energy readings</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Use the chart data table to inspect exact recorded values and missing intervals.</p>
+      </div>
+      </details>
+  nhs-hub-small:
+    title: "A small collection needs only a list"
+    description: "A short help section uses straightforward links instead of a hierarchy of large cards."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Lighting help</h1>
+      <p class="govuk-body">Choose the guide you need.</p>
+      <ul class="govuk-list govuk-list--spaced">
+      <li>
+      <a class="govuk-link" href="#small-scenes">Save a lighting scene</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#small-lamp">Check an unavailable lamp</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="#small-room">Move a control to another room view</a>
+      </li>
+      </ul>
+      <details class="govuk-details" id="small-scenes">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Save a lighting scene</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Review the lights and their supported settings. Saving the scene is separate from running it.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="small-lamp">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Check an unavailable lamp</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Open the entity information to inspect the integration and the last reported state.</p>
+      </div>
+      </details>
+      <details class="govuk-details" id="small-room">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Move a control to another room view</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">Changing the dashboard view does not change a device’s physical location or integration configuration.</p>
+      </div>
+      </details>
+  nhs-interruption-backup:
+    title: "Confirm an irreversible deletion"
+    description: "A specific backup is named, the consequence is concise, and the safe exit is as clear as the destructive action."
+    height: 700
+    html: |
+      <a class="govuk-link" href="#backup-list">Back to backups</a>
+      <h1 class="govuk-heading-l">Delete this backup?</h1>
+      <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>This removes the selected backup from this example location. It cannot be restored from here.</strong>
+      </div>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Backup</dt>
+      <dd class="govuk-summary-list__value">Before kitchen configuration change</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Created</dt>
+      <dd class="govuk-summary-list__value">1 November 2026 at 09:15 GMT</dd>
+      </div>
+      </dl>
+      <p class="govuk-body">This preview does not inspect or delete any backup. In production, check the named storage location and any independent copies before making this choice.</p>
+      <div class="govuk-button-group">
+      <button type="button" class="govuk-button" data-demo-message="Example only: deletion would require the native authorised backup operation.">Delete this backup</button>
+      <a class="govuk-link" href="#backup-list">Keep the backup</a>
+      </div>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      <section id="backup-list">
+      <h2 class="govuk-heading-m">Example backup list</h2>
+      <p class="govuk-body">Before kitchen configuration change — still present in this preview.</p>
+      </section>
+  nhs-interruption-overnight:
+    title: "Check a likely mistake that may be intentional"
+    description: "An overnight schedule is allowed if confirmed. This is not presented as an invalid answer."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Does this schedule run overnight?</h1>
+      <p class="govuk-body">The example start time is 22:00 and the end time is 07:00. This would continue into the following day.</p>
+      <form data-demo-form data-demo-success="Example saved in this preview. No Home Assistant setting was changed.">
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Is that what you want?</legend>
+      <div class="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="overnight-check-0" name="overnight-check" type="radio" value="0" required>
+      <label class="govuk-label govuk-radios__label" for="overnight-check-0">Yes, the schedule runs overnight</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="overnight-check-1" name="overnight-check" type="radio" value="1">
+      <label class="govuk-label govuk-radios__label" for="overnight-check-1">No, I want to change the times</label>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">Continue</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+      <details class="govuk-details" id="overnight-times">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Example schedule times</span>
+      </summary>
+      <div class="govuk-details__text">
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Start</dt>
+      <dd class="govuk-summary-list__value">22:00</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">End</dt>
+      <dd class="govuk-summary-list__value">07:00 the following day</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Time zone</dt>
+      <dd class="govuk-summary-list__value">Europe/London</dd>
+      </div>
+      </dl>
+      </div>
+      </details>
+  nhs-interruption-permission:
+    title: "A forbidden action has no override"
+    description: "When permission is missing, an ordinary explanation and return route replace a confirmation that cannot authorise the operation."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">You cannot delete this backup</h1>
+      <p class="govuk-body">The current example profile does not have permission to manage backups.</p>
+      <p class="govuk-body">No deletion was attempted. There is no “Continue anyway” control because a confirmation cannot grant permission.</p>
+      <a class="govuk-link" href="#permission-backups">Return to the backup information</a>
+      <section id="permission-backups">
+      <h2 class="govuk-heading-m">Example backup information</h2>
+      <p class="govuk-body">Backup details remain available according to the profile’s permissions.</p>
+      </section>
+  nhs-mini-hub-reading:
+    title: "Mini-hub: understand recorded readings"
+    description: "The contents and Next link navigate to a second real standalone example page about the same topic."
+    height: 640
+    html: |
+      <h1 class="govuk-heading-l">
+      <span>Understand recorded readings</span>
+      <span class="govuk-visually-hidden"> — </span>
+      <span class="govuk-caption-l">Your energy chart</span>
+      </h1>
+      <nav aria-label="In this guide">
+      <ol class="govuk-list">
+      <li>
+      <a class="govuk-link" href="./nhs-mini-hub-reading.html" aria-current="page">Understand recorded readings</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="./nhs-mini-hub-gaps.html">Understand gaps and missing values</a>
+      </li>
+      </ol>
+      </nav>
+      <h2 class="govuk-heading-m">Power and energy describe different things</h2>
+      <p class="govuk-body">An example power reading of 0.42 kW describes a rate. An energy value of 0.42 kWh describes an amount over a recorded interval. Keep the chart’s unit visible.</p>
+      <p class="govuk-body">The data table lists the plotted observations. It does not replace a missing reading with zero.</p>
+      <nav aria-label="Guide pages">
+      <a class="govuk-link" href="./nhs-mini-hub-gaps.html" rel="next">Next: Understand gaps and missing values</a>
+      </nav>
+  nhs-mini-hub-gaps:
+    title: "Mini-hub: understand gaps and missing values"
+    description: "The current page changes its heading and current-link state. Previous returns to the first example without a form submission."
+    height: 640
+    html: |
+      <h1 class="govuk-heading-l">
+      <span>Understand gaps and missing values</span>
+      <span class="govuk-visually-hidden"> — </span>
+      <span class="govuk-caption-l">Your energy chart</span>
+      </h1>
+      <nav aria-label="In this guide">
+      <ol class="govuk-list">
+      <li>
+      <a class="govuk-link" href="./nhs-mini-hub-reading.html">Understand recorded readings</a>
+      </li>
+      <li>
+      <a class="govuk-link" href="./nhs-mini-hub-gaps.html" aria-current="page">Understand gaps and missing values</a>
+      </li>
+      </ol>
+      </nav>
+      <h2 class="govuk-heading-m">A gap is not zero use</h2>
+      <p class="govuk-body">A missing interval means no value is available for that part of the example chart. A recorded zero is a real value and remains visible in the data table.</p>
+      <p class="govuk-body">Check the selected dates, units and integration information before comparing two periods. A changed source can make otherwise similar labels describe different records.</p>
+      <nav aria-label="Guide pages">
+      <a class="govuk-link" href="./nhs-mini-hub-reading.html" rel="prev">Previous: Understand recorded readings</a>
+      </nav>
+  nhs-question-room:
+    title: "One household question on a page"
+    description: "The legend is the page heading, the hint explains the effect, and an honest unassigned option is available."
+    height: 680
+    html: |
+      <a class="govuk-back-link" href="#question-context">Back</a>
+      <form data-demo-form>
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="question-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Which room should this control appear in?</h1>
+      </legend>
+      <div class="govuk-hint" id="question-hint">This changes its place on the example dashboard, not the device’s physical location.</div>
+      <div class="govuk-radios">
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="room-0" name="room" value="Living room" type="radio" required>
+      <label class="govuk-label govuk-radios__label" for="room-0">Living room</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="room-1" name="room" value="Kitchen" type="radio" required>
+      <label class="govuk-label govuk-radios__label" for="room-1">Kitchen</label>
+      </div>
+      <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="room-2" name="room" value="No room yet" type="radio" required>
+      <label class="govuk-label govuk-radios__label" for="room-2">No room yet</label>
+      </div>
+      </div>
+      </fieldset>
+      </div>
+      <button class="govuk-button" type="submit">Continue</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+      <section id="question-context">
+      <h2 class="govuk-heading-m">Example journey context</h2>
+      <p class="govuk-body">Previous step: choose the control. The selected example is Reading lamp.</p>
+      </section>
+  nhs-question-modal:
+    title: "The same principle in an accessible dialog"
+    description: "Open the example, edit the display name, then cancel or submit. This changes no Home Assistant entity or device."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Reading lamp</h1>
+      <p class="govuk-body">Example dashboard card. Rename changes only the displayed label in this preview.</p>
+      <button type="button" class="govuk-button govuk-button--secondary" data-demo-open="rename-control-dialog">Rename this control</button>
+      <dialog class="civica-pattern-dialog" id="rename-control-dialog" aria-labelledby="rename-control-title">
+      <form data-demo-form>
+      <h2 class="govuk-heading-m" id="rename-control-title">What should this control be called?</h2>
+      <div class="govuk-form-group">
+      <label class="govuk-label" for="control-display-name">Display name</label>
+      <div class="govuk-hint" id="control-display-hint">Use a name that household members recognise. The entity ID will stay the same.</div>
+      <input class="govuk-input" id="control-display-name" name="display-name" value="Reading lamp" required maxlength="80" aria-describedby="control-display-hint">
+      </div>
+      <div class="govuk-button-group">
+      <button class="govuk-button" type="submit">Save display name</button>
+      <button class="govuk-button govuk-button--secondary" type="button" data-demo-close>Cancel</button>
+      </div>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+      </dialog>
+  nhs-question-error:
+    title: "Keep the answer and identify a specific problem"
+    description: "The inline message and error summary use the same correction. This is a configuration example, not an appliance temperature control."
+    height: 620
+    html: |
+      <div class="govuk-error-summary" tabindex="-1" role="alert" aria-labelledby="quiet-error-title">
+      <h2 class="govuk-error-summary__title" id="quiet-error-title">There is a problem</h2>
+      <ul class="govuk-list govuk-error-summary__list">
+      <li>
+      <a href="#quiet-hour">Enter an hour from 0 to 23</a>
+      </li>
+      </ul>
+      </div>
+      <h1 class="govuk-heading-l">When should quiet hours start?</h1>
+      <form data-demo-form>
+      <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="quiet-hour">Hour</label>
+      <div class="govuk-hint" id="quiet-hour-hint">Use the 24-hour clock. The example time zone is Europe/London.</div>
+      <p class="govuk-error-message" id="quiet-hour-error">
+      <span class="govuk-visually-hidden">Error:</span> Enter an hour from 0 to 23</p>
+      <input class="govuk-input govuk-input--width-2 govuk-input--error" id="quiet-hour" name="hour" type="text" inputmode="numeric" pattern="([01]?[0-9]|2[0-3])" value="25" required aria-invalid="true" aria-describedby="quiet-hour-hint quiet-hour-error">
+      </div>
+      <button class="govuk-button" type="submit">Continue</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      </form>
+  nhs-start-notifications:
+    title: "Start a notification setup with clear expectations"
+    description: "Information needed by everyone appears before the start control. The preview action cannot enable a rule."
+    height: 620
+    html: |
+      <h1 class="govuk-heading-l">Set up household notifications</h1>
+      <p class="govuk-body">Choose which supported household events appear on your dashboard.</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>You will choose events and where their messages appear.</li>
+      <li>You can review your choices before enabling anything.</li>
+      <li>You need a profile allowed to manage these settings.</li>
+      </ul>
+      <button type="button" class="govuk-button" data-demo-message="Example setup started. No notifications have been enabled.">Start now</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      <h2 class="govuk-heading-m">Other ways to manage notifications</h2>
+      <p class="govuk-body">If your installation already has native notification settings, use that supported route. Do not create a second rule for the same event without checking the existing configuration.</p>
+      <details class="govuk-details" id="start-context">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">What this example covers</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">The example configures dashboard messages only. It does not promise mobile push notifications or another delivery integration.</p>
+      </div>
+      </details>
+  nhs-start-requirement:
+    title: "Explain a missing prerequisite without a dead start button"
+    description: "A setup cannot begin until a supported meter is available. A real explanatory route remains usable."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Set up electricity readings</h1>
+      <p class="govuk-body">Use a supported electricity energy sensor to populate the native Energy dashboard.</p>
+      <div class="govuk-inset-text">No eligible meter is available in this example. A power reading in kW is not automatically an energy total in kWh.</div>
+      <p class="govuk-body">Add or restore a supported integration, then return to the native Energy setup. No meter is selected automatically.</p>
+      <a class="govuk-link" href="#meter-requirements">Read the example meter requirements</a>
+      <section id="meter-requirements">
+      <h2 class="govuk-heading-m">Meter requirements</h2>
+      <p class="govuk-body">Use the current Home Assistant Energy setup rules for the installed version. The integration must supply the required measurement and metadata.</p>
+      </section>
+  nhs-start-resume:
+    title: "Return to a saved setup"
+    description: "An existing draft is offered before starting another journey, with an explicit distinction from an enabled rule."
+    height: 560
+    html: |
+      <h1 class="govuk-heading-l">Continue household notification setup</h1>
+      <p class="govuk-body">An example draft was saved on 10 November 2026. It has not enabled any notifications.</p>
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Events</dt>
+      <dd class="govuk-summary-list__value">Front door left open</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Destination</dt>
+      <dd class="govuk-summary-list__value">Household dashboard</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Remaining task</dt>
+      <dd class="govuk-summary-list__value">Review quiet hours</dd>
+      </div>
+      </dl>
+      <button type="button" class="govuk-button" data-demo-message="Example draft opened. No notification rule was enabled.">Continue saved setup</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite">
+      </p>
+      <details class="govuk-details" id="new-setup">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">Start a different setup</span>
+      </summary>
+      <div class="govuk-details__text">
+      <p class="govuk-body">A production service should explain whether this creates another draft or replaces the saved draft before proceeding. This preview makes neither change.</p>
+      </div>
+      </details>

@@ -1,0 +1,44 @@
+---
+title: "Generic header"
+description: "Identify an independent service clearly without implying government affiliation."
+section: components
+group: Navigation
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
+---
+
+# Generic header
+
+Identify an independent service clearly without implying government affiliation.
+
+## When to use
+
+Use a compact identity header when a page belongs to a named civica.uk service and does not need a long navigation menu. It gives users a stable route home and a recognisable context. Use the full [header](header.html) when the task needs navigation; use [service navigation](service-navigation.html) for a set of related destinations.
+
+The official generic header is intended for government services outside GOV.UK. That eligibility does not apply to this independent project. We adapt the structural idea only, using the supplied civica.uk identity and an explicit service name.
+
+## Identity and a home link
+
+<%= example('core-generic-header') %>
+
+## Service name alongside the identity
+
+<%= example('core-generic-header-service') %>
+
+## Behaviour and content
+
+The identity link returns to the service’s genuine home page. Do not use it to refresh the current route, open a menu or launch a device action. A long service name wraps without compressing the artwork. Keep the logo’s aspect ratio, clear space and supplied on-primary variant.
+
+Do not include a crown, GOV.UK logotype, NHS logo or a government ownership statement. Do not create a second logo by typesetting the brand name. Branding rules also apply to standalone previews and error pages.
+
+## Accessibility and testing
+
+Give the identity image the concise alternative “civica.uk”. The surrounding link must have a meaningful destination. Check contrast and focus on every palette, and verify that the header does not obscure the skip link at high zoom. A service name is supporting context; the content still needs its own main heading.
+
+## Home Assistant boundary and source
+
+The companion’s own branding adapter has a separate compatibility contract. These HTML examples do not replace native HA routing. The structural reference is [GOV.UK Generic header](https://design-system.service.gov.uk/components/generic-header/); artwork comes from the supplied civica.uk V3.2 assets.

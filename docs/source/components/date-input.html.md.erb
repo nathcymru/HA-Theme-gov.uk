@@ -1,0 +1,63 @@
+---
+title: "Date input"
+description: "Use separate day, month and year fields for a date the user already knows."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/date-input"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed date input guidance and 2 Home Assistant reference examples."
+---
+
+# Date input
+
+Use separate day, month and year fields for a date the user already knows.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it to record a known filter replacement date or the date an installation was completed. Keep the units visible and accept leading zeros without making people retype them.
+
+## When not to use it
+
+Do not use these three fields to choose an Energy reporting range or find an available date. Preserve Home Assistant’s native date-range controls for exploration.
+
+## Home Assistant adaptation
+
+Group the fields as one question and validate the whole calendar date, including leap years. A date-only maintenance record is not a timestamp: do not silently shift it when the account timezone changes. Do not use birthday autocomplete attributes for appliance dates.
+
+## Accessibility and behaviour
+
+Give every part its own label and numeric input mode, then associate the group hint and error. Link an error summary to the first incorrect part. Keep correct parts intact after a failed submission.
+
+## Examples
+
+### Record a known maintenance date
+
+The date is supplied by the user, not inferred from a sensor.
+
+<%= example('nhs-date-maintenance') %>
+
+### Correct one part of a date
+
+The month is identified and the other answers remain intact.
+
+<%= example('nhs-date-error') %>
+
+## Check the implementation
+
+Test missing parts,31 February, an unexpected future date and mobile number keyboards. Explain any domain-specific date restriction in plain language rather than rejecting it as “invalid”.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS date input](https://service-manual.nhs.uk/design-system/components/date-input) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

@@ -1,0 +1,60 @@
+---
+title: "Guide"
+description: "A guide divides a substantial subject into chapters with their own titles and durable routes."
+section: "patterns"
+group: "Page templates"
+source_url: "https://design-guide.publishing.service.gov.uk/frontend-templates/guide/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: "2026-11-11"
+    description: "Added the civica.uk adaptation, applicability limits and two local examples."
+---
+
+# Guide
+
+A guide divides a substantial subject into chapters with their own titles and durable routes. [Official publishing guidance](https://design-guide.publishing.service.gov.uk/frontend-templates/guide/).
+
+**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.
+
+## When to use it
+
+Use a multi-part guide when sections answer different tasks or are useful independently. A companion installation guide might separate preparation, installation and verification. If readers need the whole procedure at once, prefer a detailed single page with a contents list.
+
+## Structure and behaviour
+
+Keep a consistent title and chapter navigation. Identify the current chapter without a self-link, and provide previous/next destinations with chapter names. A combined print view is useful only when it contains the whole guide. Maintain cross-chapter terminology and version requirements.
+
+## Home Assistant boundary
+
+A sequence of guide pages is not a wizard and must not silently save progress. Do not hide necessary prerequisites on a previous page that a direct visitor may never have seen. The examples navigate between actual sections rather than fictional URLs.
+
+## Chapter list
+
+An example current chapter and one real destination.
+
+<%= example("pub-frontend-templates-guide-1") %>
+
+## Chapter ending
+
+The destination title supplies context.
+
+<%= example("pub-frontend-templates-guide-2") %>
+
+## Acceptance checks
+
+- Direct entry to every chapter remains understandable.
+- Navigation order matches the published contents.
+- Requirements do not contradict other chapters.
+- No chapter link performs an installation action.
+
+Check the examples at narrow widths, with a keyboard and without JavaScript. Test a production implementation against its actual data and permissions before calling it supported.
+
+## Sources and maintenance
+
+Reviewed against the official guidance on 11 November 2026. The [source and migration record](../source-history.html) separates the Publishing Design Guide from the component gem and records the metadata-history migration. Use civica.uk branding and the local font and colour tokens; official GOV.UK marks, analytics and account services are not part of this adaptation.
+
+[Browse page templates](index.html).

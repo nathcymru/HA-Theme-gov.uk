@@ -1,0 +1,63 @@
+---
+title: "Error message"
+description: "An inline error tells the user how to correct an answer that could not be accepted."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/error-message"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed error message guidance and 2 Home Assistant reference examples."
+---
+
+# Error message
+
+An inline error tells the user how to correct an answer that could not be accepted.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it after an attempted save or next step. Put the message with the affected field and repeat it in an error summary. Describe the correction, including units or permitted choices when useful.
+
+## When not to use it
+
+Do not validate untouched fields as the user tabs through them. An offline device or missing permission is not a mistake in the user’s answer; explain that condition separately.
+
+## Home Assistant adaptation
+
+For Home Assistant settings, distinguish malformed input from a service failure. Keep a correctly entered room name if saving fails because the connection was lost. Avoid inventing numeric ranges: enforce the integration’s declared minimum and maximum, and identify their unit.
+
+## Accessibility and behaviour
+
+Use a visible error prefix for assistive technology, aria-invalid and aria-describedby. A red boundary supports the wording but never replaces it. Preserve label and hint associations when adding the error.
+
+## Examples
+
+### A missing room name
+
+This represents the state after an unsuccessful save.
+
+<%= example('nhs-error-room-name') %>
+
+### A temperature outside a declared range
+
+The example declares its supported range; production must use the actual integration limits.
+
+<%= example('nhs-error-temperature') %>
+
+## Check the implementation
+
+Test the error summary link, correction without losing the answer, multiple errors and a retry after a connection failure. Do not announce errors repeatedly while people type.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS error message](https://service-manual.nhs.uk/design-system/components/error-message) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

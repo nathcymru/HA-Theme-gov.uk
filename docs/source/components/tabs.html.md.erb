@@ -1,0 +1,63 @@
+---
+title: "Tabs"
+description: "Tabs show one of several related sections in the same view."
+section: "components"
+group: "Content presentation"
+source_url: "https://service-manual.nhs.uk/design-system/components/tabs"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed tabs guidance and 2 Home Assistant reference examples."
+---
+
+# Tabs
+
+Tabs show one of several related sections in the same view.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use them for frequent users who need to switch quickly between clearly named information groups. Put the most useful section first and keep each panel small enough to load promptly.
+
+## When not to use it
+
+Do not use tabs as the application’s main route navigation, for a sequential setup process, or when people need to compare both panels side by side. Do not hide urgent device conditions in an unselected tab.
+
+## Home Assistant adaptation
+
+A device reference might separate current details from its event history. Preserve the selected tab during unrelated sensor updates and avoid refetching or resetting the user’s position unnecessarily. An empty panel should explain why it has no values rather than disabling its tab.
+
+## Accessibility and behaviour
+
+Use a proven tab implementation with tablist, tab and tabpanel relationships, roving focus and arrow-key navigation. The GOV.UK reference progressively becomes a contents list and stacked sections on small screens or without enhancement.
+
+## Examples
+
+### Related device information
+
+The panels contain different information, not steps in a form.
+
+<%= example('nhs-tabs-device') %>
+
+### An empty history panel
+
+The panel remains available and explains the absence of data.
+
+<%= example('nhs-tabs-empty') %>
+
+## Check the implementation
+
+Test keyboard selection, direct fragment links, small screens, an empty panel and data refresh while a different tab is selected. Panel headings remain useful in the stacked view.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS tabs](https://service-manual.nhs.uk/design-system/components/tabs) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [navigation](navigation.html).

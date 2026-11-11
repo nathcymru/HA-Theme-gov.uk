@@ -1,0 +1,63 @@
+---
+title: "Fieldset"
+description: "A fieldset gives several controls one shared question or purpose."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/fieldset"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed fieldset guidance and 2 Home Assistant reference examples."
+---
+
+# Fieldset
+
+A fieldset gives several controls one shared question or purpose.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use it for room checkboxes, an exclusive display choice, or the three parts of a date. Its legend names the group; individual labels still describe each input.
+
+## When not to use it
+
+Do not use a fieldset as a decorative box around unrelated settings or readings. A collection of sensor values is usually a summary list or table, not a form group.
+
+## Home Assistant adaptation
+
+For a dashboard editor, separate display choices from integration settings so the legend describes a coherent task. On a one-question page the legend can contain the page heading. In a multi-section settings page use the appropriate lower heading level instead of repeating h1.
+
+## Accessibility and behaviour
+
+Place the legend first and keep it short because a screen reader may repeat it for each control. Associate a short group hint programmatically. Native Home Assistant components may expose their own grouping semantics; check the rendered accessibility tree before adding wrappers.
+
+## Examples
+
+### Related room choices
+
+The legend identifies the shared question for all options.
+
+<%= example('nhs-fieldset-room-options') %>
+
+### A grouped date answer
+
+One legend groups three individually labelled inputs.
+
+<%= example('nhs-fieldset-period') %>
+
+## Check the implementation
+
+Test the group name and individual labels with a screen reader, keyboard traversal and wrapping at 320px. Grouping must remain clear without a border.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS fieldset](https://service-manual.nhs.uk/design-system/components/fieldset) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

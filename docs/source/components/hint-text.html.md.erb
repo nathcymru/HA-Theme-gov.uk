@@ -1,0 +1,63 @@
+---
+title: "Hint text"
+description: "Place a short piece of help where it supports the answer."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/hint-text"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed hint text guidance and 2 Home Assistant reference examples."
+---
+
+# Hint text
+
+Place a short piece of help where it supports the answer.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use a hint to explain a unit, expected format or consequence that most people need before answering. An option can have its own hint when the label alone is insufficient.
+
+## When not to use it
+
+Do not put a long manual, links, details controls or essential safety instructions inside a hint. A placeholder is not a substitute because it disappears while typing.
+
+## Home Assistant adaptation
+
+For Home Assistant, explain human concepts rather than internal entity or service names unless an advanced configuration task requires those identifiers. State whether a value changes only the display or affects an automation. Keep extended help in normal page content outside the described-by text.
+
+## Accessibility and behaviour
+
+Place the hint after the label or legend and before the field. Connect it using aria-describedby. Keep additional error IDs in that association when validation fails. Short hints reduce repetitive screen-reader output.
+
+## Examples
+
+### Explain a recognisable display name
+
+The hint helps people choose a label without exposing implementation details.
+
+<%= example('nhs-hint-name') %>
+
+### Clarify what a setting affects
+
+The saved display preference is distinct from the recorded measurement.
+
+<%= example('nhs-hint-scope') %>
+
+## Check the implementation
+
+Test the field with its label, hint and error announced together. Check that guidance remains visible at increased text size and does not rely on colour or position.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS hint text](https://service-manual.nhs.uk/design-system/components/hint-text) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).

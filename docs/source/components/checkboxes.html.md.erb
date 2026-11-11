@@ -1,0 +1,63 @@
+---
+title: "Checkboxes"
+description: "Use checkboxes for independent selections or a single on/off preference."
+section: "components"
+group: "Form elements"
+source_url: "https://service-manual.nhs.uk/design-system/components/checkboxes"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added NHS-informed checkboxes guidance and 2 Home Assistant reference examples."
+---
+
+# Checkboxes
+
+Use checkboxes for independent selections or a single on/off preference.
+
+These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+
+## When to use it
+
+Use a group when several rooms can be included in a view. A single checkbox can express a reversible preference such as muted colours. Explain whether several choices are allowed.
+
+## When not to use it
+
+Do not use a checkbox group for a single choice such as temperature units. Avoid a bulk-selection control when there are only two clear options.
+
+## Home Assistant adaptation
+
+When editing an existing Home Assistant preference, show its saved checked state. This differs from preselecting answers to a new question, which can conceal a missed decision. Keep presentation preferences separate from physical commands. Checking a room in a filter must not switch its devices on.
+
+## Accessibility and behaviour
+
+Use a fieldset and legend for related options, visible associated labels, and a predictable focus order. Make the whole label a generous target. If an exclusive “no rooms” option is introduced, enforce that rule on submission as well as in JavaScript.
+
+## Examples
+
+### Choose several rooms
+
+Room selection changes the example scope, not device state.
+
+<%= example('nhs-checkbox-rooms') %>
+
+### Edit a saved display preference
+
+An existing saved preference can be checked initially.
+
+<%= example('nhs-checkbox-preference') %>
+
+## Check the implementation
+
+Test spacebar activation, saved values, no selections, long room names and touch targets. Keep related follow-up questions simple and visible when enhancement is unavailable.
+
+Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+
+## Source and related guidance
+
+[NHS checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+
+See also [buttons and forms](controls.html).
