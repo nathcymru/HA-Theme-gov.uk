@@ -95,9 +95,12 @@ test('all 20 palettes in both modes keep link and circle-arrow contrast, includi
   const measurements = await page.evaluate(() => {
     const link = window.actionLinks.shadowRoot.querySelector('a');
     const circle = link.querySelector('.circle');
+    // CSS color-mix computes to color(srgb ...) with 0–1 channels in Chrome;
+    // ordinary rgb(...) uses 0–255. Contrast must account for both forms.
+    const channels = colour => colour.match(/[\d.]+/g).slice(0, 3).map(Number).map(n => colour.startsWith('color(srgb') ? n : n / 255);
     const ratio = (one, two) => {
-      const luminance = colour => colour.match(/[\d.]+/g).slice(0, 3).map(Number).map(n => {
-        const c = n / 255; return c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4;
+      const luminance = colour => channels(colour).map(c => {
+        return c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4;
       }).reduce((sum, c, i) => sum + c * [.2126, .7152, .0722][i], 0);
       const [a, b] = [luminance(one), luminance(two)];
       return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
@@ -107,7 +110,7 @@ test('all 20 palettes in both modes keep link and circle-arrow contrast, includi
       window.fixture.app.hass.selectedTheme = { theme, dark }; window.fixture.paint();
       const c = getComputedStyle(circle);
       const a = getComputedStyle(link);
-      out.push({ theme, dark, label: ratio(a.color, getComputedStyle(document.body).backgroundColor), arrow: ratio(c.color, c.backgroundColor) });
+      out.push({ theme, dark, label: ratio(a.color, getComputedStyle(document.body).backgroundColor), arrow: ratio(c.color, c.backgroundColor), arrowColour: c.color, circle: channels(c.backgroundColor).map(n => Math.round(n * 255)) });
     }
     return out;
   });
@@ -115,7 +118,11 @@ test('all 20 palettes in both modes keep link and circle-arrow contrast, includi
   for (const state of measurements) {
     expect(state.label, `${state.theme} ${state.dark ? 'dark' : 'light'} text`).toBeGreaterThanOrEqual(4.5);
     expect(state.arrow, `${state.theme} ${state.dark ? 'dark' : 'light'} arrow`).toBeGreaterThanOrEqual(3);
+    expect(state.arrowColour).toBe(state.dark ? 'rgb(255, 255, 255)' : 'rgb(11, 12, 12)');
   }
+  // The Civic Cobalt light circle matches the publishing pattern's visible
+  // tint, rather than the near-white quiet-fill token that hid its shape.
+  expect(measurements.find(state => state.theme === 'civica Civic Cobalt Vivid' && !state.dark).circle).toEqual([210, 226, 241]);
   const link = page.locator('civica-action-links a').first();
   await page.keyboard.press('Tab');
   await expect(link).toBeFocused();

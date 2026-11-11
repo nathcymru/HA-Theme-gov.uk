@@ -28,9 +28,11 @@ Vivid/Muted is separate from Light/Dark. The supplied light canvases are exact. 
 
 ## Install the themes
 
-With HACS, add `https://github.com/nathcymru/HA-Theme-gov.uk` as a custom repository of type **Theme**, then download **civica.uk for Home Assistant**. HACS installs the YAML themes; it does not install the optional companion or lighting card.
+Choose **HACS or manual installation** as the owner of the theme YAML. Home Assistant merges the included theme files, so a second copy with the same theme names can override newer definitions.
 
-For manual installation, copy `themes/civica.yaml` to your Home Assistant `config/themes/civica/` directory. Keep `themes/govuk.yaml` there only if an existing profile or dashboard uses the old `govuk` theme name. That alias now maps to Civic Cobalt Vivid.
+With HACS, add `https://github.com/nathcymru/HA-Theme-gov.uk` as a custom repository of type **Theme**, then download **civica.uk for Home Assistant**. HACS installs and updates the YAML in its repository folder under `config/themes/`; an existing installation may use `config/themes/govuk/`. Keep that HACS-managed location. HACS does not install the optional companion or lighting card.
+
+For manual installation without HACS, copy `themes/civica.yaml` to your Home Assistant `config/themes/civica/` directory once. Keep `themes/govuk.yaml` there only if an existing profile or dashboard uses the old `govuk` theme name. That alias now maps to Civic Cobalt Vivid. Keep only one included definition of the alias as well; do not add another `govuk.yaml` alongside an existing installation.
 
 Merge this into your existing `configuration.yaml` without duplicating `frontend`:
 
@@ -43,7 +45,9 @@ Restart after changing `configuration.yaml`. For theme-file changes alone, run *
 
 ## Add the colour toggle and branding
 
-Download `civica-home-assistant.zip` from the [latest release](https://github.com/nathcymru/HA-Theme-gov.uk/releases/latest), or build it with `npm ci && npm run package`. Extract the archive. Copy the archive's `www/civica/` folder into Home Assistant's `config/www/civica/` and its `themes/civica/` into `config/themes/civica/`.
+Download `civica-home-assistant.zip` from the [latest release](https://github.com/nathcymru/HA-Theme-gov.uk/releases/latest), or build it with `npm ci && npm run package`. Extract the archive and copy its `www/civica/` folder into Home Assistant's `config/www/civica/`.
+
+**HACS users copy only `www/civica/` from the archive.** Update the theme through HACS; do not also copy the archive's `themes/civica/` directory. Manual users copy `themes/civica/` into `config/themes/civica/` once, or update that same existing manual location. The archive is another source for the same themes, not an additional theme layer.
 
 Add the companion to the same frontend configuration:
 
@@ -51,7 +55,7 @@ Add the companion to the same frontend configuration:
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.1.0
+    - /local/civica/civica-ui.js?v=1.1.1
 ```
 
 Restart Home Assistant and reload the browser. In **Profile → Theme**, choose a palette and toggle **Use muted colours**. The companion uses the same `settheme` event as Home Assistant's own selector. It clears native primary/accent overrides so the palette applies consistently, and leaves display mode unchanged. Home Assistant reports preference-save failures through its native notification.
@@ -66,9 +70,15 @@ type: custom:civica-theme-settings
 
 The Profile adapter is a small, version-sensitive enhancement. The themes themselves remain independent of it. No global theme-changing helper or device automation is required.
 
+## Check for duplicate themes after an upgrade
+
+If old borders or colours remain after a theme reload, inspect every YAML file under the included `config/themes/` directory for duplicate `civica …` or `govuk` definitions. A HACS copy under `themes/govuk/` and a manual copy under `themes/civica/` must not both remain included.
+
+Keep one installation owner, update its files, and move the superseded civica YAML to a backup **outside** the included themes directory, such as `config/civica-theme-backups/`. A backup subfolder inside `config/themes/` can still be loaded. Preserve unrelated themes. Then run `frontend.reload_themes`, reload the browser and reselect the theme. See the [installation guide](docs/source/get-started/install.html.md#resolve-duplicate-theme-definitions) for the recovery sequence.
+
 ## Lighting card and examples
 
-Register `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.1.0` as a **JavaScript module** in your dashboard resources, then use `type: custom:civica-house-lighting-card`. The old `custom:govuk-house-lighting-card` name remains available. Keep its adjacent `card/assets/` directory in the packaged layout. See [lighting setup](lighting/README.md) for the required room groups and automation package before using device controls.
+Register `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.1.1` as a **JavaScript module** in your dashboard resources, then use `type: custom:civica-house-lighting-card`. The old `custom:govuk-house-lighting-card` name remains available. Keep its adjacent `card/assets/` directory in the packaged layout. See [lighting setup](lighting/README.md) for the required room groups and automation package before using device controls.
 
 [Card examples](cards/) require card-mod where stated. The confirmation example is shown only when `input_boolean.civica_action_confirmed` is on; set that helper from a verified completed action. Do not display a successful outcome merely because a button was pressed. Emergency banner IDs remain compatible with earlier installs, but their examples are not a safety monitoring system.
 

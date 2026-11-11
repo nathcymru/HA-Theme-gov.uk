@@ -32,7 +32,10 @@ jobs:
         working-directory: docs
       - run: python3 scripts/check-docs.py
       - run: npm run check:brand
-      - run: npx playwright install --with-deps chromium
+      # The hosted runner supplies Chromium's shared libraries. Install the
+      # pinned browser without a redundant, network-dependent apt refresh.
+      # Browser launch and the full suite below remain mandatory.
+      - run: npx playwright install chromium
       - run: npm run test:browser
       - run: npm run package
       - uses: actions/upload-artifact@v4

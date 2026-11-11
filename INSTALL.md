@@ -2,7 +2,7 @@
 
 This package contains themes, the optional colour controls and branding companion, the lighting card, its assets and lighting setup files. It does not change your Home Assistant configuration automatically.
 
-1. Copy `themes/civica/` into Home Assistant's `config/themes/civica/`. The `govuk` alias is for older installations.
+1. Choose one owner for the theme YAML. **With HACS**, install or update the theme through HACS and skip this archive's `themes/` directory. HACS owns its folder under `config/themes/`, which may be named `govuk` in an existing installation. **Without HACS**, copy `themes/civica/` into `config/themes/civica/` once, updating that same manual location on later releases. Keep the `govuk.yaml` alias only if an existing configuration uses the `govuk` theme name; never install a second included copy of that alias.
 2. Copy `www/civica/` into `config/www/civica/`, preserving the folder structure.
 3. Merge the following into your existing `configuration.yaml`. Keep one `frontend` section and preserve your existing entries.
 
@@ -10,7 +10,7 @@ This package contains themes, the optional colour controls and branding companio
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.1.0
+    - /local/civica/civica-ui.js?v=1.1.1
 ```
 
 4. Restart Home Assistant, then reload your browser. Choose a civica theme in **Profile → Theme**. Choose a palette and toggle **Use muted colours**. Your Light/Dark/Auto setting is separate. The native theme dropdown also works without the companion.
@@ -22,13 +22,15 @@ The companion clears native primary/accent colour overrides when you select a pa
 
 Follow `lighting/README.md` to configure rooms, light groups and the required automation package before using the lighting card. The included sample room configuration is installation-specific: review it for your home. Do not install `lighting/ha/front_door.yaml` just to use this theme; it is an existing example of a separate automation.
 
-Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.1.0` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. Existing `custom:govuk-house-lighting-card` dashboards remain compatible.
+Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.1.1` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. Existing `custom:govuk-house-lighting-card` dashboards remain compatible.
 
 The dashboard snippets in `examples/cards/` require card-mod where indicated. Their example entity IDs need to match your installation.
 
 ## Update or remove
 
-Copy updated files over the same locations. After a YAML-only update, run `frontend.reload_themes`. After a JavaScript update, increment the `?v=` value and reload the browser. Changes to `configuration.yaml` require restart.
+HACS users update the theme through HACS and copy only `www/civica/` from this archive. Manual users update their one existing theme location and `www/civica/`. After a YAML-only update, run `frontend.reload_themes`. After a JavaScript update, increment the `?v=` value and reload the browser. Changes to `configuration.yaml` require restart.
+
+If old styling remains, check all YAML files under the included `config/themes/` directory for duplicate `civica …` or `govuk` definitions. Home Assistant merges these files; an older copy can override the updated one. Keep one installation owner and move the superseded civica files to a backup outside the included directory, for example `config/civica-theme-backups/`. A backup folder inside `config/themes/` can still load. Preserve unrelated themes, run `frontend.reload_themes`, reload the browser and select the theme again.
 
 To remove the theme, choose Home Assistant's default theme, remove the companion entry and dashboard cards/resources that use it, then remove the copied files and restart. Existing lighting automations are separate; remove only those you deliberately installed.
 

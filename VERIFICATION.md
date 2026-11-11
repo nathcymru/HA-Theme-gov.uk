@@ -1,5 +1,11 @@
 # Verification — 11 November 2026
 
+## v1.1.1 live-review refinements
+
+The live review exposed an older HACS palette file overriding a manually installed copy. Installation guidance now requires one theme owner and puts recovery copies outside the included themes directory. The running installation was reconciled to the HACS-managed path. Navigation circles now use the GOV.UK-like 20% brand tint and ink/white arrows; native section headings use the shared scaled 24px bold title tokens.
+
+The final suite includes 43 Node checks and 30 browser checks, plus the 35-page documentation checks. Live acceptance details and the unchanged-device boundary are recorded in the release notes.
+
 ## v1.1.0 design correction
 
 Developed from stable revision `95b7a58`. The correction separates quiet structural borders from input/control boundaries, restores a round MOJ notification count with live-count accessibility, adds labelled navigation links and aligns three known legacy cards with the shared typography and spacing. The [visual audit](docs/source/community/visual-audit.html.md) records the comparison and source evidence.

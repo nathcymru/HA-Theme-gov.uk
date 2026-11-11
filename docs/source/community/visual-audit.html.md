@@ -22,6 +22,7 @@ The visual review found poor icon hierarchy, harsh card outlines and dividers, a
 | Existing project cards retained a competing style | Appliance and collection cards used tiny labels and nested rounded outlines; the gas record resembled a black/yellow warning banner | Apply documented, reversible styles to those three known cards; retain all live state and controls |
 | Overview had a competing scenic canvas | Sky Canvas rendered the house photograph behind ordinary dashboard controls | Select a plain canvas through the integration’s dashboard setting; retain the artwork and weather-card functionality |
 | Documentation demonstrated older border colours | Its structural CSS used `#B1B4B6`, and the palette demo used an ink container edge | Use the same quiet structural role in the documentation while keeping input boundaries strong |
+| Two installation paths supplied the same theme names | Live inspection found an older HACS copy under `themes/govuk/` alongside the updated manual copy under `themes/civica/`, so stale definitions remained effective | Keep one YAML owner; HACS users copy only runtime files from the archive, and move superseded theme backups outside the included themes directory |
 
 The Overview findings were reproduced in Chrome on Home Assistant 2026.11.0. Source inspection explains the causes; every deployed correction still needs the live checks below. This review does not establish coverage of arbitrary third-party cards.
 
