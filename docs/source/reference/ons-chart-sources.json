@@ -169,7 +169,7 @@
     "implementation": "Original presentation adapter for native Home Assistant ECharts; no Highcharts dependency",
     "activation": "Optional companion while a civica theme is selected; restore native presentation on deactivation",
     "dataOwner": "Home Assistant; do not recalculate, reaggregate, reorder, truncate, interpolate or otherwise rewrite native data",
-    "colours": "Preserve the existing eight semantic energy roles across all brand palettes; ONS categorical colours are references",
+    "colours": "Generated opaque colours from stable identity keys with semantic energy families; Vivid/Muted follows theme and is independent of Light/Dark and brand palette",
     "font": "Use the civica Arial stack and respect the native text scale; no Open Sans download",
     "darkMode": {
       "text": "#FFFFFF",
@@ -177,13 +177,13 @@
       "grid": "#50565A",
       "zero": "#9BA4AA"
     },
-    "legend": "Preserve native visibility interaction, selection state and checked/unchecked circular icons; icons 12px within 44px controls. ONS 20x3px line keys are not substituted.",
+    "legend": "Preserve native visibility controls and labels; add matching colour/pattern keys and restore native inline styling on deactivation",
     "dataAlternative": "View data disclosure with semantic table; all supported supplied values including legend-hidden series, independent of zoom. 100 rows per page with explicit count, no silent total-row cap. Original comparison timestamps retained; unsupported shapes and absent units explained.",
     "dates": "Keep HA number-format, 12/24-hour and local/server time-zone preferences. Use Time for two-value samples and Period start when originalStart is supplied. Offset distinguishes repeated local clock times. Native range selection and comparison behaviour remain unchanged.",
     "distribution": "Native Energy distribution diagram is a controlled deviation and is not adapted or given a new data table; no ONS Sankey component claimed.",
     "scopeLimits": "Seven named native Energy Cartesian bar/line charts only; History, pie, distribution and third-party renderers remain native.",
-    "verification": "Separate source-specification checks, synthetic browser coverage and fresh live-route acceptance",
-    "release": "1.2.0",
+    "verification": "Native-shaped Canvas/SVG fixtures must start with actual HA alpha fills, gradients, thin area borders and hover states. Verify final geometry and colours, then compare populated live routes.",
+    "release": "1.3.0",
     "frontendCompatibilityBaseline": "20261028.5",
     "nativePanel": "ha-panel-energy",
     "nativeChartHosts": [
@@ -195,6 +195,11 @@
       "hui-energy-devices-graph-card",
       "hui-energy-devices-detail-graph-card"
     ],
-    "minimumPlotHeightPx": 280
+    "minimumPlotHeightPx": 280,
+    "power": "Individual unfilled, unsmoothed lines; remove cumulative display stacking without changing source arrays or values",
+    "lineWidthPx": 2,
+    "hoverLineWidthPx": 2,
+    "opacity": 1,
+    "comparison": "Use same identity colour with hatch patterns for columns; use stable dash patterns for lines"
   }
 }

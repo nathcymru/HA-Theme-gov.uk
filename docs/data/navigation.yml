@@ -21,6 +21,8 @@ sections:
         path: /styles/brand.html
       - title: Colour
         path: /styles/colour.html
+      - title: Chart colour
+        path: /styles/chart-colour.html
       - title: Typography
         path: /styles/typography.html
       - title: Layout and spacing

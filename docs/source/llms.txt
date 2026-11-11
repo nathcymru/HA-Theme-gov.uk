@@ -37,7 +37,7 @@
 ## Components and patterns
 
 - [Components](components/index.html): navigation, controls, devices, cards, status, dialogs and charts.
-- [ONS-based Energy charts](components/charts.html): implemented native chart adapter, geometry, data alternatives, supported hosts and limits from v1.2.0.
+- [ONS-based Energy charts](components/charts.html): implemented native chart adapter, geometry, data alternatives, supported hosts and limits from v1.3.0, including opaque fills and explicit chart types.
 - [Working chart examples](components/chart-examples.html): real-renderer demonstrations with invented values; not live household evidence.
 - [ONS chart source snapshot](reference/ons-chart-sources.json): versioned source evidence and deliberate local adaptations.
 - [Action links](components/action-links.html): manual card configuration, native navigation and existing fragment pop-ups.
@@ -54,3 +54,6 @@
 - [Licensing](community/licensing.html): attribution and supplied asset status.
 
 Do not equate a local build, screenshot or token test with live Home Assistant deployment. Do not claim full WCAG compliance from colour tests. Preserve native Energy, Map, device semantics, permissions and translations. Do not modify live household configuration merely to preview this documentation.
+
+- [Chart colour](styles/chart-colour.html): deterministic identity colours, Vivid/Muted and Light/Dark variants, patterns and limits.
+- [Chart colour contract](reference/chart-colours.json): machine-readable generation rules and identity policy.

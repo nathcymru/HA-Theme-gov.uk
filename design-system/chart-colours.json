@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "algorithmVersion": "oklch-identity-v1",
+  "reviewedOn": "2026-11-11",
+  "purpose": "Opaque categorical chart colours with stable identities, vivid/muted tones and independent light/dark presentation. This is a civica.uk adaptation, not an official ONS extended palette.",
+  "identity": "Trimmed NFC Unicode string, case-sensitive. Named energy roles are reserved. Other keys use FNV-1a over UTF-16 code units followed by a 32-bit avalanche; hue, lightness and chroma use separate salted hashes. No series-count, order, visibility, brand or random input. A recognised role followed by a colon and meter ID keeps that semantic hue, with identity-derived lightness/chroma variation and patterns. Pattern, line-dash and symbol channels use independent salted hashes for non-reserved identities.",
+  "minimumSurfaceContrast": 3,
+  "contrastSearchTarget": 3.05,
+  "surfaces": {
+    "light": [
+      "#FFFFFF",
+      "#F3F2F1",
+      "#F3F6F9",
+      "#F2F6F4",
+      "#F6F3F7",
+      "#F9F4F4",
+      "#F7F3F5",
+      "#F2F4F8",
+      "#F9F7F1",
+      "#F9F5F2",
+      "#F6F4F1"
+    ],
+    "dark": [
+      "#17191B",
+      "#24282B",
+      "#30363A"
+    ]
+  },
+  "roles": {
+    "grid-consumption": {
+      "anchor": "#206095",
+      "index": 0
+    },
+    "gas": {
+      "anchor": "#A7343A",
+      "index": 1
+    },
+    "non-fossil": {
+      "anchor": "#3B7A57",
+      "index": 2
+    },
+    "grid-return": {
+      "anchor": "#7D4A9A",
+      "index": 3
+    },
+    "solar": {
+      "anchor": "#8A6100",
+      "index": 4
+    },
+    "water": {
+      "anchor": "#007F7B",
+      "index": 5
+    },
+    "battery-in": {
+      "anchor": "#6B4C3B",
+      "index": 6
+    },
+    "battery-out": {
+      "anchor": "#555555",
+      "index": 7
+    },
+    "consumption": {
+      "anchor": "#0B0C0C",
+      "index": 8
+    }
+  },
+  "generated": {
+    "light": {
+      "vivid": {
+        "lightness": [
+          0.45,
+          0.59
+        ],
+        "chroma": [
+          0.14,
+          0.21
+        ]
+      },
+      "muted": {
+        "lightness": [
+          0.51,
+          0.63
+        ],
+        "chroma": [
+          0.065,
+          0.105
+        ]
+      }
+    },
+    "dark": {
+      "vivid": {
+        "lightness": [
+          0.7,
+          0.81
+        ],
+        "chroma": [
+          0.13,
+          0.2
+        ]
+      },
+      "muted": {
+        "lightness": [
+          0.69,
+          0.77
+        ],
+        "chroma": [
+          0.06,
+          0.1
+        ]
+      }
+    }
+  },
+  "anchorTransformation": {
+    "lightVivid": "Preserve the sRGB anchor unless contrast adjustment is needed",
+    "lightMuted": {
+      "lightnessOffset": 0.06,
+      "maximumLightness": 0.63,
+      "chromaMultiplier": 0.55
+    },
+    "darkVivid": {
+      "lightnessBase": 0.72,
+      "anchorLightnessMultiplier": 0.12,
+      "chromaMultiplier": 1.0
+    },
+    "darkMuted": {
+      "lightnessBase": 0.7,
+      "anchorLightnessMultiplier": 0.1,
+      "chromaMultiplier": 0.55
+    }
+  },
+  "gamut": "Convert OKLCH to sRGB. Reduce chroma by binary search at fixed hue/lightness until in gamut, then quantise to opaque 8-bit hex. Check contrast after quantisation; adjust lightness only if needed. Alpha is never used to create a tone.",
+  "patterns": [
+    "solid",
+    "diagonal",
+    "reverse-diagonal",
+    "cross",
+    "horizontal",
+    "vertical",
+    "dots"
+  ],
+  "lineDashes": [
+    [],
+    [
+      6,
+      3
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      8,
+      3,
+      2,
+      3
+    ],
+    [
+      12,
+      4
+    ],
+    [
+      4,
+      2,
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ]
+  ],
+  "symbols": [
+    "circle",
+    "rect",
+    "triangle",
+    "diamond",
+    "roundRect",
+    "emptyCircle",
+    "emptyTriangle"
+  ],
+  "exampleKeys": [
+    {
+      "key": "sensor.washing_machine_energy",
+      "label": "Washing machine"
+    },
+    {
+      "key": "sensor.tumble_dryer_energy",
+      "label": "Tumble dryer"
+    },
+    {
+      "key": "sensor.dishwasher_energy",
+      "label": "Dishwasher"
+    },
+    {
+      "key": "sensor.fridge_freezer_energy",
+      "label": "Fridge and freezer"
+    },
+    {
+      "key": "sensor.oven_energy",
+      "label": "Oven"
+    },
+    {
+      "key": "sensor.hob_energy",
+      "label": "Hob"
+    },
+    {
+      "key": "sensor.kettle_energy",
+      "label": "Kettle"
+    },
+    {
+      "key": "sensor.microwave_energy",
+      "label": "Microwave"
+    },
+    {
+      "key": "sensor.coffee_machine_energy",
+      "label": "Coffee machine"
+    },
+    {
+      "key": "sensor.lighting_energy",
+      "label": "Lighting"
+    },
+    {
+      "key": "sensor.heat_pump_energy",
+      "label": "Heat pump"
+    },
+    {
+      "key": "sensor.immersion_heater_energy",
+      "label": "Immersion heater"
+    },
+    {
+      "key": "sensor.electric_vehicle_energy",
+      "label": "Electric vehicle"
+    },
+    {
+      "key": "sensor.home_office_energy",
+      "label": "Home office"
+    },
+    {
+      "key": "sensor.living_room_energy",
+      "label": "Living room"
+    },
+    {
+      "key": "sensor.network_equipment_energy",
+      "label": "Network equipment"
+    },
+    {
+      "key": "sensor.television_energy",
+      "label": "Television"
+    },
+    {
+      "key": "sensor.robot_vacuum_energy",
+      "label": "Robot vacuum"
+    },
+    {
+      "key": "sensor.dehumidifier_energy",
+      "label": "Dehumidifier"
+    },
+    {
+      "key": "sensor.garden_energy",
+      "label": "Garden"
+    },
+    {
+      "key": "sensor.workshop_energy",
+      "label": "Workshop"
+    },
+    {
+      "key": "sensor.pond_pump_energy",
+      "label": "Pond pump"
+    },
+    {
+      "key": "sensor.air_conditioner_energy",
+      "label": "Air conditioner"
+    },
+    {
+      "key": "sensor.printer_energy",
+      "label": "Printer"
+    }
+  ],
+  "limits": [
+    "The generator accepts more than 20 identities; it does not claim 20 colours are universally distinguishable or guarantee unique colours for all possible keys in finite sRGB.",
+    "Stable identity is more important than re-optimising colours when series are added. Similar colours must use labelled legends, table values and secondary pattern/line/symbol cues.",
+    "ONS recommends five or fewer categorical colours. Dense charts should offer native series selection, comparisons or small multiples; never silently discard native series.",
+    "Surface contrast is not pairwise categorical separation, colour-vision-deficiency certification or complete WCAG conformance. Test actual adjacent fills, thin lines and patterns.",
+    "Pattern combinations are finite and also repeat. Do not render 20 overlaid lines merely because 20 styles can be generated.",
+    "Comparison periods reuse the base series colour and use a separately labelled comparison treatment; comparison prefixes are removed by the caller, not guessed by this engine."
+  ],
+  "sources": [
+    "https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts",
+    "https://service-manual.ons.gov.uk/data-visualisation/chart-types/line-chart",
+    "https://service-manual.ons.gov.uk/data-visualisation/chart-types/stacked-bar-charts",
+    "https://github.com/ONSdigital/design-system/blob/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart/area-chart.js",
+    "https://www.w3.org/TR/2026/CRD-css-color-4-20261103/#ok-lab",
+    "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+    "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+  ],
+  "familyVariation": {
+    "hueOffset": 0,
+    "lightnessOffset": [
+      -0.055,
+      0.055
+    ],
+    "chromaMultiplier": [
+      0.75,
+      1.2
+    ]
+  },
+  "memoization": {
+    "maximumEntries": 2048,
+    "eviction": "oldest inserted entry",
+    "effect": "Performance only; eviction never changes the deterministic assignment."
+  }
+}

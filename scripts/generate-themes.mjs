@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { chartColour } from '../design-system/chart-colours.mjs';
 
 const root = new URL('../', import.meta.url);
 export const palettes = JSON.parse(readFileSync(new URL('design-system/palettes.json', root), 'utf8'));
@@ -14,7 +15,6 @@ const INK = '#0B0C0C';
 const WHITE = '#FFFFFF';
 const FOCUS = '#FFDD00';
 const SEMANTIC = { danger: '#CA3535', warning: '#8A6100', success: '#0F7A52', info: '#1D70B8' };
-const CHART = ['#206095', '#A7343A', '#3B7A57', '#7D4A9A', '#8A6100', '#007F7B', '#6B4C3B', '#555555'];
 
 // Primary source reviewed 11 November 2026: home-assistant/frontend
 // e32bc0696ebefde323f5b791269ad0c57f3f99d9 (master, 6 November 2026),
@@ -241,12 +241,19 @@ export function modeTokens(palette, tone, dark) {
     for (const state of ['resting', 'hover']) tokens[`ha-color-fill-disabled-${volume}-${state}`] = secondarySurface;
   }
   const energy = ['grid-consumption', 'gas', 'non-fossil', 'grid-return', 'solar', 'water', 'battery-in', 'battery-out'];
-  CHART.forEach((colour, i) => {
-    const chartColour = dark ? mix(colour, WHITE, 0.62) : colour;
-    tokens[`civica-chart-${i + 1}`] = chartColour;
-    tokens[`color-${i + 1}`] = chartColour;
-    tokens[`energy-${energy[i]}-color`] = chartColour;
-  });
+  const chartContext = { tone, mode: dark ? 'dark' : 'light' };
+  tokens['civica-chart-tone'] = tone;
+  tokens['civica-chart-mode'] = chartContext.mode;
+  // The first eight variables retain their semantic compatibility mapping.
+  // Additional fallback slots are generated, not a cap on identity-based data.
+  for (let i = 0; i < 24; i++) {
+    const role = energy[i] || (i === 8 ? 'consumption' : `series-${i + 1}`);
+    const colour = chartColour(role, chartContext);
+    tokens[`civica-chart-${i + 1}`] = colour;
+    tokens[`color-${i + 1}`] = colour;
+    if (energy[i]) tokens[`energy-${energy[i]}-color`] = colour;
+  }
+  tokens['energy-consumption-color'] = chartColour('consumption', chartContext);
   for (const key of ['primary-color', 'accent-color', 'primary-text-color', 'secondary-text-color', 'text-primary-color', 'card-background-color', 'error-color', 'warning-color', 'success-color', 'info-color']) tokens[`rgb-${key}`] = rgb(tokens[key]).join(', ');
   return tokens;
 }

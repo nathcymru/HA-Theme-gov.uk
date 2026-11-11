@@ -15,7 +15,7 @@ Use **Colour palette** to choose one of the ten named palettes. Labels are alway
 
 ## Change the colour strength
 
-Use **Use muted colours** to switch between Vivid and Muted. A checked control selects Muted. An unchecked control selects Vivid. The palette stays the same.
+Use **Use muted colours** to switch between Vivid and Muted. A checked control selects Muted. An unchecked control selects Vivid. The palette stays the same. The same control changes chart colour strength. Chart identities stay independent of the brand palette: grid remains in its blue family, for example. Read the [chart colour rules](../styles/chart-colour.html).
 
 The selected palette and variant also choose the matching supplied V3.2 header lockup and app icon. Their accent dots are part of the original artwork.
 

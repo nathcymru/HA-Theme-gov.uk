@@ -72,8 +72,12 @@
       "unavailable",
       "chart-series"
     ],
-    "chartSeriesCount": 8,
-    "preferMaximumChartSeries": 5
+    "preferMaximumChartSeries": 5,
+    "chartFallbackSlots": 24,
+    "chartSeriesLimit": null,
+    "chartColourContract": "reference/chart-colours.json",
+    "chartColourGenerator": "design-system/chart-colours.mjs",
+    "chartToneFollowsTheme": true
   },
   "settings": {
     "module": "/local/civica/civica-ui.js",
@@ -164,11 +168,18 @@
         "downloads"
       ],
       "dataAlternative": "View data disclosure for native plotted series with original comparison dates, units, missing values and pagination",
-      "semanticColours": "Stable existing energy roles, independent of brand palette; local deviation from ONS categorical palette",
+      "semanticColours": "Deterministic opaque identity colours, semantic energy families, independent of brand; Vivid/Muted follows theme",
       "flowDiagram": "Native Energy distribution diagram remains a documented controlled deviation",
       "nonEnergyCharts": "Unchanged; no claim that History or arbitrary third-party charts use this adapter",
-      "examples": "components/chart-examples.html",
-      "compatibilityBaseline": "Home Assistant frontend 20261028.5, ECharts 6.1.0"
+      "examples": "Native-shaped fixtures using the same adapter and colour engine, including 24 named series",
+      "compatibilityBaseline": "Home Assistant frontend 20261028.5, ECharts 6.1.0",
+      "updatedIn": "1.3.0",
+      "powerType": "Individual unfilled, unsmoothed, unstacked lines; strictly verified sign pairs select their existing signed samples for one rendered line and matching table, with native source arrays unchanged",
+      "lineWidthPx": 2,
+      "hoverLineWidthPx": 2,
+      "barOpacity": 1,
+      "comparisonTreatment": "Same identity colour with hatching; no alpha fading",
+      "seriesIdentity": "Stable native IDs; comparison and power sign pairs share their base identity"
     },
     "iconPolicy": {
       "universalGovukIconPack": false,

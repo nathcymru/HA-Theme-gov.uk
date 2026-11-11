@@ -20,7 +20,7 @@ The comprehensive [design system in `/docs`](docs/README.md) uses the **GOV.UK T
 
 - **20 native themes:** Civic Cobalt, Racing Moss, Imperial Damson, Sovereign Crimson, Regimental Plum, Oxford Midnight, Ink Charcoal, Heritage Ochre, Kiln Terracotta and Umber Bronze, each in Vivid and Muted tones.
 - **One shared token system:** native panels, dashboards, tables, forms, buttons, switches, dialogs, the lighting card and examples use consistent colours and surfaces. Error, warning and chart meanings stay independent of the selected brand palette.
-- **ONS-based Energy charts:** the companion applies documented chart typography, axes, gridlines and series presentation to supported native Energy graphs, with an accessible View data table. Native statistics, date controls, comparisons and chart interaction are retained. See the [chart specification](docs/source/components/charts.html.md) and [working examples](https://nathcymru.github.io/HA-Theme-gov.uk/components/chart-examples.html).
+- **ONS-based Energy charts:** the companion applies individual unfilled power lines, opaque consumption columns, consistent 2px strokes and matching keys to supported native Energy graphs, with an accessible View data table. A shared identity-based colour generator supplies Vivid/Muted and Light/Dark variants, 24 fallback slots and an extensible range for named series. Native statistics, date controls, comparisons and chart interaction are retained. See the [chart specification](docs/source/components/charts.html.md) and [working examples](https://nathcymru.github.io/HA-Theme-gov.uk/components/chart-examples.html).
 - **Colour controls:** a palette selector and “Use muted colours” toggle beside Profile theme settings, plus a dashboard card fallback. Home Assistant handles application and preference storage. Light/Dark/Auto is preserved.
 - **civica.uk assets:** supplied logos and icons, used without redrawing or recolouring. Original files and their checksum manifest are retained.
 - **Lighting card repairs:** visible unavailable states, accessible errors, keyboard focus, touch targets, responsive layout and native dialog scrolling. Existing lighting automation and reserved-device behaviour are retained.
@@ -56,7 +56,7 @@ Add the companion to the same frontend configuration:
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.2.0
+    - /local/civica/civica-ui.js?v=1.3.0
 ```
 
 Restart Home Assistant and reload the browser. In **Profile → Theme**, choose a palette and toggle **Use muted colours**. The companion uses the same `settheme` event as Home Assistant's own selector. It clears native primary/accent overrides so the palette applies consistently, and leaves display mode unchanged. Home Assistant reports preference-save failures through its native notification.
@@ -79,7 +79,7 @@ Keep one installation owner, update its files, and move the superseded civica YA
 
 ## Lighting card and examples
 
-Register `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.2.0` as a **JavaScript module** in your dashboard resources, then use `type: custom:civica-house-lighting-card`. The old `custom:govuk-house-lighting-card` name remains available. Keep its adjacent `card/assets/` directory in the packaged layout. See [lighting setup](lighting/README.md) for the required room groups and automation package before using device controls.
+Register `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.3.0` as a **JavaScript module** in your dashboard resources, then use `type: custom:civica-house-lighting-card`. The old `custom:govuk-house-lighting-card` name remains available. Keep its adjacent `card/assets/` directory in the packaged layout. See [lighting setup](lighting/README.md) for the required room groups and automation package before using device controls.
 
 [Card examples](cards/) require card-mod where stated. The confirmation example is shown only when `input_boolean.civica_action_confirmed` is on; set that helper from a verified completed action. Do not display a successful outcome merely because a button was pressed. Emergency banner IDs remain compatible with earlier installs, but their examples are not a safety monitoring system.
 
