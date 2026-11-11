@@ -1,7 +1,8 @@
 import palettes from '../../design-system/palettes.json';
 
 export interface ThemeHass {
-  config?: { safe_mode?: boolean; recovery_mode?: boolean };
+  config?: { safe_mode?: boolean; recovery_mode?: boolean; time_zone?: string };
+  locale?: { language?: string; time_format?: string; number_format?: string; time_zone?: string };
   themes: { themes: Record<string, unknown>; theme?: string; darkMode?: boolean; default_theme?: string };
   selectedTheme?: { theme?: string; dark?: boolean; primaryColor?: string; accentColor?: string };
 }

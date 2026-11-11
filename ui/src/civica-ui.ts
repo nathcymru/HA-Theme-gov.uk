@@ -2,10 +2,12 @@ import { selectedVariant } from './theme-settings';
 import type { CivicaThemeSettings, ThemeHass } from './theme-settings';
 import { badgeStyles, updateBadges } from './sidebar-badges';
 import { LEGACY_CARD_STYLES } from './legacy-card-styles';
+import { updateEnergyCharts } from './energy-charts';
 
 // The theme tokens are the supported foundation. This small optional adapter
-// is limited to known HA elements and three documented project cards; it does not patch Lit,
-// attachShadow, routing, native controls, Energy, Map or device services.
+// is limited to known HA elements, native Energy chart presentation and three
+// documented project cards. It does not patch Lit, attachShadow, routing,
+// native controls, statistics, Map or device services.
 const assetBase = new URL('./brand/', import.meta.url);
 type App = HTMLElement & { hass?: ThemeHass };
 const originalTitles = new Map<HTMLElement, Node[]>();
@@ -32,6 +34,7 @@ function updateBrand(app: App, targets: HTMLElement[]) {
   const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&
     Boolean(app.hass?.themes.themes[name]) && Boolean(variant);
   updateBadges(undefined, active);
+  updateEnergyCharts(targets.filter(el => el.localName === 'ha-panel-energy'), active, app.hass);
   // Compatibility styles are deliberately scoped to these three project cards.
   // Adopted sheets survive their ordinary innerHTML updates without observers.
   for (const [root, sheet] of legacySheets) {
@@ -115,7 +118,7 @@ export function enhance() {
   if (!app?.hass || !app.shadowRoot) return;
   // Query only on startup/navigation/theme changes, with bounded retries for
   // lazy-rendered roots. Never observe state updates across the whole app.
-  const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed', ...Object.keys(LEGACY_CARD_STYLES)].join(','));
+  const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));
   for (const row of targets.filter(el => el.localName === 'ha-pick-theme-row')) {
     const root = row.shadowRoot;
     const native = root?.querySelector('ha-theme-settings');
