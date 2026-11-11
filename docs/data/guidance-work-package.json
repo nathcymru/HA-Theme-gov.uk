@@ -299,14 +299,20 @@
           "evidence": [
             "Full browser run: 529 of 530 passed; one new audit-page overflow corrected. All 3 affected guide tests and 1 new expanded-coverage regression then passed.",
             "Added regression for audit heading navigation, keyboard disclosure, 165 coverage rows, 320px reflow and accessibility.",
-            "Chrome visual review:writing desktop, original illustration examples and corrected audit at 390px. No screen-reader or live-device certification claimed."
+            "Chrome visual review: writing desktop, original illustration examples and corrected audit at 390px. No screen-reader or live-device certification claimed.",
+            "The full merged-build suite subsequently passed all 531 browser tests on GitHub; the publication run is linked under V5."
           ]
         },
         {
           "id": "V5",
           "task": "Publish through the repository checks and inspect the deployed site in Chrome.",
-          "status": "pending",
-          "evidence": []
+          "status": "complete",
+          "evidence": [
+            "PR #30 merged after all checks passed: https://github.com/nathcymru/HA-Theme-gov.uk/pull/30",
+            "Deployment fc393e49205926b753d1c531358c5e627c9c2af6 passed all 531 browser tests and published successfully: https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43103696048",
+            "Live Chrome checks on 11 November 2026: homepage links, brand navigation, ten writing chapters, search, examples, rule anchors, expandable update history, 165-row audit table at 390px, 14 component proposals and 30 specification gaps.",
+            "All nine public guidance/audit/checklist JSON documents exactly match their repository records."
+          ]
         }
       ]
     }
@@ -353,11 +359,35 @@
         "529 browser checks passed initially; the one failing guide and two edited guides pass on rerun. A new keyboard, heading, expanded-table and reflow test also passes.",
         "Existing audit findings remain proposals. No runtime or native Home Assistant change was made."
       ]
+    },
+    {
+      "id": "loop-5",
+      "title": "Loop 5: independent publication and live verification",
+      "outcome": "PR #30 and the merged build passed all 531 browser tests. GitHub Pages published the guide and audit package. Chrome spot checks of the public pages and exact comparison of all nine JSON records passed.",
+      "checks": [
+        "Verified deployed revision fc393e4 on 11 November 2026; the full revision and deployment link are preserved in the machine record.",
+        "Opened the public brand and writing navigation, examples, rule anchors, search results and page history.",
+        "Expanded all 165 audit coverage rows on a 390px display with no page overflow; confirmed 14 component proposals and 30 specification gaps render.",
+        "Confirmed the published machine records match the reviewed repository files.",
+        "Completed review and publication tasks while retaining the 16 confirmed findings, four recommendations and 44 component/specification proposals as open work.",
+        "Rechecked the completed checklist at 320px; shortened its visible revision reference after the full identifier caused overflow. The complete identifier remains in the evidence record."
+      ]
     }
   ],
   "limitations": [
     "Automated accessibility checks are not full WCAG conformance evidence.",
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
-  ]
+  ],
+  "status": "review-and-publication-complete-proposals-open",
+  "publication_verification": {
+    "verified_revision": "fc393e49205926b753d1c531358c5e627c9c2af6",
+    "verified_at": "2026-11-11T21:40:35Z",
+    "deployment_run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43103696048",
+    "pull_request": "https://github.com/nathcymru/HA-Theme-gov.uk/pull/30",
+    "browser": "Google Chrome via the connected browser extension",
+    "browser_scope": "Public-page spot checks, desktop and 390px display; all guide/example automated coverage is recorded separately in CI.",
+    "public_json_records_verified": 9,
+    "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
+  }
 }
