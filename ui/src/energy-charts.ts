@@ -1,4 +1,6 @@
 import { removeEnergyChartData, updateEnergyChartData } from './energy-chart-data';
+import { chartSeriesStyle } from '../../design-system/chart-colours.mjs';
+import { projectPowerSeries } from './energy-power-series';
 
 // Presentation contract: ONS Design System 74.0.0, chart components, mapped to
 // HA Frontend 20261028.5's public ha-chart-base ECharts instance. Keep the native
@@ -8,7 +10,7 @@ export const ENERGY_CHART_SPEC = Object.freeze({
   frontend: '20261028.5',
   fontFamily: 'Arial, Helvetica, sans-serif', // civica.uk's documented typeface
   minimumFontSize: 14,
-  lineWidth: 3,
+  lineWidth: 2, // Dense native Energy charts; ONS standalone reference is 3px.
   gridWidth: 1,
   zeroLineWidth: 1.5,
   minimumPlotHeight: 280,
@@ -47,8 +49,11 @@ interface ChartHost extends HTMLElement {
 interface HassContext {
   locale?: { language?: string; number_format?: string; time_format?: string; time_zone?: string };
   config?: { time_zone?: string };
+  themes?: { theme?: string; default_theme?: string; darkMode?: boolean };
+  selectedTheme?: { theme?: string; dark?: boolean };
 }
 interface OwnedValue { path: Path; original: any; applied: any }
+interface PowerProjection { source: any[][]; readings: any[][]; applied: any[][] }
 interface ChartState {
   host: ChartHost;
   card: HTMLElement;
@@ -62,6 +67,8 @@ interface ChartState {
   resize: ResizeObserver;
   nativeHeight?: { original: string; priority: string; applied: string };
   label?: { node: Element; original: string; applied: string };
+  keys: Map<HTMLElement, { marker: SVGSVGElement; signature: string }>;
+  power: Map<string, PowerProjection>;
 }
 interface PanelState { observers: Map<ShadowRoot, MutationObserver>; queued: boolean }
 
@@ -82,8 +89,11 @@ const CHART_CSS = `
 .chart-legend li { height:auto; min-height:44px; overflow:visible; }
 .chart-legend .legend-toggle { width:44px; min-height:44px; padding:10px; margin:0; flex:none; }
 .chart-legend .legend-toggle ha-svg-icon { --mdc-icon-size:12px; }
+.chart-legend .legend-toggle[data-civica-key] ha-svg-icon { display:none; }
+.civica-chart-key { display:block; flex:none; width:24px; height:16px; overflow:visible; }
+.chart-legend .legend-toggle[aria-pressed="false"] .civica-chart-key { outline:1px dashed currentColor; outline-offset:1px; }
 .chart-legend .label { min-height:44px; line-height:1.2; }
-.chart-legend .value { line-height:1.2; }
+.chart-legend .value { font-size:max(14px,calc(14px * var(--ha-font-size-scale,1))); line-height:1.2; }
 .top-controls { position:relative; top:auto; inset-inline:auto; order:-2; min-height:0; }
 .chart:focus-visible,.chart-legend .legend-toggle:focus-visible,.chart-legend .label:focus-visible { outline:3px solid var(--ha-color-focus,#ffdd00); outline-offset:2px; box-shadow:0 0 0 5px var(--civica-focus-text,#0b0c0c); border-radius:0; }
 @media(forced-colors:active) { .chart:focus-visible,.chart-legend .legend-toggle:focus-visible,.chart-legend .label:focus-visible { outline-color:Highlight; box-shadow:none; } }
@@ -94,22 +104,32 @@ const CARD_CSS = `
 
 const array = (value: any): any[] => value === undefined || value === null ? [] : Array.isArray(value) ? value : [value];
 const at = (object: any, path: Path): any => path.reduce((value, key) => value?.[key], object);
-const equal = (one: any, two: any): boolean => one === two || Array.isArray(one) && Array.isArray(two) && one.length === two.length && one.every((value, i) => equal(value, two[i]));
+const equal = (one: any, two: any): boolean => {
+  if (one === two) return true;
+  if (!one || !two || typeof one !== 'object' || typeof two !== 'object') return false;
+  if (Array.isArray(one) || Array.isArray(two)) return Array.isArray(one) && Array.isArray(two) && one.length === two.length && one.every((value, i) => equal(value, two[i]));
+  // ECharts may mark a decal dirty while rendering it; this is not paint.
+  const a = Object.keys(one).filter(key => key !== 'dirty'), b = Object.keys(two).filter(key => key !== 'dirty');
+  return a.length === b.length && a.every(key => Object.hasOwn(two, key) && equal(one[key], two[key]));
+};
 
 function keyFor(path: Path, option: Options) {
   const pieces = [...path];
   if (typeof pieces[1] === 'number') {
     const component = option[pieces[0]]?.[pieces[1]];
     pieces[1] = JSON.stringify([component?.id ?? pieces[1], component?.type]);
-    // A date change can replace the point at the same index. Never restore a
-    // previous period's cap onto a new point, or retain unbounded old records.
-    if (path[0] === 'series' && path[2] === 'data') pieces[3] = JSON.stringify(component?.data?.[path[3]]?.value ?? component?.data?.[path[3]]);
+    // Paint belongs to a device or timestamp, not an array position or a
+    // reading's magnitude. This also survives the signed Power projection.
+    if (path[0] === 'series' && path[2] === 'data') {
+      const point = component?.data?.[path[3]], value = point?.value ?? point;
+      pieces[3] = JSON.stringify([point?.id ?? point?.name ?? value?.[0], value?.[2]]);
+    }
   }
   return JSON.stringify(pieces);
 }
 
 function writePatch(patch: Options, option: Options, path: Path, value: any) {
-  if (path[0] === 'series' && path[2] === 'data') {
+  if (path[0] === 'series' && path[2] === 'data' && path.length > 3) {
     const index = Number(path[1]);
     patch.series ||= [];
     while (patch.series.length <= index) {
@@ -119,9 +139,15 @@ function writePatch(patch: Options, option: Options, path: Path, value: any) {
     const series = patch.series[index];
     // ECharts replaces a data array rather than merging each point. Copy all
     // existing rendered values intact, changing only a point's visual cap.
-    series.data ||= option.series[index].data.map((point: any) => point && typeof point === 'object' && !Array.isArray(point)
-      ? { ...point, itemStyle: { ...point.itemStyle } } : point);
-    series.data[Number(path[3])].itemStyle[path[5]] = value;
+    series.data ||= option.series[index].data.map((point: any) => point && typeof point === 'object' && !Array.isArray(point) ? { ...point } : point);
+    let target = series.data[Number(path[3])];
+    let source = option.series[index].data[Number(path[3])];
+    for (let i = 4; i < path.length - 1; i++) {
+      const key = path[i];
+      if (!target[key] || target[key] === source?.[key]) target[key] = { ...source?.[key] };
+      target = target[key]; source = source?.[key];
+    }
+    target[path[path.length - 1]] = value;
     return;
   }
   let target: any = patch;
@@ -157,10 +183,81 @@ function crossesVisibleZero(chart: Chart | undefined, axisName: string, axis: Op
   return chart.containPixel({ gridIndex: target.value.gridIndex ?? axis.gridIndex ?? 0 }, point);
 }
 
+function chartContext(style: CSSStyleDeclaration) {
+  const selected = context.themes?.theme || context.selectedTheme?.theme || context.themes?.default_theme || '';
+  const tone = style.getPropertyValue('--civica-chart-tone').trim() || style.getPropertyValue('--civica-tone').trim();
+  const mode = style.getPropertyValue('--civica-chart-mode').trim();
+  const text = style.getPropertyValue('--primary-text-color').trim().toLowerCase();
+  return {
+    tone: (tone ? tone === 'muted' : selected.endsWith(' Muted')) ? 'muted' as const : 'vivid' as const,
+    mode: (mode ? mode === 'dark' : context.themes?.darkMode ?? (text === '#ffffff' || text === '#fff')) ? 'dark' as const : 'light' as const,
+  };
+}
+
+const usageRoles: Record<string, string> = {
+  from_grid: 'grid-consumption', used_grid: 'grid-consumption', to_grid: 'grid-return',
+  used_solar: 'solar', to_battery: 'battery-in', from_battery: 'battery-out',
+  used_battery: 'battery-out', used_home: 'consumption',
+};
+function sourceSeries(state: ChartState, series: Options, index: number): Options {
+  return state.host.data?.find(value => value.id !== undefined && value.id === series.id) || state.host.data?.[index] || series;
+}
+function seriesPaint(state: ChartState, series: Options, index: number, point?: Options) {
+  const native = sourceSeries(state, series, index);
+  const raw = String(native.id ?? native.name ?? series.id ?? `series-${index}`);
+  const compare = raw.startsWith('compare-') || /^compare|Compare$/.test(String(native.stack || ''))
+    || state.card.localName === 'hui-energy-devices-graph-card' && index === 1;
+  const forecast = raw.startsWith('forecast-');
+  let key = raw.replace(/^(compare-|forecast-)/, '');
+  const power = state.card.localName === 'hui-power-sources-graph-card';
+  const total = power && key === 'usage';
+  if (power) key = ({ grid: 'grid-consumption', solar: 'solar', battery: 'battery-out', usage: 'consumption' } as Record<string, string>)[key.replace(/-negative$/, '')] || key.replace(/-negative$/, '');
+  else if (state.card.localName === 'hui-energy-usage-graph-card') {
+    for (const [type, role] of Object.entries(usageRoles)) if (key === type || key.endsWith(`-${type}`)) {
+      const statistic = key === type ? '' : key.slice(0, -type.length - 1);
+      key = !statistic || [type, 'grid', 'solar', 'battery', role].includes(statistic) ? role : `${role}:${statistic}`;
+      break;
+    }
+  } else if (state.card.localName === 'hui-energy-devices-detail-graph-card') key = key.replace(/-\d+$/, '');
+  else if (state.card.localName === 'hui-energy-gas-graph-card') key = key === 'gas' ? 'gas' : `gas:${key}`;
+  else if (state.card.localName === 'hui-energy-water-graph-card') key = key === 'water' ? 'water' : `water:${key}`;
+  else if (state.card.localName === 'hui-energy-solar-graph-card') key = key === 'solar' ? 'solar' : `solar:${key}`;
+  if (point) {
+    const identity = point.id ?? point.name ?? (typeof point.value?.[1] === 'string' ? point.value[1] : undefined);
+    if (identity !== undefined) key = String(identity).replace(/^compare-/, '');
+  }
+  const palette = chartSeriesStyle(key, chartContext(getComputedStyle(state.host)));
+  const deviceCategories = ['hui-energy-devices-graph-card', 'hui-energy-devices-detail-graph-card'].includes(state.card.localName);
+  const basePattern = deviceCategories ? palette.pattern : 'solid';
+  const pattern = compare ? basePattern === 'diagonal' ? 'reverse-diagonal' : 'diagonal' : basePattern;
+  const dash = total ? palette.lineDash : forecast ? [7, 5] : compare ? [4, 3] : palette.lineDash;
+  return { ...palette, key, pattern, dash, compare, power, total, forecast };
+}
+
+function patternInk(colour: string) {
+  const rgb = colour.match(/[a-f\d]{2}/gi)!.map(value => parseInt(value, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
+  const luminance = rgb.reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+  return luminance > .18 ? '#0B0C0C' : '#FFFFFF';
+}
+const crossPath = 'M0 2H2V0H3V2H5V3H3V5H2V3H0Z';
+function decal(paint: ReturnType<typeof seriesPaint>) {
+  if (paint.pattern === 'solid') return null;
+  const vertical = paint.pattern === 'vertical', dots = paint.pattern === 'dots', cross = paint.pattern === 'cross';
+  return {
+    symbol: dots ? 'circle' : cross ? `path://${crossPath}` : 'rect', symbolSize: 1,
+    // ECharts materialises these defaults in getOption(). Include them so the
+    // finished-event reconciliation converges after the first paint.
+    symbolKeepAspect: true, maxTileWidth: 512, maxTileHeight: 512,
+    color: patternInk(paint.color), backgroundColor: 'transparent',
+    dashArrayX: cross ? [5, 1] : dots ? [2, 4] : vertical ? [1, 5] : [1, 0],
+    dashArrayY: cross ? [5, 1] : dots ? [2, 4] : vertical ? [1, 0] : [1, 5],
+    rotation: paint.pattern === 'diagonal' ? -Math.PI / 4 : paint.pattern === 'reverse-diagonal' ? Math.PI / 4 : 0,
+  };
+}
+
 function presentation(state: ChartState, option: Options) {
   const style = getComputedStyle(state.host);
-  const dark = style.getPropertyValue('--primary-text-color').trim().toLowerCase() === '#ffffff'
-    || style.getPropertyValue('--primary-text-color').trim().toLowerCase() === '#fff';
+  const dark = chartContext(style).mode === 'dark';
   const colours = dark ? ENERGY_CHART_SPEC.dark : ENERGY_CHART_SPEC.light;
   const fontSize = ENERGY_CHART_SPEC.minimumFontSize * Math.max(1, Number.parseFloat(style.getPropertyValue('--ha-font-size-scale')) || 1);
   const narrow = state.host.clientWidth <= 500;
@@ -202,25 +299,129 @@ function presentation(state: ChartState, option: Options) {
   }
   array(option.series).forEach((series, index) => {
     const path = ['series', index];
+    const paint = seriesPaint(state, series, index);
+    set([...path, 'color'], paint.color);
+    for (const statePath of [[], ['emphasis'], ['blur'], ['select']]) {
+      set([...path, ...statePath, 'itemStyle', 'color'], paint.color);
+      set([...path, ...statePath, 'itemStyle', 'opacity'], 1);
+    }
+    set([...path, 'emphasis', 'focus'], 'none');
     if (series.type === 'line') {
-      set([...path, 'lineStyle', 'width'], ENERGY_CHART_SPEC.lineWidth);
+      for (const statePath of [[], ['emphasis'], ['blur'], ['select']]) {
+        set([...path, ...statePath, 'lineStyle', 'width'], ENERGY_CHART_SPEC.lineWidth);
+        set([...path, ...statePath, 'lineStyle', 'color'], paint.color);
+        set([...path, ...statePath, 'lineStyle', 'opacity'], 1);
+        set([...path, ...statePath, 'lineStyle', 'type'], paint.dash.length ? paint.dash : 'solid');
+      }
       set([...path, 'lineStyle', 'cap'], 'round');
-      // Preserve native dash, stack, area, connectNulls and comparison meaning.
+      set([...path, 'emphasis', 'scale'], false);
+      set([...path, 'symbol'], paint.symbol);
+      set([...path, 'symbolSize'], 6);
+      set([...path, 'showSymbol'], array(series.data).filter(point => Number.isFinite((Array.isArray(point) ? point : point?.value)?.[1])).length === 1);
+      if (paint.power) {
+        // HA supplies individual source values and only stacks their display.
+        // Remove cumulative stacking; applyPowerProjection combines only the
+        // verified split-sign display pairs, retaining HA's native source.
+        set([...path, 'stack'], null);
+        set([...path, 'areaStyle'], null);
+        set([...path, 'smooth'], false);
+        for (const statePath of [['emphasis'], ['blur'], ['select']]) set([...path, ...statePath, 'areaStyle'], null);
+      }
     } else if (series.type === 'bar') {
-      set([...path, 'itemStyle', 'borderRadius'], 0);
-      set([...path, 'itemStyle', 'borderWidth'], 0);
+      for (const statePath of [[], ['emphasis'], ['blur'], ['select']]) {
+        set([...path, ...statePath, 'itemStyle', 'borderRadius'], 0);
+        set([...path, ...statePath, 'itemStyle', 'borderWidth'], 0);
+        set([...path, ...statePath, 'itemStyle', 'borderColor'], paint.color);
+        set([...path, ...statePath, 'itemStyle', 'decal'], decal(paint));
+      }
       set([...path, 'barMaxWidth'], narrow ? 55 : 75);
       set([...path, 'barCategoryGap'], array(series.data).length >= (narrow ? 10 : 20) ? '20%' : '40%');
-      array(series.data).forEach((point, pointIndex) => {
-        if (point?.itemStyle?.borderRadius !== undefined) set([...path, 'data', pointIndex, 'itemStyle', 'borderRadius'], 0);
-      });
     }
+    array(series.data).forEach((point, pointIndex) => {
+      if (!point || typeof point !== 'object' || Array.isArray(point)) return;
+      const pointPaint = state.card.localName === 'hui-energy-devices-graph-card' ? seriesPaint(state, series, index, point) : paint;
+      const atPoint = [...path, 'data', pointIndex];
+      for (const statePath of [[], ['emphasis'], ['blur'], ['select']]) {
+        set([...atPoint, ...statePath, 'itemStyle', 'color'], pointPaint.color);
+        set([...atPoint, ...statePath, 'itemStyle', 'opacity'], 1);
+        set([...atPoint, ...statePath, 'itemStyle', 'borderColor'], pointPaint.color);
+        if (series.type === 'bar') {
+          set([...atPoint, ...statePath, 'itemStyle', 'borderRadius'], 0);
+          set([...atPoint, ...statePath, 'itemStyle', 'borderWidth'], 0);
+          set([...atPoint, ...statePath, 'itemStyle', 'decal'], decal(pointPaint));
+        }
+      }
+    });
   });
   return changes;
 }
 
+const pointValues = (point: any) => Array.isArray(point) ? point : point?.value;
+const sameReadings = (one: any, two: any) => Array.isArray(one) && Array.isArray(two)
+  && one.length === two.length && one.every((point, index) => equal(pointValues(point), pointValues(two[index])));
+const readingSnapshot = (data: any[]) => data.map(point => [...pointValues(point)]);
+
+function restorePowerProjection(state: ChartState, option: Options, patch: Options, id: string, record: PowerProjection) {
+  const indices = [id, `${id}-negative`].map(key => array(option.series).findIndex(series => series.id === key));
+  if (indices.some(index => index < 0) || !indices.every((index, n) => sameReadings(option.series[index].data, record.applied[n]))) return;
+  // Source arrays are HA's current period, never a saved previous-period
+  // snapshot. Hidden or natively replaced data is no longer ours to restore.
+  const latest = [id, `${id}-negative`].map(key => state.host.data?.find(series => series.id === key));
+  if (latest.some(series => !Array.isArray(series?.data))) return;
+  // If HA has published the next source before rendering its axes, wait for
+  // that native render. Installing new readings under old axes is incorrect.
+  if (latest.some((series, n) => series!.data !== record.source[n] || !sameReadings(series!.data, record.readings[n]))) return;
+  indices.forEach((index, n) => writePatch(patch, option, ['series', index, 'data'], latest[n]!.data));
+}
+
+function applyPowerProjection(state: ChartState, option: Options, patch: Options) {
+  if (state.card.localName !== 'hui-power-sources-graph-card') return false;
+  const native = state.host.data || [], projected = projectPowerSeries(native);
+  // Keep the table on the currently rendered period too. Source publication
+  // can precede HA's plot/axes update; visibility alone is not a data source.
+  for (const [id, record] of state.power) {
+    const ids = [id, `${id}-negative`];
+    const rendered = ids.map(key => array(option.series).find(series => series.id === key)?.data);
+    const latest = ids.map(key => native.find(series => series.id === key)?.data);
+    if (rendered.every((data, n) => sameReadings(data, record.applied[n]))
+      && latest.some((data, n) => data !== record.source[n] || !sameReadings(data, record.readings[n]))) return true;
+  }
+  const seen = new Set<string>();
+  for (const id of ['grid', 'battery']) {
+    const sourceIndices = [id, `${id}-negative`].map(key => native.findIndex(series => series.id === key));
+    if (sourceIndices.some(index => index < 0) || sourceIndices.some(index => projected[index] === native[index])) continue;
+    const indices = [id, `${id}-negative`].map(key => array(option.series).findIndex(series => series.id === key));
+    if (indices.some(index => index < 0)) continue;
+    const source = sourceIndices.map(index => native[index].data), desired = sourceIndices.map(index => projected[index].data!);
+    const previous = state.power.get(id);
+    const nativeVisible = indices.every((index, n) => sameReadings(option.series[index].data, source[n]));
+    const stillOwned = previous && indices.every((index, n) => sameReadings(option.series[index].data, previous.applied[n]));
+    if (!nativeVisible && !(stillOwned && source.every((data, n) => data === previous!.source[n]))) {
+      // HA may be between publishing new source values and rendering them.
+      // Do not resurrect a hidden line or install a new date ahead of HA.
+      if (stillOwned) seen.add(id);
+      continue;
+    }
+    indices.forEach((index, n) => {
+      if (sameReadings(option.series[index].data, desired[n])) return;
+      const current = patch.series?.[index]?.data || option.series[index].data;
+      const data = desired[n].map((point: any, pointIndex: number) => {
+        const value = pointValues(point), styled = current[pointIndex];
+        if (equal(pointValues(styled), value)) return styled;
+        return Array.isArray(styled) ? [...value] : { ...styled, value: [...value] };
+      });
+      writePatch(patch, option, ['series', index, 'data'], data);
+    });
+    state.power.set(id, { source, readings: source.map(readingSnapshot), applied: desired.map(readingSnapshot) }); seen.add(id);
+  }
+  for (const [id, record] of state.power) if (!seen.has(id)) {
+    restorePowerProjection(state, option, patch, id, record); state.power.delete(id);
+  }
+  return false;
+}
+
 function restore(state: ChartState) {
-  if (!state.chart || state.chart.isDisposed?.()) { state.owned.clear(); return; }
+  if (!state.chart || state.chart.isDisposed?.()) { state.owned.clear(); state.power.clear(); return; }
   const option = state.chart.getOption();
   const patch: Options = {};
   for (const [key, record] of state.owned) {
@@ -229,6 +430,8 @@ function restore(state: ChartState) {
     // fallback; an undefined merge would leave our previous value installed.
     writePatch(patch, option, record.path, record.original === undefined ? null : record.original);
   }
+  for (const [id, record] of state.power) restorePowerProjection(state, option, patch, id, record);
+  state.power.clear();
   state.owned.clear();
   if (Object.keys(patch).length) state.chart.setOption(patch, { silent: true });
 }
@@ -239,6 +442,7 @@ function detachChart(state: ChartState, reset: boolean) {
   try { state.chart?.off('finished', state.finished); } catch { /* Already disposed. */ }
   if (reset) { try { restore(state); } catch { /* Native renderer no longer accepts options. */ } }
   state.owned.clear();
+  state.power.clear();
   state.chart = undefined;
 }
 
@@ -250,7 +454,79 @@ function cardTitle(card: HTMLElement) {
     || native?.header?.trim() || native?.getAttribute('header')?.trim() || '';
 }
 
+let markerId = 0;
+function svgNode(name: string, attributes: Record<string, string | number> = {}) {
+  const node = document.createElementNS('http://www.w3.org/2000/svg', name);
+  for (const [key, value] of Object.entries(attributes)) node.setAttribute(key, String(value));
+  return node;
+}
+function drawKey(marker: SVGSVGElement, paint: ReturnType<typeof seriesPaint>, line: boolean, singlePoint: boolean) {
+  marker.replaceChildren();
+  if (line) {
+    marker.append(svgNode('line', { x1: 2, y1: 8, x2: 22, y2: 8, stroke: paint.color, 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-dasharray': paint.dash.join(' ') }));
+    if (singlePoint) {
+      const empty = paint.symbol.startsWith('empty');
+      const symbol = empty ? paint.symbol.slice(5).toLowerCase() : paint.symbol;
+      // ECharts' empty symbols use neutral00 (white) for the interior.
+      const attributes = { fill: empty ? '#FFFFFF' : paint.color, stroke: paint.color, 'stroke-width': empty ? 1.5 : 0 };
+      marker.append(symbol === 'rect' || symbol === 'roundRect'
+        ? svgNode('rect', { x: 9, y: 5, width: 6, height: 6, rx: symbol === 'roundRect' ? 1.5 : 0, ...attributes })
+        : symbol === 'triangle' || symbol === 'diamond'
+          ? svgNode('path', { d: symbol === 'triangle' ? 'M12 4L16 11H8Z' : 'M12 4L16 8L12 12L8 8Z', ...attributes })
+          : svgNode('circle', { cx: 12, cy: 8, r: 3, ...attributes }));
+    }
+    return;
+  }
+  marker.append(svgNode('circle', { cx: 12, cy: 8, r: 6, fill: paint.color }));
+  if (paint.pattern === 'solid') return;
+  const id = `civica-chart-pattern-${++markerId}`;
+  const defs = svgNode('defs');
+  const rotation = paint.pattern === 'diagonal' ? -45 : paint.pattern === 'reverse-diagonal' ? 45 : 0;
+  const pattern = svgNode('pattern', { id, width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: `rotate(${rotation})` });
+  pattern.append(paint.pattern === 'dots'
+    ? svgNode('circle', { cx: 1, cy: 1, r: 1, fill: patternInk(paint.color) })
+    : paint.pattern === 'cross' ? svgNode('path', { d: crossPath, fill: patternInk(paint.color) })
+      : svgNode('path', { d: paint.pattern === 'vertical' ? 'M.5 0V6' : 'M0 .5H6', stroke: patternInk(paint.color), 'stroke-width': 1 }));
+  defs.append(pattern); marker.append(defs, svgNode('circle', { cx: 12, cy: 8, r: 6, fill: `url(#${id})` }));
+}
+
+function updateLegend(state: ChartState, option: Options) {
+  const seen = new Set<HTMLElement>();
+  const rendered = array(option.series);
+  for (const button of state.host.shadowRoot?.querySelectorAll<HTMLElement>('.chart-legend .legend-toggle[data-id]') || []) {
+    const id = button.dataset.id!;
+    let index = state.host.data?.findIndex(series => String(series.id ?? series.name) === id) ?? -1;
+    let point: Options | undefined;
+    if (index < 0) index = state.host.data?.findIndex(series => {
+      point = array(series.data).find(value => value && !Array.isArray(value) && String(value.id ?? value.name) === id);
+      return !!point;
+    }) ?? -1;
+    if (index < 0) continue;
+    const source = state.host.data?.[index];
+    const renderedIndex = source?.id === undefined ? index : rendered.findIndex(series => series.id === source.id);
+    if (renderedIndex < 0 || !rendered[renderedIndex]) continue;
+    const current = rendered[renderedIndex];
+    const paint = seriesPaint(state, current, renderedIndex, point);
+    const line = current.type === 'line';
+    const singlePoint = line && array(current.data).filter(value => Number.isFinite((Array.isArray(value) ? value : value?.value)?.[1])).length === 1;
+    const signature = JSON.stringify([paint.color, paint.pattern, paint.dash, paint.symbol, paint.total, paint.forecast, line, singlePoint]);
+    let owned = state.keys.get(button);
+    if (!owned) {
+      const marker = svgNode('svg', { viewBox: '0 0 24 16', 'aria-hidden': 'true', focusable: 'false' }) as SVGSVGElement;
+      marker.classList.add('civica-chart-key');
+      owned = { marker, signature: '' }; state.keys.set(button, owned); button.append(marker);
+    }
+    if (owned.marker.parentElement !== button) button.append(owned.marker);
+    if (owned.signature !== signature) { drawKey(owned.marker, paint, line, singlePoint); owned.signature = signature; }
+    button.dataset.civicaKey = line ? 'line' : 'bar';
+    seen.add(button);
+  }
+  for (const [button, owned] of state.keys) if (!seen.has(button)) { owned.marker.remove(); delete button.dataset.civicaKey; state.keys.delete(button); }
+}
+
 function restoreDom(state: ChartState) {
+  for (const [button, owned] of state.keys) { owned.marker.remove(); delete button.dataset.civicaKey; }
+  state.keys.clear();
   if (state.label && state.label.node.getAttribute('aria-label') === state.label.applied) state.label.node.setAttribute('aria-label', state.label.original);
   state.label = undefined;
   if (state.nativeHeight && state.host.style.getPropertyValue('--civica-energy-native-height') === state.nativeHeight.applied) {
@@ -310,6 +586,7 @@ function syncChart(state: ChartState) {
   if (state.host.shadowRoot) addSheet(state.host.shadowRoot, 'chart', state.panel);
   const title = cardTitle(state.card);
   updateDom(state, title);
+  updateLegend(state, option);
   const patch: Options = {};
   const visited = new Set<string>();
   for (const { path, value } of presentation(state, option)) {
@@ -322,13 +599,15 @@ function syncChart(state: ChartState) {
     writePatch(patch, option, path, value);
   }
   for (const key of state.owned.keys()) if (!visited.has(key)) state.owned.delete(key);
+  const pendingPower = applyPowerProjection(state, option, patch);
   if (Object.keys(patch).length) chart.setOption(patch, { silent: true });
   state.host.dataset.civicaEnergyChart = ENERGY_CHART_SPEC.frontend;
   delete state.host.dataset.civicaEnergyError;
-  updateEnergyChartData(state.host, {
+  if (!pendingPower) updateEnergyChartData(state.host, {
     title: title || 'Energy chart', locale: context.locale?.language, timeZone: context.config?.time_zone,
     numberFormat: context.locale?.number_format, timeFormat: context.locale?.time_format,
     timeZonePreference: context.locale?.time_zone,
+    series: state.card.localName === 'hui-power-sources-graph-card' ? projectPowerSeries(state.host.data || []) : undefined,
   });
 }
 
@@ -399,7 +678,7 @@ function discover(panel: HTMLElement, state: PanelState) {
         const host = node as ChartHost;
         seenCharts.add(host);
         if (!charts.has(host)) {
-          const next = { host, card: owner, panel, owned: new Map(), queued: false, stopped: false } as ChartState;
+          const next = { host, card: owner, panel, owned: new Map(), keys: new Map(), power: new Map(), queued: false, stopped: false } as ChartState;
           next.finished = () => queueChart(next);
           next.resize = new ResizeObserver(() => queueChart(next));
           next.resize.observe(host); charts.set(host, next);

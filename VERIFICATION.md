@@ -1,5 +1,13 @@
 # Verification — 11 November 2026
 
+## v1.3.0 chart consistency correction
+
+The v1.2.0 examples did not reproduce native Energy gradients, split-sign Power arrays and alpha-coloured comparisons. Empty-day live checks also missed these differences. The examples now start with native-shaped inputs and use the same adapter as Home Assistant: individual unfilled 2px Power lines, opaque consumption columns and horizontal device bars. Strictly recognised positive/negative Power pairs select existing signed samples for both plot and table; native source arrays remain unchanged.
+
+Chart colours now come from one deterministic identity-based generator. Vivid/Muted follows the selected theme, Light/Dark adjusts surface contrast, and changing the brand palette does not change chart identity. There are 24 fallback tokens plus an uncapped generated range, with matching legend patterns, line dashes and explicit labels. Contrast against the canvas does not mean every pair of colours is distinguishable.
+
+Build and strict type checking pass, with **50 Node checks**, **50 browser checks**, **37 documentation pages**, **88 Home Assistant templates** and all **176 supplied V3.2 artwork hashes** verified. Browser coverage includes native-shaped Canvas rendering, actual opaque pixels, normal/hover line weights, tooltip/legend identity, 24 devices and comparisons, unchanged native arrays/options/callbacks, signed/zero/missing readings, and date-update/restoration races. The fixture is a source-shape replica, not a full Home Assistant installation. Separate release notes record populated live acceptance on Core 2026.11.1 / frontend 20261028.5.
+
 ## v1.2.0 ONS-based Energy charts
 
 The earlier chart page specified general principles and colour roles but did not implement ONS chart presentation in the native Energy panel. This release adds a scoped, reversible adapter for the supported ECharts bar/line hosts, a current-values data table and working examples built with the same adapter and ECharts 6.1.0. The compatibility baseline is Home Assistant frontend 20261028.5; the official source record pins ONS Design System 74.0.0.

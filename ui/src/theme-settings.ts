@@ -58,7 +58,7 @@ export class CivicaThemeSettings extends HTMLElement {
     const toggle = document.createElement('label'); toggle.className = 'tone'; toggle.htmlFor = 'muted';
     this.muted = document.createElement('input'); this.muted.type = 'checkbox'; this.muted.id = 'muted'; this.muted.setAttribute('role', 'switch'); this.muted.setAttribute('aria-describedby', 'hint');
     const text = document.createElement('span'); text.textContent = 'Use muted colours'; toggle.append(this.muted, text);
-    const hint = document.createElement('p'); hint.id = 'hint'; hint.className = 'hint'; hint.textContent = 'Switch off for vivid colours. Your light, dark or automatic mode stays the same.';
+    const hint = document.createElement('p'); hint.id = 'hint'; hint.className = 'hint'; hint.textContent = 'Use softer brand and chart colours, or switch off for vivid colours. Your light, dark or automatic mode stays the same.';
     this.status = document.createElement('p'); this.status.setAttribute('role', 'status'); this.status.setAttribute('aria-live', 'polite');
     section.append(title, label, this.select, toggle, hint, this.status); root.append(style, section);
     this.select.addEventListener('change', () => this.apply()); this.muted.addEventListener('change', () => this.apply());

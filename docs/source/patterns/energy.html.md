@@ -13,7 +13,7 @@ Home Assistant's native Energy dashboard remains authoritative. Apply the [civic
 
 Use the native Energy and History panels. The optional companion adapts supported native chart presentation; theme YAML alone cannot implement the full chart pattern. Do not replace Energy with a summary page that silently omits capabilities. Dashboard summaries should link to the native detail.
 
-In v1.2.0, the presentation adapter covers the seven specified graph cards **inside Energy**, against frontend 20261028.5. History remains native; it is not implicitly covered by those Energy selectors. The [working examples](../components/chart-examples.html) demonstrate the production adapter with synthetic data and a real ECharts renderer.
+In v1.3.0, the presentation adapter covers the seven specified graph cards **inside Energy**, against frontend 20261028.5. History remains native; it is not implicitly covered by those Energy selectors. The [working examples](../components/chart-examples.html) demonstrate the production adapter with synthetic data and a real ECharts renderer.
 
 Keep Home Assistant responsible for fetching and aggregating data, converting units and calculating costs. Do not introduce additional sensor polling or write to an energy entity to create a visual demonstration. Documentation examples use clearly labelled synthetic values.
 
@@ -27,7 +27,7 @@ The ONS [stacked-bar guidance](https://service-manual.ons.gov.uk/data-visualisat
 
 ## Power over time
 
-Power is a rate, normally W or kW, and must not be labelled as energy. Use the native time-series type and apply the ONS [line component](https://service-manual.ons.gov.uk/design-system/components/line-chart-component) treatment: readable labels, a 3px data line, a matching line key and quiet value gridlines. Preserve native area fills where they convey a meaningful composition, and preserve scale, timestamps, comparison lines and stepping.
+Power is a rate, normally W or kW, and must not be labelled as energy. Use **individual unfilled lines**, adapting the ONS [line component](https://service-manual.ons.gov.uk/design-system/components/line-chart-component): readable labels, matching line keys and quiet value gridlines. The local width is 2px for dense live data, including hover. Remove gradient fills, cumulative display stacking and decorative smoothing from Power sources; each line represents that source’s unchanged value at that timestamp. The total-consumption line uses its neutral colour and a distinct dash. Join verified native positive/negative display pairs into one signed line by selecting their existing signed samples. Preserve the native arrays and IDs for restoration, and use the same signed projection in View data. Preserve scale, dates, missing observations and explicit stepping. Consumption columns remain stacked.
 
 Do not smooth away peaks, shift timestamps, fill absent readings with zero or join missing intervals merely for appearance. ONS [line-chart guidance](https://service-manual.ons.gov.uk/data-visualisation/chart-types/line-chart) distinguishes missing observations from continuous data and recommends restrained markers for dense series. These rules guide authoring; the presentation adapter must not silently rewrite native data semantics.
 
@@ -51,14 +51,14 @@ Display the current period as context; do not hard-code “today” when the use
 
 ## Keep series stable
 
-Preserve meaningful colours for grid, solar, gas, water and battery roles across brand palette changes. This is an explicit adaptation of ONS's categorical colour system. Keep native source names and legend visibility state. Use readable table values and labels alongside colour; colour alone cannot distinguish every combination reliably.
+Use the [chart colour generator](../styles/chart-colour.html) for meaningful energy families and stable native device identities. Colours stay stable across brand palette changes; Vivid and Muted follow the existing theme toggle. Current and comparison columns are opaque, with hatching identifying the previous period. This is an explicit adaptation of ONS's categorical colour system. Keep native source names and legend visibility state. Use readable table values and labels alongside colour; colour alone cannot distinguish every combination reliably.
 
 ## Test full behaviour
 
 The release acceptance record must cover all of the following:
 
 1. Open native Energy directly in a fresh session with the companion loaded. Verify changed chart options and a screenshot, not only theme variables.
-2. Compare series count, names, values, timestamps, units, stacks and selected period before and after styling. Include zero, missing, negative and comparison values.
+2. Compare series count, names, values, timestamps, units, native column stacks and selected period before and after styling. Include zero, missing, negative and comparison values.
 3. Change the date, open data, operate legends and tooltips, and use native detail navigation. Confirm the chart and alternative agree after each update.
 4. Review consumption columns, power history and distribution independently. An improved column chart does not establish Sankey coverage.
 5. Check light and dark modes, multiple palettes, keyboard interaction, a 320px viewport and enlarged text. Keep wide data tables contained.

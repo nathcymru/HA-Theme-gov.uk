@@ -19,7 +19,7 @@ The reviewed ONS components are [bar charts](https://service-manual.ons.gov.uk/d
 
 The source baseline is [ONS Design System 74.0.0](https://github.com/ONSdigital/design-system/releases/tag/74.0.0), reviewed on 11 November 2026. The companion must leave native chart data, unit conversion, statistics, routing, selection and date handling under Home Assistant's control. Theme YAML provides colour roles; the companion is required for chart geometry, captions and data alternatives. See [installation](../get-started/install.html).
 
-The v1.2.0 adapter targets seven chart cards inside the native Energy panel: power sources, energy usage, solar, gas, water, devices and device details. Its Home Assistant frontend compatibility baseline is **20261028.5**. Only their native Cartesian line and bar series are adapted. History, pie charts, the Energy distribution diagram and third-party chart cards retain their native implementation.
+The v1.3.0 adapter targets seven chart cards inside the native Energy panel: power sources, energy usage, solar, gas, water, devices and device details. Its Home Assistant frontend compatibility baseline is **20261028.5**. Only their native Cartesian line and bar series are adapted. History, pie charts, the Energy distribution diagram and third-party chart cards retain their native implementation.
 
 ## Figure structure
 
@@ -38,10 +38,10 @@ These are chart roles, separate from card borders and input boundaries. Values a
 | Zero reference | `#B3B3B3`, 1.5px | Use the true zero crossing where established; dark-mode reference colour `#9BA4AA` |
 | Axis labels | At least 14px, horizontal | Use the civica.uk font, respect user text scaling and reduce tick density before shrinking text |
 | Legend text | At least 14px, normal weight | Keep native labels and expose values in the accompanying table |
-| Filled-series key | 12px circle | Retain native checked/unchecked circular icons at 12px inside 44px controls |
-| Line-series key | 20px wide, 3px stroke | Retain native selectable legend icons; the ONS line-shaped key is a reference, not an implemented replacement |
-| Data line | 3px, round ends | Keep native point positions, gaps, stacking and interpolation semantics |
-| Columns | Square ends, no decorative border | Retain interval widths and native grouping; avoid pill-shaped bars |
+| Filled-series key | 12px circle | Match the opaque series colour and comparison pattern; preserve native visibility controls |
+| Line-series key | 20px wide, 3px stroke | Match the line colour and dash pattern at the local 2px width; preserve native controls |
+| Data line | 3px, round ends | Use 2px for dense live data, including hover; power uses individual unfilled, unsmoothed lines |
+| Columns | Square ends, no decorative border | Opaque fills, native interval widths and grouping; previous-period columns use hatching |
 
 The plot has a 280px minimum height, while larger native explicit heights are preserved. Column width is limited to 75px on wider charts and 55px below the adapter's narrow-chart breakpoint. These presentation choices do not replace native period aggregation.
 
@@ -49,13 +49,15 @@ Grid and key dimensions come from the ONS [chart elements specification](https:/
 
 For time series, use horizontal value gridlines and readable time ticks, without a second grid on the time axis. Keep the plot wide enough for its labels. Use fewer ticks at narrow widths, without removing observations. Filled bars must retain their zero baseline; negative values remain on the correct side of zero. Native scale bounds and comparison relationships must not change merely to make a chart resemble an example. See ONS [axes and gridlines](https://service-manual.ons.gov.uk/data-visualisation/guidance/axes-and-gridlines).
 
+Power sources use individual unfilled lines. Remove native cumulative display stacking and decorative smoothing for this chart; preserve source values, timestamps, signs, actual zero values and missing samples. Home Assistant splits grid and battery into positive and negative display arrays. Where those arrays have identical timestamps and complementary signs, select the existing signed value into one rendered line and leave the secondary series empty. Keep both native IDs for legend behaviour. The table uses the same projection; native source arrays remain unchanged. Do not combine ambiguous pairs or invent crossing points. Consumption columns retain their native stacks. Current and comparison series remain distinct through labels, dashes and hatch patterns, rather than fading. Both normal and hover lines are 2px; this is a documented adaptation for dense live data, not the upstream 3px rule.
+
 Place the legend above the plot, aligned left, and wrap whole labelled items. Preserve Home Assistant's series visibility controls and their state. This is an intentional difference from the reviewed ONS component, which disables legend selection. Hidden series must not silently disappear from an accessible table without an indication of their visibility state.
 
 ## Colour and typography deviations
 
 ONS 74.0.0's primary categorical palette is `#206095`, `#A8BD3A`, `#871A5B`, `#F66068`, `#05341A`, `#27A0CC`; its line variant exchanges the last two positions. These are reference values, not a replacement brand palette or a guarantee that every pair is distinguishable.
 
-civica.uk keeps stable semantic colours for grid, solar, gas, water and battery roles across all ten brand palettes. The brand colour toggle must not recolour every series. Text uses the civica.uk Arial stack rather than importing ONS Open Sans. The adapter uses ONS label grey `#414042` and numeric-axis grey `#707071` in light mode; dark equivalents are `#FFFFFF` and `#CBD0D3`. These chart roles preserve the same hierarchy across themes.
+civica.uk uses the [shared chart colour generator](../styles/chart-colour.html) for stable semantic energy families and named device identities across all ten brand palettes. Vivid and Muted follow the theme toggle; brand selection does not recolour identities. There are 24 fallback variables and an extensible identity-based range. Colours are opaque, with no native alpha suffixes or gradients. Text uses the civica.uk Arial stack rather than importing ONS Open Sans. The adapter uses ONS label grey `#414042` and numeric-axis grey `#707071` in light mode; dark equivalents are `#FFFFFF` and `#CBD0D3`. These chart roles preserve the same hierarchy across themes.
 
 Prefer five or fewer categories in a newly authored chart, following ONS [colour guidance](https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts). An existing Home Assistant chart may contain more: **never truncate, regroup or discard native series** to fit the ONS component's six-series primary or five-series alternate limit. Use names, data values and preserved line styles to supplement colour. Audit the actual rendered combinations.
 
@@ -75,4 +77,4 @@ ONS's component supplies its own Highcharts accessibility implementation. Our se
 
 The adapter must be reversible: selecting a non-civica theme restores native options and removes added presentation. Unsupported chart internals fail back to Home Assistant. A third-party chart is not covered simply because it uses a canvas or resembles an Energy card.
 
-Accept a change only when rendered options, visual output and data preservation agree. Check light and dark modes, a 320px viewport, keyboard access, text scaling, legend changes, date changes, missing values, comparison series, repeated navigation and theme restoration. A mock chart proves the adapter contract; a fresh load of the installed native Energy route proves that the adapter actually runs there. Record those separately.
+Accept a change only when rendered options, visual output and data preservation agree. Test fixtures must begin with actual native shapes: alpha-suffixed column colours, per-point styling, gradient areas, smooth/stacked power series, thin native boundaries and emphasis defaults. The adapter must convert these to the same visual contract shown by the examples. Testing only simplified opaque bars and unfilled lines misses the native presentation differences. Check light and dark modes, a 320px viewport, keyboard access, text scaling, legend changes, date changes, missing values, comparison series, repeated navigation and theme restoration. A mock chart proves the adapter contract; a fresh load of the installed native Energy route proves that the adapter actually runs there. Record those separately.

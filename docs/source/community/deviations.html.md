@@ -27,6 +27,8 @@ A deviation has a user need, a documented boundary and a verification requiremen
 | CIV-014 | Separate dark structural and control boundaries | Quiet grouping without losing usable controls | Dark structural `#50565A`; interactive outline `#9BA4AA`; keep input/focus contrast and test the actual surface |
 | CIV-015 | Native Energy distribution diagram retained | Show household energy flow using the configured native sources | It is a Home Assistant flow diagram, not an ONS chart component. Preserve its accessible labels and native totals table; do not mislabel it as an ONS Sankey |
 
+| CIV-016 | Generated chart colours and dense-data lines | Larger Home Assistant inventories and live signals | Opaque identity-based OKLCH colours with Vivid/Muted variants, 24 fallback slots and patterns; 2px normal/hover lines; unfilled individual Power lines. Native column stacks, values and controls remain authoritative. This extends the ONS palette and 3px line guidance |
+
 ## Review a deviation
 
 Record the expected behaviour, test evidence, known limits and owner. Revisit the decision when Home Assistant or the source pattern changes. Remove adapters that are no longer necessary when a stable native capability becomes available.

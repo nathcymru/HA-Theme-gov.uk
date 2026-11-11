@@ -143,16 +143,29 @@ test('text, native inputs, header, selected navigation and all action states pas
     minimum(v['wa-color-brand-border-normal'], v['card-background-color'], 3, `${label} native button outline`);
     minimum(v['ha-color-focus'], v['app-header-background-color'], 3, `${label} scoped header focus`);
     minimum(v['civica-focus-text'], v['ha-color-focus'], 3, `${label} custom two-colour focus`);
-    for (let i = 1; i <= 8; i++) minimum(v[`civica-chart-${i}`], v['card-background-color'], 3, `${label} chart series ${i}`);
+    for (let i = 1; i <= 24; i++) minimum(v[`civica-chart-${i}`], v['card-background-color'], 3, `${label} chart series ${i}`);
   }
 });
 
 test('semantic meanings and chart series remain stable across palette choices', () => {
   const entries = Object.values(themes);
   for (const mode of ['light', 'dark']) for (const other of entries.slice(1)) {
-    for (const key of ['error-color', 'warning-color', 'success-color', 'info-color', ...Array.from({ length: 8 }, (_, i) => `civica-chart-${i + 1}`)]) {
+    for (const key of ['error-color', 'warning-color', 'success-color', 'info-color']) {
       assert.equal(other.modes[mode][key], entries[0].modes[mode][key], `${mode} ${key}`);
     }
+  }
+  for (const tone of ['Vivid', 'Muted']) for (const mode of ['light', 'dark']) {
+    const sameTone = Object.entries(themes).filter(([name]) => name.endsWith(tone)).map(([, theme]) => theme);
+    for (const theme of sameTone) {
+      assert.equal(theme.modes[mode]['civica-chart-tone'], tone.toLowerCase());
+      assert.equal(theme.modes[mode]['civica-chart-mode'], mode);
+      for (let i = 1; i <= 24; i++) assert.equal(theme.modes[mode][`civica-chart-${i}`], sameTone[0].modes[mode][`civica-chart-${i}`]);
+    }
+  }
+  for (const palette of palettes.palettes) for (const mode of ['light', 'dark']) {
+    const vivid = themes[`civica ${palette.name} Vivid`].modes[mode];
+    const muted = themes[`civica ${palette.name} Muted`].modes[mode];
+    for (let i = 1; i <= 24; i++) assert.notEqual(vivid[`civica-chart-${i}`], muted[`civica-chart-${i}`]);
   }
 });
 

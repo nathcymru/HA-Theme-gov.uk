@@ -79,7 +79,7 @@ Native Home Assistant controls that expose only one outline colour use ink on li
 
 Use `civica-danger-fill` with `civica-on-danger`, and the equivalent success, warning and notice pairs, for persistent banners. The lighter `error-color` in dark mode is intended for text/icons and is not automatically a safe white-text button fill.
 
-Eight fixed chart-series colours have separate light/dark values and remain independent of the chosen palette. Prefer five or fewer series, direct labels and a data alternative. Contrast against the surface does not prove that adjacent series can be distinguished. See [Charts and tables](../components/charts.html).
+Chart colours are generated from stable series identities, with separate Vivid/Muted and Light/Dark values. They stay independent of the chosen brand palette. At least 24 fallback colours are supplied, with no 24-series cap for the identity-based generator. Labels, line patterns and data tables supplement colour. See [Chart colour](chart-colour.html) and [Charts and tables](../components/charts.html).
 
 ## Exact colour references
 

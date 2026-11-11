@@ -7,6 +7,8 @@ export interface EnergyChartDataHost extends HTMLElement {
 export interface EnergyChartDataContext {
   title: string; locale?: string; timeZone?: string;
   numberFormat?: string; timeFormat?: string; timeZonePreference?: string;
+  /** Verified display projection; source host.data remains unchanged. */
+  series?: unknown;
 }
 interface Row { series: string; period?: number; category?: string; value: number | null; unit: string }
 interface Model { rows: Row[]; unsupported: boolean; time: boolean; category: boolean; periodStart: boolean; chartTime: boolean }
@@ -14,7 +16,7 @@ interface State {
   section: HTMLElement; details: HTMLDetailsElement; caption: HTMLTableCaptionElement;
   scope: HTMLElement; message: HTMLElement; table: HTMLTableElement; body: HTMLTableSectionElement;
   status: HTMLElement; previous: HTMLButtonElement; next: HTMLButtonElement;
-  host: EnergyChartDataHost; context: EnergyChartDataContext; page: number; signature: string;
+  host: EnergyChartDataHost; context: EnergyChartDataContext; page: number; signature: string; projectionModel?: Model;
 }
 const states = new WeakMap<EnergyChartDataHost, State>();
 const PAGE_SIZE = 100;
@@ -26,11 +28,11 @@ const timestamp = (value: unknown): value is number => numeric(value) && !Number
 const axis = (options: Record<string, any>, name: string, index?: number) => object(array(options[name])[index ?? 0]) ?? {};
 
 /** Only established native shapes are recognised. Never infer absent samples. */
-function readModel(host: EnergyChartDataHost): Model {
+function readModel(host: EnergyChartDataHost, suppliedSeries: unknown = host.data): Model {
   const model: Model = { rows: [], unsupported: false, time: false, category: false, periodStart: false, chartTime: false };
   const options = object(host.options) ?? {};
   const legendItems = array(options.legend).flatMap(legend => array(object(legend)?.data));
-  for (const [index, rawSeries] of array(host.data).entries()) {
+  for (const [index, rawSeries] of array(suppliedSeries).entries()) {
     const series = object(rawSeries);
     if (!series || !Array.isArray(series.data)) { model.unsupported = true; continue; }
     if (!series.data.length) continue;
@@ -125,8 +127,8 @@ function formats(context: EnergyChartDataContext) {
   };
 }
 function render(state: State, force = false) {
-  const model = readModel(state.host);
-  const signature = JSON.stringify([state.context, model]);
+  const model = state.projectionModel ?? readModel(state.host);
+  const signature = JSON.stringify([{ ...state.context, series: undefined }, model]);
   if (!force && signature === state.signature) return;
   const changed = signature !== state.signature;
   state.signature = signature;
@@ -186,6 +188,10 @@ export function updateEnergyChartData(host: EnergyChartDataHost, context: Energy
     states.set(host, state);
   }
   state.context = context;
+  // Capture scalar rows while the adapter and native renderer agree. The
+  // source can mutate in place before its next render, even with details shut.
+  // Building the table DOM remains deferred until the disclosure opens.
+  state.projectionModel = context.series === undefined ? undefined : readModel(host, context.series);
   const summary = state.details.querySelector('summary')!;
   summary.setAttribute('aria-label', `View data for ${context.title}`);
   state.section.shadowRoot!.querySelector('.table-region')!.setAttribute('aria-label', `${context.title} data table — scroll to see all columns`);

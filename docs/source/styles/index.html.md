@@ -11,6 +11,7 @@ Styles define the shared visual language. Apply the same semantic tokens to nati
 
 - [Brand](brand.html): use the supplied civica.uk identity correctly.
 - [Colour](colour.html): select palettes without changing status meanings.
+- [Chart colour](chart-colour.html): generate stable Vivid and Muted series colours, supported by patterns and labels.
 - [Typography](typography.html): make labels, values and headings readable.
 - [Layout and spacing](layout.html): preserve hierarchy at every width.
 - [Icons and images](images.html): use visual recognition with text alternatives.
