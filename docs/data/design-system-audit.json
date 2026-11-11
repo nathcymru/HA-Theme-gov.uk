@@ -682,7 +682,7 @@
     },
     {
       "path": "docs/source/components/cards.html.md.erb",
-      "sha256": "d2d2e29dcb7a99e82a975dae7872bb7c0d3656908e159b8c7cb9f8cf8c06ab47",
+      "sha256": "c5255c0d81fdfd13b3fa04d24ec6aaf1ec3e884d31e0965423a415979e21a395",
       "reviewed_rule_families": [
         "BG-COL",
         "BG-TYP",
@@ -718,7 +718,7 @@
         "card-responsive-group",
         "card-long-name"
       ],
-      "note": "Navigation and multi-action cards retain separate targets; quiet structure and native room hit regions are explicitly differentiated. Remediation review: Reviewed the corrected content and complete examples; canonical ownership and source variants retain their distinct task and implementation boundaries. Remediation review: Reviewed the corrected content and complete examples; canonical ownership and source variants retain their distinct task and implementation boundaries.",
+      "note": "Navigation and multi-action cards retain separate targets; quiet structure and native room hit regions are explicitly differentiated. Remediation review: Reviewed the corrected content and complete examples; canonical ownership and source variants retain their distinct task and implementation boundaries. Remediation review: Reviewed the corrected content and complete examples; canonical ownership and source variants retain their distinct task and implementation boundaries. Remediation review: Reviewed the corrected content and complete examples; canonical ownership and source variants retain their distinct task and implementation boundaries.",
       "url": "/components/cards.html",
       "title": "Cards",
       "resolved_finding_ids": []
@@ -14914,7 +14914,7 @@
     },
     {
       "path": "docs/source/partials/_example.erb",
-      "sha256": "653437910cb517f09830c3764142107421633d7439d7bc12cdcb811e7df0e91d",
+      "sha256": "830b8298cedebd320145555b9f186588772a6087bd9378b0fb6c32209952aa6f",
       "scope": "Authored/shared documentation source review."
     },
     {
@@ -14939,7 +14939,7 @@
     },
     {
       "path": "docs/source/javascripts/energy-chart-examples.js",
-      "sha256": "e4985848a3e7913cf2936aed35cb761ae63ee1d26171e1fa6a8ad346e445818e",
+      "sha256": "6b0ed4dbc691451d47d82a24ac8ac54d343392b543097a6547b0e4ba2489d36d",
       "scope": "Authored/shared documentation source review."
     },
     {
@@ -14959,12 +14959,12 @@
     },
     {
       "path": "docs/helpers/design_system_helpers.rb",
-      "sha256": "083ba8d8cc105dfcee8ab844b67f6f68dbb97d335ed974dab76f3482335b75e2",
+      "sha256": "8dc2388c9ac3fe5e20cfd2462191a2a3e4ce78effdb20d21aed1c8636a1a4698",
       "scope": "Authored/shared documentation source review."
     },
     {
       "path": "docs/config.rb",
-      "sha256": "76a32451435952ade35f4bb1d5a35ce6ca3d77ddfa401f8eeb645c0ec926907f",
+      "sha256": "96de0031469a4fe0eb4b69e3aab10c40c1f0791d59134aa7598df44de687150a",
       "scope": "Authored/shared documentation source review."
     },
     {
@@ -14979,7 +14979,7 @@
     },
     {
       "path": "ui/dev/energy-charts-harness.ts",
-      "sha256": "5dc341dd6381d53303655da2e28f2a5a3fe594693996b6602868ac24edd71f04",
+      "sha256": "bc324fe70ef1bbf709f7a5be9e2ab7d49853025c325584ed06120f41ded9da5d",
       "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
     },
     {
@@ -15151,6 +15151,11 @@
       "path": "docs/source/images/ha-controls-camera-scene.svg",
       "scope": "Current remediation source, example, original artwork or shared ownership review.",
       "sha256": "0c7fd17ac0ac4908864001eb35c9db9b1da89cbd7d156580b2d29a6cbb7b72c2"
+    },
+    {
+      "path": "docs/source/example.html.erb",
+      "scope": "Standalone example rendering, shared markup and build-time cache invalidation review.",
+      "sha256": "eccbfd59ed22ee0a908ee03514a0e7bfa9c7be542a910a67b8c525adf1983e25"
     }
   ],
   "limitations": [

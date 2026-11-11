@@ -23,8 +23,10 @@
       "name": "Browser acceptance",
       "status": "passed",
       "unique_tests": 767,
-      "execution": "734 passed in the full run;32 additional checks passed after correcting two report-layout failures and a test registry lookup; the remaining enlarged-text select case passed after the minimum-width fix. Full CI repeats all 767 on the committed revision.",
-      "scope": "196 guide routes,405 standalone examples, maintained runtime fixtures,39 preserved family routes,30 specification mappings and14 complete card specimens."
+      "execution": "All 767 checks passed in one clean GitHub run on the reviewed PR revision. Earlier local corrective runs are retained in the work-package history.",
+      "scope": "196 guide routes, 405 standalone examples, maintained runtime fixtures, 39 preserved family routes, 30 specification mappings and 14 complete card specimens.",
+      "ci_revision": "3dc349b5497ee41f4957d371c43f3665fbbdac40",
+      "ci_run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43117293242"
     },
     {
       "name": "Documentation integrity",
@@ -48,6 +50,25 @@
       "scripts": 9,
       "room_wrappers": 6,
       "templates": 88
+    },
+    {
+      "name": "Sample calendar and daylight-saving regression",
+      "status": "passed",
+      "tests": 23,
+      "scope": "The existing energy browser suite passed after extending its sample-date case to the March 2027 clock change. Production chart rendering is unchanged."
+    },
+    {
+      "name": "Returning-browser cache regression",
+      "status": "passed",
+      "tests": 3,
+      "scope": "Every rendered CSS/JavaScript URL resolves to a content-hashed file; all 75 documentation images retain their paths and bytes; image-card styling and feedback work with obsolete asset URLs blocked; chart previews and copied HTML agree under the GitHub Pages project prefix.",
+      "limits": "New HTML receives new asset URLs. An already-open page or cached HTML still needs a refresh."
+    },
+    {
+      "name": "Cards guide after cache correction",
+      "status": "passed",
+      "tests": 1,
+      "scope": "Structure, page history, accessibility and narrow reflow."
     }
   ],
   "manual_browser": [
@@ -56,8 +77,8 @@
       "environment": "local built site",
       "status": "passed",
       "viewports": [
-        "1280\u00d7900",
-        "320\u00d7900"
+        "1280×900",
+        "320×900"
       ],
       "observations": [
         "Homepage flat artwork and supplied brand placement",
@@ -65,14 +86,41 @@
         "Cards guide example presentation and quiet borders",
         "Narrow audit report diagnosis and correction; semantic table scrolling preserved"
       ]
+    },
+    {
+      "application": "Connected Google Chrome",
+      "environment": "public GitHub Pages",
+      "revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
+      "status": "passed-after-fresh-style-load",
+      "viewports": [
+        "desktop",
+        "320×900 (image card)"
+      ],
+      "observations": [
+        "Cards guide contains all 14 examples.",
+        "Device image loads; its action acknowledges a local request without changing the earlier Off observation; details link opens its complete local section.",
+        "Image card reflows at 320px without page overflow.",
+        "Home Assistant catalogue lists 30 specifications; lighting guide has three task-specific examples.",
+        "Search finds the Home Assistant catalogue.",
+        "Audit renders 16 resolved findings, four implemented recommendations and 196 coverage rows.",
+        "Publishing breadcrumbs retains its route and links to its canonical component owner.",
+        "Homepage identity and all original/category artwork loaded."
+      ],
+      "follow_up": "A returning browser could retain the preceding CSS for ten minutes. The follow-up release adds content-hashed CSS and JavaScript URLs; its cache regression and deployment are recorded by that commit’s CI."
     }
   ],
   "deployment": {
-    "status": "pending"
+    "status": "implementation-verified",
+    "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
+    "verified_at": "2026-11-11T23:29:52.043094+00:00",
+    "run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43118615086",
+    "public_json_records_verified": 10,
+    "follow_up": "Publication record, installation copy, sample daylight-saving caption and cache invalidation are included in the following release commit and its required CI run."
   },
   "limits": [
     "No physical device commands are issued by these checks.",
     "Thirty dedicated Home Assistant specifications prescribe native acceptance; their examples are not newly installed native features.",
     "Automated accessibility and fixture checks do not establish full screen-reader usability, household comprehension or whole-application conformance."
-  ]
+  ],
+  "current_browser_suite_tests": 770
 }

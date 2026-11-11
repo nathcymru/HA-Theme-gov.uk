@@ -14,6 +14,12 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
+# Content hashes keep newly published HTML from reusing older cached styles or
+# scripts. Supplied artwork keeps its original filename and byte identity.
+configure :build do
+  activate :asset_hash, exts: %w(.css .js)
+end
+
 # A separate identity must never publish upstream crown, logotype or font assets.
 ignore 'assets/govuk/**'
 ignore 'fonts/**'

@@ -218,7 +218,9 @@ function build(target: HTMLElement) {
       const host = hosts[key]; host.data = dataset(key).map(series => ({ ...series, data: series.data.map((point: any) => { const values = point.value ?? point, shifted = values.map((value: any, i: number) => i === 0 || i === 2 ? value + day * 24 * HOUR : value); return point.value ? { ...point, value: shifted } : shifted; }) }));
       host.options = { ...host.options, xAxis: { ...host.options.xAxis, min: T + day * 24 * HOUR, max: T + day * 24 * HOUR + 3 * HOUR } };
       const date = (offset: number) => new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'long', year: 'numeric' }).format(T + offset * 24 * HOUR);
-      cards[key].shadowRoot!.querySelector('.chart-description')!.textContent = `Invented example values from midnight to 3am on ${date(day)}${key === 'power' ? '' : `, compared with ${date(day - 1)}`} (Europe/London). See the table for the original times, period starts and units.`;
+      const time = (timestamp: number) => new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' }).format(timestamp);
+      const start = T + day * 24 * HOUR;
+      cards[key].shadowRoot!.querySelector('.chart-description')!.textContent = `Invented example values for ${date(day)}, from ${time(start)} to ${time(start + 3 * HOUR)}${key === 'power' ? '' : `, compared with ${date(day - 1)}`} (Europe/London). See the table for the original times, period starts and units.`;
       renderNative(key);
     }
     refresh();

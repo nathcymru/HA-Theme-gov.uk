@@ -38,6 +38,31 @@ module DesignSystemHelpers
     partial 'partials/example', locals: { id: id, spec: spec }
   end
 
+  # Resolve catalogue assets before escaping code examples. Middleman's normal
+  # URL rewriter handles rendered tags, but cannot rewrite escaped code panels.
+  # Both outputs use URLs relative to the standalone /examples/ document.
+  def example_html(spec)
+    html = spec.fetch('html')
+    return html unless html.match?(/\.(?:css|js)(?:[?"'#]|\s)/)
+
+    fragment = Nokogiri::HTML::DocumentFragment.parse(html)
+    fragment.css('script[src], link[rel="stylesheet"][href]').each do |node|
+      attribute = node.name == 'script' ? 'src' : 'href'
+      uri = Addressable::URI.parse(node[attribute])
+      next unless uri.scheme.nil? && uri.host.nil?
+      next unless %w(.css .js).include?(File.extname(uri.path))
+
+      source_path = Pathname.new('/examples').join(uri.path).cleanpath.to_s
+      resource = sitemap.find_resource_by_path(source_path)
+      next unless resource
+
+      uri.path = Pathname.new('/' + resource.destination_path)
+        .relative_path_from(Pathname.new('/examples')).to_s
+      node[attribute] = uri.to_s
+    end
+    fragment.to_html
+  end
+
   def component_family
     @civica_family_record ||= JSON.parse(File.read(File.join(root, 'data', 'component-rationalisation.json')))
     route = '/' + current_page.destination_path

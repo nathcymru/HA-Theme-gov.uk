@@ -27,6 +27,9 @@ test('sample date changes cross month boundaries and fixed examples have no no-o
     await expect(page.getByRole('button', { name: /Show next sample day/ })).toHaveCount(0);
     await expect(page.locator('.chart-description')).toContainText('Fixed example');
   }
+  await page.goto('/docs/build/examples/local-chart-power.html');
+  await page.getByRole('button', { name: 'Show next sample day', exact: true }).evaluate(button => { for (let index = 0; index < 137; index++) button.click(); });
+  await expect(page.locator('.chart-description')).toContainText('28 March 2027, from 00:00 GMT to 04:00 BST');
 });
 
 test('real ECharts receives ONS presentation while data, native legend, zoom and tooltip survive', async ({ page }) => {

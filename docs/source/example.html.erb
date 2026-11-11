@@ -3,7 +3,7 @@
 <body class="govuk-template__body c-example-document" data-example-id="<%= example_id %>">
   <script>document.body.classList.add('js-enabled');if('noModule' in HTMLScriptElement.prototype)document.body.classList.add('govuk-frontend-supported');</script>
   <% unless spec['has_main'] %><main><% unless spec['has_h1'] %><h1 class="govuk-visually-hidden"><%= escape(spec['title']) %></h1><% end %><% end %>
-  <div class="c-example-canvas"><%= spec['html'] %></div>
+  <div class="c-example-canvas"><%= example_html(spec) %></div>
   <% unless spec['has_main'] %></main><% end %>
   <footer><p class="c-example-notice">civica.uk design example. Any values are illustrative; actions do not control a home.</p></footer>
   <%= javascript_include_tag 'example-components', defer: true %>

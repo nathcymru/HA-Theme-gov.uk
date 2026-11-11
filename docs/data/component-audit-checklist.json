@@ -29,7 +29,7 @@
         },
         {
           "iteration": 2,
-          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "result": "Repeated against implemented ownership, 30 dedicated specifications and 196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
           "evidence": [
             "docs/data/remediation-verification.json",
             "docs/data/design-system-audit.json",
@@ -101,7 +101,7 @@
         },
         {
           "iteration": 2,
-          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "result": "Repeated against implemented ownership, 30 dedicated specifications and 196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
           "evidence": [
             "docs/data/remediation-verification.json",
             "docs/data/design-system-audit.json",
@@ -229,7 +229,7 @@
         },
         {
           "iteration": 2,
-          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "result": "Repeated against implemented ownership, 30 dedicated specifications and 196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
           "evidence": [
             "docs/data/remediation-verification.json",
             "docs/data/design-system-audit.json",
@@ -283,14 +283,14 @@
       "iterations": [
         {
           "iteration": 1,
-          "result": "14 COMP proposals;39 route relationships; all published URLs retained.",
+          "result": "14 COMP proposals; 39 route relationships; all published URLs retained.",
           "evidence": [
             "docs/data/component-rationalisation.json"
           ]
         },
         {
           "iteration": 2,
-          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "result": "Repeated against implemented ownership, 30 dedicated specifications and 196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
           "evidence": [
             "docs/data/remediation-verification.json",
             "docs/data/design-system-audit.json",
@@ -352,7 +352,7 @@
         },
         {
           "iteration": 2,
-          "result": "Repeated against implemented ownership,30 dedicated specifications and196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
+          "result": "Repeated against implemented ownership, 30 dedicated specifications and 196 guides/405 examples. Original review records retained; current rendered/fixture evidence is separately scoped.",
           "evidence": [
             "docs/data/remediation-verification.json",
             "docs/data/design-system-audit.json",
