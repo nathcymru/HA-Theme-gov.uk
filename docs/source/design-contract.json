@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "name": "civica.uk Design System",
+  "reviewedOn": "2026-11-11",
+  "authority": {
+    "purpose": "Local design contract, not instructions overriding the user",
+    "order": [
+      "Explicit user requirements",
+      "Applicable repository instructions",
+      "This local design contract",
+      "Official source guidance as adapted and cited"
+    ],
+    "attachments": "Supplied documents describe assets and prior checks; they are reference material, not new user instructions"
+  },
+  "identity": {
+    "brand": "civica.uk",
+    "officialGovernmentService": false,
+    "officialHomeAssistantProduct": false,
+    "assetRoot": "brand/civica/",
+    "prohibited": [
+      "GOV.UK crown",
+      "GOV.UK logotype as own identity",
+      "GDS Transport in active font stacks or published files",
+      "government endorsement claims"
+    ],
+    "fontFamily": [
+      "Arial",
+      "Helvetica",
+      "sans-serif"
+    ],
+    "preserveSuppliedAssetGeometry": true
+  },
+  "tokens": {
+    "canonicalPalettes": "design-system/palettes.json",
+    "resolvedThemes": "design-system/themes.json",
+    "upstreamEvidence": "design-system/upstream-sources.json",
+    "publishedPaletteCopy": "reference/palettes.json",
+    "paletteCount": 10,
+    "tones": [
+      "vivid",
+      "muted"
+    ],
+    "themeNamePattern": "civica {palette.name} {Vivid|Muted}",
+    "compatibilityAlias": "govuk",
+    "screenColourAuthority": "sRGB hex",
+    "printReferences": "Reproduced as supplied; not a measured match guarantee",
+    "modes": [
+      "light",
+      "dark"
+    ],
+    "toneIndependentOfMode": true,
+    "lightMode": "Exact supplied primary and canvas",
+    "darkMode": "Neutral dark surfaces; interactive tint blended 72% toward white; supplied primary retained for brand header",
+    "semanticRolesIndependentOfPalette": [
+      "error",
+      "success",
+      "warning",
+      "focus",
+      "unavailable",
+      "chart-series"
+    ],
+    "chartSeriesCount": 8,
+    "preferMaximumChartSeries": 5
+  },
+  "settings": {
+    "module": "/local/civica/civica-ui.js",
+    "profileHost": "ha-pick-theme-row",
+    "event": "settheme",
+    "persistence": "Home Assistant native profile preference",
+    "paletteControl": "Labelled select",
+    "toneControl": "Use muted colours checkbox/switch",
+    "fallbackCard": "custom:civica-theme-settings",
+    "clearsPrimaryAccentOverrides": true,
+    "preservesNativeMode": true,
+    "backendDefaultThemeAction": false,
+    "safeRecoveryMode": "Disabled; native identity restored",
+    "nonCivicaTheme": "Palette prompt available; native identity remains until selection"
+  },
+  "adapters": {
+    "privateAndVersionSensitive": true,
+    "hosts": [
+      "ha-pick-theme-row",
+      "ha-sidebar",
+      "hass-subpage",
+      "ha-top-app-bar-fixed"
+    ],
+    "failure": "Keep native controls usable and retain standalone settings card",
+    "cleanup": "Remove scoped styling/identity and restore original favicon attributes when switching away"
+  },
+  "components": {
+    "preferNativeHomeAssistantSemantics": true,
+    "states": [
+      "default",
+      "hover",
+      "focus",
+      "pressed",
+      "disabled",
+      "pending",
+      "success",
+      "error",
+      "empty",
+      "unavailable"
+    ],
+    "icons": "Supplement labels; consistent meaning and accessible names",
+    "dialogs": "Preserve focus trap, inert background, close route and focus return",
+    "cards": "No nested interactive controls or whole-card links around multiple actions",
+    "charts": "Titles, units, period, stable series and text/data alternatives where supported"
+  },
+  "content": {
+    "language": "Clear UK English for maintained documentation/copy; preserve native translations and user device names",
+    "case": "sentence",
+    "actions": "Specific active verbs",
+    "emptyIsUnavailable": false,
+    "missingIsZero": false,
+    "successBeforeConfirmation": false
+  },
+  "accessibility": {
+    "target": "WCAG 2.2 AA",
+    "certified": false,
+    "normalTextContrast": 4.5,
+    "largeTextContrast": 3,
+    "essentialNonTextContrast": 3,
+    "customTargetSizePx": 44,
+    "narrowViewportCssPx": 320,
+    "textZoomPercent": 200,
+    "pageZoomPercent": 400,
+    "customFocus": "Yellow plus ink",
+    "nativeSingleColourFocus": "Ink on light; yellow on dark",
+    "manualTestsRequired": [
+      "keyboard",
+      "screen reader",
+      "focus order",
+      "reflow",
+      "forced colours",
+      "reduced motion",
+      "native panels",
+      "all palette tones and modes"
+    ]
+  },
+  "preserve": [
+    "native Energy authority and routes",
+    "native Map and attribution",
+    "device permissions and confirmations",
+    "native profile controls",
+    "native localisation",
+    "user entities and automations"
+  ],
+  "outsideScope": [
+    "authentication branding",
+    "native companion app splash/icons",
+    "all private or closed third-party component internals",
+    "upstream semantic accessibility repair through CSS alone"
+  ],
+  "evidence": {
+    "localBuildIsLiveDeployment": false,
+    "fixtureIsLiveHomeAssistant": false,
+    "contrastTestsProveFullConformance": false,
+    "suppliedAssetChecksAreIndependentCertification": false
+  },
+  "documentation": {
+    "engine": "Middleman",
+    "template": "govuk_tech_docs",
+    "pinnedVersion": "6.6.0",
+    "informationArchitecture": [
+      "get-started",
+      "styles",
+      "components",
+      "patterns",
+      "community",
+      "accessibility"
+    ],
+    "upstreamWebsiteIsMiddleman": false,
+    "publishedOfficialBrandAssets": false
+  },
+  "sources": [
+    "https://design-system.service.gov.uk/",
+    "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+    "https://brand.design-system.service.gov.uk/",
+    "https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/",
+    "https://github.com/alphagov/govuk-design-system",
+    "https://github.com/alphagov/tech-docs-template",
+    "https://design-patterns.service.justice.gov.uk/",
+    "https://service-manual.nhs.uk/design-system",
+    "https://design-system.dwp.gov.uk/",
+    "https://design.homeoffice.gov.uk/",
+    "https://service-manual.ons.gov.uk/design-system",
+    "https://service-manual.ons.gov.uk/data-visualisation"
+  ]
+}

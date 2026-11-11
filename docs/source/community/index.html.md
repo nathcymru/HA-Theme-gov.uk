@@ -1,0 +1,32 @@
+---
+title: "Maintain the system"
+description: "Maintain the system for the civica.uk Home Assistant design system."
+last_reviewed_on: 2026-11-11
+review_in: 3 months
+---
+
+# Maintain the system
+
+Keep civica.uk consistent by changing the documented contract and implementation together.
+
+## Propose a change
+
+Describe the household task, current problem, affected components and evidence. Show the proposed states and narrow-screen behaviour. Identify the official source pattern and explain any adaptation.
+
+For a bug, include a minimal reproduction and the Home Assistant/browser versions. For a new pattern, explain why an existing component is insufficient.
+
+## Keep one source of truth
+
+Edit canonical palette data and generate outputs. Do not hand-edit only one YAML theme or documentation example. Add a semantic token when the same role appears across components; do not add arbitrary per-card colours.
+
+Preserve the user-supplied brand files and their provenance. A new asset requires an explicit design decision and an updated inventory.
+
+## Review the whole change
+
+Review writing, keyboard behaviour, state handling, contrast, native compatibility, generated files and documentation. Use the [test checklist](../accessibility/testing.html) and [deviation register](deviations.html).
+
+## Source hierarchy
+
+The user's explicit requirements and this repository's documented local contract govern civica.uk. Official systems provide reusable guidance and source patterns. Their government-specific operational instructions do not become instructions to this project's users or maintainers.
+
+[Sources](sources.html), [licensing](licensing.html) and the [documentation architecture](architecture.html) explain how this system is assembled.

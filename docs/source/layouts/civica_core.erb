@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d70b8">
+  <title><%= current_page.data.title %> – civica.uk Design System</title>
+  <meta name="description" content="<%= current_page.data.description || 'A clear, consistent Home Assistant interface inspired by UK public service design.' %>">
+  <%= stylesheet_link_tag 'screen' %>
+  <%= favicon_tag 'favicon.ico' %>
+  <link rel="icon" type="image/svg+xml" href="<%= docs_path('/images/favicon.svg') %>">
+  <link rel="apple-touch-icon" href="<%= docs_path('/images/apple-touch-icon.png') %>">
+  <link rel="manifest" href="<%= docs_path('/site.webmanifest') %>">
+</head>
+<body>
+  <a class="c-skip" href="#main-content">Skip to main content</a>
+  <header class="c-header">
+    <div class="c-container c-header__inner">
+      <a class="c-brand" href="<%= docs_path('/index.html') %>" aria-label="civica.uk Design System home">
+        <img src="<%= docs_path('/images/civica-lockup.svg') %>" alt="civica.uk" width="306" height="49">
+      </a>
+      <span class="c-header__name">Design System</span>
+      <a class="c-repo" href="https://github.com/nathcymru/HA-Theme-gov.uk">View repository</a>
+    </div>
+  </header>
+  <nav class="c-navigation" aria-label="Main navigation">
+    <div class="c-container">
+      <ul>
+      <% data.navigation.sections.each do |section| %>
+        <li><a href="<%= docs_path(section.path) %>"<%= ' aria-current="page"' if current_section == section.id %>><%= section.title %></a></li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+  <div class="c-container c-page">
+    <aside class="c-sidebar" aria-label="Section navigation">
+      <% section = data.navigation.sections.find { |item| item.id == current_section } %>
+      <% if section %>
+      <h2><%= section.title %></h2>
+      <ul>
+        <% section.pages.each do |item| %>
+        <li><a href="<%= docs_path(item.path) %>"<%= ' aria-current="page"' if '/' + current_page.destination_path == item.path %>><%= item.title %></a></li>
+        <% end %>
+      </ul>
+      <% else %>
+      <h2>Start here</h2>
+      <ul><li><a href="<%= docs_path('/get-started/index.html') %>">Use civica.uk</a></li><li><a href="<%= docs_path('/get-started/install.html') %>">Install the theme</a></li><li><a href="<%= docs_path('/styles/colour.html') %>">Choose colours</a></li></ul>
+      <% end %>
+      <details class="c-page-contents"><summary>On this page</summary><%= yield_content :page_contents %></details>
+    </aside>
+    <main class="technical-documentation c-content" id="main-content" tabindex="-1">
+      <%= yield %>
+      <div class="c-review">Design guidance reviewed 11 November 2026. <a href="<%= docs_path('/community/sources.html') %>">Sources and provenance</a>.</div>
+    </main>
+  </div>
+  <footer class="c-footer">
+    <div class="c-container">
+      <img src="<%= docs_path('/images/civica-emblem.svg') %>" alt="" width="40" height="40">
+      <p>civica.uk is an independent Home Assistant theme. It is not a UK government service and is not endorsed by GOV.UK or Home Assistant.</p>
+      <ul><li><a href="<%= docs_path('/accessibility/index.html') %>">Accessibility</a></li><li><a href="<%= docs_path('/community/licensing.html') %>">Licensing and attribution</a></li><li><a href="<%= docs_path('/llms.txt') %>">AI reading guide</a></li></ul>
+    </div>
+  </footer>
+  <%= javascript_include_tag 'civica-docs', defer: true %>
+</body>
+</html>

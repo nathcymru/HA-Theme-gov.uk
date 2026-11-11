@@ -1,124 +1,105 @@
-// Restyles Home Assistant's own more-info dialog for a room's light group.
-//
-// Why this exists: Home Assistant 2026.11 builds the dialog from its own components (slider,
-// colour wheel, temperature) and sizes it itself. card-mod 4.2.1 cannot reach the new dialog, so
-// theme CSS cannot change its layout. We keep every Home Assistant control (they still call the
-// light services), and only (1) restyle them with GOV.UK tokens from the theme, (2) lay them out
-// horizontally so the dialog needs no scrolling, and (3) add the room's scene buttons.
-// Nothing here reads or writes light state itself; scenes call script.govuk_lights_apply.
-
+// A bounded, optional adapter for the native light dialog. All native controls,
+// keyboard handling, orientation and scrolling remain owned by Home Assistant.
+// If its structure changes, leave the native dialog working without enhancement.
 export interface DialogScene { id: string; label: string; iconUrl: string; fill: (swatch: HTMLElement) => void; pressed: boolean }
-export interface DialogSpec { title: string; scenes: DialogScene[]; onPick: (id: string) => void }
+export interface DialogSpec { entityId: string; title: string; scenes: DialogScene[]; onPick: (id: string) => Promise<boolean> }
 
-const MORE_INFO_LIGHT_CSS = `
-:host { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-content: start; flex: 0 0 auto; font-family: var(--ha-font-family-body, inherit); color: var(--primary-text-color); }
-ha-more-info-state-header { grid-column: 1 / -1; }
-.controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: center; justify-items: stretch; margin: 0 !important; flex: none; }
-.controls > * { margin: 0 !important; }
-ha-state-control-light-brightness { width: 100%; }
-ha-icon-button-group { justify-self: start; }
-.button-bar, .buttons { max-width: none; justify-content: flex-start; }
-.button-bar { border-radius: 0; background: transparent; }
-.buttons > * { margin: 4px 4px 4px 0; }
-.govuk-scenes { display: block; border-left: 5px solid var(--divider-color); padding-left: 12px; }
-.govuk-scenes h3 { margin: 0 0 8px; font: var(--ha-font-weight-bold, 700) 1rem/1.25 var(--ha-font-family-body, inherit); color: var(--primary-text-color); }
-.govuk-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.govuk-tile { position: relative; display: block; width: 40px; height: 40px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
-.govuk-tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
-.govuk-tile:focus-visible { outline: 3px solid var(--ha-color-focus, var(--accent-color)); outline-offset: 0; box-shadow: 0 4px 0 var(--primary-text-color); }
-.govuk-swatch { position: absolute; inset: 0; display: block; }
-.govuk-swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
-.govuk-tile img { position: absolute; inset: 5px; width: calc(100% - 10px); height: calc(100% - 10px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
-.govuk-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+const SCENES_CSS = `
+.civica-scenes { margin-block: 20px; padding-inline-start: 15px; border-inline-start: 5px solid var(--divider-color); color: var(--primary-text-color); font: var(--civica-font-size-body, 19px)/1.5 var(--ha-font-family-body, Arial, sans-serif); }
+.civica-scenes h3 { margin: 0 0 12px; font: inherit; font-weight: 700; }
+.civica-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.civica-scenes li { min-width: 0; max-width: 100%; }
+.civica-scene { display: flex; align-items: center; gap: 8px; position: relative; min-width: 44px; min-height: 44px; max-width: 100%; padding: 6px 10px; cursor: pointer; background: var(--card-background-color); color: var(--primary-text-color); border: 2px solid var(--primary-text-color); border-radius: 0; font: inherit; text-align: start; overflow-wrap: anywhere; }
+.civica-scene:hover { background: var(--secondary-background-color); }
+.civica-scene:disabled { cursor: wait; opacity: .65; }
+.civica-scene:focus-visible { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; box-shadow: 0 0 0 5px var(--civica-focus-text, var(--black-color)); }
+.civica-scene-icon { flex: 0 0 28px; width: 28px; height: 28px; position: relative; overflow: hidden; }
+.civica-scene-icon img { position: absolute; inset: 3px; width: 22px; height: 22px; object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
+.civica-swatch { position: absolute; inset: 0; display: block; }
+.civica-swatch::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--black-color) 65%, transparent); }
+.civica-scene-status { margin: 12px 0 0; }
+.civica-scene-status:empty { display: none; }
+@media (forced-colors: active) { .civica-scene:focus-visible { outline-color: Highlight; } }
 `;
 
-// A horizontal, GOV.UK-shaped slider: square corners, 1px outline in the text colour, no rounded thumb.
-// Home Assistant shows the light controls and, for a group, a section of its member lights. Side by
-// side on desktop and tablet; stacked on mobile.
-const CONTENT_CSS = `
-@media (min-width: 700px) { :host { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; } }
-`;
-
-const SLIDER_CSS = `
-ha-control-slider {
-  --control-slider-thickness: 40px;
-  --control-slider-border-radius: 0px;
-  --control-slider-color: var(--primary-color);
-  --control-slider-background: var(--secondary-background-color);
-  --control-slider-background-opacity: 1;
-  width: 100%; height: 40px !important; min-height: 0 !important; max-height: none !important;
-  border: 2px solid var(--primary-text-color); box-sizing: border-box;
-}
-`;
-
-const sheets = new WeakSet<ShadowRoot>();
-function addSheet(root: ShadowRoot, css: string) {
-  if (sheets.has(root)) return;
-  const s = new CSSStyleSheet(); s.replaceSync(css);
-  root.adoptedStyleSheets = [...root.adoptedStyleSheets, s]; sheets.add(root);
-}
-
+interface LightControl extends HTMLElement { stateObj?: { entity_id?: string } }
 function findDeep(root: ParentNode, selector: string): HTMLElement | null {
   const hit = root.querySelector<HTMLElement>(selector); if (hit) return hit;
   for (const e of Array.from(root.querySelectorAll<HTMLElement>('*'))) {
-    if (e.shadowRoot) { const r = findDeep(e.shadowRoot, selector); if (r) return r; }
+    if (e.shadowRoot) { const found = findDeep(e.shadowRoot, selector); if (found) return found; }
   }
   return null;
 }
+let cancelPending: (() => void) | undefined;
 
-function sizeDialog(dialogHost: HTMLElement) {
-  const haDialog = findDeep(dialogHost.shadowRoot ?? dialogHost, 'ha-dialog');
-  if (!haDialog) return;
-  const v: Record<string, string> = {
-    '--ha-dialog-width-md': '920px', '--ha-dialog-width-lg': '920px',
-    '--ha-dialog-max-width': 'min(920px, calc(100vw - 32px))',
-    '--ha-dialog-max-height': 'min(580px, calc(100vh - 32px))', '--ha-dialog-min-height': '0px',
-    '--ha-dialog-border-radius': '0px',
-  };
-  for (const [k, val] of Object.entries(v)) haDialog.style.setProperty(k, val);
-}
-
-function paintScenes(host: ShadowRoot, spec: DialogSpec) {
-  host.querySelector('.govuk-scenes')?.remove();
-  if (!spec.scenes.length) return;
-  const sec = document.createElement('section'); sec.className = 'govuk-scenes';
-  const h = document.createElement('h3'); h.textContent = 'Scenes'; sec.append(h);
-  const ul = document.createElement('ul');
-  for (const sc of spec.scenes) {
-    const li = document.createElement('li'); const b = document.createElement('button');
-    b.type = 'button'; b.className = 'govuk-tile'; b.title = sc.label; b.setAttribute('aria-pressed', String(sc.pressed));
-    const sw = document.createElement('span'); sw.className = 'govuk-swatch'; sc.fill(sw);
-    const img = document.createElement('img'); img.src = sc.iconUrl; img.alt = '';
-    const vh = document.createElement('span'); vh.className = 'govuk-vh'; vh.textContent = sc.label;
-    b.append(sw, img, vh); b.addEventListener('click', () => spec.onPick(sc.id)); li.append(b); ul.append(li);
-  }
-  sec.append(ul);
-  // Sit beside the brightness controls, before the effect menu.
-  host.querySelector('.controls')?.after(sec);
-}
-
-/** Waits (up to 6 seconds) for the dialog to render, then restyles it. Safe to call more than once. */
-export function tuneMoreInfo(spec: DialogSpec): void {
+/** Decorates only the requested entity. Cancels stale requests and cleans up on close. */
+export function tuneMoreInfo(spec: DialogSpec): () => void {
+  cancelPending?.();
   const started = performance.now();
+  let cancelled = false, frame = 0;
+  let cleanup: (() => void) | undefined;
+  const cancel = () => { cancelled = true; cancelAnimationFrame(frame); cleanup?.(); cleanup = undefined; };
+  cancelPending = cancel;
   const tick = () => {
+    if (cancelled) return;
     const ha = document.querySelector('home-assistant');
     const dlg = ha?.shadowRoot ? findDeep(ha.shadowRoot, 'ha-more-info-dialog') : null;
-    const ml = dlg?.shadowRoot ? findDeep(dlg.shadowRoot, 'more-info-light') : null;
-    const sr = ml?.shadowRoot;
-    if (dlg && ml && sr && sr.querySelector('.controls')) {
-      sizeDialog(dlg); addSheet(sr, MORE_INFO_LIGHT_CSS);
-      const content = dlg.shadowRoot ? findDeep(dlg.shadowRoot, 'more-info-content') : null;
-      if (content?.shadowRoot) addSheet(content.shadowRoot, CONTENT_CSS);
-      const sc = sr.querySelector<HTMLElement>('ha-state-control-light-brightness');
-      const slider = sc?.shadowRoot?.querySelector<any>('ha-control-slider');
-      if (sc?.shadowRoot && slider) {
-        addSheet(sc.shadowRoot, SLIDER_CSS);
-        slider.vertical = false; slider.removeAttribute('vertical'); slider.setAttribute('aria-orientation', 'horizontal');
+    const control = (dlg?.shadowRoot ? findDeep(dlg.shadowRoot, 'more-info-light') : null) as LightControl | null;
+    const root = control?.shadowRoot;
+    // stateObj is the native light component's public property. Never attach a
+    // previous room's scene actions to a different entity or to an unknown host.
+    if (dlg && control && root && control.stateObj?.entity_id === spec.entityId && root.querySelector('.controls')) {
+      if (!spec.scenes.length) return;
+      const style = document.createElement('style'); style.textContent = SCENES_CSS;
+      const section = document.createElement('section'); section.className = 'civica-scenes';
+      section.setAttribute('aria-label', `Scenes for ${spec.title}`);
+      const heading = document.createElement('h3'); heading.textContent = `Scenes for ${spec.title}`;
+      const list = document.createElement('ul');
+      const status = document.createElement('p'); status.className = 'civica-scene-status'; status.setAttribute('role', 'status');
+      for (const scene of spec.scenes) {
+        const item = document.createElement('li');
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'civica-scene';
+        const icon = document.createElement('span'); icon.className = 'civica-scene-icon'; icon.setAttribute('aria-hidden', 'true');
+        const swatch = document.createElement('span'); swatch.className = 'civica-swatch'; scene.fill(swatch);
+        const image = document.createElement('img'); image.src = scene.iconUrl; image.alt = '';
+        icon.append(swatch, image);
+        const label = document.createElement('span'); label.textContent = scene.label;
+        button.append(icon, label);
+        button.addEventListener('click', async () => {
+          if (cancelled || control.stateObj?.entity_id !== spec.entityId) return;
+          const buttons = Array.from(section.querySelectorAll('button'));
+          for (const b of buttons) b.disabled = true;
+          status.textContent = '';
+          try {
+            const accepted = await spec.onPick(scene.id);
+            if (!cancelled && accepted) status.textContent = `${scene.label} requested. Check the lights to confirm the change.`;
+          } catch {
+            if (!cancelled) status.textContent = `${scene.label} could not be applied. Try again.`;
+          } finally { for (const b of buttons) b.disabled = false; }
+        });
+        item.append(button); list.append(item);
       }
-      paintScenes(sr, spec);
+      section.append(heading, list, status);
+      root.append(style); root.querySelector('.controls')!.after(section);
+      // Native controls may be reused when the user opens a group member.
+      const observer = new MutationObserver(() => {
+        if (!control.isConnected || control.stateObj?.entity_id !== spec.entityId) cancel();
+      });
+      observer.observe(root, { childList: true, subtree: true });
+      const motion = matchMedia('(prefers-reduced-motion: reduce)');
+      const reduceMotion = () => { if (motion.matches) section.getAnimations({ subtree: true }).forEach((a) => a.cancel()); };
+      motion.addEventListener('change', reduceMotion);
+      const closed = () => cancel();
+      dlg.addEventListener('dialog-closed', closed);
+      dlg.addEventListener('closed', closed);
+      cleanup = () => {
+        observer.disconnect(); motion.removeEventListener('change', reduceMotion); style.remove(); section.getAnimations({ subtree: true }).forEach((a) => a.cancel()); section.remove();
+        dlg.removeEventListener('dialog-closed', closed); dlg.removeEventListener('closed', closed);
+      };
       return;
     }
-    if (performance.now() - started < 6000) requestAnimationFrame(tick);
+    if (performance.now() - started < 6000) frame = requestAnimationFrame(tick);
   };
-  requestAnimationFrame(tick);
+  frame = requestAnimationFrame(tick);
+  return cancel;
 }

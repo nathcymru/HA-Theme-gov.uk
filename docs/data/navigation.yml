@@ -1,0 +1,87 @@
+sections:
+  - id: get-started
+    title: Get started
+    path: /get-started/index.html
+    pages:
+      - title: Get started
+        path: /get-started/index.html
+      - title: Install civica.uk
+        path: /get-started/install.html
+      - title: Change theme colours
+        path: /get-started/colour-settings.html
+      - title: Compatibility and limits
+        path: /get-started/compatibility.html
+  - id: styles
+    title: Styles
+    path: /styles/index.html
+    pages:
+      - title: Styles
+        path: /styles/index.html
+      - title: Brand
+        path: /styles/brand.html
+      - title: Colour
+        path: /styles/colour.html
+      - title: Typography
+        path: /styles/typography.html
+      - title: Layout and spacing
+        path: /styles/layout.html
+      - title: Icons and images
+        path: /styles/images.html
+      - title: Content design
+        path: /styles/content.html
+  - id: components
+    title: Components
+    path: /components/index.html
+    pages:
+      - title: Components
+        path: /components/index.html
+      - title: Navigation
+        path: /components/navigation.html
+      - title: Buttons and forms
+        path: /components/controls.html
+      - title: Device controls
+        path: /components/devices.html
+      - title: Cards
+        path: /components/cards.html
+      - title: Status and notifications
+        path: /components/status.html
+      - title: Dialogs
+        path: /components/dialogs.html
+      - title: Charts and tables
+        path: /components/charts.html
+  - id: patterns
+    title: Patterns
+    path: /patterns/index.html
+    pages:
+      - title: Patterns
+        path: /patterns/index.html
+      - title: Home and rooms
+        path: /patterns/home.html
+      - title: Energy and history
+        path: /patterns/energy.html
+      - title: Settings and preferences
+        path: /patterns/settings.html
+      - title: Errors and recovery
+        path: /patterns/recovery.html
+  - id: community
+    title: Community
+    path: /community/index.html
+    pages:
+      - title: Maintain the system
+        path: /community/index.html
+      - title: Controlled deviations
+        path: /community/deviations.html
+      - title: Sources and provenance
+        path: /community/sources.html
+      - title: Documentation architecture
+        path: /community/architecture.html
+      - title: Licensing and attribution
+        path: /community/licensing.html
+  - id: accessibility
+    title: Accessibility
+    path: /accessibility/index.html
+    pages:
+      - title: Accessibility
+        path: /accessibility/index.html
+      - title: Test the interface
+        path: /accessibility/testing.html

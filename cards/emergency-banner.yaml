@@ -1,5 +1,5 @@
-# Emergency banner, after the GOV.UK emergency publishing manual
-# https://docs.publishing.service.gov.uk/manual/emergency-publishing.html
+# civica.uk household alerts. These are user-supplied messages, not official warnings.
+# Legacy helper option IDs remain supported for existing automations.
 # Requires: card-mod (HACS), and the helpers in cards/helpers.yaml.
 # Paste into a dashboard card editor (Show code editor). One card per level;
 # only the one matching input_select.govuk_banner_type is shown.
@@ -13,18 +13,18 @@ cards:
     card:
       type: markdown
       content: >
-        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Death of a notable person' }}
+        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Household notice' }}
       card_mod:
         style: |
           ha-card {
-            background: #0b0c0c;
-            color: #ffffff;
-            border: 0;
+            background: var(--civica-notice-fill);
+            color: var(--civica-on-notice);
+            border: 2px solid currentColor;
             border-radius: 0;
             box-shadow: none;
             font-weight: 700;
           }
-          ha-markdown, ha-markdown * { color: #ffffff !important; }
+          ha-markdown, ha-markdown * { color: var(--civica-on-notice) !important; }
   - type: conditional
     conditions:
       - condition: state
@@ -33,18 +33,18 @@ cards:
     card:
       type: markdown
       content: >
-        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'National emergency' }}
+        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Urgent household alert' }}
       card_mod:
         style: |
           ha-card {
-            background: #ca3535;
-            color: #ffffff;
-            border: 0;
+            background: var(--civica-danger-fill);
+            color: var(--civica-on-danger);
+            border: 2px solid currentColor;
             border-radius: 0;
             box-shadow: none;
             font-weight: 700;
           }
-          ha-markdown, ha-markdown * { color: #ffffff !important; }
+          ha-markdown, ha-markdown * { color: var(--civica-on-danger) !important; }
   - type: conditional
     conditions:
       - condition: state
@@ -53,15 +53,15 @@ cards:
     card:
       type: markdown
       content: >
-        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Local emergency' }}
+        ## {% set m = states('input_text.govuk_banner_message') %}{{ m if m not in ['', 'unknown', 'unavailable'] else 'Household warning' }}
       card_mod:
         style: |
           ha-card {
-            background: #0f7a52;
-            color: #ffffff;
-            border: 0;
+            background: var(--civica-warning-fill, var(--warning-color));
+            color: var(--civica-on-warning);
+            border: 2px solid currentColor;
             border-radius: 0;
             box-shadow: none;
             font-weight: 700;
           }
-          ha-markdown, ha-markdown * { color: #ffffff !important; }
+          ha-markdown, ha-markdown * { color: var(--civica-on-warning) !important; }

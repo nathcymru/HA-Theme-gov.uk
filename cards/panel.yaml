@@ -1,20 +1,24 @@
-# GOV.UK confirmation panel (components/panel): #0f7a52, 5px border, 35px padding,
-# 36px text, 48px bold title.
-# Requires card-mod.
-type: markdown
-title: Heating schedule saved
-content: >
-  Your reference is **{{ now().strftime('%Y%m%d-%H%M') }}**
-card_mod:
-  style: |
-    ha-card {
-      background: #0f7a52;
-      color: #ffffff;
-      border: 5px solid #0f7a52;
-      border-radius: 0;
-      text-align: center;
-      padding: 35px;
-    }
-    ha-markdown, ha-markdown *, .card-header { color: #ffffff !important; }
-    .card-header { font-size: 48px; font-weight: 700; line-height: 1.1; padding: 0 0 30px; }
-    ha-markdown { font-size: 36px; line-height: 1.1111; }
+# civica.uk confirmation panel. Requires card-mod and cards/helpers.yaml.
+# Set this helper only after a real action succeeds, and reset it before retrying.
+# Replace the example message with the actual completed action. Never invent a reference.
+type: conditional
+conditions:
+  - condition: state
+    entity: input_boolean.civica_action_confirmed
+    state: 'on'
+card:
+  type: markdown
+  content: |
+    ## Action completed
+    Your change has been saved.
+  card_mod:
+    style: |
+      ha-card {
+        background: var(--civica-success-fill);
+        color: var(--civica-on-success);
+        border: 5px solid var(--civica-success-fill);
+        border-radius: 0;
+        text-align: center;
+        padding: clamp(15px, 4vw, 35px);
+      }
+      ha-markdown { color: var(--civica-on-success); }

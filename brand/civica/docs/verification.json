@@ -1,0 +1,72 @@
+{
+  "reference_source": "CiviCA LOGO.svg (user-supplied)",
+  "master_emblem_paths": 12,
+  "source_circle_elements": 3,
+  "wordmark_svg_preserved_bit_for_bit": {
+    "blue": true,
+    "light": true,
+    "black": true,
+    "white": true
+  },
+  "wordmark_dot_svg_element": {
+    "cx": "366.3318",
+    "cy": "47.5",
+    "r": "8"
+  },
+  "emblem_nominal_radius": 4.0,
+  "wordmark_dot_radius": 8.0,
+  "wordmark_dot_diameter_to_emblem_dot_diameter": 2.0,
+  "gap_to_emblem_dot_diameter": 3.0,
+  "original_svg_master_included": true,
+  "brand_palette": {
+    "blue": "#1D70B8",
+    "teal": "#00FFE0",
+    "black": "#0B0C0C",
+    "white": "#FFFFFF"
+  },
+  "logo_checks": {
+    "on-blue": {
+      "wordmark_dot_unchanged": true,
+      "emblem_paths_preserved": true,
+      "gap_units": 24.0,
+      "source_emblem_node_r": 22.5,
+      "emblem_node_r_scaled": 4.0
+    },
+    "dark-transparent": {
+      "wordmark_dot_unchanged": true,
+      "emblem_paths_preserved": true,
+      "gap_units": 24.0,
+      "source_emblem_node_r": 22.5,
+      "emblem_node_r_scaled": 4.0
+    },
+    "on-white": {
+      "wordmark_dot_unchanged": true,
+      "emblem_paths_preserved": true,
+      "gap_units": 24.0,
+      "source_emblem_node_r": 22.5,
+      "emblem_node_r_scaled": 4.0
+    },
+    "light-transparent": {
+      "wordmark_dot_unchanged": true,
+      "emblem_paths_preserved": true,
+      "gap_units": 24.0,
+      "source_emblem_node_r": 22.5,
+      "emblem_node_r_scaled": 4.0
+    },
+    "mono-black": {
+      "wordmark_dot_unchanged": true,
+      "emblem_paths_preserved": true,
+      "gap_units": 24.0,
+      "source_emblem_node_r": 22.5,
+      "emblem_node_r_scaled": 4.0
+    },
+    "mono-white": {
+      "wordmark_dot_unchanged": true,
+      "emblem_paths_preserved": true,
+      "gap_units": 24.0,
+      "source_emblem_node_r": 22.5,
+      "emblem_node_r_scaled": 4.0
+    }
+  },
+  "note": "Visual and arithmetic checks do not constitute official GOV.UK brand approval."
+}

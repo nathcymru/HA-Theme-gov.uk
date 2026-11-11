@@ -1,0 +1,21 @@
+<%
+  fragment = Nokogiri::HTML::DocumentFragment.parse(yield)
+  fragment.css('table').each do |table|
+    heading = table.xpath('preceding::*[self::h2 or self::h3][1]').first
+    label = heading ? heading.text : current_page.data.title
+    wrapper = Nokogiri::XML::Node.new('div', fragment.document)
+    wrapper['class'] = 'c-table-region'
+    wrapper['role'] = 'region'
+    wrapper['tabindex'] = '0'
+    wrapper['aria-label'] = "#{label} table"
+    table.replace(wrapper)
+    wrapper.add_child(table)
+  end
+  content = fragment.to_html
+  content_for :page_contents do
+    single_page_table_of_contents(content, max_level: 2)
+  end
+  wrap_layout :civica_core do
+    content
+  end
+%>

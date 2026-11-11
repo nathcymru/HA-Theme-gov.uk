@@ -745,36 +745,39 @@ var rooms_default = {
 
 // card/src/styles.ts
 var STYLES = `
-:host { display: block; }
-ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-color); }
+:host { display: block; min-width: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+ha-card { display: block; font-family: var(--ha-font-family-body, Arial, sans-serif); font-size: var(--civica-font-size-body, 19px); line-height: 1.5; color: var(--primary-text-color); background: var(--card-background-color); border: 1px solid var(--divider-color); border-radius: 0; box-shadow: none; }
 .body { padding: 16px; }
 .head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 15px; margin-bottom: 8px; }
 .title { margin: 0; font-size: var(--ha-card-header-font-size, 24px); font-weight: var(--ha-font-weight-heading, 700); }
-.status { margin: 0 0 16px; font-size: var(--ha-font-size-s, 14px); color: var(--secondary-text-color); }
+.status { margin: 0 0 16px; font-size: var(--civica-font-size-small, 16px); color: var(--secondary-text-color); }
 .actions { display: flex; flex-wrap: wrap; gap: 15px; }
 /* GOV.UK button: theme body size (19px), weight 400, 2px border, padding 8px 10px 7px = 38px + 2px shadow, matching --ha-button-height. */
-.btn { font: inherit; font-size: var(--ha-font-size-m, 19px); font-weight: 400; line-height: 1; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
+.btn { font: inherit; font-size: var(--civica-font-size-body, 19px); font-weight: 400; line-height: 1.3; min-width: 44px; min-height: 44px; box-sizing: border-box; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; padding: 8px 10px 7px; cursor: pointer; text-align: center; vertical-align: top; border: 2px solid transparent; border-radius: 0;
   background: var(--primary-color); color: var(--text-primary-color); box-shadow: 0 2px 0 var(--ha-color-primary-10); }
-.btn:hover { background: var(--ha-color-primary-30); }
+.btn:hover { background: var(--civica-action-hover, var(--dark-primary-color)); }
 .btn:active { top: 2px; }
 .btn--secondary { background: var(--secondary-background-color); color: var(--primary-text-color); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 41%, var(--secondary-background-color)); }
 .btn--secondary:hover { background: color-mix(in srgb, var(--primary-text-color) 10%, var(--secondary-background-color)); }
-.btn--warning { background: var(--error-color); color: var(--text-primary-color); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 55%, var(--error-color)); }
-.btn--warning:hover { background: color-mix(in srgb, var(--primary-text-color) 20%, var(--error-color)); }
+.btn--warning { background: var(--civica-danger-fill, var(--error-color)); color: var(--civica-on-danger, var(--text-primary-color)); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary-text-color) 55%, var(--civica-danger-fill, var(--error-color))); }
+.btn--warning:hover { background: color-mix(in srgb, var(--primary-text-color) 20%, var(--civica-danger-fill, var(--error-color))); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn:disabled:hover { background: var(--primary-color); }
 .btn--secondary:disabled:hover { background: var(--secondary-background-color); }
 .btn:disabled:active { top: 0; }
 .btn-icon { flex: none; }
 .btn[hidden] { display: none; }
-.btn:focus-visible:not(:active):not(:hover), .btn:focus:not(:active):not(:hover) { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--primary-text-color); }
+.btn:focus-visible { outline: 3px solid transparent; border-color: var(--ha-color-focus); color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 2px 0 var(--civica-focus-text, var(--black-color)); }
 .tile:focus-visible { outline: 3px solid transparent; background: var(--ha-color-focus); color: var(--primary-text-color); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
 .tile:focus-visible { outline: var(--wa-focus-ring-width, 3px) solid var(--ha-color-focus); box-shadow: 0 4px 0 var(--primary-text-color); }
 .rooms { margin: 0 0 24px; padding: 0; }
-.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--divider-color); }
+@media (min-width: 540px) { .row { grid-template-columns: minmax(0, 1fr) auto; } }
+.row > * { min-width: 0; overflow-wrap: anywhere; }
 .row[hidden] { display: none; }
 .key { font-weight: 700; margin: 0; }
-.sub { display: block; font-weight: 400; font-size: var(--ha-font-size-s, 14px); line-height: 1.25; color: var(--secondary-text-color); }
+.sub { display: block; font-weight: 400; font-size: var(--civica-font-size-small, 16px); line-height: 1.5; color: var(--secondary-text-color); }
 .sub:empty { display: none; }
 .act { margin: 0; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -785,175 +788,177 @@ ha-card { font-family: var(--ha-font-family-body); color: var(--primary-text-col
 .hit { fill: transparent; stroke: none; cursor: pointer; }
 .hit:hover { fill: var(--ha-color-focus); fill-opacity: 0.18; }
 .hit:focus-visible { outline: none; stroke: var(--ha-color-focus); stroke-width: 8px; fill: var(--ha-color-focus); fill-opacity: 0.18; }
-.dlg { width: min(640px, 92vw); box-sizing: border-box; flex-direction: column; max-width: none; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
+.dlg { width: min(640px, 92vw); box-sizing: border-box; flex-direction: column; max-width: calc(100vw - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; border: var(--ha-border-width-lg, 4px) solid var(--primary-text-color); border-radius: 0; padding: 24px; background: var(--card-background-color); color: var(--primary-text-color); font-family: var(--ha-font-family-body); }
 .dlg[open] { display: flex; }
-.dlg-title { margin: 0 0 16px; font-size: 24px; }
+.dlg-title { margin: 0 0 16px; font-size: var(--civica-font-size-heading, 24px); }
 .dlg::backdrop { background: var(--primary-text-color); opacity: 0.6; }
 .tiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tile:disabled { opacity: 0.5; cursor: not-allowed; }
-.tile { position: relative; display: block; width: 36px; height: 36px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
+.tile { position: relative; display: block; width: 44px; height: 44px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
 .tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
 .swatch { position: absolute; inset: 0; display: block; }
 /* Icons are drawn as solid white: brightness(0) flattens every colour to black, invert(1) turns it white. */
 .tile-icon { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
 .swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
 .error-summary { padding: 15px; margin-bottom: 30px; border: 5px solid var(--error-color); color: var(--primary-text-color); }
-.error-summary:focus { outline: 3px solid var(--ha-color-focus); }
-.error-summary__title { margin: 0 0 15px; font-size: 18px; line-height: 1.1111; font-weight: 700; }
+.error-summary:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
+.form-group--error:focus { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; }
+.error-summary__title { margin: 0 0 15px; font-size: var(--civica-font-size-heading, 24px); line-height: 1.25; font-weight: 700; }
 .error-summary__list { margin: 0; padding: 0; list-style: none; font-weight: 700; }
 .error-summary__list li { margin: 0; }
 .error-summary__list .link { color: var(--error-color); }
 /* GOV.UK details component */
-.details { display: block; margin: 15px 0 0; font-size: var(--ha-font-size-m, 19px); line-height: 1.3157894737; }
-.details-summary { position: relative; display: block; width: fit-content; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
+.details { display: block; margin: 15px 0 0; font-size: var(--civica-font-size-body, 19px); line-height: 1.3157894737; }
+.details-summary { position: relative; display: block; width: fit-content; min-height: 44px; padding-top: 8px; padding-bottom: 8px; margin-top: 15px; padding-left: 25px; color: var(--link-color); cursor: pointer; list-style: none; }
 .details-summary::-webkit-details-marker { display: none; }
 .details-summary::before { content: ""; position: absolute; top: -1px; bottom: 0; left: 0; margin: auto; display: block; width: 0; height: 0; clip-path: polygon(0 0, 100% 50%, 0 100%); border-style: solid; border-color: transparent; border-width: 7px 0 7px 12.124px; border-left-color: inherit; }
 .details[open] > .details-summary { margin-bottom: 5px; }
 .details[open] > .details-summary::before { clip-path: polygon(0 0, 50% 100%, 100% 0); border-width: 12.124px 7px 0; border-left-color: transparent; border-top-color: inherit; }
 .details-summary-text { text-decoration: underline; text-decoration-thickness: max(1px, 0.0625rem); text-underline-offset: 0.1578em; }
 .details-summary:hover .details-summary-text { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); text-decoration-skip-ink: none; }
-.details-summary:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
+.details-summary:focus-visible { outline: 3px solid transparent; color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); }
 .details-summary:focus-visible .details-summary-text { text-decoration: none; }
 .details-text { padding: 15px 0 15px 20px; border-left: 5px solid var(--divider-color); }
 .details-text p { margin: 0 0 20px; }
 .details-text > :last-child { margin-bottom: 0; }
 .link { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.1578em; }
 .link:hover { text-decoration-thickness: max(3px, 0.1875rem, 0.12em); }
-.link:focus-visible { outline: 3px solid transparent; color: var(--primary-text-color); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
+.link:focus-visible { outline: 3px solid transparent; color: var(--civica-focus-text, var(--black-color)); background: var(--ha-color-focus); box-shadow: 0 -2px var(--ha-color-focus), 0 4px var(--primary-text-color); text-decoration: none; }
 .scenes-slot { grid-column: 1 / -1; margin: 0; padding: 4px; }
 .scenes-slot:empty { display: none; }
 /* GOV.UK error message component, with its left-hand error border. */
 .form-group--error { padding-left: 15px; border-left: 5px solid var(--error-color); }
 .error-message { margin: 0 0 15px; font-weight: 700; color: var(--error-color); }
+@media (prefers-reduced-motion: reduce) { .shade { transition: none; } }
+@media (forced-colors: active) { .btn:focus-visible, .link:focus-visible, .details-summary:focus-visible { outline: 3px solid Highlight; } .hit:focus-visible { stroke: Highlight; } .btn { border: 2px solid ButtonText; } }
 `;
 
 // card/src/dialog.ts
-var MORE_INFO_LIGHT_CSS = `
-:host { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-content: start; flex: 0 0 auto; font-family: var(--ha-font-family-body, inherit); color: var(--primary-text-color); }
-ha-more-info-state-header { grid-column: 1 / -1; }
-.controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: center; justify-items: stretch; margin: 0 !important; flex: none; }
-.controls > * { margin: 0 !important; }
-ha-state-control-light-brightness { width: 100%; }
-ha-icon-button-group { justify-self: start; }
-.button-bar, .buttons { max-width: none; justify-content: flex-start; }
-.button-bar { border-radius: 0; background: transparent; }
-.buttons > * { margin: 4px 4px 4px 0; }
-.govuk-scenes { display: block; border-left: 5px solid var(--divider-color); padding-left: 12px; }
-.govuk-scenes h3 { margin: 0 0 8px; font: var(--ha-font-weight-bold, 700) 1rem/1.25 var(--ha-font-family-body, inherit); color: var(--primary-text-color); }
-.govuk-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.govuk-tile { position: relative; display: block; width: 40px; height: 40px; padding: 0; cursor: pointer; overflow: hidden; background: var(--card-background-color); border: 2px solid var(--primary-text-color); border-radius: 0; }
-.govuk-tile[aria-pressed=true] { outline: 3px solid var(--primary-text-color); outline-offset: 2px; }
-.govuk-tile:focus-visible { outline: 3px solid var(--ha-color-focus, var(--accent-color)); outline-offset: 0; box-shadow: 0 4px 0 var(--primary-text-color); }
-.govuk-swatch { position: absolute; inset: 0; display: block; }
-.govuk-swatch::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--primary-text-color) 40%, transparent); }
-.govuk-tile img { position: absolute; inset: 5px; width: calc(100% - 10px); height: calc(100% - 10px); object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
-.govuk-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+var SCENES_CSS = `
+.civica-scenes { margin-block: 20px; padding-inline-start: 15px; border-inline-start: 5px solid var(--divider-color); color: var(--primary-text-color); font: var(--civica-font-size-body, 19px)/1.5 var(--ha-font-family-body, Arial, sans-serif); }
+.civica-scenes h3 { margin: 0 0 12px; font: inherit; font-weight: 700; }
+.civica-scenes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.civica-scenes li { min-width: 0; max-width: 100%; }
+.civica-scene { display: flex; align-items: center; gap: 8px; position: relative; min-width: 44px; min-height: 44px; max-width: 100%; padding: 6px 10px; cursor: pointer; background: var(--card-background-color); color: var(--primary-text-color); border: 2px solid var(--primary-text-color); border-radius: 0; font: inherit; text-align: start; overflow-wrap: anywhere; }
+.civica-scene:hover { background: var(--secondary-background-color); }
+.civica-scene:disabled { cursor: wait; opacity: .65; }
+.civica-scene:focus-visible { outline: 3px solid var(--ha-color-focus); outline-offset: 2px; box-shadow: 0 0 0 5px var(--civica-focus-text, var(--black-color)); }
+.civica-scene-icon { flex: 0 0 28px; width: 28px; height: 28px; position: relative; overflow: hidden; }
+.civica-scene-icon img { position: absolute; inset: 3px; width: 22px; height: 22px; object-fit: contain; pointer-events: none; filter: brightness(0) invert(1); }
+.civica-swatch { position: absolute; inset: 0; display: block; }
+.civica-swatch::after { content: ''; position: absolute; inset: 0; background: color-mix(in srgb, var(--black-color) 65%, transparent); }
+.civica-scene-status { margin: 12px 0 0; }
+.civica-scene-status:empty { display: none; }
+@media (forced-colors: active) { .civica-scene:focus-visible { outline-color: Highlight; } }
 `;
-var CONTENT_CSS = `
-@media (min-width: 700px) { :host { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; } }
-`;
-var SLIDER_CSS = `
-ha-control-slider {
-  --control-slider-thickness: 40px;
-  --control-slider-border-radius: 0px;
-  --control-slider-color: var(--primary-color);
-  --control-slider-background: var(--secondary-background-color);
-  --control-slider-background-opacity: 1;
-  width: 100%; height: 40px !important; min-height: 0 !important; max-height: none !important;
-  border: 2px solid var(--primary-text-color); box-sizing: border-box;
-}
-`;
-var sheets = /* @__PURE__ */ new WeakSet();
-function addSheet(root, css) {
-  if (sheets.has(root)) return;
-  const s = new CSSStyleSheet();
-  s.replaceSync(css);
-  root.adoptedStyleSheets = [...root.adoptedStyleSheets, s];
-  sheets.add(root);
-}
 function findDeep(root, selector) {
   const hit = root.querySelector(selector);
   if (hit) return hit;
   for (const e of Array.from(root.querySelectorAll("*"))) {
     if (e.shadowRoot) {
-      const r = findDeep(e.shadowRoot, selector);
-      if (r) return r;
+      const found = findDeep(e.shadowRoot, selector);
+      if (found) return found;
     }
   }
   return null;
 }
-function sizeDialog(dialogHost) {
-  const haDialog = findDeep(dialogHost.shadowRoot ?? dialogHost, "ha-dialog");
-  if (!haDialog) return;
-  const v = {
-    "--ha-dialog-width-md": "920px",
-    "--ha-dialog-width-lg": "920px",
-    "--ha-dialog-max-width": "min(920px, calc(100vw - 32px))",
-    "--ha-dialog-max-height": "min(580px, calc(100vh - 32px))",
-    "--ha-dialog-min-height": "0px",
-    "--ha-dialog-border-radius": "0px"
-  };
-  for (const [k, val] of Object.entries(v)) haDialog.style.setProperty(k, val);
-}
-function paintScenes(host, spec) {
-  host.querySelector(".govuk-scenes")?.remove();
-  if (!spec.scenes.length) return;
-  const sec = document.createElement("section");
-  sec.className = "govuk-scenes";
-  const h = document.createElement("h3");
-  h.textContent = "Scenes";
-  sec.append(h);
-  const ul = document.createElement("ul");
-  for (const sc of spec.scenes) {
-    const li = document.createElement("li");
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "govuk-tile";
-    b.title = sc.label;
-    b.setAttribute("aria-pressed", String(sc.pressed));
-    const sw = document.createElement("span");
-    sw.className = "govuk-swatch";
-    sc.fill(sw);
-    const img = document.createElement("img");
-    img.src = sc.iconUrl;
-    img.alt = "";
-    const vh = document.createElement("span");
-    vh.className = "govuk-vh";
-    vh.textContent = sc.label;
-    b.append(sw, img, vh);
-    b.addEventListener("click", () => spec.onPick(sc.id));
-    li.append(b);
-    ul.append(li);
-  }
-  sec.append(ul);
-  host.querySelector(".controls")?.after(sec);
-}
+var cancelPending;
 function tuneMoreInfo(spec) {
+  cancelPending?.();
   const started = performance.now();
+  let cancelled = false, frame = 0;
+  let cleanup;
+  const cancel = () => {
+    cancelled = true;
+    cancelAnimationFrame(frame);
+    cleanup?.();
+    cleanup = void 0;
+  };
+  cancelPending = cancel;
   const tick = () => {
+    if (cancelled) return;
     const ha = document.querySelector("home-assistant");
     const dlg = ha?.shadowRoot ? findDeep(ha.shadowRoot, "ha-more-info-dialog") : null;
-    const ml = dlg?.shadowRoot ? findDeep(dlg.shadowRoot, "more-info-light") : null;
-    const sr = ml?.shadowRoot;
-    if (dlg && ml && sr && sr.querySelector(".controls")) {
-      sizeDialog(dlg);
-      addSheet(sr, MORE_INFO_LIGHT_CSS);
-      const content = dlg.shadowRoot ? findDeep(dlg.shadowRoot, "more-info-content") : null;
-      if (content?.shadowRoot) addSheet(content.shadowRoot, CONTENT_CSS);
-      const sc = sr.querySelector("ha-state-control-light-brightness");
-      const slider = sc?.shadowRoot?.querySelector("ha-control-slider");
-      if (sc?.shadowRoot && slider) {
-        addSheet(sc.shadowRoot, SLIDER_CSS);
-        slider.vertical = false;
-        slider.removeAttribute("vertical");
-        slider.setAttribute("aria-orientation", "horizontal");
+    const control = dlg?.shadowRoot ? findDeep(dlg.shadowRoot, "more-info-light") : null;
+    const root = control?.shadowRoot;
+    if (dlg && control && root && control.stateObj?.entity_id === spec.entityId && root.querySelector(".controls")) {
+      if (!spec.scenes.length) return;
+      const style = document.createElement("style");
+      style.textContent = SCENES_CSS;
+      const section = document.createElement("section");
+      section.className = "civica-scenes";
+      section.setAttribute("aria-label", `Scenes for ${spec.title}`);
+      const heading = document.createElement("h3");
+      heading.textContent = `Scenes for ${spec.title}`;
+      const list = document.createElement("ul");
+      const status = document.createElement("p");
+      status.className = "civica-scene-status";
+      status.setAttribute("role", "status");
+      for (const scene of spec.scenes) {
+        const item = document.createElement("li");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "civica-scene";
+        const icon = document.createElement("span");
+        icon.className = "civica-scene-icon";
+        icon.setAttribute("aria-hidden", "true");
+        const swatch = document.createElement("span");
+        swatch.className = "civica-swatch";
+        scene.fill(swatch);
+        const image = document.createElement("img");
+        image.src = scene.iconUrl;
+        image.alt = "";
+        icon.append(swatch, image);
+        const label = document.createElement("span");
+        label.textContent = scene.label;
+        button.append(icon, label);
+        button.addEventListener("click", async () => {
+          if (cancelled || control.stateObj?.entity_id !== spec.entityId) return;
+          const buttons = Array.from(section.querySelectorAll("button"));
+          for (const b of buttons) b.disabled = true;
+          status.textContent = "";
+          try {
+            const accepted = await spec.onPick(scene.id);
+            if (!cancelled && accepted) status.textContent = `${scene.label} requested. Check the lights to confirm the change.`;
+          } catch {
+            if (!cancelled) status.textContent = `${scene.label} could not be applied. Try again.`;
+          } finally {
+            for (const b of buttons) b.disabled = false;
+          }
+        });
+        item.append(button);
+        list.append(item);
       }
-      paintScenes(sr, spec);
+      section.append(heading, list, status);
+      root.append(style);
+      root.querySelector(".controls").after(section);
+      const observer = new MutationObserver(() => {
+        if (!control.isConnected || control.stateObj?.entity_id !== spec.entityId) cancel();
+      });
+      observer.observe(root, { childList: true, subtree: true });
+      const motion = matchMedia("(prefers-reduced-motion: reduce)");
+      const reduceMotion = () => {
+        if (motion.matches) section.getAnimations({ subtree: true }).forEach((a) => a.cancel());
+      };
+      motion.addEventListener("change", reduceMotion);
+      const closed = () => cancel();
+      dlg.addEventListener("dialog-closed", closed);
+      dlg.addEventListener("closed", closed);
+      cleanup = () => {
+        observer.disconnect();
+        motion.removeEventListener("change", reduceMotion);
+        style.remove();
+        section.getAnimations({ subtree: true }).forEach((a) => a.cancel());
+        section.remove();
+        dlg.removeEventListener("dialog-closed", closed);
+        dlg.removeEventListener("closed", closed);
+      };
       return;
     }
-    if (performance.now() - started < 6e3) requestAnimationFrame(tick);
+    if (performance.now() - started < 6e3) frame = requestAnimationFrame(tick);
   };
-  requestAnimationFrame(tick);
+  frame = requestAnimationFrame(tick);
+  return cancel;
 }
 
 // card/src/card.ts
@@ -988,6 +993,8 @@ var GovukHouseLightingCard = class extends HTMLElement {
   views = /* @__PURE__ */ new Map();
   reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   onMotion = () => this.paintAll();
+  cancelMoreInfo;
+  actionPending = false;
   status;
   errorSlot;
   errors = [];
@@ -999,10 +1006,11 @@ var GovukHouseLightingCard = class extends HTMLElement {
     this.root = this.attachShadow({ mode: "open" });
   }
   static getStubConfig() {
-    return { type: "custom:govuk-house-lighting-card" };
+    return { type: "custom:civica-house-lighting-card" };
   }
   setConfig(config) {
-    if (!config || config.type === void 0) throw new Error('govuk-house-lighting-card: "type" is required');
+    this.cancelMoreInfo?.();
+    if (!config || config.type === void 0) throw new Error('civica-house-lighting-card: "type" is required');
     const rooms = config.rooms ?? rooms_default.rooms;
     if (!Array.isArray(rooms) || !rooms.length) throw new Error('"rooms" must be a non-empty list');
     const ids = /* @__PURE__ */ new Set();
@@ -1010,6 +1018,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
       if (!r.id || !/^[a-z][a-z0-9_]*$/.test(r.id)) throw new Error(`room id "${r.id}" is invalid (lowercase letters, digits, underscore)`);
       if (ids.has(r.id)) throw new Error(`duplicate room id "${r.id}"`);
       ids.add(r.id);
+      if (r.group && !/^light\.[a-z0-9_]+$/.test(r.group)) throw new Error(`room "${r.id}" group must be a light entity ID`);
       if (!r.area && !r.entities?.length) throw new Error(`room "${r.id}" needs an "area" or "entities"`);
       if (!(r.id in rooms_default.regions)) throw new Error(`room "${r.id}" has no floor-plan region (known: ${Object.keys(rooms_default.regions).join(", ")})`);
     }
@@ -1038,6 +1047,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   disconnectedCallback() {
     this.reduceMotion.removeEventListener("change", this.onMotion);
+    this.cancelMoreInfo?.();
   }
   snapshot() {
     const h = this._hass;
@@ -1053,8 +1063,8 @@ var GovukHouseLightingCard = class extends HTMLElement {
     const all = el(
       "div",
       { class: "actions" },
-      el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.all(true) }, "All on"),
-      el("button", { class: "btn btn--secondary", type: "button", onclick: () => this.all(false) }, "All off")
+      el("button", { class: "btn btn--secondary", type: "button", "data-role": "all-on", onclick: () => this.all(true) }, "Turn all on"),
+      el("button", { class: "btn btn--secondary", type: "button", "data-role": "all-off", onclick: () => this.all(false) }, "Turn all off")
     );
     this.list = el("dl", { class: "rooms" });
     this.plan = this.buildPlan();
@@ -1133,8 +1143,20 @@ var GovukHouseLightingCard = class extends HTMLElement {
   /** Settings opens Home Assistant's own more-info dialog (slider, colour wheel and temperature) for the room's light group. */
   openMoreInfo(roomId) {
     const v = this.views.get(roomId);
-    const group = `light.govuk_lights_${roomId}`;
-    const entityId = this._hass.states[group] ? group : v.caps.lightCapabilities.find((c) => c.status === "available")?.entityId;
+    const managed = new Set(v.caps.lightCapabilities.map((capability) => capability.entityId));
+    const safeMembers = (id, seen = /* @__PURE__ */ new Set()) => {
+      if (seen.has(id) || !id.startsWith("light.") || !this._hass.states[id]) return false;
+      const members2 = this._hass.states[id].attributes?.entity_id;
+      if (!Array.isArray(members2)) return managed.has(id);
+      const visited = new Set(seen).add(id);
+      return members2.length > 0 && members2.every((member) => typeof member === "string" && safeMembers(member, visited));
+    };
+    const candidates = v.cfg.group ? [v.cfg.group] : [`light.govuk_lights_${roomId}`, `light.lights_${roomId}`];
+    const group = candidates.find((id) => {
+      const state = this._hass.states[id];
+      return state && !["unknown", "unavailable"].includes(state.state) && Array.isArray(state.attributes?.entity_id) && safeMembers(id);
+    });
+    const entityId = group ?? v.caps.lightCapabilities.find((c) => c.status === "available")?.entityId;
     if (!entityId) {
       this.showError(`${v.cfg.name ?? v.cfg.id} has no light to open.`, roomId);
       return;
@@ -1142,7 +1164,8 @@ var GovukHouseLightingCard = class extends HTMLElement {
     this.dispatchEvent(new CustomEvent("hass-more-info", { bubbles: true, composed: true, detail: { entityId } }));
     const avail = new Map(v.caps.availableRecipes.map((a) => [a.recipeId, a]));
     const scenes = this.usable(v) ? RECIPE_LIST.filter((r) => r.category === "scene" && avail.get(r.id)?.availability !== "unsupported") : [];
-    tuneMoreInfo({
+    this.cancelMoreInfo = tuneMoreInfo({
+      entityId,
       title: v.cfg.name ?? v.cfg.id,
       scenes: scenes.map((r) => ({
         id: r.id,
@@ -1151,9 +1174,9 @@ var GovukHouseLightingCard = class extends HTMLElement {
         iconUrl: new URL(`../assets/icons/${r.id}.svg`, import.meta.url).href,
         fill: (swatch) => this.animateSwatch(swatch, r, v)
       })),
-      onPick: (id) => {
+      onPick: async (id) => {
         const r = scenes.find((x) => x.id === id);
-        if (r) void this.pick(v, r);
+        return r ? this.pick(v, r) : false;
       }
     });
   }
@@ -1172,21 +1195,22 @@ var GovukHouseLightingCard = class extends HTMLElement {
   paintScenes(v) {
     const slot = v.row.querySelector("[data-role=scenes]");
     const err = this.errors.filter((e) => e.room === v.cfg.id);
-    const body = err.length ? [el("div", { class: "form-group--error", id: `error-${v.cfg.id}` }, ...err.map((e) => el("p", { class: "error-message" }, el("span", { class: "vh" }, "Error:"), ` ${e.msg}`)))] : [];
+    const body = err.length ? [el("div", { class: "form-group--error", tabindex: -1, id: `error-${v.cfg.id}` }, ...err.map((e) => el("p", { class: "error-message" }, el("span", { class: "vh" }, "Error:"), ` ${e.msg}`)))] : [];
     slot.replaceChildren(...body);
   }
   async pick(v, r) {
-    if (r.safety?.flashing) {
-      const ok = await this.confirmFlashing(r);
-      if (!ok) return;
-      await this._hass.callService("input_boolean", "turn_on", {}, { entity_id: "input_boolean.govuk_lights_allow_flashing" });
-    }
     this.clearErrors();
     try {
+      if (r.safety?.flashing) {
+        if (!await this.confirmFlashing(r)) return false;
+        await this._hass.callService("input_boolean", "turn_on", {}, { entity_id: "input_boolean.govuk_lights_allow_flashing" });
+      }
       await this._hass.callService("script", "govuk_lights_apply", { room: v.cfg.id, recipe: r.id });
+      return true;
     } catch (e) {
-      console.error("govuk-house-lighting-card", e);
+      console.error("civica-house-lighting-card", e);
       this.showError(`${r.label} could not be applied in ${v.cfg.name ?? v.cfg.id}. Try again. If it keeps failing, check the Home Assistant log.`, v.cfg.id);
+      throw e;
     }
   }
   confirmFlashing(r) {
@@ -1218,7 +1242,7 @@ var GovukHouseLightingCard = class extends HTMLElement {
     if (!this.errors.length) return void 0;
     const link = (e) => e.room ? el("a", { class: "link", href: `#error-${e.room}`, onclick: (ev) => {
       ev.preventDefault();
-      this.root.querySelector(`#error-${e.room} ~ .tiles .tile, #error-${e.room} .tile`)?.focus();
+      this.root.querySelector(`#error-${e.room}`)?.focus();
     } }, e.msg) : e.msg;
     return el(
       "div",
@@ -1247,10 +1271,14 @@ var GovukHouseLightingCard = class extends HTMLElement {
     for (const v of this.views.values()) if (v.caps) this.paintScenes(v);
     if (focus) this.errorSlot?.querySelector("[data-role=error-summary]")?.focus();
   }
-  async toggle(v) {
-    this.clearErrors();
+  async toggle(v, preserveErrors = false) {
+    if (!this.usable(v)) return;
+    if (!preserveErrors) this.clearErrors();
     if (v.on > 0) return this.stop(v, true);
-    const ids = v.caps.lightCapabilities.map((c) => c.entityId);
+    return this.turnOn(v);
+  }
+  async turnOn(v) {
+    const ids = v.caps.lightCapabilities.filter((c) => c.status === "available").map((c) => c.entityId);
     if (!ids.length) return;
     try {
       await this._hass.callService("light", "turn_on", {}, { entity_id: ids });
@@ -1268,7 +1296,19 @@ var GovukHouseLightingCard = class extends HTMLElement {
     }
   }
   async all(on) {
-    for (const v of this.views.values()) if (on ? v.on === 0 : v.on > 0) await this.toggle(v);
+    if (this.actionPending) return;
+    this.actionPending = true;
+    this.clearErrors();
+    this.paintSummary();
+    try {
+      for (const v of this.views.values()) if (this.usable(v)) {
+        if (on) await this.turnOn(v);
+        else if (v.on > 0) await this.stop(v, true);
+      }
+    } finally {
+      this.actionPending = false;
+      this.paintSummary();
+    }
   }
   /** Recompute only rooms whose inputs changed. */
   refresh() {
@@ -1303,14 +1343,14 @@ var GovukHouseLightingCard = class extends HTMLElement {
   }
   paintRoom(v) {
     const usable = this.usable(v), total = v.caps.availableLights;
-    v.row.hidden = !usable;
-    v.row.querySelector("[data-role=sub]").textContent = total > 0 ? this.count(v) : "";
+    v.row.hidden = false;
+    v.row.querySelector("[data-role=sub]").textContent = total > 0 ? this.count(v) : v.caps.totalLights === 0 ? "No lights assigned" : "Lights unavailable";
     v.row.querySelector("[data-role=settings]").disabled = !usable;
     const btn = v.row.querySelector("[data-role=toggle]");
-    btn.hidden = !usable;
-    btn.textContent = v.on > 0 ? "Turn off" : "Turn on";
+    btn.hidden = false;
+    btn.textContent = !usable ? "Unavailable" : v.on > 0 ? "Turn off" : "Turn on";
     btn.disabled = !usable;
-    btn.setAttribute("aria-label", `${v.on > 0 ? "Turn off" : "Turn on"} ${v.cfg.name ?? v.cfg.id}`);
+    btn.setAttribute("aria-label", `${!usable ? "Unavailable:" : v.on > 0 ? "Turn off" : "Turn on"} ${v.cfg.name ?? v.cfg.id}`);
     this.paintScenes(v);
     const rec = RECIPE_LIST.find((r) => r.id === v.owner);
     const shade = this.plan.querySelector(`.shade[data-room=${v.cfg.id}]`);
@@ -1337,9 +1377,12 @@ var GovukHouseLightingCard = class extends HTMLElement {
   paintSummary() {
     const vs = [...this.views.values()].filter((v) => this.usable(v));
     const on = vs.filter((v) => v.on > 0).length;
-    this.status.textContent = `${on} of ${vs.length} rooms on`;
+    this.status.textContent = vs.length ? `${on} of ${vs.length} available rooms on` : "No lights are available. Check the rooms below.";
+    for (const b of this.root.querySelectorAll("[data-role=all-on], [data-role=all-off]")) b.disabled = this.actionPending || !vs.length;
   }
 };
 if (!customElements.get("govuk-house-lighting-card")) customElements.define("govuk-house-lighting-card", GovukHouseLightingCard);
 window.customCards = window.customCards ?? [];
-window.customCards.push({ type: "govuk-house-lighting-card", name: "GOV.UK house lighting", description: "Room lighting with floor plan, whites, colours and dynamic scenes." });
+if (!customElements.get("civica-house-lighting-card")) customElements.define("civica-house-lighting-card", class extends GovukHouseLightingCard {
+});
+window.customCards.push({ type: "civica-house-lighting-card", name: "civica.uk house lighting", description: "Room lighting with floor plan, whites, colours and dynamic scenes." });

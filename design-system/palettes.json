@@ -1,0 +1,936 @@
+{
+  "schemaVersion": 1,
+  "brand": "civica.uk",
+  "defaultPalette": "civic-cobalt",
+  "defaultTone": "vivid",
+  "tones": [
+    "vivid",
+    "muted"
+  ],
+  "source": "User-supplied palette specification, 11 November 2026",
+  "colourSpace": "sRGB",
+  "printReferenceNote": "CMYK and RAL references reproduce the supplied specification. They are descriptive print references, not a measured colour match or a conversion guarantee. Hex is authoritative for screens.",
+  "darkModeNote": "Vivid and muted are palette tones, independent of light and dark mode. Dark mode uses derived contrast-tested interactive tints and dark neutral surfaces; the exact supplied primary remains the brand header colour.",
+  "palettes": [
+    {
+      "id": "civic-cobalt",
+      "name": "Civic Cobalt",
+      "vivid": {
+        "primary": {
+          "hex": "#1D70B8",
+          "rgb": [
+            29,
+            112,
+            184
+          ],
+          "rgba": [
+            29,
+            112,
+            184,
+            1
+          ],
+          "cmyk": [
+            84,
+            39,
+            0,
+            28
+          ],
+          "reference": "RAL 5015"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#103E65",
+          "rgb": [
+            16,
+            62,
+            101
+          ],
+          "rgba": [
+            16,
+            62,
+            101,
+            1
+          ],
+          "cmyk": [
+            84,
+            39,
+            0,
+            60
+          ],
+          "reference": "RAL 5011"
+        },
+        "canvas": {
+          "hex": "#F3F6F9",
+          "rgb": [
+            243,
+            246,
+            249
+          ],
+          "rgba": [
+            243,
+            246,
+            249,
+            1
+          ],
+          "cmyk": [
+            2,
+            1,
+            0,
+            2
+          ],
+          "reference": "Cool Mist Off-White"
+        }
+      }
+    },
+    {
+      "id": "racing-moss",
+      "name": "Racing Moss",
+      "vivid": {
+        "primary": {
+          "hex": "#006853",
+          "rgb": [
+            0,
+            104,
+            83
+          ],
+          "rgba": [
+            0,
+            104,
+            83,
+            1
+          ],
+          "cmyk": [
+            100,
+            0,
+            20,
+            59
+          ],
+          "reference": "RAL 6005"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#00392E",
+          "rgb": [
+            0,
+            57,
+            46
+          ],
+          "rgba": [
+            0,
+            57,
+            46,
+            1
+          ],
+          "cmyk": [
+            100,
+            0,
+            19,
+            78
+          ],
+          "reference": "RAL 6009"
+        },
+        "canvas": {
+          "hex": "#F2F6F4",
+          "rgb": [
+            242,
+            246,
+            244
+          ],
+          "rgba": [
+            242,
+            246,
+            244,
+            1
+          ],
+          "cmyk": [
+            2,
+            0,
+            1,
+            4
+          ],
+          "reference": "Soft Sage Off-White"
+        }
+      }
+    },
+    {
+      "id": "imperial-damson",
+      "name": "Imperial Damson",
+      "vivid": {
+        "primary": {
+          "hex": "#732282",
+          "rgb": [
+            115,
+            34,
+            130
+          ],
+          "rgba": [
+            115,
+            34,
+            130,
+            1
+          ],
+          "cmyk": [
+            12,
+            74,
+            0,
+            49
+          ],
+          "reference": "RAL 4008"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#3F1348",
+          "rgb": [
+            63,
+            19,
+            72
+          ],
+          "rgba": [
+            63,
+            19,
+            72,
+            1
+          ],
+          "cmyk": [
+            12,
+            74,
+            0,
+            72
+          ],
+          "reference": "RAL 5022"
+        },
+        "canvas": {
+          "hex": "#F6F3F7",
+          "rgb": [
+            246,
+            243,
+            247
+          ],
+          "rgba": [
+            246,
+            243,
+            247,
+            1
+          ],
+          "cmyk": [
+            0,
+            2,
+            0,
+            3
+          ],
+          "reference": "Pale Heather Off-White"
+        }
+      }
+    },
+    {
+      "id": "sovereign-crimson",
+      "name": "Sovereign Crimson",
+      "vivid": {
+        "primary": {
+          "hex": "#B2292E",
+          "rgb": [
+            178,
+            41,
+            46
+          ],
+          "rgba": [
+            178,
+            41,
+            46,
+            1
+          ],
+          "cmyk": [
+            0,
+            77,
+            74,
+            30
+          ],
+          "reference": "RAL 3003"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#621719",
+          "rgb": [
+            98,
+            23,
+            25
+          ],
+          "rgba": [
+            98,
+            23,
+            25,
+            1
+          ],
+          "cmyk": [
+            0,
+            77,
+            74,
+            62
+          ],
+          "reference": "RAL 3005"
+        },
+        "canvas": {
+          "hex": "#F9F4F4",
+          "rgb": [
+            249,
+            244,
+            244
+          ],
+          "rgba": [
+            249,
+            244,
+            244,
+            1
+          ],
+          "cmyk": [
+            0,
+            2,
+            2,
+            2
+          ],
+          "reference": "Warm Alabaster Off-White"
+        }
+      }
+    },
+    {
+      "id": "regimental-plum",
+      "name": "Regimental Plum",
+      "vivid": {
+        "primary": {
+          "hex": "#532A45",
+          "rgb": [
+            83,
+            42,
+            69
+          ],
+          "rgba": [
+            83,
+            42,
+            69,
+            1
+          ],
+          "cmyk": [
+            0,
+            49,
+            17,
+            67
+          ],
+          "reference": "RAL 4007"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#2E1726",
+          "rgb": [
+            46,
+            23,
+            38
+          ],
+          "rgba": [
+            46,
+            23,
+            38,
+            1
+          ],
+          "cmyk": [
+            0,
+            50,
+            17,
+            82
+          ],
+          "reference": "RAL 4007"
+        },
+        "canvas": {
+          "hex": "#F7F3F5",
+          "rgb": [
+            247,
+            243,
+            245
+          ],
+          "rgba": [
+            247,
+            243,
+            245,
+            1
+          ],
+          "cmyk": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "reference": "Soft Rose-Chalk Off-White"
+        }
+      }
+    },
+    {
+      "id": "oxford-midnight",
+      "name": "Oxford Midnight",
+      "vivid": {
+        "primary": {
+          "hex": "#003764",
+          "rgb": [
+            0,
+            55,
+            100
+          ],
+          "rgba": [
+            0,
+            55,
+            100,
+            1
+          ],
+          "cmyk": [
+            100,
+            45,
+            0,
+            61
+          ],
+          "reference": "RAL 5003"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#001E37",
+          "rgb": [
+            0,
+            30,
+            55
+          ],
+          "rgba": [
+            0,
+            30,
+            55,
+            1
+          ],
+          "cmyk": [
+            100,
+            45,
+            0,
+            78
+          ],
+          "reference": "RAL 5004"
+        },
+        "canvas": {
+          "hex": "#F2F4F8",
+          "rgb": [
+            242,
+            244,
+            248
+          ],
+          "rgba": [
+            242,
+            244,
+            248,
+            1
+          ],
+          "cmyk": [
+            2,
+            2,
+            0,
+            3
+          ],
+          "reference": "Slate Porcelain Off-White"
+        }
+      }
+    },
+    {
+      "id": "ink-charcoal",
+      "name": "Ink Charcoal",
+      "vivid": {
+        "primary": {
+          "hex": "#0B0C0C",
+          "rgb": [
+            11,
+            12,
+            12
+          ],
+          "rgba": [
+            11,
+            12,
+            12,
+            1
+          ],
+          "cmyk": [
+            8,
+            0,
+            0,
+            95
+          ],
+          "reference": "RAL 9005"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#2B2E30",
+          "rgb": [
+            43,
+            46,
+            48
+          ],
+          "rgba": [
+            43,
+            46,
+            48,
+            1
+          ],
+          "cmyk": [
+            10,
+            4,
+            0,
+            81
+          ],
+          "reference": "RAL 7021"
+        },
+        "canvas": {
+          "hex": "#F3F2F1",
+          "rgb": [
+            243,
+            242,
+            241
+          ],
+          "rgba": [
+            243,
+            242,
+            241,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            1,
+            5
+          ],
+          "reference": "GOV.UK Warm Stone Grey"
+        }
+      }
+    },
+    {
+      "id": "heritage-ochre",
+      "name": "Heritage Ochre",
+      "vivid": {
+        "primary": {
+          "hex": "#8A6100",
+          "rgb": [
+            138,
+            97,
+            0
+          ],
+          "rgba": [
+            138,
+            97,
+            0,
+            1
+          ],
+          "cmyk": [
+            0,
+            30,
+            100,
+            46
+          ],
+          "reference": "RAL 8000"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#4D3600",
+          "rgb": [
+            77,
+            54,
+            0
+          ],
+          "rgba": [
+            77,
+            54,
+            0,
+            1
+          ],
+          "cmyk": [
+            0,
+            30,
+            100,
+            70
+          ],
+          "reference": "RAL 8008"
+        },
+        "canvas": {
+          "hex": "#F9F7F1",
+          "rgb": [
+            249,
+            247,
+            241
+          ],
+          "rgba": [
+            249,
+            247,
+            241,
+            1
+          ],
+          "cmyk": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "reference": "Warm Parchment Off-White"
+        }
+      }
+    },
+    {
+      "id": "kiln-terracotta",
+      "name": "Kiln Terracotta",
+      "vivid": {
+        "primary": {
+          "hex": "#9E3B0E",
+          "rgb": [
+            158,
+            59,
+            14
+          ],
+          "rgba": [
+            158,
+            59,
+            14,
+            1
+          ],
+          "cmyk": [
+            0,
+            63,
+            91,
+            38
+          ],
+          "reference": "RAL 8004"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#572008",
+          "rgb": [
+            87,
+            32,
+            8
+          ],
+          "rgba": [
+            87,
+            32,
+            8,
+            1
+          ],
+          "cmyk": [
+            0,
+            63,
+            91,
+            66
+          ],
+          "reference": "RAL 8015"
+        },
+        "canvas": {
+          "hex": "#F9F5F2",
+          "rgb": [
+            249,
+            245,
+            242
+          ],
+          "rgba": [
+            249,
+            245,
+            242,
+            1
+          ],
+          "cmyk": [
+            0,
+            2,
+            3,
+            2
+          ],
+          "reference": "Soft Clay Cream Off-White"
+        }
+      }
+    },
+    {
+      "id": "umber-bronze",
+      "name": "Umber Bronze",
+      "vivid": {
+        "primary": {
+          "hex": "#5C3D28",
+          "rgb": [
+            92,
+            61,
+            40
+          ],
+          "rgba": [
+            92,
+            61,
+            40,
+            1
+          ],
+          "cmyk": [
+            0,
+            34,
+            57,
+            64
+          ],
+          "reference": "RAL 8011"
+        },
+        "canvas": {
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            1
+          ],
+          "cmyk": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "RAL 9016"
+        }
+      },
+      "muted": {
+        "primary": {
+          "hex": "#332216",
+          "rgb": [
+            51,
+            34,
+            22
+          ],
+          "rgba": [
+            51,
+            34,
+            22,
+            1
+          ],
+          "cmyk": [
+            0,
+            33,
+            57,
+            80
+          ],
+          "reference": "RAL 8019"
+        },
+        "canvas": {
+          "hex": "#F6F4F1",
+          "rgb": [
+            246,
+            244,
+            241
+          ],
+          "rgba": [
+            246,
+            244,
+            241,
+            1
+          ],
+          "cmyk": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "reference": "Warm Linen Off-White"
+        }
+      }
+    }
+  ]
+}

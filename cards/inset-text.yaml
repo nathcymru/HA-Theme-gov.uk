@@ -1,5 +1,4 @@
-# GOV.UK inset text (components/inset-text): 10px #cecece left border, 15px padding,
-# 19px text, no background.
+# civica.uk inset text. Use for supporting information, not urgent warnings.
 type: markdown
 content: >
   It can take up to 10 minutes for the thermostat to report its new state.
@@ -8,7 +7,7 @@ card_mod:
     ha-card {
       background: transparent;
       border: none;
-      border-left: 10px solid #cecece;
+      border-left: 10px solid var(--divider-color);
       border-radius: 0;
       padding: 15px;
       box-shadow: none;
