@@ -81,6 +81,10 @@ a:focus-visible { background:#ffdd00; color:#0b0c0c; text-decoration:none; }
 .c-swatch__sample { height:48px; border:1px solid #0b0c0c; margin:12px 0; }
 .c-demo { border:2px solid #0b0c0c; padding:24px; background:var(--demo-canvas,#fff); }
 .c-demo__header { background:var(--demo-primary,#1d70b8); color:#fff; margin:-24px -24px 24px; padding:20px 24px; font-weight:700; }
+.c-demo__header img { display:block; width:306px; max-width:100%; height:auto; }
+.c-demo__assets { display:flex; align-items:center; flex-wrap:wrap; gap:24px; margin-top:24px; }
+.c-demo__assets [data-variant-canvas] { width:306px; max-width:100%; height:auto; }
+.c-demo__assets [data-variant-icon] { width:64px; height:64px; }
 .c-demo label { display:block; font-weight:700; margin:15px 0 8px; }
 .c-demo select,.c-demo button { font:inherit; padding:10px; border:2px solid #0b0c0c; background:#fff; color:#0b0c0c; }
 .c-demo button { cursor:pointer; min-height:44px; }

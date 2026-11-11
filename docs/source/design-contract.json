@@ -28,7 +28,20 @@
       "Helvetica",
       "sans-serif"
     ],
-    "preserveSuppliedAssetGeometry": true
+    "preserveSuppliedAssetGeometry": true,
+    "assetVersion": "3.2",
+    "sourceArchive": "civica_uk_brand_assets_v3.2.zip",
+    "sourceArchiveSha256": "3c4e475fe54cf30c8f4ff19573193b690152645789703b90f8f41d2092608e3c",
+    "suppliedHashManifest": "brand/civica/docs/SHA256SUMS.txt",
+    "publishedAssetManifest": "reference/brand-assets.json",
+    "wordmarkDotGeometry": {
+      "cx": 366.3318,
+      "cy": 77.5,
+      "r": 7.5
+    },
+    "variantAssetPattern": "brand/civica/themes/{palette.id}/{vivid|muted}/{lockup-on-primary.svg|lockup-on-canvas.svg|app-icon.svg|app-icon.png}",
+    "paletteArtwork": "Select the complete supplied variant file; no CSS filters or SVG recolouring",
+    "documentationMasthead": "core/lockup-on-blue.svg"
   },
   "tokens": {
     "canonicalPalettes": "design-system/palettes.json",
@@ -74,7 +87,8 @@
     "preservesNativeMode": true,
     "backendDefaultThemeAction": false,
     "safeRecoveryMode": "Disabled; native identity restored",
-    "nonCivicaTheme": "Palette prompt available; native identity remains until selection"
+    "nonCivicaTheme": "Palette prompt available; native identity remains until selection",
+    "updatesMatchingSuppliedArtwork": true
   },
   "adapters": {
     "privateAndVersionSensitive": true,

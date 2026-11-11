@@ -29,7 +29,7 @@ HACS's Theme category installs the theme files. It does not install the optional
 
 ## Build the installation archive
 
-The current work is a repository build, not a newly published release. From the repository root, run:
+To build an installation archive from this checkout, run these commands from the repository root:
 
 ```sh
 npm ci
@@ -48,7 +48,7 @@ Add the module to the existing `frontend:` section:
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1
+    - /local/civica/civica-ui.js?v=1.0.0
 ```
 
 Restart Home Assistant after a configuration check and reload the browser. The module adds civica.uk settings beside Home Assistant's theme settings. From a non-civica theme, choose a palette to start using civica.uk. It also provides the dashboard settings card.
@@ -59,7 +59,7 @@ Use `extra_module_url` for global loading. Loading only a dashboard resource can
 
 Configure the lighting package and room groups described in `lighting/README.md` before using the lighting card. The included room and automation examples are installation-specific; review them for your home.
 
-Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. The old filename and `custom:govuk-house-lighting-card` type remain for compatibility.
+Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.0.0` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. The old filename and `custom:govuk-house-lighting-card` type remain for compatibility.
 
 The artwork is served from `/local/civica/card/assets/`. Do not install the separate front-door automation example merely to apply the theme.
 

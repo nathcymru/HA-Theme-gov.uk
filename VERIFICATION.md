@@ -7,16 +7,16 @@ This change was developed from repository `main` at `8e765039bcec3fe98f48fa452e4
 | Bundled lighting card and global companion | Build passed |
 | TypeScript | Passed |
 | Node regression and design-token tests | 39 passed |
-| Browser integration and accessibility tests | 16 passed |
+| Browser integration and accessibility tests | 18 passed |
 | Palette contrast | All 20 variants × Light/Dark modes passed the defined text, controls, focus and chart-surface checks |
 | Documentation | Middleman build passed; 32 pages passed internal links/anchors, automated accessibility and 320px reflow checks |
 | Documentation without JavaScript | Content and keyboard skip link passed |
 | Generated palette documentation | Matches canonical JSON |
-| Supplied brand assets | 65 manifest entries verified unchanged |
+| Supplied brand assets | 176 V3.2 checksums verified unchanged; all 20 variant artwork pairs match canonical colours |
 | Existing lighting package | 9 scripts, 6 restart-mode room wrappers and 88 templates checked |
 | Installation archive | ZIP integrity check passed |
 
-Browser tests cover palette selection and mode preservation, native theme changes, default-theme entry, recovery mode, duplicate module loading, reversible branding, focus during hover, error navigation, unavailable devices, room-group membership, reserved-light exclusion and flashing-scene cancellation/failure. Native component adapters are tested with fixtures based on inspected Home Assistant source. They are not a running Home Assistant installation.
+Browser tests cover palette selection and mode preservation, all 20 supplied palette logos/icons in Light and Dark, native theme changes, default-theme entry, recovery mode, duplicate module loading, reversible branding, focus during hover, error navigation, unavailable devices, room-group membership, reserved-light exclusion and flashing-scene cancellation/failure. Native component adapters are tested with fixtures based on inspected Home Assistant source. They are not a running Home Assistant installation.
 
 Desktop and mobile previews were visually inspected. An automated accessibility pass does not constitute full WCAG certification. Colour-pair checks do not establish that all adjacent chart series are distinguishable without labels or patterns.
 

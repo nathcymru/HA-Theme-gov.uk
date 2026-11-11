@@ -17,11 +17,12 @@
 - themes/civica.yaml: generated twenty theme entries.
 - themes/govuk.yaml: compatibility alias, independent civica.uk identity.
 - ui/src/civica-ui.ts and ui/src/theme-settings.ts: optional companion sources; build output is ui/dist/civica-ui.js.
-- brand/civica/: unchanged user-supplied V3 artwork and provenance records.
+- brand/civica/: unchanged user-supplied V3.2 artwork and provenance records.
 
 ## Design rules
 
-- [Brand](styles/brand.html): direct asset replacements and clear space.
+- [Brand](styles/brand.html): V3.2 replacements, revised dot geometry, palette-specific assets and clear space.
+- [Artwork manifest](reference/brand-assets.json): byte-identical documentation copies mapped to the supplied archive.
 - [Colour](styles/colour.html): exact palette pairs and semantic roles.
 - [Palette JSON](reference/palettes.json): published copy of canonical palette data.
 - [Typography](styles/typography.html): Arial, readable hierarchy and wrapping.

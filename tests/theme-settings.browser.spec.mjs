@@ -104,3 +104,84 @@ test('all palette contexts pass automated text contrast checks', async ({ page }
     }
   }
 });
+
+test('supplied v3.2 logos and app icons follow every palette and tone in both display modes', async ({ page }) => {
+  // Set up original metadata while the adapter is inactive, independent of
+  // whether its first scheduled pass has already run on this machine.
+  await page.evaluate(() => {
+    window.fixture.app.hass.selectedTheme.theme = window.fixture.app.hass.themes.theme = 'default';
+    window.dispatchEvent(new Event('settheme'));
+  });
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', '../../brand/civica/icons/favicon.ico');
+  const originals = await page.evaluate(() => {
+    class Sidebar extends HTMLElement {
+      constructor() {
+        super();
+        const menu = document.createElement('div'); menu.className = 'menu';
+        const title = document.createElement('div'); title.className = 'title'; title.textContent = 'Home Assistant';
+        menu.append(title); this.attachShadow({ mode: 'open' }).append(menu);
+      }
+    }
+    customElements.define('ha-sidebar', Sidebar);
+    const icon = document.querySelector('head link[rel="icon"]');
+    icon.setAttribute('type', 'image/x-icon'); icon.setAttribute('sizes', '16x16 32x32');
+    const touch = document.createElement('link'); touch.rel = 'apple-touch-icon';
+    touch.href = '/original-touch.png'; touch.type = 'image/png'; touch.sizes.value = '180x180';
+    document.head.append(touch);
+    const attributes = [icon, touch].map(el => Object.fromEntries(['href', 'type', 'sizes'].map(name => [name, el.getAttribute(name)])));
+    window.fixture.app.shadowRoot.append(document.createElement('ha-sidebar'));
+    window.fixture.app.hass.selectedTheme.theme = window.fixture.app.hass.themes.theme = 'civica Civic Cobalt Vivid';
+    window.dispatchEvent(new Event('location-changed'));
+    return attributes;
+  });
+  const logo = page.locator('ha-sidebar img[data-civica-logo]');
+  await expect(logo).toHaveCount(1);
+  await logo.evaluate(el => el.dataset.identity = 'preserve-this-node');
+  const favicon = page.locator('head link[rel="icon"]');
+  const touch = page.locator('head link[rel="apple-touch-icon"]');
+  for (const dark of [false, true]) {
+    if (dark) await page.getByRole('button', { name: 'Use dark mode', exact: true }).click();
+    for (const palette of palettes.palettes) {
+      await page.getByLabel('Colour palette').selectOption(palette.id);
+      for (const muted of [false, true]) {
+        await page.getByRole('switch').setChecked(muted);
+        const stem = `/ui/dist/brand/themes/${palette.id}/${muted ? 'muted' : 'vivid'}/`;
+        await expect(logo).toHaveAttribute('src', new RegExp(`${stem}lockup-on-primary\\.svg$`));
+        await expect(logo).toHaveAttribute('data-identity', 'preserve-this-node');
+        await expect.poll(() => logo.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
+        await expect(favicon).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.svg$`));
+        await expect(favicon).toHaveAttribute('type', 'image/svg+xml');
+        await expect(favicon).toHaveAttribute('sizes', 'any');
+        await expect(touch).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.png$`));
+        await expect(touch).toHaveAttribute('type', 'image/png');
+        await expect(touch).toHaveAttribute('sizes', '512x512');
+      }
+    }
+  }
+  await page.evaluate(() => {
+    const { app } = window.fixture;
+    app.hass.selectedTheme.theme = app.hass.themes.theme = 'default';
+    window.dispatchEvent(new Event('settheme'));
+  });
+  await expect(page.locator('ha-sidebar .title')).toHaveText('Home Assistant');
+  for (const [index, link] of [favicon, touch].entries()) {
+    for (const [name, value] of Object.entries(originals[index])) await expect(link).toHaveAttribute(name, value);
+  }
+});
+
+test('legacy alias uses Cobalt Vivid artwork and unknown civica names do not replace native identity', async ({ page }) => {
+  await page.evaluate(() => {
+    const { app } = window.fixture;
+    app.hass.themes.themes.govuk = app.hass.themes.themes['civica Civic Cobalt Vivid'];
+    app.hass.themes.theme = app.hass.selectedTheme.theme = 'govuk';
+    window.dispatchEvent(new Event('settheme'));
+  });
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg$/);
+  await page.evaluate(() => {
+    const { app } = window.fixture;
+    app.hass.themes.themes['civica unrelated custom theme'] = {};
+    app.hass.themes.theme = app.hass.selectedTheme.theme = 'civica unrelated custom theme';
+    window.dispatchEvent(new Event('settheme'));
+  });
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', '../../brand/civica/icons/favicon.ico');
+});

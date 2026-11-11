@@ -22,6 +22,7 @@ From the repository root, check internal links and regenerate/check the palette 
 ```sh
 python3 scripts/check-docs.py
 python3 docs/scripts/sync-palettes.py --check
+python3 docs/scripts/sync-brand.py --check
 ```
 
 After changing canonical `design-system/palettes.json`, run `python3 docs/scripts/sync-palettes.py` and commit its generated documentation and reference copies. Human rules start in `source/get-started/`; machine-readable guidance starts in `source/llms.txt` and `source/design-contract.json`.
@@ -30,4 +31,4 @@ After changing canonical `design-system/palettes.json`, run `python3 docs/script
 
 The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It publishes only civica.uk images, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
 
-`source/images/` contains byte-for-byte copies of the needed supplied assets from `brand/civica/`. Keep the originals and provenance there unchanged. This site does not claim official government affiliation or a completed accessibility certification.
+`source/images/` contains byte-for-byte copies of the needed supplied V3.2 core, icon and palette assets from `brand/civica/`. Keep the originals and provenance there unchanged. Run `python3 docs/scripts/sync-brand.py` after an authorised asset-pack update; it also regenerates the published artwork manifest. This site does not claim official government affiliation or a completed accessibility certification.

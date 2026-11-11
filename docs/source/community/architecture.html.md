@@ -30,7 +30,7 @@ docs/
     javascripts/         # Documentation demonstration behaviour
     design-contract.json # Machine-readable rules and scope
     llms.txt             # AI reading guide
-  scripts/               # Documentation validation
+  scripts/               # Palette and supplied-artwork synchronisation
 ```
 
 ## Keep the build unbranded
@@ -40,6 +40,8 @@ Set `show_govuk_logo: false`, replace the shell and favicon paths, omit default 
 ## Build and preview
 
 Use Ruby 3.3 and Bundler. From `/docs`, run `bundle install`, then `bundle exec middleman build`. Use `bundle exec middleman server` for a local preview. Run the documentation validator after building.
+
+Run `python3 docs/scripts/sync-brand.py --check` from the repository root to verify the V3.2 documentation artwork against `brand/civica/`.
 
 Commit content, configuration and the lockfile. Do not commit `build/`, `vendor/` or `.bundle/`. Publish the generated `build/` directory through the repository's chosen static hosting workflow.
 

@@ -17,6 +17,8 @@ Use **Colour palette** to choose one of the ten named palettes. Labels are alway
 
 Use **Use muted colours** to switch between Vivid and Muted. A checked control selects Muted. An unchecked control selects Vivid. The palette stays the same.
 
+The selected palette and variant also choose the matching supplied V3.2 header lockup and app icon. Their accent dots are part of the original artwork.
+
 Both variants use the exact primary and canvas values in the [colour specification](../styles/colour.html). Vivid and Muted describe colour strength. They do not mean light and dark mode.
 
 ## How the setting is saved

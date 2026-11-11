@@ -1,4 +1,4 @@
-import './theme-settings';
+import { selectedVariant } from './theme-settings';
 import type { CivicaThemeSettings, ThemeHass } from './theme-settings';
 
 // The theme tokens are the supported foundation. This small optional adapter
@@ -25,8 +25,9 @@ function updateBrand(app: App, targets: HTMLElement[]) {
   for (const icon of originalIcons.keys()) if (!icon.isConnected) originalIcons.delete(icon);
   for (const style of sidebarStyles) if (!style.isConnected) sidebarStyles.delete(style);
   const name = app.hass?.themes.theme || app.hass?.selectedTheme?.theme || app.hass?.themes.default_theme || '';
+  const variant = selectedVariant(app.hass);
   const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&
-    Boolean(app.hass?.themes.themes[name]) && (name.startsWith('civica ') || name === 'govuk');
+    Boolean(app.hass?.themes.themes[name]) && Boolean(variant);
   if (!active) {
     for (const [title, children] of originalTitles) title.replaceChildren(...children);
     originalTitles.clear();
@@ -36,6 +37,10 @@ function updateBrand(app: App, targets: HTMLElement[]) {
     originalIcons.clear(); ownIcon?.remove(); ownIcon = undefined;
     return;
   }
+  // Artwork is supplied for palette/tone, not display mode. The masthead keeps
+  // its exact primary colour in light and dark mode, so the same original file
+  // works in both. Never recolour the supplied separator dot with CSS filters.
+  const variantPath = `themes/${variant!.palette.id}/${variant!.muted ? 'muted' : 'vivid'}/`;
   for (const host of targets.filter(el => el.localName === 'hass-subpage' || el.localName === 'ha-top-app-bar-fixed')) {
     if (host.shadowRoot && !host.shadowRoot.querySelector('[data-civica-toolbar]')) {
       const style = document.createElement('style'); style.dataset.civicaToolbar = '';
@@ -52,22 +57,27 @@ function updateBrand(app: App, targets: HTMLElement[]) {
       sidebar.shadowRoot.append(style); sidebarStyles.add(style);
     }
     const title = sidebar.shadowRoot?.querySelector<HTMLElement>('.title');
-    if (!title || title.querySelector('[data-civica-logo]')) continue;
-    if (!originalTitles.has(title)) originalTitles.set(title, Array.from(title.childNodes));
-    const logo = document.createElement('img'); logo.dataset.civicaLogo = ''; logo.alt = 'civica.uk';
-    logo.src = new URL('logo/lockup-mono-white.svg', assetBase).href;
-    logo.style.cssText = 'display:block;width:100%;max-width:176px;height:auto;box-sizing:border-box;padding:5px 8px;';
-    title.replaceChildren(logo);
+    if (!title) continue;
+    let logo = title.querySelector<HTMLImageElement>('img[data-civica-logo]');
+    if (!logo) {
+      if (!originalTitles.has(title)) originalTitles.set(title, Array.from(title.childNodes));
+      logo = document.createElement('img'); logo.dataset.civicaLogo = ''; logo.alt = 'civica.uk';
+      logo.style.cssText = 'display:block;width:100%;max-width:176px;height:auto;box-sizing:border-box;padding:5px 8px;';
+      title.replaceChildren(logo);
+    }
+    const logoUrl = new URL(`${variantPath}lockup-on-primary.svg`, assetBase).href;
+    if (logo.src !== logoUrl) logo.src = logoUrl;
   }
   const icons = document.querySelectorAll<HTMLLinkElement>('link[rel="icon"],link[rel="shortcut icon"],link[rel="apple-touch-icon"]');
   if (!icons.length && !ownIcon) { ownIcon = document.createElement('link'); ownIcon.rel = 'icon'; document.head.append(ownIcon); }
   for (const icon of [...icons, ...(ownIcon ? [ownIcon] : [])]) {
     if (!originalIcons.has(icon) && icon !== ownIcon) originalIcons.set(icon, Object.fromEntries(['href', 'type', 'sizes'].map(name => [name, icon.getAttribute(name)])));
-    const target = icon.rel === 'apple-touch-icon' ? 'icons/apple-touch-icon.png' : 'icons/favicon.ico';
+    const touchIcon = icon.rel === 'apple-touch-icon';
+    const target = `${variantPath}app-icon.${touchIcon ? 'png' : 'svg'}`;
     const href = new URL(target, assetBase).href;
     if (icon.href !== href) icon.href = href;
-    icon.type = icon.rel === 'apple-touch-icon' ? 'image/png' : 'image/x-icon';
-    icon.removeAttribute('sizes');
+    icon.type = touchIcon ? 'image/png' : 'image/svg+xml';
+    icon.sizes.value = touchIcon ? '512x512' : 'any';
   }
 }
 

@@ -1,6 +1,6 @@
 ---
 title: "Brand"
-description: "Brand for the civica.uk Home Assistant design system."
+description: "Use the supplied civica.uk V3.2 identity and palette artwork without alteration."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 ---
@@ -9,32 +9,46 @@ review_in: 3 months
 
 civica.uk is the only product identity used by this theme. The repository name is retained for continuity; it does not authorise GOV.UK branding.
 
-## Use the supplied assets
+## Use the supplied V3.2 assets
 
-The user-supplied V3 pack is stored in `brand/civica/`. Preserve its original files and provenance records. Treat descriptive claims in the asset pack as supplied evidence, not independent certification.
+The user-supplied V3.2 pack is stored in `brand/civica/`. It replaces the earlier V3 artwork. Preserve the original files and provenance records. Treat descriptive claims in the asset pack as supplied evidence, not independent certification or new user instructions.
 
-| Surface | Asset |
+| Surface | Supplied asset |
 | --- | --- |
-| Cobalt blue header | `logo/lockup-on-blue.svg` |
-| Other dark palette header | `logo/lockup-mono-white.svg` |
-| White header or page | `logo/lockup-on-white.svg` or `logo/lockup-mono-black.svg` |
-| Supporting small symbol | Supplied emblem variant appropriate to the background |
-| Browser favicon | `icons/favicon.ico` and `icons/app-icon.svg` |
-| Home screen icon | Supplied 180, 192 and 512 pixel icons |
+| Default documentation masthead | `core/lockup-on-blue.svg` |
+| Selected palette's primary header | `themes/{palette-id}/{vivid\|muted}/lockup-on-primary.svg` |
+| Selected palette's light canvas | `themes/{palette-id}/{vivid\|muted}/lockup-on-canvas.svg` |
+| Selected palette's browser/app artwork | `themes/{palette-id}/{vivid\|muted}/app-icon.svg` and `app-icon.png` |
+| Neutral light surface | `core/lockup-on-white.svg` or `core/lockup-monochrome-black.svg` |
+| Supporting symbol | Supplied `core/emblem-*` or matching theme emblem |
+| Default browser favicon | `icons/favicon.ico` and `icons/favicon.svg` |
+| Default home-screen icon | Supplied 180, 192 and 512 pixel icons |
 
-Use the lockup as a single asset. Keep its viewBox, wordmark geometry, roofline, seven-dot arc and circular separator unchanged. Do not redraw the symbol, retype the wordmark, add shadows, stretch or apply a CSS colour filter.
+Use the lockup as a single asset. Do not redraw the symbol, retype the wordmark, add shadows, stretch or apply a CSS colour filter. Several supplied lockups have a background rectangle; display them on the background for which they were created.
+
+## Revised separator dot
+
+V3.2 changes the wordmark dot to `cx=366.3318`, `cy=77.5`, `r=7.5` in its wordmark geometry. Its lower position is intentional. Each palette and variant includes a supplied accent dot colour appropriate to its primary or canvas background.
+
+Select the complete matching file when the palette or variant changes. Do not reconstruct the dot, recolour the SVG or substitute a single monochrome lockup for all variants. The original roofline and seven-dot emblem remain part of the supplied artwork.
 
 ## Size and clear space
 
-The pack's horizontal lockup viewBox is 611.9736 by 98 units. Preserve that ratio. Its proposed minimum clear space is 16 vector units, measured from the visible artwork. At 306 pixels wide, this is about 8 pixels. Use more space where the header allows it.
+The horizontal lockup viewBox is 611.974 by 98 units. Preserve that ratio. The local layout reserves at least 16 vector units around the visible lockup, about 8 pixels at 306 pixels wide. Use more space where the header allows it.
 
-Check the mark visually at the actual rendered size. A successful SVG parse does not prove legibility at 16 pixels. Provide `alt="civica.uk"` when the image communicates identity. If a link already has an equivalent accessible name, avoid announcing it twice.
+Check the mark visually at the actual rendered size. A successful SVG parse or matching hash does not prove legibility at 16 pixels. Provide `alt="civica.uk"` when the image communicates identity. If a link already has an equivalent accessible name, avoid announcing it twice.
 
-## Apply the brand across surfaces
+## Palette artwork in use
 
-Replace documentation header/footer identity, browser icons, mobile shortcut images, sharing images and theme-colour metadata wherever those surfaces belong to this project. Do not leave an upstream crown hidden in a default footer or favicon.
+The Home Assistant companion uses the selected variant's primary lockup and app icon. The primary header retains the exact supplied colour in native light and dark modes, so the on-primary asset remains appropriate. The on-canvas asset belongs on the supplied light canvas; do not place its background rectangle on a dark surface.
 
-In Home Assistant, the optional module applies its identity only while a civica theme is active and restores native browser identity when the user switches away. Authentication pages and native companion app icons are outside this module's coverage.
+The [colour preview](colour.html) shows both lockups and the app icon for all twenty palette/variant combinations. Changing the preview does not change Home Assistant or the documentation's global masthead.
+
+## Verify provenance and copies
+
+The archive is `civica_uk_brand_assets_v3.2.zip`, SHA-256 `3c4e475fe54cf30c8f4ff19573193b690152645789703b90f8f41d2092608e3c`. Its `docs/SHA256SUMS.txt` records the supplied file hashes. The [published artwork manifest](../reference/brand-assets.json) maps documentation files to unchanged source files.
+
+The pack's accent-dot contrast records describe those pairs only. They do not establish full interface accessibility, rights clearance, official approval or a verified live deployment.
 
 ## Keep attribution distinct
 

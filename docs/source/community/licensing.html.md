@@ -17,7 +17,7 @@ The GOV.UK Tech Docs Template and its code are MIT licensed. Its documentation i
 
 ## Brand assets
 
-The civica.uk V3 files were supplied by the user. Their provenance and mechanical verification records are retained in `brand/civica/`. Do not infer a new licence or legal clearance from the presence of those files. The included source artwork remains unchanged.
+The civica.uk V3.2 files were supplied by the user. Their provenance and mechanical verification records are retained in `brand/civica/`. Do not infer a new licence or legal clearance from the presence of those files. The included source artwork remains unchanged.
 
 The civica.uk mark is an independent identity. It is not an official GOV.UK or Home Assistant mark. Do not distribute the GOV.UK crown, GOV.UK logotype or GDS Transport as product branding.
 

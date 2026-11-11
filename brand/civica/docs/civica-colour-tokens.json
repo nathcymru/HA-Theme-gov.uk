@@ -1,0 +1,152 @@
+{
+  "civic-cobalt": {
+    "name": "Civic Cobalt",
+    "vivid": {
+      "primary": "#1D70B8",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#F7DFCB",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#103E65",
+      "canvas": "#F3F6F9",
+      "dot_on_primary": "#E0863B",
+      "dot_on_canvas": "#97591B"
+    }
+  },
+  "racing-moss": {
+    "name": "Racing Moss",
+    "vivid": {
+      "primary": "#006853",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#FFB3C2",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#00392E",
+      "canvas": "#F2F6F4",
+      "dot_on_primary": "#FF4D6F",
+      "dot_on_canvas": "#C12271"
+    }
+  },
+  "imperial-damson": {
+    "name": "Imperial Damson",
+    "vivid": {
+      "primary": "#732282",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#3CC523",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#3F1348",
+      "canvas": "#F6F3F7",
+      "dot_on_primary": "#3EC322",
+      "dot_on_canvas": "#2D7615"
+    }
+  },
+  "sovereign-crimson": {
+    "name": "Sovereign Crimson",
+    "vivid": {
+      "primary": "#B2292E",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#53E1DB",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#621719",
+      "canvas": "#F9F4F4",
+      "dot_on_primary": "#22C3BF",
+      "dot_on_canvas": "#147373"
+    }
+  },
+  "regimental-plum": {
+    "name": "Regimental Plum",
+    "vivid": {
+      "primary": "#532A45",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#22C359",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#2E1726",
+      "canvas": "#F7F3F5",
+      "dot_on_primary": "#22C35A",
+      "dot_on_canvas": "#157645"
+    }
+  },
+  "oxford-midnight": {
+    "name": "Oxford Midnight",
+    "vivid": {
+      "primary": "#003764",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#F26D00",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#001E37",
+      "canvas": "#F2F4F8",
+      "dot_on_primary": "#E66800",
+      "dot_on_canvas": "#856017"
+    }
+  },
+  "ink-charcoal": {
+    "name": "Ink Charcoal",
+    "vivid": {
+      "primary": "#0B0C0C",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#D92A2A",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#2B2E30",
+      "canvas": "#F3F2F1",
+      "dot_on_primary": "#D96E26",
+      "dot_on_canvas": "#1F67B0"
+    }
+  },
+  "heritage-ochre": {
+    "name": "Heritage Ochre",
+    "vivid": {
+      "primary": "#8A6100",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#CDDCFF",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#4D3600",
+      "canvas": "#F9F7F1",
+      "dot_on_primary": "#6A96FF",
+      "dot_on_canvas": "#2653D9"
+    }
+  },
+  "kiln-terracotta": {
+    "name": "Kiln Terracotta",
+    "vivid": {
+      "primary": "#9E3B0E",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#85D1F4",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#572008",
+      "canvas": "#F9F5F2",
+      "dot_on_primary": "#1399D3",
+      "dot_on_canvas": "#1D6CA6"
+    }
+  },
+  "umber-bronze": {
+    "name": "Umber Bronze",
+    "vivid": {
+      "primary": "#5C3D28",
+      "canvas": "#FFFFFF",
+      "dot_on_primary": "#61AEE3",
+      "dot_on_canvas": "#0A7A7A"
+    },
+    "muted": {
+      "primary": "#332216",
+      "canvas": "#F6F4F1",
+      "dot_on_primary": "#2589D0",
+      "dot_on_canvas": "#2364C5"
+    }
+  }
+}

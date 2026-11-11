@@ -31,25 +31,28 @@ This page is generated from `design-system/palettes.json`. The [machine-readable
 This demonstration changes only the example. To change Home Assistant, use [the profile colour controls](../get-started/colour-settings.html).
 
 <div class="c-demo" data-palette-demo>
-<div class="c-demo__header">Your home</div>
+<div class="c-demo__header"><img data-variant-primary src="../images/themes/civic-cobalt/vivid/lockup-on-primary.svg" alt="civica.uk on primary colour" width="306" height="49"></div>
 <label for="palette-preview">Colour palette</label>
 <select id="palette-preview">
-<option data-vivid="#1D70B8" data-muted="#103E65" data-canvas="#F3F6F9">Civic Cobalt</option>
-<option data-vivid="#006853" data-muted="#00392E" data-canvas="#F2F6F4">Racing Moss</option>
-<option data-vivid="#732282" data-muted="#3F1348" data-canvas="#F6F3F7">Imperial Damson</option>
-<option data-vivid="#B2292E" data-muted="#621719" data-canvas="#F9F4F4">Sovereign Crimson</option>
-<option data-vivid="#532A45" data-muted="#2E1726" data-canvas="#F7F3F5">Regimental Plum</option>
-<option data-vivid="#003764" data-muted="#001E37" data-canvas="#F2F4F8">Oxford Midnight</option>
-<option data-vivid="#0B0C0C" data-muted="#2B2E30" data-canvas="#F3F2F1">Ink Charcoal</option>
-<option data-vivid="#8A6100" data-muted="#4D3600" data-canvas="#F9F7F1">Heritage Ochre</option>
-<option data-vivid="#9E3B0E" data-muted="#572008" data-canvas="#F9F5F2">Kiln Terracotta</option>
-<option data-vivid="#5C3D28" data-muted="#332216" data-canvas="#F6F4F1">Umber Bronze</option>
+<option data-palette-id="civic-cobalt" data-vivid="#1D70B8" data-muted="#103E65" data-canvas="#F3F6F9">Civic Cobalt</option>
+<option data-palette-id="racing-moss" data-vivid="#006853" data-muted="#00392E" data-canvas="#F2F6F4">Racing Moss</option>
+<option data-palette-id="imperial-damson" data-vivid="#732282" data-muted="#3F1348" data-canvas="#F6F3F7">Imperial Damson</option>
+<option data-palette-id="sovereign-crimson" data-vivid="#B2292E" data-muted="#621719" data-canvas="#F9F4F4">Sovereign Crimson</option>
+<option data-palette-id="regimental-plum" data-vivid="#532A45" data-muted="#2E1726" data-canvas="#F7F3F5">Regimental Plum</option>
+<option data-palette-id="oxford-midnight" data-vivid="#003764" data-muted="#001E37" data-canvas="#F2F4F8">Oxford Midnight</option>
+<option data-palette-id="ink-charcoal" data-vivid="#0B0C0C" data-muted="#2B2E30" data-canvas="#F3F2F1">Ink Charcoal</option>
+<option data-palette-id="heritage-ochre" data-vivid="#8A6100" data-muted="#4D3600" data-canvas="#F9F7F1">Heritage Ochre</option>
+<option data-palette-id="kiln-terracotta" data-vivid="#9E3B0E" data-muted="#572008" data-canvas="#F9F5F2">Kiln Terracotta</option>
+<option data-palette-id="umber-bronze" data-vivid="#5C3D28" data-muted="#332216" data-canvas="#F6F4F1">Umber Bronze</option>
 </select>
 <label><input type="checkbox"> Muted colours</label>
+<div class="c-demo__assets"><img data-variant-canvas src="../images/themes/civic-cobalt/vivid/lockup-on-canvas.svg" alt="civica.uk on canvas colour" width="306" height="49"><img data-variant-icon src="../images/themes/civic-cobalt/vivid/app-icon.svg" alt="civica.uk app icon" width="64" height="64"></div>
 <p>Living room temperature: <strong>21 °C</strong></p>
 <p class="c-status">All monitored devices are available.</p>
 <p role="status">Civic Cobalt, Vivid preview. These choices affect this example only.</p>
 </div>
+
+The V3.2 artwork preview uses the supplied lockups for the selected primary and canvas, plus its app icon. The accent dot colour comes from each original asset; CSS does not recolour it. [Read the artwork manifest](../reference/brand-assets.json).
 
 ## Light and dark modes
 

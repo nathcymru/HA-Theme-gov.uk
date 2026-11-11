@@ -1,9 +1,7 @@
-# CIVICA.UK brand assets — V3
+# CIVICA.UK — Brand assets V3.2
 
-Based on the supplied `CiviCA LOGO.svg`, with its original roofline and seven-dot arc.
+This package corrects the V3.1 dot issue.
 
-The **wordmark dot is preserved**: same circular shape, fixed vector geometry, and standard teal-on-blue/blue-on-light variant colours. The production SVG wordmarks are copied byte-for-byte from the previous vector asset pack.
-
-**Use** `logo/lockup-on-blue.svg` for a blue header; `logo/lockup-on-white.svg` for a white header; standalone logo and icons are provided. See `docs/COMPLIANCE-AND-VERIFICATION.md` for measured dimensions, QA checks, and important compliance limitations.
-
-This is an independent Home Assistant theme identity, not a GOV.UK or Home Assistant official asset.
+- Dot geometry: cx=366.3318, cy=77.5, r=7.5
+- Dot position: lowered from the vertical midpoint to a bottom-aligned optical position between CIVICA and UK
+- Theme variants: contrasting accent dot colours generated per family and mode

@@ -29,7 +29,8 @@ These official sources were reviewed on 11 November 2026. They inform the local 
 
 - `design-system/palettes.json`: canonical supplied palette specification.
 - `design-system/themes.json`: resolved theme-variable mapping.
-- `brand/civica/`: supplied V3 asset pack, proof and provenance records.
+- `brand/civica/`: supplied V3.2 asset pack, proof, palette variants and provenance records.
+- `docs/source/reference/brand-assets.json`: published artwork source mapping and hashes.
 - `docs/source/design-contract.json`: machine-readable local rules.
 - `docs/source/llms.txt`: reading order for agents and automated tooling.
 
