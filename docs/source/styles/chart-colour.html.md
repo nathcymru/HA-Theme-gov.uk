@@ -30,7 +30,7 @@ The theme also supplies **24 fallback colour variables**, `civica-chart-1` to `c
 | Light / Dark | Contrast against the actual chart surface | Identity, family and patterns |
 | Hide, reorder or add a series | Native visibility or ordering | Colours of existing identities |
 
-All chart fills and strokes use opaque colours. Do not append alpha bytes, use a gradient, or reduce a series' opacity to create a second palette. Hover must not thicken a line or fade every other series. A previous-period column uses the same identity colour with a hatch pattern, with its original date available in the data table.
+All chart fills and strokes use opaque colours. Do not append alpha bytes, use a gradient, or reduce a series' opacity to create a second palette. Hover must not thicken a line or fade every other series. Normal, hover and legend lines use the shared **1.5px** adapter constant across tones and modes; this is the [documented adaptation](../components/charts.html#visual-rules) of the official ONS 3px reference. A previous-period column uses the same identity colour with a hatch pattern, with its original date available in the data table.
 
 ## Support colour with another cue
 

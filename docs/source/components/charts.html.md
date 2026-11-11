@@ -19,7 +19,7 @@ The reviewed ONS components are [bar charts](https://service-manual.ons.gov.uk/d
 
 The source baseline is [ONS Design System 74.0.0](https://github.com/ONSdigital/design-system/releases/tag/74.0.0), reviewed on 11 November 2026. The companion must leave native chart data, unit conversion, statistics, routing, selection and date handling under Home Assistant's control. Theme YAML provides colour roles; the companion is required for chart geometry, captions and data alternatives. See [installation](../get-started/install.html).
 
-The v1.3.0 adapter targets seven chart cards inside the native Energy panel: power sources, energy usage, solar, gas, water, devices and device details. Its Home Assistant frontend compatibility baseline is **20261028.5**. Only their native Cartesian line and bar series are adapted. History, pie charts, the Energy distribution diagram and third-party chart cards retain their native implementation.
+The v1.3.1 adapter targets seven chart cards inside the native Energy panel: power sources, energy usage, solar, gas, water, devices and device details. Its Home Assistant frontend compatibility baseline is **20261028.5**. Only their native Cartesian line and bar series are adapted. History, pie charts, the Energy distribution diagram and third-party chart cards retain their native implementation.
 
 ## Figure structure
 
@@ -39,17 +39,19 @@ These are chart roles, separate from card borders and input boundaries. Values a
 | Axis labels | At least 14px, horizontal | Use the civica.uk font, respect user text scaling and reduce tick density before shrinking text |
 | Legend text | At least 14px, normal weight | Keep native labels and expose values in the accompanying table |
 | Filled-series key | 12px circle | Match the opaque series colour and comparison pattern; preserve native visibility controls |
-| Line-series key | 20px wide, 3px stroke | Match the line colour and dash pattern at the local 2px width; preserve native controls |
-| Data line | 3px, round ends | Use 2px for dense live data, including hover; power uses individual unfilled, unsmoothed lines |
+| Line-series key | 20px wide, 3px stroke | Match the line colour and dash pattern at the local 1.5px width; preserve native controls |
+| Data line | 3px, round ends | Use 1.5px for dense live data, including hover; power uses individual unfilled, unsmoothed lines |
 | Columns | Square ends, no decorative border | Opaque fills, native interval widths and grouping; previous-period columns use hatching |
 
 The plot has a 280px minimum height, while larger native explicit heights are preserved. Column width is limited to 75px on wider charts and 55px below the adapter's narrow-chart breakpoint. These presentation choices do not replace native period aggregation.
+
+The local line weight is **1.5px** in normal, hover, selected and blurred states, and in the legend key. All these uses read `ENERGY_CHART_SPEC.lineWidth` in `ui/src/energy-charts.ts`. The installed companion and working examples use that same production adapter and constant; there is no separate example line weight. The ONS reference remains **3px**. The thinner local weight is an explicit adaptation for dense household power data.
 
 Grid and key dimensions come from the ONS [chart elements specification](https://service-manual.ons.gov.uk/data-visualisation/build-specifications/chart-elements). Text roles come from [chart typography](https://service-manual.ons.gov.uk/data-visualisation/build-specifications/typography). Column and line treatment is checked against the [versioned component source](https://github.com/ONSdigital/design-system/tree/fba69ff1aae25035ff167d8408a57540bf8b1066/src/components/chart).
 
 For time series, use horizontal value gridlines and readable time ticks, without a second grid on the time axis. Keep the plot wide enough for its labels. Use fewer ticks at narrow widths, without removing observations. Filled bars must retain their zero baseline; negative values remain on the correct side of zero. Native scale bounds and comparison relationships must not change merely to make a chart resemble an example. See ONS [axes and gridlines](https://service-manual.ons.gov.uk/data-visualisation/guidance/axes-and-gridlines).
 
-Power sources use individual unfilled lines. Remove native cumulative display stacking and decorative smoothing for this chart; preserve source values, timestamps, signs, actual zero values and missing samples. Home Assistant splits grid and battery into positive and negative display arrays. Where those arrays have identical timestamps and complementary signs, select the existing signed value into one rendered line and leave the secondary series empty. Keep both native IDs for legend behaviour. The table uses the same projection; native source arrays remain unchanged. Do not combine ambiguous pairs or invent crossing points. Consumption columns retain their native stacks. Current and comparison series remain distinct through labels, dashes and hatch patterns, rather than fading. Both normal and hover lines are 2px; this is a documented adaptation for dense live data, not the upstream 3px rule.
+Power sources use individual unfilled lines. Remove native cumulative display stacking and decorative smoothing for this chart; preserve source values, timestamps, signs, actual zero values and missing samples. Home Assistant splits grid and battery into positive and negative display arrays. Where those arrays have identical timestamps and complementary signs, select the existing signed value into one rendered line and leave the secondary series empty. Keep both native IDs for legend behaviour. The table uses the same projection; native source arrays remain unchanged. Do not combine ambiguous pairs or invent crossing points. Consumption columns retain their native stacks. Current and comparison series remain distinct through labels, dashes and hatch patterns, rather than fading.
 
 Place the legend above the plot, aligned left, and wrap whole labelled items. Preserve Home Assistant's series visibility controls and their state. This is an intentional difference from the reviewed ONS component, which disables legend selection. Hidden series must not silently disappear from an accessible table without an indication of their visibility state.
 

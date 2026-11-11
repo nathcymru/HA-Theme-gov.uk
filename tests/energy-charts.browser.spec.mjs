@@ -25,7 +25,7 @@ test('real ECharts receives ONS presentation while data, native legend, zoom and
     window.energyFinishedCount = 0; f.hosts.power.chart.on('finished', () => window.energyFinishedCount++);
     f.setActive(true);
   });
-  await expect.poll(() => page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series[0].lineStyle.width)).toBe(2);
+  await expect.poll(() => page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series[0].lineStyle.width)).toBe(1.5);
   const state = await page.evaluate(() => {
     const host = window.energyFixture.hosts.power, option = host.chart.getOption();
     return {
@@ -165,7 +165,7 @@ test('adapter restores native presentation and handles renderer replacement with
   await openExamples(page);
   expect(await page.evaluate(() => window.energyFixture.hosts.devices.chart.getOption().series[0].data[0].itemStyle.borderRadius)).toBe(0);
   await page.evaluate(() => window.energyFixture.recreateChart('power'));
-  await expect.poll(() => page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series[0].lineStyle.width)).toBe(2);
+  await expect.poll(() => page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series[0].lineStyle.width)).toBe(1.5);
   await page.getByRole('button', { name: 'Show next sample day', exact: true }).click();
   const table = await openTable(page, 'Power over time'); await expect(table).toContainText('12 Nov 2026');
   await page.evaluate(() => {
@@ -261,7 +261,7 @@ test('native source-shaped Canvas charts converge to the shared presentation wit
   });
   expect(active.failures).toEqual([]); expect(active.counts.every(count => count < 6)).toBe(true); expect(active.sourcesUntouched).toBe(true);
   expect(active.lines).toHaveLength(4); expect(active.areas).toBe(0); expect(active.unstacked).toBe(true);
-  for (const line of active.lines) { expect(line).toMatchObject({ width: 2, opacity: 1, fill: 'none', smooth: 0 }); expect(line.stroke).toMatch(/^#[\dA-F]{6}$/i); }
+  for (const line of active.lines) { expect(line).toMatchObject({ width: 1.5, opacity: 1, fill: 'none', smooth: 0 }); expect(line.stroke).toMatch(/^#[\dA-F]{6}$/i); }
 });
 
 test('Canvas paint, hover lines, native legend keys and tooltip swatches use the same opaque colours', async ({ page }) => {
@@ -278,8 +278,8 @@ test('Canvas paint, hover lines, native legend keys and tooltip swatches use the
       key: [...host.shadowRoot.querySelectorAll('.legend-toggle')].map(button => ({ id: button.dataset.id, width: button.querySelector('.civica-chart-key line')?.getAttribute('stroke-width'), color: button.querySelector('.civica-chart-key line')?.getAttribute('stroke'), dash: button.querySelector('.civica-chart-key line')?.getAttribute('stroke-dasharray'), nativeIconHidden: getComputedStyle(button.querySelector('ha-svg-icon')).display === 'none' })),
       total: f.sharedStyle('consumption') };
   });
-  expect(power.lines.every(line => line.width === 2 && line.opacity === 1)).toBe(true);
-  for (const key of power.key) { expect(key.width).toBe('2'); expect(key.nativeIconHidden).toBe(true); expect(key.color).toMatch(/^#[\dA-F]{6}$/i); }
+  expect(power.lines.every(line => line.width === 1.5 && line.opacity === 1)).toBe(true);
+  for (const key of power.key) { expect(key.width).toBe('1.5'); expect(key.nativeIconHidden).toBe(true); expect(key.color).toMatch(/^#[\dA-F]{6}$/i); }
   expect(power.key.find(key => key.id === 'usage').dash).toBe(power.total.lineDash.join(' '));
   const paints = await page.evaluate(() => {
     const f = window.energyFixture;
@@ -511,4 +511,52 @@ test('closed Power data table waits for the native plot during reference and in-
     await expect(table).toContainText('12 Nov 2026'); await expect(table).not.toContainText('11 Nov 2026');
     await expect(table.locator('tbody tr')).toHaveCount(24);
   }
+});
+
+test('the shared lighter stroke stays consistent for dense narrow Power and native solar forecast lines', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 900 });
+  await openExamples(page);
+  const note = page.locator('.chart-spec');
+  await expect(note).toHaveText('Line charts and their legend keys use 1.5px strokes, including on hover.');
+  expect(await page.evaluate(() => window.energyFixture.presentationSpec.lineWidth)).toBe(1.5);
+  await page.evaluate(() => {
+    const f = window.energyFixture, t = Date.UTC(2026, 10, 11);
+    // Exercise a dense source at the width of a native mobile Energy card.
+    const signed = (id, index) => id.startsWith('grid') ? .3 * Math.sin(index / 13) : id.startsWith('battery') ? .08 * Math.cos(index / 17) : id === 'solar' ? .2 + .1 * Math.sin(index / 23) : .45;
+    f.replaceData('power', f.hosts.power.data.map(series => ({ ...series, data: Array.from({ length: 181 }, (_, index) => ({ value: [t + index * 60000, series.id.endsWith('-negative') ? Math.min(0, signed(series.id, index)) : Math.max(0, signed(series.id, index))] })) })));
+    // Reuse the empty fixture's real renderer under another supported native
+    // card. Shape follows energy-solar-graph-data.ts's forecast output.
+    const previous = f.cards.empty, solar = document.createElement('hui-energy-solar-graph-card');
+    solar.attachShadow({ mode: 'open' }).append(...previous.shadowRoot.childNodes);
+    solar.shadowRoot.querySelector('.card-header').textContent = 'Example solar forecast';
+    solar.shadowRoot.querySelector('.empty')?.remove(); previous.replaceWith(solar); f.cards.empty = solar;
+    const forecast = { id: 'forecast-sensor.example_solar', type: 'line', stack: 'forecast', name: 'Solar forecast', step: false, color: '#0B0C0C', lineStyle: { type: [7, 5], width: 1.5 }, symbol: 'none', data: [[t + 1800000, .2], [t + 5400000, .4], [t + 9000000, .3]] };
+    f.replaceData('empty', [forecast]);
+    window.denseNativeReadings = JSON.stringify(f.hosts.power.data.map(series => series.data.map(point => point.value)));
+    window.forecastNativeReadings = JSON.stringify(forecast.data);
+  });
+  for (const mode of ['light', 'dark']) {
+    await page.evaluate(mode => window.energyFixture.setMode(mode), mode);
+    await page.evaluate(() => {
+      const f = window.energyFixture;
+      f.hosts.power.chart.dispatchAction({ type: 'highlight', seriesId: 'grid' });
+      f.hosts.empty.chart.dispatchAction({ type: 'highlight', seriesIndex: 0 });
+    });
+    await expect.poll(() => page.evaluate(() => ['power', 'empty'].map(key => {
+      const host = window.energyFixture.hosts[key];
+      return {
+        // This assertion owns stroke parity. Dedicated projection tests above
+        // own the count and readings of signed Power traces.
+        widths: [...new Set(host.chart.getZr().storage.getDisplayList().filter(shape => shape.type === 'ec-polyline' && shape.shape.points.length).map(shape => shape.style.lineWidth))],
+        keys: [...new Set([...host.shadowRoot.querySelectorAll('.civica-chart-key line')].map(line => Number(line.getAttribute('stroke-width'))))],
+      };
+    }))).toEqual([{ widths: [1.5], keys: [1.5] }, { widths: [1.5], keys: [1.5] }]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+  expect(await page.evaluate(() => JSON.stringify(window.energyFixture.hosts.power.data.map(series => series.data.map(point => point.value))) === window.denseNativeReadings)).toBe(true);
+  expect(await page.evaluate(() => JSON.stringify(window.energyFixture.hosts.empty.data[0].data) === window.forecastNativeReadings)).toBe(true);
+  await page.evaluate(() => window.energyFixture.setActive(false));
+  await expect(note).toBeHidden();
+  expect(await page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series.find(series => series.id === 'grid').lineStyle.width)).toBe(1);
+  expect(await page.evaluate(() => window.energyFixture.hosts.empty.chart.getOption().series[0].lineStyle.width)).toBe(1.5);
 });

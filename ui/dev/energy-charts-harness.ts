@@ -9,7 +9,7 @@ import { CanvasRenderer } from 'echarts/renderers';
 import source from '../../design-system/themes.json' with { type: 'json' };
 import palettes from '../../design-system/palettes.json' with { type: 'json' };
 import { CHART_COLOUR_SPEC, chartColour, chartSeriesStyle } from '../../design-system/chart-colours.mjs';
-import { updateEnergyCharts } from '../src/energy-charts';
+import { ENERGY_CHART_SPEC, updateEnergyCharts } from '../src/energy-charts';
 import type { EnergyChartDataHost } from '../src/energy-chart-data';
 
 echarts.use([LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent, DataZoomComponent, LabelLayout, UniversalTransition, CanvasRenderer]);
@@ -21,7 +21,7 @@ const deviceNames: Record<string, string> = Object.fromEntries(CHART_COLOUR_SPEC
 const manyDevices = CHART_COLOUR_SPEC.exampleKeys.map(({ key, label }: { key: string; label: string }) => ({ key, name: label }));
 const setup = new WeakMap<HTMLElement, ReturnType<typeof build>>();
 const STYLE = `
-:host{display:block;min-width:0;color:var(--primary-text-color);background:var(--primary-background-color);font:var(--civica-font-size-body,19px)/1.5 var(--ha-font-family-body,Arial,sans-serif)}*{box-sizing:border-box}.intro{padding:20px;margin:0}.controls{display:flex;flex-wrap:wrap;gap:15px 20px;padding:0 20px 20px;align-items:end}.controls label{display:flex;gap:10px;align-items:center;min-height:44px;font-size:var(--civica-font-size-small,16px)}.controls .palette{display:grid;gap:5px}.controls input{width:24px;height:24px;accent-color:var(--primary-color)}select,button{min-height:44px;font:inherit;font-size:var(--civica-font-size-small,16px);background:var(--card-background-color);color:var(--primary-text-color);border:2px solid var(--primary-text-color);border-radius:0;padding:7px 10px;max-width:100%}.controls :is(select,input,button):focus-visible{outline:3px solid var(--ha-color-focus);outline-offset:0}.controls button:focus-visible{background:var(--ha-color-focus);color:var(--civica-focus-text);box-shadow:0 2px 0 var(--civica-focus-text)}
+:host{display:block;min-width:0;color:var(--primary-text-color);background:var(--primary-background-color);font:var(--civica-font-size-body,19px)/1.5 var(--ha-font-family-body,Arial,sans-serif)}*{box-sizing:border-box}.intro{padding:20px;margin:0}.chart-spec{padding:0 20px 20px;margin:0;font-size:var(--civica-font-size-small,16px)}.controls{display:flex;flex-wrap:wrap;gap:15px 20px;padding:0 20px 20px;align-items:end}.controls label{display:flex;gap:10px;align-items:center;min-height:44px;font-size:var(--civica-font-size-small,16px)}.controls .palette{display:grid;gap:5px}.controls input{width:24px;height:24px;accent-color:var(--primary-color)}select,button{min-height:44px;font:inherit;font-size:var(--civica-font-size-small,16px);background:var(--card-background-color);color:var(--primary-text-color);border:2px solid var(--primary-text-color);border-radius:0;padding:7px 10px;max-width:100%}.controls :is(select,input,button):focus-visible{outline:3px solid var(--ha-color-focus);outline-offset:0}.controls button:focus-visible{background:var(--ha-color-focus);color:var(--civica-focus-text);box-shadow:0 2px 0 var(--civica-focus-text)}
 `;
 const CARD_STYLE = `
 :host{display:block;min-width:0}ha-card{display:block;min-width:0;border:1px solid var(--divider-color);background:var(--card-background-color);color:var(--primary-text-color);padding:20px}h2{font-size:var(--civica-font-size-heading,24px);line-height:1.25;margin:0 0 10px}p{font-size:var(--civica-font-size-small,16px);line-height:1.5;margin:0 0 15px}.content{min-width:0}
@@ -69,6 +69,7 @@ function build(target: HTMLElement) {
   const root = target.shadowRoot ?? target.attachShadow({ mode: 'open' });
   const style = element('style', STYLE), intro = element('p', 'All readings and device names below are invented examples. They do not show or control your home.'); intro.className = 'intro';
   const controls = element('div'); controls.className = 'controls';
+  const lineWeight = element('p', `Line charts and their legend keys use ${ENERGY_CHART_SPEC.lineWidth}px strokes, including on hover.`); lineWeight.className = 'chart-spec';
   const paletteLabel = element('label', 'Example brand palette'); paletteLabel.className = 'palette';
   const palette = element('select'); palette.setAttribute('aria-label', 'Example brand palette');
   for (const p of palettes.palettes) { const option = element('option', p.name); option.value = p.id; palette.append(option); }
@@ -80,7 +81,7 @@ function build(target: HTMLElement) {
   const panel = document.createElement('ha-panel-energy'); const panelRoot = panel.attachShadow({ mode: 'open' });
   const panelStyle = element('style', ':host{display:block;min-width:0}.examples{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding:0 20px 20px}');
   const examples = element('div'); examples.className = 'examples'; panelRoot.append(panelStyle, examples);
-  root.replaceChildren(style, intro, controls, panel);
+  root.replaceChildren(style, intro, controls, lineWeight, panel);
   const hosts = {} as Record<Key, DemoHost>, cards = {} as Record<Key, HTMLElement>, plots = {} as Record<Key, HTMLElement>;
   const hidden = Object.fromEntries(['power', 'usage', 'devices', 'many', 'empty'].map(key => [key, new Set<string>()])) as Record<Key, Set<string>>;
   const nativeClicks: string[] = [];
@@ -155,7 +156,7 @@ function build(target: HTMLElement) {
   function nativeTheme() {
     return { textStyle: { fontFamily: 'Roboto, Noto, sans-serif', fontSize: 12, color: colours()('--primary-text-color') }, line: { lineStyle: { width: 1.5 }, showSymbol: false, symbolSize: 1, symbol: 'circle', smooth: false }, bar: { itemStyle: { barBorderWidth: 1.5 } }, valueAxis: { axisLine: { lineStyle: { color: colours()('--divider-color') } }, splitLine: { lineStyle: { color: colours()('--divider-color') } } } };
   }
-  function refresh() { updateEnergyCharts([panel], enabled.input.checked, context); }
+  function refresh() { lineWeight.hidden = !enabled.input.checked; updateEnergyCharts([panel], enabled.input.checked, context); }
   function renderNative(key: Key) {
     const host = hosts[key], legend = host.shadowRoot!.querySelector('.chart-legend ul')!; legend.replaceChildren();
     const rendered = host.data.map(series => ({ ...series, data: hidden[key].has(String(series.id)) ? undefined : key === 'devices' ? series.data.filter((point: any) => !hidden[key].has(point.id)) : series.data }));
@@ -217,7 +218,7 @@ function build(target: HTMLElement) {
   };
   refresh();
   return {
-    panel, hosts, cards, nativeClicks, refresh, manyDevices, renderer: 'canvas', frontend: '20261028.5',
+    panel, hosts, cards, nativeClicks, refresh, manyDevices, presentationSpec: ENERGY_CHART_SPEC, renderer: 'canvas', frontend: '20261028.5',
     sharedColour: (key: string) => chartColour(key, { tone: muted.input.checked ? 'muted' : 'vivid', mode: dark.input.checked ? 'dark' : 'light' }),
     sharedStyle: (key: string) => chartSeriesStyle(key, { tone: muted.input.checked ? 'muted' : 'vivid', mode: dark.input.checked ? 'dark' : 'light' }),
     setActive(active: boolean) { enabled.input.checked = active; refresh(); },

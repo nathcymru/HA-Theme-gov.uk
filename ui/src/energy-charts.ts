@@ -10,7 +10,7 @@ export const ENERGY_CHART_SPEC = Object.freeze({
   frontend: '20261028.5',
   fontFamily: 'Arial, Helvetica, sans-serif', // civica.uk's documented typeface
   minimumFontSize: 14,
-  lineWidth: 2, // Dense native Energy charts; ONS standalone reference is 3px.
+  lineWidth: 1.5, // Dense native Energy charts; ONS standalone reference is 3px.
   gridWidth: 1,
   zeroLineWidth: 1.5,
   minimumPlotHeight: 280,
@@ -463,7 +463,7 @@ function svgNode(name: string, attributes: Record<string, string | number> = {})
 function drawKey(marker: SVGSVGElement, paint: ReturnType<typeof seriesPaint>, line: boolean, singlePoint: boolean) {
   marker.replaceChildren();
   if (line) {
-    marker.append(svgNode('line', { x1: 2, y1: 8, x2: 22, y2: 8, stroke: paint.color, 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-dasharray': paint.dash.join(' ') }));
+    marker.append(svgNode('line', { x1: 2, y1: 8, x2: 22, y2: 8, stroke: paint.color, 'stroke-width': ENERGY_CHART_SPEC.lineWidth, 'stroke-linecap': 'round', 'stroke-dasharray': paint.dash.join(' ') }));
     if (singlePoint) {
       const empty = paint.symbol.startsWith('empty');
       const symbol = empty ? paint.symbol.slice(5).toLowerCase() : paint.symbol;
