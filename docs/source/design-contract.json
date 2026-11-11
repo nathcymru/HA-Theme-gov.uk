@@ -173,7 +173,7 @@
       "nonEnergyCharts": "Unchanged; no claim that History or arbitrary third-party charts use this adapter",
       "examples": "Native-shaped fixtures using the same adapter and colour engine, including 24 named series",
       "compatibilityBaseline": "Home Assistant frontend 20261028.5, ECharts 6.1.0",
-      "updatedIn": "1.3.1",
+      "updatedIn": "1.3.2",
       "powerType": "Individual unfilled, unsmoothed, unstacked lines; strictly verified sign pairs select their existing signed samples for one rendered line and matching table, with native source arrays unchanged",
       "lineWidthPx": 1.5,
       "hoverLineWidthPx": 1.5,

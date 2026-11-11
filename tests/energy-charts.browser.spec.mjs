@@ -545,12 +545,10 @@ test('the shared lighter stroke stays consistent for dense narrow Power and nati
     await expect.poll(() => page.evaluate(() => ['power', 'empty'].map(key => {
       const host = window.energyFixture.hosts[key];
       return {
-        // This assertion owns stroke parity. Dedicated projection tests above
-        // own the count and readings of signed Power traces.
-        widths: [...new Set(host.chart.getZr().storage.getDisplayList().filter(shape => shape.type === 'ec-polyline' && shape.shape.points.length).map(shape => shape.style.lineWidth))],
+        widths: host.chart.getZr().storage.getDisplayList().filter(shape => shape.type === 'ec-polyline' && shape.shape.points.length).map(shape => shape.style.lineWidth),
         keys: [...new Set([...host.shadowRoot.querySelectorAll('.civica-chart-key line')].map(line => Number(line.getAttribute('stroke-width'))))],
       };
-    }))).toEqual([{ widths: [1.5], keys: [1.5] }, { widths: [1.5], keys: [1.5] }]);
+    }))).toEqual([{ widths: [1.5, 1.5, 1.5, 1.5], keys: [1.5] }, { widths: [1.5], keys: [1.5] }]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   expect(await page.evaluate(() => JSON.stringify(window.energyFixture.hosts.power.data.map(series => series.data.map(point => point.value))) === window.denseNativeReadings)).toBe(true);
@@ -559,4 +557,49 @@ test('the shared lighter stroke stays consistent for dense narrow Power and nati
   await expect(note).toBeHidden();
   expect(await page.evaluate(() => window.energyFixture.hosts.power.chart.getOption().series.find(series => series.id === 'grid').lineStyle.width)).toBe(1);
   expect(await page.evaluate(() => window.energyFixture.hosts.empty.chart.getOption().series[0].lineStyle.width)).toBe(1.5);
+});
+
+test('native legend and theme redraws cannot leave animated sign-pair geometry behind', async ({ page }) => {
+  await openExamples(page);
+  await page.evaluate(() => {
+    const f = window.energyFixture; f.setActive(false);
+    window.nativeLineAnimations = f.hosts.power.chart.getModel().getSeries().map(series => [series.get('animation'), series.get('animationDuration'), series.get('animationDurationUpdate')]);
+    f.setActive(true);
+  });
+  const geometry = () => page.evaluate(() => {
+    const chart = window.energyFixture.hosts.power.chart;
+    let drawn = 0, coordinatesMatch = true, emptySeriesClear = true;
+    for (const series of chart.getModel().getSeries()) {
+      const paths = [];
+      chart.getViewOfSeriesModel(series).group.traverse(shape => { if (shape.type === 'ec-polyline' && shape.shape.points.length) paths.push(shape); });
+      drawn += paths.length;
+      const data = series.option.data ?? [];
+      if (!data.length) { emptySeriesClear &&= paths.length === 0; continue; }
+      coordinatesMatch &&= paths.length === 1;
+      const actual = paths[0]?.shape.points ?? [];
+      coordinatesMatch &&= actual.length === data.length * 2;
+      data.forEach((point, index) => {
+        const values = point.value ?? point;
+        if (values[1] === null) { coordinatesMatch &&= !Number.isFinite(actual[index * 2 + 1]); return; }
+        const expected = chart.convertToPixel({ seriesIndex: series.seriesIndex }, values);
+        coordinatesMatch &&= Math.abs(actual[index * 2] - expected[0]) < .01 && Math.abs(actual[index * 2 + 1] - expected[1]) < .01;
+      });
+    }
+    return { drawn, coordinatesMatch, emptySeriesClear };
+  });
+  await expect.poll(geometry).toEqual({ drawn: 4, coordinatesMatch: true, emptySeriesClear: true });
+  const solar = page.locator('hui-power-sources-graph-card .label[data-id=solar]');
+  for (const action of ['hide solar', 'show solar', 'dark', 'light', 'next day']) {
+    if (action === 'hide solar' || action === 'show solar') await solar.click();
+    else if (action === 'next day') await page.getByRole('button', { name: 'Show next sample day', exact: true }).click();
+    else await page.evaluate(mode => window.energyFixture.setMode(mode), action);
+    const expected = { drawn: action === 'hide solar' ? 3 : 4, coordinatesMatch: true, emptySeriesClear: true };
+    await expect.poll(geometry).toEqual(expected);
+    // The former bug returned later: a native500ms animator overwrote the
+    // already-correct option model and left permanent stale Canvas paths.
+    await page.waitForTimeout(650);
+    expect(await geometry()).toEqual(expected);
+  }
+  await page.evaluate(() => window.energyFixture.setActive(false));
+  expect(await page.evaluate(() => window.energyFixture.hosts.power.chart.getModel().getSeries().map(series => [series.get('animation'), series.get('animationDuration'), series.get('animationDurationUpdate')]))).toEqual(await page.evaluate(() => window.nativeLineAnimations));
 });
