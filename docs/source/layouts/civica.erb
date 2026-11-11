@@ -9,7 +9,7 @@
     while prior && !%w[h2 h3].include?(prior.name)
       prior = prior.previous_element
     end
-    if prior && prior.name == 'h3'
+    if prior && %w[h2 h3].include?(prior.name)
       reference = Nokogiri::XML::Node.new('p', fragment.document)
       link = Nokogiri::XML::Node.new('a', fragment.document)
       link['href'] = "##{first_example['id']}"
