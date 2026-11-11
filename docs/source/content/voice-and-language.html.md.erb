@@ -1,0 +1,78 @@
+---
+title: "Voice and language"
+description: "Use calm, precise household language that stays truthful under stress and uncertainty."
+section: "styles"
+group: "Writing guide"
+nav_order: 1
+source_url: "https://service-manual.nhs.uk/content/how-we-write"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for voice and language."
+---
+
+# Voice and language
+
+Write as a helpful person who knows what the system can and cannot tell you. Keep the voice clear, direct and respectful. Adjust the tone to the situation: a successful display-name edit needs less explanation than an uncertain request to a device.
+
+<h2 id="wg-010">WG-010 — Use familiar, concrete language</h2>
+
+**SHOULD.** Prefer the shortest familiar wording that preserves the technical meaning and necessary conditions.
+
+Use “change” for an ordinary edit and “check” for a simple inspection. Keep a technical term when it is the exact label, a diagnostic value or a distinction the person needs. Define it at the first useful point: “An entity is a control or reading provided by Home Assistant.” Do not replace precise terminology with a reassuring but inaccurate phrase.
+
+<%= example('wg-plain-precision') %>
+
+<h2 id="wg-011">WG-011 — Match certainty to the evidence</h2>
+
+**MUST.** Qualify estimates, last reported states and unconfirmed outcomes; do not turn them into facts by simplifying the wording.
+
+“The tracker reported Home” is narrower than “Alex is home”. “The socket reports Off” is narrower than “The appliance is safe”. “The request was accepted” is narrower than “The door is locked”. Say what was observed and include the uncertainty that changes a decision. Avoid “always”, “guaranteed”, “safe” and “real time” unless the actual contract supports them.
+
+<h2 id="wg-012">WG-012 — Be calm without false reassurance</h2>
+
+**SHOULD.** Use neutral, respectful language and give useful context instead of humour, blame, panic or unsupported reassurance.
+
+Avoid “Oops”, “your pesky device”, “don’t worry”, “obviously” and “simply” in failure or instructional copy. Do not celebrate routine device actions with exaggerated praise. Use “you” where it clarifies a choice. Use “we” only when the responsible organisation or maintainer is clear; software should not pretend to be a person supervising the household.
+
+<%= example('wg-calm-tone') %>
+
+<h2 id="wg-013">WG-013 — Make sentences easy to follow</h2>
+
+**SHOULD.** Prefer one main idea per sentence, an explicit actor when useful, and short paragraphs with meaningful headings.
+
+“Home Assistant could not save the schedule” identifies the actor. “Schedule not saved” can be appropriate in a compact result message when the next sentence explains what happened. Put a critical condition before a dependent action. Split a long chain of if, unless, and or into separate conditions or steps.
+
+Review sentences approaching 20 to 25 words. This is a prompt to inspect complexity, not an enforced length limit. Do not split a necessary condition away from its action or remove a device name to meet a score.
+
+<h2 id="wg-014">WG-014 — Expand contractions where clarity matters</h2>
+
+**SHOULD.** Use cannot, do not and other expanded forms in critical conditions, warnings and short task instructions; use positive contractions only when they remain clear for the audience.
+
+The source guides differ: Home Office limited-English guidance avoids contractions more broadly, while NHS and GOV.UK allow some positive contractions. civica uses expanded forms as the safer default for authored control guidance. Do not mechanically alter native translations, quotations or user names. Avoid idioms such as “give it a whirl”, and explain necessary domain language rather than substituting another idiom.
+
+<%= example('wg-critical-contraction') %>
+
+<h2 id="wg-015">WG-015 — Treat readability scores as diagnostic tools</h2>
+
+**MUST.** Do not present a reading-age score, sentence count or automated language check as proof that people understand the content.
+
+Test the actual task under realistic conditions, including small screens, interruptions, limited English and unfamiliar terminology. Ask what the person thinks will happen, then observe whether the interface supports that understanding. A low reading-age score can still describe the wrong device action. Do not claim a population’s health-literacy statistics describe Home Assistant users.
+
+
+## Sources and adaptation
+
+- [NHS: How we write](https://service-manual.nhs.uk/content/how-we-write)
+- [NHS: Voice and tone](https://service-manual.nhs.uk/content/voice-and-tone)
+- [NHS: Health literacy](https://service-manual.nhs.uk/content/health-literacy)
+- [Home Office: Voice and tone](https://design.homeoffice.gov.uk/design-and-content/content/voice-and-tone)
+- [Home Office: Designing for limited English](https://design.homeoffice.gov.uk/design-and-content/content/designing-for-limited-english)
+- [GOV.UK: Clear language](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/)
+- [GOV.UK: Right tone](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/)
+- [Plain English Campaign: free guides](https://www.plainenglish.co.uk/free-guides)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

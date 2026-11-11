@@ -1,0 +1,176 @@
+# Original civica writing examples. All household data is synthetic.
+examples:
+  wg-task-first:
+    title: "Start with the household task"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Start with the household task</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">The environmental control subsystem is now available for interaction.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">Change the living room temperature.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">The action and place are clear. Use this label only where a supported temperature control is available.</p>
+  wg-scope:
+    title: "Keep names and native labels intact"
+    description: "Synthetic example explaining the boundary between authored help, a user name and a native feature label."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Choose the right words to change</h1><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Authored help</dt><dd class="govuk-summary-list__value">Choose a light to add to this room.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">User-chosen name</dt><dd class="govuk-summary-list__value">Nain’s lamp</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Native feature</dt><dd class="govuk-summary-list__value">Notifications</dd></div></dl><p class="govuk-body">Improve the help. Preserve the lamp name and the translated native feature label. Do not silently rename either.</p>
+  wg-calm-tone:
+    title: "Describe a delay calmly"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Describe a delay calmly</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">Oops! Your pesky lamp is being stubborn. Just try again!</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">The lamp has not reported its new state. The request may still complete. Check the lamp before sending another request.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">This describes the evidence and avoids blame or a claim that repeating the action is safe.</p>
+  wg-plain-precision:
+    title: "Use familiar words without losing meaning"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Use familiar words without losing meaning</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">The actuator is de-energised.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">The socket reports that it is off. This does not confirm that the appliance is safe to work on.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">“Reports” identifies the evidence. A dashboard state is not a physical isolation check.</p>
+  wg-critical-contraction:
+    title: "Make an important condition explicit"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Make an important condition explicit</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">You can’t start it if remote’s off.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">You cannot start the washing machine here while remote control is off.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">Expanded words and a named device make the condition easier to translate and understand. This does not promise that every washing machine supports remote start.</p>
+  wg-household-terms:
+    title: "Choose a household term by meaning"
+    description: "Original terminology choices; a generic word must not change the actual operation."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Choose the word that matches the task</h1><table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">Authored household copy</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Meaning</th><th class="govuk-table__header" scope="col">Wording</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Keep an edited schedule</th><td class="govuk-table__cell">Save schedule</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Remove an automation record</th><td class="govuk-table__cell">Delete automation</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Prevent future automatic starts</th><td class="govuk-table__cell">Turn off automation</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Read the integration’s diagnostic identifier</th><td class="govuk-table__cell">Entity ID</td></tr></tbody></table><p class="govuk-body">Deleting, turning off and stopping a running action are different operations.</p>
+  wg-literal-identifiers:
+    title: "Keep an identifier exact"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Keep an identifier exact</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">Enter the reading lamp ID: light.reading-lamp.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">Entity ID: <code>light.reading_lamp</code></p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">The underscore is part of this synthetic identifier. Prose style must not change a value someone needs to paste.</p>
+  wg-state-action:
+    title: "Separate the reported state from the action"
+    description: "A synthetic lamp control with local preview feedback only."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Reading lamp</h1><p class="govuk-body">Reported state: Off</p><p class="govuk-body">Last reported: 11 November 2026 at 18:42</p><button type="button" class="govuk-button" data-demo-message="Example request only. No lamp was changed. A real control would now wait for a reported state.">Turn on reading lamp</button><p class="govuk-body" data-demo-status role="status" aria-live="polite"></p><p class="govuk-body">The action says what will be requested. The state says what the device last reported.</p>
+  wg-command-progress:
+    title: "Show the stages of a device request"
+    description: "Synthetic sequence, shown together for author comparison; these are not live status announcements."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">A request has more than one outcome</h1><ol class="govuk-list govuk-list--number"><li><strong>Sending request:</strong> Turning on the reading lamp…</li><li><strong>Request accepted:</strong> Request sent. Waiting for the lamp to report its state.</li><li><strong>Reported result:</strong> Reading lamp reports On.</li><li><strong>Confirmation did not arrive:</strong> The lamp has not reported a new state. The request may still complete.</li></ol><p class="govuk-body">Use the stage supported by the integration. An accepted request alone does not prove that the light changed.</p>
+  wg-automation-status:
+    title: "Keep saved, enabled and running separate"
+    description: "Synthetic automation summary; no automation is created or started."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Hall lights after sunset</h1><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Saved changes</dt><dd class="govuk-summary-list__value">Saved at 18:30</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Automatic starts</dt><dd class="govuk-summary-list__value">On</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Current run</dt><dd class="govuk-summary-list__value">No run in progress</dd></div></dl><p class="govuk-body">Saving a change does not start the automation. Turning off future starts may not stop an action already running.</p>
+  wg-availability:
+    title: "Give different missing states different meanings"
+    description: "Illustrative states with explicit evidence; not a connection to household devices."
+    height: 620
+    html: |
+      <h1 class="govuk-heading-l">Understand a missing reading</h1><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">No state supplied</dt><dd class="govuk-summary-list__value">Temperature unknown. The integration has not supplied a temperature.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Entity unavailable</dt><dd class="govuk-summary-list__value">Temperature unavailable. Home Assistant cannot currently obtain this entity’s state.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Old reading retained</dt><dd class="govuk-summary-list__value">Last reported temperature: 19.4 °C at 09:15. No newer reading has been received.</dd></div></dl><p class="govuk-body">None of these states means 0 °C or confirms that the device is offline.</p>
+  wg-permission:
+    title: "Explain a control that is not available"
+    description: "Synthetic capability and permission example. The disabled button performs no action."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Washing machine</h1><h2 class="govuk-heading-m">Remote control is off</h2><p class="govuk-body" id="wg-permission-help">This example integration supports starting a cycle, but the appliance has not granted remote control. No start request can be sent here.</p><button type="button" class="govuk-button" disabled aria-describedby="wg-permission-help">Start cycle</button><p class="govuk-body">Follow the appliance instructions if you want to enable remote control. Home Assistant cannot grant that permission for you.</p>
+  wg-recoverable-error:
+    title: "Offer a recovery that fits the evidence"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Offer a recovery that fits the evidence</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">Failed. Please restart your router.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">The schedule was not saved because your session ended. Sign in again, then return to this form. Your edits are still shown here.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">Name the confirmed cause and a supported route. Only promise retained edits when the implementation retains them.</p>
+  wg-warning-context:
+    title: "Distinguish a maintenance record from an alarm"
+    description: "Synthetic maintenance information. This is not emergency guidance or a live alarm."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Boiler service record</h1><p class="govuk-body"><strong>Service date needs checking</strong></p><p class="govuk-body">The saved service date is 2 November 2025. This reminder uses the date entered in the household record.</p><p class="govuk-body">It does not measure the boiler’s condition or confirm that a service has been completed.</p><h2 class="govuk-heading-m">Next step</h2><p class="govuk-body">Check the service record and update the saved date if needed.</p>
+  wg-instructions:
+    title: "Write steps someone can follow"
+    description: "Synthetic local task instructions; labels describe this example, not every Home Assistant release."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Change a room display name</h1><p class="govuk-body">You need permission to edit this dashboard. Changing the display name does not rename the underlying entities.</p><ol class="govuk-list govuk-list--number"><li>Open the room’s <strong>Edit display name</strong> control.</li><li>Enter the name you want people in your household to see.</li><li>Select <strong>Save name</strong>.</li><li>Check that the new name appears in the room heading.</li></ol><p class="govuk-body">If you cannot edit this dashboard, ask its administrator. Do not change your account permissions to follow these steps.</p>
+  wg-form-purpose:
+    title: "Explain why a question is needed"
+    description: "This form only shows local preview feedback and does not save a schedule."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">When should the porch light turn off?</h1><form data-demo-form data-demo-success="Example answer received locally. No schedule was saved."><div class="govuk-form-group"><label class="govuk-label" for="wg-off-time">Turn-off time</label><p class="govuk-hint" id="wg-off-time-hint">This example uses the household time zone, Europe/London. Enter a time such as 23:00.</p><input class="govuk-input govuk-input--width-5" id="wg-off-time" name="off-time" type="time" aria-describedby="wg-off-time-hint" required></div><button type="submit" class="govuk-button">Continue</button><p class="govuk-body" data-demo-status role="status" aria-live="polite"></p></form>
+  wg-inclusion:
+    title: "Avoid assumptions about the household"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Avoid assumptions about the household</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">Ask your husband to check the fuse box in your home.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">Ask someone who can help with the device, if you need support.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">Do not assume a relationship, ownership, physical access or ability. Task-specific safety instructions still need a qualified source.</p>
+  wg-presence:
+    title: "Describe presence without claiming certainty"
+    description: "Synthetic presence display. It does not reveal or request a real person’s location."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Presence status</h1><p class="govuk-body">Alex’s tracker last reported Home at 17:40.</p><p class="govuk-body">This is a device-based presence estimate. It does not confirm that Alex is available or that the home is occupied.</p><details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">Shared-screen wording</span></summary><div class="govuk-details__text">A shared display can show “Presence details hidden” when that privacy setting actually prevents the details from being shown.</div></details>
+  wg-bsl-status:
+    title: "Be honest about available formats"
+    description: "A transparent text-only example. No signed video or translation service is claimed."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Help with room controls</h1><p class="govuk-body">Written instructions are available in this example. A British Sign Language version has not been produced.</p><p class="govuk-body">A transcript is text; it is not a signed translation. Do not display a video play button until a reviewed video is available.</p><h2 class="govuk-heading-m">Preparing a signed version</h2><ul class="govuk-list govuk-list--bullet"><li>Agree the intended audience and content version.</li><li>Use qualified BSL translation and an independent check.</li><li>Test the complete presentation with Deaf BSL users.</li></ul>
+  wg-data-meaning:
+    title: "Keep power and energy distinct"
+    description: "Synthetic numbers illustrate units and period labels; they are not measurements from a household."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Electricity readings</h1><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Power at 18:42</dt><dd class="govuk-summary-list__value">420 W</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Energy from 00:00 to 18:42</dt><dd class="govuk-summary-list__value">4.62 kWh</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Date and time zone</dt><dd class="govuk-summary-list__value">11 November 2026, Europe/London</dd></div></dl><p class="govuk-body">Power is a rate at a time. Energy covers an interval. Keep the unit beside the value.</p>
+  wg-data-gaps:
+    title: "Distinguish zero from no reading"
+    description: "Synthetic data table with a genuine zero and a missing reading."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Hourly electricity use</h1><table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">11 November 2026, Europe/London; interval start shown</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Interval start</th><th class="govuk-table__header" scope="col">Energy (kWh)</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">09:00</th><td class="govuk-table__cell">0.00</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">10:00</th><td class="govuk-table__cell">No reading</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">11:00</th><td class="govuk-table__cell">0.42</td></tr></tbody></table><p class="govuk-body">The 10:00 reading is missing. A total for these rows would be incomplete.</p>
+  wg-comparison-period:
+    title: "Label a comparison honestly"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Label a comparison honestly</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">You used 30% less energy today!</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">By 12:00 today: 2.1 kWh. By 12:00 yesterday: 3.0 kWh. Both periods have complete readings.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">Compare matching periods and explain coverage. A saving claim also needs a defined calculation and appropriate cost or energy context.</p>
+  wg-accessible-links:
+    title: "Write links that identify their destination"
+    description: "Links lead to verified source guidance, not to device actions."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Help with accessible content</h1><p class="govuk-body">Read the <a class="govuk-link" href="https://service-manual.nhs.uk/content/formatting">NHS guidance on headings, lists and links</a>.</p><p class="govuk-body">For a household guide, use the same clear link purpose and preserve a visible focus indicator.</p><p class="govuk-body">Avoid “click here”, a bare “more”, or a link that unexpectedly starts a device action.</p>
+  wg-accessible-structure:
+    title: "Use structure that communicates meaning"
+    description: "Synthetic help section using headings, a list and an explicit text state."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Bedroom light help</h1><h2 class="govuk-heading-m">Before changing the light</h2><ul class="govuk-list govuk-list--bullet"><li>Check that you chose the right room.</li><li>Check the device’s reported state.</li></ul><h2 class="govuk-heading-m">If the light is unavailable</h2><p class="govuk-body"><strong>Unavailable:</strong> Home Assistant cannot currently obtain this light’s state.</p><p class="govuk-body">The text carries the meaning even without a coloured status marker.</p>
+  wg-review-record:
+    title: "Record what was reviewed"
+    description: "Synthetic editorial record; it does not claim a live-device or medical assessment."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Room controls content review</h1><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reviewed</dt><dd class="govuk-summary-list__value">11 November 2026</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Scope</dt><dd class="govuk-summary-list__value">Authored English labels, pending states and unavailable-device help</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Evidence</dt><dd class="govuk-summary-list__value">Source review and local prototype tests; no live appliance action</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Next review trigger</dt><dd class="govuk-summary-list__value">A change to supported device actions or state reporting</dd></div></dl>
+  wg-change-note:
+    title: "Explain a meaningful content change"
+    description: "Original household wording comparison. The states and devices are illustrative, not connected to Home Assistant."
+    height: 500
+    html: |
+      <h1 class="govuk-heading-l">Explain a meaningful content change</h1>
+          <div class="civica-pattern-grid"><section class="civica-pattern-card"><h2 class="govuk-heading-m">Before</h2><p class="govuk-body">Updated the page.</p></section>
+          <section class="civica-pattern-card"><h2 class="govuk-heading-m">After</h2><p class="govuk-body">Clarified that turning off an automation prevents future starts and may not stop a run already in progress.</p></section></div><h2 class="govuk-heading-m">Why this helps</h2><p class="govuk-body">A useful change note identifies the changed meaning and its effect on the task.</p>

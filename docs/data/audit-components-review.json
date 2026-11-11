@@ -1,0 +1,1778 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-11",
+  "reviewer": "Independent component/content review by theme_palettes agent",
+  "baseline": {
+    "git_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
+    "working_tree": "Current shared checkout; new frozen brand/writing rules are uncommitted additions. Component files and example sources are individually hashed below.",
+    "component_page_count": 58,
+    "distinct_referenced_examples": 121
+  },
+  "scope": "Static, full-text review of every component guide and its referenced example source against the 33 frozen brand rules and 68 frozen writing rules. The chart harness was read because it generates the chart example content. No existing component or example was edited.",
+  "limits": [
+    "This is not a browser, assistive-technology, usability, live Home Assistant or device-control audit.",
+    "No confirmed finding means no concrete static-content contradiction was identified in the stated scope; it is not full compliance or an accessibility pass.",
+    "Shared stylesheet drift is owned by the parent foundation audit and is not duplicated here.",
+    "Older original SVG metadata is recorded as a migration recommendation because BG-ILL-10 governs new asset delivery. Functional icon and map strokes are not expressive-illustration violations."
+  ],
+  "rule_sets": [
+    {
+      "path": "docs/data/brand-guidance-inventory.json",
+      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "rule_count": 33,
+      "rule_ids": [
+        "BG-COL-01",
+        "BG-COL-02",
+        "BG-COL-03",
+        "BG-COL-04",
+        "BG-COL-05",
+        "BG-COL-06",
+        "BG-COL-07",
+        "BG-COL-08",
+        "BG-TYP-01",
+        "BG-TYP-02",
+        "BG-TYP-03",
+        "BG-TYP-04",
+        "BG-TYP-05",
+        "BG-TYP-06",
+        "BG-DAT-01",
+        "BG-DAT-02",
+        "BG-DAT-03",
+        "BG-DAT-04",
+        "BG-DAT-05",
+        "BG-DAT-06",
+        "BG-DAT-07",
+        "BG-DAT-08",
+        "BG-DAT-09",
+        "BG-ILL-01",
+        "BG-ILL-02",
+        "BG-ILL-03",
+        "BG-ILL-04",
+        "BG-ILL-05",
+        "BG-ILL-06",
+        "BG-ILL-07",
+        "BG-ILL-08",
+        "BG-ILL-09",
+        "BG-ILL-10"
+      ],
+      "scope": "Frozen local requirements/recommendations, applied only within each rule scope."
+    },
+    {
+      "path": "docs/data/writing-guide-inventory.json",
+      "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+      "rule_count": 68,
+      "rule_ids": [
+        "WG-001",
+        "WG-002",
+        "WG-003",
+        "WG-004",
+        "WG-010",
+        "WG-011",
+        "WG-012",
+        "WG-013",
+        "WG-014",
+        "WG-015",
+        "WG-020",
+        "WG-021",
+        "WG-022",
+        "WG-023",
+        "WG-024",
+        "WG-025",
+        "WG-030",
+        "WG-031",
+        "WG-032",
+        "WG-033",
+        "WG-034",
+        "WG-035",
+        "WG-036",
+        "WG-037",
+        "WG-038",
+        "WG-040",
+        "WG-041",
+        "WG-042",
+        "WG-043",
+        "WG-044",
+        "WG-045",
+        "WG-046",
+        "WG-050",
+        "WG-051",
+        "WG-052",
+        "WG-053",
+        "WG-054",
+        "WG-055",
+        "WG-056",
+        "WG-060",
+        "WG-061",
+        "WG-062",
+        "WG-063",
+        "WG-064",
+        "WG-065",
+        "WG-066",
+        "WG-070",
+        "WG-071",
+        "WG-072",
+        "WG-073",
+        "WG-074",
+        "WG-075",
+        "WG-076",
+        "WG-077",
+        "WG-078",
+        "WG-080",
+        "WG-081",
+        "WG-082",
+        "WG-083",
+        "WG-084",
+        "WG-085",
+        "WG-086",
+        "WG-090",
+        "WG-091",
+        "WG-092",
+        "WG-093",
+        "WG-094",
+        "WG-095"
+      ],
+      "scope": "Frozen local requirements/recommendations, applied only within each rule scope."
+    }
+  ],
+  "pages": [
+    {
+      "path": "docs/source/components/accordion.html.md.erb",
+      "sha256": "9e05903776410309aded5aa041db5de0cf9159a717f0aca6583f84544a192292",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-accordion-troubleshooting",
+        "core-accordion-measures"
+      ],
+      "note": "Optional troubleshooting stays distinct from current state and required action; progressive enhancement and native-panel boundaries are explicit."
+    },
+    {
+      "path": "docs/source/components/action-links.html.md.erb",
+      "sha256": "f990df78b3d5d024f6a084007ff7f3ce2f15799ddcf660abfd5c9e903be860fb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-003"
+      ],
+      "recommendation_ids": [
+        "AUD-COMP-REC-001"
+      ],
+      "example_ids": [
+        "nhs-action-link-journey",
+        "nhs-action-link-help"
+      ],
+      "note": "Real local navigation, no device commands, supplied typography and original functional arrow are clear; second-example purpose drifts from the guide."
+    },
+    {
+      "path": "docs/source/components/back-link.html.md.erb",
+      "sha256": "6ac38d8c2ec529dc1ec1a40f2d0cd8289ba247049679e9dce3fbaf50ed2fd85c",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-back-step",
+        "nhs-back-review"
+      ],
+      "note": "Stateful return and native routing are distinguished from safe local section targets; visible back labels identify their destinations."
+    },
+    {
+      "path": "docs/source/components/breadcrumbs.html.md.erb",
+      "sha256": "275f4691ebbf0c5346a36945597107fc1d082a6ac6f94671a5546496c57722f3",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-004"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-breadcrumbs-device",
+        "nhs-breadcrumbs-guide"
+      ],
+      "note": "Hierarchy, parent routes and current heading are clear; one prose-spacing defect is recorded."
+    },
+    {
+      "path": "docs/source/components/buttons.html.md.erb",
+      "sha256": "084e4885e026fec1cda69113d23f77b98ee57f7bcc1438fbf9200048f99e961e",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-button-primary",
+        "nhs-button-secondary",
+        "nhs-button-warning",
+        "nhs-button-unavailable"
+      ],
+      "note": "Action wording, confirmation versus request, semantic danger and supported unavailable actions remain distinct in the guide and local examples."
+    },
+    {
+      "path": "docs/source/components/cards.html.md.erb",
+      "sha256": "df4672e843fa201dc1c7696f7fb1c326fc1fdc14f9c8c203027494abfb64a52e",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-card-navigation",
+        "local-card-actions",
+        "nhs-card-information"
+      ],
+      "note": "Navigation and multi-action cards retain separate targets; quiet structure and native room hit regions are explicitly differentiated."
+    },
+    {
+      "path": "docs/source/components/character-count.html.md.erb",
+      "sha256": "23b40a27cdd1052acc45d4092d258bb24580070c4eaa7b2d21725e70427a7e7a",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-004"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-count-note",
+        "nhs-count-over-limit"
+      ],
+      "note": "A real receiving limit, retained over-limit text and shared count semantics are explained; one label-spacing defect remains."
+    },
+    {
+      "path": "docs/source/components/chart-examples.html.erb",
+      "sha256": "0ed72e69d53d837b264ba7eb6e28402ae1dff177ae350fdf1270d76f3b92bb46",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-002"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-chart-power",
+        "local-chart-usage",
+        "local-chart-devices",
+        "local-chart-many",
+        "local-chart-empty"
+      ],
+      "note": "Synthetic values and production-adapter reuse are explicit; the shared harness sample-day control/caption has a bounded confirmed issue."
+    },
+    {
+      "path": "docs/source/components/charts.html.md.erb",
+      "sha256": "0ec7489ad8d198a009f51aeb400df1f5b4ccb3c3cf0b40bf47dee1241713e1a3",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-002"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-chart-power",
+        "local-chart-usage",
+        "local-chart-devices"
+      ],
+      "note": "ONS 3px versus local 1.5px, signed projection, stable identities, missing values and native interaction are explicitly documented; the example harness needs correction."
+    },
+    {
+      "path": "docs/source/components/checkboxes.html.md.erb",
+      "sha256": "e89a25487282a953b71046f5d44fbb1fb7bb261d05817c489ec03d27c1e392e8",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-checkbox-rooms",
+        "nhs-checkbox-preference"
+      ],
+      "note": "Independent selection, saved preference and physical-device operation are distinguished; labels, legends and exclusive-choice handling are specified."
+    },
+    {
+      "path": "docs/source/components/contents-list.html.md.erb",
+      "sha256": "2ac6241b06ee6b435917e1f35b23e4bbfb1a9b961424897e8ea6c7158a09e34a",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-contents-guide",
+        "nhs-contents-in-page"
+      ],
+      "note": "Reference-page navigation is distinguished from form progression; the in-page variant names its scope and uses actual local targets."
+    },
+    {
+      "path": "docs/source/components/controls.html.md.erb",
+      "sha256": "227797c0fb64c00f6ed6dcfc3bd853fa057b84a1305150775de436c9d78ff105",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-controls-form",
+        "local-controls-error"
+      ],
+      "note": "Persistent labels, error association, fixed focus meaning and preference/device separation are explicit; no additional content finding beyond shared CSS review."
+    },
+    {
+      "path": "docs/source/components/cookie-banner.html.md.erb",
+      "sha256": "aa5c41bdc150c78b4f0360f020d2818e21cc80751262ee785295e8f93b30147d",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-cookie-choice",
+        "core-cookie-confirmation"
+      ],
+      "note": "No current analytics or consent implementation is implied; optional future-service choices and actual storage verification are separated."
+    },
+    {
+      "path": "docs/source/components/date-input.html.md.erb",
+      "sha256": "21c85af4c6ea5dd3a801ff8015b96b97227800adec3e2e8fbf2ab2319be1ae4f",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-004"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-date-maintenance",
+        "nhs-date-error"
+      ],
+      "note": "Known dates, date-only semantics and native reporting ranges are distinguished; one punctuation-spacing defect remains."
+    },
+    {
+      "path": "docs/source/components/details.html.md.erb",
+      "sha256": "1dbadd7ebcb9123aa2f2e6bbb60e89c54e65abea93269de5a950bde28d5c1e29",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-001",
+        "AUD-COMP-004"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-details-energy",
+        "nhs-details-unavailable"
+      ],
+      "note": "Essential state stays outside optional explanation; the fixed daily reading needs a complete period and prose spacing."
+    },
+    {
+      "path": "docs/source/components/devices.html.md.erb",
+      "sha256": "19e18f221ebb9c10d2c67935342fda28f9f8d5256d4437c7b5e2b2fc8dd56b30",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-device-switch",
+        "local-device-slider",
+        "local-device-unavailable"
+      ],
+      "note": "Continuous controls, native capability/permission boundaries and confirmed state are a documented HA extension to transaction-focused source patterns."
+    },
+    {
+      "path": "docs/source/components/dialogs.html.md.erb",
+      "sha256": "3248b167f90f8d607247e6c5be069e4456220112da08bba49ab525b43b6deaa9",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-dialog-details",
+        "local-dialog-confirm"
+      ],
+      "note": "Meaningful title, focus lifecycle, precise destructive consequence and native confirmation boundaries are explicit."
+    },
+    {
+      "path": "docs/source/components/do-and-dont-lists.html.md.erb",
+      "sha256": "5f1f15c10e9394113307608d57134a06315e86652ae0af97896ed4e9a54a8251",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [
+        "AUD-COMP-REC-001"
+      ],
+      "example_ids": [
+        "nhs-advice-dashboard",
+        "nhs-advice-notes"
+      ],
+      "note": "Negative items remain understandable without headings or colour; existing tick/cross provenance is a migration recommendation only."
+    },
+    {
+      "path": "docs/source/components/error-message.html.md.erb",
+      "sha256": "5f882e27f2dbfb41bba3c9da3101fafa80dbff23a9ab79bf3bab98f29900b9d5",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-error-room-name",
+        "nhs-error-temperature"
+      ],
+      "note": "Validation is distinguished from service failure; examples preserve labels/hints and identify a declared measurement range without inventing production limits."
+    },
+    {
+      "path": "docs/source/components/error-summary.html.md.erb",
+      "sha256": "a258c9b12235245e808aa7c4b93d2b86ae23c50623e439e228164518973f023e",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-summary-one-error",
+        "nhs-summary-two-errors"
+      ],
+      "note": "Summary and field messages agree and target real controls; static auto-focus suppression is explicitly scoped to documentation."
+    },
+    {
+      "path": "docs/source/components/example.html.md.erb",
+      "sha256": "8aa6a94c136abe15a8e807c8c0d535f61ad724dc322852457bdf33874d4e54c0",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-001"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "system-example-reading",
+        "system-example-interactive"
+      ],
+      "note": "Preview/source parity, synthetic-only scope and test boundaries are described; its fixed sensor reading needs date/time context."
+    },
+    {
+      "path": "docs/source/components/exit-this-page.html.md.erb",
+      "sha256": "b0fb387283827cf380208e4d9ce471c00df9d82f9ac5dc8ca98893e32fba211d",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-exit-visible",
+        "core-exit-keyboard"
+      ],
+      "note": "The local preview explicitly does not provide production safety, history clearing or an emergency-stop capability; reviewed deployment remains separate."
+    },
+    {
+      "path": "docs/source/components/expander.html.md.erb",
+      "sha256": "a2f5eecad8e91c2113d949b148c8279c427d57fd2c568e285eb66827346a0e5e",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-expander-energy",
+        "nhs-expander-guide"
+      ],
+      "note": "Optional reference explanations do not conceal live state or required action; missing and delayed values remain separate."
+    },
+    {
+      "path": "docs/source/components/feedback.html.md.erb",
+      "sha256": "618ce2a051486c3958a0dacc67636cac1b600991285678356230e5d97967aac2",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-feedback-invitation",
+        "core-feedback-confirmation"
+      ],
+      "note": "Feedback audience, privacy and receipt boundaries are explicit; examples never claim to send a real message."
+    },
+    {
+      "path": "docs/source/components/fieldset.html.md.erb",
+      "sha256": "56a4fc165c0209f6e6d7b420f6d8f3f95122662b229924a78fa6fbdc51d12f4b",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-fieldset-room-options",
+        "nhs-fieldset-period"
+      ],
+      "note": "Group purpose, individually named controls and native grouping boundaries are explicit, without adding a decorative box requirement."
+    },
+    {
+      "path": "docs/source/components/file-upload.html.md.erb",
+      "sha256": "d56ffec5b737c7c5ed22e8e1a7f100812b18c873a3bc6811b5302f50c4e9fcaa",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-upload-image",
+        "nhs-upload-error"
+      ],
+      "note": "Local selection, validation and confirmed upload/import are distinguished; accepted-format hints do not claim validation."
+    },
+    {
+      "path": "docs/source/components/footer.html.md.erb",
+      "sha256": "30b1b96aa22992c0712d152b63bcbfe427afe648e74e150cd0ba6c15acac0bec",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-footer-simple",
+        "nhs-footer-information"
+      ],
+      "note": "Actual ownership, licensing and useful supporting destinations are required; reference targets do not imply published policies."
+    },
+    {
+      "path": "docs/source/components/generic-header.html.md.erb",
+      "sha256": "565f46615f2ee11027972712c8bbbbbc466f163a4c6b8566712e36e724e8e9cb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-generic-header",
+        "core-generic-header-service"
+      ],
+      "note": "Independent civica identity, supplied artwork and meaningful home destinations are explicit; official eligibility is not imported."
+    },
+    {
+      "path": "docs/source/components/header.html.md.erb",
+      "sha256": "40841f33c85074037caf0e20584eec11323aeae7d2e1f8eec6580c775d734cf0",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-header-minimal",
+        "nhs-header-navigation"
+      ],
+      "note": "Supplied civica identity and native menu/account ownership are retained; examples explicitly replace neither routing nor authentication."
+    },
+    {
+      "path": "docs/source/components/hint-text.html.md.erb",
+      "sha256": "3b03ee827613d6d02586442a7100547b70cf9e6452f2930de845e0550b73a97b",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-hint-name",
+        "nhs-hint-scope"
+      ],
+      "note": "Necessary hints, display-only effects and implementation identifiers are placed in their correct task context."
+    },
+    {
+      "path": "docs/source/components/images.html.md.erb",
+      "sha256": "1b2f398cae7a3ba72fbd1858393e88149499a4cebaa2d78b7e6a36c8901797bf",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [
+        "AUD-COMP-REC-001"
+      ],
+      "example_ids": [
+        "nhs-image-floorplan",
+        "nhs-image-decorative"
+      ],
+      "note": "Informative alternatives, schematic scope and camera privacy are explicit; existing schematic metadata is a migration recommendation rather than a new-asset violation."
+    },
+    {
+      "path": "docs/source/components/index.html.erb",
+      "sha256": "5726c35c13a1653e6ccd5541058a3023a68161e4cb0ad2e7cacbedda00da65db",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [],
+      "note": "The catalogue explicitly separates reference guidance from deployed native adaptation and links its source coverage record."
+    },
+    {
+      "path": "docs/source/components/inset-text.html.md.erb",
+      "sha256": "c12fced403de4a8301732c00d94baabdae27ff483ca69908c23ca8a064c4e029",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-inset-estimate",
+        "nhs-inset-display"
+      ],
+      "note": "Estimate and display-only context remain normal content rather than a live alert or result; semantic text survives without the visual rule."
+    },
+    {
+      "path": "docs/source/components/language-navigation.html.md.erb",
+      "sha256": "333ad597dd65a5a6aaaad8df11d7a6e303c088a81c3cdbc4abc3aa906f3ff919",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-language-en",
+        "core-language-cy"
+      ],
+      "note": "Illustrative bilingual labels, actual language metadata and the need for reviewed full translations are distinguished from native account preferences."
+    },
+    {
+      "path": "docs/source/components/navigation.html.md.erb",
+      "sha256": "03ee08a2279e287f58d20907c7a76e027ed56d271643849da6629aa01c0c93c7",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-navigation-current",
+        "local-navigation-rooms"
+      ],
+      "note": "Native routes, named links, current-state semantics and device-action separation remain explicit; no duplicate authoritative Energy page is proposed."
+    },
+    {
+      "path": "docs/source/components/notification-badge.html.md.erb",
+      "sha256": "cc37d6e3ebc119da36e90cb63e1cbb9da9aae4c06b31a4f62828b6afef1eda39",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "local-badge-count",
+        "local-badge-overflow"
+      ],
+      "note": "The documented live-count adaptation preserves MOJ geometry and semantic colour while retaining native update/notification meanings and controls."
+    },
+    {
+      "path": "docs/source/components/notification-banners.html.md.erb",
+      "sha256": "f6fa829ddaf72684b42a86b09b6a11c4f28fbe8f9a43e7838da5ee307c5bcabe",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-001"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-banner-maintenance",
+        "nhs-banner-success"
+      ],
+      "note": "Confirmed save and planned interruption are distinct; the fixed maintenance example needs an explicit date and timezone."
+    },
+    {
+      "path": "docs/source/components/page-history.html.md.erb",
+      "sha256": "9d0b96e24ebe90930bc6b397e9321053f08326d977ca083dbe2d38b39531af77",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "system-history-expanded",
+        "system-history-correction"
+      ],
+      "note": "Publication, edit, review and sensor dates are explicitly separated; existing and new frontmatter ownership is described without treating builds as reviews."
+    },
+    {
+      "path": "docs/source/components/pagination.html.md.erb",
+      "sha256": "3b8bd15742452e8cd4c0721e9aaae8f41992982bb1c4867ebf615d4a4897fc32",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-pagination-guide",
+        "nhs-pagination-records"
+      ],
+      "note": "Guide/list paging is distinguished from task progression; period, filters and missing-result handling remain explicit."
+    },
+    {
+      "path": "docs/source/components/panel.html.md.erb",
+      "sha256": "070474e772f9569a1e7a473512596f5b9862f97c6227bd24d750d1ba4e00c447",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-panel-complete",
+        "nhs-panel-interruption"
+      ],
+      "note": "Whole-task completion, interruption and normal readings are separated; examples do not imply a live backup restore or physical action."
+    },
+    {
+      "path": "docs/source/components/password-input.html.md.erb",
+      "sha256": "7b69bb22846644efc412c25b2e75ff610cabaa0fb5e33e195aec2321aa5f9e5f",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-password-current",
+        "nhs-password-new"
+      ],
+      "note": "Native credential handling, show/hide semantics and genuine password purpose remain explicit; no second authentication service is claimed."
+    },
+    {
+      "path": "docs/source/components/phase-banner.html.md.erb",
+      "sha256": "72e92ee58a26319409d55199019031ff78ded401e28aa449f11da8da8733a609",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-phase-demo",
+        "core-phase-trial"
+      ],
+      "note": "Project trial status is explicitly independent of government assessment and device fault severity; the example cannot control a home."
+    },
+    {
+      "path": "docs/source/components/radios.html.md.erb",
+      "sha256": "2e2f17add24c618b8face8f52e58d8a6f85c8a6ddcc4a02f3206124faa9b25fb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-radio-units",
+        "nhs-radio-theme-mode"
+      ],
+      "note": "Exclusive answers, saved preferences and immediate physical switches remain distinct, including an honest native system-setting option."
+    },
+    {
+      "path": "docs/source/components/review-date.html.md.erb",
+      "sha256": "ab73bf73855b36bc3f2d1f1ec3ddf883ae7357723b2991f2f23570d26f5a6e65",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-component-review-guidance",
+        "nhs-review-reading"
+      ],
+      "note": "The withdrawn source is not reinstated: a replacement editorial-review pattern is documented separately from a fully dated sensor observation."
+    },
+    {
+      "path": "docs/source/components/search-input.html.md.erb",
+      "sha256": "5d760f3f1c92c0306243d0a324a5b7136ff005d95466187a422d1d72892e3628",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-search-devices",
+        "nhs-search-no-results"
+      ],
+      "note": "Scope, no results and connection failure are distinguished; local messages are explicitly demonstrations rather than live search results."
+    },
+    {
+      "path": "docs/source/components/select.html.md.erb",
+      "sha256": "4cf41fb5e6d29f12557cc0a013ed7b6deb84d27f71d9670c7657c4ec82cbb716",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-select-palettes",
+        "nhs-select-error"
+      ],
+      "note": "The ten supplied palette names are intact, saved selection is explicit, and the names-only preview does not claim to change Home Assistant."
+    },
+    {
+      "path": "docs/source/components/service-navigation.html.md.erb",
+      "sha256": "15518c60d8c348c64cb4ffaf619ccc9b0edd2f5eb839ee2c909e64fa8dc770d4",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-service-navigation",
+        "core-service-navigation-compact"
+      ],
+      "note": "Real routes/current-state requirements and the local fragment demonstration are separated; native sidebar ownership remains clear."
+    },
+    {
+      "path": "docs/source/components/skip-link.html.md.erb",
+      "sha256": "ebe2ef9dbd32743bab186f3db081b414c39fd430170f26c2c50b8e2ccb802e9f",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-skip-main",
+        "nhs-skip-form"
+      ],
+      "note": "Focus movement, native shadow-root limitations and standalone example scope are explicit; no global native skip enhancement is claimed."
+    },
+    {
+      "path": "docs/source/components/status.html.md.erb",
+      "sha256": "65d1455728a20a1bf0df44e5895a8cf243b50594e351146f5f682a17c61a3e9a",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [
+        "AUD-COMP-REC-002"
+      ],
+      "example_ids": [
+        "local-status-empty",
+        "local-status-pending",
+        "local-status-failure"
+      ],
+      "note": "Vocabulary separates request, confirmation, empty, pending and unavailable states; showing an actual retained state would strengthen the pending example."
+    },
+    {
+      "path": "docs/source/components/summary-list.html.md.erb",
+      "sha256": "1cedff337dfc03aa9b4b62a88390fb578f1d3104149db6fddf387f3984c9f20b",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-summary-device",
+        "nhs-summary-change"
+      ],
+      "note": "Values and independent change targets retain semantic associations and friendly names without turning rows into actions."
+    },
+    {
+      "path": "docs/source/components/table.html.md.erb",
+      "sha256": "4103510295bbcbdd0ffc8a4f1821839fb2dbe36f4606d8dd3d197523e7f9c373",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-001"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-table-readings",
+        "nhs-table-missing",
+        "nhs-table-scroll"
+      ],
+      "note": "Zero/missing values, units and equivalent data access are explicit; fixed example readings and weekday comparisons need their dates."
+    },
+    {
+      "path": "docs/source/components/tabs.html.md.erb",
+      "sha256": "3fa6ad4d3900e5642117de4f48229fbc0e7246e0fa4e9ebf347617c2c6ebde6d",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-COMP-004"
+      ],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-tabs-device",
+        "nhs-tabs-empty"
+      ],
+      "note": "Related views, task progression and critical-state visibility are separated; one date-label spacing defect remains."
+    },
+    {
+      "path": "docs/source/components/tag.html.md.erb",
+      "sha256": "52c0bba56794f62cc9ca8af60046b6c81ad5ab1b60a905236bdbdc3b19243a3e",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-tag-connection",
+        "nhs-tag-task"
+      ],
+      "note": "Status is text rather than an action; completed task and current device availability are explicitly different facts."
+    },
+    {
+      "path": "docs/source/components/task-list.html.md.erb",
+      "sha256": "f1e73a717e16bdff21b9f12cab2aee67be78c9159c2978afc40a1193d6c67edf",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-tasks-dashboard",
+        "nhs-tasks-dependency"
+      ],
+      "note": "Saved progress, prerequisites and final activation remain distinct; dependency wording does not create an unsupported household requirement."
+    },
+    {
+      "path": "docs/source/components/text-input.html.md.erb",
+      "sha256": "c47d06fd779a21c0e59d8b12936796d2523621a6741648b1720c2799e42a4ad9",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-input-room",
+        "nhs-input-measurement"
+      ],
+      "note": "Persistent labels, meaningful units, literal IDs and supplied names have explicit boundaries; numeric formatting is not used to discard meaningful content."
+    },
+    {
+      "path": "docs/source/components/textarea.html.md.erb",
+      "sha256": "4a1c38d2cb547f5a5ec78c5c95e542e3ae46a26336dcafa05961632a155fc830",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [
+        "AUD-COMP-REC-003"
+      ],
+      "example_ids": [
+        "nhs-textarea-description",
+        "nhs-textarea-error"
+      ],
+      "note": "Audience/privacy and non-secret draft preservation are explicit; the empty error specimen would be clearer as a required-answer example."
+    },
+    {
+      "path": "docs/source/components/warning-callout.html.md.erb",
+      "sha256": "34ffef5bd10d46861da61945c09a0a37881f0401af128a1353e967c3b2d27b25",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "nhs-warning-unavailable",
+        "nhs-warning-import"
+      ],
+      "note": "Unavailable data is not described as safe/off, and verified native import consequences remain separate from physical-device operating advice."
+    },
+    {
+      "path": "docs/source/components/warning-text.html.md.erb",
+      "sha256": "92ab81a7c3227af50f82ea4f6fe79d1f88564cd604ab8848591ed27d5c6f66c3",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "recommendation_ids": [],
+      "example_ids": [
+        "core-warning-delete",
+        "core-warning-replace"
+      ],
+      "note": "Specific consequences, fixed danger semantics and native safety/permission boundaries are explicit; previews do not perform removal or replacement."
+    }
+  ],
+  "findings": [
+    {
+      "id": "AUD-COMP-001",
+      "priority": "P2",
+      "title": "Give fixed reading and maintenance examples an unambiguous date and time context",
+      "violated_rule_ids": [
+        "BG-TYP-03",
+        "BG-DAT-03",
+        "WG-074",
+        "WG-075"
+      ],
+      "affected_pages": [
+        "docs/source/components/example.html.md.erb",
+        "docs/source/components/details.html.md.erb",
+        "docs/source/components/notification-banners.html.md.erb",
+        "docs/source/components/table.html.md.erb"
+      ],
+      "example_ids": [
+        "system-example-reading",
+        "nhs-details-energy",
+        "nhs-banner-maintenance",
+        "nhs-table-readings",
+        "nhs-table-missing",
+        "nhs-table-scroll"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/core-examples.yml",
+          "line": 95,
+          "excerpt": "\"html\": \"<h2 class=\\\"govuk-heading-m\\\">Living room temperature</h2><p class=\\\"govuk-body\\\"><strong>20 \\u00b0C</strong> \\u2014 example reading. Updated at 14:30.</p>\",",
+          "reason": "The fixed example has a clock time but no date, zone or distinction between observation and display update."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 592,
+          "excerpt": "<p class=\"govuk-body\">Electricity imported today:3.8 kWh</p>",
+          "reason": "The fixed daily energy total uses an unanchored today, so the period cannot be identified outside the authoring day."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 744,
+          "excerpt": "<p class=\"govuk-notification-banner__heading\">Energy history may be delayed tonight.</p>",
+          "reason": "The maintenance notice uses tonight without a date."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 745,
+          "excerpt": "<p class=\"govuk-body\">The example recording service is scheduled for maintenance from 02:00 to 02:30. Device controls are not part of this example notice.</p>",
+          "reason": "The maintenance window has no date or timezone."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 848,
+          "excerpt": "<caption class=\"govuk-table__caption govuk-table__caption--m\">Room temperatures</caption>",
+          "reason": "The room-temperature table has no observation date/time."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 876,
+          "excerpt": "<caption class=\"govuk-table__caption govuk-table__caption--m\">Electricity recorded by hour</caption>",
+          "reason": "Hourly rows identify clock times and GMT but not their calendar date."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 905,
+          "excerpt": "<caption class=\"govuk-table__caption govuk-table__caption--m\">Room temperatures at 09:00 GMT</caption>",
+          "reason": "The comparison identifies clock time and weekdays but no week/date range."
+        }
+      ],
+      "why_it_matters": "These reusable examples teach context for operational readings and schedules. Their synthetic-data status prevents a live-data claim, but does not identify the period or time represented. A copied or standalone specimen remains ambiguous.",
+      "proposed_change": "Add explicit invented observation dates or selected-period captions, and the relevant zone. Label observed/reported/period-start accurately. Give the maintenance notice one full dated window; give the weekday comparison calendar dates or a week commencing date. Keep all data synthetic and unchanged.",
+      "acceptance": [
+        "Each standalone example identifies the relevant date/period and timezone without depending on the real current day.",
+        "Displayed clock values and time datetime attributes agree, and observation/interval labels match the example model.",
+        "The examples still explicitly remain invented and do not claim a live outage or reading."
+      ],
+      "status": "proposal-not-implemented"
+    },
+    {
+      "id": "AUD-COMP-002",
+      "priority": "P2",
+      "title": "Make the sample-day control and caption agree with the displayed chart",
+      "violated_rule_ids": [
+        "BG-DAT-03",
+        "WG-056",
+        "WG-074",
+        "WG-077"
+      ],
+      "affected_pages": [
+        "docs/source/components/charts.html.md.erb",
+        "docs/source/components/chart-examples.html.erb"
+      ],
+      "example_ids": [
+        "local-chart-power",
+        "local-chart-usage",
+        "local-chart-devices",
+        "local-chart-many",
+        "local-chart-empty"
+      ],
+      "evidence": [
+        {
+          "path": "ui/dev/energy-charts-harness.ts",
+          "line": 79,
+          "excerpt": "const nextDay = element('button', 'Show next sample day'); nextDay.type = 'button';",
+          "reason": "The advertised action is created for every isolated example."
+        },
+        {
+          "path": "ui/dev/energy-charts-harness.ts",
+          "line": 214,
+          "excerpt": "for (const key of ['power', 'usage', 'many'] as Key[]) {",
+          "reason": "The handler excludes devices and empty, although their isolated examples still show the action."
+        },
+        {
+          "path": "ui/dev/energy-charts-harness.ts",
+          "line": 218,
+          "excerpt": "cards[key].shadowRoot!.querySelector('.chart-description')!.textContent = `Invented example values for ${11 + day} November 2026. See the table for the original times, period starts and units.`;",
+          "reason": "The caption constructs a November day number independently of the real timestamp and becomes invalid after 30 November."
+        }
+      ],
+      "why_it_matters": "An isolated device or no-data example advertises a day change that it does not perform. For the supported examples, repeated clicks eventually show a nonexistent date while the source timestamp has moved into December. This is confined to the documentation harness; it is not a finding against the production adapter.",
+      "proposed_change": "Either implement selected-period changes for every advertised chart or only show the control where it has a defined effect. Format captions from the same actual sample timestamp used for data and axes, including month/year boundaries and comparison context. Keep the production adapter and data semantics unchanged.",
+      "acceptance": [
+        "For each isolated example, the control has a truthful visible effect or is omitted with an explained limit.",
+        "Advancing from 30 November to 1 December produces a valid caption matching plotted and tabular dates.",
+        "Current/comparison periods remain correctly labelled after repeated day changes and theme changes."
+      ],
+      "status": "proposal-not-implemented"
+    },
+    {
+      "id": "AUD-COMP-003",
+      "priority": "P3",
+      "title": "Describe the second action-link example as the destination it actually provides",
+      "violated_rule_ids": [
+        "WG-037",
+        "WG-056"
+      ],
+      "affected_pages": [
+        "docs/source/components/action-links.html.md.erb"
+      ],
+      "example_ids": [
+        "nhs-action-link-help"
+      ],
+      "evidence": [
+        {
+          "path": "docs/source/components/action-links.html.md.erb",
+          "line": 67,
+          "excerpt": "The [NHS action link](https://service-manual.nhs.uk/design-system/components/action-link) emphasises entry to a service journey. civica.uk also uses this treatment for a small number of frequently used dashboard destinations. That is a deliberate local extension: a link still navigates and never sends a device command. The examples distinguish a task entry from a help destination.",
+          "reason": "The guide says the pair distinguishes a task entry from a help destination."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 1464,
+          "excerpt": "<span>Review display preferences</span>",
+          "reason": "The second example is a display-preference task with an in-frame settings section, not a help destination."
+        }
+      ],
+      "why_it_matters": "The guide and its example describe different purposes. Both existing destinations are safe local links; the issue is instructional accuracy, not routing safety.",
+      "proposed_change": "Either make the second specimen a clearly labelled help destination with useful help content, or change the guide to describe the actual task-entry and display-preference examples. Keep link purpose and accessible name aligned.",
+      "acceptance": [
+        "The guide, example title/description, visible link and target section describe the same destination type.",
+        "The link still uses a real existing local target and sends no device command."
+      ],
+      "status": "proposal-not-implemented"
+    },
+    {
+      "id": "AUD-COMP-004",
+      "priority": "P3",
+      "title": "Restore spaces after punctuation in component guidance and examples",
+      "violated_rule_ids": [
+        "WG-023"
+      ],
+      "affected_pages": [
+        "docs/source/components/breadcrumbs.html.md.erb",
+        "docs/source/components/date-input.html.md.erb",
+        "docs/source/components/character-count.html.md.erb",
+        "docs/source/components/details.html.md.erb",
+        "docs/source/components/tabs.html.md.erb"
+      ],
+      "example_ids": [
+        "nhs-count-over-limit",
+        "nhs-details-energy",
+        "nhs-tabs-device"
+      ],
+      "evidence": [
+        {
+          "path": "docs/source/components/breadcrumbs.html.md.erb",
+          "line": 55,
+          "excerpt": "Test long names,320px width, increased text size and direct navigation into a child page. Ensure the current page heading and parent trail agree.",
+          "reason": "The comma runs directly into the following width."
+        },
+        {
+          "path": "docs/source/components/date-input.html.md.erb",
+          "line": 55,
+          "excerpt": "Test missing parts,31 February, an unexpected future date and mobile number keyboards. Explain any domain-specific date restriction in plain language rather than rejecting it as “invalid”.",
+          "reason": "The comma runs into the date example."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 66,
+          "excerpt": "<div class=\"govuk-hint\" id=\"long-note-hint\">Example limit:40 characters</div>",
+          "reason": "The colon runs into the limit."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 592,
+          "excerpt": "<p class=\"govuk-body\">Electricity imported today:3.8 kWh</p>",
+          "reason": "The colon runs into the displayed value."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 954,
+          "excerpt": "<p class=\"govuk-body\">Last reported change:11 November 2026 at 14:00 GMT.</p>",
+          "reason": "The colon runs into the date."
+        }
+      ],
+      "why_it_matters": "These are authored prose separators, not literal entity IDs, times, paths or user names. The missing spaces make instructional copy harder to scan and are inconsistent with the adopted punctuation default.",
+      "proposed_change": "Insert a normal space after each listed comma or label colon. Preserve numeric clock syntax, paths, identifiers and supplied names. Resolve the daily-total date context under AUD-COMP-001 at the same time.",
+      "acceptance": [
+        "The cited strings use conventional prose spacing without changing literal values.",
+        "Example source and rendered copy stay in sync."
+      ],
+      "status": "proposal-not-implemented"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "AUD-COMP-REC-001",
+      "priority": "P3",
+      "type": "existing-artwork-migration",
+      "related_rule_ids": [
+        "BG-ILL-07",
+        "BG-ILL-10"
+      ],
+      "affected_pages": [
+        "docs/source/components/action-links.html.md.erb",
+        "docs/source/components/do-and-dont-lists.html.md.erb",
+        "docs/source/components/images.html.md.erb"
+      ],
+      "example_ids": [
+        "nhs-action-link-journey",
+        "nhs-action-link-help",
+        "nhs-advice-dashboard",
+        "nhs-advice-notes",
+        "nhs-image-floorplan"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 1441,
+          "excerpt": "<path d=\"M12 20H28M22 14L28 20L22 26\" fill=\"none\" stroke=\"#0b0c0c\" stroke-width=\"2\">",
+          "reason": "Existing original action-link geometry."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 625,
+          "excerpt": "<path d=\"M4 12L9 17L20 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\">",
+          "reason": "Existing functional advice tick."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 705,
+          "excerpt": "<img src=\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20480%20220%22%3E%3Crect%20width%3D%22480%22%20height%3D%22220%22%20fill%3D%22%23f3f2f1%22%2F%3E%3Cpath%20d%3D%22M20%2020H460V200H20ZM240%2020V200M20%20120H240%22%20fill%3D%22none%22%20stroke%3D%22%230b0c0c%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22345%22%20cy%3D%22100%22%20r%3D%2218%22%20fill%3D%22%231d70b8%22%2F%3E%3Ctext%20x%3D%2255%22%20y%3D%2270%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3EHall%3C%2Ftext%3E%3Ctext%20x%3D%2245%22%20y%3D%22165%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3EKitchen%3C%2Ftext%3E%3Ctext%20x%3D%22290%22%20y%3D%22160%22%20font-family%3D%22Arial%22%20font-size%3D%2222%22%3ELiving%20room%3C%2Ftext%3E%3C%2Fsvg%3E\" width=\"480\" height=\"220\" alt=\"Example floor plan: the living room is to the right of the hall and kitchen. A blue dot marks the living-room sensor.\">",
+          "reason": "Existing original schematic is supplied as a data URL without per-asset metadata."
+        }
+      ],
+      "recommendation": "When these existing specimens are next changed, record creator/provenance, rights, intended background, purpose and alternative-text decision in their records, as done for the new brand examples. Preserve their functional strokes and schematic map boundaries.",
+      "not_a_confirmed_violation": "BG-ILL-10 explicitly covers new asset delivery; these assets predate the frozen rule set. Functional icons and spatial diagrams are not subject to the expressive illustration no-outline rule."
+    },
+    {
+      "id": "AUD-COMP-REC-002",
+      "priority": "P3",
+      "type": "example-completeness",
+      "related_rule_ids": [
+        "WG-033",
+        "WG-044"
+      ],
+      "affected_pages": [
+        "docs/source/components/status.html.md.erb"
+      ],
+      "example_ids": [
+        "local-status-pending"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/local-examples.yml",
+          "line": 40,
+          "excerpt": "\"html\": \"<h2 class=\\\"govuk-heading-m\\\">Kitchen light</h2><p class=\\\"govuk-body\\\"><strong>Waiting for the device to respond</strong></p><p class=\\\"govuk-body\\\">Keep the last confirmed state visible until a new state arrives. This static example does not complete automatically.</p>\",",
+          "reason": "The specimen states the implementation principle but does not show a concrete last reported state or timestamp."
+        }
+      ],
+      "recommendation": "Add an invented last reported state and its time alongside the pending request so authors can see the complete pattern. Keep the message explicit that the static example does not complete automatically.",
+      "not_a_confirmed_violation": "The specimen correctly labels a pending state and does not claim a confirmed result. This would improve coverage rather than establish a current unsafe behaviour."
+    },
+    {
+      "id": "AUD-COMP-REC-003",
+      "priority": "P3",
+      "type": "example-completeness",
+      "related_rule_ids": [
+        "WG-040",
+        "WG-055"
+      ],
+      "affected_pages": [
+        "docs/source/components/textarea.html.md.erb"
+      ],
+      "example_ids": [
+        "nhs-textarea-error"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 573,
+          "excerpt": "title: \"Keep text when a save fails validation\"",
+          "reason": "The title promises an example of retaining entered text."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "line": 583,
+          "excerpt": "<textarea class=\"govuk-textarea govuk-textarea--error\" id=\"required-description\" name=\"required-description\" rows=\"4\" aria-describedby=\"required-description-hint required-description-error\" aria-invalid=\"true\" >",
+          "reason": "The textarea contains no substantive entered answer, so it demonstrates a required-field error rather than retention."
+        }
+      ],
+      "recommendation": "Either relabel this as a missing-required-description example, or show a non-empty description preserved while a different field fails validation. Do not invent an arbitrary length restriction merely to make its text invalid.",
+      "not_a_confirmed_violation": "An empty answer can accurately fail required validation; no input is visibly discarded. The current example is weak evidence for retention, not proof of a retention bug."
+    }
+  ],
+  "example_source_evidence": [
+    {
+      "path": "docs/data/core-examples.yml",
+      "sha256": "ebfcef61986b7a6f985277dec67af3d23e556f00b949cfbe9f1fa9fe81fc9301",
+      "reviewed_examples": [
+        "core-accordion-troubleshooting",
+        "core-accordion-measures",
+        "core-cookie-choice",
+        "core-cookie-confirmation",
+        "system-example-reading",
+        "system-example-interactive",
+        "core-exit-visible",
+        "core-exit-keyboard",
+        "core-feedback-invitation",
+        "core-feedback-confirmation",
+        "core-generic-header",
+        "core-generic-header-service",
+        "core-language-en",
+        "core-language-cy",
+        "system-history-expanded",
+        "system-history-correction",
+        "core-phase-demo",
+        "core-phase-trial",
+        "core-service-navigation",
+        "core-service-navigation-compact",
+        "core-warning-delete",
+        "core-warning-replace"
+      ]
+    },
+    {
+      "path": "docs/data/local-examples.yml",
+      "sha256": "92bc153fc1afd06bdaa4fdeda9bfdb834156f0966c86d6ea32b368067c7504c4",
+      "reviewed_examples": [
+        "local-card-actions",
+        "local-chart-power",
+        "local-chart-usage",
+        "local-chart-devices",
+        "local-chart-many",
+        "local-chart-empty",
+        "local-controls-form",
+        "local-controls-error",
+        "local-device-switch",
+        "local-device-slider",
+        "local-device-unavailable",
+        "local-dialog-details",
+        "local-dialog-confirm",
+        "local-navigation-current",
+        "local-navigation-rooms",
+        "local-badge-count",
+        "local-badge-overflow",
+        "local-status-empty",
+        "local-status-pending",
+        "local-status-failure"
+      ]
+    },
+    {
+      "path": "docs/data/nhs-component-examples.yml",
+      "sha256": "69abcac0f3599275e50d823c52ed24714276cedee2651d3b33d32947c93e03e3",
+      "reviewed_examples": [
+        "nhs-action-link-journey",
+        "nhs-action-link-help",
+        "nhs-back-step",
+        "nhs-back-review",
+        "nhs-breadcrumbs-device",
+        "nhs-breadcrumbs-guide",
+        "nhs-button-primary",
+        "nhs-button-secondary",
+        "nhs-button-warning",
+        "nhs-button-unavailable",
+        "nhs-card-navigation",
+        "nhs-card-information",
+        "nhs-count-note",
+        "nhs-count-over-limit",
+        "nhs-checkbox-rooms",
+        "nhs-checkbox-preference",
+        "nhs-contents-guide",
+        "nhs-contents-in-page",
+        "nhs-date-maintenance",
+        "nhs-date-error",
+        "nhs-details-energy",
+        "nhs-details-unavailable",
+        "nhs-advice-dashboard",
+        "nhs-advice-notes",
+        "nhs-error-room-name",
+        "nhs-error-temperature",
+        "nhs-summary-one-error",
+        "nhs-summary-two-errors",
+        "nhs-expander-energy",
+        "nhs-expander-guide",
+        "nhs-fieldset-room-options",
+        "nhs-fieldset-period",
+        "nhs-upload-image",
+        "nhs-upload-error",
+        "nhs-footer-simple",
+        "nhs-footer-information",
+        "nhs-header-minimal",
+        "nhs-header-navigation",
+        "nhs-hint-name",
+        "nhs-hint-scope",
+        "nhs-image-floorplan",
+        "nhs-image-decorative",
+        "nhs-inset-estimate",
+        "nhs-inset-display",
+        "nhs-banner-maintenance",
+        "nhs-banner-success",
+        "nhs-pagination-guide",
+        "nhs-pagination-records",
+        "nhs-panel-complete",
+        "nhs-panel-interruption",
+        "nhs-password-current",
+        "nhs-password-new",
+        "nhs-radio-units",
+        "nhs-radio-theme-mode",
+        "nhs-component-review-guidance",
+        "nhs-review-reading",
+        "nhs-search-devices",
+        "nhs-search-no-results",
+        "nhs-select-palettes",
+        "nhs-select-error",
+        "nhs-skip-main",
+        "nhs-skip-form",
+        "nhs-summary-device",
+        "nhs-summary-change",
+        "nhs-table-readings",
+        "nhs-table-missing",
+        "nhs-table-scroll",
+        "nhs-tabs-device",
+        "nhs-tabs-empty",
+        "nhs-tag-connection",
+        "nhs-tag-task",
+        "nhs-tasks-dashboard",
+        "nhs-tasks-dependency",
+        "nhs-input-room",
+        "nhs-input-measurement",
+        "nhs-textarea-description",
+        "nhs-textarea-error",
+        "nhs-warning-unavailable",
+        "nhs-warning-import"
+      ]
+    }
+  ],
+  "additional_read_sources": [
+    {
+      "path": "ui/dev/energy-charts-harness.ts",
+      "sha256": "5832a4cb41221eb444665666e327979ef7e1e82460c642133ca4f41279eda21c",
+      "scope": "Generated example labels, sample dates, controls and selected-period captions; production adapter not re-audited."
+    },
+    {
+      "path": "ARTWORK.md",
+      "sha256": "c11034c2e340514ef6822487aff361baa2d6f579ed4b732742919f374fb06a91",
+      "scope": "Existing versus new artwork provenance boundary."
+    },
+    {
+      "path": "docs/source/javascripts/example.js",
+      "sha256": "e89322bbe0819891728b4554f7b0c5b77bf775e7ed25e9a96368ef6ea301ea57",
+      "scope": "Safe local demonstration message/form behaviour; confirms no real submission."
+    }
+  ],
+  "summary": {
+    "pages_reviewed": 58,
+    "examples_reviewed": 121,
+    "confirmed_findings": 4,
+    "recommendations": 3,
+    "page_results": {
+      "no_confirmed_finding": 44,
+      "finding": 11,
+      "documented_deviation": 3
+    },
+    "runtime_changes": 0,
+    "existing_page_edits": 0
+  },
+  "next_loop": "Parent independent review should accept or amend these proposals, then implement in a separate authorised change and record static/build/browser evidence before closing findings."
+}

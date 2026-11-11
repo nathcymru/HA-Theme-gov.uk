@@ -1,0 +1,1895 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-11",
+  "status": "guidance-and-static-audit-complete-interface-findings-open",
+  "status_meaning": {
+    "reviewed": "The named official source was read; this is not an implementation pass.",
+    "documented": "The local rule and adaptation are written.",
+    "mapped-not-executed": "Existing owning code/tests or documentation were identified; no fresh runtime result is claimed.",
+    "pending": "The check still needs evidence.",
+    "excluded": "The official requirement is deliberately not adopted, with a recorded local reason.",
+    "not-tested-in-this-package": "Per-interface rule acceptance is not closed by documentation review or automated regression checks."
+  },
+  "loops": [
+    {
+      "id": "source-coverage",
+      "status": "reviewed",
+      "evidence": "31 official pages reviewed; 30 within the four brand sections and one typeface exception."
+    },
+    {
+      "id": "local-rules",
+      "status": "documented",
+      "evidence": "33 stable rules in four pages; exclusions are explicit."
+    },
+    {
+      "id": "structural-validation",
+      "status": "passed",
+      "evidence": "2026-11-11: all 33 rule anchors, 31 source records, evidence paths and 12 example records checked; no duplicate example/DOM IDs, broken local fragments/assets, missing ARIA references, image alternatives or control labels. Static browser DOM parsing only; visual/accessibility/runtime checks remain pending."
+    },
+    {
+      "id": "integrated-docs-build",
+      "status": "passed",
+      "evidence": "Middleman built 466 HTML pages; links/anchors, supplied artwork and palette parity passed on 11 November 2026."
+    },
+    {
+      "id": "example-browser-review",
+      "status": "passed-with-scope",
+      "evidence": "All 12 new brand examples passed isolated accessibility, semantic and 320px reflow checks. Chrome visually reviewed the new illustration guide; this is documentation evidence, not every native surface."
+    },
+    {
+      "id": "independent-guideline-audit",
+      "status": "complete",
+      "evidence": "Independent root review of all four guides and examples; rules applied to the complete 165-page/301-example ledger. Confirmed findings remain open in design-system-audit.json."
+    },
+    {
+      "id": "affected-native-surfaces",
+      "status": "not-applicable-to-docs-change",
+      "evidence": "No runtime or live Home Assistant change in this package. Existing automated runtime regressions passed; per-rule live acceptance is not claimed."
+    }
+  ],
+  "items": [
+    {
+      "rule_id": "BG-COL-01",
+      "local_path": "/styles/brand-colour.html#bg-col-01",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-blue"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "design-system/palettes.json",
+          "scripts/check-brand.mjs",
+          "docs/source/styles/brand.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Every selected primary/canvas matches palettes.json.",
+          "Selected logo is an unchanged matching supplied asset; no official government mark is introduced."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Service identity, theme selection and brand assets",
+      "requirement": "Use the exact supplied civica palettes and matching unchanged artwork; do not introduce official GOV.UK identity.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-02",
+      "local_path": "/styles/brand-colour.html#bg-col-02",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-web"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "scripts/generate-themes.mjs",
+          "docs/source/styles/colour.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Changing brand leaves warning/error/success meaning intact.",
+          "Text and fill use documented semantic pairs, including dark mode."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Interface colour tokens and semantic states",
+      "requirement": "Assign colours by identity, reading, interaction, state or data role; keep those roles independent.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-SYS-04"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-03",
+      "local_path": "/styles/brand-colour.html#bg-col-03",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour",
+          "colour-maps"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "test/themes.test.mjs",
+          "docs/source/accessibility/index.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Audit actual rendered pairs and non-colour alternatives.",
+          "Verify keyboard focus independently of brand swatches."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Rendered text, controls and meaningful graphical objects",
+      "requirement": "Meet applicable contrast requirements on actual surfaces and communicate essential meaning without colour alone.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-04",
+      "local_path": "/styles/brand-colour.html#bg-col-04",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-web"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "scripts/generate-themes.mjs",
+          "docs/source/styles/layout.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Card divider and input boundary remain visibly different.",
+          "No global radius reset or border override damages native controls."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Structural borders, inputs and native control geometry",
+      "requirement": "Separate quiet structure from recognisable controls and strong input/focus boundaries without global radius resets.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-SYS-01"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-05",
+      "local_path": "/styles/brand-colour.html#bg-col-05",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-web",
+          "colour-app"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/civica-ui.ts",
+          "docs/source/components/notification-badge.html.md.erb",
+          "docs/source/components/status.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Native entity states remain recognisable after a palette change.",
+          "Unread counts, severity and service identity are not conflated."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Device state, manufacturer identifiers and attention counts",
+      "requirement": "Preserve meaningful native device state and separate unread attention counts from severity and service identity.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-SYS-04",
+          "AUD-SYS-05"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-06",
+      "local_path": "/styles/brand-colour.html#bg-col-06",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-app",
+          "colour-social"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "test/themes.test.mjs",
+          "tests/theme-settings.browser.spec.mjs",
+          "tests/card.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Exercise ten palettes × two tones × two modes on affected surfaces.",
+          "Inspect forced colours, focus and native editor density without clipping."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Affected components in all supported tone/mode and accessibility contexts",
+      "requirement": "Keep Vivid/Muted independent of Light/Dark and verify actual surfaces, focus and forced-colour behaviour.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-07",
+      "local_path": "/styles/brand-colour.html#bg-col-07",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-charts",
+          "colour-maps"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "design-system/chart-colours.mjs",
+          "test/chart-colours.test.mjs",
+          "docs/source/styles/chart-colour.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Existing chart identities remain stable when brand/order/visibility changes.",
+          "Any proposed quantitative scale declares meaning and missing-data treatment."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Categorical chart identities and proposed quantitative map/chart scales",
+      "requirement": "Keep operational chart identities independent of the brand palette and document quantitative scale meaning.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-COL-08",
+      "local_path": "/styles/brand-colour.html#bg-col-08",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-social",
+          "colour-print",
+          "colour-illustrations"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "design-system/palettes.json",
+          "docs/source/styles/illustration.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-colour-role-separation",
+          "bg-colour-boundaries",
+          "bg-colour-state-labels"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Export/media treatment is identified as separate from the live UI.",
+          "Screen palette values and supplied metadata are preserved."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Screen, promotional and print colour output",
+      "requirement": "Preserve the authoritative screen palette and supplied metadata; assess exported media separately.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-TYP-01",
+      "local_path": "/styles/brand-typography.html#bg-typ-01",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "typography",
+          "typography-web",
+          "typeface-exception"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "scripts/generate-themes.mjs",
+          "docs/source/stylesheets/screen.css.scss",
+          "docs/source/stylesheets/example.css.scss"
+        ],
+        "example_ids": [
+          "bg-type-household-hierarchy",
+          "bg-type-values",
+          "bg-type-handover"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Computed maintained UI font stack contains no GDS Transport.",
+          "Wordmark artwork remains separate from editable text."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Maintained civica interface and documentation typography",
+      "requirement": "Use the approved Arial/Helvetica/sans-serif stack and keep official GDS Transport out of active use.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-TYP-02",
+      "local_path": "/styles/brand-typography.html#bg-typ-02",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "typography-social"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/source/styles/typography.html.md.erb",
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-type-household-hierarchy",
+          "bg-type-values",
+          "bg-type-handover"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Heading outline remains meaningful without CSS.",
+          "Long names/instructions wrap without shrinking or artificial headline limits."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Headings, labels and explanatory text",
+      "requirement": "Make heading semantics and readable visual hierarchy agree; allow essential labels to wrap.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-SYS-02",
+          "AUD-SYS-08"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-TYP-03",
+      "local_path": "/styles/brand-typography.html#bg-typ-03",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "typography",
+          "data-charts"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/energy-chart-data.ts",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-type-household-hierarchy",
+          "bg-type-values",
+          "bg-type-handover"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Signed values and units survive narrow widths and text scaling.",
+          "Locale/timezone context is preserved for operational data."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Operational readings and exported measurement text",
+      "requirement": "Retain essential signs, units, dates, source identity and locale/timezone context in readable text.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-COMP-001",
+          "AUD-PAT-05"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-TYP-04",
+      "local_path": "/styles/brand-typography.html#bg-typ-04",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "typography-app"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "scripts/generate-themes.mjs",
+          "ui/src/energy-charts.ts",
+          "docs/source/styles/typography.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-type-household-hierarchy",
+          "bg-type-values",
+          "bg-type-handover"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Check native editors/tables/dialogs as well as custom cards.",
+          "OS-owned UI and code alignment are preserved."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Custom UI, native dense surfaces, charts and OS-owned controls",
+      "requirement": "Apply the documented local/native type scales while preserving native scaling, editor alignment and OS-owned UI.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-SYS-02"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-TYP-05",
+      "local_path": "/styles/brand-typography.html#bg-typ-05",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "typography-app",
+          "typography-social"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "tests/card.browser.spec.mjs",
+          "tests/theme-settings.browser.spec.mjs",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-type-household-hierarchy",
+          "bg-type-values",
+          "bg-type-handover"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Inspect 200% text size and narrow reflow on affected component.",
+          "Full essential labels remain available without pointer hover."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Affected text and controls at narrow widths and user text settings",
+      "requirement": "Preserve essential labels and context under zoom/text scaling without requiring pointer hover.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-TYP-06",
+      "local_path": "/styles/brand-typography.html#bg-typ-06",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "typography-print",
+          "typography-social"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-type-household-hierarchy",
+          "bg-type-values",
+          "bg-type-handover"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Exported document is checked at its actual size and has readable text.",
+          "Graphic-only copy has an equivalent accessible text version."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "SHOULD",
+      "scope": "Printable household documents and promotional text",
+      "requirement": "Use readable channel-specific starting sizes, enlarge for reader needs and provide accessible accompanying text.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-01",
+      "local_path": "/styles/brand-data.html#bg-dat-01",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data",
+          "data-dashboards"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/source/components/charts.html.md.erb",
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Title and surrounding explanation state the actual task.",
+          "Unknown or no-data periods do not acquire fabricated conclusions."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Dashboard and publication data presentation",
+      "requirement": "State the household question and avoid a conclusion unsupported by available observations.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-02",
+      "local_path": "/styles/brand-data.html#bg-dat-02",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data",
+          "data-examples"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/energy-charts.ts",
+          "docs/source/components/charts.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Chart family reflects the actual variable and comparison.",
+          "Unsupported chart families are not claimed as adapted."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Chart type choice and maintained Energy chart scope",
+      "requirement": "Choose a truthful representation for the data relationship and preserve the maintained chart-family contract.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-03",
+      "local_path": "/styles/brand-data.html#bg-dat-03",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data-charts"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/energy-charts.ts",
+          "ui/src/energy-chart-data.ts",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "A person can identify measure, period and source without guessing from colour.",
+          "Exported context remains complete outside the dashboard."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Operational charts, static charts and exported data",
+      "requirement": "Supply sufficient title, measure, period, source and qualification context for the actual output.",
+      "static_audit": {
+        "status": "reviewed-with-open-findings",
+        "findings": [
+          "AUD-COMP-001",
+          "AUD-COMP-002"
+        ],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-04",
+      "local_path": "/styles/brand-data.html#bg-dat-04",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/energy-power-series.ts",
+          "ui/src/energy-charts.ts",
+          "ui/src/energy-chart-data.ts",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Compare source values/IDs with rendered and tabular values before/after lifecycle changes.",
+          "Inspect missing, zero, negative and non-zero-axis cases."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Native chart adaptation, data alternatives and lifecycle restoration",
+      "requirement": "Preserve observed values, identities, original dates, missingness and current period without fabricated readings.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-05",
+      "local_path": "/styles/brand-data.html#bg-dat-05",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-charts",
+          "data-examples"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "design-system/chart-colours.mjs",
+          "ui/src/energy-charts.ts",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Canvas geometry, legend keys and tooltip markers match the shared spec.",
+          "Theme, series-order and visibility changes preserve identity and line weight."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Supported operational Energy plots, legends and tooltip markers",
+      "requirement": "Use the shared identity colours, matching cues and 1.5px line weight across normal and interaction states.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-06",
+      "local_path": "/styles/brand-data.html#bg-dat-06",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data-charts",
+          "data-dashboards"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/energy-charts.ts",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Native legend/date/keyboard interactions still work.",
+          "No new renderer or service call is introduced merely for branding."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Maintained native Energy adapter and existing chart interaction",
+      "requirement": "Retain useful native controls and accessibility through bounded public ECharts APIs and a version-verified private HA adapter.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-07",
+      "local_path": "/styles/brand-data.html#bg-dat-07",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data",
+          "data-charts"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/energy-chart-data.ts",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Alternative contains the same supported facts with clear scope.",
+          "Keyboard users can reach, open and page the table."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Supported Energy data tables and proposed chart alternatives",
+      "requirement": "Provide a usable equivalent with honest selected-period scope and test it separately from the visual chart.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-08",
+      "local_path": "/styles/brand-data.html#bg-dat-08",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data-maps",
+          "colour-maps"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/source/styles/images.html.md.erb",
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Map legend, attribution, scale/extent and alternative remain meaningful.",
+          "A schematic is never presented as a surveyed position or live map."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Native map content and future spatial adapters",
+      "requirement": "Preserve spatial meaning, source context and text alternatives; distinguish schematics from actual locations.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-DAT-09",
+      "local_path": "/styles/brand-data.html#bg-dat-09",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "data-examples",
+          "colour-charts"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/source/components/chart-examples.html.erb",
+          "tests/energy-charts.browser.spec.mjs"
+        ],
+        "example_ids": [
+          "bg-data-operational-power",
+          "bg-data-editorial-summary",
+          "bg-data-location-alternative"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Publishing example declares source/synthetic status and denominator.",
+          "Operational and promotional treatment are explicitly separated."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Publishing summaries versus operational monitoring",
+      "requirement": "Keep fixed editorial graphics clearly sourced and separate from live monitoring semantics.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-01",
+      "local_path": "/styles/illustration.html#bg-ill-01",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration",
+          "illustration-incorrect"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/source/styles/images.html.md.erb",
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "The artwork communicates a named task-relevant fact.",
+          "Text remains sufficient when the illustration is unavailable."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "New explanatory illustrations and dashboard imagery",
+      "requirement": "Use an illustration for a task-relevant message, with the instruction available in text.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-02",
+      "local_path": "/styles/illustration.html#bg-ill-02",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration-principles",
+          "illustration-creating",
+          "illustration-objects"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml",
+          "ARTWORK.md"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Illustration provenance and original source are recorded.",
+          "Small-size review confirms a clear focal point without official identity assets."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "New civica explanatory artwork",
+      "requirement": "Create simple original artwork without copying official identity assets or altering supplied civica marks.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [
+          "AUD-SYS-03"
+        ],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-03",
+      "local_path": "/styles/illustration.html#bg-ill-03",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "colour-illustrations",
+          "illustration-incorrect"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml",
+          "docs/source/styles/chart-colour.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Colour supports the message and does not imply an unverified state.",
+          "Illustration restrictions are not applied to functional icons/charts."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Explanatory illustration family, excluding functional icons and data marks",
+      "requirement": "Use restrained purposeful colour without decorative gradients/effects or false state meaning; retain functional cues elsewhere.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [
+          "AUD-SYS-03"
+        ],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-04",
+      "local_path": "/styles/illustration.html#bg-ill-04",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration-layout",
+          "illustration-principles"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Action and sequence remain clear at narrow/wide sizes.",
+          "Any essential animation has a static accessible route."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "SHOULD",
+      "scope": "Composition and sequencing of explanatory illustrations",
+      "requirement": "Make the action clear through hierarchy, whitespace and coherent sequence across screen sizes.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-05",
+      "local_path": "/styles/illustration.html#bg-ill-05",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration-characters",
+          "illustration-hands"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted-with-exclusions"
+      },
+      "exclusions": {
+        "status": "documented",
+        "reason": "See local rule for exact scope and retained user requirement."
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Representation is relevant and avoids stereotypes.",
+          "Specific gestures and instructions have appropriate subject review."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Illustrated people, gestures and avatars",
+      "requirement": "Represent people respectfully and validate specific instructional gestures without inferring identity or capability.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-06",
+      "local_path": "/styles/illustration.html#bg-ill-06",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration-accessibility"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Informative meaning is available without seeing the image.",
+          "Redundant/decorative visuals do not create repeated announcements."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Informative, redundant and decorative image alternatives",
+      "requirement": "Expose essential image meaning accessibly and suppress redundant announcements without omitting required alternative attributes.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-07",
+      "local_path": "/styles/illustration.html#bg-ill-07",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "ui/src/action-links.ts",
+          "docs/source/styles/images.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Known entities retain their icon meaning and accessible names.",
+          "Functional symbols remain legible in light/dark and forced colours."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Functional entity/domain and navigation icons",
+      "requirement": "Retain recognisable native meanings, accessible names and component-specific vector/focus treatments.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [
+          "AUD-COMP-REC-001"
+        ],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-08",
+      "local_path": "/styles/illustration.html#bg-ill-08",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration",
+          "illustration-examples"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/source/styles/images.html.md.erb"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Operational content retains identifying detail and source context.",
+          "Illustrative and live/recorded media cannot be confused."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Photos, media, cameras, map tiles and illustrative stand-ins",
+      "requirement": "Preserve operational evidence and distinguish diagrams, still images and live states.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-09",
+      "local_path": "/styles/illustration.html#bg-ill-09",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration-accessibility"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "local-extension"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "docs/data/brand-guidance-examples.yml"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Public examples contain invented or appropriately cleared content.",
+          "Presentation changes preserve native privacy/access controls."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "Public examples and personal household imagery",
+      "requirement": "Use invented or appropriately cleared personal content and preserve native privacy/access controls.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    },
+    {
+      "rule_id": "BG-ILL-10",
+      "local_path": "/styles/illustration.html#bg-ill-10",
+      "source_review": {
+        "status": "reviewed",
+        "source_ids": [
+          "illustration-formats",
+          "illustration-accessibility",
+          "illustration-creating"
+        ],
+        "reviewed_on": "2026-11-11"
+      },
+      "adaptation": {
+        "status": "documented",
+        "disposition": "adapted"
+      },
+      "exclusions": {
+        "status": "none",
+        "reason": null
+      },
+      "evidence": {
+        "status": "mapped-not-executed",
+        "paths": [
+          "scripts/check-brand.mjs",
+          "ARTWORK.md",
+          "docs/data/brand-guidance-checklist.json"
+        ],
+        "example_ids": [
+          "bg-illustration-sensor-placement",
+          "bg-illustration-network",
+          "bg-illustration-functional-icon"
+        ]
+      },
+      "verification": {
+        "status": "not-tested-in-this-package",
+        "checks": [
+          "Source/rights/alternative/background metadata are present.",
+          "Rendered review is recorded separately from syntax and source review."
+        ],
+        "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
+      },
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null,
+        "findings": []
+      },
+      "level": "MUST",
+      "scope": "New asset delivery, rights metadata and rendered review",
+      "requirement": "Record source, rights, purpose, alternatives and display context, then verify rendered results separately from syntax.",
+      "static_audit": {
+        "status": "no-confirmed-finding-in-static-scope",
+        "findings": [],
+        "recommendations": [
+          "AUD-SYS-03",
+          "AUD-COMP-REC-001"
+        ],
+        "evidence": "docs/data/design-system-audit.json",
+        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+      }
+    }
+  ],
+  "closure_rule": "Do not mark this checklist compliant from source coverage alone. Record a concrete result and evidence for each applicable check, document exclusions, resolve findings and complete independent review. Reopen affected items after changes."
+}

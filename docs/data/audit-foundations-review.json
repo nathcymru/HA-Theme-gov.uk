@@ -1,0 +1,1225 @@
+{
+  "reviewed_on": "2026-11-11",
+  "status": "authored-content-review-complete-awaiting-integration-tests",
+  "baseline": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
+  "findings": [
+    {
+      "id": "AUD-SYS-01",
+      "title": "Documentation dividers bypass the quiet-border token",
+      "priority": "P2",
+      "rule_ids": [
+        "BG-COL-04"
+      ],
+      "summary": "The shared documentation shell defines #CECECE but later uses the older #B1B4B6 for contents, history, example frames, catalogues and mobile section dividers. This is a confirmed token inconsistency, not a claim that every grey border fails contrast.",
+      "evidence": [
+        {
+          "path": "docs/source/stylesheets/screen.css.scss",
+          "line": 139,
+          "detail": "Contents navigation uses an independent structural grey."
+        },
+        {
+          "path": "docs/source/stylesheets/screen.css.scss",
+          "line": 179,
+          "detail": "Example frames use the same older hardcoded grey."
+        },
+        {
+          "path": "docs/source/stylesheets/screen.css.scss",
+          "line": 197,
+          "detail": "Catalogue rows bypass --c-border."
+        }
+      ],
+      "proposed_change": "Resolve decorative separators through the shared quiet-border role and remove superseded declarations. Keep inputs, active tabs and focus indicators on their stronger, separately tested roles.",
+      "acceptance": [
+        "Computed decorative borders use #CECECE in the light documentation theme.",
+        "Inputs and focus remain visually distinguishable; keyboard and narrow-layout checks pass.",
+        "Review adjacent sections together at desktop and phone widths."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    },
+    {
+      "id": "AUD-SYS-02",
+      "title": "Small-screen examples contradict the documented body-text scale",
+      "priority": "P2",
+      "rule_ids": [
+        "BG-TYP-02",
+        "BG-TYP-04"
+      ],
+      "summary": "The example stylesheet explicitly reduces body text to 16px below 500px and imports the GOV.UK responsive type defaults. The local typography contract specifies 18–19px narrow-screen body text and 19px for maintained custom main controls; the reference examples do not state this extra density exception.",
+      "evidence": [
+        {
+          "path": "docs/source/stylesheets/example.css.scss",
+          "line": 41,
+          "detail": "Example body text is explicitly 16px on narrow screens."
+        },
+        {
+          "path": "docs/source/styles/typography.html.md.erb",
+          "line": 34,
+          "detail": "The published narrow-screen starting point is 18px to 19px."
+        }
+      ],
+      "proposed_change": "Choose one explicit responsive type contract for reference examples and maintained controls, then configure the imported typography and custom styles together. Preserve the separately documented native HA and chart-label density exceptions.",
+      "acceptance": [
+        "Compare computed paragraph, input, button and help-text sizes with their documented roles at 320px and desktop.",
+        "Reflow and 200% text resizing retain complete names, units and errors.",
+        "Examples and copied markup demonstrate the same declared scale."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    },
+    {
+      "id": "AUD-SYS-04",
+      "title": "Custom examples retain a second set of semantic colours",
+      "priority": "P2",
+      "rule_ids": [
+        "BG-COL-02",
+        "BG-COL-05"
+      ],
+      "summary": "The custom status and do/don’t-list styles still use #00703C and #D4351C while the maintained semantic references use #0F7A52 and #CA3535. Several old declarations remain alongside later corrective overrides. Reference controls can therefore demonstrate a competing palette despite passing basic contrast checks.",
+      "evidence": [
+        {
+          "path": "docs/source/stylesheets/example.css.scss",
+          "line": 40,
+          "detail": "The custom success marker uses #00703C."
+        },
+        {
+          "path": "docs/source/stylesheets/example.css.scss",
+          "line": 78,
+          "detail": "Custom list symbols use the older green/red pair."
+        },
+        {
+          "path": "docs/source/styles/colour.html.md.erb",
+          "line": 84,
+          "detail": "The canonical success role is #0F7A52."
+        }
+      ],
+      "proposed_change": "Create one documentation semantic-token mapping from the local contract, apply it to custom status/list components and configure upstream component variables where appropriate. Remove obsolete duplicate rules without erasing intentional functional exceptions.",
+      "acceptance": [
+        "Reference success/error components resolve to the declared local roles.",
+        "Text, fills and on-fill colours pass their actual context checks.",
+        "The MOJ badge keeps its correct rounded shape and fixed attention role; no global recolouring is introduced."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    },
+    {
+      "id": "AUD-SYS-05",
+      "title": "Lighting summaries can conceal partially unavailable rooms",
+      "priority": "P1",
+      "rule_ids": [
+        "WG-011",
+        "WG-033",
+        "BG-COL-05",
+        "WG-076"
+      ],
+      "summary": "The lighting card calculates its denominator from available lights, then labels it simply “lights”. A room with two available lights off and a third unavailable light can read “2 of 2 lights off”, omitting the unavailable member from the visible summary. The same omission can affect an unknown managed member; the capability model records unknown and unavailable separately.",
+      "evidence": [
+        {
+          "path": "card/src/card.ts",
+          "line": 287,
+          "detail": "The count uses availableLights without qualifying the visible denominator."
+        },
+        {
+          "path": "card/src/card.ts",
+          "line": 299,
+          "detail": "Any available member selects that count instead of an unavailable explanation."
+        }
+      ],
+      "proposed_change": "Describe available-state counts, unavailable and unknown managed members separately. Preserve reserved-light exclusions and user room names. Do not infer that an unavailable or unknown member is off.",
+      "acceptance": [
+        "A fixture with two off members and one unavailable member exposes both facts in the visible and accessible summary.",
+        "All-off, mixed-on, unknown, partially unavailable, fully unavailable and empty rooms remain distinct.",
+        "Reserved or out-of-scope lights remain excluded from control actions."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    },
+    {
+      "id": "AUD-SYS-06",
+      "title": "Per-room lighting requests lack a pending explanation",
+      "priority": "P2",
+      "rule_ids": [
+        "WG-032",
+        "WG-044"
+      ],
+      "summary": "Bulk lighting actions track an in-flight request, but individual room turn-on/stop actions await the service call without a pending message. The control continues to show the previous action while the request is unresolved. No false success claim is made, but uncertainty is not explained.",
+      "evidence": [
+        {
+          "path": "card/src/card.ts",
+          "line": 254,
+          "detail": "Per-room turn-on awaits a request with only a failure branch."
+        },
+        {
+          "path": "card/src/card.ts",
+          "line": 258,
+          "detail": "Per-room stop likewise has no pending feedback."
+        },
+        {
+          "path": "card/src/card.ts",
+          "line": 263,
+          "detail": "Only the bulk path tracks actionPending."
+        }
+      ],
+      "proposed_change": "Define a shared per-room request state with sending, accepted, confirmed or unconfirmed wording. Prevent unintended duplicate submissions while preserving a clear recovery route; do not turn an accepted service call into physical confirmation.",
+      "acceptance": [
+        "Delayed, rejected and accepted-but-unconfirmed requests have distinct observable copy.",
+        "Repeated activation cannot queue accidental duplicate commands while a request is pending.",
+        "Native reported state remains separate and cancellation does not claim to undo a sent action."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    },
+    {
+      "id": "AUD-SYS-07",
+      "title": "The search catalogue omits section and publishing hubs",
+      "priority": "P2",
+      "rule_ids": [
+        "WG-001",
+        "WG-037"
+      ],
+      "summary": "Search is presented as a complete catalogue, but it reuses section navigation groups that exclude index pages. The new writing hub has an explicit exception, while other section and publishing hubs remain absent from searchable results.",
+      "evidence": [
+        {
+          "path": "docs/helpers/design_system_helpers.rb",
+          "line": 22,
+          "detail": "Section-group filtering omits index routes except the new writing hub."
+        },
+        {
+          "path": "docs/source/partials/_catalogue.erb",
+          "line": 2,
+          "detail": "Global search reuses the filtered groups."
+        },
+        {
+          "path": "docs/source/search.html.erb",
+          "line": 10,
+          "detail": "The no-JavaScript explanation promises a complete catalogue."
+        }
+      ],
+      "proposed_change": "Give search its own complete editorial catalogue, retaining section/group metadata for organisation. Keep sidebar filtering separate. Include hubs and meaningful entry pages without recursive links to the search page itself.",
+      "acceptance": [
+        "Search by the exact title of each editorial hub finds its canonical route.",
+        "The no-JavaScript list contains the same intended searchable pages.",
+        "Navigation grouping and current-page state remain unchanged."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    },
+    {
+      "id": "AUD-SYS-08",
+      "title": "The dense-chart deviation is outside its table structure",
+      "priority": "P2",
+      "rule_ids": [
+        "BG-TYP-02",
+        "WG-080"
+      ],
+      "summary": "A blank line separates CIV-016 from the deviation table. It renders as a paragraph containing pipe characters, so the chart-colour and 1.5px-line decision loses the table’s header associations and is harder to read.",
+      "evidence": [
+        {
+          "path": "docs/source/community/deviations.html.md.erb",
+          "line": 30,
+          "detail": "This row is separated from the preceding Markdown table by a blank line."
+        }
+      ],
+      "proposed_change": "Restore CIV-016 to the semantic deviation table. Keep its exact chart-colour and line-weight decision intact.",
+      "acceptance": [
+        "The built HTML contains CIV-016 in a table row with the same headers as the other decisions.",
+        "No raw table pipe syntax is exposed in reading text.",
+        "Keyboard scrolling and narrow-layout checks still pass."
+      ],
+      "status": "open",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    }
+  ],
+  "pages": [
+    {
+      "path": "docs/source/index.html.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement.",
+      "sha256": "61ff7a9cd59ff518c70ecc6bb71bf0a5cc15894d0604bf93a38f0c41d2d074f5"
+    },
+    {
+      "path": "docs/source/search.html.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-SYS-07"
+      ],
+      "note": "Search is local and its no-JavaScript route is explained; completeness of the shared catalogue has a confirmed hub-omission finding.",
+      "sha256": "bbfab13e3ce76290ff75fcb6fa91f706df31ba4978d31ed225d076672e96568d"
+    },
+    {
+      "path": "docs/source/sitemap.html.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Section grouping exposes the editorial resources, including the new writing guide. Standalone example ownership is stated separately.",
+      "sha256": "e60f837de0d346ce90c29b5b1a73aa800ad9ee22bbb2d651bf69e7d7753b92a9"
+    },
+    {
+      "path": "docs/source/get-started/index.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "The three-layer scope and ordered start path distinguish theme, companion and custom cards; new guidance entry points are connected.",
+      "sha256": "0d1e406f66be5af71cc180ed8d911a4be967e7718f947913df64b95531e3b471"
+    },
+    {
+      "path": "docs/source/get-started/install.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Read prerequisites, alternative HACS/manual ownership, restart/reload distinctions, compatibility aliases and removal guidance. Instructions do not imply a theme creates device capabilities.",
+      "sha256": "862f27f0c398940d542ce88caafc356e0d4f24204936341e7fb4594b16353a12"
+    },
+    {
+      "path": "docs/source/get-started/colour-settings.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Palette/tone choice, native persistence, absent themes and recovery mode are distinguished. The settings event is described as a request to native Home Assistant.",
+      "sha256": "af5ef4ea98312b3cf19f037a8fa3cc5be59a13964dda87c5f31b8afa47f03848"
+    },
+    {
+      "path": "docs/source/get-started/compatibility.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "The exact private adapters and unsupported History/Map/third-party boundaries are explicit. Live release evidence is not inferred from local tests.",
+      "sha256": "697ba70be976aa6c6ea86f3bc6ae5f628ef242124c34e85f90a427fe0ab4a70d"
+    },
+    {
+      "path": "docs/source/styles/index.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Visual roles, brand chapters and the complete writing guide have clear entry points; canonical tokens remain outside authored prose.",
+      "sha256": "4cab35c9eceeeabd94d21f97b8b4ece5f4427531cda694674216cdef568f958e"
+    },
+    {
+      "path": "docs/source/styles/brand.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Supplied V3.2 identity, geometry, variant artwork and provenance remain authoritative. Requested brand sections are linked; official identity is excluded.",
+      "sha256": "3812431c4f5335a47887a493daab42d46729a59b2cf45776b3f8fe0f2cd66496"
+    },
+    {
+      "path": "docs/source/styles/colour.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Reviewed generated exact palette references and semantic-role table; tone is independent of mode, chart identity and print metadata are qualified.",
+      "sha256": "f970ee6a8522a343bc42b894c95a4468e2077fbe1dc3e267726af85199fa67c6"
+    },
+    {
+      "path": "docs/source/styles/chart-colour.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Stable identities, opaque generated colours, pattern limits and 1.5px lines are explicit. The 24-series example is not claimed perceptually distinct by colour alone.",
+      "sha256": "089bb98d714f9daa9e0ce73f5190a52a2b579057db7f999a67ba2016fdfcc4f6"
+    },
+    {
+      "path": "docs/source/styles/typography.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Arial, semantic hierarchy, wrapping and native density exceptions are explicit. Shared example implementation has a separately recorded mobile-size discrepancy.",
+      "sha256": "96b2784a22dddbe41bd81f97213b3d05f0b85d24df8a9922c40700e07327e968"
+    },
+    {
+      "path": "docs/source/styles/layout.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Quiet structural versus editable boundaries, native shape exceptions, reflow and custom target sizes are distinguished. Shared documentation CSS drift is separate.",
+      "sha256": "d4709bc4fa5c5b884d910f31a508a2ea8d284875f7e5c812463d8c3b28507bde"
+    },
+    {
+      "path": "docs/source/styles/images.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Functional HA symbols, purpose-specific publishing arrows, operational imagery and supplied identity are correctly separated from new illustration guidance.",
+      "sha256": "27dd6a6eb99f1b93dcb85b97755616d0341189b92e8fa96aa43f1d238cfa5e89"
+    },
+    {
+      "path": "docs/source/styles/content.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Legacy URL now points to the full writing guide; existing summary preserves state/action differences, real retry capability, locale and user names.",
+      "sha256": "b7841bc2dc46bb4ad154ecba2792e971d478fd279f8078147d4a6eb290184d4e"
+    },
+    {
+      "path": "docs/source/styles/brand-colour.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "All eight colour rules reviewed for local palette authority, semantic independence, contrast context, channel distinctions and functional/decorative scope.",
+      "sha256": "57a7c73f5a3abb5cb155eaa0beaae4204dfe8e34b7e76ed0714ef53d2ed80ef8"
+    },
+    {
+      "path": "docs/source/styles/brand-typography.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "All six type rules reviewed; corrected evidence filename and print qualification before freeze. Native/OS density and accessible scaling are bounded.",
+      "sha256": "88a9798af8af168d87a5546d8f9d0e4beda5afe4fbf9afca169d8bd855c2a6c7"
+    },
+    {
+      "path": "docs/source/styles/brand-data.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "All nine data rules reviewed; clarified private HA adapter versus public ECharts APIs before freeze. Power/energy, original dates, gaps and native controls are preserved.",
+      "sha256": "b19612a4ba67b16dd642a613133835818a59a27212998a545dbd196de275acfc"
+    },
+    {
+      "path": "docs/source/styles/illustration.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "All ten illustration rules reviewed. New authored artwork is separated from functional strokes, photographs, cameras, maps and unchanged supplied identity.",
+      "sha256": "5d6d30ac8ea9f808e6314e5d208ff036fcbe54354d100778f3d33de6310eb0ea"
+    },
+    {
+      "path": "docs/source/content/index.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Ownership scope, source adaptation, requirement levels and chapter navigation are clear; examples distinguish authored help from native labels and names.",
+      "sha256": "d1ab8f341e4307fd9f668e8c83cb4663f3d5ea96a6bb479d430635e4dfbd666d"
+    },
+    {
+      "path": "docs/source/content/voice-and-language.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Six rules preserve evidence and necessary detail while making language calmer and easier to follow; readability is not treated as proof.",
+      "sha256": "0794d5184f849c3cb6a25ca5e8121bbd711ecc7aeff8542872b4203e1ff66c0e"
+    },
+    {
+      "path": "docs/source/content/words-and-style.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Six rules preserve names and literal identifiers. Automation terminology was corrected to distinguish triggers and conditions before freeze.",
+      "sha256": "09274234e6b0bbad94b1a6333f02a9a6ec9db5d6492497c73a6ec6a4c0855ec6"
+    },
+    {
+      "path": "docs/source/content/interface-copy.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Nine rules distinguish action, reported state, request acceptance, permission, persistence, cancellation and empty outcomes.",
+      "sha256": "5c9c99fa4518bffa696ab7716c3d3cc8420f49c61dda940b6020fdec6320b562"
+    },
+    {
+      "path": "docs/source/content/errors-and-alerts.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Seven rules avoid unsupported diagnosis, recovery, urgency and completion claims; private delivery channels and interruption frequency are bounded.",
+      "sha256": "4dbaf3152e34657158f6fca4ad8c7793268d099dae5a9c040c374f396c1b4bbd"
+    },
+    {
+      "path": "docs/source/content/instructions-and-learning.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Seven rules cover prerequisites, real labels, question purpose, learning order and honest prototypes; no invented workflow is presented as native.",
+      "sha256": "97d3d5109823ba7e5d2d4922ac3a9b8a6b86b1d692f2392e8a1a53ff9f9970ff"
+    },
+    {
+      "path": "docs/source/content/inclusive-content.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Seven rules cover household assumptions, sensitive information, names, language, BSL and presence uncertainty without importing clinical assurance.",
+      "sha256": "b2c5a8f35afc6fa0c00505b1d10c0659073452a20f69b8437e98d802149a7146"
+    },
+    {
+      "path": "docs/source/content/numbers-and-data.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Nine rules distinguish rates/intervals/targets, native precision/locales, timestamp types, DST, missing values and like-for-like comparisons.",
+      "sha256": "391c89e7b8b951b870f94ff3f0a93a57ff8bc30318f7cf1a3aeb82935bb036cd"
+    },
+    {
+      "path": "docs/source/content/accessible-content.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Seven rules cover actual semantics, non-colour meaning, alternatives, links, form associations and media. SCULPT attribution and reuse boundary are clear.",
+      "sha256": "92cc4a36a9688b3d0692dd33714884f7d102dd04218a4783674c23c085dbd80a"
+    },
+    {
+      "path": "docs/source/content/content-review.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Six rules separate ownership, meaningful changes, editorial/data dates, evidence types and exceptions. Reusable checklist remains a template rather than a blanket pass.",
+      "sha256": "6bad4fd96eec0fd3d85e1c6e85c1f854634dbebf816e2c3b4bf45bb189cd3f12"
+    },
+    {
+      "path": "docs/source/accessibility/index.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "WCAG is a target, not a certification. Text/non-text context and manual-testing limits are explicit.",
+      "sha256": "9b62542dba2cc7d2e02a9610a630cb520e6e97e2948aafd3e994af8f972fc946"
+    },
+    {
+      "path": "docs/source/accessibility/testing.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Automated, keyboard, screen-reader, reflow, mode and native-route checks are separate; historical fixtures are not presented as fresh live proof.",
+      "sha256": "3002bcf7ef6172267290025a3aea47e991dc070d5c9b3a11d0248eef9a8cd008"
+    },
+    {
+      "path": "docs/source/community/index.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers’ change process.",
+      "sha256": "81048b741b5dd3d61d73a2eca062846b9fc0de303d9752bb207bb50265336478"
+    },
+    {
+      "path": "docs/source/community/architecture.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Middleman and upstream Node architectures are distinguished. Single-source examples, authored history and private/native runtime boundaries are accurately described.",
+      "sha256": "fcee99ac2c70ee4b949295095d84d9cfb0c4a2c56258ab2633dc192367c113c3"
+    },
+    {
+      "path": "docs/source/community/coverage.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Source catalogue mapping is explicitly different from installed HA functionality; new brand/writing rule maps and audit boundaries are linked.",
+      "sha256": "d6e95f078888cfea6671dc72389732f8bfc205dbfe336c46e8d3ed7cc9a5f9d9"
+    },
+    {
+      "path": "docs/source/community/deviations.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-SYS-08"
+      ],
+      "note": "All sixteen local decisions preserve their boundaries. CIV-016 has a confirmed Markdown-to-HTML table-structure defect.",
+      "sha256": "aff0d6adc22aeaa883c2342c7deea6e5e1dc50c0d782d7f3b366e8ab9f9a35ee"
+    },
+    {
+      "path": "docs/source/community/licensing.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished.",
+      "sha256": "9ee9d586a025c3ef4f9e8cbc45ae6d2815eb81f849cc339ca6bb1dc5fe169261"
+    },
+    {
+      "path": "docs/source/community/sources.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Source families, reviewed scope and linked inventories are recorded. Source authority does not imply current native deployment or endorsement.",
+      "sha256": "c6b5ad1f70f4654b10bd678a1fbec2fa1ebd21af311b2aa204664f9419629689"
+    },
+    {
+      "path": "docs/source/community/visual-audit.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Historical baseline and reported live observations remain dated and distinct from this audit; the page does not claim arbitrary third-party conformance.",
+      "sha256": "4e1ab9e260bca036096fa53624d696994dae37739d77f7b7d2189d02a03415fe"
+    },
+    {
+      "path": "docs/source/community/guidance-work-package.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "The package distinguishes completed review tasks from unresolved component findings and exposes evidence for repeated loops.",
+      "sha256": "17a65f54a5e050d31cbf0c370814ddbcc5027e9ab401ac9467d826215b0aa553"
+    },
+    {
+      "path": "docs/source/community/design-system-audit.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "The report separates confirmed findings, migration recommendations, authored-page coverage and verification limits; proposals are not runtime changes.",
+      "sha256": "a29950b3711bb0a12e53d6d23f20bb1c1860e2e0353beb59f6cc87b7eae391e1"
+    },
+    {
+      "path": "docs/source/community/component-audit.html.md.erb",
+      "sha256": "7d3e3e3c636931d2c847780b642165e21469f6c98728d7df919c33ac85d34a63",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "Ownership proposals retain all published URLs, distinguish official source mappings from competing local guidance, and keep runtime aliases separate."
+    },
+    {
+      "path": "docs/source/community/missing-components.html.md.erb",
+      "sha256": "800512690bc161da0b53e6507abe81de782771e57d4df73201786111ed95adbc",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "note": "All 30 gaps distinguish missing local specifications from native HA capability; source presence is not a live compatibility claim. Priorities, dependencies and rule references are explicit."
+    }
+  ],
+  "migration_recommendations": [
+    {
+      "id": "AUD-SYS-03",
+      "title": "Existing promotional illustrations need the new illustration treatment",
+      "priority": "P2",
+      "rule_ids": [
+        "BG-ILL-02",
+        "BG-ILL-03",
+        "BG-ILL-10"
+      ],
+      "summary": "The existing decorative homepage hero predates the new illustration family and uses ornamental outlines and several supporting colours. Its empty alternative is appropriate in the decorative homepage placement. The new-asset rules do not retrospectively establish a MUST violation; migration is recommended for visual consistency when the artwork is next revised.",
+      "evidence": [
+        {
+          "path": "docs/source/images/design-system-hero.svg",
+          "line": 1,
+          "detail": "The decorative laptop, panel and approval motif use repeated outlines and multiple supporting colours."
+        },
+        {
+          "path": "docs/source/community/licensing.html.md.erb",
+          "line": 50,
+          "detail": "Attribution is collective rather than a per-asset delivery record."
+        }
+      ],
+      "proposed_change": "Redraw or simplify the decorative hero and category compositions using the declared flat illustration family. Record each original asset’s purpose, creator/rights, intended backgrounds and alternative-text decision. Preserve supplied identity artwork and meaningful functional symbols.",
+      "acceptance": [
+        "The hero has a clear focal point and restrained supporting colours without ornamental outlining.",
+        "Each decorative asset has a traceable metadata record and justified empty or informative alternative.",
+        "Inspect actual mobile/desktop placement; functional chart and icon stroke requirements remain unchanged."
+      ],
+      "status": "proposed_migration",
+      "review_scope": "Static source review; proposed remediation, no runtime change in this package."
+    }
+  ],
+  "rule_sets": [
+    "docs/data/brand-guidance-inventory.json",
+    "docs/data/writing-guide-inventory.json"
+  ],
+  "independent_challenge": "Foundation findings challenged by a separate reviewer. Existing promotional artwork reclassified as migration recommendation; unknown/unavailable lighting members separated; CIV-016 acceptance aligned with its proposal."
+}

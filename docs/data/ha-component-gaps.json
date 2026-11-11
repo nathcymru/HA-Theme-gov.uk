@@ -1,0 +1,3015 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-11",
+  "status": "review-complete-proposals-open",
+  "purpose": "Specify missing or partial civica.uk design coverage for existing Home Assistant capabilities; no native feature is declared missing.",
+  "baseline": {
+    "guideCount": 147,
+    "exampleCount": 263,
+    "nativeSourceReviewCommit": "b1164739c3a853a28ba1c425415e96a17eb6286e",
+    "nativeSourceReviewBranch": "dev",
+    "nativeSourceReviewIsRuntimeTest": false,
+    "runtimeTestBaseline": "See repository verification; this audit performs no live session or functional test.",
+    "nativeSourceReviewReadPaths": [
+      "src/components/ha-control-slider.ts:1-170",
+      "src/dialogs/more-info/controls/more-info-lock.ts:1-170",
+      "src/dialogs/more-info/controls/more-info-climate.ts:1-170",
+      "src/dialogs/more-info/controls/more-info-person.ts:1-113"
+    ]
+  },
+  "priorityDefinitions": {
+    "P1": "Needed before claiming reliable coverage of consequential actions, permissions, privacy, recovery or task accessibility.",
+    "P2": "Needed for coherent household coverage and accurate compatibility claims.",
+    "P3": "Catalogue or editorial maintenance; no established runtime defect."
+  },
+  "sources": [
+    {
+      "id": "HA-SRC-01",
+      "url": "https://www.home-assistant.io/dashboards/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native dashboards contain information and controls; component documentation is not a native feature inventory.",
+      "title": "Dashboards"
+    },
+    {
+      "id": "HA-SRC-02",
+      "url": "https://www.home-assistant.io/docs/configuration/state_object/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Unknown, unavailable, assumed state, nullable attributes, units and supported capabilities have distinct meanings.",
+      "title": "Entity states and attributes"
+    },
+    {
+      "id": "HA-SRC-03",
+      "url": "https://www.home-assistant.io/dashboards/actions/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Cards can use tap, hold and double tap with navigation, more-info, actions and confirmation.",
+      "title": "Dashboard actions"
+    },
+    {
+      "id": "HA-SRC-04",
+      "url": "https://www.home-assistant.io/dashboards/features/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native card features depend on entity capabilities; domain-specific controls already exist.",
+      "title": "Native card features"
+    },
+    {
+      "id": "HA-SRC-05",
+      "url": "https://www.home-assistant.io/docs/configuration/entities_domains/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Entities, devices and domains are distinct concepts; native entity domains cover many household functions.",
+      "title": "Entities and domains"
+    },
+    {
+      "id": "HA-SRC-06",
+      "url": "https://www.home-assistant.io/docs/automation/editor/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native visual and YAML automation editors provide targets, nested actions, undo, selection and organisation.",
+      "title": "Automation editors"
+    },
+    {
+      "id": "HA-SRC-07",
+      "url": "https://www.home-assistant.io/integrations/schedule/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Weekly schedule helpers define time blocks, boundaries, editing and validation.",
+      "title": "Weekly schedules"
+    },
+    {
+      "id": "HA-SRC-08",
+      "url": "https://www.home-assistant.io/dashboards/calendar/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native calendars provide month, day and list views.",
+      "title": "Calendar card"
+    },
+    {
+      "id": "HA-SRC-09",
+      "url": "https://www.home-assistant.io/integrations/history/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native History supports target selection, period changes, zoom and export; Recorder availability matters.",
+      "title": "History"
+    },
+    {
+      "id": "HA-SRC-10",
+      "url": "https://www.home-assistant.io/docs/configuration/user-configuration/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "People and login users differ; account, administrator and local-only scopes are native concerns.",
+      "title": "People and user configuration"
+    },
+    {
+      "id": "HA-SRC-11",
+      "url": "https://www.home-assistant.io/docs/authentication/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native authentication includes passwords, MFA, sessions and tokens; appearance does not enforce access.",
+      "title": "Authentication"
+    },
+    {
+      "id": "HA-SRC-12",
+      "url": "https://www.home-assistant.io/integrations/camera/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native camera state and the visible video stream are not interchangeable; capabilities vary.",
+      "title": "Camera states and streams"
+    },
+    {
+      "id": "HA-SRC-13",
+      "url": "https://www.home-assistant.io/dashboards/media-control/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native media controls already exist and remain tied to media_player entities.",
+      "title": "Media control card"
+    },
+    {
+      "id": "HA-SRC-14",
+      "url": "https://www.home-assistant.io/dashboards/map/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "The native Map card supports entities, map controls and location views.",
+      "title": "Map card"
+    },
+    {
+      "id": "HA-SRC-15",
+      "url": "https://www.home-assistant.io/common-tasks/general/backups/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native backups have content, storage, encryption, progress and restore boundaries.",
+      "title": "Backups"
+    },
+    {
+      "id": "HA-SRC-16",
+      "url": "https://www.home-assistant.io/common-tasks/general/updating/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native update workflows differ by software, apps and devices.",
+      "title": "Updates"
+    },
+    {
+      "id": "HA-SRC-17",
+      "url": "https://www.home-assistant.io/integrations/repairs/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Repairs has existing issue explanations and remediation; Settings badges aggregate attention counts.",
+      "title": "Repairs"
+    },
+    {
+      "id": "HA-SRC-18",
+      "url": "https://www.home-assistant.io/getting-started/onboarding/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native onboarding creates the owner, handles restore and location/analytics choices, then device discovery.",
+      "title": "Onboarding"
+    },
+    {
+      "id": "HA-SRC-19",
+      "url": "https://www.home-assistant.io/voice_control/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Assist supports household commands with different local and remote processing choices.",
+      "title": "Assist"
+    },
+    {
+      "id": "HA-SRC-20",
+      "url": "https://www.home-assistant.io/dashboards/todo-list/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native to-do lists support adding, editing, completing and clearing items.",
+      "title": "To-do list card"
+    },
+    {
+      "id": "HA-SRC-21",
+      "url": "https://www.home-assistant.io/dashboards/weather-forecast/",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Native weather separates current conditions, forecast intervals and configured units.",
+      "title": "Weather forecast card"
+    },
+    {
+      "id": "HA-SRC-22",
+      "url": "https://github.com/home-assistant/frontend/tree/b1164739c3a853a28ba1c425415e96a17eb6286e/src",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Current source-presence audit, not a claim that this development commit is the installed or tested frontend.",
+      "title": "Frontend source tree"
+    },
+    {
+      "id": "HA-SRC-23",
+      "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/components/ha-control-slider.ts",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Lines 22–31 and 77–170 expose keyboard keys, bounds, steps, units and ARIA value handling.",
+      "title": "Native slider source"
+    },
+    {
+      "id": "HA-SRC-24",
+      "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-lock.ts",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Lines 64–103 and 112–168 use protected lock actions, feature checks and confirmation states.",
+      "title": "Native lock control source"
+    },
+    {
+      "id": "HA-SRC-25",
+      "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-climate.ts",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Lines 92–159 check supported climate features and display current measurements separately.",
+      "title": "Native climate control source"
+    },
+    {
+      "id": "HA-SRC-26",
+      "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-person.ts",
+      "reviewedOn": "2026-11-11",
+      "kind": "official-home-assistant",
+      "supports": "Lines 42–78 preserve a native map and an administrator-gated zone action.",
+      "title": "Native person control source"
+    }
+  ],
+  "findings": [
+    {
+      "id": "HA-GAP-001",
+      "title": "Entity state, confidence and freshness",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "entity rows",
+        "tiles",
+        "more-info",
+        "sensor summaries"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native state objects distinguish unknown, unavailable and optional assumed state.",
+        "sourceIds": [
+          "HA-SRC-02",
+          "HA-SRC-05"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/status.html.md.erb",
+          "line": 32,
+          "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
+          "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+        },
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 10,
+          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+        }
+      ],
+      "proposal": "Extend the shared entity-state contract with source-backed confidence and freshness rules, separate from semantic severity.",
+      "acceptanceCriteria": [
+        "Show unknown, unavailable, assumed, null and valid zero as distinct cases.",
+        "Do not infer staleness from last_changed alone; define freshness only when the integration supplies a suitable timestamp or documented cadence.",
+        "Show name, formatted state, unit and device class without guessing absent capabilities."
+      ],
+      "dependencies": [
+        "BG-COL-05",
+        "BG-DAT-04",
+        "WG-011",
+        "WG-031",
+        "WG-033",
+        "WG-076"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "BG-DAT-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-04"
+        },
+        {
+          "id": "WG-011",
+          "level": "MUST",
+          "localPath": "/content/voice-and-language.html#wg-011"
+        },
+        {
+          "id": "WG-031",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-031"
+        },
+        {
+          "id": "WG-033",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-033"
+        },
+        {
+          "id": "WG-076",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-076"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-002",
+      "title": "Action request, confirmation and partial completion",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "single-device actions",
+        "group actions",
+        "scripts",
+        "scenes"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native actions and more-info routes exist; integrations determine response and state confirmation.",
+        "sourceIds": [
+          "HA-SRC-03",
+          "HA-SRC-02"
+        ]
+      },
+      "civicaRuntime": "native actions preserved; maintained lighting card adds room and recipe actions",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 10,
+          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+        },
+        {
+          "file": "card/src/card.ts",
+          "line": 207,
+          "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
+          "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
+        },
+        {
+          "file": "docs/source/patterns/recovery.html.md.erb",
+          "line": 22,
+          "excerpt": "## Use the right state",
+          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+        }
+      ],
+      "proposal": "Specify requested, accepted, confirmed, failed, timed-out and partially completed operations, including concurrent updates.",
+      "acceptanceCriteria": [
+        "Do not equate a resolved service call with an observed physical state.",
+        "A group operation reports partial failure without relabelling all members successful.",
+        "Prevent unintended repeat submissions while keeping a safe cancellation or retry route when the underlying action supports it."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "BG-COL-05",
+        "WG-032",
+        "WG-036",
+        "WG-044"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-036",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-036"
+        },
+        {
+          "id": "WG-044",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-044"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-003",
+      "title": "Continuous controls and discoverable alternatives",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "sliders",
+        "scrubbers",
+        "steppers",
+        "switches",
+        "hold/double-tap actions"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native ha-control-slider supports keyboard steps and ARIA values; card gesture actions exist.",
+        "sourceIds": [
+          "HA-SRC-03",
+          "HA-SRC-23"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 32,
+          "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
+          "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+        },
+        {
+          "file": "docs/source/components/controls.html.md.erb",
+          "line": 28,
+          "excerpt": "## Fields",
+          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+        }
+      ],
+      "proposal": "Define a reusable control-family contract with native bindings, visible values and keyboard/touch alternatives.",
+      "acceptanceCriteria": [
+        "Respect integration minimum, maximum, step and units, including non-integer increments.",
+        "Provide a visible route for essential actions otherwise available only on hold or double tap.",
+        "Verify unavailable values are not announced as a numeric minimum and 320px/200% layouts retain labels."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "BG-COL-04",
+        "BG-TYP-04",
+        "BG-TYP-05",
+        "WG-030",
+        "WG-034",
+        "WG-063",
+        "WG-084"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-04"
+        },
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "BG-TYP-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-05"
+        },
+        {
+          "id": "WG-030",
+          "level": "SHOULD",
+          "localPath": "/content/interface-copy.html#wg-030"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-063",
+          "level": "SHOULD",
+          "localPath": "/content/inclusive-content.html#wg-063"
+        },
+        {
+          "id": "WG-084",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-084"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-004",
+      "title": "Lighting capabilities and colour controls",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "light tiles",
+        "colour picker",
+        "room lighting",
+        "scene controls"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native light controls and supported feature models exist.",
+        "sourceIds": [
+          "HA-SRC-04",
+          "HA-SRC-05"
+        ]
+      },
+      "civicaRuntime": "native light controls plus maintained civica-house-lighting-card and scoped native light-dialog scene actions",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 10,
+          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+        },
+        {
+          "file": "card/src/card.ts",
+          "line": 207,
+          "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
+          "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
+        }
+      ],
+      "proposal": "Document on/off-only, brightness, colour temperature, colour and group-light variants with capability-driven visibility.",
+      "acceptanceCriteria": [
+        "Never expose colour or brightness commands unsupported by the entity.",
+        "Keep theme-palette selection separate from changing physical lights.",
+        "Use actual colour-mode/range capabilities and demonstrate unavailable and mixed group states."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-003",
+        "BG-COL-05",
+        "BG-ILL-07",
+        "WG-031",
+        "WG-034",
+        "WG-035"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "BG-ILL-07",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-07"
+        },
+        {
+          "id": "WG-031",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-031"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-035",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-035"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-005",
+      "title": "Climate, fan, humidity and water-heater controls",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "thermostat",
+        "HVAC modes",
+        "fan speed",
+        "humidity",
+        "water heater"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native domain controls already expose capability-dependent modes and measured values.",
+        "sourceIds": [
+          "HA-SRC-04",
+          "HA-SRC-25"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 38,
+          "excerpt": "Preserve modes and domain-specific state meanings. Heating, cooling, paused, playing and unavailable are not interchangeable brand accents. Media artwork remains useful content, not a surface to recolour with CSS filters.",
+          "supports": "Climate/media are acknowledged in one shared section."
+        },
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 32,
+          "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
+          "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+        }
+      ],
+      "proposal": "Add domain recipes for measured versus target values, operating state versus requested mode, and valid ranges.",
+      "acceptanceCriteria": [
+        "Separate current temperature from setpoint and heating activity from selected mode.",
+        "Retain declared modes, precision, units and dual-setpoint constraints.",
+        "Check off, unavailable, pending and unsupported-mode cases without invented controls."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-003",
+        "BG-COL-05",
+        "BG-TYP-03",
+        "WG-034",
+        "WG-070",
+        "WG-071",
+        "WG-073"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "BG-TYP-03",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-03"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-070",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-070"
+        },
+        {
+          "id": "WG-071",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-071"
+        },
+        {
+          "id": "WG-073",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-073"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-006",
+      "title": "Locks, alarms, covers and valves",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "lock/unlock/open",
+        "arm/disarm",
+        "cover position",
+        "valve flow"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native protected lock calls and domain-specific controls exist.",
+        "sourceIds": [
+          "HA-SRC-04",
+          "HA-SRC-24"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 44,
+          "excerpt": "Use unambiguous action labels. Display the current confirmed state and pending operation distinctly. Preserve confirmations for consequential actions. Do not place a whole-card tap target over separate lock or alarm buttons.",
+          "supports": "Consequential controls are acknowledged without a domain-by-domain decision matrix."
+        },
+        {
+          "file": "docs/source/components/dialogs.html.md.erb",
+          "line": 32,
+          "excerpt": "## Confirm consequential actions",
+          "supports": "Confirmation guidance exists; complete domain workflows remain native."
+        }
+      ],
+      "proposal": "Define consequential-action recipes while retaining native authentication and safety behaviour.",
+      "acceptanceCriteria": [
+        "Keep jammed, opening, closing, locked, unlocked and unknown states distinct where supported.",
+        "Use the native protected action/code flow; a hidden card or confirmation dialog is not an access-control boundary.",
+        "Preserve stop/cancel controls and clear object-specific action labels without adding automatic physical actions."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-002",
+        "HA-GAP-013",
+        "BG-COL-05",
+        "BG-ILL-07",
+        "WG-032",
+        "WG-034",
+        "WG-036",
+        "WG-043"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "BG-ILL-07",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-07"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-036",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-036"
+        },
+        {
+          "id": "WG-043",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-043"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-007",
+      "title": "Appliances, vacuums and outdoor devices",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "appliance cycles",
+        "vacuum",
+        "lawn mower",
+        "remote controls"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native domains and integration-specific features exist; device support varies.",
+        "sourceIds": [
+          "HA-SRC-04",
+          "HA-SRC-05"
+        ]
+      },
+      "civicaRuntime": "three known household-card presentation adapters include pa-appliance-card; other devices remain native",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 52,
+          "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
+          "supports": "Three exact household cards receive presentation only."
+        },
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 10,
+          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+        }
+      ],
+      "proposal": "Specify capability-led layouts for progress, remaining time, remote-control permission, faults and supported commands.",
+      "acceptanceCriteria": [
+        "Distinguish powered off, idle, running, returning and fault states only when the integration supplies them.",
+        "Keep unsupported or remote-disabled commands unavailable with a real reason; do not invent start, dock or pause controls.",
+        "Treat remaining time as an estimate and retain unknown values rather than showing zero."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-002",
+        "BG-ILL-07",
+        "BG-ILL-08",
+        "WG-011",
+        "WG-032",
+        "WG-034",
+        "WG-044"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-07",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-07"
+        },
+        {
+          "id": "BG-ILL-08",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-08"
+        },
+        {
+          "id": "WG-011",
+          "level": "MUST",
+          "localPath": "/content/voice-and-language.html#wg-011"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-044",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-044"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-008",
+      "title": "Entity, device, area and target pickers",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "automation target selector",
+        "device selection",
+        "area/floor/label pickers"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native selectors exist for entity, device, area, floor, label and target.",
+        "sourceIds": [
+          "HA-SRC-05",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/controls.html.md.erb",
+          "line": 28,
+          "excerpt": "## Fields",
+          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+        },
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 121,
+          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+          "supports": "The adapter target list is bounded and does not include the missing specification families."
+        }
+      ],
+      "proposal": "Add the native selection family to the design system instead of substituting a plain select or predictive text example.",
+      "acceptanceCriteria": [
+        "Show friendly names with disambiguating area/domain information and stable identifiers only when useful.",
+        "Preserve allowed domain/capability filters, multi-selection and native permitted data.",
+        "Test empty, filtered-out, deleted, unavailable and duplicate-name entities and keyboard chip removal."
+      ],
+      "dependencies": [
+        "HA-GAP-013",
+        "BG-TYP-04",
+        "BG-TYP-05",
+        "WG-022",
+        "WG-025",
+        "WG-034",
+        "WG-038",
+        "WG-084"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "BG-TYP-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-05"
+        },
+        {
+          "id": "WG-022",
+          "level": "MUST",
+          "localPath": "/content/words-and-style.html#wg-022"
+        },
+        {
+          "id": "WG-025",
+          "level": "MUST",
+          "localPath": "/content/words-and-style.html#wg-025"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-038",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-038"
+        },
+        {
+          "id": "WG-084",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-084"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-009",
+      "title": "Automation and script editing",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "visual automation editor",
+        "YAML editor",
+        "traces",
+        "nested action blocks"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native visual/YAML editors, targets, undo and nested action structures already exist.",
+        "sourceIds": [
+          "HA-SRC-06",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "missing-dedicated-specification",
+      "evidence": [
+        {
+          "file": "docs/source/components/controls.html.md.erb",
+          "line": 28,
+          "excerpt": "## Fields",
+          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+        },
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 121,
+          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+          "supports": "The adapter target list is bounded and does not include the missing specification families."
+        }
+      ],
+      "proposal": "Document editor structure, nesting, save/run distinction, reorder alternatives, validation and troubleshooting.",
+      "acceptanceCriteria": [
+        "Distinguish editing/saving/enabling from running an action that affects devices.",
+        "Keep trigger, condition and action hierarchy comprehensible by keyboard and screen reader.",
+        "Preserve unsaved work, native undo and validation locations; identify the scope of a test run before execution."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-008",
+        "HA-GAP-024",
+        "BG-TYP-04",
+        "WG-035",
+        "WG-036",
+        "WG-051",
+        "WG-080",
+        "WG-084"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "WG-035",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-035"
+        },
+        {
+          "id": "WG-036",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-036"
+        },
+        {
+          "id": "WG-051",
+          "level": "MUST",
+          "localPath": "/content/instructions-and-learning.html#wg-051"
+        },
+        {
+          "id": "WG-080",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-080"
+        },
+        {
+          "id": "WG-084",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-084"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-010",
+      "title": "Schedules, calendars, timers and recurrence",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "weekly schedule editor",
+        "calendar",
+        "date/time selectors",
+        "timer"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native schedule helpers and calendar views exist.",
+        "sourceIds": [
+          "HA-SRC-07",
+          "HA-SRC-08"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+          "line": 21,
+          "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
+          "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
+        },
+        {
+          "file": "docs/source/components/controls.html.md.erb",
+          "line": 28,
+          "excerpt": "## Fields",
+          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+        }
+      ],
+      "proposal": "Separate scheduling controls from publishing calendar pages and define time/date/recurrence semantics.",
+      "acceptanceCriteria": [
+        "Test inclusive start/exclusive end, adjacent blocks and native cross-midnight rules.",
+        "State time zone, all-day versus timed events, locale and daylight-saving behaviour; do not invent recurrence support.",
+        "Provide keyboard-accessible editing equivalent to dragging and explain save/cancel effects on existing automations."
+      ],
+      "dependencies": [
+        "HA-GAP-003",
+        "HA-GAP-023",
+        "BG-TYP-03",
+        "WG-035",
+        "WG-072",
+        "WG-074",
+        "WG-075"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-03",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-03"
+        },
+        {
+          "id": "WG-035",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-035"
+        },
+        {
+          "id": "WG-072",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-072"
+        },
+        {
+          "id": "WG-074",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-074"
+        },
+        {
+          "id": "WG-075",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-075"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-011",
+      "title": "History, activity and statistics outside Energy",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "History panel",
+        "activity/logbook",
+        "history graph",
+        "statistics graph"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native History provides target/period selection, zoom and export.",
+        "sourceIds": [
+          "HA-SRC-09"
+        ]
+      },
+      "civicaRuntime": "native History preserved; seven Energy Cartesian graph types alone receive the civica chart adapter",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 30,
+          "excerpt": "| History and other charts | Native behaviour and available colour tokens; no Energy adapter coverage | Fresh entry and native data access |",
+          "supports": "History is explicitly native and outside the Energy chart adapter."
+        },
+        {
+          "file": "ui/src/energy-charts.ts",
+          "line": 21,
+          "excerpt": "export const ENERGY_CHART_HOSTS = Object.freeze([",
+          "supports": "Seven exact native Energy graph types are adapted; this is not a universal chart adapter."
+        }
+      ],
+      "proposal": "Add native History acceptance recipes without claiming the Energy adapter runs there.",
+      "acceptanceCriteria": [
+        "Distinguish no selected targets, no recorded data, excluded history and failed requests.",
+        "Verify selected periods, units, comparison and export scope without changing recorded values.",
+        "Test native keyboard/non-visual data routes and record any unresolved chart accessibility limitations separately."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-023",
+        "BG-DAT-03",
+        "BG-DAT-04",
+        "BG-DAT-07",
+        "WG-074",
+        "WG-076",
+        "WG-077"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-DAT-03",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-03"
+        },
+        {
+          "id": "BG-DAT-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-04"
+        },
+        {
+          "id": "BG-DAT-07",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-07"
+        },
+        {
+          "id": "WG-074",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-074"
+        },
+        {
+          "id": "WG-076",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-076"
+        },
+        {
+          "id": "WG-077",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-077"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-012",
+      "title": "Energy distribution and other unsupported charts",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "Energy distribution diagram",
+        "gauges",
+        "pie charts",
+        "third-party charts"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native Energy distribution and other chart types remain available.",
+        "sourceIds": [
+          "HA-SRC-01",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/energy.html.md.erb",
+          "line": 46,
+          "excerpt": "## Energy distribution",
+          "supports": "The native distribution diagram is already documented as a controlled deviation."
+        },
+        {
+          "file": "ui/src/energy-charts.ts",
+          "line": 21,
+          "excerpt": "export const ENERGY_CHART_HOSTS = Object.freeze([",
+          "supports": "Seven exact native Energy graph types are adapted; this is not a universal chart adapter."
+        }
+      ],
+      "proposal": "Document acceptance for native flow diagrams and non-adapted chart families, using ONS principles where applicable.",
+      "acceptanceCriteria": [
+        "Keep the native distribution diagram correctly named; do not call it an ONS Sankey.",
+        "Check textual values, units, direction and reduced motion on native diagram nodes.",
+        "State unsupported engines and cards explicitly; do not promise the Energy View data table or palette adapter on them."
+      ],
+      "dependencies": [
+        "HA-GAP-011",
+        "BG-DAT-02",
+        "BG-DAT-06",
+        "BG-DAT-07",
+        "WG-004",
+        "WG-077",
+        "WG-095"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-DAT-02",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-02"
+        },
+        {
+          "id": "BG-DAT-06",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-06"
+        },
+        {
+          "id": "BG-DAT-07",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-07"
+        },
+        {
+          "id": "WG-004",
+          "level": "MUST",
+          "localPath": "/content/index.html#wg-004"
+        },
+        {
+          "id": "WG-077",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-077"
+        },
+        {
+          "id": "WG-095",
+          "level": "MUST",
+          "localPath": "/content/content-review.html#wg-095"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-013",
+      "title": "Accounts, permissions and shared preferences",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "account profile",
+        "admin settings",
+        "guest/shared dashboard",
+        "login/session"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native user/owner/admin and local-only account features already exist.",
+        "sourceIds": [
+          "HA-SRC-10",
+          "HA-SRC-11"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/settings.html.md.erb",
+          "line": 30,
+          "excerpt": "Keep focus in the control. Do not navigate away, reload the page or ask for confirmation for an appearance choice. Do not modify other users' settings or call the backend-wide default-theme action for a personal preference.",
+          "supports": "Personal-theme scope is explicit; this does not define wider account permissions."
+        },
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 35,
+          "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
+          "supports": "Authentication and companion branding remain outside current module coverage."
+        }
+      ],
+      "proposal": "Specify scope and permission-aware presentation while preserving native enforcement.",
+      "acceptanceCriteria": [
+        "Distinguish account-wide, browser-only, dashboard and installation settings before a change.",
+        "Test owner, administrator and non-administrator views without inventing granular access features.",
+        "Do not equate dashboard visibility, disabled controls or theme CSS with backend authorization; test rejected actions."
+      ],
+      "dependencies": [
+        "BG-ILL-09",
+        "WG-002",
+        "WG-034",
+        "WG-051",
+        "WG-061"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-09",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-09"
+        },
+        {
+          "id": "WG-002",
+          "level": "MUST",
+          "localPath": "/content/index.html#wg-002"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-051",
+          "level": "MUST",
+          "localPath": "/content/instructions-and-learning.html#wg-051"
+        },
+        {
+          "id": "WG-061",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-061"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-014",
+      "title": "Presence, people and shared-screen privacy",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "person chips",
+        "avatars",
+        "home/away",
+        "location history",
+        "wall display"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native persons, users and map-based presence are distinct concepts.",
+        "sourceIds": [
+          "HA-SRC-10",
+          "HA-SRC-26"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/home.html.md.erb",
+          "line": 41,
+          "excerpt": "## Responsive and shared use",
+          "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+        },
+        {
+          "file": "docs/source/styles/images.html.md.erb",
+          "line": 8,
+          "excerpt": "# Icons and images",
+          "supports": "General imagery guidance is not a camera, media or location interaction specification."
+        },
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 31,
+          "excerpt": "| Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |",
+          "supports": "Map preservation is documented, but no dedicated interaction specification is present."
+        }
+      ],
+      "proposal": "Define presence confidence, disclosure and shared-screen presentation with user-chosen data scope.",
+      "acceptanceCriteria": [
+        "Do not equate missing tracker data with away or infer occupancy certainty from a single sensor.",
+        "Keep login identity separate from tracked person state.",
+        "Use synthetic examples; avoid showing exact locations or private names on public evidence and document household display choices."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-013",
+        "BG-ILL-09",
+        "WG-011",
+        "WG-022",
+        "WG-045",
+        "WG-061",
+        "WG-066"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-09",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-09"
+        },
+        {
+          "id": "WG-011",
+          "level": "MUST",
+          "localPath": "/content/voice-and-language.html#wg-011"
+        },
+        {
+          "id": "WG-022",
+          "level": "MUST",
+          "localPath": "/content/words-and-style.html#wg-022"
+        },
+        {
+          "id": "WG-045",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-045"
+        },
+        {
+          "id": "WG-061",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-061"
+        },
+        {
+          "id": "WG-066",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-066"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-015",
+      "title": "Camera and live image surfaces",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "camera card",
+        "stream",
+        "snapshot",
+        "recording status"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native camera integration and more-info viewer exist.",
+        "sourceIds": [
+          "HA-SRC-12"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "missing-dedicated-specification",
+      "evidence": [
+        {
+          "file": "docs/source/styles/images.html.md.erb",
+          "line": 8,
+          "excerpt": "# Icons and images",
+          "supports": "General imagery guidance is not a camera, media or location interaction specification."
+        },
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 10,
+          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+        }
+      ],
+      "proposal": "Specify live versus snapshot labels, loading/error states, privacy and playback controls.",
+      "acceptanceCriteria": [
+        "Never call a stale image live; preserve available source timestamps and stream error states.",
+        "Do not infer recording status from a visible stream or idle camera state.",
+        "Keep controls and accessible names usable over imagery and retain native authorization; use synthetic images in documentation."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-013",
+        "HA-GAP-014",
+        "BG-ILL-08",
+        "BG-ILL-09",
+        "WG-011",
+        "WG-033",
+        "WG-061",
+        "WG-082"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-08",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-08"
+        },
+        {
+          "id": "BG-ILL-09",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-09"
+        },
+        {
+          "id": "WG-011",
+          "level": "MUST",
+          "localPath": "/content/voice-and-language.html#wg-011"
+        },
+        {
+          "id": "WG-033",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-033"
+        },
+        {
+          "id": "WG-061",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-061"
+        },
+        {
+          "id": "WG-082",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-082"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-016",
+      "title": "Media playback and source selection",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "media control card",
+        "media browser",
+        "volume",
+        "seek",
+        "source selection"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native media controls and media_player capabilities exist.",
+        "sourceIds": [
+          "HA-SRC-13",
+          "HA-SRC-04"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 38,
+          "excerpt": "Preserve modes and domain-specific state meanings. Heating, cooling, paused, playing and unavailable are not interchangeable brand accents. Media artwork remains useful content, not a surface to recolour with CSS filters.",
+          "supports": "Climate/media are acknowledged in one shared section."
+        },
+        {
+          "file": "docs/source/styles/images.html.md.erb",
+          "line": 8,
+          "excerpt": "# Icons and images",
+          "supports": "General imagery guidance is not a camera, media or location interaction specification."
+        }
+      ],
+      "proposal": "Document playback states, selectable targets, artwork, elapsed/duration values and supported commands.",
+      "acceptanceCriteria": [
+        "Retain play/pause/stop/seek distinctions and capability-dependent commands.",
+        "Use accessible volume/seek values and allow keyboard control without obscuring artwork attribution.",
+        "Do not autoplay or switch output devices as a side effect of navigation or theme changes."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-003",
+        "BG-ILL-08",
+        "BG-TYP-04",
+        "WG-030",
+        "WG-034",
+        "WG-063",
+        "WG-085"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-08",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-08"
+        },
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "WG-030",
+          "level": "SHOULD",
+          "localPath": "/content/interface-copy.html#wg-030"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-063",
+          "level": "SHOULD",
+          "localPath": "/content/inclusive-content.html#wg-063"
+        },
+        {
+          "id": "WG-085",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-085"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-017",
+      "title": "Maps, zones and geographic information",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "Map panel",
+        "location picker",
+        "zone editor"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native map and person location surfaces already exist.",
+        "sourceIds": [
+          "HA-SRC-14",
+          "HA-SRC-26"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 31,
+          "excerpt": "| Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |",
+          "supports": "Map preservation is documented, but no dedicated interaction specification is present."
+        }
+      ],
+      "proposal": "Add a map-specific contract with attribution, markers, interaction and an accessible textual location route.",
+      "acceptanceCriteria": [
+        "Preserve provider attribution, zoom controls and marker meanings across themes.",
+        "Avoid keyboard/scroll traps and test a non-drag route for supported editing tasks.",
+        "Keep location precision and disclosure appropriate to account and shared-screen scope."
+      ],
+      "dependencies": [
+        "HA-GAP-014",
+        "HA-GAP-024",
+        "BG-DAT-08",
+        "BG-ILL-08",
+        "BG-ILL-09",
+        "WG-063",
+        "WG-066",
+        "WG-082"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-DAT-08",
+          "level": "MUST",
+          "localPath": "/styles/brand-data.html#bg-dat-08"
+        },
+        {
+          "id": "BG-ILL-08",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-08"
+        },
+        {
+          "id": "BG-ILL-09",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-09"
+        },
+        {
+          "id": "WG-063",
+          "level": "SHOULD",
+          "localPath": "/content/inclusive-content.html#wg-063"
+        },
+        {
+          "id": "WG-066",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-066"
+        },
+        {
+          "id": "WG-082",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-082"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-018",
+      "title": "Connection loss, reconnecting and stale views",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "application connection",
+        "integration outage",
+        "device offline",
+        "safe/recovery mode"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Home Assistant has native connection and recovery handling; entity unavailable is a separate state.",
+        "sourceIds": [
+          "HA-SRC-02",
+          "HA-SRC-11",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/recovery.html.md.erb",
+          "line": 22,
+          "excerpt": "## Use the right state",
+          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+        },
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 34,
+          "excerpt": "const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&",
+          "supports": "Safe/recovery mode and theme activation gate the companion presentation."
+        }
+      ],
+      "proposal": "Specify distinct application, integration and device connectivity messages and recovery behaviour.",
+      "acceptanceCriteria": [
+        "Do not present cached state as freshly confirmed while the application is disconnected.",
+        "Retain entered non-secret values and avoid automatic retries of consequential device commands.",
+        "Test reconnect, repeated failure, safe/recovery mode and theme cleanup without hiding native diagnostics."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-002",
+        "BG-COL-05",
+        "WG-033",
+        "WG-040",
+        "WG-041",
+        "WG-044"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "WG-033",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-033"
+        },
+        {
+          "id": "WG-040",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-040"
+        },
+        {
+          "id": "WG-041",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-041"
+        },
+        {
+          "id": "WG-044",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-044"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-019",
+      "title": "Backup, restore and destructive recovery",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "backup creation",
+        "backup storage",
+        "restore",
+        "import"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native backup and restore workflows already exist.",
+        "sourceIds": [
+          "HA-SRC-15"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "missing-dedicated-specification",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/recovery.html.md.erb",
+          "line": 22,
+          "excerpt": "## Use the right state",
+          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+        },
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 35,
+          "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
+          "supports": "Authentication and companion branding remain outside current module coverage."
+        }
+      ],
+      "proposal": "Add backup/restore progress, scope and confirmation recipes; keep native encryption and recovery procedures authoritative.",
+      "acceptanceCriteria": [
+        "Differentiate requested, created, uploaded and verified backups, including partial failures.",
+        "State what a restore replaces before confirmation, retain encryption-key handling and avoid leaking secrets.",
+        "Do not describe the theme recovery copy or selected-file rollback as a complete HA backup."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-013",
+        "HA-GAP-018",
+        "BG-ILL-09",
+        "WG-032",
+        "WG-036",
+        "WG-044",
+        "WG-051",
+        "WG-095"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-09",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-09"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-036",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-036"
+        },
+        {
+          "id": "WG-044",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-044"
+        },
+        {
+          "id": "WG-051",
+          "level": "MUST",
+          "localPath": "/content/instructions-and-learning.html#wg-051"
+        },
+        {
+          "id": "WG-095",
+          "level": "MUST",
+          "localPath": "/content/content-review.html#wg-095"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-020",
+      "title": "Updates, repairs and maintenance",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "update entities",
+        "Settings attention badge",
+        "Repairs",
+        "restart"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native update and Repairs flows exist; the badge only presents their count.",
+        "sourceIds": [
+          "HA-SRC-16",
+          "HA-SRC-17"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/notification-badge.html.md.erb",
+          "line": 8,
+          "excerpt": "# Notification badge",
+          "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
+        },
+        {
+          "file": "docs/source/patterns/recovery.html.md.erb",
+          "line": 22,
+          "excerpt": "## Use the right state",
+          "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
+        }
+      ],
+      "proposal": "Define maintenance severity, progress, release information, restart consequences and genuine remediation routes.",
+      "acceptanceCriteria": [
+        "Distinguish available, downloading, installing, restart-needed, failed and completed states as supplied.",
+        "Keep ordinary maintenance separate from urgent household alarms.",
+        "Never imply dismissing a badge resolves a repair; preserve native repair actions and update permissions."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-013",
+        "HA-GAP-019",
+        "BG-COL-05",
+        "WG-032",
+        "WG-042",
+        "WG-044",
+        "WG-051"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-042",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-042"
+        },
+        {
+          "id": "WG-044",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-044"
+        },
+        {
+          "id": "WG-051",
+          "level": "MUST",
+          "localPath": "/content/instructions-and-learning.html#wg-051"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-021",
+      "title": "Onboarding, integration setup and reauthentication",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "first-run onboarding",
+        "integration configuration",
+        "discovery",
+        "reauthentication"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native onboarding and integration configuration already exist.",
+        "sourceIds": [
+          "HA-SRC-18",
+          "HA-SRC-11"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "missing-dedicated-specification",
+      "evidence": [
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 35,
+          "excerpt": "| Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |",
+          "supports": "Authentication and companion branding remain outside current module coverage."
+        },
+        {
+          "file": "docs/source/components/controls.html.md.erb",
+          "line": 28,
+          "excerpt": "## Fields",
+          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+        }
+      ],
+      "proposal": "Document the coverage boundary and task requirements for setup and credential flows before considering an adapter.",
+      "acceptanceCriteria": [
+        "State authentication/onboarding are outside current companion branding; do not claim a theme replaces them.",
+        "Keep permission/location/analytics choices specific and preserve native account ownership.",
+        "Distinguish device discovered, configured and ready; keep credentials out of example HTML, URLs and logs."
+      ],
+      "dependencies": [
+        "HA-GAP-013",
+        "HA-GAP-018",
+        "BG-COL-01",
+        "WG-002",
+        "WG-004",
+        "WG-034",
+        "WG-051",
+        "WG-061"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-01",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-01"
+        },
+        {
+          "id": "WG-002",
+          "level": "MUST",
+          "localPath": "/content/index.html#wg-002"
+        },
+        {
+          "id": "WG-004",
+          "level": "MUST",
+          "localPath": "/content/index.html#wg-004"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-051",
+          "level": "MUST",
+          "localPath": "/content/instructions-and-learning.html#wg-051"
+        },
+        {
+          "id": "WG-061",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-061"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-022",
+      "title": "Dashboard composition and editing",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "card picker",
+        "dashboard editor",
+        "section reorder",
+        "YAML configuration"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native dashboard editing supports cards, views and layout configuration.",
+        "sourceIds": [
+          "HA-SRC-01",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/home.html.md.erb",
+          "line": 41,
+          "excerpt": "## Responsive and shared use",
+          "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+        },
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 121,
+          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+          "supports": "The adapter target list is bounded and does not include the missing specification families."
+        }
+      ],
+      "proposal": "Specify edit-mode affordances, selection, movement, preview and configuration validation without changing saved layouts.",
+      "acceptanceCriteria": [
+        "Keep edit controls distinct from device actions and label the object being moved.",
+        "Verify keyboard reorder/resize alternatives or record the native limitation rather than claiming a CSS fix.",
+        "Preserve unsaved edits, card configuration and native visibility rules through theme changes."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-008",
+        "HA-GAP-024",
+        "BG-TYP-04",
+        "BG-COL-04",
+        "WG-031",
+        "WG-035",
+        "WG-036",
+        "WG-084"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "BG-COL-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-04"
+        },
+        {
+          "id": "WG-031",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-031"
+        },
+        {
+          "id": "WG-035",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-035"
+        },
+        {
+          "id": "WG-036",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-036"
+        },
+        {
+          "id": "WG-084",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-084"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-023",
+      "title": "Locale, units, time zones and bidirectional layout",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "profile localisation",
+        "measurements",
+        "dates",
+        "charts",
+        "translated names"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native profile localisation settings and formatters exist.",
+        "sourceIds": [
+          "HA-SRC-10",
+          "HA-SRC-23"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/patterns/settings.html.md.erb",
+          "line": 30,
+          "excerpt": "Keep focus in the control. Do not navigate away, reload the page or ask for confirmation for an appearance choice. Do not modify other users' settings or call the backend-wide default-theme action for a personal preference.",
+          "supports": "Personal-theme scope is explicit; this does not define wider account permissions."
+        },
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 32,
+          "excerpt": "A slider has a visible label, current value, unit and usable keyboard steps. Temperature and brightness need meaningful minimum, maximum and increment settings. Avoid a custom drag-only control.",
+          "supports": "General slider requirements exist; no domain capability/state matrix is specified here."
+        }
+      ],
+      "proposal": "Create a cross-component localisation contract, separating UK house style from the user's HA locale.",
+      "acceptanceCriteria": [
+        "Respect selected units, number separators, date/time and time-zone settings.",
+        "Check long translations and right-to-left reading/order without reversing physical meaning.",
+        "Separate date-only records from instants and retain offsets where repeated local times need disambiguation."
+      ],
+      "dependencies": [
+        "HA-GAP-010",
+        "HA-GAP-011",
+        "BG-TYP-03",
+        "BG-TYP-05",
+        "WG-021",
+        "WG-022",
+        "WG-065",
+        "WG-072",
+        "WG-075"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-03",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-03"
+        },
+        {
+          "id": "BG-TYP-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-05"
+        },
+        {
+          "id": "WG-021",
+          "level": "MUST",
+          "localPath": "/content/words-and-style.html#wg-021"
+        },
+        {
+          "id": "WG-022",
+          "level": "MUST",
+          "localPath": "/content/words-and-style.html#wg-022"
+        },
+        {
+          "id": "WG-065",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-065"
+        },
+        {
+          "id": "WG-072",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-072"
+        },
+        {
+          "id": "WG-075",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-075"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-024",
+      "title": "Native task accessibility and dense/shared displays",
+      "priority": "P1",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "native editors",
+        "dialogs",
+        "wall tablet",
+        "phone",
+        "assistive technology"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native controls have their own keyboard/focus behaviour; themes cannot guarantee accessibility.",
+        "sourceIds": [
+          "HA-SRC-23",
+          "HA-SRC-01"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/accessibility/testing.html.md.erb",
+          "line": 48,
+          "excerpt": "## Native Home Assistant checks",
+          "supports": "Existing release checks name broad routes; detailed task matrices are not recorded here."
+        },
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 64,
+          "excerpt": "## CSS cannot correct everything",
+          "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
+        },
+        {
+          "file": "docs/source/patterns/home.html.md.erb",
+          "line": 41,
+          "excerpt": "## Responsive and shared use",
+          "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
+        }
+      ],
+      "proposal": "Expand the current route checklist into representative task/state/device matrices and record failures honestly.",
+      "acceptanceCriteria": [
+        "Include screen-reader task checks, keyboard-only interaction, 320px, 200% text, 400% zoom, forced colours and reduced motion.",
+        "Cover sliders, target pickers, nested editors, camera/media controls and native dialogs in addition to static examples.",
+        "Record tested version/browser/assistive technology and untested cases; automated scans and palette contrast are not whole-application certification."
+      ],
+      "dependencies": [
+        "BG-COL-03",
+        "BG-COL-06",
+        "BG-TYP-05",
+        "WG-063",
+        "WG-081",
+        "WG-084",
+        "WG-086",
+        "WG-095"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-03",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-03"
+        },
+        {
+          "id": "BG-COL-06",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-06"
+        },
+        {
+          "id": "BG-TYP-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-05"
+        },
+        {
+          "id": "WG-063",
+          "level": "SHOULD",
+          "localPath": "/content/inclusive-content.html#wg-063"
+        },
+        {
+          "id": "WG-081",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-081"
+        },
+        {
+          "id": "WG-084",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-084"
+        },
+        {
+          "id": "WG-086",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-086"
+        },
+        {
+          "id": "WG-095",
+          "level": "MUST",
+          "localPath": "/content/content-review.html#wg-095"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-025",
+      "title": "Assist, conversation and voice controls",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "Assist dialog",
+        "microphone state",
+        "conversation transcript",
+        "voice satellite"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native Assist exists with local and optional remote processing.",
+        "sourceIds": [
+          "HA-SRC-19",
+          "HA-SRC-03"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "missing-dedicated-specification",
+      "evidence": [
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 121,
+          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+          "supports": "The adapter target list is bounded and does not include the missing specification families."
+        },
+        {
+          "file": "docs/source/components/devices.html.md.erb",
+          "line": 10,
+          "excerpt": "Home control requires continuous and repeated actions that are uncommon in a government transaction. Keep native HA switches, sliders, media controls and climate controls when they serve the user's task.",
+          "supports": "General native-control preservation is documented; detailed domain contracts remain separate work."
+        }
+      ],
+      "proposal": "Document voice-state feedback, text alternatives, recognition uncertainty and command confirmation boundaries.",
+      "acceptanceCriteria": [
+        "Distinguish listening, processing, response and failed recognition using text as well as animation.",
+        "Offer the native typed route and explain actual configured processing scope without assuming all requests stay local.",
+        "Do not begin listening or issue device actions automatically as a theme effect."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-013",
+        "HA-GAP-024",
+        "BG-ILL-07",
+        "WG-032",
+        "WG-044",
+        "WG-061",
+        "WG-063",
+        "WG-085"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-ILL-07",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-07"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-044",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-044"
+        },
+        {
+          "id": "WG-061",
+          "level": "MUST",
+          "localPath": "/content/inclusive-content.html#wg-061"
+        },
+        {
+          "id": "WG-063",
+          "level": "SHOULD",
+          "localPath": "/content/inclusive-content.html#wg-063"
+        },
+        {
+          "id": "WG-085",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-085"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-026",
+      "title": "To-do lists, reminders and household tasks",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "to-do cards",
+        "task completion",
+        "due dates",
+        "calendar actions"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native to-do lists provide actual add/edit/complete/clear interactions.",
+        "sourceIds": [
+          "HA-SRC-20",
+          "HA-SRC-08"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+          "line": 21,
+          "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
+          "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
+        },
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 52,
+          "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
+          "supports": "Three exact household cards receive presentation only."
+        }
+      ],
+      "proposal": "Separate native task editing from a GOV.UK task-list navigation specimen and define saved completion states.",
+      "acceptanceCriteria": [
+        "Distinguish completing an item from dismissing a reminder or marking an example step complete.",
+        "Preserve due dates, timezone and native capability constraints.",
+        "Handle duplicate submission, failed sync and item deletion without announcing an unsaved change as complete."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-010",
+        "BG-TYP-03",
+        "WG-032",
+        "WG-035",
+        "WG-036",
+        "WG-074",
+        "WG-075"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-03",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-03"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-035",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-035"
+        },
+        {
+          "id": "WG-036",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-036"
+        },
+        {
+          "id": "WG-074",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-074"
+        },
+        {
+          "id": "WG-075",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-075"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-027",
+      "title": "Weather, environmental readings and source warnings",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "weather forecasts",
+        "air quality",
+        "water/smoke alerts",
+        "external warning feeds"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native weather and sensor domains exist; source integrations provide warning detail.",
+        "sourceIds": [
+          "HA-SRC-21",
+          "HA-SRC-02"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/status.html.md.erb",
+          "line": 32,
+          "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
+          "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+        },
+        {
+          "file": "docs/source/styles/images.html.md.erb",
+          "line": 8,
+          "excerpt": "# Icons and images",
+          "supports": "General imagery guidance is not a camera, media or location interaction specification."
+        }
+      ],
+      "proposal": "Specify observed versus forecast values, source freshness, uncertainty, units and warning applicability.",
+      "acceptanceCriteria": [
+        "Keep forecast period and location clear; do not label a forecast as a current reading.",
+        "Separate a successful empty warning result from unavailable data or a failed request.",
+        "Retain provider attribution and official warning wording where supplied; do not invent household emergency severity from brand colour."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-014",
+        "BG-COL-05",
+        "BG-ILL-08",
+        "WG-011",
+        "WG-033",
+        "WG-042",
+        "WG-043",
+        "WG-076"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "BG-ILL-08",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-08"
+        },
+        {
+          "id": "WG-011",
+          "level": "MUST",
+          "localPath": "/content/voice-and-language.html#wg-011"
+        },
+        {
+          "id": "WG-033",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-033"
+        },
+        {
+          "id": "WG-042",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-042"
+        },
+        {
+          "id": "WG-043",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-043"
+        },
+        {
+          "id": "WG-076",
+          "level": "MUST",
+          "localPath": "/content/numbers-and-data.html#wg-076"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-028",
+      "title": "Notification delivery, acknowledgement and alerts",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "persistent notifications",
+        "toast",
+        "push",
+        "attention badges"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native notification and Repairs systems remain responsible for messages and state.",
+        "sourceIds": [
+          "HA-SRC-17",
+          "HA-SRC-05"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/notification-badge.html.md.erb",
+          "line": 8,
+          "excerpt": "# Notification badge",
+          "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
+        },
+        {
+          "file": "docs/source/components/status.html.md.erb",
+          "line": 32,
+          "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
+          "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
+        }
+      ],
+      "proposal": "Define message type, audience, persistence and acknowledgement without treating badge presentation as delivery logic.",
+      "acceptanceCriteria": [
+        "Distinguish queued, delivered, read, acknowledged and resolved only where the backend actually exposes them.",
+        "Prevent repeated announcements during sensor updates and retain an accessible route to details.",
+        "Keep private message content out of shared-screen previews unless the household chooses that display."
+      ],
+      "dependencies": [
+        "HA-GAP-001",
+        "HA-GAP-013",
+        "HA-GAP-014",
+        "BG-COL-05",
+        "BG-ILL-09",
+        "WG-032",
+        "WG-042",
+        "WG-045",
+        "WG-046"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-05",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-05"
+        },
+        {
+          "id": "BG-ILL-09",
+          "level": "MUST",
+          "localPath": "/styles/illustration.html#bg-ill-09"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-042",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-042"
+        },
+        {
+          "id": "WG-045",
+          "level": "MUST",
+          "localPath": "/content/errors-and-alerts.html#wg-045"
+        },
+        {
+          "id": "WG-046",
+          "level": "SHOULD",
+          "localPath": "/content/errors-and-alerts.html#wg-046"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-029",
+      "title": "Registry tables, bulk actions and saved filters",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "entities table",
+        "devices table",
+        "automation list",
+        "bulk selection"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native registries and automation tables already support searching and organisation.",
+        "sourceIds": [
+          "HA-SRC-05",
+          "HA-SRC-06",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/components/controls.html.md.erb",
+          "line": 28,
+          "excerpt": "## Fields",
+          "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
+        },
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 121,
+          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+          "supports": "The adapter target list is bounded and does not include the missing specification families."
+        }
+      ],
+      "proposal": "Specify selected-row counts, scoped filters, sort state and bulk-action confirmation beyond the local fixed-record finder.",
+      "acceptanceCriteria": [
+        "Keep selection across sorting/filtering only according to the native contract and state the affected count.",
+        "Separate no results, permission-limited data and unavailable registry responses.",
+        "Provide keyboard access to row actions and partial-result feedback without duplicating native state management."
+      ],
+      "dependencies": [
+        "HA-GAP-002",
+        "HA-GAP-008",
+        "HA-GAP-013",
+        "BG-TYP-04",
+        "WG-032",
+        "WG-034",
+        "WG-038",
+        "WG-080",
+        "WG-084"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "WG-032",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-032"
+        },
+        {
+          "id": "WG-034",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-034"
+        },
+        {
+          "id": "WG-038",
+          "level": "MUST",
+          "localPath": "/content/interface-copy.html#wg-038"
+        },
+        {
+          "id": "WG-080",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-080"
+        },
+        {
+          "id": "WG-084",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-084"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    },
+    {
+      "id": "HA-GAP-030",
+      "title": "Native versus third-party compatibility contracts",
+      "priority": "P2",
+      "status": "proposed",
+      "scope": "design-specification-and-acceptance-coverage",
+      "surfaces": [
+        "custom cards",
+        "closed component roots",
+        "updates",
+        "new entity domains"
+      ],
+      "nativeCapability": {
+        "status": "exists",
+        "evidence": "Native themes and custom-card APIs coexist; private component styles vary.",
+        "sourceIds": [
+          "HA-SRC-01",
+          "HA-SRC-22"
+        ]
+      },
+      "civicaRuntime": "Native behaviour is preserved. Theme variables may apply; no dedicated civica adapter is implemented",
+      "designCoverage": "partial",
+      "evidence": [
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 64,
+          "excerpt": "## CSS cannot correct everything",
+          "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
+        },
+        {
+          "file": "docs/source/get-started/compatibility.html.md.erb",
+          "line": 52,
+          "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
+          "supports": "Three exact household cards receive presentation only."
+        },
+        {
+          "file": "ui/src/civica-ui.ts",
+          "line": 121,
+          "excerpt": "const targets = findAll(app.shadowRoot, ['ha-pick-theme-row','ha-sidebar','hass-subpage','ha-top-app-bar-fixed','ha-panel-energy', ...Object.keys(LEGACY_CARD_STYLES)].join(','));",
+          "supports": "The adapter target list is bounded and does not include the missing specification families."
+        }
+      ],
+      "proposal": "Keep an explicit feature/adapter/recipe compatibility register with versioned evidence and fallback behaviour.",
+      "acceptanceCriteria": [
+        "Every coverage claim identifies token-only, exact scoped adapter, reference specimen or unsupported surface.",
+        "Test cleanup and duplicate imports for supported adapters; preserve native fallback when a target changes.",
+        "Do not expand private selectors to all custom cards or infer behaviour from matching colours."
+      ],
+      "dependencies": [
+        "HA-GAP-024",
+        "BG-COL-04",
+        "BG-TYP-04",
+        "WG-002",
+        "WG-004",
+        "WG-052",
+        "WG-086",
+        "WG-095"
+      ],
+      "featureMissingClaim": false,
+      "implementationAuthorisedByAudit": false,
+      "ruleDependencies": [
+        {
+          "id": "BG-COL-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-colour.html#bg-col-04"
+        },
+        {
+          "id": "BG-TYP-04",
+          "level": "MUST",
+          "localPath": "/styles/brand-typography.html#bg-typ-04"
+        },
+        {
+          "id": "WG-002",
+          "level": "MUST",
+          "localPath": "/content/index.html#wg-002"
+        },
+        {
+          "id": "WG-004",
+          "level": "MUST",
+          "localPath": "/content/index.html#wg-004"
+        },
+        {
+          "id": "WG-052",
+          "level": "MUST",
+          "localPath": "/content/instructions-and-learning.html#wg-052"
+        },
+        {
+          "id": "WG-086",
+          "level": "MUST",
+          "localPath": "/content/accessible-content.html#wg-086"
+        },
+        {
+          "id": "WG-095",
+          "level": "MUST",
+          "localPath": "/content/content-review.html#wg-095"
+        }
+      ],
+      "ruleReview": {
+        "status": "consistent-proposal",
+        "meaning": "Requirements/proposal checked against applicable frozen rules; no runtime conformance claim."
+      }
+    }
+  ],
+  "guidanceReview": {
+    "status": "completed-proposal-source-review",
+    "reviewedOn": "2026-11-11",
+    "brand": {
+      "file": "docs/data/brand-guidance-inventory.json",
+      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "ruleCount": 33,
+      "authorFreezeConfirmed": true
+    },
+    "writing": {
+      "file": "docs/data/writing-guide-inventory.json",
+      "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+      "ruleCount": 68,
+      "authorFreezeConfirmed": true
+    },
+    "result": "Proposed requirements and taxonomy were checked against the frozen rule scopes. Relevant rule dependencies are attached to every proposal. This is not a pass for existing component implementation or live Home Assistant.",
+    "scopeCautions": [
+      "Writing requirements apply to civica-authored strings, not wholesale rewriting of native translations or user names.",
+      "Illustration restrictions do not remove functional icon strokes, chart patterns or operational imagery.",
+      "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
+      "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
+    ]
+  },
+  "limitations": [
+    "Read-only source and requirements audit; no live Home Assistant inspection or commands.",
+    "Current development-source presence is not evidence of the installed frontend version or tested behaviour.",
+    "A reference example demonstrates its local behaviour, not an installed HA integration.",
+    "Proposals do not authorize replacing native controls, changing device semantics or modifying saved dashboards."
+  ]
+}

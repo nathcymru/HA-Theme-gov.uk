@@ -1,0 +1,60 @@
+---
+title: "Brand, writing and audit work package"
+description: "Coverage checklists, review loops and evidence for the brand guidance, writing guide and whole-system audit."
+section: community
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Added the guidance work packages, coverage checklists and recorded review loops."
+---
+
+# Brand, writing and audit work package
+
+This package adds the selected brand guidance and a complete writing guide, then uses those rules to audit the design system. The audit proposes changes; its completion does not mean every finding has been fixed.
+
+## Read the deliverables
+
+- [Brand guidance](../styles/index.html#brand-guidance): colour, typography, data and illustration.
+- [Writing for home automation](../content/index.html): ten chapters, household examples and testable rules.
+- [Whole-system audit](design-system-audit.html): confirmed findings, evidence and acceptance criteria.
+- [Component organisation](component-audit.html): canonical families, duplication and stable-URL proposals.
+- [Missing Home Assistant specifications](missing-components.html): prioritised gaps, existing native capability and implementation boundaries.
+
+The [machine-readable checklist](../reference/guidance-work-package.json) supplies the records below. A completed checklist item has evidence. An audit finding remains open until its proposed remedy meets the recorded acceptance criteria.
+
+For subsequent changes, use the [brand rule checklist](../reference/brand-guidance-checklist.json), [writing review checklist](../reference/writing-guide-checklist.json) and [component audit checklist](../reference/component-audit-checklist.json). The writing checklist is a reusable blank template. The brand checklist separates completed source and documentation review from interface checks that still need implementation evidence. Neither is a claim that the open findings have passed.
+
+## Work-package checklists
+
+<% package = JSON.parse(File.read(File.join(root, 'data', 'guidance-work-package.json'))) %>
+<% package['phases'].each do |phase| %>
+<h3 id="<%= escape(phase['id'].downcase) %>"><%= escape(phase['title']) %></h3>
+<table><caption>Coverage for <%= escape(phase['title'].downcase) %></caption><thead><tr><th scope="col">Check</th><th scope="col">Status</th><th scope="col">Evidence</th></tr></thead><tbody>
+<% phase['items'].each do |item| %>
+<tr><th scope="row"><%= escape(item['id']) %>: <%= escape(item['task']) %></th><td><%= escape(item['status'].tr('_', ' ')) %></td><td><%= escape(item['evidence'].join('; ')) %></td></tr>
+<% end %>
+</tbody></table>
+<% end %>
+
+## Review loops
+
+<% package['loops'].each do |loop| %>
+<h3><%= escape(loop['title']) %></h3>
+<p><%= escape(loop['outcome']) %></p>
+<ul><% loop['checks'].each do |check| %><li><%= escape(check) %></li><% end %></ul>
+<% end %>
+
+Repeat the loop whenever a check fails: correct the deliverable or record a confirmed audit finding, rerun the affected checks, then verify the full coverage ledger. A proposal is not a pass for the underlying component. Do not keep a review marked complete after its recorded scope changes.
+
+## Record evidence accurately
+
+<%= example('local-community-issue') %>
+
+<%= example('local-community-decision') %>
+
+## Scope and limits
+
+The starting revision is `2dfeb5272eaf27c100dcb50b59f20220918a2d41`. The review covers authored documentation, examples, shared presentation code, design tokens and maintained component source. New guidance is reviewed before it is used as the audit standard. The machine records preserve file evidence and the reviewed scope.
+
+This package does not change live household configuration or certify every native Home Assistant component. Automated checks cover specific markup and behaviour; screen-reader usability, household comprehension and live device behaviour need separately recorded testing. Keep those untested boundaries visible in the [audit](design-system-audit.html).

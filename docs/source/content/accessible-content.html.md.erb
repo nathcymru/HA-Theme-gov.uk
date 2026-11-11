@@ -1,0 +1,82 @@
+---
+title: "Accessible content"
+description: "Use structure, meaningful alternatives and clear interaction text, informed by SCULPT."
+section: "styles"
+group: "Writing guide"
+nav_order: 8
+source_url: "https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+updates:
+  - date: "2026-11-11"
+    description: "Added original household writing rules, contextual examples and source boundaries for accessible content."
+---
+
+# Accessible content
+
+Structure and wording work together. A heading must be a heading in the document, a link must identify its destination, and a status must make sense without colour. Content review complements implementation and browser testing; it does not replace either.
+
+The SCULPT mnemonic from Helen Wilson and Worcestershire County Council informs the review below: structure; colour, contrast, captions and checkers; images and alternative text; links and logical order; plain language; tables, text and transcripts. This is original civica guidance. The source poster and logo are not bundled or relicensed.
+
+<h2 id="wg-080">WG-080 — Use meaningful document structure</h2>
+
+**MUST.** Give a page a clear main heading, use a logical heading hierarchy, and use real lists and table relationships instead of visual imitation.
+
+Use one clear page title for the main task. Do not turn bold paragraphs into apparent headings or choose a heading level only for its size. A genuine question can be a form heading or legend even though explanatory articles usually benefit from descriptive headings. Use numbered lists for ordered steps and tables for relationships that need rows and columns.
+
+<%= example('wg-accessible-structure') %>
+
+<h2 id="wg-081">WG-081 — Make meaning independent of colour and position</h2>
+
+**MUST.** Include text or another accessible distinction for important states and instructions; do not rely only on colour, shape, location or sound.
+
+“Unavailable” needs text, not just a grey dot. A chart needs named series and data context, not only coloured lines. “Select the green option on the right” is not a reliable instruction. Keep visible labels aligned with accessible names; hidden text should add necessary context rather than contradict what is visible.
+
+<h2 id="wg-082">WG-082 — Write useful alternatives for meaningful images</h2>
+
+**MUST.** Describe the information or function needed for the task, and mark purely decorative images as decorative.
+
+A diagram of a device connection may need a nearby structured explanation in addition to a short alternative. A repeated decorative icon beside a complete text label may need no spoken description. Do not use a filename as alternative text or begin every description with “image of”. If an image is a control, its accessible name describes the control’s purpose.
+
+<h2 id="wg-083">WG-083 — Write descriptive links and preserve logical order</h2>
+
+**MUST.** Use link text that identifies the destination or task, and keep content order meaningful for keyboard and screen-reader navigation.
+
+Prefer “Read the device connection guide” to “click here”. Distinguish a download from a web page and identify a different language when relevant. Preserve underlined link styling and visible focus rather than importing old print advice against underlining. Do not turn an important instruction into an unexplained icon link.
+
+<%= example('wg-accessible-links') %>
+
+<h2 id="wg-084">WG-084 — Keep help and outcomes available to assistive technology</h2>
+
+**MUST.** Associate labels, hints and errors with their controls, and announce relevant changing outcomes without unnecessary repeated interruption.
+
+A placeholder cannot replace a visible label. An error summary should lead to the affected field. Routine confirmations normally need a polite status announcement; urgent interruptions need a justified alert. Do not place essential help only on hover. Preserve native keyboard and focus behaviour while improving wording.
+
+<h2 id="wg-085">WG-085 — Provide honest, usable media and document alternatives</h2>
+
+**MUST.** Use structured HTML for routine guidance where practical, and supply accurate captions, transcripts and accessible document alternatives when the content requires them.
+
+Captions need meaningful speech and relevant sounds; a transcript should include necessary visual context. A signed version meets different language needs. For a necessary downloadable document, use a meaningful title, reading order, headings and image alternatives. A PDF/A label or automated checker does not prove that the document is accessible. Do not advertise an inaccessible file as the only route to essential help.
+
+<h2 id="wg-086">WG-086 — Describe accessibility evidence accurately</h2>
+
+**MUST.** Report what was tested and any known limitations without treating a checker, checklist, score or theme as a guarantee of accessibility.
+
+Automated checks can find some missing names and contrast failures. They cannot decide whether a recovery instruction is correct, a chart title is useful or a task makes sense. Include keyboard use, reflow, zoom, reading order and realistic content in review. Record findings and retest changes; do not remove a necessary warning merely to improve a readability score.
+
+
+## Sources and adaptation
+
+- [Worcestershire County Council: What is SCULPT?](https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt)
+- [NHS: Formatting](https://service-manual.nhs.uk/content/formatting)
+- [NHS: PDFs and other non-HTML documents](https://service-manual.nhs.uk/content/pdfs-and-other-non-html-documents)
+- [NHS: BSL quality assurance standard](https://service-manual.nhs.uk/content/british-sign-language-bsl-quality-assurance-standard)
+- [NHS forms: Supporting form content](https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form)
+- [GOV.UK: Clear structure](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/)
+- [GOV.UK: Add links](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/add-links/)
+- [Plain English Campaign: free guides](https://www.plainenglish.co.uk/free-guides)
+
+## Implementation boundary
+
+These rules govern civica-authored content. The examples use synthetic household information and local preview interactions. They do not add Home Assistant features, change device states or certify safety, accessibility or clinical suitability. Preserve native translations and user-supplied names; verify each proposed message against the actual integration and supported version.

@@ -1,0 +1,79 @@
+---
+title: "Missing Home Assistant specifications"
+description: "Prioritised design and acceptance gaps for native Home Assistant capabilities, with current civica coverage kept explicit."
+section: community
+group: Review
+status: reference
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Recorded 30 proposed household design-specification gaps, native capability evidence and testable acceptance criteria."
+---
+
+# Missing Home Assistant specifications
+
+Home Assistant already provides device controls, automation editors, schedules, history, account management and recovery flows. The gaps below concern **civica.uk design specifications and acceptance coverage** for those capabilities. They are not a claim that Home Assistant lacks the features.
+
+The review found 30 areas that need a dedicated specification or a more complete task contract. Every item is a proposal. Completing this audit does not mean those specifications, adapters or tests have been implemented.
+
+<% audit = JSON.parse(File.read(File.join(root, 'data', 'ha-component-gaps.json'))) %>
+<% sources = audit['sources'].to_h { |source| [source['id'], source] } %>
+
+## Read coverage in three parts
+
+| Part | Evidence required |
+| --- | --- |
+| Native capability | Official Home Assistant documentation or source shows that the feature exists |
+| civica.uk implementation | A named maintained component or bounded adapter implements a change; theme variables alone are a narrower claim |
+| Design specification | The guide explains capability, state, content, accessibility and failure behaviour, with task-specific acceptance checks |
+
+The current companion adapts known shell hosts, profile colour settings, numeric attention badges, seven native Energy graph types and three named household cards. It also supplies action links. The maintained lighting card adds its own room and scene controls. Other native surfaces retain their own behaviour and the styles they expose. See [Compatibility and limits](../get-started/compatibility.html) for the exact boundary.
+
+## Priority and dependencies
+
+**P1** means the specification is needed before claiming reliable coverage of consequential actions, permissions, privacy, recovery or task accessibility. **P2** covers the remaining work needed for coherent household use. These are design-work priorities, not a claim that every native surface has a confirmed defect.
+
+Start with the shared state and action contracts, then the domain controls and flows that depend on them. Develop native task examples from actual capabilities and synthetic data. Keep a supported native route available while a new recipe is specified and tested.
+
+The [machine-readable gap register](../reference/ha-component-gaps.json) contains exact file and line evidence, source records, dependencies, rule-file hashes and acceptance criteria. The [component organisation review](component-audit.html) identifies where shared rules should live.
+
+## Prioritised register
+
+<% audit['findings'].each do |finding| %>
+<h3 id="<%= escape(finding['id'].downcase) %>"><%= escape(finding['id']) %>: <%= escape(finding['title']) %></h3>
+<p><strong><%= escape(finding['priority']) %> · <%= escape(finding['designCoverage'].tr('-', ' ')) %>.</strong> <%= escape(finding['proposal']) %></p>
+<p><strong>Native capability:</strong> <%= escape(finding['nativeCapability']['evidence']) %></p>
+<p><strong>Current civica.uk scope:</strong> <%= escape(finding['civicaRuntime']) %>.</p>
+<p><strong>Affected surfaces:</strong> <%= escape(finding['surfaces'].join(', ')) %>.</p>
+<p><strong>Acceptance criteria for future work:</strong></p>
+<ul><% finding['acceptanceCriteria'].each do |check| %><li><%= escape(check) %></li><% end %></ul>
+<p>Rule dependencies: <% finding['ruleDependencies'].each_with_index do |rule, index| %><%= ', ' unless index.zero? %><a href="<%= docs_path(rule['localPath']) %>"><%= escape(rule['id']) %></a><% end %>.</p>
+<% dependencies = finding['dependencies'].select { |id| id.start_with?('HA-GAP-') } %>
+<% unless dependencies.empty? %><p>Related requirements: <% dependencies.each_with_index do |id, index| %><%= ', ' unless index.zero? %><a href="#<%= escape(id.downcase) %>"><%= escape(id) %></a><% end %>.</p><% end %>
+<p>Native evidence: <% finding['nativeCapability']['sourceIds'].each_with_index do |id, index| %><%= ', ' unless index.zero? %><a href="<%= escape(sources.fetch(id)['url']) %>"><%= escape(sources.fetch(id)['title']) %></a><% end %>. See the source descriptions below.</p>
+<% end %>
+
+## Native source record
+
+Official Home Assistant pages were reviewed on 11 November 2026. The frontend source review used development commit `b1164739c3a853a28ba1c425415e96a17eb6286e`. That commit provides source-presence evidence; it is not a statement about the installed or tested frontend version.
+
+<ul>
+<% audit['sources'].each do |source| %>
+<li><a href="<%= escape(source['url']) %>"><%= escape(source['title']) %></a> (<%= escape(source['id']) %>): <%= escape(source['supports']) %></li>
+<% end %>
+</ul>
+
+## Distinguish a specimen from a supported feature
+
+These local examples explain the existing compatibility boundary. They do not create a connection to a home or implement any proposed native workflow.
+
+<%= example('local-compatibility-supported') %>
+
+<%= example('local-compatibility-fallback') %>
+
+## Review and implementation limits
+
+The proposals were reviewed against the frozen [brand guidance](../styles/brand-colour.html) and [writing guide](../content/index.html). Their rules preserve native labels, user names, translations, permissions, data values and device capabilities. Illustration rules do not justify replacing functional icons, camera images or maps. A clinical or government source does not give this household application its authority or assurance.
+
+This review used source and documentation evidence. It did not operate the user's Home Assistant, run physical commands, modify saved dashboards, build the site or perform new accessibility testing. The [whole-system audit](design-system-audit.html) keeps confirmed implementation findings separate from this proposed coverage register. Use the [audit checklist](../reference/component-audit-checklist.json) to repeat the review when the sources, rules or implementation change.

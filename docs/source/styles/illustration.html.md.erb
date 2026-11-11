@@ -1,0 +1,133 @@
+---
+title: "Illustration"
+description: "Purposeful original civica.uk illustrations, separated from functional icons and operational household imagery."
+section: "styles"
+group: "Brand guidance"
+source_url: "https://brand.design-system.service.gov.uk/illustration/"
+status: "reference"
+published_on: "2026-11-11"
+updated_on: "2026-11-11"
+last_reviewed_on: "2026-11-11"
+review_in: "3 months"
+updates:
+  - date: 2026-11-11
+    description: "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
+---
+
+# Illustration
+
+Use illustrations to explain a task or relationship. Adapt the GOV.UK brand’s clarity and inclusive composition principles without adopting its official identity assets or dot-derived graphic device. An illustration is not a device state, a photograph, a chart or a replacement for Home Assistant’s familiar icons.
+
+## Examples
+
+These reference examples use invented household details. They do not operate devices or establish that every native Home Assistant surface has adopted this guidance.
+
+<%= example('bg-illustration-sensor-placement') %>
+
+<%= example('bg-illustration-network') %>
+
+<%= example('bg-illustration-functional-icon') %>
+
+<h2 id="bg-ill-01">BG-ILL-01: Use an illustration only when it explains something</h2>
+
+**Local requirement: MUST.** Applies to new explanatory illustrations and dashboard imagery.
+
+Identify the message and the task first. An illustration can explain sensor placement, the relationship between a phone and a hub, or a setup step that words alone make difficult. Put the complete instruction beside it.
+
+Do not fill an empty dashboard card with decorative artwork, imply a real device is online through a cheerful picture, or replace a camera view with a comforting scene. Choose an operational image, a functional icon or a data chart when that is what the task needs. The [icons and images rules](images.html) remain separate.
+
+Source: [Illustration](https://brand.design-system.service.gov.uk/illustration/), [Incorrect visual approaches](https://brand.design-system.service.gov.uk/illustration/incorrect-approaches/).
+
+<h2 id="bg-ill-02">BG-ILL-02: Draw original, simple civica artwork</h2>
+
+**Local requirement: MUST.** Applies to new civica explanatory artwork.
+
+Use flat geometric forms, restrained detail and a clear focal point for new explanatory illustrations. Keep them recognisable at the intended display size. Use real object references where accuracy matters and remove details that do not explain the action.
+
+Do not copy GOV.UK character assets, its crown, its dot-derived graphic device or its identity compositions. Basic circles and rectangles are useful drawing tools, not permission to reproduce the official system. Preserve supplied civica identity artwork unchanged. The examples here are original schematic SVGs, not imported government illustrations.
+
+Source: [Illustration principles](https://brand.design-system.service.gov.uk/illustration/illustration-principles/), [Creating illustrations](https://brand.design-system.service.gov.uk/illustration/creating-illustrations/), [Objects and props](https://brand.design-system.service.gov.uk/illustration/objects-and-props/).
+
+<h2 id="bg-ill-03">BG-ILL-03: Use a restrained palette without borrowing status</h2>
+
+**Local requirement: MUST.** Applies to explanatory illustration family, excluding functional icons and data marks.
+
+Start with the selected civica primary, neutral canvas and a small number of supporting shades. Four to six colours is a useful upper starting range for a complex scene, not a minimum to fill. Simpler diagrams may need fewer. Check adjacent shapes and essential edges against their actual background.
+
+Do not use a warning or success role to decorate a scene that expresses no such state. Avoid ornamental gradients, textures, outlines and 3D effects in this illustration family. Functional icon strokes and chart hatching remain permitted and required where their own specifications use them. Illustrative restraint must not remove accessibility cues from controls or data.
+
+Source: [Illustration colour](https://brand.design-system.service.gov.uk/colour/illustrations/), [Incorrect visual approaches](https://brand.design-system.service.gov.uk/illustration/incorrect-approaches/).
+
+<h2 id="bg-ill-04">BG-ILL-04: Compose around the action</h2>
+
+**Local recommendation: SHOULD.** Applies to composition and sequencing of explanatory illustrations.
+
+Use whitespace, scale and limited overlap to make the subject clear. A frame or background shape may establish context; it must not conceal a hand, device label or action. Keep the illustration and explanatory text together at narrow widths.
+
+A sequence of panels can explain several steps, but each needs a readable order and corresponding text. Do not add movement merely to attract attention. If an animation is necessary to demonstrate a process, provide a static equivalent, playback control where needed and respect reduced motion.
+
+Source: [Layout of a scene](https://brand.design-system.service.gov.uk/illustration/layout-of-a-scene/), [Illustration principles](https://brand.design-system.service.gov.uk/illustration/illustration-principles/).
+
+<h2 id="bg-ill-05">BG-ILL-05: Represent people and gestures carefully</h2>
+
+**Local requirement: MUST.** Applies to illustrated people, gestures and avatars.
+
+If people help explain the task, use believable proportions and respectful variation in age, skin tone, body type, clothing and disability. Avoid assumptions about who owns the home or carries out a chore. Do not use an avatar’s appearance to infer identity, gender or capability.
+
+A hand pointing to a control must point to the correct control. Sign language, safety instructions and accessibility gestures need subject-specific review; a generic geometric hand cannot validate them. The official character system’s exact head, hand and facial-feature construction is reference-only, not a civica asset specification.
+
+Source: [Characters](https://brand.design-system.service.gov.uk/illustration/characters/), [Hands and gestures](https://brand.design-system.service.gov.uk/illustration/hands-and-gestures/).
+
+<h2 id="bg-ill-06">BG-ILL-06: Give the image the right alternative</h2>
+
+**Local requirement: MUST.** Applies to informative, redundant and decorative image alternatives.
+
+For an informative image, describe essential information that the surrounding text does not already provide. A complex diagram also needs a nearby explanation or structured alternative. Keep labels and instructions as HTML where practical.
+
+For an image that only repeats complete nearby text, use an empty image alternative or hide a redundant inline SVG from the accessibility tree. Do not omit an `alt` attribute on an `<img>` simply because the image is decorative. In an inline informative SVG, give it an accessible name and keep decorative internal shapes from becoming extra controls.
+
+Source: [Illustration accessibility](https://brand.design-system.service.gov.uk/illustration/accessibility/).
+
+<h2 id="bg-ill-07">BG-ILL-07: Keep icons functional and recognisable</h2>
+
+**Local requirement: MUST.** Applies to functional entity/domain and navigation icons.
+
+Use Home Assistant’s established entity/domain icons and state variants for repeated household controls. Pair them with names and states; give an icon-only action an accessible name and an adequate hit target. Keep manufacturer artwork when it materially identifies the device, without implying that the manufacturer is the civica service owner.
+
+Do not turn native icons into faceless illustrations or replace a meaningful outline icon with a solid blob. The original action-link arrow and native 24px symbols are functional vectors. Their permitted strokes, alignment and focus treatment follow their component contract, not the decorative illustration family.
+
+Source: [Illustration](https://brand.design-system.service.gov.uk/illustration/).
+
+<h2 id="bg-ill-08">BG-ILL-08: Preserve photographs, video and map evidence</h2>
+
+**Local requirement: MUST.** Applies to photos, media, cameras, map tiles and illustrative stand-ins.
+
+Room photos, device images, media artwork, camera feeds and map tiles are operational content with their own purpose and rights. Do not flatten, recolour or crop away identifying information to imitate an illustration. Give camera imagery its location, availability and last-update context; a still frame is not proof of a live stream.
+
+Show unavailable media honestly and retain native player or camera controls. Protect text and controls placed over imagery with a tested solid surface where possible. A brand illustration may explain how a camera works, but it must be labelled as a diagram and must not stand in for the camera’s actual state.
+
+Source: [Illustration](https://brand.design-system.service.gov.uk/illustration/), [Illustration examples](https://brand.design-system.service.gov.uk/illustration/illustration-examples/).
+
+<h2 id="bg-ill-09">BG-ILL-09: Limit personal information in shared imagery</h2>
+
+**Local requirement: MUST.** Applies to public examples and personal household imagery.
+
+Use invented household details in public examples. Before publishing screenshots, remove access tokens, exact home coordinates, faces, registration plates and names that are not needed for the task. Obtain appropriate permission for identifiable people and user-supplied photos; record asset rights rather than treating public availability as permission.
+
+Presence avatars and camera previews are functional personal content. Keep access controls and native privacy choices intact; do not add faces, infer identities or expose a precise location to make a dashboard feel more personal. This is a civica household-privacy extension, not a claim made by the brand illustration pages.
+
+Source: [Illustration accessibility](https://brand.design-system.service.gov.uk/illustration/accessibility/).
+
+<h2 id="bg-ill-10">BG-ILL-10: Deliver and review the complete asset</h2>
+
+**Local requirement: MUST.** Applies to new asset delivery, rights metadata and rendered review.
+
+Keep the editable source, author/source, licence, purpose, alternative-text decision and intended background with each new asset. Deliver an appropriate web format such as SVG for simple vectors or a suitable raster format for photographs; never present an EPS/AI production source as the image users must view. Optimise delivery without discarding meaningful detail.
+
+Check the actual rendered image at small and large sizes, in the intended light/dark contexts, with images disabled and with a colour-vision simulation where useful. Brand guidance review and a successful SVG parse do not constitute a usability or accessibility pass. Record remaining limitations and test evidence in the checklist.
+
+Source: [File formats and exporting](https://brand.design-system.service.gov.uk/illustration/formats/), [Illustration accessibility](https://brand.design-system.service.gov.uk/illustration/accessibility/), [Creating illustrations](https://brand.design-system.service.gov.uk/illustration/creating-illustrations/).
+
+## Review and evidence
+
+The source inventory and rule checklist are maintained in `docs/data/brand-guidance-inventory.json` and `docs/data/brand-guidance-checklist.json`. A reviewed source is evidence for a design decision, not a pass for an interface. Record the page or component, theme/mode, test result and remaining issue before closing a checklist item. Recheck after source, palette, component or renderer changes.

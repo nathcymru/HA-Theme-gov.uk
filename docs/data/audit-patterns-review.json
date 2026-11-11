@@ -1,0 +1,2659 @@
+{
+  "reviewed_on": "2026-11-11",
+  "status": "static audit complete; proposed corrections only; no existing audited guide or example changed",
+  "baseline": {
+    "commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
+    "working_tree_context": "Reviewed against authored writing/brand rules added in this work package, not a claim that those rules were present in the baseline commit.",
+    "page_count": 65,
+    "pattern_pages": 18,
+    "publishing_pages": 47,
+    "unique_referenced_examples": 131,
+    "pattern_example_count": 45,
+    "publishing_example_count": 86
+  },
+  "rule_sets": [
+    {
+      "id": "writing",
+      "path": "docs/data/writing-guide-inventory.json",
+      "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+      "rule_count": 68
+    },
+    {
+      "id": "brand",
+      "path": "docs/data/brand-guidance-inventory.json",
+      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "rule_count": 33
+    }
+  ],
+  "review_method": [
+    "Read every assigned guide body, including nested publishing pages and the ERB catalogue index; inspected catalogue composition and all metadata records/fallbacks.",
+    "Read complete visible content and semantic/control attributes for every referenced example, with original YAML/JS/source inspection for suspected mismatches.",
+    "Screened applicability across all writing and brand rule families; findings describe confirmed authored-content contradictions, not a blanket conformance score.",
+    "Scanned referenced HTML for inline colour/font/official-identity assets; none found. Shared stylesheet tokens, responsive type and rendered contrast are separately covered by the foundations audit and browser QA.",
+    "Reviewed generic demo, filter and print handlers where needed to distinguish actual local behaviour from illustrative copy. Dynamic chart specimens delegate to the production harness; this review does not repeat renderer or live-HA acceptance."
+  ],
+  "limits": [
+    "Static authored-content review; no new browser, screen-reader, live-device or external source-version validation is claimed here.",
+    "No confirmed finding means none confirmed in the stated authored-content scope, not that every rule applies or all runtime behaviour is compliant.",
+    "Shared shell and example-style findings are recorded by the root foundations review rather than duplicated as page-specific defects."
+  ],
+  "shared_review_dependencies": [
+    {
+      "id": "AUD-SYS-01",
+      "path": "docs/data/audit-foundations-review.json",
+      "scope": "Shared documentation structural borders, including the catalogue and example frames."
+    },
+    {
+      "id": "AUD-SYS-02",
+      "path": "docs/data/audit-foundations-review.json",
+      "scope": "Shared responsive example typography."
+    },
+    {
+      "id": "AUD-SYS-04",
+      "path": "docs/data/audit-foundations-review.json",
+      "scope": "Shared semantic colours used by custom examples."
+    }
+  ],
+  "pages": [
+    {
+      "path": "docs/source/patterns/a-to-z.html.md.erb",
+      "source_sha256": "e380267d75bc4265e272718e9785c324e7d6818842673761f1fa8f898164fb04",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-az-household-guides",
+        "nhs-az-aliases",
+        "nhs-az-empty"
+      ],
+      "note": "Read the index, aliases and empty-letter examples. Help navigation stays separate from entity search and device actions; private household names are not imported."
+    },
+    {
+      "path": "docs/source/patterns/british-sign-language.html.md.erb",
+      "source_sha256": "57ebd502493f9502dd4db9f42ab46460f91683d2367e4971635ae1d2344772a1",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-04"
+      ],
+      "example_ids": [
+        "nhs-bsl-discovery",
+        "nhs-bsl-content-bundle",
+        "nhs-bsl-link-unavailable"
+      ],
+      "note": "BSL availability, commissioning and outage boundaries are honest; the written theme-help specimen nevertheless invents a Preview/Save step that the actual settings do not have."
+    },
+    {
+      "path": "docs/source/patterns/check-answers.html.md.erb",
+      "source_sha256": "48ec3c5dc552e2f6179187ebb34ca1c0fad219d4a9076db60f0e17d51a65fe2d",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-check-answers-scene",
+        "nhs-check-answers-changed"
+      ],
+      "note": "Read scene review and changed-device specimens. Saving is explicitly separate from running, omitted answers are labelled, permissions/capabilities are rechecked and local preview limits are stated."
+    },
+    {
+      "path": "docs/source/patterns/complete-multiple-tasks.html.md.erb",
+      "source_sha256": "0d454b2e065977ffd912795e966293730c00812a653e9462e4a9acc767bd406d",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-tasks-household-setup",
+        "nhs-tasks-resume-draft",
+        "nhs-tasks-repair"
+      ],
+      "note": "Read setup, saved-draft and repair specimens. Completion is distinct from activation and availability; genuine dependencies remain explained rather than offered as dead links."
+    },
+    {
+      "path": "docs/source/patterns/confirmation.html.md.erb",
+      "source_sha256": "09401c6f2965e81d8210e943cbe1d91d0b561a19b7a5d713cbd0f4d532cb3d9f",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-01"
+      ],
+      "example_ids": [
+        "nhs-confirmation-saved",
+        "nhs-confirmation-pending",
+        "nhs-confirmation-not-saved"
+      ],
+      "note": "Guide correctly distinguishes acceptance, observation and uncertainty, but its interrupted-save specimen contradicts that rule with a definite not-saved heading."
+    },
+    {
+      "path": "docs/source/patterns/energy.html.md.erb",
+      "source_sha256": "cc0513000b4595423b001ef68e28f6026af7da90e88cd7a4f65c81403e8941dd",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "local-chart-power",
+        "local-chart-usage",
+        "local-chart-empty"
+      ],
+      "note": "Read the full native Energy scope and three chart entry specimens. The 1.5px unfilled Power line and signed projection are explicit local adaptations; History/distribution remain outside adapter coverage. Dynamic chart runtime validation remains separate."
+    },
+    {
+      "path": "docs/source/patterns/home.html.md.erb",
+      "source_sha256": "84c267a0ba47b5a1e601f1abeae6d3eca8452b521312861616b9bf664f867b73",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "local-layout-grid",
+        "local-card-actions"
+      ],
+      "note": "Read room hierarchy, responsive/shared use and both card examples. Device actions are distinct from detail navigation and synthetic states are labelled; shared rendering/token findings belong to the foundations audit."
+    },
+    {
+      "path": "docs/source/patterns/household-urgency.html.md.erb",
+      "source_sha256": "2b3d0678e0f8de1ac3b75817b3e1efcf402b01e0151cbdfb7df09b86d1af5fa7",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-household-routine",
+        "nhs-household-action",
+        "nhs-household-unknown"
+      ],
+      "note": "Read routine, configured-event and unknown specimens. Care-card medical categories are explicitly excluded; observation time, no food-condition inference and no physical safety assurance are preserved."
+    },
+    {
+      "path": "docs/source/patterns/hub.html.md.erb",
+      "source_sha256": "a9d8c25c761d0961f11e9e252a5d15c86c86ca2c833c383e463477c8665808d5",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-hub-household",
+        "nhs-hub-small"
+      ],
+      "note": "Read full hub and short-list examples. Navigation destinations are local explanatory sections and do not contain nested device actions; information architecture limits are explicit."
+    },
+    {
+      "path": "docs/source/patterns/index.html.erb",
+      "source_sha256": "7c9ba7671d69f5af3149f85e33406e41076c4522a37021c7947f51dc0f901331",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [],
+      "note": "Read the ERB catalogue entry and its catalogue partial. Purpose, searchable scope, reference-only labels and source-coverage route are explicit; generated list/CSS behaviour is part of shared framework QA."
+    },
+    {
+      "path": "docs/source/patterns/interruption.html.md.erb",
+      "source_sha256": "de0daf0faa91bb590639ae5a94191a06492da17c5a08434b0216e64994a5f616",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-interruption-backup",
+        "nhs-interruption-overnight",
+        "nhs-interruption-permission"
+      ],
+      "note": "Read backup, overnight schedule and permission specimens. Intent is distinct from authority, no forbidden override is offered and examples do not delete or modify real records."
+    },
+    {
+      "path": "docs/source/patterns/mini-hub.html.md.erb",
+      "source_sha256": "cc759f8183d0a143446b3ba020bfdccbfe425dbfeec201ae7c53ae75ca3ffe6d",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-mini-hub-reading",
+        "nhs-mini-hub-gaps"
+      ],
+      "note": "Read both complete linked chapters. Current-page context, native links, power/energy units and missing-versus-zero meaning are consistent; no wizard progress is implied."
+    },
+    {
+      "path": "docs/source/patterns/question-pages.html.md.erb",
+      "source_sha256": "0330e83cdb0c8b910567531352fd01de942d1a83dd157da0b3fe14c3d775c94c",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-03"
+      ],
+      "example_ids": [
+        "nhs-question-room",
+        "nhs-question-modal",
+        "nhs-question-error"
+      ],
+      "note": "Read page, modal and error specimens. Labels and limits are explicit, but modal copy promises a preview label change that its generic submit handler does not perform."
+    },
+    {
+      "path": "docs/source/patterns/recovery.html.md.erb",
+      "source_sha256": "7e05a1292dfa959800007c3cbeac5b6654f5a669cc279c65c762376887494577",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-02"
+      ],
+      "example_ids": [
+        "local-status-failure",
+        "local-device-unavailable"
+      ],
+      "note": "Read the whole recovery guidance and two examples. The state table overgeneralises missing reading as unavailable and failed command as no response, despite the new evidence-specific vocabulary."
+    },
+    {
+      "path": "docs/source/patterns/review-dates.html.md.erb",
+      "source_sha256": "c06eddc7b8f26d3a06b04f551df554552ea326ce7f2268d3ae3824aa760b82d1",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-02"
+      ],
+      "example_ids": [
+        "nhs-pattern-review-guidance",
+        "nhs-review-distinct-times",
+        "nhs-review-overdue"
+      ],
+      "note": "Read reviewed, live-style timestamp and overdue specimens. Editorial and observation dates are carefully separated, but one availability sentence incorrectly reduces availability to reachability."
+    },
+    {
+      "path": "docs/source/patterns/settings.html.md.erb",
+      "source_sha256": "31e804cbab728689015a5dd9b6ec553874faac640b1609788027b8f2a2604685",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "local-controls-form",
+        "local-controls-error"
+      ],
+      "note": "Read palette flow, failure and scope guidance plus form/error specimens. Production selection applies through the native preference flow; standalone form previews are explicitly illustrative and not a backend-wide action."
+    },
+    {
+      "path": "docs/source/patterns/stable-identifiers.html.md.erb",
+      "source_sha256": "7973197f24587b30a51af4a17369e3b8da3c49dac31e75f6c5dcfb704fbd0c39",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-02"
+      ],
+      "example_ids": [
+        "nhs-identifier-route",
+        "nhs-identifier-error",
+        "nhs-identifier-match"
+      ],
+      "note": "Read route, error and match specimens. Literal IDs, permissions and native registry distinctions are preserved; the error wording unnecessarily conflates not found with unavailable."
+    },
+    {
+      "path": "docs/source/patterns/start-page.html.md.erb",
+      "source_sha256": "c1a71875eb8f3688c5fbae276a8dea9cad049e49a1e6cd0b0fd24cb1b50213c5",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "nhs-start-notifications",
+        "nhs-start-requirement",
+        "nhs-start-resume"
+      ],
+      "note": "Read start, prerequisite and resumed-draft specimens. Power is not treated as energy; setup does not activate a rule and no unavailable integration or notification channel is invented."
+    },
+    {
+      "path": "docs/source/publishing/components/attachment.html.md.erb",
+      "source_sha256": "f98d20769c3e1f98f78e44aa68218686c2e97f74051cfef225e74f1c39db2413",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-attachment-1",
+        "pub-components-attachment-2"
+      ],
+      "note": "Read both document specimens. They offer real local HTML extracts without invented download sizes, accessible-copy services or manufacturer artwork rights."
+    },
+    {
+      "path": "docs/source/publishing/components/breadcrumbs.html.md.erb",
+      "source_sha256": "f1d1fdf98a4e9b9bf775745c48c6105b6f2ab78ee3b496dad61f4b4232dd3313",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-breadcrumbs-1",
+        "pub-components-breadcrumbs-2"
+      ],
+      "note": "Read both hierarchy specimens. Parent links are real anchors, current-page context is explicit and hierarchy is distinguished from browser history; minor list-type variation does not alter the declared route meaning."
+    },
+    {
+      "path": "docs/source/publishing/components/content-list.html.md.erb",
+      "source_sha256": "6b4c0b518475bf1ee1d936b7080014facf56bac84f7bc1868829f4a085199d9c",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-content-list-1",
+        "pub-components-content-list-2"
+      ],
+      "note": "Read installation and recovery contents specimens. Anchor order matches visible sections and contents are not presented as saved task completion."
+    },
+    {
+      "path": "docs/source/publishing/components/emergency-banner.html.md.erb",
+      "source_sha256": "f490ab45ccba1dcf5965792bc1268abb6220e4ee0071a5eca623f782cad26152",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-emergency-banner-1",
+        "pub-components-emergency-banner-2"
+      ],
+      "note": "Read both urgent/stale specimens. Government event identity and actual alarm claims are excluded; the generic specimen cannot be mistaken for a current household emergency."
+    },
+    {
+      "path": "docs/source/publishing/components/feedback.html.md.erb",
+      "source_sha256": "4a0bb814418c700d68242605724d586f6e9ffbb7b7f3ae33650aad881cff7eda",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-feedback-1",
+        "pub-components-feedback-2"
+      ],
+      "note": "Read local feedback and public issue examples. No send/store claim is made; the public GitHub route and privacy caution are explicit."
+    },
+    {
+      "path": "docs/source/publishing/components/global-banner.html.md.erb",
+      "source_sha256": "dd8fa135cfa5ef337b4722c444795a1a7ed1980318ed4745ea68adc1f7326d1d",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-global-banner-1",
+        "pub-components-global-banner-2"
+      ],
+      "note": "Read maintenance and acknowledgement specimens. Message scope is fictional and dismissal feedback does not claim saved preferences or install cookies."
+    },
+    {
+      "path": "docs/source/publishing/components/index.html.md.erb",
+      "source_sha256": "36c942c71ee3646177e28f82477d781e6f20d453e608624fe49713d94184ec5b",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [],
+      "note": "Read all eleven component mappings and the scope statement; these are reference pages with existing examples, not promises of installed publishing services."
+    },
+    {
+      "path": "docs/source/publishing/components/previous-and-next-navigation.html.md.erb",
+      "source_sha256": "f901d7eb2c035218d31a99c0a438e7d57945560161e54ab44e575338a8f67587",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-previous-and-next-navigation-1",
+        "pub-components-previous-and-next-navigation-2"
+      ],
+      "note": "Read both navigation variants. Direction and destination are present, unavailable directions are omitted and section navigation is explicitly separate from native date controls."
+    },
+    {
+      "path": "docs/source/publishing/components/print-link.html.md.erb",
+      "source_sha256": "e8c7fb9ba587e212ba134628e0363dede012578b35f47517eff22931eafbe769",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-print-link-1",
+        "pub-components-print-link-2"
+      ],
+      "note": "Read both print specimens and the local handler. The action opens the browser print dialog only on request; it does not claim a successful print, generated PDF or upload."
+    },
+    {
+      "path": "docs/source/publishing/components/related-navigation.html.md.erb",
+      "source_sha256": "24ad93b06f56674bc6af8d0669fc94e424bf9a52c777df6103c2ff27234bc97b",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-related-navigation-1",
+        "pub-components-related-navigation-2"
+      ],
+      "note": "Read both related-link groups. Destinations are named, no inferred household relationship is exposed and links do not perform service calls."
+    },
+    {
+      "path": "docs/source/publishing/components/search-autocomplete.html.md.erb",
+      "source_sha256": "3efc6ca03781e54059b854e19bc161d686c7c27b646fd27ba06d28afc402f292",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-search-autocomplete-1",
+        "pub-components-search-autocomplete-2"
+      ],
+      "note": "Read both native datalist specimens and fixed records. Suggestions come from the same records, arbitrary queries remain possible and no cloud predictor or HA search is claimed."
+    },
+    {
+      "path": "docs/source/publishing/components/single-page-notification-button.html.md.erb",
+      "source_sha256": "857e3ff9c941681a2710169150615559f9bb49f9720ee3f804b34a9660745e6e",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-components-single-page-notification-button-1",
+        "pub-components-single-page-notification-button-2"
+      ],
+      "note": "Read both subscription specimens. Confirmation depends on a responsible service in production; examples explicitly make no subscription, delivery or automation claim."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/answer.html.md.erb",
+      "source_sha256": "7e885fc41753c923a0341983cf09d662c167df46dc2c841340a9662da9c36ef4",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-answer-1",
+        "pub-frontend-templates-answer-2"
+      ],
+      "note": "Read both answers. They accurately distinguish tone from mode and chart identity from brand; no current user preference is inferred."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+      "source_sha256": "5c86fb821a5ecf1606658380c0bca5020466fd763411dd486b9d2c144f4edcef",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "finding",
+      "finding_ids": [
+        "AUD-PAT-05"
+      ],
+      "example_ids": [
+        "pub-frontend-templates-calendar-1",
+        "pub-frontend-templates-calendar-2"
+      ],
+      "note": "Read timed/all-day and empty-week specimens. Their synthetic status is clear, but the timed appointment lacks a zone and the selected week has no date range."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/completed-transaction.html.md.erb",
+      "source_sha256": "be0af17a85082ac1f8e5aad312bfeb27db32608243da2f1af38d4d8879d2280b",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-completed-transaction-1",
+        "pub-frontend-templates-completed-transaction-2"
+      ],
+      "note": "Read saved-preference and pending-device specimens. Persistence, acceptance and physical outcome are separate; no arbitrary confirmation number or action on refresh is introduced."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/detailed-guide.html.md.erb",
+      "source_sha256": "c3920f256dac493b6c028592ae8a6a70e6a11452409b34724af83ed3d006d977",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-detailed-guide-1",
+        "pub-frontend-templates-detailed-guide-2"
+      ],
+      "note": "Read installation outline and history examples. Source/version checks and genuine metadata are required without implying that reading performs installation."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/document-collections.html.md.erb",
+      "source_sha256": "8e722976e0e633ae33be820b01f80719640c12b4c2509507543d3f9f8ef8a402",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-document-collections-1",
+        "pub-frontend-templates-document-collections-2"
+      ],
+      "note": "Read equipment and release collections. Titles and revisions remain at item level, local extracts exist and no private upload or unbuilt bundle is advertised."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder.html.md.erb",
+      "source_sha256": "0d4f8dff3835a6e2a43a64cd42cbbb09196e8fed5fcb11615b5fd6cccc1aa3fe",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-1",
+        "pub-frontend-templates-finder-2"
+      ],
+      "note": "Read both form-only and functional fixed-list variants. Their distinct scope is explained; result count, reset and no-match semantics match the local handler contract."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/case-studies-finder.html.md.erb",
+      "source_sha256": "22292093f3cd39866391135603743d91e5c67c59b0547da127d7dab604ae5e25",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-case-studies-finder-1",
+        "pub-frontend-templates-finder-case-studies-finder-2"
+      ],
+      "note": "Read both project specimens and all three searchable records. Synthetic work is not described as a proven installation or tested YAML."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html.md.erb",
+      "source_sha256": "86a1d5e61081ffe56d563f4d3c8fcf48cf79f7644a0e27b2be85eecd8b5bc11d",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-departments-agencies-public-bodies-finder-1",
+        "pub-frontend-templates-finder-departments-agencies-public-bodies-finder-2"
+      ],
+      "note": "Read both provider-directory specimens. Government affiliation is explicitly excluded and provider identity does not imply device support or authority."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/groups-finder.html.md.erb",
+      "source_sha256": "d0b35f1555d6f4f9f4821cd0d4a0259bb7cd17654f752d03e6066ecf389edc6f",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-groups-finder-1",
+        "pub-frontend-templates-finder-groups-finder-2"
+      ],
+      "note": "Read both configured-group specimens. Membership must come from explicit configuration, not friendly-name similarity; no group service target is created."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/hmrc-contacts-finder.html.md.erb",
+      "source_sha256": "0c55ecfd71c550ef90e277e24e11e744e4576a3f7530ffa16bf6d201adab747d",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-hmrc-contacts-finder-1",
+        "pub-frontend-templates-finder-hmrc-contacts-finder-2"
+      ],
+      "note": "Read both support-directory specimens. No invented phone number, response time or urgent support route is offered; private contacts require actual access controls."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
+      "source_sha256": "fbd948900b939516b172c23d71518a7a5bd883e2833998f13acfcebb36c4f0a1",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-people-finder-1",
+        "pub-frontend-templates-finder-people-finder-2"
+      ],
+      "note": "Read both role specimens. Public names, presence, contacts and account permissions are excluded; the government hierarchy is not copied into household roles."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/search.html.md.erb",
+      "source_sha256": "ed3c1552bd4deefba77f92635a8ebbee8ad8962108d128ca948fc6f284cb284b",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-search-1",
+        "pub-frontend-templates-finder-search-2"
+      ],
+      "note": "Read both documentation-search specimens. Public documentation is distinguished from private HA records and source-unavailable from no-match states."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/specialist-document-finder.html.md.erb",
+      "source_sha256": "6ef7d1cfcd511d282e50556464276d58307bb60fc885111668469605a428e1ad",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-specialist-document-finder-1",
+        "pub-frontend-templates-finder-specialist-document-finder-2"
+      ],
+      "note": "Read both technical-document specimens. Model and revision are explicit; search relevance is not treated as compatibility evidence."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/statistical-data-sets-finder.html.md.erb",
+      "source_sha256": "8d20673b6418096e9aa8d7fc1a9be7576618f4f2ade7c9099eb78757793790ac",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-statistical-data-sets-finder-1",
+        "pub-frontend-templates-finder-statistical-data-sets-finder-2"
+      ],
+      "note": "Read both dataset specimens. Power/energy units and aggregation differ, and no raw-history endpoint or unbuilt download is claimed."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/supergroup-finder.html.md.erb",
+      "source_sha256": "320fcce1a8a714be557e9eb0cb7ac7d3921dfe4c960a93c9f8aed00a6050be9b",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-supergroup-finder-1",
+        "pub-frontend-templates-finder-supergroup-finder-2"
+      ],
+      "note": "Read both purpose-group specimens. Content purposes do not replace native areas/domains or classify arbitrary entities as documents."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/topical-events-finder.html.md.erb",
+      "source_sha256": "024acfaf6796b00b0d23a343ca425905499b789843e5f6f0e51d1ad735a646b1",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-topical-events-finder-1",
+        "pub-frontend-templates-finder-topical-events-finder-2"
+      ],
+      "note": "Read both project archive specimens. Planned and closed work are distinct from current alerts; no calendar-derived household event is inferred."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
+      "source_sha256": "70f39a2fd900a92d4bf6774d0bb2552dd414340db1829a4966dfae95517c9bd4",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-finder-world-organisation-finder-1",
+        "pub-frontend-templates-finder-world-organisation-finder-2"
+      ],
+      "note": "Read both multi-installation specimens. The deliberate lack of a direct household equivalent is documented; no federation, remote access or private address catalogue is installed."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/guide.html.md.erb",
+      "source_sha256": "59cbea678bf9e2249d4ef6eeedaa64e8dd53016e829b0ad62801763521b43bd4",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-guide-1",
+        "pub-frontend-templates-guide-2"
+      ],
+      "note": "Read both chapter specimens. Current chapter and sequence remain clear, guide navigation does not save progress and direct visitors still need prerequisites."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/homepage.html.md.erb",
+      "source_sha256": "3bef7f3b1d6f0a857f7cfda1e73c51bcdcaa48a7d8c15cb373e4565c1863fe7e",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-homepage-1",
+        "pub-frontend-templates-homepage-2"
+      ],
+      "note": "Read both overview specimens. Household priorities need evidence, domain names remain visible, and no official masthead, live readings or universal popularity ranking is invented."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/index.html.md.erb",
+      "source_sha256": "199dde2f3e8530257804de39000ad9e2f00c93a1b738e140235a64dbcf4892c5",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [],
+      "note": "Read all thirty template mappings, including nested variants. Canonical guidance coverage remains separate from installing every government publishing service."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/mainstream-browse.html.md.erb",
+      "source_sha256": "6b08bbbcc9345567199279c92f74598ff1a5743ba6bcbb6eb52dc3cc75b55d3e",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-mainstream-browse-1",
+        "pub-frontend-templates-mainstream-browse-2"
+      ],
+      "note": "Read both subject lists. Government taxonomy is excluded, hierarchy is purposeful and entity relationships are not reduced to one inferred parent."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/mainstream-browse/level-one.html.md.erb",
+      "source_sha256": "a571c136a4fe586ddcea568f13fd53cb6885c9c018ffb27faaa171c9e8a22864",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-mainstream-browse-level-one-1",
+        "pub-frontend-templates-mainstream-browse-level-one-2"
+      ],
+      "note": "Read both broad-topic variants. Curated shortcuts require evidence and navigation remains separate from immediate device actions."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/mainstream-browse/level-two.html.md.erb",
+      "source_sha256": "3009f112e030515d504011274052606c8266621478cfbe6bb13c0f3402394c69",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-mainstream-browse-level-two-1",
+        "pub-frontend-templates-mainstream-browse-level-two-2"
+      ],
+      "note": "Read ordered-installation and alphabetical reference variants. Link types and purposeful ordering are explained; no installed HA route is claimed."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
+      "source_sha256": "9f00837dbf24838303e7b2ae3252fa756ceecc6d793fe09ce031a012daee3f9f",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-smart-answer-1",
+        "pub-frontend-templates-smart-answer-2"
+      ],
+      "note": "Read both bounded decision specimens. Unknown evidence leads to verification rather than a diagnosis or device action."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/smart-answer/github-smart-answer.html.md.erb",
+      "source_sha256": "8d193c36e0a87e8c1807edb0c827bc1bf9a7b206a83ef3684e8f710cf0606838",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "documented_deviation",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-smart-answer-github-smart-answer-1",
+        "pub-frontend-templates-smart-answer-github-smart-answer-2"
+      ],
+      "note": "Read rule record and branch specimens. Logic/inputs need reviewed source; no Ruby engine, invented formula or fault diagnosis is installed."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/smart-answer/simple-smart-answer.html.md.erb",
+      "source_sha256": "2b5036174329eb623b04e382a9c81639663caede8d63d35fafad148af7adde18",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-smart-answer-simple-smart-answer-1",
+        "pub-frontend-templates-smart-answer-simple-smart-answer-2"
+      ],
+      "note": "Read both simple-choice specimens. Local destinations exist, uncertainty has a route and navigation does not imply saved configuration."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/special-route.html.md.erb",
+      "source_sha256": "a11297fe1545faaec76b1de1cd886adc3ea0fd9adaf71acc98fa99d8097955b2",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-special-route-1",
+        "pub-frontend-templates-special-route-2"
+      ],
+      "note": "Read route contract and unavailable-source specimens. Purpose, ownership and no-write scope are explicit; custom route authority and backend services are not invented."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/step-by-step-nav.html.md.erb",
+      "source_sha256": "06cada82a250c9da2cd37f967e513689a83e635a56acde410898ce1e6164f03f",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-step-by-step-nav-1",
+        "pub-frontend-templates-step-by-step-nav-2"
+      ],
+      "note": "Read ordered and disclosure specimens. Viewing a stage is not completion, and native details does not store progress."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/topical-events.html.md.erb",
+      "source_sha256": "616479696eacea06fbb0692eb8d16fbbab61f488c86a3886a8f147c749813e27",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-topical-events-1",
+        "pub-frontend-templates-topical-events-2"
+      ],
+      "note": "Read planning and closed-project specimens. Fictional editorial projects are distinct from live events, alarms and automation scheduling."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
+      "source_sha256": "8818db47166e7e5a1c7737a0e59eb39b77172a6bda3cdcc20ddd12c4a2867ce4",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-topical-events-about-1",
+        "pub-frontend-templates-topical-events-about-2"
+      ],
+      "note": "Read scope/owner and parent-route specimens. Role ownership avoids private identity and stable background remains distinct from live progress."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
+      "source_sha256": "2b4433a455435865ad5f6a73832adc90d8debb1851ecda0cf7f6b107ed9b66c6",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-frontend-templates-transaction-1",
+        "pub-frontend-templates-transaction-2"
+      ],
+      "note": "Read local settings and external GitHub entry specimens. Navigation is explicit, external context is named and no device command occurs by opening a page."
+    },
+    {
+      "path": "docs/source/publishing/index.html.md.erb",
+      "source_sha256": "b6f7fddc64cfa7b844ac05d2717b6ff8afbcba50780f621f83c260903fc10a77",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [],
+      "note": "Read the full coverage and implementation statement. Forty-two canonical mappings are distinguished from the larger gem catalogue; reference examples make no backend or installed-feature claim."
+    },
+    {
+      "path": "docs/source/publishing/patterns/index.html.md.erb",
+      "source_sha256": "c6ff00bb3ddcf9a6509831c1e30a4ed3d904597cc3c40843dc21da02ae950aed",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [],
+      "note": "Read the single canonical filter mapping and its reference-only scope; the count describes source coverage rather than a new native HA feature."
+    },
+    {
+      "path": "docs/source/publishing/patterns/search-filter.html.md.erb",
+      "source_sha256": "96533edfecd116b403f6f5cb96b2c0ac1d0e715ede53abc804742f0c4b0deabf",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "pub-patterns-search-filter-1",
+        "pub-patterns-search-filter-2"
+      ],
+      "note": "Read both complete fixed-list specimens and the handler. Query AND, facet OR, count, reset and no-JS readability are documented without exposing or querying live entities."
+    },
+    {
+      "path": "docs/source/publishing/source-history.html.md.erb",
+      "source_sha256": "af35ac14d06358b8a6c037f31c57987c668be2c26b01780aea7824eaaadefb0f",
+      "reviewed_rule_families": [
+        "WG-purpose-and-scope",
+        "WG-voice-and-language",
+        "WG-words-and-style",
+        "WG-interface-copy",
+        "WG-errors-and-alerts",
+        "WG-instructions-and-learning",
+        "WG-inclusive-content",
+        "WG-numbers-and-data",
+        "WG-accessible-content",
+        "WG-content-review",
+        "BG-colour",
+        "BG-typography",
+        "BG-data",
+        "BG-illustration"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "example_ids": [
+        "system-history-expanded",
+        "system-history-correction"
+      ],
+      "note": "Read migration/version evidence and both history specimens. Upstream fields are distinguished from local metadata and repository observations from deployed-build proof; dates and original changes are labelled."
+    }
+  ],
+  "examples": [
+    {
+      "id": "local-card-actions",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "42a2b3fe53290da5c5692f7212120d0e2963c5aaf5f3abc4ec44c5aff5cd20bb"
+    },
+    {
+      "id": "local-chart-empty",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "f145fb51eec67632c5a872368cc74215f7eb55d6be06c6696bbe984108ab3574"
+    },
+    {
+      "id": "local-chart-power",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "25ca59abfc9eca90cc01ccd9ac1009028426697f906e3da690419368aa267cb3"
+    },
+    {
+      "id": "local-chart-usage",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "9cfeef5cd3f0d23b358ab96160d20837e06e2800456c4fd3f37176da865bcb46"
+    },
+    {
+      "id": "local-controls-error",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "13518442536b21ec7231f86d0825f0d3c0704c6efc72aa59087fd0d4f5836ac6"
+    },
+    {
+      "id": "local-controls-form",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "fa8db46906bdea7338d9e77379b08b125f2af750e280619c2773dd8258be1f44"
+    },
+    {
+      "id": "local-device-unavailable",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "1eb4d7dab67ae30903d148f91ad9a2096272194806caaf35db823ca486f5b095"
+    },
+    {
+      "id": "local-layout-grid",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "75bd1f73c3cde1e2d567b84a855135f8cf82cfbfca4ec48ad485dba8e1fbc935"
+    },
+    {
+      "id": "local-status-failure",
+      "path": "docs/data/local-examples.yml",
+      "authored_html_sha256": "61a9565bbe363b1cd0c4cedb292892165113829e531c5d2becaea37b02e3e852"
+    },
+    {
+      "id": "nhs-az-aliases",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "7d16395e46eb17e5ea9e74e607f22466ba8d7b48cdcf3a5f77527a963aef3652"
+    },
+    {
+      "id": "nhs-az-empty",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "12c4af83ef95ae5af78e4f2124b0352faba9215335f20fe932202edeab8fa77d"
+    },
+    {
+      "id": "nhs-az-household-guides",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "dfc0ee7d8df28df52236d9a06ca21217d4f8c952db86316d66b6d2d3a19aed28"
+    },
+    {
+      "id": "nhs-bsl-content-bundle",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "b0e48220526fe5e66458f50957988760661b76be8f4ae632d2653d417adef1e8"
+    },
+    {
+      "id": "nhs-bsl-discovery",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "1f8eb5b65a3d2f1166fa6dd36fa7a160c43aae23ff09be7e7146f9c42f0d35a4"
+    },
+    {
+      "id": "nhs-bsl-link-unavailable",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "4d3d49ccbcec4d079d86fbe487d4f02b181ca21d61a9e4412ec599ebd2a4e737"
+    },
+    {
+      "id": "nhs-check-answers-changed",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "09c26567364ec4fd405610d7a11105f9aa788554346cc0ae454c16712d4734d4"
+    },
+    {
+      "id": "nhs-check-answers-scene",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "7ea01712b7041fc4270398ad1fcd1ef75fdba2072d0e84b6593c080c589f2899"
+    },
+    {
+      "id": "nhs-confirmation-not-saved",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "f7715c7d76b4772b60937713ea62229c0f33ba7e095ca2193da64da0b836b623"
+    },
+    {
+      "id": "nhs-confirmation-pending",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "3764b8db49a981021108a30443c6627290f77d92a3f5778a9c2fa05114a16e02"
+    },
+    {
+      "id": "nhs-confirmation-saved",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "bc50a6b18d5165ca6fb3e6127a6090df05f3e5ac6804f5546c63419d0ec59816"
+    },
+    {
+      "id": "nhs-household-action",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "790bfe83f55ea65d015f767d4a395faefdfe189b770d9728ed72588915c8a3f0"
+    },
+    {
+      "id": "nhs-household-routine",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "52693dc68b57b83588b7efaa146207cc20bda68660eb23d00a7b36d61f59a833"
+    },
+    {
+      "id": "nhs-household-unknown",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "e4761ad819f8e9e4250165207c0e8b3cb755e8d729403db56d8ac82c79983b93"
+    },
+    {
+      "id": "nhs-hub-household",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "0f68760dd5dff48c8dc90fc2859184b35d8b2993390ffb44f2a28abbc2cdd245"
+    },
+    {
+      "id": "nhs-hub-small",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "3063a28585dbbdb1217a6c7da8c7931a1b4ca96090b897b9db7675a3eddb380c"
+    },
+    {
+      "id": "nhs-identifier-error",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "736e2fe8b06b37824aa3e2e2fb158f43836d5445a401f1de313af06009a5725d"
+    },
+    {
+      "id": "nhs-identifier-match",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "96a549a94b8dfcadb454f2a26413faa85b4fa5434acfc04c477db73ab7cd8557"
+    },
+    {
+      "id": "nhs-identifier-route",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "8a66135661a0bb2110a84521a2b71e8f543e50024c31d1d807c753fae69652c7"
+    },
+    {
+      "id": "nhs-interruption-backup",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "afec70b6da2c20d62b2b218b1180198af7b5d79dfda3f24c2394d55b5f63fb0c"
+    },
+    {
+      "id": "nhs-interruption-overnight",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "7f0bde779d8c2d206de95110b40b40f7f803ae4a4d5be98a09fcd3551e9bf265"
+    },
+    {
+      "id": "nhs-interruption-permission",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "b3bc24d8f5fec7f2619206c9558a81a3ad6ddafe0c0fed62b27bea77050e336a"
+    },
+    {
+      "id": "nhs-mini-hub-gaps",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "fe891ef6105dcbca2d298f7a6112309004a8747b45577e690cbd6996f581ff59"
+    },
+    {
+      "id": "nhs-mini-hub-reading",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "0985e62dba04ce93b012132d3c27f7da52f9eee7903ff00d21fd01cf43c51ba2"
+    },
+    {
+      "id": "nhs-pattern-review-guidance",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "a376d97de6419285171bcf5aab4a40ea3c0bdcdcf91a810707027899dcb76ce8"
+    },
+    {
+      "id": "nhs-question-error",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "ae63c76d731e1b8b479308b8d60bdb0346052550afebce4c9776168fccff0bdd"
+    },
+    {
+      "id": "nhs-question-modal",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "ae96a1a0fcc0f5d7540353b306b8bd88764d4217a62c92ead6a6dad323cf2e2d"
+    },
+    {
+      "id": "nhs-question-room",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "b35291925bbdfd2c79abdb66bcc910e071ee0edcc661e122017d9d21f145dbae"
+    },
+    {
+      "id": "nhs-review-distinct-times",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "5c69d73e3b552a0ae5bdb7310fe45f0ec9d1d1a1d5a3bd939f5bae385f3c57d0"
+    },
+    {
+      "id": "nhs-review-overdue",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "ecc108c72a05db0cff20b071f0d59390642816cc96412a4a441286be2d355a0b"
+    },
+    {
+      "id": "nhs-start-notifications",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "63b6543d2dcecafb799c881e8ba4fc70a96d6b7b3b55d7b9415fedb04b7ec4f4"
+    },
+    {
+      "id": "nhs-start-requirement",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "5de9237d48cc0ec835fae4b7fe81e503ef7bcb844cd9e2ca981250bd8df29e95"
+    },
+    {
+      "id": "nhs-start-resume",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "5644b5ceec168cc7075901aa3df49bd69c354a716d972e65ad176c4e27e5c52c"
+    },
+    {
+      "id": "nhs-tasks-household-setup",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "d8ee7f8634281e16c3c2bf57d5f507d5d9affb988a5ffbd66ab72e0a324f6071"
+    },
+    {
+      "id": "nhs-tasks-repair",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "4693b331a9bcc97f0a7c6c7ec4519c8b5f691c76767bd870e7238ae0227d9c83"
+    },
+    {
+      "id": "nhs-tasks-resume-draft",
+      "path": "docs/data/nhs-pattern-examples.yml",
+      "authored_html_sha256": "c84610d887b926d89ecdc842fd6638babb7f5faa7e647f1496dd27040a2263bc"
+    },
+    {
+      "id": "pub-components-attachment-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "fef129df51b94bd8a09e57a2648b678d108d927eeff48e405e751135415f23f0"
+    },
+    {
+      "id": "pub-components-attachment-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "c77004071d6aec43490699da9b4ce711d962b41d81eb4d34f25155539a107496"
+    },
+    {
+      "id": "pub-components-breadcrumbs-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "198f279f8f8b18d4199d305e9a5c7515567bac19e453c9a87ed8625fdc560fec"
+    },
+    {
+      "id": "pub-components-breadcrumbs-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "b6795ce7a4856a8fb07e37b752d2541f2ae1ed743ce5ba879a69391af6722f5b"
+    },
+    {
+      "id": "pub-components-content-list-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "f28e3c8b0e6980208d39af57eb0d6d062d6e058b2f648ab693c66e108f104be0"
+    },
+    {
+      "id": "pub-components-content-list-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "06a57638ae01f48a4b3031e0dbdf8d5a472546cea666a43026469c6b519e1ddb"
+    },
+    {
+      "id": "pub-components-emergency-banner-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "353cd5699b213e413710ae5acb7f1f1478ccd38730a7333eeb795facf54d2640"
+    },
+    {
+      "id": "pub-components-emergency-banner-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "11ef1113eed0a7273ff2eb2146158014b284a1f6b5ea3a8835c52755b0618b2f"
+    },
+    {
+      "id": "pub-components-feedback-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "fe352a60762fb4a65553356716231eb3ba86a30b3a046e937a9ab5973d9e1e4e"
+    },
+    {
+      "id": "pub-components-feedback-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "94479d81f9ba4930a955d7868712761208a1c9805ac83326fe0cd2df207b8445"
+    },
+    {
+      "id": "pub-components-global-banner-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "655b63e231b9201884635faf812a80cbc7b9af82a33331b1e46cd4abf518e675"
+    },
+    {
+      "id": "pub-components-global-banner-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "d39708072c2b22889577ed537c8ebf0f288d25532c4686c5c52bb7bccff12de2"
+    },
+    {
+      "id": "pub-components-previous-and-next-navigation-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "e1c364712f85785304ab282818d1c7ec56fd4a666773b510041a2c50b7b34661"
+    },
+    {
+      "id": "pub-components-previous-and-next-navigation-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "a264270bbd78c26c0fa87de39f29f417f41e39690bd6e46890c986edb6d8d66b"
+    },
+    {
+      "id": "pub-components-print-link-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "5c560acf270e3050f1bb4ddbe9e38e168aaad6baf438432c92885d94e996dfab"
+    },
+    {
+      "id": "pub-components-print-link-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "0534ea7529789a6f2492e3cad6d28b2a8ab2ba8940b517db226345988e97e17a"
+    },
+    {
+      "id": "pub-components-related-navigation-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "d77090fdc50a8087e050b8a1a850f7f6d3b4f7d8786167aa8d1cc531c6162c3e"
+    },
+    {
+      "id": "pub-components-related-navigation-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "816f81ea43a16cb08980a9ab37a8c5230420053f5c49c2a5c0996ca846b9d7b2"
+    },
+    {
+      "id": "pub-components-search-autocomplete-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "a2546a878607339c3b58ae4bfafc5980f4547eb6bf0b551b9c94e7c8e637892b"
+    },
+    {
+      "id": "pub-components-search-autocomplete-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "a8c54dd55dbf346424fc59e17a55a5c6a16facd5b3e26f921339998aab265190"
+    },
+    {
+      "id": "pub-components-single-page-notification-button-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "6e977a70bd52e3d3ea4dc8f4cb9e7cae86e9f6d8bf90ffd3b954e3b2f5b2f399"
+    },
+    {
+      "id": "pub-components-single-page-notification-button-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "b3e4c069b981c36161176a519513c53f3a56fd349e3eb56f2fc357c4f6151f6d"
+    },
+    {
+      "id": "pub-frontend-templates-answer-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "dcc61a2f9ff5eb13ad29705e39f6c90bacb38c788232af06af7f99042f327711"
+    },
+    {
+      "id": "pub-frontend-templates-answer-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "4aef7a6b7ec072490f0d6f66d37279881f663542b249ec31e508865f4e9496ee"
+    },
+    {
+      "id": "pub-frontend-templates-calendar-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "72241cf091eedd2dc004f1c433aa9a8992e65140f70d09636bca64cf1f45575e"
+    },
+    {
+      "id": "pub-frontend-templates-calendar-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "0f609d57c77213bef4937b8208423b5d00a85c25995d60c7600576b8fd5b3fdf"
+    },
+    {
+      "id": "pub-frontend-templates-completed-transaction-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "86884bee7c85a447dc7f79145b81c57a4421c7b8ad34877d3f0695f812aae328"
+    },
+    {
+      "id": "pub-frontend-templates-completed-transaction-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "6cc6f59abae761dfe7985ea7acb667aaf71f44f5cc932bd39e7a5a0c6355cfcb"
+    },
+    {
+      "id": "pub-frontend-templates-detailed-guide-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "6c741922b317f92be30b030e128bed8f121e4e217fd89ea48bd820ff1a350afd"
+    },
+    {
+      "id": "pub-frontend-templates-detailed-guide-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "4f214b47865aeeac589d904a989f4dab16f764dbd21c1355cf29b90f4212b492"
+    },
+    {
+      "id": "pub-frontend-templates-document-collections-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "ab8c2e4029a985660193042ff231a7be2e93b3b9b5435eec651545ba1d8473a9"
+    },
+    {
+      "id": "pub-frontend-templates-document-collections-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "264a57d3243089c6daa98f4a899271b5d0fcf54728e9f80b4c3502e4516e39ca"
+    },
+    {
+      "id": "pub-frontend-templates-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "c8272845c25e55a638653e18f366fb7f5ac3c5c28c27b3c76732b70160692bdd"
+    },
+    {
+      "id": "pub-frontend-templates-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "30352645589eaef942df16285ed7eef0e2a817689788abbf6b511a1d9a85020e"
+    },
+    {
+      "id": "pub-frontend-templates-finder-case-studies-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "24aa44327014f1cae52f2c19bf885506aff527718a0850562c3e6a211715c674"
+    },
+    {
+      "id": "pub-frontend-templates-finder-case-studies-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "682aca06394a95f932ef023084e7c1f5f6b5d19969bcb44d4ede77bc026fa3f5"
+    },
+    {
+      "id": "pub-frontend-templates-finder-departments-agencies-public-bodies-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "6c6158cad5ba34b114428f179e73b8f6ee0a6e4524bdd6d87838b87fabaef083"
+    },
+    {
+      "id": "pub-frontend-templates-finder-departments-agencies-public-bodies-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "c47aa49c2a954bcde10e751ee0e0ddd8e55f2ae53c1d067dfbe8358bafed3fda"
+    },
+    {
+      "id": "pub-frontend-templates-finder-groups-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "efafef78f06d8c8a0db40b5ef89251c490ab56e6d126e0d094c20cae66386b76"
+    },
+    {
+      "id": "pub-frontend-templates-finder-groups-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "fe7f2e15043561764940948ebbddf40c1ad66520ebae4b8fbfa72654220674a0"
+    },
+    {
+      "id": "pub-frontend-templates-finder-hmrc-contacts-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "00fa51d52edef30ed5a0bea8d9b9fe986073a4c5c2f9718e08db22ed66066a96"
+    },
+    {
+      "id": "pub-frontend-templates-finder-hmrc-contacts-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "c15048641b7ed8a6581cfb3aad842f551f81f64ff876a0885e80d6ab3cde36a8"
+    },
+    {
+      "id": "pub-frontend-templates-finder-people-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "0d4fac59be3cdf643f3a13c1c947af8892a63342dec9c8be7ae47070aa6449bd"
+    },
+    {
+      "id": "pub-frontend-templates-finder-people-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "7e7406b6a9ffc92e1ac828356aa2178b26986a8fd8321a972bbcc03825a52adb"
+    },
+    {
+      "id": "pub-frontend-templates-finder-search-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "7643c440410eecb50f0b839c29dbbd2872e54207b87915b96182c5eb9857b56f"
+    },
+    {
+      "id": "pub-frontend-templates-finder-search-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "571d9211ed466fc9687d6ff7acdcab77b1c44265346ab4d8d2df317b2d7a5f80"
+    },
+    {
+      "id": "pub-frontend-templates-finder-specialist-document-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "69d5c4e47d438ff51df6138b27135c0bc9ad0327b0d7b3fffd56c005ac67e725"
+    },
+    {
+      "id": "pub-frontend-templates-finder-specialist-document-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "db83e59800ffc656ececbb1229d207873e827b9577c69146cff4459209eaefb7"
+    },
+    {
+      "id": "pub-frontend-templates-finder-statistical-data-sets-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "3b938ddbe745a5a9d1ac1b078501fc2ea62bb46424deb3c4311d5b0e279e6eb2"
+    },
+    {
+      "id": "pub-frontend-templates-finder-statistical-data-sets-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "54de48b2076f80339d73cadd42c893e4683c7b8428705134a0c8518571851cef"
+    },
+    {
+      "id": "pub-frontend-templates-finder-supergroup-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "d1b7291c5e9458141745caff33f8d1e5ad7669e33552cd934b3e1008aba21348"
+    },
+    {
+      "id": "pub-frontend-templates-finder-supergroup-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "22eeec680f4742a87ddb5084960651d6f555328f6e0bbff42edfa820b9c365c6"
+    },
+    {
+      "id": "pub-frontend-templates-finder-topical-events-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "8c867ade3a3d2ba71e1349d0959d8a8807ac20e3288cc22ee734e2c414813e05"
+    },
+    {
+      "id": "pub-frontend-templates-finder-topical-events-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "759b377257e2770fdea96b1daa0f8eb8d2529aab18bfab88102956ea013dc36a"
+    },
+    {
+      "id": "pub-frontend-templates-finder-world-organisation-finder-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "d8a4bc6e6ddfcd5af2d76ccd3188c53e121a27102a765a86a022842e15bc6efc"
+    },
+    {
+      "id": "pub-frontend-templates-finder-world-organisation-finder-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "bf99a2e3b29d0c712deda8264b8f9744e7ba15cedfaa177a541608402b307ae2"
+    },
+    {
+      "id": "pub-frontend-templates-guide-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "f8fa7310c5826892292d22972ad494d0621038899f6ffbda3b5f76c0f7a13cd1"
+    },
+    {
+      "id": "pub-frontend-templates-guide-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "e43994a0c62701bc1a4cca5b5bd459cfabb99caf3661806d18c27ec354c630c1"
+    },
+    {
+      "id": "pub-frontend-templates-homepage-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "bf6d95d392b53f5c8b49154e441a4b7f96044db1459c7ac882e5df018c1a2c7a"
+    },
+    {
+      "id": "pub-frontend-templates-homepage-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "454241d8ad97b0f26e7fc81a8e96cb6b2a199dc972db8549e2785ef1f15040d8"
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "436cb47536c1babcbdb7109244a5c6c597eb71eb73bce86d285e58a4b251968f"
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "a35032d101340625486bdfcc6540210020469c3be552eb6a567c6e91f9ad3989"
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-level-one-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "ca5167aa9718979c8e6841c479d9932b43b1455ab6fc212db399abeaa5e2ec2a"
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-level-one-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "55543cb131a8118c03801384948a88abdc1d44457bdb392533afa0a64e8ade41"
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-level-two-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "2e0de1e0875df3287be64074634c5dd47323d9884aa56308f7b996afaa128e7b"
+    },
+    {
+      "id": "pub-frontend-templates-mainstream-browse-level-two-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "4dfd1d49cfd7dfea3ea6b129ecd0291a2c24d26dba4a79301c1f74393092fc9d"
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "0c8c42cd346c5754bd24769c5200efb4db1120ef2769efe1c2de727aef7452b3"
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "5b02b8b3944348d20ca91fcc2c3e3ecb3ea4a80e003a9e9a4016c87c917d961b"
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-github-smart-answer-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "727404dde0cce30ffca1b623128876b7488544ba90ca991c3462ca093ee9840d"
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-github-smart-answer-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "7feb5afc9a500ee63ea599b7b1897039abfceb8bfbd978a3032c9ca58e2ad190"
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-simple-smart-answer-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "e81d4f52d946726f9b42b973f0a9226c319dc57219a3ae8f8a56df2726bb3e68"
+    },
+    {
+      "id": "pub-frontend-templates-smart-answer-simple-smart-answer-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "aba816ba8e94d39faddbb245c652e843883dc0c8954455701e9c7cceaac1acfd"
+    },
+    {
+      "id": "pub-frontend-templates-special-route-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "789c429f5357cc114df389f2af71bf828004e8c2c8d220b27c37c2956ca3d74e"
+    },
+    {
+      "id": "pub-frontend-templates-special-route-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "91f27b6730891f3c844d18f59beeacf36ed8d691a0be85456b2b654df77a0ccd"
+    },
+    {
+      "id": "pub-frontend-templates-step-by-step-nav-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "216860c8be139e142ab717467f4e2943d641330fbbcfa8ad904102e1d3c93be6"
+    },
+    {
+      "id": "pub-frontend-templates-step-by-step-nav-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "172d533711ea3101710f37dce3fd8804ad864cb740a49a5f8c6498f200dd8f06"
+    },
+    {
+      "id": "pub-frontend-templates-topical-events-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "82b5a89d8cdf8b83bbc6fc0c3b64d34726b15ee6bf2a8ff4950f83d0840ae588"
+    },
+    {
+      "id": "pub-frontend-templates-topical-events-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "8a0628f7aa53316f5ce4db8b00491a8e1d9cca1e1232e72ecdae4fad697dea94"
+    },
+    {
+      "id": "pub-frontend-templates-topical-events-about-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "dbbbd0360bf9d5eff393cfc1b8f9304b2b03b03f57477db6d9cfb6b59352099f"
+    },
+    {
+      "id": "pub-frontend-templates-topical-events-about-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "d9bc6b5cd8628d1503c312b5e7985d07a59be2320bdaf959cd7021f211f62b7c"
+    },
+    {
+      "id": "pub-frontend-templates-transaction-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "db346a3f52eaa2e21899022831f24fd7328adbd36afeeafe1d90b6d62aafc1be"
+    },
+    {
+      "id": "pub-frontend-templates-transaction-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "0c5601fcb6e221826b7f660a70c1a4fddcaa1936fa22698e3193786a60cae4b4"
+    },
+    {
+      "id": "pub-patterns-search-filter-1",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "19e7f4a072b1a5a7b647b1164c89d1495cb56b11e2ee091a3f91e0331a67ea5d"
+    },
+    {
+      "id": "pub-patterns-search-filter-2",
+      "path": "docs/data/publishing-examples.yml",
+      "authored_html_sha256": "f1d787000578529640bf0ad85f16b25ce02ab296444e31369948816a23ceb997"
+    },
+    {
+      "id": "system-history-correction",
+      "path": "docs/data/core-examples.yml",
+      "authored_html_sha256": "90f84afc89a9247a0589d5fcbc2e6150815783431d81149eba313ebb23702053"
+    },
+    {
+      "id": "system-history-expanded",
+      "path": "docs/data/core-examples.yml",
+      "authored_html_sha256": "d11a88fcae59ff8fa6f5f4a5420a4af3c731db8a589d9ca45d89e9bd969a4478"
+    }
+  ],
+  "findings": [
+    {
+      "id": "AUD-PAT-01",
+      "priority": "P2",
+      "title": "Interrupted save is described as definitely not saved",
+      "rule_ids": [
+        "WG-011",
+        "WG-032",
+        "WG-044"
+      ],
+      "page_paths": [
+        "docs/source/patterns/confirmation.html.md.erb"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "line": 718,
+          "detail": "nhs-confirmation-not-saved says “The schedule was not saved”."
+        },
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "line": 719,
+          "detail": "The only stated evidence is an interrupted connection before confirmation; the draft summary later says “Save not confirmed”."
+        }
+      ],
+      "proposed_change": "Use an uncertainty heading such as “We could not confirm the save” and keep the advice to inspect saved schedules before retrying. Alternatively, if demonstrating a confirmed rejection, change the scenario to an explicitly rejected persistence response. Update the example title/description to match the chosen state.",
+      "acceptance": [
+        "The heading, description, body and summary all distinguish an unconfirmed save from a known rejected save.",
+        "The specimen does not assert that nothing changed or encourage an unqualified duplicate request."
+      ],
+      "status": "open"
+    },
+    {
+      "id": "AUD-PAT-02",
+      "priority": "P2",
+      "title": "Missing information and failed actions use overgeneral state wording",
+      "rule_ids": [
+        "WG-011",
+        "WG-033",
+        "WG-038",
+        "WG-040",
+        "WG-041"
+      ],
+      "page_paths": [
+        "docs/source/patterns/recovery.html.md.erb",
+        "docs/source/patterns/review-dates.html.md.erb",
+        "docs/source/patterns/stable-identifiers.html.md.erb"
+      ],
+      "evidence": [
+        {
+          "path": "docs/source/patterns/recovery.html.md.erb",
+          "line": 27,
+          "detail": "The table maps any sensor with no current reading to “Reading unavailable”, omitting unknown or retained/stale readings."
+        },
+        {
+          "path": "docs/source/patterns/recovery.html.md.erb",
+          "line": 28,
+          "detail": "The table maps every failed device command to “The device did not respond”; a request may instead be explicitly rejected."
+        },
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "line": 435,
+          "detail": "nhs-pattern-review-guidance says availability describes whether HA can currently reach each entity, equating entity state availability with network reachability."
+        },
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "line": 48,
+          "detail": "nhs-identifier-error says “No available entity matches this ID” even though the scenario is a misspelled/not-found identifier; this conflates matching with current availability."
+        }
+      ],
+      "proposed_change": "Split the recovery table into evidence-specific unknown, unavailable, retained-old-value, rejected-request and no-confirmation cases. Describe availability as whether a usable entity state is supplied, not proof of physical reachability. In the identifier specimen, use “No entity matches this ID” within the authorised scope and keep unavailable-but-matched entities as a separate case.",
+      "acceptance": [
+        "An unknown reading, unavailable entity and old retained value have distinct wording without being rendered as zero/off/offline.",
+        "An explicit rejection does not say the device failed to respond.",
+        "An unavailable matched identifier is not described as absent or misspelled."
+      ],
+      "status": "open"
+    },
+    {
+      "id": "AUD-PAT-03",
+      "priority": "P2",
+      "title": "Rename specimen promises a local change that it does not perform",
+      "rule_ids": [
+        "WG-011",
+        "WG-056",
+        "WG-095"
+      ],
+      "page_paths": [
+        "docs/source/patterns/question-pages.html.md.erb"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "line": 1039,
+          "detail": "nhs-question-modal states “Rename changes only the displayed label in this preview”."
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "line": 9,
+          "detail": "The generic demo submit handler only changes the local status text; it does not update the displayed control label or persist the entered name."
+        }
+      ],
+      "proposed_change": "Keep the reference demonstration local and change its explanation to say that submitting shows local feedback but does not rename the preview or a Home Assistant entity. If actual preview renaming is desired later, specify and implement that bounded behaviour explicitly rather than leaving the claim unsupported.",
+      "acceptance": [
+        "The visible instruction and final feedback accurately describe what the current submit handler changes.",
+        "No wording claims a saved name or changed entity unless that operation is actually implemented and verified."
+      ],
+      "status": "open"
+    },
+    {
+      "id": "AUD-PAT-04",
+      "priority": "P2",
+      "title": "Written BSL companion guide invents a theme preview/save step",
+      "rule_ids": [
+        "WG-021",
+        "WG-052",
+        "WG-064"
+      ],
+      "page_paths": [
+        "docs/source/patterns/british-sign-language.html.md.erb"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "line": 404,
+          "detail": "The written theme guide says “Preview the selection before saving”."
+        },
+        {
+          "path": "docs/source/patterns/settings.html.md.erb",
+          "line": 27,
+          "detail": "The documented palette flow applies the generated theme when either control changes."
+        },
+        {
+          "path": "ui/src/theme-settings.ts",
+          "line": 64,
+          "detail": "Both controls call apply() on change; the actual component has no Preview or Save button."
+        }
+      ],
+      "proposed_change": "Describe the actual Colour palette and Use muted colours controls and say that choosing them applies the appearance through the native theme flow. Remove the nonexistent Preview/Save step. Preserve the honest statement that no BSL translation is commissioned or available.",
+      "acceptance": [
+        "Every named step maps to an existing control and the described order matches immediate selection behaviour.",
+        "Future signed content would be commissioned from the corrected, versioned written instructions rather than this obsolete step."
+      ],
+      "status": "open"
+    },
+    {
+      "id": "AUD-PAT-05",
+      "priority": "P3",
+      "title": "Calendar specimens omit the time zone and selected date range",
+      "rule_ids": [
+        "WG-074",
+        "WG-075",
+        "BG-TYP-03"
+      ],
+      "page_paths": [
+        "docs/source/publishing/frontend-templates/calendar.html.md.erb"
+      ],
+      "evidence": [
+        {
+          "path": "docs/data/publishing-examples.yml",
+          "line": 622,
+          "detail": "The timed appointment is “09:00” on 12 November 2026, with no declared zone or offset in its table/caption."
+        },
+        {
+          "path": "docs/data/publishing-examples.yml",
+          "line": 637,
+          "detail": "The empty state says “selected week” but provides no dates identifying that week."
+        }
+      ],
+      "proposed_change": "Give the synthetic agenda an explicit example time zone and give the empty-week heading/caption an actual labelled example date range. Keep the all-day event as a date-based event rather than converting it to midnight.",
+      "acceptance": [
+        "A reader can identify the example timed appointment’s zone without assuming the browser or household zone.",
+        "A reader can identify the selected empty period from visible text.",
+        "Synthetic status and native calendar ownership remain explicit."
+      ],
+      "status": "open"
+    }
+  ]
+}

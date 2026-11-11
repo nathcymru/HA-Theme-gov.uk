@@ -1,0 +1,224 @@
+examples:
+  bg-colour-role-separation:
+    title: Identity changes; status meaning stays stable
+    description: Two supplied palette primaries sit above the same explicit device failure. This is a colour-role specimen, not a palette settings control.
+    height: 650
+    html: |
+      <div class="civica-pattern-grid">
+        <section class="civica-card" aria-labelledby="moss-title">
+          <div style="background:#006853;padding:16px"><img src="../images/themes/racing-moss/vivid/lockup-on-primary.svg" alt="civica.uk" width="245" height="39" style="max-width:100%;height:auto"></div>
+          <h2 class="govuk-heading-m" id="moss-title">Racing Moss</h2>
+          <p class="govuk-body"><strong>Kitchen sensor unavailable</strong></p>
+          <p class="govuk-body">There is no current reading. The last confirmed reading was 20 °C at 09:10.</p>
+        </section>
+        <section class="civica-card" aria-labelledby="crimson-title">
+          <div style="background:#b2292e;padding:16px"><img src="../images/themes/sovereign-crimson/vivid/lockup-on-primary.svg" alt="civica.uk" width="245" height="39" style="max-width:100%;height:auto"></div>
+          <h2 class="govuk-heading-m" id="crimson-title">Sovereign Crimson</h2>
+          <p class="govuk-body"><strong>Kitchen sensor unavailable</strong></p>
+          <p class="govuk-body">There is no current reading. The last confirmed reading was 20 °C at 09:10.</p>
+        </section>
+      </div>
+  bg-colour-boundaries:
+    title: A quiet card boundary and a strong input boundary
+    description: The card groups content; the editable field and keyboard focus need their own clear boundaries.
+    height: 430
+    html: |
+      <section class="civica-card" aria-labelledby="room-boundary-title">
+        <h2 class="govuk-heading-m" id="room-boundary-title">Room name</h2>
+        <form data-demo-form>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="brand-room-name">Name shown on the dashboard</label>
+            <div class="govuk-hint" id="brand-room-hint">Use a name people in the household recognise.</div>
+            <input class="govuk-input" id="brand-room-name" name="room-name" value="Kitchen" aria-describedby="brand-room-hint">
+          </div>
+          <button class="govuk-button" type="submit">Preview saving</button>
+          <p class="govuk-body" role="status" data-demo-status></p>
+        </form>
+      </section>
+  bg-colour-state-labels:
+    title: Different states explained in words
+    description: Colour can help scanning, but each row retains its device, state and next step.
+    height: 550
+    html: |
+      <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Example data table, scroll horizontally if needed">
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Example device checks</caption>
+        <thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Device</th><th scope="col" class="govuk-table__header">State</th><th scope="col" class="govuk-table__header">What this means</th></tr></thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Kitchen light</th><td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Available</strong></td><td class="govuk-table__cell">The integration has a current state.</td></tr>
+          <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hall sensor</th><td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">Battery low</strong></td><td class="govuk-table__cell">The device reports a low battery.</td></tr>
+          <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Bedroom sensor</th><td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Unavailable</strong></td><td class="govuk-table__cell">No current reading is available. This does not mean 0 °C.</td></tr>
+        </tbody>
+      </table>
+      </div>
+  bg-type-household-hierarchy:
+    title: A long room name with a clear heading structure
+    description: Room, section and value have different semantic roles. A sensor value is not a heading.
+    height: 500
+    html: |
+      <h1 class="govuk-heading-xl">Kitchen and family dining room</h1>
+      <h2 class="govuk-heading-m">Indoor conditions</h2>
+      <p class="govuk-body"><strong style="font-size:2rem;font-variant-numeric:tabular-nums">20.5 °C</strong></p>
+      <p class="govuk-body">Temperature reported at 09:10 on 11 November 2026.</p>
+      <h3 class="govuk-heading-s">About this reading</h3>
+      <p class="govuk-body">This invented example shows how a long room name can wrap while the measurement, unit and update time remain visible.</p>
+  bg-type-values:
+    title: Signed measurements with units and context
+    description: Examples retain the sign, decimal, unit and original time. The table is fictional and does not represent live readings.
+    height: 510
+    html: |
+      <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Example data table, scroll horizontally if needed">
+      <table class="govuk-table" style="font-variant-numeric:tabular-nums">
+        <caption class="govuk-table__caption govuk-table__caption--m">Example power readings</caption>
+        <thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Source</th><th scope="col" class="govuk-table__header">Power</th><th scope="col" class="govuk-table__header">Time (Europe/London)</th></tr></thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Grid</th><td class="govuk-table__cell">−0.16 kW</td><td class="govuk-table__cell"><time datetime="2026-11-11T09:10:00+00:00">11 November 2026, 09:10</time></td></tr>
+          <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Solar</th><td class="govuk-table__cell">0.42 kW</td><td class="govuk-table__cell"><time datetime="2026-11-11T09:10:00+00:00">11 November 2026, 09:10</time></td></tr>
+          <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Garage meter</th><td class="govuk-table__cell">Unavailable</td><td class="govuk-table__cell">No current observation</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="govuk-body">In this example, a negative grid reading means export. An unavailable reading is not zero.</p>
+  bg-type-handover:
+    title: Readable text in a household handover
+    description: A print-oriented specimen uses Arial with 16pt headings and 12pt body text. The actual export still needs a separate print review.
+    height: 450
+    html: |
+      <article aria-labelledby="handover-title" style="font-family:Arial,Helvetica,sans-serif;font-size:12pt;line-height:1.5">
+        <h2 id="handover-title" style="font-size:16pt;line-height:1.25">Household dashboard handover</h2>
+        <p><strong>Example document — 11 November 2026</strong></p>
+        <p>The dashboard groups rooms by name. Open a device’s details to see its supported controls and the latest state supplied by its integration.</p>
+        <h3 style="font-size:16pt;line-height:1.25">When a reading is unavailable</h3>
+        <p>Check the device’s native details before acting. An old reading is not proof that the current state is unchanged.</p>
+        <p>This is a typography specimen. It is not an installation record or a safety procedure.</p>
+      </article>
+  bg-data-operational-power:
+    title: Operational Power uses the maintained renderer
+    description: The production adapter supplies stable colours, signed unfilled lines and the accessible table. The examples harness supplies invented data.
+    height: 850
+    html: |
+      <div data-civica-energy-examples data-example-chart="power"></div>
+      <noscript><p class="govuk-body">This working example needs JavaScript. The guide describes its values, original-date table and keyboard requirements.</p></noscript>
+      <script type="module" src="../javascripts/energy-chart-examples.js"></script>
+  bg-data-editorial-summary:
+    title: A fixed summary states its denominator and source
+    description: A publication summary uses real text and the full table. It does not introduce a second chart palette or suggest a live device state.
+    height: 500
+    html: |
+      <section aria-labelledby="summary-title">
+        <h2 class="govuk-heading-m" id="summary-title">2 of 3 example rooms have a temperature sensor</h2>
+        <p class="govuk-body">Invented household inventory for 11 November 2026. This describes configured coverage, not whether a sensor is online.</p>
+        <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Example data table, scroll horizontally if needed">
+      <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--s">Source: this fictional example inventory</caption>
+          <thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Room</th><th scope="col" class="govuk-table__header">Temperature sensor configured</th></tr></thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Kitchen</th><td class="govuk-table__cell">Yes</td></tr>
+            <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Living room</th><td class="govuk-table__cell">Yes</td></tr>
+            <tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hall</th><td class="govuk-table__cell">No</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </section>
+  bg-data-location-alternative:
+    title: Location information remains available as text
+    description: This fictional room list illustrates an alternative to a floor-plan marker. No coordinates or map provider are invented.
+    height: 500
+    html: |
+      <section aria-labelledby="location-list-title">
+        <h2 class="govuk-heading-m" id="location-list-title">Where to find the example sensors</h2>
+        <p class="govuk-body">Invented downstairs inventory, checked on 11 November 2026. Locations describe this example only.</p>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Kitchen</dt><dd class="govuk-summary-list__value">Temperature sensor on the inside wall beside the doorway.</dd></div>
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Living room</dt><dd class="govuk-summary-list__value">Temperature sensor on the shelf beside the door.</dd></div>
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Hall</dt><dd class="govuk-summary-list__value">No temperature sensor is recorded.</dd></div>
+        </dl>
+        <p class="govuk-body">A real map or floor plan would keep its own title, legend and source, with equivalent location information available outside the image.</p>
+      </section>
+  bg-illustration-sensor-placement:
+    title: A diagram makes a location clear
+    description: An original, flat SVG explains an invented sensor location. It is not a live room image or installation recommendation.
+    height: 420
+    html: |
+      <figure style="margin:0" aria-labelledby="sensor-location-caption">
+        <svg viewBox="0 0 400 220" width="400" height="220" role="img" aria-labelledby="sensor-diagram-title sensor-diagram-desc" style="display:block;max-width:100%;height:auto">
+          <title id="sensor-diagram-title">Example room sensor location</title>
+          <desc id="sensor-diagram-desc">The sensor is on the right-hand wall beside the doorway. A window and radiator are on the opposite side.</desc>
+          <rect x="10" y="10" width="380" height="190" fill="#d2e2f1"/>
+          <rect x="10" y="190" width="380" height="20" fill="#103e65"/>
+          <rect x="38" y="35" width="105" height="80" fill="#1d70b8"/>
+          <rect x="46" y="43" width="42" height="64" fill="#ffffff"/>
+          <rect x="94" y="43" width="41" height="64" fill="#ffffff"/>
+          <rect x="38" y="135" width="105" height="40" rx="4" fill="#103e65"/>
+          <rect x="285" y="65" width="75" height="125" fill="#103e65"/>
+          <rect x="295" y="75" width="55" height="115" fill="#ffffff"/>
+          <circle cx="338" cy="132" r="4" fill="#103e65"/>
+          <rect x="238" y="80" width="26" height="42" rx="5" fill="#1d70b8"/>
+          <rect x="244" y="87" width="14" height="13" fill="#ffffff"/>
+        </svg>
+        <figcaption class="govuk-body" id="sensor-location-caption">An invented room diagram. Use the device manufacturer’s placement instructions before installing a real sensor.</figcaption>
+      </figure>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/brand-guidance-examples.yml#bg-illustration-sensor-placement
+      provenance: Original simple geometry; no imported official government illustration, font or identity paths.
+      purpose: Show the location of a sensor in an invented room.
+      intended_background: "#FFFFFF documentation example canvas"
+      alternative_text_decision: Informative SVG with title and description; caption distinguishes the diagram from real installation guidance.
+      review_status: Static syntax and accessible-name references checked; rendered visual review pending.
+  bg-illustration-network:
+    title: A simple relationship, with complete text
+    description: Original geometric device forms support the explanation. The redundant SVG is hidden from assistive technology because the full meaning follows in text.
+    height: 470
+    html: |
+      <section aria-labelledby="network-title">
+        <h2 class="govuk-heading-m" id="network-title">How the example devices connect</h2>
+        <svg viewBox="0 0 440 155" width="440" height="155" aria-hidden="true" focusable="false" style="display:block;max-width:100%;height:auto">
+          <rect x="15" y="20" width="72" height="115" rx="10" fill="#103e65"/>
+          <rect x="23" y="31" width="56" height="82" fill="#ffffff"/>
+          <circle cx="51" cy="124" r="4" fill="#ffffff"/>
+          <rect x="105" y="73" width="56" height="8" fill="#1d70b8"/>
+          <path d="M153 64 174 77 153 90Z" fill="#1d70b8"/>
+          <rect x="189" y="45" width="86" height="65" rx="8" fill="#1d70b8"/>
+          <rect x="204" y="57" width="56" height="12" fill="#ffffff"/>
+          <circle cx="247" cy="91" r="4" fill="#ffffff"/>
+          <rect x="293" y="73" width="56" height="8" fill="#1d70b8"/>
+          <path d="M341 64 362 77 341 90Z" fill="#1d70b8"/>
+          <rect x="376" y="49" width="38" height="57" rx="7" fill="#103e65"/>
+          <rect x="384" y="58" width="22" height="20" fill="#ffffff"/>
+        </svg>
+        <p class="govuk-body">In this invented setup, the phone opens the dashboard, Home Assistant communicates with a hub, and the hub supplies the sensor reading.</p>
+        <p class="govuk-body">This explains a relationship only. Actual integrations may connect differently, and the diagram does not confirm availability.</p>
+      </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/brand-guidance-examples.yml#bg-illustration-network
+      provenance: Original simple geometry; no imported official government illustration, font or identity paths.
+      purpose: Explain a fictional phone, hub and sensor relationship.
+      intended_background: "#FFFFFF documentation example canvas"
+      alternative_text_decision: SVG hidden with aria-hidden because complete relationship and availability limitations are provided as adjacent HTML text.
+      review_status: Static syntax and accessible-name references checked; rendered visual review pending.
+  bg-illustration-functional-icon:
+    title: A functional arrow follows its component rules
+    description: An original simple arrow uses an outline stroke because it is a navigation symbol, not an expressive illustration.
+    height: 340
+    html: |
+      <a class="civica-action-link govuk-link" href="#example-energy-destination">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        View example energy information
+      </a>
+      <section id="example-energy-destination">
+        <h2 class="govuk-heading-m">Example energy information</h2>
+        <p class="govuk-body">The visible link text identifies its destination. The arrow is hidden from the accessibility tree and does not replace the label.</p>
+      </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/brand-guidance-examples.yml#bg-illustration-functional-icon
+      provenance: Original simple geometry; no imported official government illustration, font or identity paths.
+      purpose: Identify a same-page navigation direction alongside a visible destination label.
+      intended_background: "#FFFFFF documentation example canvas"
+      alternative_text_decision: SVG hidden with aria-hidden; link text supplies the accessible name.
+      review_status: Static syntax and accessible-name references checked; rendered visual review pending.

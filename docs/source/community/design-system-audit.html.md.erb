@@ -1,0 +1,86 @@
+---
+title: "Design-system compliance audit"
+description: "Evidence-backed findings and proposed changes against the completed civica.uk brand and writing rules."
+section: community
+published_on: 2026-11-11
+updated_on: 2026-11-11
+updates:
+  - date: 2026-11-11
+    description: "Published the whole-system review, page coverage and proposed compliance changes."
+---
+
+# Design-system compliance audit
+
+This audit applies the completed [brand guidance](../styles/index.html#brand-guidance) and [writing guide](../content/index.html) to the authored design system. It identifies confirmed inconsistencies and the changes needed to resolve them. The findings below are proposals, not claims that the changes are implemented.
+
+<% audit = JSON.parse(File.read(File.join(root, 'data', 'design-system-audit.json'))) %>
+
+## Scope and result
+
+<p>The review covers <strong><%= audit['pages'].length %> guidance pages</strong>, <strong><%= audit['examples'].length %> shared examples</strong> and the shared presentation, token and maintained runtime sources listed in the <a href="../reference/design-system-audit.json">machine-readable evidence record</a>. It records <strong><%= audit['findings'].length %> confirmed compliance findings</strong>. “No confirmed finding” means none was identified in the stated static review; it is not a certificate of accessibility or live Home Assistant compatibility.</p>
+
+The [component review](component-audit.html) separately maps every component to a proposed canonical family. The [Home Assistant gap register](missing-components.html) lists missing or partial design specifications, including functionality already supplied by native Home Assistant. These are different questions from whether existing guidance follows its rules.
+
+## How the audit was performed
+
+1. Complete the source review and author the brand and writing rules.
+2. Review the new rules for conflicts, scope and practical checks. Record their frozen hashes.
+3. Read each guide and its examples, then review shared layouts, styles, tokens and maintained runtime boundaries.
+4. Confirm each finding against a local rule and a precise source location. Record a proposal and observable acceptance criteria.
+5. Reconcile every page and example with the coverage ledger, independently challenge findings, and rerun affected checks.
+
+The [work-package checklist](guidance-work-package.html) records the loops and verification evidence. Source hashes identify what was reviewed. A future edit requires a new review rather than inheriting this result automatically.
+
+## Priorities
+
+| Priority | Meaning | Response |
+| --- | --- | --- |
+| P1 | Misleading state, action outcome or essential task information | Resolve before relying on that message for the affected household task |
+| P2 | Inconsistent presentation, guidance, discoverability or missing required context | Resolve in the next relevant component or documentation change |
+| P3 | Maintainability or editorial consistency | Combine with the related content or component revision |
+
+## Confirmed findings and proposed changes
+
+<% audit['findings'].each do |finding| %>
+<h3 id="<%= escape(finding['id'].downcase) %>"><%= escape(finding['id']) %>: <%= escape(finding['title']) %></h3>
+<p><strong><%= escape(finding['priority']) %> · <%= escape(finding['status'].tr('_', ' ')) %></strong>. <%= escape(finding['summary']) %></p>
+<p>Rules: <% finding['rule_ids'].each_with_index do |id, index| %><%= ', ' if index > 0 %><a href="<%= docs_path(audit['rule_links'].fetch(id)) %>"><%= escape(id) %></a><% end %>.</p>
+<ul><% finding['evidence'].each do |item| %><li><a href="https://github.com/nathcymru/HA-Theme-gov.uk/blob/main/<%= escape(item['path']) %>#L<%= item['line'] %>"><code><%= escape(item['path']) %>:<%= item['line'] %></code></a>: <%= escape(item['detail']) %></li><% end %></ul>
+<p><strong>Proposed change:</strong> <%= escape(finding['proposed_change']) %></p>
+<p><strong>Acceptance:</strong></p><ul><% finding['acceptance'].each do |check| %><li><%= escape(check) %></li><% end %></ul>
+<% end %>
+
+<h2 id="migration-recommendations">Migration recommendations</h2>
+
+<p>These recommendations improve consistency when existing material is revised. Their rules may apply to new work; they are not retroactively labelled as confirmed MUST violations.</p>
+
+<% audit['migration_recommendations'].each do |item| %>
+<h3 id="<%= escape(item['id'].downcase) %>"><%= escape(item['id']) %>: <%= escape(item['title']) %></h3>
+<p><%= escape(item['summary']) %></p><p><strong>Proposed change:</strong> <%= escape(item['proposed_change']) %></p>
+<p><strong>Acceptance:</strong></p><ul><% item['acceptance'].each do |check| %><li><%= escape(check) %></li><% end %></ul>
+<% end %>
+
+<h2 id="coverage-by-page">Coverage by page</h2>
+
+<p>The ledger lists every editorial page, including indexes and this audit package. Findings in shared styles can affect pages whose authored text has no separate finding. The JSON record lists each page’s linked examples and review note.</p>
+
+<details><summary>Show every reviewed page</summary>
+<table><caption>Editorial page review coverage</caption><thead><tr><th scope="col">Page</th><th scope="col">Authored-content review</th><th scope="col">Findings</th></tr></thead><tbody>
+<% audit['pages'].each do |page| %>
+<tr><th scope="row"><a href="<%= docs_path(page['url']) %>"><%= escape(page['title']) %></a></th><td><%= escape(page['result'].tr('_', ' ')) %></td><td><%= escape(page['finding_ids'].join(', ')) %></td></tr>
+<% end %>
+</tbody></table></details>
+
+<h2 id="record-and-close-a-finding">Record and close a finding</h2>
+
+<%= example('local-community-issue') %>
+
+<%= example('local-community-decision') %>
+
+Implement a bounded change against the canonical component owner. Preserve existing public URLs through aliases or redirects where needed. Add the acceptance evidence, update the rule and examples together, and change the finding’s status only after the checks pass. Keep a resolved finding as history instead of deleting its evidence.
+
+## Verification boundaries
+
+<ul><% audit['limitations'].each do |limitation| %><li><%= escape(limitation) %></li><% end %></ul>
+
+This audit does not rewrite native Home Assistant translations, device names, permissions or automation logic. It does not implement the proposed specifications or component changes. Those changes need the appropriate implementation and live verification work after the proposals have been assessed.

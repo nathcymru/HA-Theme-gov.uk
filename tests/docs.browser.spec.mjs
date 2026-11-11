@@ -55,6 +55,25 @@ async function assertReflow(page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 }
 
+test('audit findings and expanded coverage stay navigable at narrow widths', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto('/docs/build/community/design-system-audit.html');
+  for (const name of ['Migration recommendations', 'Coverage by page', 'Record and close a finding']) {
+    await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
+    await page.getByRole('navigation', { name: 'On this page' }).getByRole('link', { name, exact: true }).click();
+    await assertReflow(page);
+  }
+  const disclosure = page.locator('details').filter({ has: page.getByText('Show every reviewed page', { exact: true }) });
+  await disclosure.locator('summary').focus();
+  await page.keyboard.press('Enter');
+  await expect(disclosure).toHaveAttribute('open', '');
+  const records = JSON.parse(readFileSync('docs/data/design-system-audit.json', 'utf8'));
+  await expect(disclosure.locator('tbody tr')).toHaveCount(records.pages.length);
+  await assertReflow(page);
+  const result = await new AxeBuilder({ page }).exclude('iframe').analyze();
+  expect(violations(result)).toEqual([]);
+});
+
 // Separate tests keep the expanded catalogue parallel, individually debuggable and below the normal timeout.
 test.describe('documentation guide pages', () => {
   for (const file of guidePages) {

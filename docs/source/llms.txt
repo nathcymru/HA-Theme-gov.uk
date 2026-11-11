@@ -69,3 +69,14 @@ Do not equate a local build, screenshot or token test with live Home Assistant d
 - [Publishing guidance](publishing/index.html): editorial components, patterns and recursively mapped page templates.
 
 Reference catalogue coverage does not mean those components have replaced native Home Assistant. Read each page’s implementation boundary. Example canvases use synthetic data and do not issue household commands.
+
+## Brand, writing and whole-system audit
+
+- [Brand colour](styles/brand-colour.html), [brand typography](styles/brand-typography.html), [data communication](styles/brand-data.html), [illustration](styles/illustration.html): selected GOV.UK Brand guidance adapted to civica.uk; local rule IDs and explicit exclusions.
+- [Writing guide](content/index.html): bespoke household content rules, with examples and source decisions.
+- [Brand rules and evidence](reference/brand-guidance.json), [writing rules and evidence](reference/writing-guide.json): machine-readable rules and source coverage.
+- [Work-package checklist](community/guidance-work-package.html): phases, evidence and review loops; completed audit does not mean all findings are remediated.
+- [Whole-system audit](community/design-system-audit.html) and [audit data](reference/design-system-audit.json): evidence, affected rules, priorities and acceptance criteria.
+- [Component organisation](community/component-audit.html) and [missing Home Assistant specifications](community/missing-components.html): proposals with stable URLs and native capability boundaries.
+
+Apply MUST rules to their stated scope. SHOULD rules allow an evidenced exception. Do not treat audit proposals as implemented features or infer live Home Assistant verification from documentation checks.
