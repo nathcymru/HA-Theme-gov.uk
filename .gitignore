@@ -9,3 +9,7 @@ test-results/
 artifacts/
 ui/dev/energy-charts-harness.js
 docs/source/javascripts/energy-chart-examples.js
+docs/source/javascripts/map-examples.js
+docs/source/javascripts/maplibre-gl-worker.mjs
+docs/source/stylesheets/maplibre-examples.css
+docs/source/reference/map-demo-licenses.txt

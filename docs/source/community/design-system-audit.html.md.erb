@@ -3,17 +3,19 @@ title: "Design-system compliance audit"
 description: "Original findings, implemented remedies and verification boundaries against the civica.uk brand and writing rules."
 section: community
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-12"
 updates:
-  - date: 2026-11-11
+  - date: "2026-11-12"
+    description: "Linked the design-style rules without treating the project identity as a household requirement."
+  - date: "2026-11-11"
     description: "Recorded the implemented remedies, original finding history and bounded verification evidence."
-  - date: 2026-11-11
+  - date: "2026-11-11"
     description: "Published the whole-system review, page coverage and proposed compliance changes."
 ---
 
 # Design-system compliance audit
 
-This audit applies the completed [brand guidance](../styles/index.html#brand-guidance) and [writing guide](../content/index.html) to the authored design system. It preserves the original findings and records the implemented remedies, current evidence and acceptance checks. Read each resolution alongside its stated test scope.
+This audit applies the completed [design styles](../styles/index.html) and [writing guide](../content/index.html) to the authored design system. It preserves the original findings and records the implemented remedies, current evidence and acceptance checks. Read each resolution alongside its stated test scope.
 
 <% audit = JSON.parse(File.read(File.join(root, 'data', 'design-system-audit.json'))) %>
 
@@ -22,6 +24,8 @@ This audit applies the completed [brand guidance](../styles/index.html#brand-gui
 <p>The review covers <strong><%= audit['pages'].length %> guidance pages</strong>, <strong><%= audit['examples'].length %> shared examples</strong> and the shared presentation, token and maintained runtime sources listed in the <a href="../reference/design-system-audit.json">machine-readable evidence record</a>. It records <strong><%= audit['findings'].length %> confirmed compliance findings</strong>. “No confirmed finding” means none was identified in the stated static review; it is not a certificate of accessibility or live Home Assistant compatibility.</p>
 
 The [component review](component-audit.html) separately maps every component to its canonical family. The [Home Assistant gap register](missing-components.html) links the completed specifications for the 30 identified design gaps, including functionality already supplied by native Home Assistant. These are different questions from whether existing guidance follows its rules.
+
+The [data, colour, personalisation and illustration review](../reference/data-design-review.json) records the current documentation update and its verification boundaries. It preserves the distinction between a published design reference and implementation inside Home Assistant.
 
 ## How the audit was performed
 

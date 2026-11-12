@@ -29,8 +29,12 @@
   },
   "patterns/index.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the dedicated Home Assistant controls and flows catalogue alongside shared task patterns."
@@ -47,8 +51,16 @@
   },
   "patterns/home.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added complete data-monitoring and text-first room-report examples, with chart/table parity, dated source coverage and links to the applied colour and data rules."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Completed the linked device-group specimen and connected room layouts to the expanded card examples."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
@@ -75,8 +87,12 @@
   },
   "styles/brand.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Limited the supplied civica.uk identity to project documentation and promotion, with a separate household personalisation route."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -93,8 +109,16 @@
   },
   "styles/images.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Separated project artwork from optional household identity and retained meaningful image alternatives."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Updated the informative illustration specimen and provenance for the original cutaway household artwork."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -111,8 +135,16 @@
   },
   "styles/index.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Made data and colour guidance directly discoverable and added the matching original section illustration."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Moved writing navigation to its own top-level section and kept this index focused on visual styles."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -147,8 +179,12 @@
   },
   "styles/typography.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the typography guidance without imposing the project identity inside a household interface."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -165,8 +201,16 @@
   },
   "styles/chart-colour.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added categorical and quantitative colour examples with explicit values, missing-data rules and scale boundaries."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added generated categorical references and calculated quantitative scales with matching values, text alternatives and explicit missing-data treatment."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -197,8 +241,12 @@
   },
   "styles/colour.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Connected the palette reference to colour roles, optional household identity and an original guide illustration."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -257,8 +305,12 @@
   },
   "components/index.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
@@ -359,8 +411,16 @@
   },
   "components/charts.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Connected data and colour rules to the existing ONS-informed chart contract and quantitative scale examples."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked chart data alternatives to the shared table semantics while preserving the production adapter and scope limits."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
@@ -391,8 +451,12 @@
   },
   "community/licensing.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Recorded map-library and OpenStreetMap attribution alongside the original section-header artwork provenance."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the brand and writing source decisions, audit links and provenance boundaries."
@@ -409,8 +473,12 @@
   },
   "community/index.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles and added an original contribution and review illustration."
+      },
       {
         "date": "2026-11-11",
         "description": "Linked the complete brand and writing guidance and its audit work package."
@@ -473,8 +541,12 @@
   },
   "accessibility/index.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
@@ -523,6 +595,10 @@
     "updates": [
       {
         "date": "2026-11-12",
+        "description": "Added a personalisation route and an original section illustration for the setup guidance."
+      },
+      {
+        "date": "2026-11-12",
         "description": "Added the project story under Get started and linked its household design motivation."
       },
       {
@@ -541,8 +617,12 @@
   },
   "get-started/compatibility.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Documented the existing companion identity behaviour and the boundary of the proposed household personalisation settings."
+      },
       {
         "date": "2026-11-11",
         "description": "Documented maintained custom-card types, the preserved legacy lighting alias and the dedicated compatibility register."
@@ -568,6 +648,1280 @@
       {
         "date": "2026-11-11",
         "description": "First published in the civica.uk design system."
+      }
+    ]
+  },
+  "community/design-system-audit.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the design-style rules without treating the project identity as a household requirement."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Recorded the implemented remedies, original finding history and bounded verification evidence."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Published the whole-system review, page coverage and proposed compliance changes."
+      }
+    ]
+  },
+  "community/guidance-work-package.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the design-style deliverables while preserving the earlier work-package evidence."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the authorised remediation phase and repeated implementation, review and verification loops."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the guidance work packages, coverage checklists and recorded review loops."
+      }
+    ]
+  },
+  "components/footer.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that identity, ownership and licence information must match the project, household or business page."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added NHS-informed footer guidance and 2 Home Assistant reference examples."
+      }
+    ]
+  },
+  "components/generic-header.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Allowed a clear household or business name with an optional image, while preserving the native shell boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk guidance, contextual examples and implementation boundaries."
+      }
+    ]
+  },
+  "components/header.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Separated optional household identity from the project logo in header guidance and examples."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Established one header identity family with focused and service-navigation responsibilities kept distinct."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added NHS-informed header guidance and 2 Home Assistant reference examples."
+      }
+    ]
+  },
+  "content/index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Moved this page into the top-level Writing guide section while preserving its URL and rule anchors."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the dated Home Assistant terminology supplement and its complete glossary and native vocabulary inventories."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added original household writing rules, contextual examples and source boundaries for writing for a connected home."
+      }
+    ]
+  },
+  "get-started/about.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that the project identity is separate from a household’s optional name, crest or logo."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the project's household motivation, design approach, implementation boundaries and source-checked licensing explanation."
+      }
+    ]
+  },
+  "get-started/personalisation.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Separated project identity from optional household personalisation, with current native options and proposed header examples."
+      }
+    ]
+  },
+  "home-assistant/access-and-movement.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Aligned authored permission wording with the UK-English style while preserving native labels and identifiers."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added locks, alarms, covers and valves contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/accounts-and-permissions.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Aligned authored permission wording with the UK-English style while preserving native labels and identifiers."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Removed an assumed answer from the new shared-display policy question."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added accounts, permissions and shared settings contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/action-results.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added action requests and results contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/appliances-and-cleaning.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added appliances, vacuums and outdoor devices contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/automation-editing.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Separated interface error feedback from the example automation action sequence."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added automation and script editing contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/cameras.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Corrected the original camera-diagram provenance to match its actual canvas and recorded its checksum; aligned authored permission wording."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added cameras, streams and snapshots contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/climate-and-air.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Completed the supplied water-heater mode and distinguished unsupported oscillation from an unavailable reading."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added climate, fan and water-heater controls contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/continuous-controls.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Linked the canonical local slider component and its precise-entry, failure and unavailable examples; native integration scope remains unchanged."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added continuous controls and alternatives contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/dashboard-composition.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the dashboard composition and card features contract, native registry mapping and complete synthetic examples."
+      }
+    ]
+  },
+  "home-assistant/energy-flow-and-other-charts.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added energy flow and other chart families contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/entity-lists-and-rows.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the entity lists, readings and row actions contract, native registry mapping and complete synthetic examples."
+      }
+    ]
+  },
+  "home-assistant/entity-state.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added entity state, confidence and freshness contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/helpers-and-scalar-inputs.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the helpers and scalar input controls contract, native registry mapping and complete synthetic examples."
+      }
+    ]
+  },
+  "home-assistant/history-and-statistics.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added history, activity and statistics contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/integration-and-app-settings.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added versioned coverage for integration setup, protocol panels, credentials, apps and marketplace entry points."
+      }
+    ]
+  },
+  "home-assistant/lighting.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added lighting capabilities and colour contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/maps-and-zones.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added styled-map and unavailable-background examples with attribution, complete location records and native integration boundaries."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added map composition and colour rules, OpenStreetMap vector and missing-background examples, complete equivalent records and explicit evidence boundaries."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the dedicated maps, zones and location records specification and three complete synthetic examples."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Bounded the synthetic radius draft and required an explicit display-disclosure choice."
+      }
+    ]
+  },
+  "home-assistant/pictures-and-embedded-content.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the pictures, rich content and embedded pages contract, native registry mapping and complete synthetic examples."
+      }
+    ]
+  },
+  "home-assistant/presence-and-privacy.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Aligned authored permission wording with the UK-English style while preserving native labels and identifiers."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added presence, people and shared-screen privacy contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/schedules-and-time.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added schedules, calendars and timers contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "home-assistant/schema-selectors.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the schema selectors and configuration forms contract, native registry mapping and complete synthetic examples."
+      }
+    ]
+  },
+  "home-assistant/specialist-entities.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added the specialist entities and derived information contract, native registry mapping and complete synthetic examples."
+      }
+    ]
+  },
+  "home-assistant/system-and-developer-tools.html": {
+    "published_on": "2026-11-12",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-12",
+        "description": "Added design ownership for native system, tools, analytics, AI, labs, storage and hardware routes."
+      }
+    ]
+  },
+  "home-assistant/target-pickers.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the shared design styles without requiring the project identity inside a household interface."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Aligned authored permission wording with the UK-English style while preserving native labels and identifiers."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Corrected the unanswered selection to preserve entity IDs and completed the included/excluded member review."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added entity, device and area pickers contract, domain-specific acceptance checks and synthetic reference examples."
+      }
+    ]
+  },
+  "index.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked data and colour guidance directly and matched the three homepage category illustrations to their section headers."
+      }
+    ]
+  },
+  "publishing/components/attachment.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/breadcrumbs.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/content-list.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/emergency-banner.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/feedback.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/global-banner.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/previous-and-next-navigation.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/print-link.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/related-navigation.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/search-autocomplete.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/components/single-page-notification-button.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/answer.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/calendar.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added explicit example dates and a time zone to the agenda and empty-week specimens."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/completed-transaction.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/detailed-guide.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/document-collections.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/case-studies-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/groups-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/hmrc-contacts-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/people-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/search.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/specialist-document-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/statistical-data-sets-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/supergroup-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/topical-events-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder/world-organisation-finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/finder.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Organised all eleven finder source routes under one filtering and collection contract, preserving applicability boundaries."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/guide.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/homepage.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/mainstream-browse/level-one.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/mainstream-browse/level-two.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/mainstream-browse.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/smart-answer/github-smart-answer.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/smart-answer/simple-smart-answer.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/smart-answer.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/special-route.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/step-by-step-nav.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/topical-events/about.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/topical-events.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/frontend-templates/transaction.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Linked this retained variant to its shared behaviour owner and clarified its specific implementation boundary."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "publishing/patterns/search-filter.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Clarified that shared typography and colour roles allow an optional household identity without importing official marks."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Established the shared filtering owner and exact fixed-record query, facet and no-JavaScript contract."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added working local example behaviour with a safe no-JavaScript fallback and no connected backend."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added the civica.uk adaptation, applicability limits and two local examples."
+      }
+    ]
+  },
+  "styles/brand-colour.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Integrated colour roles with data examples and optional household identity, with an original guide illustration."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
+      }
+    ]
+  },
+  "styles/brand-data.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Linked the data rules to complete chart, dashboard and map examples, with an original guide illustration."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
+      }
+    ]
+  },
+  "styles/brand-typography.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Separated typography guidance from optional household identity while retaining readable interface roles."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
+      }
+    ]
+  },
+  "styles/illustration.html": {
+    "published_on": "2026-11-11",
+    "updated_on": "2026-11-12",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Documented the original section-header family, its usage and provenance, separately from project or household identity."
+      },
+      {
+        "date": "2026-11-11",
+        "description": "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
       }
     ]
   }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-11-11",
+  "reviewed_on": "2026-11-12",
   "status": "guidance-and-static-audit-complete-interface-findings-open",
   "status_meaning": {
     "reviewed": "The named official source was read; this is not an implementation pass.",
@@ -70,20 +70,23 @@
         "status": "mapped-not-executed",
         "paths": [
           "design-system/palettes.json",
-          "scripts/check-brand.mjs",
-          "docs/source/styles/brand.html.md.erb"
+          "docs/source/get-started/personalisation.html.md.erb",
+          "docs/source/styles/brand.html.md.erb",
+          "docs/source/get-started/compatibility.html.md.erb"
         ],
         "example_ids": [
           "bg-colour-role-separation",
-          "bg-colour-boundaries",
-          "bg-colour-state-labels"
+          "identity-household-name",
+          "identity-household-crest",
+          "identity-business-name"
         ]
       },
       "verification": {
         "status": "not-tested-in-this-package",
         "checks": [
           "Every selected primary/canvas matches palettes.json.",
-          "Selected logo is an unchanged matching supplied asset; no official government mark is introduced."
+          "Text-only household identity remains a complete option; no project mark is required.",
+          "Optional supplied artwork keeps its proportions and colours, with readable text identification."
         ],
         "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
       },
@@ -93,14 +96,14 @@
         "findings": []
       },
       "level": "MUST",
-      "scope": "Service identity, theme selection and brand assets",
-      "requirement": "Use the exact supplied civica palettes and matching unchanged artwork; do not introduce official GOV.UK identity.",
+      "scope": "Theme selection, optional household personalisation and separate project identity",
+      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica.uk artwork only for project documentation or promotion; exclude official GOV.UK identity.",
       "static_audit": {
         "status": "no-confirmed-finding-in-static-scope",
         "findings": [],
         "recommendations": [],
         "evidence": "docs/data/design-system-audit.json",
-        "scope": "Authored guides, examples and bounded shared/runtime presentation source review; not a full implementation or accessibility certificate."
+        "scope": "Revised optional-identity documentation and examples; current native companion retains the separately recorded legacy identity behaviour."
       }
     },
     {
@@ -364,7 +367,7 @@
       "verification": {
         "status": "not-tested-in-this-package",
         "checks": [
-          "Exercise ten palettes × two tones × two modes on affected surfaces.",
+          "Exercise ten palettes \u00d7 two tones \u00d7 two modes on affected surfaces.",
           "Inspect forced colours, focus and native editor density without clipping."
         ],
         "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
@@ -1891,5 +1894,13 @@
       }
     }
   ],
-  "closure_rule": "Do not mark this checklist compliant from source coverage alone. Record a concrete result and evidence for each applicable check, document exclusions, resolve findings and complete independent review. Reopen affected items after changes."
+  "closure_rule": "Do not mark this checklist compliant from source coverage alone. Record a concrete result and evidence for each applicable check, document exclusions, resolve findings and complete independent review. Reopen affected items after changes.",
+  "scope_revision": {
+    "date": "2026-11-12",
+    "authority": "Explicit user clarification in this task",
+    "previous_record": "docs/data/history/brand-guidance-2026-11-11.json",
+    "previous_sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+    "decision": "Remove the Brand guidance navigation group; present colour/data/type/illustration as design styles. Do not require civica.uk identity inside a home. Add optional family-name, crest and business-logo guidance. This is a design-system update only.",
+    "legacy_identifiers": "BG rule IDs and brand-guidance JSON routes remain stable for existing references."
+  }
 }

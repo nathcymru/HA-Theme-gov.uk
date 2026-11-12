@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 140"><path fill="#f3f6f9" d="M0 0h320v140H0z"/><path fill="#103e65" d="M30 28h115v84H30z"/><path fill="#fff" d="m55 91 20-45h12l20 45H94l-4-11H71l-4 11zm20-21h11l-5-15z"/><path fill="#1d70b8" d="M168 28h34v84h-34z"/><path fill="#8eb8dc" d="M212 28h34v84h-34z"/><path fill="#103e65" d="M256 28h34v84h-34z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 140" width="320" height="140" role="img" aria-labelledby="category-styles-title category-styles-description">
+<title id="category-styles-title">Styles: type, colour and spacing</title>
+<desc id="category-styles-description">A large letterform, three colour swatches and spaced text bars show the foundations of a consistent interface.</desc>
+<rect x="0" y="0" width="320" height="140" fill="#F3F6F9"/>
+<g transform="translate(0 16.6667) scale(0.3333333)"><rect x="76" y="54" width="196" height="212" fill="#103E65"/><path d="M111 226 164 90H188L239 226H209L198 196H150L140 226ZM160 170H189L175 128Z" fill="#FFFFFF"/><rect x="318" y="54" width="108" height="212" fill="#1D70B8"/><rect x="440" y="54" width="108" height="212" fill="#8EB8DC"/><rect x="562" y="54" width="108" height="212" fill="#103E65"/><rect x="718" y="70" width="166" height="24" fill="#103E65"/><rect x="718" y="124" width="126" height="18" fill="#1D70B8"/><rect x="718" y="178" width="166" height="18" fill="#103E65"/><rect x="718" y="232" width="104" height="18" fill="#1D70B8"/></g>
+</svg>

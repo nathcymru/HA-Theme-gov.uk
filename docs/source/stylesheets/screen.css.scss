@@ -228,3 +228,12 @@ a:focus-visible { background:#ffdd00; color:#0b0c0c; text-decoration:none; }
 @media(max-width:760px){.c-navigation ul{padding-bottom:10px;}.c-home .c-navigation ul{border-top:0;}}
 
 .c-code-panel pre:focus-visible { outline:3px solid #ffdd00; box-shadow:0 0 0 6px #0b0c0c; }
+
+/* Section and key-guide artwork accompanies real headings and summaries. */
+.c-illustrated-header { margin:0 0 35px; }
+.technical-documentation .c-illustrated-header h1 { margin-bottom:20px; }
+.technical-documentation .c-illustrated-header__summary { max-width:65ch; font-size:22px; line-height:1.4; margin:0 0 25px; }
+.c-illustrated-header img { display:block; width:100%; height:auto; max-width:100%; }
+@media(max-width:760px) { .technical-documentation .c-illustrated-header__summary { font-size:20px; } }
+
+@import 'data-maps';

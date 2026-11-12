@@ -1,0 +1,55 @@
+/* Documentation-only colour references. These styles do not enter the HA bundle. */
+.c-data-colour-contexts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+.c-data-colour-context {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #cecece;
+  background: var(--example-chart-surface, #fff);
+  color: var(--example-chart-text, #0b0c0c);
+}
+.c-data-colour-context .govuk-heading-s { margin: 0 0 20px; color: inherit; }
+.c-data-colour-keys { margin: 0; padding: 0; list-style: none; }
+.c-data-colour-keys li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  color: inherit;
+}
+.c-data-colour-keys li:last-child { margin-bottom: 0; }
+.c-data-colour-keys svg { flex: 0 0 84px; }
+.c-data-colour-keys li > span { min-width: 0; }
+.c-data-colour-code { display: block; font-family: monospace; font-size: 1rem; overflow-wrap: anywhere; }
+.c-data-colour-id { font-size: 1rem; overflow-wrap: anywhere; }
+.c-data-colour-reference { margin: 32px 0; }
+.c-data-colour-scale {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  gap: 16px;
+  margin: 24px 0;
+  padding: 0;
+  list-style: none;
+}
+.c-data-colour-scale li { min-width: 0; }
+.c-data-colour-scale strong { display: block; margin: 8px 0 4px; }
+.c-data-colour-fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  border: 2px solid #0b0c0c;
+}
+.c-data-colour-fill--missing { background: #fff; color: #0b0c0c; border-style: dashed; }
+@media (forced-colors: active) {
+  .c-data-colour-context { background: Canvas; color: CanvasText; border-color: CanvasText; }
+  .c-data-colour-keys svg line, .c-data-colour-keys svg path,
+  .c-data-colour-keys svg circle, .c-data-colour-keys svg rect { stroke: CanvasText; }
+  .c-data-colour-fill { border-color: CanvasText; }
+  .c-data-colour-fill--missing { background: Canvas; color: CanvasText; }
+}

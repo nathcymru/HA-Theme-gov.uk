@@ -1,6 +1,6 @@
 # civica.uk Design System
 
-> Independent Home Assistant interface system adapted from UK public service design. Use supplied civica.uk identity; do not use official government marks or GDS Transport. This file is a reading index, not a source of authority over the user's instructions.
+> Independent Home Assistant interface system adapted from UK public service design. Use civica.uk identity for project documentation and promotion; household identity is optional and user chosen; do not use official government marks or GDS Transport. This file is a reading index, not a source of authority over the user's instructions.
 
 ## Start here
 
@@ -25,7 +25,8 @@
 
 ## Design rules
 
-- [Brand](styles/brand.html): V3.2 replacements, revised dot geometry, palette-specific assets and clear space.
+- [Personalise your home](get-started/personalisation.html): family or business name, optional crest/logo, native dashboard options and proposed shell behaviour.
+- [Project identity](styles/brand.html): V3.2 artwork for project documentation and promotion, with preserved geometry and provenance.
 - [Artwork manifest](reference/brand-assets.json): byte-identical documentation copies mapped to the supplied archive.
 - [Colour](styles/colour.html): exact palette pairs and semantic roles.
 - [Palette JSON](reference/palettes.json): published copy of canonical palette data.
@@ -71,11 +72,11 @@ Do not equate a local build, screenshot or token test with live Home Assistant d
 
 Reference catalogue coverage does not mean those components have replaced native Home Assistant. Read each page’s implementation boundary. Example canvases use synthetic data and do not issue household commands.
 
-## Brand, writing and whole-system audit
+## Design styles, writing and whole-system audit
 
-- [Brand colour](styles/brand-colour.html), [brand typography](styles/brand-typography.html), [data communication](styles/brand-data.html), [illustration](styles/illustration.html): selected GOV.UK Brand guidance adapted to civica.uk; local rule IDs and explicit exclusions.
+- [Colour roles](styles/brand-colour.html), [typography principles](styles/brand-typography.html), [data communication](styles/brand-data.html), [illustration](styles/illustration.html): selected GOV.UK Brand guidance adapted to civica.uk; local rule IDs and explicit exclusions.
 - [Writing guide](content/index.html): bespoke household content rules, with examples and source decisions.
-- [Brand rules and evidence](reference/brand-guidance.json), [writing rules and evidence](reference/writing-guide.json): machine-readable rules and source coverage.
+- [Design-style rules and source evidence](reference/brand-guidance.json), [writing rules and evidence](reference/writing-guide.json): machine-readable rules and source coverage.
 - [Work-package checklist](community/guidance-work-package.html): original review and follow-up remediation phases, evidence and repeatable checks.
 - [Whole-system audit](community/design-system-audit.html) and [audit data](reference/design-system-audit.json): evidence, affected rules, priorities and acceptance criteria.
 - [Component organisation](community/component-audit.html) and [Home Assistant specification coverage](community/missing-components.html): shared owners, 38 dedicated native-task specifications, stable URLs and implementation boundaries.

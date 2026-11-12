@@ -31,9 +31,11 @@ python3 docs/scripts/sync-brand.py --check
 
 After changing canonical `design-system/palettes.json`, run `python3 docs/scripts/sync-palettes.py` and commit its generated documentation and reference copies. Human rules start in `source/get-started/`; machine-readable guidance starts in `source/llms.txt` and `source/design-contract.json`.
 
-## Branding
+The same build creates the documentation-only OpenStreetMap vector example with pinned MapLibre and VersaTiles dependencies. Tiles load only after the reader selects **Load OpenStreetMap**. The public provider configuration is `source/reference/map-example-provider.json`; retain visible attribution and observe the linked provider policy. No Home Assistant connection is used.
 
-The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It publishes only civica.uk images, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
+## Project identity
+
+The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It uses civica.uk identity for project documentation, keeps household personalisation separate, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
 
 `source/images/` contains byte-for-byte copies of the needed supplied V3.2 core, icon and palette assets from `brand/civica/`. Keep the originals and provenance there unchanged. Run `python3 docs/scripts/sync-brand.py` after an authorised asset-pack update; it also regenerates the published artwork manifest. This site does not claim official government affiliation or a completed accessibility certification.
 
@@ -45,6 +47,8 @@ Use `.html.md.erb` for Markdown pages containing the shared `example()` helper. 
 Add examples to a `data/*examples.yml` catalogue with a unique ID, title, description and HTML. Middleman generates `/examples/<id>.html`, and the shared helper renders the same final markup in an iframe and the HTML tab. Standard components are enhanced with pinned GOV.UK Frontend 6.6.0. Ordinary demo forms use `data-demo-form` and a local status region; the build makes their controls inert until the local handler is ready. Publishing filters have a separate explicit local-data protocol. Never connect examples to a household.
 
 The component and pattern catalogues, section navigation, sitemap and search are generated from the page metadata. The seven main navigation sections are defined in `data/navigation.yml`, including Writing guide. Its existing `/content/` routes are preserved; `/styles/content.html` remains a legacy entry point. The project story is under Get started at `/get-started/about.html`. Source-index inventories are published together in `reference/coverage.json`; keep their page and example mappings accurate.
+
+Section headers are assigned in `data/page-illustrations.yml`. Use the original full-width SVGs without cropping; keep titles and summaries as HTML. The Styles, Components and Patterns homepage cards share the same scene geometry as their section headers. Purpose, alt decisions, provenance and checks are recorded in `data/section-artwork-provenance.json`.
 
 Run the documentation browser suite after building:
 

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="guide-illustration-title guide-illustration-description">
+<title id="guide-illustration-title">Illustration: turn simple shapes into an explanation</title>
+<desc id="guide-illustration-description">A circle, triangle and rectangle lead to a simple room scene containing a window and a lamp.</desc>
+<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
+<circle cx="132" cy="103" r="45" fill="#1D70B8"/><path d="M226 148 282 54 338 148Z" fill="#103E65"/><rect x="105" y="194" width="224" height="59" fill="#8EB8DC"/><path d="M381 153h60v-17l30 26-30 26v-17H381z" fill="#103E65"/><rect x="551" y="45" width="342" height="232" fill="#FFFFFF"/><rect x="551" y="45" width="342" height="25" fill="#103E65"/><rect x="577" y="97" width="112" height="111" fill="#8EB8DC"/><rect x="628" y="97" width="10" height="111" fill="#FFFFFF"/><rect x="577" y="147" width="112" height="10" fill="#FFFFFF"/><g transform="translate(728 89) scale(0.88)"><path d="M25 0H85L108 62H2Z" fill="#1D70B8"/><rect x="49" y="62" width="12" height="94" fill="#103E65"/><rect x="15" y="156" width="80" height="12" fill="#103E65"/></g><rect x="576" y="248" width="290" height="12" fill="#103E65"/>
+</svg>

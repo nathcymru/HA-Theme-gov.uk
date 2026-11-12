@@ -1,0 +1,101 @@
+# OpenStreetMap vector example with invented device records; provider requests require explicit activation.
+examples:
+  map-neighbourhood-records:
+    title: A styled OpenStreetMap with uncertainty and every location record
+    description: Real OpenStreetMap vector data around Cardiff Bay uses six restrained map roles, four appearance variants and labelled device markers. Invented device records remain available without loading the map.
+    height: 1550
+    html: |
+      <link rel="stylesheet" href="../stylesheets/maplibre-examples.css">
+      <section class="civica-map-demo" data-map-example data-map-config="../reference/map-example-provider.json" data-map-state="not-loaded" aria-labelledby="map-locations-title">
+        <h2 class="govuk-heading-m" id="map-locations-title">Where are the example devices?</h2>
+        <p class="govuk-body">Invented device observations at public places in Cardiff Bay, <time datetime="2026-11-12T08:15:00+00:00">12 November 2026 at 08:15 GMT</time> (Europe/London).</p>
+        <p class="govuk-body"><strong>2 of 3 configured devices have a reported location.</strong> The tablet has no location and is not plotted. This does not mean it is away.</p>
+        <p class="govuk-body"><a class="govuk-link" href="#map-all-records">Read all 3 location records</a></p>
+        <figure class="civica-map-demo__figure" aria-labelledby="map-figure-caption">
+          <ul class="govuk-list civica-map-demo__key" aria-label="Map key">
+            <li><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" class="civica-map-demo__marker-a"/><text x="16" y="23" class="civica-map-demo__marker-label">A</text></svg><span>Circle A: bicycle</span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1 31 16 16 31 1 16Z" class="civica-map-demo__marker-b"/><text x="16" y="23" class="civica-map-demo__marker-label">B</text></svg><span>Diamond B: tool case</span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" class="civica-map-demo__selection"/></svg><span>Solid ring: selected record</span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" class="civica-map-demo__uncertainty"/></svg><span>Dashed outline: reported uncertainty</span></li>
+          </ul>
+          <p class="govuk-body" id="map-reference-instructions" data-map-instructions>The background uses real OpenStreetMap data. The example bicycle and tool case are invented; no devices are tracked here. Use the map controls or the complete records below. On the map, arrow keys pan and plus or minus zoom; Tab leaves the map.</p>
+          <p class="govuk-body">Selecting Load OpenStreetMap connects your browser to the OpenStreetMap Foundation tile service. The provider receives ordinary request information, including your IP address and this site's origin. No location permission is requested. Read the <a class="govuk-link" href="https://osmfoundation.org/wiki/Privacy_Policy">provider privacy policy</a>.</p>
+          <div class="civica-map-demo__appearance" role="group" aria-label="Map appearance">
+            <div class="govuk-form-group"><label class="govuk-label" for="map-reference-tone">Colour strength</label><select class="govuk-select" id="map-reference-tone" data-map-tone disabled><option value="vivid">Vivid</option><option value="muted">Muted</option></select></div>
+            <div class="govuk-form-group"><label class="govuk-label" for="map-reference-mode">Display mode</label><select class="govuk-select" id="map-reference-mode" data-map-mode disabled><option value="light">Light</option><option value="dark">Dark</option></select></div>
+          </div>
+          <div class="govuk-button-group"><button class="govuk-button" type="button" data-map-load disabled>Load OpenStreetMap</button><button class="govuk-button govuk-button--secondary" type="button" data-map-stop disabled>Close map</button></div>
+          <p class="govuk-body" data-map-status role="status">Map not loaded. All 3 example location records are available below.</p>
+          <div class="civica-map-demo__navigation" role="group" aria-label="Map controls"><button type="button" class="govuk-button govuk-button--secondary" data-map-command="in" disabled>Zoom in</button><button type="button" class="govuk-button govuk-button--secondary" data-map-command="out" disabled>Zoom out</button><button type="button" class="govuk-button govuk-button--secondary" data-map-command="reset" disabled>Reset to Cardiff Bay</button></div>
+          <div class="civica-map-demo__canvas" data-map-canvas hidden></div>
+          <p class="govuk-body civica-map-demo__attribution">Map data: © <a class="govuk-link" href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, Open Database Licence. <a class="govuk-link" href="https://www.openstreetmap.org/fixthemap">Report a map-data problem</a>. The dataset is continuously maintained; it is not a historical map for the device-observation date.</p>
+          <figcaption class="govuk-body" id="map-figure-caption">Real OpenStreetMap geography, styled locally using MapLibre and the same version of the VersaTiles builder as the reviewed Home Assistant frontend. The two device positions are synthetic public-place coordinates. The dashed 30-metre outline represents the invented bicycle report's accuracy; it is not a property or zone boundary. The metric ruler changes with the geographic zoom.</figcaption>
+          <noscript><p class="govuk-body">The map needs JavaScript. No provider request is made, and the complete records below remain available.</p></noscript>
+        </figure>
+        <h3 class="govuk-heading-s">Selected location record</h3>
+        <p class="govuk-body" data-map-selected aria-live="polite">Selected: A — example bicycle. Near the Senedd. Reported accuracy: 30 metres. This is an invented observation.</p>
+        <div class="govuk-button-group"><button class="govuk-button govuk-button--secondary" type="button" data-map-select="a" aria-pressed="true" disabled>Select bicycle</button><button class="govuk-button govuk-button--secondary" type="button" data-map-select="b" aria-pressed="false" disabled>Select tool case</button></div>
+        <p class="govuk-body">Selecting a record changes the map focus only. It does not request a new device location or prove that any real device is present.</p>
+        <div class="civica-table-scroll" id="map-all-records" tabindex="0" role="region" aria-label="All 3 example location records, scroll horizontally if needed">
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">All 3 configured devices — fictional location records</caption>
+            <thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Device and marker</th><th class="govuk-table__header" scope="col">Reported location</th><th class="govuk-table__header" scope="col">Observation and source</th><th class="govuk-table__header" scope="col">Accuracy</th></tr></thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">A — example bicycle (circle)</th><td class="govuk-table__cell">Near the Senedd</td><td class="govuk-table__cell">12 November 2026, 08:15 GMT; fictional bicycle tracker</td><td class="govuk-table__cell">30 metres reported</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">B — example tool case (diamond)</th><td class="govuk-table__cell">Near the Pierhead Building</td><td class="govuk-table__cell">12 November 2026, 08:12 GMT; fictional case tracker</td><td class="govuk-table__cell">Not supplied; no precision assumed</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Example tablet (not plotted)</th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">No location observation; fictional tablet tracker</td><td class="govuk-table__cell">Not supplied</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="govuk-body">All times use Europe/London. These are individual reports, not a guarantee of a device's current position. Marker shape and letter identify each device. The strong marker colour does not encode battery level, severity or precision.</p>
+      </section>
+      <script type="module" src="../javascripts/map-examples.js"></script>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/map-design-examples.yml#map-neighbourhood-records
+      provenance: Original HTML marker/key symbols and invented device observations. Geographic background is attributed OpenStreetMap data loaded from the OSMF vector service only after explicit activation; it is not original project artwork.
+      purpose: Demonstrate marker identity, a selected record, uncertainty and full membership without exposing a real household location.
+      intended_background: Six cartographic roles across Vivid/Muted and Light/Dark, declared in docs/javascript/map-examples.mjs. Marker shapes and letters remain distinct without colour.
+      alternative_text_decision: The live canvas has a task-specific accessible name and keyboard instructions; the key, controls, observations, sources and uncertainty are also real HTML. Glyphs use local Arial; no external icon or font service is requested.
+      review_status: Source checks only; integrated rendered review is recorded separately.
+  map-background-unavailable:
+    title: A missing map background preserves the location records
+    description: A simulated background failure is separate from tracker data. The complete table and explicit missing-location record remain available without requesting tiles or coordinates.
+    height: 1250
+    html: |
+      <section class="civica-map-demo" aria-labelledby="map-unavailable-title">
+        <h2 class="govuk-heading-m" id="map-unavailable-title">Location records when the map cannot load</h2>
+        <p class="govuk-body">Invented device observations in Cardiff Bay, <time datetime="2026-11-12T08:15:00+00:00">12 November 2026 at 08:15 GMT</time> (Europe/London). This is a simulated map-background failure, not an actual network request.</p>
+        <div class="civica-map-demo__missing" role="note" aria-labelledby="map-background-status">
+          <svg class="civica-map-demo__fallback-symbol" viewBox="0 0 80 64" width="80" height="64" aria-hidden="true" focusable="false"><path d="M6 12 28 6 52 14 74 8V52L52 58 28 50 6 56ZM28 6V50M52 14V58M9 4 71 60"/></svg>
+          <h3 class="govuk-heading-s" id="map-background-status">Map background unavailable</h3>
+          <p class="govuk-body">The background is not shown. The 2 reported locations below remain available; there is no location report for the third device. A missing background does not mean the devices are offline or have moved.</p>
+          <p class="govuk-body"><a class="govuk-link" href="#fallback-all-records">Read all 3 location records</a></p>
+        </div>
+        <div class="civica-table-scroll" id="fallback-all-records" tabindex="0" role="region" aria-label="All 3 location records during the simulated map failure, scroll horizontally if needed">
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">All 3 configured devices — the same fictional records</caption>
+            <thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Device</th><th class="govuk-table__header" scope="col">Reported location</th><th class="govuk-table__header" scope="col">Observation and source</th><th class="govuk-table__header" scope="col">Accuracy</th></tr></thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Example bicycle</th><td class="govuk-table__cell">Near the Senedd</td><td class="govuk-table__cell">12 November 2026, 08:15 GMT; fictional bicycle tracker</td><td class="govuk-table__cell">30 metres reported</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Example tool case</th><td class="govuk-table__cell">Near the Pierhead Building</td><td class="govuk-table__cell">12 November 2026, 08:12 GMT; fictional case tracker</td><td class="govuk-table__cell">Not supplied; no precision assumed</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Example tablet</th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">No location observation; fictional tablet tracker</td><td class="govuk-table__cell">Not supplied</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="govuk-body">Source: fictional device records authored for these examples. This fallback specimen contacts no map provider or live tracker. The companion working map uses © OpenStreetMap contributors, Open Database Licence. All observation times use Europe/London; geographic data has its own update cycle.</p>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary"><span class="govuk-details__summary-text">What a connected map should preserve</span></summary>
+          <div class="govuk-details__text"><p class="govuk-body">Keep the native record details and any supported retry control. Refreshing tiles must not change an observation timestamp, relabel a missing location as Away or automatically recenter a map the person has moved. This example has no retry button because it does not load a provider.</p></div>
+        </details>
+      </section>
+    artwork:
+      creator: civica.uk project; Codex-assisted original SVG markup
+      licence: MIT, original project documentation code under LICENSE
+      source: docs/data/map-design-examples.yml#map-background-unavailable
+      provenance: Original folded-map outline and diagonal failure stroke. No imported icon paths, provider tiles or personal data.
+      purpose: Support an explicit simulated background failure; the text carries the complete meaning.
+      intended_background: Fixed light neutral surface from _data-maps.scss; monochrome symbol.
+      alternative_text_decision: Decorative SVG is hidden from assistive technology because the adjacent heading and paragraph explain the failure.
+      review_status: Source checks only; integrated rendered review is recorded separately.

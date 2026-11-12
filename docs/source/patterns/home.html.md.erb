@@ -1,11 +1,13 @@
 ---
 title: Home and rooms
 description: Home and rooms for the civica.uk Home Assistant design system.
-last_reviewed_on: 2026-11-11
+last_reviewed_on: 2026-11-12
 review_in: 3 months
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-12"
 updates:
+  - date: 2026-11-12
+    description: Added complete data-monitoring and text-first room-report examples, with chart/table parity, dated source coverage and links to the applied colour and data rules.
   - date: 2026-11-11
     description: Completed the linked device-group specimen and connected room layouts to the expanded card examples.
   - date: 2026-11-11
@@ -32,6 +34,40 @@ These isolated examples illustrate the decisions on this page. Any household val
 <%= example('local-layout-grid') %>
 
 <%= example('local-card-actions') %>
+
+## Decide whether the task needs a data dashboard
+
+Use a monitoring overview for a question people return to and data that can be kept up to date. Give occasional readers enough context to understand the measures. A fixed report can be a better fit for a one-off explanation or a result that needs substantial interpretation. Review the need again when the household, sources or task changes. This adapts the [GOV.UK dashboard guidance](https://brand.design-system.service.gov.uk/data/dashboards/).
+
+| Household need | Suitable presentation | Essential context |
+| --- | --- | --- |
+| Repeatedly check grid import during a selected period | A small set of indicators, an interval chart and its values | Period, unit, source, missing intervals and the difference between a partial sum and a complete total |
+| Compare a few room observations at a stated time | A text-first report or table | Per-room observation time, source, coverage and any reason to exclude an old value |
+| Explain a detailed change or investigate a fault | A focused history view or written report | Evidence, comparison conditions and an explanation that the overview cannot supply |
+
+The [data guidance](../styles/brand-data.html) connects these choices to charts, dashboards and maps. **BG-DAT-01** starts with the question, **BG-DAT-03** supplies measure, period and source, and **BG-DAT-07** provides a usable alternative. [BG-COL-02](../styles/brand-colour.html#bg-col-02) keeps identity, status and data colours separate; [BG-COL-07](../styles/brand-colour.html#bg-col-07) preserves meaningful chart identities and scales.
+
+## A monitoring overview with matching chart data
+
+This example answers one question about grid import. The indicators, column chart and table use the same six hourly intervals. One interval is missing, so the page states a partial sum and qualifies the largest recorded value. A local link leads to the source and coverage explanation; it does not open a pretend device control.
+
+The chart is a static SVG reference, with opaque square columns, a zero baseline and the shared grid-import colour. It applies the documented chart roles but does not run the native Energy adapter. Use the [maintained chart specification and working renderer examples](../components/charts.html) for the production integration and its supported scope. All values here are invented.
+
+<%= example('dashboard-data-electricity-monitor') %>
+
+## A text-first report when coverage is incomplete
+
+This second example keeps every room visible while distinguishing observations inside the review window, an older observation and a room with no configured sensor. It uses a reading list because the immediate task does not need another chart. The source details explain why a household-wide average is absent.
+
+Its five-minute window is an explicit example decision. A real installation needs an appropriate observation contract for each source; a theme cannot infer freshness from colour or a generic last-changed timestamp. See [entity state, confidence and freshness](../home-assistant/entity-state.html) when defining that contract.
+
+<%= example('dashboard-data-room-report') %>
+
+## Apply the data pattern without changing native ownership
+
+Keep selected periods, statistics, permissions and device capabilities under Home Assistant's control. These compositions are reference specifications, not a new dashboard configuration or a native adapter. A household can use its own name and identity without changing the meaning of a chart source, warning or missing reading.
+
+Check that indicator values, plotted points and table rows agree before connecting a similar layout to real data. Repeat the check when the period or source changes. Keep missing intervals visible, distinguish power from energy, and verify narrow-screen scrolling, keyboard access, text scaling and an understandable reading order without the chart. Record those checks separately from source review or a successful documentation build.
 
 
 ## Order the overview

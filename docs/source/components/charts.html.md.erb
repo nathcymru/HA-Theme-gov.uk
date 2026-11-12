@@ -4,14 +4,16 @@ description: ONS chart patterns adapted to Home Assistant's native charts, with 
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-12"
 updates:
-  - date: 2026-11-11
-    description: Linked chart data alternatives to the shared table semantics while preserving the production adapter and scope limits.
-  - date: 2026-11-11
-    description: Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild.
-  - date: 2026-11-11
-    description: First published in the civica.uk design system.
+  - date: "2026-11-12"
+    description: "Connected data and colour rules to the existing ONS-informed chart contract and quantitative scale examples."
+  - date: "2026-11-11"
+    description: "Linked chart data alternatives to the shared table semantics while preserving the production adapter and scope limits."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Charts and tables
@@ -22,6 +24,18 @@ Use the [Energy and history pattern](../patterns/energy.html) for consumption, p
 
 Open the [working chart examples](chart-examples.html) to compare the pattern using labelled synthetic data and the same presentation adapter. The examples demonstrate the implementation; they do not display a household's live readings.
 
+
+## Apply the data and colour guidance
+
+The [data principles](../styles/brand-data.html) govern the question, context, accuracy and alternative route. The [colour rules](../styles/brand-colour.html) distinguish data meaning from interface accents and household identity.
+
+| Source | What it contributes here |
+| --- | --- |
+| GOV.UK data guidance | Purpose, chart anatomy, readable context, accessible alternatives and truthful values |
+| ONS chart guidance | Line/column/bar geometry, axes, legend and figure structure |
+| Local chart contract | Stable generated identities, opaque fills, 1.5px unfilled Power lines and theme-tone variants |
+
+These decisions form one specification. Neither a family logo nor a different interface palette changes the meaning of a source series. For ordered values or difference from a meaningful centre, use the [quantitative scale examples](../styles/chart-colour.html#choose-the-colour-mapping); do not replace the categorical Energy generator with those scales.
 
 ## Use the shared table contract
 

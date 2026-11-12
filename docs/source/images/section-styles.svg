@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="section-styles-title section-styles-description">
+<title id="section-styles-title">Styles: type, colour and spacing</title>
+<desc id="section-styles-description">A large letterform, three colour swatches and spaced text bars show the foundations of a consistent interface.</desc>
+<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
+<rect x="76" y="54" width="196" height="212" fill="#103E65"/><path d="M111 226 164 90H188L239 226H209L198 196H150L140 226ZM160 170H189L175 128Z" fill="#FFFFFF"/><rect x="318" y="54" width="108" height="212" fill="#1D70B8"/><rect x="440" y="54" width="108" height="212" fill="#8EB8DC"/><rect x="562" y="54" width="108" height="212" fill="#103E65"/><rect x="718" y="70" width="166" height="24" fill="#103E65"/><rect x="718" y="124" width="126" height="18" fill="#1D70B8"/><rect x="718" y="178" width="166" height="18" fill="#103E65"/><rect x="718" y="232" width="104" height="18" fill="#1D70B8"/>
+</svg>

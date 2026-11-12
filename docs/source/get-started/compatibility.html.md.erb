@@ -3,6 +3,17 @@ title: "Compatibility and limits"
 description: "Compatibility and limits for the civica.uk Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+updated_on: "2026-11-12"
+published_on: "2026-11-11"
+updates:
+  - date: "2026-11-12"
+    description: "Documented the existing companion identity behaviour and the boundary of the proposed household personalisation settings."
+  - date: "2026-11-11"
+    description: "Documented maintained custom-card types, the preserved legacy lighting alias and the dedicated compatibility register."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Compatibility and limits
@@ -74,3 +85,9 @@ Styling does not fix an upstream missing label, an inaccessible chart tooltip, a
 Local build, contrast and component tests can be reproduced from the repository. A local preview is not proof of a live Home Assistant deployment. A release must record the Home Assistant version, browser, components tested and any remaining failures. Do not state that the user's live system has been updated without checking that deployment.
 
 Follow the [testing checklist](../accessibility/testing.html) for native panels and cold loads.
+
+## Household identity transition
+
+The design-system policy now separates project identity from household personalisation. civica.uk identifies the project and documentation; it is not required as the home’s identity.
+
+The existing companion still replaces supported sidebar titles and browser/app icons with civica.uk artwork. It does not yet provide the proposed family-name or custom-crest settings. This documentation update does not alter that implementation or any Home Assistant installation. Do not describe the new personalisation examples as available global theme settings. The [personalisation guide](personalisation.html) separates current native dashboard titles and picture cards from that proposed shell behaviour.

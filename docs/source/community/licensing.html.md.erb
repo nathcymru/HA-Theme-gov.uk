@@ -3,6 +3,17 @@ title: "Licensing and attribution"
 description: "Licensing and attribution for the civica.uk Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+updated_on: "2026-11-12"
+published_on: "2026-11-11"
+updates:
+  - date: "2026-11-12"
+    description: "Recorded map-library and OpenStreetMap attribution alongside the original section-header artwork provenance."
+  - date: "2026-11-11"
+    description: "Added the brand and writing source decisions, audit links and provenance boundaries."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Licensing and attribution
@@ -27,7 +38,9 @@ The GOV.UK Tech Docs Template and its code are MIT licensed. Its documentation i
 
 Standalone chart examples include Apache ECharts, zrender and their supporting code. Their [licences and notices](../reference/chart-demo-licenses.txt) accompany the examples. The Home Assistant companion uses the native renderer and does not distribute another production chart engine. ONS visual specifications are adapted through original local code; the ONS Highcharts implementation is not included.
 
-## Brand assets
+Standalone map examples bundle MapLibre GL JS and VersaTiles Style; their [licences and notices](../reference/map-demo-licenses.txt) accompany the examples. Map features come from OpenStreetMap contributors under the [Open Database Licence](https://www.openstreetmap.org/copyright). Visible map attribution remains on the map. The [provider record](../reference/map-example-provider.json) identifies the reviewed tile service and usage policy.
+
+## Project identity assets
 
 The civica.uk V3.2 files were supplied by the user. Their provenance and mechanical verification records are retained in `brand/civica/`. Do not infer a new licence or legal clearance from the presence of those files. The included source artwork remains unchanged.
 
@@ -47,7 +60,7 @@ See the [source register](sources.html) for the reviewed references and the [unb
 
 The new examples use original household wording and data. GOV.UK Frontend 6.6.0 component classes and enhancement code are used under its MIT licence through the pinned Tech Docs dependency. NHS and Publishing Design Guide pages are attributed on each adapted guide; their official identities and clinical/government authority claims are excluded. Source-index mappings and provenance are published in the [coverage record](../reference/coverage.json).
 
-The homepage and category SVG illustrations are original project artwork. Simple component schematics and decorative SVG arrows in examples are also original. They are separate from the supplied V3.2 identity assets, whose recorded provenance and byte-for-byte verification remain in force.
+The homepage, category and section-header SVG illustrations are original project artwork. Their purposes, text alternatives and source hashes are recorded in the [documentation artwork register](../reference/documentation-artwork.json). Simple component schematics and decorative SVG arrows in examples are also original. They are separate from the supplied V3.2 identity assets, whose recorded provenance and byte-for-byte verification remain in force.
 
 ## Writing-guide sources
 

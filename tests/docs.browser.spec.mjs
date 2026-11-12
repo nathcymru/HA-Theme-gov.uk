@@ -95,7 +95,7 @@ test.describe('documentation guide pages', () => {
       await page.goto(guideUrl(file));
       await expect(page.locator('main h1')).toHaveCount(1);
       await expect(page.locator('header .c-brand img')).toHaveAttribute('alt', 'civica.uk');
-      await expect(page.locator('header')).not.toContainText(/GOV\.UK|NHS/);
+      await expect(page.getByRole('banner')).not.toContainText(/GOV\.UK|NHS/);
       await expect(page.locator('img[alt="GOV.UK"], img[alt="NHS"], .govuk-header__logotype, .govuk-footer__copyright-logo')).toHaveCount(0);
       expect(await page.locator('body').evaluate(node => getComputedStyle(node).fontFamily)).not.toMatch(/GDS Transport|New Transport/);
       await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /\S/);

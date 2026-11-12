@@ -1,0 +1,9 @@
+{
+  "tilejson": "https://vector.openstreetmap.org/shortbread_v1/tilejson.json",
+  "provider": "OpenStreetMap Foundation",
+  "attribution": "© OpenStreetMap contributors",
+  "licence": "https://www.openstreetmap.org/copyright",
+  "policy": "https://operations.osmfoundation.org/policies/vector/",
+  "reviewed_on": "2026-11-12",
+  "usage": "Explicit browser activation, normal viewport requests and browser cache only. No bulk download, offline cache, geolocation or Home Assistant connection."
+}

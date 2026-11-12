@@ -204,7 +204,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/components/ha-control-slider.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 22\u201331 and 77\u2013170 expose keyboard keys, bounds, steps, units and ARIA value handling.",
+      "supports": "Lines 22–31 and 77–170 expose keyboard keys, bounds, steps, units and ARIA value handling.",
       "title": "Native slider source"
     },
     {
@@ -212,7 +212,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-lock.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 64\u2013103 and 112\u2013168 use protected lock actions, feature checks and confirmation states.",
+      "supports": "Lines 64–103 and 112–168 use protected lock actions, feature checks and confirmation states.",
       "title": "Native lock control source"
     },
     {
@@ -220,7 +220,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-climate.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 92\u2013159 check supported climate features and display current measurements separately.",
+      "supports": "Lines 92–159 check supported climate features and display current measurements separately.",
       "title": "Native climate control source"
     },
     {
@@ -228,7 +228,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-person.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 42\u201378 preserve a native map and an administrator-gated zone action.",
+      "supports": "Lines 42–78 preserve a native map and an administrator-gated zone action.",
       "title": "Native person control source"
     }
   ],
@@ -258,7 +258,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/entity-state.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Entity state, confidence and freshness",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -375,7 +375,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/action-results.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Action requests and results",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -488,7 +488,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/continuous-controls.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Continuous controls and alternatives",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -612,7 +612,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/lighting.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Lighting capabilities and colour",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -726,7 +726,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/climate-and-air.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Climate, fan and water-heater controls",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -846,7 +846,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/access-and-movement.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Locks, alarms, covers and valves",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -967,7 +967,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/appliances-and-cleaning.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Appliances, vacuums and outdoor devices",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1085,7 +1085,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/target-pickers.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Entity, device and area pickers",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1209,7 +1209,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/automation-editing.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Automation and script editing",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1329,7 +1329,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/schedules-and-time.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Schedules, calendars and timers",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1442,7 +1442,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/history-and-statistics.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# History, activity and statistics",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1561,7 +1561,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/energy-flow-and-other-charts.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Energy flow and other chart families",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1679,7 +1679,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/accounts-and-permissions.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Accounts, permissions and shared settings",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1791,7 +1791,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/presence-and-privacy.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Presence, people and shared-screen privacy",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1915,7 +1915,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/cameras.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Cameras, streams and snapshots",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -2154,7 +2154,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/maps-and-zones.html.md.erb",
-          "line": 18,
+          "line": 24,
           "excerpt": "# Maps, zones and location records",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -2229,6 +2229,8 @@
         "url": "/home-assistant/maps-and-zones.html",
         "title": "Maps, zones and location records",
         "examples": [
+          "map-neighbourhood-records",
+          "map-background-unavailable",
           "ha-flow-017-locations",
           "ha-flow-017-zone",
           "ha-flow-017-private"
@@ -3828,10 +3830,10 @@
   ],
   "guidanceReview": {
     "status": "completed-proposal-source-review",
-    "reviewedOn": "2026-11-11",
+    "reviewedOn": "2026-11-12",
     "brand": {
       "file": "docs/data/brand-guidance-inventory.json",
-      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
       "ruleCount": 33,
       "authorFreezeConfirmed": true
     },
@@ -3847,7 +3849,8 @@
       "Illustration restrictions do not remove functional icon strokes, chart patterns or operational imagery.",
       "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
       "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
-    ]
+    ],
+    "scopeRevision": "User clarified project-only civica.uk identity and optional household personalisation. Prior frozen review retained in guidanceReviewHistory; other rule requirements remain unchanged."
   },
   "limitations": [
     "Read-only source and requirements audit; no live Home Assistant inspection or commands.",
@@ -3855,5 +3858,30 @@
     "A reference example demonstrates its local behaviour, not an installed HA integration.",
     "Proposals do not authorize replacing native controls, changing device semantics or modifying saved dashboards.",
     "Thirty dedicated specifications and their synthetic examples are delivered. Native task, assistive-technology and live equipment acceptance remain separately recorded; no missing-native-feature claim is made."
+  ],
+  "guidanceReviewHistory": [
+    {
+      "status": "completed-proposal-source-review",
+      "reviewedOn": "2026-11-11",
+      "brand": {
+        "file": "docs/data/brand-guidance-inventory.json",
+        "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+        "ruleCount": 33,
+        "authorFreezeConfirmed": true
+      },
+      "writing": {
+        "file": "docs/data/writing-guide-inventory.json",
+        "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+        "ruleCount": 68,
+        "authorFreezeConfirmed": true
+      },
+      "result": "Proposed requirements and taxonomy were checked against the frozen rule scopes. Relevant rule dependencies are attached to every proposal. This is not a pass for existing component implementation or live Home Assistant.",
+      "scopeCautions": [
+        "Writing requirements apply to civica-authored strings, not wholesale rewriting of native translations or user names.",
+        "Illustration restrictions do not remove functional icon strokes, chart patterns or operational imagery.",
+        "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
+        "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
+      ]
+    }
   ]
 }

@@ -1,0 +1,32 @@
+// Reference compositions only. No native Home Assistant selectors or controls.
+.civica-data-dashboard { max-width:60rem; }
+.civica-data-dashboard__metrics {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));
+  gap:25px; margin:30px 0;
+}
+.civica-data-dashboard__metrics > div { min-width:0; }
+.civica-data-dashboard__metrics dt { font-size:1rem; margin-bottom:6px; }
+.civica-data-dashboard__metrics dd { margin:0; font-size:2rem; font-weight:700; line-height:1.25; }
+.civica-data-dashboard__metrics dd span { font-size:1.1875rem; font-weight:400; }
+.civica-data-dashboard__metrics dd.civica-data-dashboard__metric-note {
+  margin-top:8px; font-size:1rem; line-height:1.5; font-weight:400;
+}
+.civica-data-dashboard__figure { margin:20px 0 30px; }
+.civica-data-dashboard__figure figcaption { margin-top:15px; }
+.civica-data-dashboard__plot { overflow-x:auto; max-width:100%; margin-bottom:15px; }
+.civica-data-dashboard__plot:focus-visible { outline:3px solid #ffdd00; box-shadow:0 0 0 6px #0b0c0c; }
+// A minimum SVG width preserves 14px labels; the region, not the page, scrolls.
+.civica-data-dashboard__chart { display:block; width:100%; min-width:600px; height:auto; }
+.civica-data-dashboard__labels { font-family:Arial,Helvetica,sans-serif; font-size:.875rem; fill:#414042; }
+.civica-data-dashboard__grid line { stroke:#d9d9d9; stroke-width:1; vector-effect:non-scaling-stroke; }
+.civica-data-dashboard__zero { stroke:#b3b3b3; stroke-width:1.5; vector-effect:non-scaling-stroke; }
+.civica-data-dashboard__room-list .govuk-summary-list__value > :last-child { margin-bottom:0; }
+@media(forced-colors:active) {
+  .civica-data-dashboard__labels { fill:CanvasText; }
+  .civica-data-dashboard__grid line,.civica-data-dashboard__zero { stroke:CanvasText; }
+  .civica-data-dashboard__bars { fill:CanvasText; }
+}
+@media print {
+  .civica-data-dashboard__plot { overflow:visible; }
+  .civica-data-dashboard__chart { min-width:0; }
+}

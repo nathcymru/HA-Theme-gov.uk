@@ -272,8 +272,14 @@ for (const loop of componentChecklist.loops) {
     if (check.families) for (const gapIds of Object.values(check.families)) for (const id of gapIds) assert.ok(proposalIds.has(id), `${check.id}: unknown requirement ${id}`);
   }
 }
-for (const name of ['illustration-assets', 'card-artwork-provenance', 'project-artwork-provenance']) for (const asset of json(name).assets) {
-  assert.equal(hash(asset.path), asset.sha256, `${asset.path}: artwork changed after provenance review`);
-  assert.ok(asset.purpose && (asset.alt_decision || asset.alternative_text_decision), `${asset.path}: purpose and alternative-text decision`);
+for (const name of ['illustration-assets', 'card-artwork-provenance', 'project-artwork-provenance', 'section-artwork-provenance']) {
+  const manifest = json(name);
+  for (const asset of manifest.assets) {
+    assert.equal(hash(asset.path), asset.sha256, `${asset.path}: artwork changed after provenance review`);
+    // The section family shares the empty-alt condition; each asset also has
+    // its own informative alternative for reuse outside that context.
+    const sectionAlt = name === 'section-artwork-provenance' && manifest.alt_decision?.condition && asset.informative_alt;
+    assert.ok(asset.purpose && (asset.alt_decision || asset.alternative_text_decision || sectionAlt), `${asset.path}: purpose and alternative-text decision`);
+  }
 }
 console.log(`Guidance evidence is consistent: ${rules.length} rules, ${audit.pages.length} guides, ${audit.examples.length} examples, ${audit.findings.length} findings; ${componentPages.length} component routes and ${proposals.length} organisation/specification records resolve. This does not certify conformance or live runtime coverage.`);

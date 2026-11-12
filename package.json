@@ -19,8 +19,10 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.65.0",
+    "@versatiles/style": "7.0.1",
     "echarts": "6.1.0",
     "esbuild": "^0.28.2",
+    "maplibre-gl": "6.16.0",
     "typescript": "^7.0.2",
     "yaml": "^2.9.1"
   }

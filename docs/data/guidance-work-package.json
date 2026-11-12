@@ -429,6 +429,51 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-DATA-DESIGN",
+      "title": "Discoverable data guidance, optional household identity and original section artwork",
+      "items": [
+        {
+          "id": "DD1",
+          "task": "Connect the colour and data rules to worked chart, monitoring dashboard and map examples.",
+          "status": "complete",
+          "evidence": [
+            "docs/source/styles/brand-data.html.md.erb",
+            "docs/data/data-colour-examples.yml",
+            "docs/data/dashboard-data-examples.yml",
+            "docs/data/map-design-examples.yml"
+          ]
+        },
+        {
+          "id": "DD2",
+          "task": "Separate project identity from optional household or business personalisation and disclose current native integration limits.",
+          "status": "complete",
+          "evidence": [
+            "docs/source/get-started/personalisation.html.md.erb",
+            "docs/source/get-started/compatibility.html.md.erb",
+            "docs/data/personalisation-examples.yml"
+          ]
+        },
+        {
+          "id": "DD3",
+          "task": "Integrate original section and key-guide illustrations with matching homepage art, provenance and text alternatives.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/page-illustrations.yml",
+            "docs/data/section-artwork-provenance.json",
+            "docs/source/styles/illustration.html.md.erb"
+          ]
+        },
+        {
+          "id": "DD4",
+          "task": "Validate the integrated documentation and record the gated publication handover and live-evidence location.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/data-design-review.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -590,6 +635,25 @@
         "tests/project-story.browser.spec.mjs",
         "tests/writing-navigation.browser.spec.mjs"
       ]
+    },
+    {
+      "id": "loop-15",
+      "title": "Loop 15: data, colour, optional household identity and coherent section artwork",
+      "outcome": "Current source review and integrated validation passed for 214 guides and 459 examples, including 878 browser tests and 50 unit tests. Publication is handled by the mandatory GitHub Pages workflow; the linked pull request records the resulting deployment and live checks. No Home Assistant runtime change is claimed.",
+      "checks": [
+        "Connected discoverable data and colour guidance to worked reference examples with dates, sources, missing-value meaning and complete alternatives.",
+        "Separated optional household identity from supplied project assets, keeping the existing native companion limitation explicit.",
+        "Reconciled current guide/example counts, source hashes, dated page history and exact current evidence while preserving historical baselines, publication evidence and frozen rule history.",
+        "Integrated rendering, interaction, accessibility, source integrity and package checks passed; candidate revision, scope, limits and publication evidence location are recorded in data-design-review.json."
+      ],
+      "evidence": [
+        "docs/data/data-design-review.json",
+        "docs/data/section-artwork-provenance.json",
+        "docs/data/page_history.yml",
+        "tests/data-identity-docs.browser.spec.mjs",
+        "tests/maps.browser.spec.mjs",
+        "tests/section-artwork.browser.spec.mjs"
+      ]
     }
   ],
   "limitations": [
@@ -597,7 +661,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "completeness-published-and-verified",
+  "status": "current-documentation-validated-publication-evidence-in-linked-pull-request",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",
@@ -620,5 +684,7 @@
       "public_json_records_verified": 9,
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
-  ]
+  ],
+  "latest_documentation_review": "docs/data/data-design-review.json",
+  "publication_verification_scope": "Historical verification of the explicitly named revision and routes below. It does not verify the current unmerged documentation update; current integrated checks and publication are tracked separately in data-design-review.json."
 }

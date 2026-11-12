@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "scope": "Documentation-only data, colour, household personalisation and section artwork integration.",
+  "status": "Documentation implementation and integrated validation complete within the stated scope.",
+  "runtime_scope": "No Home Assistant runtime, theme values, installed resources or household configuration changed. Existing native identity integration remains an explicitly documented implementation gap.",
+  "sources": [
+    "https://brand.design-system.service.gov.uk/data/",
+    "https://brand.design-system.service.gov.uk/colour/",
+    "https://brand.design-system.service.gov.uk/illustration/",
+    "https://www.home-assistant.io/dashboards/map/",
+    "https://www.home-assistant.io/integrations/map_tiles/",
+    "https://operations.osmfoundation.org/policies/vector/",
+    "https://www.home-assistant.io/dashboards/dashboards/",
+    "https://www.home-assistant.io/dashboards/picture/"
+  ],
+  "checklists": {
+    "discovery": [
+      {
+        "item": "Expose Data visualisation and Colour roles in Styles and homepage links.",
+        "status": "implemented"
+      },
+      {
+        "item": "Keep established guide URLs and rule identifiers.",
+        "status": "implemented"
+      },
+      {
+        "item": "Move project identity to Community; provide optional household personalisation under Get started.",
+        "status": "implemented"
+      }
+    ],
+    "data_and_colour": [
+      {
+        "item": "Retain stable categorical generator, labels, symbols and 1.5px chart lines.",
+        "status": "implemented"
+      },
+      {
+        "item": "Document calculated sequential and diverging scales with endpoints, values, missing data and out-of-range policy.",
+        "status": "implemented"
+      },
+      {
+        "item": "Provide complete monitoring dashboard examples with matching values, sources, periods and freshness.",
+        "status": "implemented"
+      },
+      {
+        "item": "Render real OpenStreetMap vector geography in four appearance variants, with attribution and complete location records.",
+        "status": "implemented"
+      },
+      {
+        "item": "Request external map tiles only after explicit activation; document provider and failure behaviour.",
+        "status": "implemented"
+      }
+    ],
+    "identity": [
+      {
+        "item": "Separate project promotion from optional household or business identity.",
+        "status": "implemented"
+      },
+      {
+        "item": "Show text-only, optional crest and business examples.",
+        "status": "implemented"
+      },
+      {
+        "item": "Correct header, footer, publishing and palette examples that forced project identity.",
+        "status": "implemented"
+      },
+      {
+        "item": "Document the existing companion identity gap without claiming native global personalisation is installed.",
+        "status": "implemented"
+      }
+    ],
+    "illustration": [
+      {
+        "item": "Add original headers to seven section landings and four key-guide routes.",
+        "status": "implemented"
+      },
+      {
+        "item": "Match Styles, Components and Patterns homepage imagery to their section artwork.",
+        "status": "implemented"
+      },
+      {
+        "item": "Record original SVG sources, hashes, purpose, palette and alternatives.",
+        "status": "implemented"
+      },
+      {
+        "item": "Retain HTML titles and summaries; keep complete artwork uncropped at narrow widths.",
+        "status": "implemented"
+      }
+    ]
+  },
+  "focused_evidence": {
+    "map_source": "Four MapLibre styles validated; real provider review rendered geographic features, preserved table values across tone/mode changes, supported keyboard selection and closing, and made no external request before activation.",
+    "artwork": "Ten headers and three homepage variants reviewed at 960px and 320px, with dark surround, grayscale and images omitted. Integrated browser checks verified 11 assigned routes, complete dimensions, source hashes, text alternatives and no-script narrow layouts."
+  },
+  "integrated_validation": {
+    "status": "passed",
+    "revision": "b96f022214568f4d54e905b39ef961af1fe3caca",
+    "workflow_run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43307144763",
+    "unit": {
+      "passed": 50
+    },
+    "browser": {
+      "passed": 878,
+      "failed": 0,
+      "skipped": 0
+    },
+    "focused_local_browser": {
+      "passed": 19,
+      "scope": "Seven data/identity checks, six map checks, three artwork/navigation checks and three guide structure/history/accessibility checks."
+    },
+    "guidance": {
+      "rules": 101,
+      "guides": 214,
+      "examples": 459,
+      "source_snapshots": 100
+    },
+    "links": {
+      "html_pages": 673,
+      "result": "passed"
+    },
+    "other_checks": [
+      "Type checking",
+      "Home Assistant configuration/template validation",
+      "Canonical theme and palette generation",
+      "Supplied asset hashes",
+      "Versioned interface and terminology coverage",
+      "Packaging"
+    ],
+    "manual_browser": "Real OpenStreetMap loaded in connected Chrome with labelled synthetic markers and source attribution. Integrated Data and Components headers inspected on desktop; Styles, Colour and Illustration headers inspected at 320px.",
+    "limits": [
+      "Automated accessibility checks do not establish complete WCAG conformance.",
+      "Map automation uses deterministic fixtures; populated real-provider rendering was reviewed separately.",
+      "No Home Assistant runtime or live household deployment was part of this documentation change."
+    ]
+  },
+  "publication": {
+    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/",
+    "workflow": ".github/workflows/validate.yml: verify then deploy-docs on main",
+    "pull_request": "https://github.com/nathcymru/HA-Theme-gov.uk/pull/34",
+    "evidence_location": "The pull request records the resulting deployment run and live checks after publication. This immutable source record reports the tested candidate; it does not predict the completion time of its own deployment."
+  }
+}

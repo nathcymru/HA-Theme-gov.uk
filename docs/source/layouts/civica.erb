@@ -57,6 +57,26 @@
     table.replace(wrapper)
     wrapper.add_child(table)
   end
+  # Purposeful section artwork shares its source family with the homepage cards.
+  # Titles, summaries and all instructions remain real HTML; the art is redundant.
+  illustration = data['page-illustrations'][current_page.destination_path]
+  if illustration && (heading = fragment.at_css('h1'))
+    header = Nokogiri::XML::Node.new('header', fragment.document)
+    header['class'] = 'c-illustrated-header'
+    heading.add_previous_sibling(header)
+    header.add_child(heading.unlink)
+    summary = Nokogiri::XML::Node.new('p', fragment.document)
+    summary['class'] = 'c-illustrated-header__summary'
+    summary.content = illustration['summary']
+    header.add_child(summary)
+    artwork = Nokogiri::XML::Node.new('img', fragment.document)
+    artwork['src'] = docs_path('/images/' + illustration['asset'])
+    artwork['alt'] = ''
+    artwork['width'] = '960'
+    artwork['height'] = '320'
+    artwork['decoding'] = 'async'
+    header.add_child(artwork)
+  end
   content = fragment.to_html
   content_for :page_contents do
     single_page_table_of_contents(content, max_level: 2)
