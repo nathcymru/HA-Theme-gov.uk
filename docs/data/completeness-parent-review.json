@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "reviewer": "official_design_research",
+  "scope": "Independent read-only review of parent administration guides/examples and shared slider implementation/test source. No builds, browser runs, native UI actions or repository edits performed.",
+  "files": [
+    {
+      "path": "docs/source/home-assistant/integration-and-app-settings.html.md.erb",
+      "sha256": "903a32b064392f5e4ad01944af43a51101eac9490a18630c3e272df25b1718b1",
+      "review": "complete-source-read",
+      "notes": "Read complete guide. Pinned source routes match protocol/app distinctions in available source snapshots. Discovery is not trust or pairing, app installed/running/start-on-boot differ, credential recovery remains native, local examples do not install software."
+    },
+    {
+      "path": "docs/source/home-assistant/system-and-developer-tools.html.md.erb",
+      "sha256": "02b0e4a331cbec32972e9cc0a992b7834135fdb24ac46093b03b489b242ea91c",
+      "review": "complete-source-read",
+      "notes": "Read complete guide. State overrides versus physical commands and possible automation effects are explicit. Template results, instance/account/browser scope, data destinations, binary units and diagnostic limits remain separate. Title is a task description rather than a stale route instruction."
+    },
+    {
+      "path": "docs/data/ha-administration-examples.yml",
+      "sha256": "d036fcf80fa78095dab1ce760c342dbb3d62fde3c96652b5edb915894fa4807f",
+      "review": "complete-source-read",
+      "notes": "Read all seven complete HTML records. Synthetic provenance, labels, real local destinations/disclosures and separate reported observations are explicit; no credential collection, physical commands or fabricated backend states."
+    },
+    {
+      "path": "docs/source/javascripts/example.js",
+      "sha256": "1bedaa21fc7d7724658b844c32dbc4bfce3a9fa323100caad8a3db8245bee1f2",
+      "review": "complete-source-read",
+      "notes": "Read current handlers and bounded endpoint fix. Invalid text and last valid thumb remain separate; focused step transfers to labelled exact field before disabling. Source contains no network or household service request. Rendered verification remains pending.",
+      "previous_review_sha256": "1bedaa21fc7d7724658b844c32dbc4bfce3a9fa323100caad8a3db8245bee1f2"
+    },
+    {
+      "path": "docs/source/stylesheets/example.css.scss",
+      "sha256": "81e9b3eee107d46114d7ac94efabca6741215084cf3bd34cf7589e9a685d62e9",
+      "review": "complete-source-read",
+      "notes": "Read shared roles and new slider rules. Native range keeps 44px control height, round thumb, visible focus and system colours in forced-colour mode. Steps wrap and prose/fields inherit shared body sizing. This source review does not establish computed geometry or contrast across every browser."
+    },
+    {
+      "path": "tests/sliders.browser.spec.mjs",
+      "sha256": "2d0a8454d15d83ac25e5da817bffde6f30d2889e0e71d9c7f3c5b273b3067913",
+      "review": "complete-source-read",
+      "notes": "Read all eight current tests. Added focused Enter-to-maximum and Space-to-minimum regression; expected percentage formatting now matches 25% and 40%. No tests were executed in this review.",
+      "previous_review_sha256": "2d0a8454d15d83ac25e5da817bffde6f30d2889e0e71d9c7f3c5b273b3067913"
+    }
+  ],
+  "examples": [
+    {
+      "id": "admin-discovery",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 2,
+      "line_end": 11,
+      "review": "complete-source-read",
+      "finding": "A named invented discovery is not paired or trusted; the anchor reaches substantive setup/identity explanation."
+    },
+    {
+      "id": "admin-credential-status",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 12,
+      "line_end": 20,
+      "review": "complete-source-read",
+      "finding": "Provider authentication is distinct from HA account status. Expiry is explicitly synthetic; no secret input or placeholder authentication action."
+    },
+    {
+      "id": "admin-protocol-diagnostics",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 21,
+      "line_end": 29,
+      "review": "complete-source-read",
+      "finding": "Adapter Connected, per-device observations, missing values and −61 dBm are separate. GMT and Europe/London context are explicit and no scan is represented as running."
+    },
+    {
+      "id": "admin-app-state",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 30,
+      "line_end": 38,
+      "review": "complete-source-read",
+      "finding": "Reported Running and version are independent of the local Start on boot draft. Submission explicitly saves nothing and starts/stops no process."
+    },
+    {
+      "id": "system-state-tool",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 39,
+      "line_end": 48,
+      "review": "complete-source-read",
+      "finding": "Invented entity/state and timestamp remain literal. Native States caveat correctly includes downstream automations. Local button changes only explanatory feedback."
+    },
+    {
+      "id": "system-privacy-choice",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 49,
+      "line_end": 58,
+      "review": "complete-source-read",
+      "finding": "Fictional payload and recipient are expressly not HA analytics. Instance scope is visible and local review sends/saves nothing."
+    },
+    {
+      "id": "system-storage-status",
+      "path": "docs/data/ha-administration-examples.yml",
+      "line_start": 59,
+      "line_end": 68,
+      "review": "complete-source-read",
+      "finding": "64 GiB total and 18 GiB available are labelled binary units; unavailable share is not zero. Capacity does not imply backup restorability; diagnostic redaction is specific."
+    }
+  ],
+  "findings": [
+    {
+      "id": "PARENT-SLIDER-001",
+      "priority": "P2",
+      "status": "source-corrected/pending-rendered",
+      "title": "Reaching a bound through its focused step button disables that same control",
+      "evidence": [
+        {
+          "path": "docs/source/javascripts/example.js",
+          "line": 60,
+          "excerpt": "for (const button of buttons) button.disabled = Number(button.dataset.sliderStep) < 0 ? value <= min : value >= max;"
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "line": 66,
+          "excerpt": "for (const button of buttons) button.addEventListener('click', () => {"
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "line": 71,
+          "excerpt": "validate();"
+        },
+        {
+          "path": "tests/sliders.browser.spec.mjs",
+          "line": 17,
+          "excerpt": "await page.keyboard.press('Home'); await expect(field).toHaveValue('16');"
+        }
+      ],
+      "impact": "A keyboard user can activate a step button to reach an endpoint; validate immediately makes the focused button disabled. This can lose the visible focus/continuation point. Existing endpoint checks operate the range instead, so they do not exercise this interaction.",
+      "proposal": "Preserve a deliberate focus target before disabling the focused step, or keep an aria-disabled step focusable with an explicit no-op bound guard. Keep existing native disabling when appropriate for controls that are not focused.",
+      "acceptance": [
+        "Focus the increase button with draft one step below maximum, activate using Enter or Space and verify the draft reaches the exact endpoint and focus remains on a visible meaningful control.",
+        "Repeat at the minimum with decrease; continue editing without needing to restart the tab sequence.",
+        "Confirm endpoint guards, invalid-input recovery, disabled no-JavaScript behaviour and reported-value separation still hold."
+      ],
+      "resolution": {
+        "summary": "The exact-value field receives focus before the active endpoint step button is disabled. A focused Enter-to-maximum and Space-to-minimum regression was added. This review verified source only; execution remains pending.",
+        "evidence": [
+          {
+            "path": "docs/source/javascripts/example.js",
+            "line": 64,
+            "excerpt": "if (disabled && document.activeElement === button) field.focus();"
+          },
+          {
+            "path": "tests/sliders.browser.spec.mjs",
+            "line": 48,
+            "excerpt": "test('a keyboard step to either endpoint preserves focus on the exact-value field'"
+          }
+        ],
+        "browser_verification": "not-run-by-reviewer"
+      }
+    }
+  ],
+  "known_parent_owned_corrections": [
+    {
+      "path": "tests/sliders.browser.spec.mjs",
+      "lines": [
+        81,
+        103
+      ],
+      "issue": "Percentage expectations now use 25% and 40%, matching the specimen formatting. Source correction verified; no test run performed."
+    }
+  ],
+  "not_claimed": [
+    "No browser focus-loss reproduction was run in this review.",
+    "No automated test execution, layout pass, screen-reader/touch check or live HA compatibility result is inferred from reading source.",
+    "New interface-coverage page is still being integrated by parent; its transient absence was not recorded as a completed-site broken link."
+  ],
+  "overall": "Administration content and seven specimens are coherent and bounded. The endpoint-focus issue is source-corrected with a meaningful keyboard regression. Rendered focus and the updated suite remain unverified by this reviewer."
+}

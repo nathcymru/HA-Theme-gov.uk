@@ -13,7 +13,8 @@
     "check:brand": "node scripts/check-brand.mjs",
     "package": "npm run build && node scripts/package.mjs",
     "docs:build": "cd docs && bundle exec middleman build",
-    "check:guidance": "node scripts/check-guidance.mjs"
+    "check:guidance": "node scripts/check-guidance.mjs",
+    "check:coverage": "node scripts/check-ha-coverage.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",

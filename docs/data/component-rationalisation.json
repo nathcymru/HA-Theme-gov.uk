@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-11-11",
+  "reviewedOn": "2026-11-12",
   "status": "organisation-implemented",
-  "scope": "All 147 baseline guide URLs and 263 examples; all 68 component pages have exactly one canonical family and owner. New brand and writing guidance supplied the separately frozen review standard.",
+  "scope": "The original 147-guide ownership snapshot and all 68 baseline component routes remain recorded. A separately marked slider addition extends current ownership; baseline counts are historical.",
   "baseline": {
     "guides": 147,
     "examples": 263,
@@ -1267,6 +1267,18 @@
       ],
       "componentPages": [],
       "rule": "One shared behaviour contract; retain distinct variants and source provenance. No page removal is proposed by this family assignment."
+    },
+    {
+      "id": "FAMILY-components-sliders",
+      "title": "Sliders and precise values",
+      "canonicalOwner": "/components/sliders.html",
+      "memberPages": [
+        "/components/sliders.html"
+      ],
+      "componentPages": [
+        "/components/sliders.html"
+      ],
+      "rule": "Own the input anatomy, precise alternatives and local examples; preserve native capability and draft/result contracts."
     }
   ],
   "pageInventory": [
@@ -6242,6 +6254,41 @@
         "file": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
         "line": 17
       }
+    },
+    {
+      "sourceFile": "docs/source/components/sliders.html.md.erb",
+      "url": "/components/sliders.html",
+      "title": "Sliders and precise values",
+      "section": "components",
+      "group": "Home Assistant components",
+      "sha256": "1c69fc6b97559bacf2395a6644c69c98ba95952cc062f8fa6117a31f78718f7f",
+      "examples": [
+        "slider-brightness",
+        "slider-temperature",
+        "slider-signed-offset",
+        "slider-request-failed",
+        "slider-unavailable"
+      ],
+      "kind": "component",
+      "familyId": "FAMILY-components-sliders",
+      "canonicalOwner": "/components/sliders.html",
+      "relationship": "canonical",
+      "decision": "One canonical guide owns the range anatomy and exact-value alternatives; continuous-controls owns native reconciliation.",
+      "publishedUrlDisposition": "retain",
+      "proposedRedirect": null,
+      "sourceMappings": [
+        "https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders",
+        "https://www.w3.org/WAI/ARIA/apg/patterns/slider/"
+      ],
+      "runtimeEvidenceFiles": [],
+      "coverageMeaning": "Local reference component; no private native slider adapter is claimed.",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12",
+      "evidence": {
+        "file": "docs/source/components/sliders.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Sliders and precise values\""
+      }
     }
   ],
   "sourceMappings": [
@@ -10926,6 +10973,81 @@
       "additionalFamilyReferences": [],
       "runtimeClaim": "isolated-documentation-example",
       "disposition": "retain; deduplicate only after behaviour/content equivalence review"
+    },
+    {
+      "id": "slider-brightness",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "Brightness with an exact-value alternative",
+      "sha256": "f568de67eee9a0039feabf16364daa310e54b88f5decf5e62efca1afa28f70dd",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-temperature",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "A decimal target temperature",
+      "sha256": "35e30acfb935c7f9162304de218dc1a252e809660c72ecfa20f1f6a8bff377d2",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-signed-offset",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "A signed calibration draft",
+      "sha256": "31c83515f1ad625a187d1de3d3e8da1c890a158e1f26167ed3ca672f5d82184f",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-request-failed",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "A failed request preserves the draft",
+      "sha256": "e2e4e47f29b9a9b4a7ee74f2d8de12e19cb425af8927698a7caa8ee3f7222ef2",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-unavailable",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "Unavailable device without a fabricated numeric reading",
+      "sha256": "40d73c4f9f75f2c69423f7c24ede32b7dcdc738505f4c71074ebe035ba4670fc",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
     }
   ],
   "findings": [
@@ -12744,13 +12866,21 @@
     ]
   },
   "currentCoverage": {
-    "guides": 196,
-    "examples": 405,
-    "homeAssistantSpecifications": 30,
-    "componentRoutes": 68,
-    "componentOwners": 58,
+    "guides": 212,
+    "examples": 450,
+    "homeAssistantSpecifications": 38,
+    "componentRoutes": 69,
+    "componentOwners": 59,
     "sourceMappings": 130,
     "maintainedCustomCardTypes": 3,
     "exactAdapters": "See /home-assistant/compatibility-register.html; not counted as additional custom cards."
+  },
+  "current": {
+    "reviewedOn": "2026-11-12",
+    "ownershipEntries": 148,
+    "componentPages": 69,
+    "componentCanonicalOwners": 59,
+    "additionalComponentPages": 1,
+    "ownershipExamples": 268
   }
 }

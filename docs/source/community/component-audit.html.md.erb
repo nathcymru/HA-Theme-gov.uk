@@ -5,8 +5,10 @@ section: community
 group: Review
 status: reference
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: 2026-11-12
 updates:
+  - date: 2026-11-12
+    description: "Added the slider owner separately from the preserved 68-component baseline."
   - date: 2026-11-11
     description: "Implemented canonical owners, reciprocal family navigation and preserved route relationships."
   - date: 2026-11-11
@@ -58,7 +60,7 @@ Each proposal has a stable identifier, evidence and acceptance criteria. Priorit
 Every existing component URL appears once below. “Main guide” identifies the owner of shared rules. A variant page retains its own context, examples, source attribution and URL. Similar appearance alone is not a reason to merge behaviours.
 
 <table>
-<caption>Ownership of all 68 baseline component pages</caption>
+<caption>Component ownership, including additions to the preserved baseline</caption>
 <thead><tr><th scope="col">Existing component page</th><th scope="col">Main guide</th><th scope="col">Relationship</th></tr></thead>
 <tbody>
 <% audit['pageInventory'].select { |page| page['kind'] == 'component' }.sort_by { |page| page['url'] }.each do |page| %>

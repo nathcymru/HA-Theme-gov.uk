@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "reviewer": "official_design_research",
+  "scope": "Independent read-only source review of four terminology chapters, all 12 example records, terminology semantics and finite-source coverage. Reused downloaded pinned official snapshots for exact comparisons; read current official glossary, targets and state-object pages. No repository edits, builds, test-suite runs, browser interaction or Home Assistant operations.",
+  "files": [
+    {
+      "path": "docs/source/content/home-assistant-terminology.html.md.erb",
+      "sha256": "e346c6459cae7f874121c5163a71d6309415ad638bc3cfdf9b771cd5331d3921",
+      "review": "complete-source-read",
+      "notes": "Full source read. Distinguishes native translated labels, supplied names, literal identifiers and original household explanations. Completeness is bounded to named dated inventories; native labels are not counts of installed features. Source freshness and licensing statements do not claim runtime compliance. Re-read the final count/overlap explanation: supplemental mappings reuse entries; 45 platforms remain separate from additional domains.",
+      "previous_review_sha256": "5acad76d5ac085e47b93fcfdf78529391687b52585b557ec51f1f626b1f580bb"
+    },
+    {
+      "path": "docs/source/content/ha-glossary.html.md.erb",
+      "sha256": "d5cb00c0121fcfc8219bcca76f6d1ab9dcc927f714aa1d66d0a0c41db76c715f",
+      "review": "complete-source-read",
+      "notes": "Full source read and semantic review of all 83 authored glossary explanations/confusion notes. Stable term and letter links are derived from exact source names; original explanations do not replace native translations. Historical Apps/Lovelace/Core/Supervised distinctions are scoped."
+    },
+    {
+      "path": "docs/source/content/entity-and-state-language.html.md.erb",
+      "sha256": "7dccaf1f4ad730c436a8f4076d5e6784e0c2e5b993c5f3bf93a20b6bc8007893",
+      "review": "complete-source-read",
+      "notes": "Full source read plus all 45 platform explanations, state-record and helper entries. Raw states, attributes, device-class keys and translation fallbacks are distinct. Unknown/unavailable/zero and mode/action/measurement/target remain separate; native labels are platform-specific source references. Re-read new supplemental mapping table and five definitions, including exact domain links, distinct 15-key/3-domain source scopes, native Alert acknowledgement and Person away state.",
+      "previous_review_sha256": "01423807d6d777c3fd0f0f26e3da11bb8b9849366b822778a4f77a135a023ed3"
+    },
+    {
+      "path": "docs/source/content/interface-terminology.html.md.erb",
+      "sha256": "aa72e47432226a960e6d6195a1de488e340750517c38161658f23de4419ff9e8",
+      "review": "complete-source-read",
+      "notes": "Full source read and task-vocabulary/card/feature/selector review. Settings labels and internal dispatch identifiers remain distinct. Source explicitly separates condition results from physical confirmation and recognises internal/legacy keys, capability checks and permissions."
+    },
+    {
+      "path": "docs/data/ha-terminology.json",
+      "sha256": "1a1b472e48add357943611a3072321e6664bf03b83e1aa4bb7463830a7a3876b",
+      "review": "semantic-and-exhaustive-source-mapping-review",
+      "notes": "Reviewed authored definitions and scope, compared 83 glossary terms/aliases, 45 platforms, all 681 extracted label pointers/resolved values and 155 frontend pointers to the pinned downloaded sources. No live behaviour is inferred.",
+      "previous_review_sha256": "ca37ec131eea78945d4e6a4c6fd20140cf370045b7f631d624e34f6aa7445c23"
+    },
+    {
+      "path": "docs/data/terminology-examples.yml",
+      "sha256": "505804b8ced997466985f5760c40972708f1ab34f473ba6bfe75f942649c663a",
+      "review": "complete-source-read",
+      "notes": "Read all 12 complete examples, including actual shared local form/click handler contract. The premature form feedback finding was corrected and re-read."
+    }
+  ],
+  "examples": [
+    {
+      "id": "term-device-entity",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 2,
+      "review": "complete-source-read",
+      "notes": "A device versus two entities is clear; 0 W and reported Off remain separate, supplied apostrophe and literal IDs preserved, time context explicit.",
+      "owner": "content/home-assistant-terminology.html"
+    },
+    {
+      "id": "term-same-word-different-layer",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 13,
+      "review": "complete-source-read",
+      "notes": "OS App, Integration and Companion app have separate roles; no installation or universal OS-only instruction is implied.",
+      "owner": "content/home-assistant-terminology.html"
+    },
+    {
+      "id": "term-identifiers",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 24,
+      "review": "complete-source-read",
+      "notes": "Exact synthetic entity ID and display name remain separate. Corrected form uses data-demo-success, so required-input validation precedes feedback; source form does not send a Home Assistant request.",
+      "owner": "content/home-assistant-terminology.html"
+    },
+    {
+      "id": "term-event-action",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 35,
+      "review": "complete-source-read",
+      "notes": "Triggered event, condition and requested operation are separate. Local-only outline review does not claim an automation was saved or run.",
+      "owner": "content/ha-glossary.html"
+    },
+    {
+      "id": "term-native-label",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 48,
+      "review": "complete-source-read",
+      "notes": "Exact Settings, Devices & services, Helpers and Toggle wording is version-qualified; no live installation is opened.",
+      "owner": "content/ha-glossary.html"
+    },
+    {
+      "id": "term-historical-name",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 56,
+      "review": "complete-source-read",
+      "notes": "Lovelace remains literal only in an invented path shown as text; native saved paths are not globally renamed.",
+      "owner": "content/ha-glossary.html"
+    },
+    {
+      "id": "term-contextual-on",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 63,
+      "review": "complete-source-read",
+      "notes": "Binary-sensor on is mapped to Open, Detected and Low by device-class context; each exact label was confirmed against the source register.",
+      "owner": "content/entity-and-state-language.html"
+    },
+    {
+      "id": "term-climate-meaning",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 70,
+      "review": "complete-source-read",
+      "notes": "Heat mode, Heating action, current 19.5 °C and target 21 °C are different fields; source does not conflate mode with activity.",
+      "owner": "content/entity-and-state-language.html"
+    },
+    {
+      "id": "term-missing-state",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 78,
+      "review": "complete-source-read",
+      "notes": "Unknown, unavailable and retained 18 °C do not become zero or an unsupported offline diagnosis.",
+      "owner": "content/entity-and-state-language.html"
+    },
+    {
+      "id": "term-all-condition",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 85,
+      "review": "complete-source-read",
+      "notes": "All-with-only-unavailable-targets is explicitly the native technical condition rule and not a claim that windows are closed; current official targets documentation was read to verify the surprising result.",
+      "owner": "content/interface-terminology.html"
+    },
+    {
+      "id": "term-navigation-action",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 94,
+      "review": "complete-source-read",
+      "notes": "Real local fragment navigation is separate from a local-only request preview; neither controls a light or claims device success.",
+      "owner": "content/interface-terminology.html"
+    },
+    {
+      "id": "term-power-energy",
+      "path": "docs/data/terminology-examples.yml",
+      "line": 104,
+      "review": "complete-source-read",
+      "notes": "0.8 kW instantaneous power, 4 kWh partial-day energy and £1.00 estimated variable cost at £0.25/kWh are consistent; standing charges and complete-bill claims are excluded.",
+      "owner": "content/interface-terminology.html"
+    }
+  ],
+  "source_checks": {
+    "scope": "Independent source comparison only; no build/test/browser/live execution.",
+    "glossary": {
+      "source": 83,
+      "mapped": 83,
+      "names_and_aliases": "compared exactly"
+    },
+    "platforms": {
+      "source": 45,
+      "mapped": 45
+    },
+    "native_labels": {
+      "source_files": 38,
+      "expected": 681,
+      "mapped": 681,
+      "unique": 681,
+      "resolved_values_compared": 681
+    },
+    "frontend_pointers_checked": 155,
+    "authored_terms": 456,
+    "inventory_count": 17,
+    "all_term_ids_unique": true,
+    "all_native_ids_unique": true,
+    "errors": [],
+    "inventory_memberships": 469,
+    "inventory_membership_note": "The 15 original inventories plus 2 supplemental domain inventories intentionally reuse 13 existing glossary/helper entries. 469 memberships represent 456 unique authored terms; counts must not be added as unique terms.",
+    "supplemental_domain_review": {
+      "census_category": "additional-state-domains",
+      "census_expected": 15,
+      "census_mapped": 15,
+      "other_explicit_domains": [
+        "plant",
+        "zone",
+        "schedule"
+      ],
+      "mapping_count": 18,
+      "mapping_keys_unique": 18,
+      "source_hashes_checked": 18,
+      "new_terms": [
+        "HT-domain-alert",
+        "HT-domain-configurator",
+        "HT-domain-person",
+        "HT-domain-sun",
+        "HT-domain-plant"
+      ],
+      "native_title_pointers_checked": 5,
+      "platform_denominator_unchanged": 45,
+      "native_label_denominator_unchanged": 681,
+      "errors": []
+    }
+  },
+  "findings": [
+    {
+      "id": "TERM-001",
+      "priority": "P2",
+      "status": "source-corrected/pending-rendered",
+      "title": "Form-level click feedback could announce review before validation",
+      "evidence": [
+        {
+          "path": "docs/data/terminology-examples.yml",
+          "line": 30,
+          "previous": "term-identifiers form used data-demo-message"
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "line": 18,
+          "excerpt": "event.target.closest('[data-demo-message]')"
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "line": 10,
+          "excerpt": "event.target.dataset.demoSuccess"
+        }
+      ],
+      "impact": "The delegated click handler would match the form while clicking its input and announce the target reviewed before required-field validation. The submit handler reads a different attribute.",
+      "resolution": "Owner changed the form to data-demo-success, retaining required input and safe form normalisation. Exact source re-read.",
+      "acceptance": "Rendered check should show no review feedback on input focus/click or invalid submission; valid submit should give local-only review feedback without navigation or a device request."
+    },
+    {
+      "id": "TERM-002",
+      "priority": "P2",
+      "status": "source-corrected",
+      "title": "Helper definition implied actual creation could not affect automations",
+      "evidence": [
+        {
+          "path": "docs/data/ha-terminology.json",
+          "line": 1842,
+          "json_id": "HT-helper"
+        }
+      ],
+      "impact": "Actual helper creation or saved state publication can participate in native automation triggers, so an unconditional no-effect guarantee would be misleading.",
+      "resolution": "Owner now separates opening/editing a draft from creation/saved state changes and explicitly acknowledges dependent automations. Current source re-read.",
+      "sources": [
+        "https://www.home-assistant.io/integrations/input_number/",
+        "https://www.home-assistant.io/triggers/state/"
+      ]
+    },
+    {
+      "id": "TERM-003",
+      "priority": "P2",
+      "status": "source-corrected",
+      "title": "Domain definition omitted integration and action namespaces",
+      "evidence": [
+        {
+          "path": "docs/data/ha-terminology.json",
+          "line": 1707,
+          "json_id": "HT-domain"
+        }
+      ],
+      "impact": "The official glossary covers entity and action prefixes, including provider integration domains. Defining Domain only as an entity-family prefix would be incomplete and confusing in action instructions.",
+      "resolution": "Owner now explicitly distinguishes light.reading_lamp and hue.activate_scene namespaces and the entity family from the providing integration. Current source re-read.",
+      "sources": [
+        "https://www.home-assistant.io/docs/glossary/#domain"
+      ]
+    },
+    {
+      "id": "TERM-004",
+      "priority": "P3",
+      "status": "source-corrected",
+      "title": "Person summary omitted its away outcome",
+      "evidence": [
+        {
+          "path": "docs/data/ha-terminology.json",
+          "json_id": "HT-domain-person",
+          "previous": "reported home or zone state"
+        }
+      ],
+      "resolution": "Owner expanded the definition to home, away or named-zone state. Exact final field re-read and checked against current official Person guidance.",
+      "sources": [
+        "https://www.home-assistant.io/integrations/person/"
+      ]
+    }
+  ],
+  "navigation_and_scope": {
+    "source_baseline": "Core 2026.11.1; frontend 20261028.5; website 644bcefb1b42d1f50d26847d7d11df06c3b84ae2, checked 12 November 2026.",
+    "native_navigation": "Current state-object guidance uses Settings > Tools > States, consistent with the exact Tools label in the pinned English frontend. Helpers example is version-qualified. Apps is distinguished from the Companion app and older Add-ons wording.",
+    "completeness": "83/83 glossary entries and 45/45 platforms remain matched exactly. Final register contains 456 unique authored entries across 17 inventories, with 469 memberships because supplemental domain inventories reuse 13 existing entries. All 15 additional census domains and 3 separately documented domains map exactly once by domain. The 681 contextual native labels remain explicitly scoped to platform translation subtrees; no claim of all vendors, future strings, installed capabilities or runtime adaptation.",
+    "condition_semantics": "Current official targets documentation explicitly states that unknown/unavailable targets are ignored for these Any/All target conditions and that All can pass when all targets are missing. The chapter/specimen preserve this rule while refusing to claim physical closure.",
+    "licensing": "Attribution now explicitly separates original civica explanations from upstream names/labels. Apache licence text is included in the register, and official glossary definitions/artwork are not bundled. This is a source/provenance review, not legal certification."
+  },
+  "sources_reviewed": [
+    {
+      "url": "https://www.home-assistant.io/docs/glossary/",
+      "scope": "Current official vocabulary, plus exact 83-entry downloaded YAML snapshot names/aliases and authored-definition comparison."
+    },
+    {
+      "url": "https://www.home-assistant.io/docs/automation/targets/",
+      "scope": "Each/First/All trigger context, Any/All condition exclusions and missing-target outcome, exclusions and physical-evidence limits."
+    },
+    {
+      "url": "https://www.home-assistant.io/docs/configuration/state_object/",
+      "scope": "Current Settings > Tools navigation, missing states, attributes, report timestamps and context distinctions."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/alert/",
+      "scope": "Current supplemental-domain semantics independently read; pinned supplemental strings title/state source also inspected."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/configurator/",
+      "scope": "Current supplemental-domain semantics independently read; pinned supplemental strings title/state source also inspected."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/person/",
+      "scope": "Current supplemental-domain semantics independently read; pinned supplemental strings title/state source also inspected."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/sun/",
+      "scope": "Current supplemental-domain semantics independently read; pinned supplemental strings title/state source also inspected."
+    },
+    {
+      "url": "https://www.home-assistant.io/integrations/plant/",
+      "scope": "Current supplemental-domain semantics independently read; pinned supplemental strings title/state source also inspected."
+    }
+  ],
+  "not_claimed": [
+    "No browser layout, focus, disclosure navigation, assistive-technology or no-JavaScript execution was performed.",
+    "No live installation version, automation run, target calculation or device state was inspected.",
+    "Exhaustive source extraction does not prove every vendor-specific state or control is documented, supported or tested.",
+    "No legal or accessibility certification is implied."
+  ],
+  "overall": "Final source review covers four chapters, 12 complete examples, 456 unique authored terms, 17 intentionally overlapping inventories and 681 platform-context labels. All 15 additional census domains and three separately documented domains are mapped without changing the 45-platform denominator. Four bounded owner-applied corrections are source-verified; no unresolved source finding remains. Browser/live acceptance is not claimed.",
+  "supplemental_review": {
+    "reviewed_on": "2026-11-12",
+    "native_mapping_scope": "Compared the 15-key additional-state-domains category in docs/data/ha-interface-coverage.json to the matching register inventory and mapping records. Plant, Zone and Schedule are explicitly separate, with independent integration sources; no increase to the 45 platform count.",
+    "semantics": [
+      {
+        "id": "HT-domain-alert",
+        "notes": "Current official Alert guidance and pinned strings agree: off means Acknowledged while the configured condition remains true. No claim that acknowledgement resolves the underlying issue."
+      },
+      {
+        "id": "HT-domain-configurator",
+        "notes": "Official guidance identifies an internal developer-facing request/callback mechanism. Register does not turn it into the general Settings setup flow or a household device control."
+      },
+      {
+        "id": "HT-domain-person",
+        "notes": "Tracker-derived home, away and named-zone states are explicit. Person is separate from a user account, and no presence/safety verification is inferred."
+      },
+      {
+        "id": "HT-domain-sun",
+        "notes": "Astronomical calculation for configured location is distinct from measured light/weather. No room-brightness or equipment behaviour is inferred."
+      },
+      {
+        "id": "HT-domain-plant",
+        "notes": "Configured sensor readings and thresholds are distinct from health diagnosis or universal care limits. Native title Plant Monitor matches the pinned source."
+      }
+    ],
+    "rendered_verification": "No new build/browser run. Parent-reported long-word/table-label corrections are not treated as independently executed evidence in this review."
+  }
+}

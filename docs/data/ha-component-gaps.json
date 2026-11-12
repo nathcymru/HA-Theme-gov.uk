@@ -204,7 +204,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/components/ha-control-slider.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 22–31 and 77–170 expose keyboard keys, bounds, steps, units and ARIA value handling.",
+      "supports": "Lines 22\u201331 and 77\u2013170 expose keyboard keys, bounds, steps, units and ARIA value handling.",
       "title": "Native slider source"
     },
     {
@@ -212,7 +212,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-lock.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 64–103 and 112–168 use protected lock actions, feature checks and confirmation states.",
+      "supports": "Lines 64\u2013103 and 112\u2013168 use protected lock actions, feature checks and confirmation states.",
       "title": "Native lock control source"
     },
     {
@@ -220,7 +220,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-climate.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 92–159 check supported climate features and display current measurements separately.",
+      "supports": "Lines 92\u2013159 check supported climate features and display current measurements separately.",
       "title": "Native climate control source"
     },
     {
@@ -228,7 +228,7 @@
       "url": "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/dialogs/more-info/controls/more-info-person.ts",
       "reviewedOn": "2026-11-11",
       "kind": "official-home-assistant",
-      "supports": "Lines 42–78 preserve a native map and an administrator-gated zone action.",
+      "supports": "Lines 42\u201378 preserve a native map and an administrator-gated zone action.",
       "title": "Native person control source"
     }
   ],
@@ -320,7 +320,7 @@
         "records": [
           {
             "file": "docs/source/components/status.html.md.erb",
-            "line": 32,
+            "line": 59,
             "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
             "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
           },
@@ -432,13 +432,13 @@
           },
           {
             "file": "card/src/card.ts",
-            "line": 207,
+            "line": 226,
             "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
             "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
           },
           {
             "file": "docs/source/patterns/recovery.html.md.erb",
-            "line": 22,
+            "line": 31,
             "excerpt": "## Use the right state",
             "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
           }
@@ -488,7 +488,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/continuous-controls.html.md.erb",
-          "line": 19,
+          "line": 21,
           "excerpt": "# Continuous controls and alternatives",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -563,7 +563,7 @@
           },
           {
             "file": "docs/source/components/controls.html.md.erb",
-            "line": 28,
+            "line": 52,
             "excerpt": "## Fields",
             "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
           }
@@ -676,7 +676,7 @@
           },
           {
             "file": "card/src/card.ts",
-            "line": 207,
+            "line": 226,
             "excerpt": "await this._hass.callService('script', 'govuk_lights_apply', { room: v.cfg.id, recipe: r.id });",
             "supports": "The maintained lighting card invokes its configured lighting script; it is not a generic domain controller."
           }
@@ -1031,7 +1031,7 @@
         "records": [
           {
             "file": "docs/source/get-started/compatibility.html.md.erb",
-            "line": 52,
+            "line": 56,
             "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
             "supports": "Three exact household cards receive presentation only."
           },
@@ -1154,7 +1154,7 @@
         "records": [
           {
             "file": "docs/source/components/controls.html.md.erb",
-            "line": 28,
+            "line": 52,
             "excerpt": "## Fields",
             "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
           },
@@ -1274,7 +1274,7 @@
         "records": [
           {
             "file": "docs/source/components/controls.html.md.erb",
-            "line": 28,
+            "line": 52,
             "excerpt": "## Fields",
             "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
           },
@@ -1387,13 +1387,13 @@
         "records": [
           {
             "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
-            "line": 21,
+            "line": 23,
             "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
             "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
           },
           {
             "file": "docs/source/components/controls.html.md.erb",
-            "line": 28,
+            "line": 52,
             "excerpt": "## Fields",
             "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
           }
@@ -1855,13 +1855,13 @@
         "records": [
           {
             "file": "docs/source/patterns/home.html.md.erb",
-            "line": 41,
+            "line": 56,
             "excerpt": "## Responsive and shared use",
             "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
           },
           {
             "file": "docs/source/styles/images.html.md.erb",
-            "line": 8,
+            "line": 19,
             "excerpt": "# Icons and images",
             "supports": "General imagery guidance is not a camera, media or location interaction specification."
           },
@@ -1980,7 +1980,7 @@
         "records": [
           {
             "file": "docs/source/styles/images.html.md.erb",
-            "line": 8,
+            "line": 19,
             "excerpt": "# Icons and images",
             "supports": "General imagery guidance is not a camera, media or location interaction specification."
           },
@@ -2106,7 +2106,7 @@
           },
           {
             "file": "docs/source/styles/images.html.md.erb",
-            "line": 8,
+            "line": 19,
             "excerpt": "# Icons and images",
             "supports": "General imagery guidance is not a camera, media or location interaction specification."
           }
@@ -2326,7 +2326,7 @@
         "records": [
           {
             "file": "docs/source/patterns/recovery.html.md.erb",
-            "line": 22,
+            "line": 31,
             "excerpt": "## Use the right state",
             "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
           },
@@ -2445,7 +2445,7 @@
         "records": [
           {
             "file": "docs/source/patterns/recovery.html.md.erb",
-            "line": 22,
+            "line": 31,
             "excerpt": "## Use the right state",
             "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
           },
@@ -2559,13 +2559,13 @@
         "records": [
           {
             "file": "docs/source/components/notification-badge.html.md.erb",
-            "line": 8,
+            "line": 17,
             "excerpt": "# Notification badge",
             "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
           },
           {
             "file": "docs/source/patterns/recovery.html.md.erb",
-            "line": 22,
+            "line": 31,
             "excerpt": "## Use the right state",
             "supports": "General recovery guidance exists; system-wide and device-specific failures need separate contracts."
           }
@@ -2684,7 +2684,7 @@
           },
           {
             "file": "docs/source/components/controls.html.md.erb",
-            "line": 28,
+            "line": 52,
             "excerpt": "## Fields",
             "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
           }
@@ -2798,7 +2798,7 @@
         "records": [
           {
             "file": "docs/source/patterns/home.html.md.erb",
-            "line": 41,
+            "line": 56,
             "excerpt": "## Responsive and shared use",
             "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
           },
@@ -3060,13 +3060,13 @@
           },
           {
             "file": "docs/source/get-started/compatibility.html.md.erb",
-            "line": 64,
+            "line": 68,
             "excerpt": "## CSS cannot correct everything",
             "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
           },
           {
             "file": "docs/source/patterns/home.html.md.erb",
-            "line": 41,
+            "line": 56,
             "excerpt": "## Responsive and shared use",
             "supports": "Phone and wall-display layout guidance exists, without a full shared-screen privacy contract."
           }
@@ -3299,13 +3299,13 @@
         "records": [
           {
             "file": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
-            "line": 21,
+            "line": 23,
             "excerpt": "**Reference pattern.** The examples document a local adaptation; they do not add a publishing backend or a new Home Assistant capability.",
             "supports": "The calendar publishing template is a reference page, not the native scheduling editor."
           },
           {
             "file": "docs/source/get-started/compatibility.html.md.erb",
-            "line": 52,
+            "line": 56,
             "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
             "supports": "Three exact household cards receive presentation only."
           }
@@ -3424,13 +3424,13 @@
         "records": [
           {
             "file": "docs/source/components/status.html.md.erb",
-            "line": 32,
+            "line": 59,
             "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
             "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
           },
           {
             "file": "docs/source/styles/images.html.md.erb",
-            "line": 8,
+            "line": 19,
             "excerpt": "# Icons and images",
             "supports": "General imagery guidance is not a camera, media or location interaction specification."
           }
@@ -3544,13 +3544,13 @@
         "records": [
           {
             "file": "docs/source/components/notification-badge.html.md.erb",
-            "line": 8,
+            "line": 17,
             "excerpt": "# Notification badge",
             "supports": "Attention-count presentation is documented; it does not implement delivery, acknowledgement or alert policy."
           },
           {
             "file": "docs/source/components/status.html.md.erb",
-            "line": 32,
+            "line": 59,
             "excerpt": "| Unavailable | The current state cannot be obtained | Explicit label; do not invent a value |",
             "supports": "Existing shared state vocabulary; it does not specify all entity confidence or freshness cases."
           }
@@ -3665,7 +3665,7 @@
         "records": [
           {
             "file": "docs/source/components/controls.html.md.erb",
-            "line": 28,
+            "line": 52,
             "excerpt": "## Fields",
             "supports": "Generic forms exist; native schema-driven configuration and target pickers need additional requirements."
           },
@@ -3789,13 +3789,13 @@
         "records": [
           {
             "file": "docs/source/get-started/compatibility.html.md.erb",
-            "line": 64,
+            "line": 68,
             "excerpt": "## CSS cannot correct everything",
             "supports": "Theme tokens cannot repair every private or inaccessible native/third-party component."
           },
           {
             "file": "docs/source/get-started/compatibility.html.md.erb",
-            "line": 52,
+            "line": 56,
             "excerpt": "The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.",
             "supports": "Three exact household cards receive presentation only."
           },

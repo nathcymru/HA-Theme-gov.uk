@@ -1,0 +1,218 @@
+# Original reference specimens; no backend, device or external media requests.
+examples:
+  ha-coverage-composition-sections:
+    title: "An overview grouped by household task"
+    description: "Two complete sections preserve named state, recovery context and useful local destinations."
+    height: 900
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An overview grouped by household task</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <h2 class="govuk-heading-m">Needs attention</h2><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Garden room sensor</dt><dd class="govuk-summary-list__value">Unavailable. The last reading cannot establish the current temperature.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Next step</dt><dd class="govuk-summary-list__value"><a class="govuk-link" href="../examples/ha-state-missing.html">Read the missing-reading example</a></dd></div></dl><h2 class="govuk-heading-m">Rooms</h2><div class="civica-card-demo-grid"><article class="civica-card-demo"><div class="civica-card-demo__body"><h2 class="govuk-heading-m">Kitchen</h2><p class="govuk-body">Ceiling light: Off. Temperature: 19.8 °C.</p><a class="govuk-link" href="../examples/card-image-room.html">Open the kitchen example</a></div></article><article class="civica-card-demo"><div class="civica-card-demo__body"><h2 class="govuk-heading-m">Study</h2><p class="govuk-body">Reading lamp: On. Temperature: 20.1 °C.</p><a class="govuk-link" href="../examples/card-image-device.html">Open the reading lamp example</a></div></article></div><p class="govuk-body">These are separate entity readings. Opening a room example does not operate its equipment.</p>
+      </section>
+  ha-coverage-composition-filter:
+    title: "An empty filter is not an all-clear"
+    description: "A filtered list states its criteria and the availability limitation."
+    height: 620
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An empty filter is not an all-clear</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Filter</dt><dd class="govuk-summary-list__value">Available window contacts currently reporting Open</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Matches</dt><dd class="govuk-summary-list__value">0 of 4 configured contacts</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Excluded</dt><dd class="govuk-summary-list__value">1 contact is unavailable; its position is unknown</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reported</dt><dd class="govuk-summary-list__value"><time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div></dl><p class="govuk-body">No available contact matches this filter. This does not confirm that every window is closed.</p><a class="govuk-link" href="../examples/ha-state-missing.html">Review how missing states are shown</a>
+      </section>
+  ha-coverage-composition-features:
+    title: "A mode choice beneath a reported state"
+    description: "A dropdown shows real example options and separates the draft from the reported mode."
+    height: 820
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A mode choice beneath a reported state</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Entity</dt><dd class="govuk-summary-list__value">Hall heating</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reported mode</dt><dd class="govuk-summary-list__value">Heat</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Measured temperature</dt><dd class="govuk-summary-list__value">18.5 °C</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Target temperature</dt><dd class="govuk-summary-list__value">19.5 °C</dd></div></dl><form data-demo-form data-demo-success="Draft checked in this page only. Nothing was saved and no device command was sent."><div class="govuk-form-group"><label class="govuk-label" for="heating-mode">Mode draft</label><p class="govuk-hint" id="mode-hint">This example supports Heat and Off. Choosing an option changes only this draft.</p><select class="govuk-select" id="heating-mode" name="heating-mode" aria-describedby="mode-hint"><option value="heat" selected>Heat</option><option value="off">Off</option></select></div><button class="govuk-button" type="submit">Check example draft</button><p class="govuk-body" role="status" data-demo-status></p></form><p class="govuk-body">A native card must read its supported modes. It must not add cooling merely because another thermostat supports it.</p>
+      </section>
+  ha-coverage-composition-badges:
+    title: "A summary with the quantity and period"
+    description: "Badge-like summaries use text meaning and a named detail destination."
+    height: 760
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A summary with the quantity and period</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <h2 class="govuk-heading-m">Electricity today</h2><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Grid consumption</dt><dd class="govuk-summary-list__value">4.2 kWh</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Period</dt><dd class="govuk-summary-list__value">12 November 2026, 00:00 to 09:30 GMT (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Data status</dt><dd class="govuk-summary-list__value">Part of the day; later readings are not available yet</dd></div></dl><a class="govuk-link" href="../examples/ha-flow-values.html">Open the energy-flow values example</a><h2 class="govuk-heading-m">Front door</h2><p class="govuk-body"><strong class="govuk-tag">Locked</strong> Reported at <time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London).</p><p class="govuk-body">The state summary is read-only. Opening details is different from requesting Unlock.</p>
+      </section>
+  ha-coverage-rows-readings:
+    title: "A mixed list of current and period values"
+    description: "Current readings, unavailable data and a daily mean remain distinct."
+    height: 760
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A mixed list of current and period values</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Kitchen power</dt><dd class="govuk-summary-list__value">0 W — reported at <time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Study temperature</dt><dd class="govuk-summary-list__value">20.1 °C — reported at <time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Garden room temperature</dt><dd class="govuk-summary-list__value">Unavailable — no current value</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Study mean temperature</dt><dd class="govuk-summary-list__value">19.7 °C — 11 November 2026, 00:00–24:00 GMT (Europe/London)</dd></div></dl><p class="govuk-body">The daily mean summarises a completed period. It does not replace the current Study temperature.</p><a class="govuk-link" href="../examples/ha-history-values.html">Read the history-values example</a>
+      </section>
+  ha-coverage-rows-actions:
+    title: "An operation in a mixed entity list"
+    description: "A scene operation is explained separately from a light state and has only local preview feedback."
+    height: 730
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An operation in a mixed entity list</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reading lamp</dt><dd class="govuk-summary-list__value">Off</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Evening scene</dt><dd class="govuk-summary-list__value">Applies saved settings to its configured members; no current on/off state is inferred</dd></div></dl><button type="button" class="govuk-button" data-demo-message="Example scene request previewed locally. No scene ran and no member state changed.">Preview the evening scene request</button><p class="govuk-body" role="status" data-demo-status></p><h2 class="govuk-heading-m">What a native request must show</h2><p class="govuk-body">Identify the affected members before a consequential request. An accepted scene request does not confirm that every light reached its saved setting.</p><a class="govuk-link" href="../examples/ha-action-partial.html">Read the partial-result example</a>
+      </section>
+  ha-coverage-rows-attributes:
+    title: "An absent attribute beside a valid state"
+    description: "The entity remains identifiable when one optional attribute is absent."
+    height: 740
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An absent attribute beside a valid state</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Entity</dt><dd class="govuk-summary-list__value">Kitchen speaker</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Playback</dt><dd class="govuk-summary-list__value">Paused</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Track title</dt><dd class="govuk-summary-list__value">Title not supplied</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Volume</dt><dd class="govuk-summary-list__value">35%</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Last changed</dt><dd class="govuk-summary-list__value">12 November 2026 at 09:25 GMT (Europe/London)</dd></div></dl><p class="govuk-body">The missing track title does not mean playback is unavailable. Last changed describes a state change, not a guaranteed device heartbeat.</p><h2 class="govuk-heading-m">Related information</h2><a class="govuk-link" href="../examples/ha-flow-016-playing.html">Open the media playback example</a><p class="govuk-body">A native list may also contain a named external weblink or a separate command button. Neither should be disguised as a state value.</p>
+      </section>
+  ha-coverage-picture-alternative:
+    title: "A room diagram with an equivalent reading list"
+    description: "Existing original artwork adds spatial context without making coordinates the only interface."
+    height: 980
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A room diagram with an equivalent reading list</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <figure class="govuk-!-margin-0"><img class="civica-card-demo__media" src="../images/card-room-schematic.svg" width="640" height="360" alt="Schematic three-room layout: two smaller rooms on the left and one larger room on the right, with a sensor marker in the larger room."><figcaption class="govuk-body">Illustration only. This is not a live image or measured floor plan.</figcaption></figure><h2 class="govuk-heading-m">Room readings</h2><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reading lamp</dt><dd class="govuk-summary-list__value">On</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Ceiling light</dt><dd class="govuk-summary-list__value">Off</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Window contact</dt><dd class="govuk-summary-list__value">Closed</dd></div></dl><a class="govuk-link" href="../examples/card-image-device.html">Open the reading lamp details example</a><p class="govuk-body">Every named item remains available in this list even if an image overlay cannot be read or reached.</p>
+      </section>
+    artwork:
+      source: docs/data/card-artwork-provenance.json
+      assets:
+        - docs/source/images/card-room-schematic.svg
+      alternative_text_decision: "The illustration establishes room layout; the adjacent normal-flow list independently contains every state and destination."
+  ha-coverage-picture-missing:
+    title: "An image failure that keeps the task available"
+    description: "A textual fallback does not substitute an old camera image or hide the entity."
+    height: 730
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An image failure that keeps the task available</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <article class="civica-card-demo"><div class="civica-card-demo__body"><h2 class="govuk-heading-m">Garden room</h2><p class="govuk-body">Room illustration unavailable.</p><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reading lamp</dt><dd class="govuk-summary-list__value">Off</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Temperature</dt><dd class="govuk-summary-list__value">18.7 °C</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reported</dt><dd class="govuk-summary-list__value"><time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div></dl><a class="govuk-link" href="../examples/card-image-missing.html">Read the missing-artwork example</a></div></article><p class="govuk-body">This missing illustration says nothing about the room connection. A camera stream failure would need its own source and freshness explanation.</p>
+      </section>
+  ha-coverage-content-note:
+    title: "A household note with a clear next step"
+    description: "Rich text uses heading structure, a short task and a meaningful local link."
+    height: 720
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A household note with a clear next step</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <h2 class="govuk-heading-m">Before adjusting the heating</h2><p class="govuk-body">Check the reported room temperature and the target separately. A changed target is not a measurement of how warm the room has become.</p><ol class="govuk-list govuk-list--number"><li>Find the room and confirm the entity name.</li><li>Read the reported temperature and any missing-data explanation.</li><li>Review the target draft before requesting a change.</li></ol><a class="govuk-link" href="../examples/ha-climate-target.html">Open the target-temperature example</a><p class="govuk-body">This authored note is guidance. It is not a template execution result or a device command.</p>
+      </section>
+  ha-coverage-content-external:
+    title: "An external page that could not be embedded"
+    description: "A complete fallback names a verified provider and offers a normal external destination."
+    height: 650
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An external page that could not be embedded</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <h2 class="govuk-heading-m">Home Assistant documentation</h2><p class="govuk-body">The external page is not embedded in this example.</p><p class="govuk-body">The documentation belongs to home-assistant.io. Opening it leaves this civica.uk example; it does not change your dashboard.</p><a class="govuk-link" href="https://www.home-assistant.io/dashboards/iframe/">Read Home Assistant’s Webpage card documentation</a><h2 class="govuk-heading-m">What remains available here</h2><p class="govuk-body">Use a normal link when embedding is blocked or unsuitable. Do not weaken browser restrictions or put household credentials into a URL.</p>
+      </section>
+  ha-coverage-helper-number:
+    title: "A precise helper draft with a declared range"
+    description: "The number field validates an invented helper without treating it as a measured temperature."
+    height: 800
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A precise helper draft with a declared range</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Helper</dt><dd class="govuk-summary-list__value">Evening temperature preference</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Saved value in this scenario</dt><dd class="govuk-summary-list__value">19.5 °C</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Purpose</dt><dd class="govuk-summary-list__value">A household automation may later read this preference; it is not a current sensor reading</dd></div></dl><form data-demo-form data-demo-success="Draft checked in this page only. Nothing was saved and no device command was sent."><div class="govuk-form-group"><label class="govuk-label" for="preference">Temperature preference draft (°C)</label><p class="govuk-hint" id="preference-hint">This invented helper accepts 10 to 25 °C in steps of 0.5 °C. Checking this draft does not save it or run an automation.</p><input class="govuk-input govuk-input--width-10" id="preference" name="preference" aria-describedby="preference-hint" type="number" min="10" max="25" step="0.5" value="19.5" required></div><button class="govuk-button" type="submit">Check example draft</button><p class="govuk-body" role="status" data-demo-status></p></form><a class="govuk-link" href="../examples/ha-automation-outline.html">Read how triggers, conditions and actions differ</a>
+      </section>
+  ha-coverage-helper-choice:
+    title: "A saved choice that no longer exists"
+    description: "A removed option remains unresolved instead of being replaced automatically."
+    height: 790
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A saved choice that no longer exists</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Helper</dt><dd class="govuk-summary-list__value">Household routine</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Saved choice</dt><dd class="govuk-summary-list__value">School morning</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Current options</dt><dd class="govuk-summary-list__value">Weekday; Weekend</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Problem</dt><dd class="govuk-summary-list__value">School morning is no longer an available option</dd></div></dl><form data-demo-form data-demo-success="Draft checked in this page only. Nothing was saved and no device command was sent."><div class="govuk-form-group"><label class="govuk-label" for="routine">Replacement draft</label><p class="govuk-hint" id="routine-hint">No replacement has been selected. Review how dependent automations use this choice before saving a real change.</p><select class="govuk-select" id="routine" name="routine" aria-describedby="routine-hint" required><option value="" selected>Choose an option</option><option value="Weekday">Weekday</option><option value="Weekend">Weekend</option></select></div><button class="govuk-button" type="submit">Check example draft</button><p class="govuk-body" role="status" data-demo-status></p></form>
+      </section>
+  ha-coverage-helper-operation:
+    title: "A counter reset is not always zero"
+    description: "A static operation review exposes the configured reset value and the actual task."
+    height: 650
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A counter reset is not always zero</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Counter</dt><dd class="govuk-summary-list__value">Spare filter packs</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Current value</dt><dd class="govuk-summary-list__value">5</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Configured reset value</dt><dd class="govuk-summary-list__value">2</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Requested operation</dt><dd class="govuk-summary-list__value">Reset to 2 — not decrement by 1</dd></div></dl><p class="govuk-body">Static review example. No operation is available on this page.</p><h2 class="govuk-heading-m">Check before implementing</h2><p class="govuk-body">Read the configured initial/reset value and actual supported counter actions. A reset changes stored information; it does not count physical stock.</p><a class="govuk-link" href="../examples/ha-action-request.html">Read the request-feedback example</a>
+      </section>
+  ha-coverage-selector-resources:
+    title: "A selected entity and a separate provider"
+    description: "A review summary keeps stable IDs and unrelated resource families distinct."
+    height: 750
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A selected entity and a separate provider</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Temperature entity</dt><dd class="govuk-summary-list__value">Study temperature — sensor.study_temperature</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Voice pipeline</dt><dd class="govuk-summary-list__value">Household English pipeline</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Speech provider</dt><dd class="govuk-summary-list__value">Example provider selected in the native pipeline</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Processing boundary</dt><dd class="govuk-summary-list__value">Provider processing location has not been established in this scenario</dd></div></dl><p class="govuk-body">Do not infer whether a pipeline is local from its friendly name. Review the configured provider before displaying a privacy claim.</p><a class="govuk-link" href="../examples/ha-target-duplicates.html">Compare duplicate entity names</a><p class="govuk-body">This summary is not an imitation of a searchable native selector. The implementation must retain the real registry filters and stored resource types.</p>
+      </section>
+  ha-coverage-selector-values:
+    title: "A duration and a time are different values"
+    description: "Two independently labelled fields show why a clock value cannot stand in for a duration."
+    height: 760
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A duration and a time are different values</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <form data-demo-form data-demo-success="Draft checked in this page only. Nothing was saved and no device command was sent."><div class="govuk-form-group"><label class="govuk-label" for="delay">Delay draft (minutes)</label><p class="govuk-hint" id="delay-hint">A duration of 1 to 120 whole minutes, measured after the configured trigger.</p><input class="govuk-input govuk-input--width-10" id="delay" name="delay" aria-describedby="delay-hint" type="number" min="1" max="120" step="1" value="15" required></div><div class="govuk-form-group"><label class="govuk-label" for="start">Start-time draft</label><p class="govuk-hint" id="start-hint">A clock time in Europe/London. This is a separate value from the delay.</p><input class="govuk-input govuk-input--width-10" id="start" name="start" aria-describedby="start-hint" type="time" value="18:30" required></div><button class="govuk-button" type="submit">Check example draft</button><p class="govuk-body" role="status" data-demo-status></p></form><p class="govuk-body">The real schema determines how each value is stored. Do not serialise the delay as 00:15 merely because a time input looks convenient.</p>
+      </section>
+  ha-coverage-selector-structured:
+    title: "A structured draft with a stated shape"
+    description: "A labelled code-like field demonstrates retained input without executing YAML, templates or actions."
+    height: 860
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A structured draft with a stated shape</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <form data-demo-form data-demo-success="Draft checked in this page only. Nothing was saved and no device command was sent."><div class="govuk-form-group"><label class="govuk-label" for="object-draft">Example object draft</label><p class="govuk-hint" id="object-hint">This specimen expects a readable object description. It only checks that the field is not empty; it does not parse YAML, validate a Home Assistant schema or execute anything.</p><textarea class="govuk-textarea" id="object-draft" name="object-draft" rows="5" aria-describedby="object-hint" required>room: Study
+      reminder: Check the window before leaving</textarea></div><button class="govuk-button" type="submit">Check example draft</button><p class="govuk-body" role="status" data-demo-status></p></form><h2 class="govuk-heading-m">Three separate checks</h2><ol class="govuk-list govuk-list--number"><li>Syntax: can the content be parsed?</li><li>Schema: is the parsed value valid for this consumer?</li><li>Execution: what request would an authorised user actually make?</li></ol>
+      </section>
+  ha-coverage-specialist-plant:
+    title: "One plant reading outside its configured range"
+    description: "A threshold exception and a missing measurement remain separate."
+    height: 750
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">One plant reading outside its configured range</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Plant</dt><dd class="govuk-summary-list__value">Study fern</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Moisture</dt><dd class="govuk-summary-list__value">18% — below the configured lower threshold of 20%</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Light</dt><dd class="govuk-summary-list__value">No current reading</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Temperature</dt><dd class="govuk-summary-list__value">19.8 °C</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reported</dt><dd class="govuk-summary-list__value"><time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div></dl><p class="govuk-body">The 20% threshold is an invented household setting in this example. It is not a recommendation for this or any real plant.</p><p class="govuk-body">The card reports the specific exception. It does not diagnose the plant or assume that the missing light reading is zero.</p>
+      </section>
+  ha-coverage-specialist-environment:
+    title: "An environmental reading without an invented verdict"
+    description: "A measured quantity and a calculated sun value retain their different evidence types."
+    height: 740
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">An environmental reading without an invented verdict</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Study carbon dioxide</dt><dd class="govuk-summary-list__value">720 ppm — reported at <time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Observation source</dt><dd class="govuk-summary-list__value">Example room sensor</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Air-quality verdict</dt><dd class="govuk-summary-list__value">No source-defined category supplied</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Sun elevation</dt><dd class="govuk-summary-list__value">Calculated for the configured example location; not a brightness measurement</dd></div></dl><p class="govuk-body">Keep the reported quantity and unit. This specimen does not label the room safe or unsafe and does not provide health advice.</p><a class="govuk-link" href="../examples/ha-state-zero.html">Read the zero and missing-value distinction</a>
+      </section>
+  ha-coverage-specialist-event:
+    title: "A recorded event is not an ongoing state"
+    description: "An event timestamp does not create a made-up duration or a current presence claim."
+    height: 690
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A recorded event is not an ongoing state</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Entity</dt><dd class="govuk-summary-list__value">Hall button event</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Event type</dt><dd class="govuk-summary-list__value">Single press</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Recorded</dt><dd class="govuk-summary-list__value"><time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">End time</dt><dd class="govuk-summary-list__value">Not supplied; this is an event, not an ongoing interval</dd></div></dl><p class="govuk-body">The recorded press does not identify who pressed the button or establish that anyone is still in the hall.</p><h2 class="govuk-heading-m">Retained image results</h2><p class="govuk-body">If an integration reports a detected object for an earlier image, show that image or scan time with the result. Do not call an old detection a current room state.</p>
+      </section>
+  ha-coverage-specialist-generated:
+    title: "A generated suggestion beside actual evidence"
+    description: "Generated text cannot overrule a missing device report or run an action."
+    height: 800
+    html: |
+      <section aria-labelledby="example-heading">
+      <h1 class="govuk-heading-l" id="example-heading">A generated suggestion beside actual evidence</h1>
+      <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
+      <h2 class="govuk-heading-m">Generated suggestion</h2><blockquote class="govuk-inset-text">The study may be ready for the evening routine.</blockquote><p class="govuk-body">Example generated text. It has not been verified against all current device states.</p><h2 class="govuk-heading-m">Available device evidence</h2><dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Study light</dt><dd class="govuk-summary-list__value">Off — reported at <time datetime="2026-11-12T09:30:00+00:00">12 November 2026 at 09:30 GMT</time> (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Study window contact</dt><dd class="govuk-summary-list__value">Unavailable — current position unknown</dd></div></dl><p class="govuk-body">The suggestion cannot establish that the window is closed. No action was requested.</p><a class="govuk-link" href="../examples/ha-flow-025-unconfirmed.html">Read the unconfirmed voice-command example</a>
+      </section>

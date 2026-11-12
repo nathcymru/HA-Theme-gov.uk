@@ -1,0 +1,72 @@
+---
+title: "Pictures, rich content and embedded pages"
+description: "Give images and external content meaningful alternatives without concealing actions or privacy boundaries."
+section: patterns
+group: "Home Assistant: interface coverage"
+status: reference
+source_url: https://www.home-assistant.io/dashboards/picture-elements/
+published_on: 2026-11-12
+updated_on: 2026-11-12
+last_reviewed_on: 2026-11-12
+review_in: 3 months
+updates:
+  - date: 2026-11-12
+    description: "Added the pictures, rich content and embedded pages contract, native registry mapping and complete synthetic examples."
+---
+
+# Pictures, rich content and embedded pages
+
+Images can explain a room or make a device easier to recognise. They must not become the only way to find its state or operate it. Treat household artwork, actual camera imagery and external websites as different content sources with different evidence and privacy needs.
+
+<h2 id="pictures">Picture card families</h2>
+
+| Native family | Purpose | Required alternative |
+| --- | --- | --- |
+| Picture | An image, optionally with an explicit navigation or action behaviour | A useful name for the destination/action; informative alternative text only when the image adds meaning. |
+| Picture entity | An entity-associated image or supported camera view | Entity name, current state and image time/source when relevant. |
+| Picture glance | Image context plus several entity indicators/actions | The same named states and actions in a keyboard-accessible reading order. |
+| Picture elements | Positioned state labels, badges, icons, images, conditional elements and action buttons | A normal-flow list of equivalent named information and operations. |
+
+A decorative room drawing is not a live view. A retained camera image is not current footage. Use [camera guidance](cameras.html#ha-ctrl-015-states) for image freshness and stream failures. Missing artwork must leave names, states and actions intact. Do not crop away meaningful hazard or access information.
+
+<%= example('ha-coverage-picture-alternative') %>
+
+<%= example('ha-coverage-picture-missing') %>
+
+<h2 id="overlays">Overlay elements and action semantics</h2>
+
+State-label, state-icon and state-badge elements show actual entity information; a decorative icon has no state. Image elements need provenance and an appropriate alternative. Conditional elements hide a defined set; hidden elements must not leave invisible focus targets. Keep overlays clear of each other when names, values or units grow.
+
+The current public action-button element retains a service-button implementation alias. Preserve saved compatibility while using current user-facing wording. Tap, hold and double-tap are activation gestures, not action descriptions. Provide a named ordinary control for any essential operation hidden behind hold or double-tap. More info, toggle, perform-action, navigate, URL, Assist and none retain distinct semantics. A graphic must never auto-run an action when it loads.
+
+<h2 id="rich-content">Markdown and authored content</h2>
+
+Use Markdown for useful explanations, not a second competing dashboard shell. Preserve headings, lists, useful links and textual state explanations. Generated template content must handle missing variables and escaping through the native renderer. Treat device-supplied strings as data; do not execute them as HTML or instructions. A dynamic sentence that disappears after an error needs a stable error explanation.
+
+Do not rely on CSS colour or position to turn arbitrary text into an interactive control. Use native supported actions or a real link/button in owned components. Keep local and external destinations clear. [Writing rules for interface copy](../content/interface-copy.html) apply equally to generated text.
+
+<%= example('ha-coverage-content-note') %>
+
+<h2 id="embeds">External webpages and blocked content</h2>
+
+A Webpage card can embed an external origin or a local `/local` file. The theme cannot guarantee that origin's typography, accessibility, availability, content policy or sign-in behaviour. Do not weaken browser restrictions to make an iframe load. Name the provider and purpose, preserve the native security settings, and offer an ordinary link when embedding is blocked or inappropriate. Explain that opening the external page leaves Home Assistant; do not claim it is a local setting.
+
+Do not place tokens, passwords or household identifiers in demonstration URLs. Avoid automatically loading sensitive external feeds on shared displays. A blank iframe is a loading/failure problem, not evidence that the household has no data. The specimen below uses a static unavailable state and a verified public documentation destination; it does not load a third-party frame.
+
+<%= example('ha-coverage-content-external') %>
+
+<h2 id="acceptance">Acceptance checks</h2>
+
+Test overlays with long translations at 320px and zoom, broken images, an unavailable entity and a blocked iframe. Reach every essential action without coordinates, holding or double-tapping. Turn images off: named controls and state remain understandable. Check keyboard focus cannot enter hidden conditional elements. Confirm opening a page makes no device request and no external media is fetched before the chosen privacy boundary.
+
+Sources: [Picture elements](https://www.home-assistant.io/dashboards/picture-elements/), [Picture entity](https://www.home-assistant.io/dashboards/picture-entity/), [Webpage](https://www.home-assistant.io/dashboards/iframe/), [Markdown](https://www.home-assistant.io/dashboards/markdown/), and [dashboard actions](https://www.home-assistant.io/dashboards/actions/).
+
+<h2 id="evidence">Implementation and evidence boundary</h2>
+
+This is a reference design specification, not a replacement for native Home Assistant components. The examples use invented records and local draft feedback; they do not call Home Assistant. Mapping a registry entry here establishes a design owner, not proof that every integration, browser or device has been tested. Keep native state formatting, translations, permissions, capabilities and event handling. Theme tokens can change presentation; they cannot supply missing application behaviour.
+
+The [interface coverage inventory](../reference/ha-interface-coverage.json) records the finite source baseline and exact mappings. Recheck native behaviour after frontend changes. Use the [native task acceptance process](native-task-accessibility.html) to record what was actually tested.
+
+Apply the [brand rules](../styles/brand.html), [writing guide](../content/index.html), [layout](../styles/layout.html), [colour roles](../styles/colour.html) and [typography](../styles/typography.html). Structural dividers use the quiet border token; editable boundaries and focus indicators remain distinct. Preserve 16px native control text, visible labels, keyboard access and readable names at 320px. A compact arrangement must not remove a capability explanation or essential recovery route.
+
+Review owner: civica.uk maintainers. Source baseline: Home Assistant Core 2026.11.1 and frontend 20261028.5; primary documentation reviewed on 12 November 2026.

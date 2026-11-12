@@ -1,0 +1,94 @@
+---
+title: System settings and tools
+description: Keep diagnostic experiments, system settings, privacy choices and hardware reports explicit and reversible where supported.
+section: patterns
+group: "Home Assistant: flows"
+status: reference
+published_on: 2026-11-12
+updated_on: 2026-11-12
+updates:
+  - date: 2026-11-12
+    description: Added design ownership for native system, tools, analytics, AI, labs, storage and hardware routes.
+---
+
+# System settings and tools
+
+System settings and diagnostic tools can affect more than the screen in front of someone. Identify what a change affects, who can make it and how its outcome will be known. Keep a diagnostic experiment separate from a command sent to equipment.
+
+This reference pattern covers the system and tools routes registered by frontend **20261028.5**, used by Core **2026.11.1**. The [interface coverage register](interface-coverage.html) lists each entry. A route mapping establishes design ownership; it does not establish native visual compatibility or authorise a test against a real home.
+
+<h2 id="system-capabilities">Choose the contract for the task</h2>
+
+| Task | Required distinction | Related pattern |
+| --- | --- | --- |
+| State or template experiment | A displayed state or template result versus a physical device outcome | [Entity state](entity-state.html) |
+| Action or event tool | A requested operation and its target versus a reported result | [Action results](action-results.html) |
+| Logs and diagnostics | Recorded events and timestamps versus a proven cause | [History and statistics](history-and-statistics.html) |
+| General settings | Instance-wide settings versus a person's profile preferences | [Locale, units and time](locale-units-and-time.html) |
+| Analytics, AI and Labs | The specific enabled capability, data flow, account scope and known limitation | [Accounts and permissions](accounts-and-permissions.html) |
+| Storage and hardware | Reported capacity or configuration versus a guarantee of recovery or reliability | [Backups](backup-and-restore.html) |
+| Updates and Repairs | Availability, request progress and confirmed completion | [Updates and Repairs](updates-and-repairs.html) |
+
+<h2 id="system-experiments">Explain what a diagnostic experiment changes</h2>
+
+Keep technical labels and literal values intact. A state override changes Home Assistant's representation; it does not by itself command equipment to adopt that state. State changes and events may still affect automations. Explain that distinction before an action where it is relevant. A template preview is a calculation, not proof that its inputs are current or that a later action will succeed.
+
+The current native entry point is **Settings > Tools**. Older instructions may call this **Developer tools**. Preserve the current interface label when giving a route.
+
+| Tool | Design requirement |
+| --- | --- |
+| YAML | Distinguish check, reload and restart; name the scope and preserve native confirmation |
+| States | Explain represented-state changes and their possible automation effects |
+| Actions | Identify the actual action and resolved targets before execution |
+| Action history | Separate recorded action data from a new request to repeat it |
+| Template | Preserve literal syntax, selection and errors; a preview result is a calculation |
+| Events | Distinguish listening from firing an event and explain possible automation effects |
+| Statistics | Keep correction or deletion separate from read-only inspection, with units and time boundaries |
+| Assist | Distinguish sentence interpretation from an executed action and preserve provider context |
+| Debug and optional debug console | Retain native availability and permissions; distinguish observation from code execution |
+
+The legacy `service` tool route redirects to `action` in the reviewed source. It is an alias, not an additional action interface.
+
+An action tool can send real commands. Show its exact action, target, parameters and available permission checks, and keep its result separate from a subsequent device report. Do not label a live command “Preview”. Examples in this guide never invoke these tools.
+
+<%= example('system-state-tool') %>
+
+<h2 id="system-settings">Make settings scope and data use clear</h2>
+
+Name whether a setting affects the current browser, the signed-in account or the whole instance. Use the actual native choice and its current value. Explain a changed prerequisite, unavailable feature or administrator restriction without hiding the setting's meaning.
+
+For analytics, AI and Labs, describe the specific feature and relevant data destination from its actual configuration. Do not invent a universal “private”, “local only” or “AI off” guarantee. Enabling a provider, exposing an entity to Assist and enabling an experimental interface feature are different choices. Keep the native notices, consent steps and rollback information where supplied.
+
+<%= example('system-privacy-choice') %>
+
+<h2 id="system-diagnostics">Show observations with their limits</h2>
+
+Label a log's timestamp and level without assuming that the nearest event caused an outage. An old retained value must not look like a new diagnostic response. Provide redaction guidance before copying logs; never encourage a person to publish credentials, private location history or full household data as part of a routine issue report.
+
+Storage needs the volume or location, unit, total/used/available interpretation and observation time. Keep decimal GB and binary GiB distinct. Do not infer a recovery guarantee from free space or a backup file count. Hardware identifiers and connectivity values should preserve their literal format with useful labels and an accessible text alternative to topology diagrams.
+
+<%= example('system-storage-status') %>
+
+<h2 id="system-presentation">Use the shared components</h2>
+
+Use [tables](../components/table.html) for comparable observations, [summary lists](../components/summary-list.html) for named attributes and [details](../components/details.html) for secondary technical explanation. Technical content uses code styling only for literal syntax. It still needs the shared heading scale, quiet borders, visible focus and readable body text.
+
+Keep input boundaries distinct from card dividers. Where a native editor needs a specialist code control, preserve line navigation, accessible naming, selection, undo and validation. Do not simulate a rich editor with a decorative text box or replace actionable diagnostics with coloured status dots. State loading, no results, permission denied, stale data and failed retrieval explicitly.
+
+<h2 id="system-acceptance">Acceptance checks</h2>
+
+1. Identify the exact tool and account permission before testing. Use a disposable fixture for state/event experiments; do not use a household device as an accessibility fixture.
+2. Check that Save, Reload, Restart, Run and a preview label describe different actual operations. Test failures and unconfirmed responses without discarding a useful draft.
+3. Verify instance, account and browser scope. Test unsupported installation options and features that disappear when their integration is unloaded.
+4. Check units, timestamps, redaction, empty and stale records. Preserve literal identifiers in copy operations.
+5. Use keyboard-only navigation, 320px width, enlarged text and forced colours. Verify errors are connected to their controls and that dialogs restore focus.
+
+The examples provide local, invented demonstrations. See [native task accessibility](native-task-accessibility.html) and [compatibility](compatibility-register.html) for the separate evidence needed before making a live implementation claim.
+
+## Sources
+
+- [Pinned native settings router](https://github.com/home-assistant/frontend/blob/e32bc0696ebefde323f5b791269ad0c57f3f99d9/src/panels/config/ha-panel-config.ts)
+- [Pinned settings sections](https://github.com/home-assistant/frontend/blob/e32bc0696ebefde323f5b791269ad0c57f3f99d9/src/panels/config/config-sections.ts)
+- [Home Assistant developer tools](https://www.home-assistant.io/docs/tools/dev-tools/)
+
+Reviewed on 12 November 2026. Review owner: civica.uk maintainers. Follow the [writing guide](../content/index.html) and [brand guidance](../styles/brand.html); neither changes native permissions or device capabilities.

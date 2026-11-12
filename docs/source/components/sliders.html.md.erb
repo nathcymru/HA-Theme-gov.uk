@@ -1,0 +1,128 @@
+---
+title: "Sliders and precise values"
+description: "Choose a bounded value with a native range control, exact entry and visible step buttons."
+section: "components"
+group: "Home Assistant components"
+status: "reference"
+source_url: "https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders"
+published_on: "2026-11-12"
+updated_on: "2026-11-12"
+last_reviewed_on: "2026-11-12"
+review_in: "3 months"
+updates:
+  - date: 2026-11-12
+    description: "Added the local slider component, five complete specimens, verified source status and the native Home Assistant integration boundary."
+---
+
+# Sliders and precise values
+
+Use a slider to adjust a known, bounded value such as brightness or volume. Pair it with a precise text field and visible decrease and increase buttons when the task requires an exact value. All inputs represent one draft. Keep the last reported device value separate.
+
+**This is a civica.uk component extension.** The current GOV.UK, Ministry of Justice, NHS, DWP, Home Office, ONS and Scottish Government catalogues reviewed on 12 November 2026 do not list a slider component. This is a finding about those published catalogues, not proof that no earlier or unpublished experiment exists. The [UK systems review](../community/uk-design-system-review.html) records the source inventory and decisions.
+
+GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against slider questions and requires a non-drag alternative if one is used. The local exception is adjustment of an existing device setting. It does not justify using a slider to collect a person's precise answer in an ordinary form.
+
+## Choose the right control
+
+| Task | Use | Do not infer |
+| --- | --- | --- |
+| Adjust brightness or volume approximately | A native range plus a visible value and alternative input | That 0% means off or mute for every integration |
+| Set an exact temperature or offset | Precise text entry and step buttons; a range may supplement them | A universal range, step, temperature unit or safe setting |
+| Choose a named mode | Radios or a select with actual supported options | A numeric sequence between unrelated modes |
+| Show a measurement | Text, a gauge or a chart with its unit and date | An editable slider merely because the value is numeric |
+| Move a cover, valve or other mechanism | The [access and movement contract](../home-assistant/access-and-movement.html) and the actual supported position control | That moving a draft thumb is harmless or immediately confirms movement |
+| Set two related bounds | Two separately labelled exact fields with ordering validation | That two overlapping slider thumbs are an accessible default |
+
+Use the [continuous-controls pattern](../home-assistant/continuous-controls.html) for live updates, permissions, physical actions and reconciliation. This page owns the reusable input anatomy and reference appearance.
+
+## Component anatomy and appearance
+
+Keep a persistent device heading, a separately labelled reported value, a draft label, visible minimum/maximum/step instructions, the range, precise entry, step buttons and an explicit action. State the unit in the labels; do not rely on a coloured track or a suffix alone. Use the shared civica.uk typography, ink input boundaries, quiet surrounding dividers and yellow-and-ink focus treatment.
+
+The thumb remains round so it reads as something that moves along a track. Provide a control area at least 44 CSS pixels high, enough space for the thumb and focus ring, and wrapping step buttons. A square-card rule must not flatten the thumb into a badge or obscure its selected position. Do not use red/green position colouring to imply danger or success across an ordinary range. Respect forced colours instead of suppressing the user's palette.
+
+The reference markup uses native `input type="range"`. Let the browser supply its slider role and numeric bounds. Do not add a second `role="slider"` wrapper or duplicate `aria-valuenow` that can drift. A meaningful `aria-valuetext` supplies the unit. Exact entry uses `type="text"`; [GOV.UK text-input guidance](https://design-system.service.gov.uk/components/text-input/) cautions against number inputs without evidence of need. The signed example omits `inputmode="decimal"` because some mobile keypads omit the minus sign.
+
+## Complete examples
+
+These examples use invented capabilities and readings. Changing a control updates a local draft. Submitting gives local feedback; it never sends a Home Assistant action or changes the reported observation. Without JavaScript the form controls are disabled and the explanatory content remains available.
+
+### Brightness with three equivalent input methods
+
+The precise field and step buttons provide alternatives to dragging. A minimum of 1% is an invented capability, not a rule for all lights. On/off remains a separate device action.
+
+<%= example('slider-brightness') %>
+
+### An exact decimal target
+
+The half-degree step is validated relative to the minimum. Entering a value such as 20.2 does not silently round the draft or move the thumb to a different value.
+
+<%= example('slider-temperature') %>
+
+### A signed value
+
+Zero and negative values are valid in this invented display-offset range. Neither signifies an unknown reading. A text field preserves access to a minus sign on mobile keyboards.
+
+<%= example('slider-signed-offset') %>
+
+### A failed request
+
+The earlier reported value stays at 25%. The retained 40% draft is clearly a proposed change. Repeating this local preview demonstrates a failure response without issuing a command.
+
+<%= example('slider-request-failed') %>
+
+### An unavailable device
+
+A range input always has a numeric position. Hide the editable range when no usable value is available instead of presenting its minimum or midpoint as a measurement. Keep the device name, reason and details route.
+
+<%= example('slider-unavailable') %>
+
+## State and failure contract
+
+| State | Required behaviour |
+| --- | --- |
+| Valid reported value | Format the unit and preserve the integration's actual minimum, maximum and step |
+| Editing a valid draft | Synchronise range, precise entry and step buttons without submitting |
+| Empty, non-numeric, out-of-range or off-step text | Preserve the typed text; explain the constraint; leave the last valid thumb position unchanged; prevent submission |
+| At an endpoint | Prevent another step beyond the bound; never wrap from maximum to minimum |
+| Request pending | Prevent an accidental duplicate for the same target; retain the requested value and the earlier reported value |
+| Request accepted | Say that the request was accepted or sent; wait for an appropriate reported observation before saying the device changed |
+| Request failed or timed out | Retain the draft for review and the latest reported reading; offer a deliberate retry only when the target remains usable |
+| Unknown or unavailable | Explain why the value cannot be adjusted; do not fabricate a numeric observation |
+| Range, permissions or units change during editing | Revalidate the draft and explain the new constraint before any commit; do not silently clamp and send |
+| Another person or automation changes the device | Reconcile the new observation with the local draft; do not overwrite an active edit on every unrelated update |
+
+## Implementation contract
+
+The documentation handler enhances `form[data-civica-slider]` only. `data-slider-min`, `data-slider-max`, `data-slider-step` and `data-slider-unit` describe the synthetic draft. They are not service-call parameters. Native range attributes must agree with these values. `data-slider-outcome` selects the local demonstration response, not a real backend result.
+
+Use `data-slider-range` for the range and `data-slider-value` for precise entry. Buttons with `data-slider-step="-1"` or `"1"` move by one declared increment. `data-slider-output` shows the valid draft and uses `aria-live="off"` to avoid repeating every native range announcement. The range retains its meaningful `aria-valuetext`, including the unit. `data-slider-error` is associated with both inputs; request feedback uses the separate `data-demo-status` region. Do not announce every drag event through an assertive live region.
+
+A real integration must use native Home Assistant capability and action contracts. Retain the existing commit policy where it is appropriate; adding a second `input` or `change` service listener can send duplicate requests. The shared examples do not replace `ha-control-slider`, colour-temperature controls, media seeking, climate cards or native More info dialogs. The theme and a documentation stylesheet cannot add exact-entry behaviour to every native control.
+
+## Keyboard, touch and accessibility
+
+Native ranges normally support arrows and endpoints; verify the actual target browser and Home Assistant control. Page Up and Page Down are not universal required shortcuts. Keep focus visible, preserve the label outside the moving thumb and allow all alternatives to work without a pointer. A keyboard alternative alone does not establish a single-pointer alternative to dragging. The visible step buttons provide that route for this component.
+
+The [W3C slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) warns that touch assistive technologies need particular testing. Test VoiceOver and TalkBack on physical touch devices before making a production accessibility claim. The [WCAG dragging guidance](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html) explains the separate requirement for a simple pointer alternative.
+
+<h2 id="slider-acceptance">Acceptance and evidence</h2>
+
+1. Adjust each specimen with arrows, endpoints, exact text and step buttons. Confirm all valid draft displays agree and reported text is unchanged.
+2. Check empty text, a minus sign during entry, decimal steps, both endpoints, out-of-range values and off-step values. Invalid text must not be silently replaced or sent.
+3. Confirm a local accepted response is distinguishable from a failure and neither implies a physical outcome. Changing the draft must not produce a network request.
+4. Use keyboard-only operation, 320px layout, 200% text, forced colours and touch assistive technology. Check labels, units, focus, error associations and usable alternatives.
+5. Turn off JavaScript. The documentation form must not submit or navigate on Enter; its limitations and static readings must remain understandable.
+6. For native deployment, record frontend and integration versions, capabilities, commit policy, permission changes, remote updates, disconnection and request results. Reference examples are not evidence that these native cases have passed.
+
+See the [native task test matrix](../home-assistant/native-task-accessibility.html). Automated documentation checks, manual screen-reader work and live-device verification are separate evidence classes.
+
+## Sources and decisions
+
+- [GOV.UK Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders): constraint on slider questions and non-drag alternatives.
+- [GOV.UK Text input](https://design-system.service.gov.uk/components/text-input/): precise-entry input choice and decimal/negative keyboard considerations.
+- [HTML range state](https://html.spec.whatwg.org/multipage/input.html#range-state-(type=range)): native control, bounds and step behaviour.
+- [W3C Slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) and [Dragging movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html): accessibility requirements and test limitations.
+- [USWDS Range slider](https://designsystem.digital.gov/components/range-slider/): a published United States comparator, not a UK component or a claim about this project's provenance.
+
+Reviewed on 12 November 2026. The local track styling, precision alternatives and household state model are civica.uk decisions. No official government logo, font asset or component certification is transferred to this implementation.

@@ -1,0 +1,68 @@
+examples:
+  admin-discovery:
+    title: A discovered device ready for review
+    description: A setup opportunity with an identity and a complete local destination, without claiming that discovery establishes trust or readiness.
+    height: 550
+    html: >-
+      <section aria-labelledby="discovery-heading"><h2 class="govuk-heading-m" id="discovery-heading">Discovered living room bridge</h2>
+      <p class="govuk-body">Invented discovery record. This bridge has not been set up.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Source</dt><dd class="govuk-summary-list__value">Example local-network discovery</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Identifier</dt><dd class="govuk-summary-list__value"><code>example-bridge-014</code></dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reported at</dt><dd class="govuk-summary-list__value"><time datetime="2026-11-12T00:00:00Z">12 November 2026 at 00:00 GMT</time> (Europe/London)</dd></div></dl>
+      <p class="govuk-body"><a class="govuk-link" href="#discovery-details">Review this example discovery</a></p>
+      <div id="discovery-details"><h3 class="govuk-heading-s">Before setup</h3><p class="govuk-body">A connected flow would show the integration's own setup and identity checks. This example does not pair a bridge or collect credentials. A discovered name alone does not establish who owns the device.</p></div></section>
+  admin-credential-status:
+    title: Reauthentication with a clear credential boundary
+    description: The problem names the affected integration without exposing a token or pretending that a local example can authenticate it.
+    height: 550
+    html: >-
+      <section aria-labelledby="credentials-heading"><h2 class="govuk-heading-m" id="credentials-heading">Example weather connection needs attention</h2>
+      <p class="govuk-body">Synthetic integration status: <strong>Sign-in required</strong>.</p><p class="govuk-body">The example connection reported an expired authorisation at <time datetime="2026-11-12T00:00:00Z">12 November 2026 at 00:00 GMT</time> (Europe/London). This does not report a problem with your Home Assistant account.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Integration</dt><dd class="govuk-summary-list__value">Example weather provider</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Credentials</dt><dd class="govuk-summary-list__value">Not shown</dd></div></dl>
+      <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">How reauthentication would work</span></summary><div class="govuk-details__text"><p>Use the actual integration's native reauthentication flow. This specimen has no sign-in field or account connection. Keep tokens out of copied logs and error reports.</p><p>A local button response would not prove that the provider accepted new credentials.</p></div></details></section>
+  admin-protocol-diagnostics:
+    title: Protocol observations with unknown results
+    description: Adapter state, device observation and signal units are separate; a missing row is not reported as a working device.
+    height: 650
+    html: >-
+      <section aria-labelledby="protocol-heading"><h2 class="govuk-heading-m" id="protocol-heading">Example Bluetooth observations</h2>
+      <p class="govuk-body">Invented observations for adapter <code>example-adapter-1</code>, at <time datetime="2026-11-12T00:00:00Z">12 November 2026 at 00:00 GMT</time> (Europe/London). Adapter connection: <strong>Connected</strong>.</p>
+      <table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">Two example devices</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Device</th><th class="govuk-table__header" scope="col">Last observation</th><th class="govuk-table__header" scope="col">Signal strength</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Kitchen thermometer</th><td class="govuk-table__cell">00:00 GMT</td><td class="govuk-table__cell">−61 dBm</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Hall sensor</th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">Unknown</td></tr></tbody></table>
+      <p class="govuk-body">A connected adapter does not confirm that every sensor is available. Signal strength is one observation, not a general device-health score. This example performs no scan.</p></section>
+  admin-app-state:
+    title: App running state and a separate startup setting
+    description: A local draft for Start on boot does not imply that a process was started, stopped or saved.
+    height: 600
+    html: >-
+      <section aria-labelledby="app-heading"><h2 class="govuk-heading-m" id="app-heading">Example app</h2>
+      <p class="govuk-body">Invented installation record. Last reported process state: <strong>Running</strong>, at <time datetime="2026-11-12T00:00:00Z">12 November 2026 at 00:00 GMT</time> (Europe/London). Installed version: <code>1.0.0-example</code>. Update availability has not been supplied.</p>
+      <form data-demo-form data-demo-success="Example startup choice reviewed locally. No app was started or stopped and no setting was saved."><div class="govuk-form-group"><label class="govuk-label" for="app-startup">Start on boot — example draft</label><p class="govuk-hint" id="app-startup-hint">This startup preference is separate from whether the process is running now.</p><select class="govuk-select" id="app-startup" aria-describedby="app-startup-hint"><option>Off</option><option>On</option></select></div><button class="govuk-button" type="submit">Review example startup choice</button><p class="govuk-body" role="status" data-demo-status></p></form>
+      <p class="govuk-body">Apps are available only on supported installation types. Use the actual native management interface for installation, permissions and lifecycle actions.</p></section>
+  system-state-tool:
+    title: A diagnostic state experiment is not a device command
+    description: A synthetic state-tool explanation keeps represented state, physical equipment and downstream automation effects distinct.
+    height: 600
+    html: >-
+      <section aria-labelledby="state-tool-heading"><h2 class="govuk-heading-m" id="state-tool-heading">Review an example state experiment</h2>
+      <p class="govuk-body">This specimen is disconnected from Home Assistant. The entity identifier and observations are invented.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Entity ID</dt><dd class="govuk-summary-list__value"><code>light.example_reading_lamp</code></dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Earlier reported state</dt><dd class="govuk-summary-list__value"><code>off</code>, at <time datetime="2026-11-12T00:00:00Z">12 November 2026 at 00:00 GMT</time> (Europe/London)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Proposed experiment</dt><dd class="govuk-summary-list__value">Represent the state as <code>on</code></dd></div></dl>
+      <div class="govuk-inset-text">In the native States tool, setting a state does not itself turn on the lamp. The state change can still trigger automations that operate equipment.</div>
+      <button class="govuk-button govuk-button--secondary" type="button" data-demo-message="Example explanation reviewed. No state, event, automation or device was changed.">Preview explanation feedback</button><p class="govuk-body" role="status" data-demo-status></p></section>
+  system-privacy-choice:
+    title: An instance-wide choice with explicit scope
+    description: A fictional analytics choice names the data and recipient rather than implying a blanket privacy guarantee.
+    height: 650
+    html: >-
+      <section aria-labelledby="privacy-choice-heading"><h2 class="govuk-heading-m" id="privacy-choice-heading">Review an example usage-report setting</h2>
+      <p class="govuk-body">Fictional setting for demonstrating content. This is not a description of Home Assistant's analytics payload.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Setting scope</dt><dd class="govuk-summary-list__value">The example instance</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Data described by this example</dt><dd class="govuk-summary-list__value">An installation count and software version</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Recipient</dt><dd class="govuk-summary-list__value">A fictional reporting service; this page has no connection to it</dd></div></dl>
+      <form data-demo-form data-demo-success="Example choice reviewed. Nothing was saved or sent. This is not a change to Home Assistant analytics, AI or any account setting."><div class="govuk-form-group"><label class="govuk-label" for="report-choice">Example report choice</label><select class="govuk-select" id="report-choice"><option>Do not send</option><option>Send the described example report</option></select></div><button class="govuk-button" type="submit">Review example choice</button><p class="govuk-body" role="status" data-demo-status></p></form>
+      <p class="govuk-body">A real setting must use the feature's actual data description, recipient, permission checks and confirmation. Do not replace them with this invented payload.</p></section>
+  system-storage-status:
+    title: Storage observations without a recovery guarantee
+    description: Named volumes, units, observation time and unavailable data remain distinct from claims about backups or health.
+    height: 600
+    html: >-
+      <section aria-labelledby="storage-heading"><h2 class="govuk-heading-m" id="storage-heading">Example storage observations</h2>
+      <p class="govuk-body">Invented values from <time datetime="2026-11-12T00:00:00Z">12 November 2026 at 00:00 GMT</time> (Europe/London). GiB is a binary storage unit; these values have not been relabelled as decimal GB.</p>
+      <table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">Capacity by example volume</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Volume</th><th class="govuk-table__header" scope="col">Total</th><th class="govuk-table__header" scope="col">Available</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Example data volume</th><td class="govuk-table__cell">64 GiB</td><td class="govuk-table__cell">18 GiB</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Example network share</th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">Unavailable</td></tr></tbody></table>
+      <p class="govuk-body">Available space does not establish that a backup is complete or restorable. The network-share row is unavailable, not empty or zero. No storage check runs in this specimen.</p>
+      <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">Sharing diagnostics</span></summary><div class="govuk-details__text">Review logs and copied diagnostics for credentials, private paths and household data before sharing them. Keep timestamps and relevant error context without publishing unrelated personal information.</div></details></section>

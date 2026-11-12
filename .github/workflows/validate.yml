@@ -32,6 +32,7 @@ jobs:
         working-directory: docs
       - run: python3 scripts/check-docs.py
       - run: npm run check:guidance
+      - run: npm run check:coverage
       - run: npm run check:brand
       # The hosted runner supplies Chromium's shared libraries. Install the
       # pinned browser without a redundant, network-dependent apt refresh.

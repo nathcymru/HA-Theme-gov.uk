@@ -47,7 +47,13 @@ a:focus-visible { background:#ffdd00; color:#0b0c0c; text-decoration:none; }
 .c-page-contents ul ul { padding-left:15px; margin:8px 0; }
 .c-content { min-width:0; max-width:870px; margin:0; }
 .technical-documentation > h1:first-of-type { padding-top:0; }
+.technical-documentation { overflow-wrap:anywhere; }
 .technical-documentation code { overflow-wrap:anywhere; }
+/* Long terminology inventories retain native disclosure semantics and shared roles. */
+.civica-audit-detail { margin:20px 0; padding-bottom:16px; border-bottom:1px solid var(--c-border); }
+.civica-audit-detail > summary { color:#1a65a6; cursor:pointer; text-decoration:underline; text-underline-offset:.15em; padding:4px 0; }
+.civica-audit-detail[open] > summary { margin-bottom:16px; }
+.civica-audit-detail > p:last-child { margin-bottom:0; }
 .technical-documentation h1 { margin-top:0; font-size:48px; line-height:1.08; letter-spacing:-.02em; }
 .technical-documentation h2 { margin-top:40px; font-size:30px; line-height:1.2; }
 .technical-documentation h3 { font-size:24px; line-height:1.25; }

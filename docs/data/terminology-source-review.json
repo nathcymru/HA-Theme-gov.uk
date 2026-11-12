@@ -1,0 +1,570 @@
+{
+  "reviewed_on": "2026-11-12",
+  "baseline": "99f57ea",
+  "scope": "Authored terminology supplement and static source/structure checks; no build, browser, translation-quality or live-device verification by this author.",
+  "source_versions": {
+    "home_assistant_core": {
+      "version": "2026.11.1",
+      "commit": "d8a0dc698c8946b44e455d904000db563cfbf1ba"
+    },
+    "frontend": {
+      "version": "20261028.5",
+      "commit": "e32bc0696ebefde323f5b791269ad0c57f3f99d9",
+      "release_published_on": "2026-11-06"
+    },
+    "website": {
+      "commit": "644bcefb1b42d1f50d26847d7d11df06c3b84ae2",
+      "observed_release_label": "2026.11.1",
+      "checked_on": "2026-11-12"
+    }
+  },
+  "counts": {
+    "chapters": 4,
+    "examples": 12,
+    "terms": 456,
+    "native_context_labels": 681,
+    "inventories": 17,
+    "exact_term_label_pointers_checked": 200,
+    "supplemental_domain_mappings": 18
+  },
+  "writing_refresh": {
+    "reviewed_on": "2026-11-12",
+    "previous_reviewed_on": "2026-11-11",
+    "sources_with_previous_hash": 37,
+    "byte_identical_sources": 37,
+    "newly_hashed_indices": [
+      "PEC",
+      "SCULPT"
+    ],
+    "rule_changes_required": false,
+    "reason": "No change to the 37 hashed writing sources. The current Plain English index and SCULPT framework do not establish a contradiction with the adopted source scopes. A source refresh is not a new compliance pass for all authored content.",
+    "sources": [
+      {
+        "id": "NHS-WRITE",
+        "url": "https://service-manual.nhs.uk/content/how-we-write",
+        "final_url": "https://service-manual.nhs.uk/content/how-we-write",
+        "sha256": "783c271a731d20dd9be6443e94fec0706bc788964da37d8b4b0f414e7f6af0fc",
+        "previous_sha256": "783c271a731d20dd9be6443e94fec0706bc788964da37d8b4b0f414e7f6af0fc",
+        "raw_html_matches_previous": true,
+        "bytes": 17214,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-VOICE",
+        "url": "https://service-manual.nhs.uk/content/voice-and-tone",
+        "final_url": "https://service-manual.nhs.uk/content/voice-and-tone",
+        "sha256": "42ff394301c205d588f3fb227f4b9dc13918321c6c8f20d55d46cba38fcfcbc0",
+        "previous_sha256": "42ff394301c205d588f3fb227f4b9dc13918321c6c8f20d55d46cba38fcfcbc0",
+        "raw_html_matches_previous": true,
+        "bytes": 15255,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-LITERACY",
+        "url": "https://service-manual.nhs.uk/content/health-literacy",
+        "final_url": "https://service-manual.nhs.uk/content/health-literacy",
+        "sha256": "7f2d6b5d8dd164889d0ad4466d5f9141ea8ef35d1310232214796e309ce2d9fa",
+        "previous_sha256": "7f2d6b5d8dd164889d0ad4466d5f9141ea8ef35d1310232214796e309ce2d9fa",
+        "raw_html_matches_previous": true,
+        "bytes": 17388,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMAT",
+        "url": "https://service-manual.nhs.uk/content/formatting",
+        "final_url": "https://service-manual.nhs.uk/content/formatting",
+        "sha256": "c5c536ffc2c68f4defd521baf6bcc4170d85d14ec0e91907128455be07df935d",
+        "previous_sha256": "c5c536ffc2c68f4defd521baf6bcc4170d85d14ec0e91907128455be07df935d",
+        "raw_html_matches_previous": true,
+        "bytes": 25377,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-PUNCT",
+        "url": "https://service-manual.nhs.uk/content/punctuation",
+        "final_url": "https://service-manual.nhs.uk/content/punctuation",
+        "sha256": "9d533af867d565706a9e9ec9bae26069a90ad2386ea510dd52ed4633a1875d6e",
+        "previous_sha256": "9d533af867d565706a9e9ec9bae26069a90ad2386ea510dd52ed4633a1875d6e",
+        "raw_html_matches_previous": true,
+        "bytes": 26932,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-NUMBERS",
+        "url": "https://service-manual.nhs.uk/content/numbers-measurements-dates-time",
+        "final_url": "https://service-manual.nhs.uk/content/numbers-measurements-dates-time",
+        "sha256": "7567fb897ce151321963b869b091c1adb99dc05a789030beff2944a51746e5ef",
+        "previous_sha256": "7567fb897ce151321963b869b091c1adb99dc05a789030beff2944a51746e5ef",
+        "raw_html_matches_previous": true,
+        "bytes": 25472,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-MESSAGES",
+        "url": "https://service-manual.nhs.uk/content/writing-nhs-messages",
+        "final_url": "https://service-manual.nhs.uk/content/writing-nhs-messages",
+        "sha256": "2cddf1661c22ffa4d47111649d117dbd9530b1b30cb46410394274d5a716c1f4",
+        "previous_sha256": "2cddf1661c22ffa4d47111649d117dbd9530b1b30cb46410394274d5a716c1f4",
+        "raw_html_matches_previous": true,
+        "bytes": 44426,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-REVIEW",
+        "url": "https://service-manual.nhs.uk/content/standard-for-creating-health-content",
+        "final_url": "https://service-manual.nhs.uk/content/standard-for-creating-health-content",
+        "sha256": "33fe0ef678cedefc14e070c7e5ca1b0c9525327ccaf9047b1bb8ef92d3c90f4e",
+        "previous_sha256": "33fe0ef678cedefc14e070c7e5ca1b0c9525327ccaf9047b1bb8ef92d3c90f4e",
+        "raw_html_matches_previous": true,
+        "bytes": 18856,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-DOCUMENTS",
+        "url": "https://service-manual.nhs.uk/content/pdfs-and-other-non-html-documents",
+        "final_url": "https://service-manual.nhs.uk/content/pdfs-and-other-non-html-documents",
+        "sha256": "0126c39be1dece10cee763c33bd7bebe9369ead17e4aa62b36f90f9c41a97694",
+        "previous_sha256": "0126c39be1dece10cee763c33bd7bebe9369ead17e4aa62b36f90f9c41a97694",
+        "raw_html_matches_previous": true,
+        "bytes": 17700,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-BSL",
+        "url": "https://service-manual.nhs.uk/content/british-sign-language-bsl-quality-assurance-standard",
+        "final_url": "https://service-manual.nhs.uk/content/british-sign-language-bsl-quality-assurance-standard",
+        "sha256": "a70a8675aa4d5b9c0e5aa56d03ccb684278bf8e57e56a49523fb3e98379767d2",
+        "previous_sha256": "a70a8675aa4d5b9c0e5aa56d03ccb684278bf8e57e56a49523fb3e98379767d2",
+        "raw_html_matches_previous": true,
+        "bytes": 18319,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-INCLUSIVE",
+        "url": "https://service-manual.nhs.uk/content/inclusive-content",
+        "final_url": "https://service-manual.nhs.uk/content/inclusive-content",
+        "sha256": "855ad2d08abefcb81fbf8d2418b64df75cdf818e131b5a1a7fcabb0fabbf146d",
+        "previous_sha256": "855ad2d08abefcb81fbf8d2418b64df75cdf818e131b5a1a7fcabb0fabbf146d",
+        "raw_html_matches_previous": true,
+        "bytes": 13743,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-AGE",
+        "url": "https://service-manual.nhs.uk/content/inclusive-content/age",
+        "final_url": "https://service-manual.nhs.uk/content/inclusive-content/age",
+        "sha256": "9ebea7edde5bfae960090658074cad80134b3d9e1c5ac739b93ba0e7e5c6a8ae",
+        "previous_sha256": "9ebea7edde5bfae960090658074cad80134b3d9e1c5ac739b93ba0e7e5c6a8ae",
+        "raw_html_matches_previous": true,
+        "bytes": 16091,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-DISABILITY",
+        "url": "https://service-manual.nhs.uk/content/inclusive-content/disabilities-and-conditions",
+        "final_url": "https://service-manual.nhs.uk/content/inclusive-content/disabilities-and-conditions",
+        "sha256": "084fd6d4132c2ceb34d013845232e578856326880f56b6f0517ca2492314d15b",
+        "previous_sha256": "084fd6d4132c2ceb34d013845232e578856326880f56b6f0517ca2492314d15b",
+        "raw_html_matches_previous": true,
+        "bytes": 13779,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-ETHNICITY",
+        "url": "https://service-manual.nhs.uk/content/inclusive-content/ethnicity-religion-and-nationality",
+        "final_url": "https://service-manual.nhs.uk/content/inclusive-content/ethnicity-religion-and-nationality",
+        "sha256": "b793f1b7f8e851eb50896f1074c31607ea473c521eff922cb3ee730088d58913",
+        "previous_sha256": "b793f1b7f8e851eb50896f1074c31607ea473c521eff922cb3ee730088d58913",
+        "raw_html_matches_previous": true,
+        "bytes": 14237,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-GENDER",
+        "url": "https://service-manual.nhs.uk/content/inclusive-content/sex-gender-and-sexuality",
+        "final_url": "https://service-manual.nhs.uk/content/inclusive-content/sex-gender-and-sexuality",
+        "sha256": "099fe25ba0f5ceca38ee72492e36cc1eb2b73438e53021655f0e6160d0c65a3d",
+        "previous_sha256": "099fe25ba0f5ceca38ee72492e36cc1eb2b73438e53021655f0e6160d0c65a3d",
+        "raw_html_matches_previous": true,
+        "bytes": 17978,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-AZ",
+        "url": "https://service-manual.nhs.uk/content/a-to-z-of-nhs-health-writing",
+        "final_url": "https://service-manual.nhs.uk/content/a-to-z-of-nhs-health-writing",
+        "sha256": "87635b11c2f2fd08005b91851749ae4df1d2bf28bbcc98f8eac77a336b753ca7",
+        "previous_sha256": "87635b11c2f2fd08005b91851749ae4df1d2bf28bbcc98f8eac77a336b753ca7",
+        "raw_html_matches_previous": true,
+        "bytes": 117839,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-NEED",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/understand-the-problem-before-you-write-your-questions",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/understand-the-problem-before-you-write-your-questions",
+        "sha256": "7f28b2ee785908ca43296985185b38a2a82cebd5517c2cf30801125c78646242",
+        "previous_sha256": "7f28b2ee785908ca43296985185b38a2a82cebd5517c2cf30801125c78646242",
+        "raw_html_matches_previous": true,
+        "bytes": 19757,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-MIN",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/make-sure-you-need-each-question",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/make-sure-you-need-each-question",
+        "sha256": "0f08fbe96de5dec4efcf5dcba6e8e752683e44b433d27fdd4705a09a5c2d6503",
+        "previous_sha256": "0f08fbe96de5dec4efcf5dcba6e8e752683e44b433d27fdd4705a09a5c2d6503",
+        "raw_html_matches_previous": true,
+        "bytes": 24615,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-SENSITIVE",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/consider-the-sensitivities-around-your-questions",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/consider-the-sensitivities-around-your-questions",
+        "sha256": "978593bdd52d5b70521f35301b5751b4650fb23d8c2aea3340754216043e8090",
+        "previous_sha256": "978593bdd52d5b70521f35301b5751b4650fb23d8c2aea3340754216043e8090",
+        "raw_html_matches_previous": true,
+        "bytes": 21696,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-ROUTES",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users",
+        "sha256": "9077cf563c42d231dbaff3992db1ce01af1f3fe67cb597f1f601572f4c627d6c",
+        "previous_sha256": "9077cf563c42d231dbaff3992db1ce01af1f3fe67cb597f1f601572f4c627d6c",
+        "raw_html_matches_previous": true,
+        "bytes": 24961,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-ORDER",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/get-the-questions-into-order",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/get-the-questions-into-order",
+        "sha256": "57c5949e823defc387fc542b9e23628a41a4c129d8df8b5cc6ebdf0ff6c177b3",
+        "previous_sha256": "57c5949e823defc387fc542b9e23628a41a4c129d8df8b5cc6ebdf0ff6c177b3",
+        "raw_html_matches_previous": true,
+        "bytes": 21649,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-TONE",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/think-of-the-form-as-a-conversation",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/think-of-the-form-as-a-conversation",
+        "sha256": "2d231cca248a4dbd1d23ffd851bd18d1195081c2f3ac76f0fed876e50f5e97cb",
+        "previous_sha256": "2d231cca248a4dbd1d23ffd851bd18d1195081c2f3ac76f0fed876e50f5e97cb",
+        "raw_html_matches_previous": true,
+        "bytes": 27542,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-HELP",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/write-the-supporting-content-for-your-form",
+        "sha256": "bd1074a5349aa829bfdaa94a541dc892f740c3e8fef3eec1dee718e491a3192b",
+        "previous_sha256": "bd1074a5349aa829bfdaa94a541dc892f740c3e8fef3eec1dee718e491a3192b",
+        "raw_html_matches_previous": true,
+        "bytes": 24575,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "NHS-FORMS-TEST",
+        "url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/test-your-questions",
+        "final_url": "https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/test-your-questions",
+        "sha256": "4e1ecfa4c590cdb85ce9f10b2a1ae1aea4c5dc258c6ea671aed1a351751b30af",
+        "previous_sha256": "4e1ecfa4c590cdb85ce9f10b2a1ae1aea4c5dc258c6ea671aed1a351751b30af",
+        "raw_html_matches_previous": true,
+        "bytes": 24743,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "HO-AZ",
+        "url": "https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide",
+        "final_url": "https://design.homeoffice.gov.uk/design-and-content/content/content-style-guide",
+        "sha256": "bbf57f0963de5871a11c989aed433d4b7b7d351e4b22f04bf1be70d86a761701",
+        "previous_sha256": "bbf57f0963de5871a11c989aed433d4b7b7d351e4b22f04bf1be70d86a761701",
+        "raw_html_matches_previous": true,
+        "bytes": 67940,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "HO-ENGLISH",
+        "url": "https://design.homeoffice.gov.uk/design-and-content/content/designing-for-limited-english",
+        "final_url": "https://design.homeoffice.gov.uk/design-and-content/content/designing-for-limited-english",
+        "sha256": "d5eb7f25d74ce4534909be2da61d5542fab92dae411f1b51fec22c121455f1c0",
+        "previous_sha256": "d5eb7f25d74ce4534909be2da61d5542fab92dae411f1b51fec22c121455f1c0",
+        "raw_html_matches_previous": true,
+        "bytes": 42559,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "HO-VOICE",
+        "url": "https://design.homeoffice.gov.uk/design-and-content/content/voice-and-tone",
+        "final_url": "https://design.homeoffice.gov.uk/design-and-content/content/voice-and-tone",
+        "sha256": "fb260c8be27daed1224a2312705dbb79a5f6b395c6f2046de7e10f45634a7c08",
+        "previous_sha256": "fb260c8be27daed1224a2312705dbb79a5f6b395c6f2046de7e10f45634a7c08",
+        "raw_html_matches_previous": true,
+        "bytes": 33048,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "HO-READABILITY",
+        "url": "https://design.homeoffice.gov.uk/accessibility/written-content/readability",
+        "final_url": "https://design.homeoffice.gov.uk/accessibility/written-content/readability",
+        "sha256": "e336d4b3cd5710012343a3406be3d4768eea6c8c8a52dcb6065d7931f1f3fcfd",
+        "previous_sha256": "e336d4b3cd5710012343a3406be3d4768eea6c8c8a52dcb6065d7931f1f3fcfd",
+        "raw_html_matches_previous": true,
+        "bytes": 36687,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "HO-INCLUSIVE",
+        "url": "https://design.homeoffice.gov.uk/accessibility/written-content/inclusive-language",
+        "final_url": "https://design.homeoffice.gov.uk/accessibility/written-content/inclusive-language",
+        "sha256": "a0fbe3ebdc170c4edb94cda6d55666d8b137ed4c77b0aea2854f22102dc12385",
+        "previous_sha256": "a0fbe3ebdc170c4edb94cda6d55666d8b137ed4c77b0aea2854f22102dc12385",
+        "raw_html_matches_previous": true,
+        "bytes": 35967,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-NEEDS",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+        "sha256": "5e5f54fdf3cec993287f36076e04e3fd77d2806234e88632494af16cd844c0fc",
+        "previous_sha256": "5e5f54fdf3cec993287f36076e04e3fd77d2806234e88632494af16cd844c0fc",
+        "raw_html_matches_previous": true,
+        "bytes": 24473,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-LANGUAGE",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/",
+        "sha256": "ef3badbaec02bf2046b1abcf2487d90248e032f4e7b4a4f0a5553438d91ee1f6",
+        "previous_sha256": "ef3badbaec02bf2046b1abcf2487d90248e032f4e7b4a4f0a5553438d91ee1f6",
+        "raw_html_matches_previous": true,
+        "bytes": 32321,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-STRUCTURE",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+        "sha256": "e2c7ca751ecead1060593c750a517056f492f4468db4c2551788e785b0b4ec81",
+        "previous_sha256": "e2c7ca751ecead1060593c750a517056f492f4468db4c2551788e785b0b4ec81",
+        "raw_html_matches_previous": true,
+        "bytes": 27847,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-TONE",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/",
+        "sha256": "fc2642da48bc08ea8a4863d6c0fce95f3f2be483bee3302b5e95b13f4865dd97",
+        "previous_sha256": "fc2642da48bc08ea8a4863d6c0fce95f3f2be483bee3302b5e95b13f4865dd97",
+        "raw_html_matches_previous": true,
+        "bytes": 27526,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-LINKS",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/add-links/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/add-links/",
+        "sha256": "fa79c2fba7e5900a38aa162e3080824e29b3b8deaf1435e65fcd151fca3c4c85",
+        "previous_sha256": "fa79c2fba7e5900a38aa162e3080824e29b3b8deaf1435e65fcd151fca3c4c85",
+        "raw_html_matches_previous": true,
+        "bytes": 30375,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-TITLES",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-titles/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-titles/",
+        "sha256": "6dd18df714f55835f28ea7f9dd8e59009bd856f8f085b14e55cf83a6c5b2e378",
+        "previous_sha256": "6dd18df714f55835f28ea7f9dd8e59009bd856f8f085b14e55cf83a6c5b2e378",
+        "raw_html_matches_previous": true,
+        "bytes": 30415,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-SUMMARIES",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/summaries/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/summaries/",
+        "sha256": "b0ab1364a5f607188530180f5bcf3a429c450924efba07b03006db3525afe9cc",
+        "previous_sha256": "b0ab1364a5f607188530180f5bcf3a429c450924efba07b03006db3525afe9cc",
+        "raw_html_matches_previous": true,
+        "bytes": 26028,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "GOV-CHANGES",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/change-notes/",
+        "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/change-notes/",
+        "sha256": "a950b1dea1c03409d46bd797b52348e392edd919facd088da147efd3c6ce59e7",
+        "previous_sha256": "a950b1dea1c03409d46bd797b52348e392edd919facd088da147efd3c6ce59e7",
+        "raw_html_matches_previous": true,
+        "bytes": 27770,
+        "checked_on": "2026-11-12",
+        "result": "byte-identical-to-2026-11-11"
+      },
+      {
+        "id": "PEC",
+        "url": "https://www.plainenglish.co.uk/free-guides",
+        "final_url": "https://www.plainenglish.co.uk/free-guides",
+        "sha256": "d06fac32c5a47f1b4293f2dd6ea82defb86727da84dad74cb5397eb8c20265bc",
+        "previous_sha256": null,
+        "raw_html_matches_previous": false,
+        "bytes": 78913,
+        "checked_on": "2026-11-12",
+        "result": "current-index-reviewed-no-prior-hash",
+        "review_scope": "Current free-guides index and publishing restriction reviewed. Existing four-guide synthesis remains dated 2026-11-11; this refresh does not claim every linked PDF was reread."
+      },
+      {
+        "id": "SCULPT",
+        "url": "https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt",
+        "final_url": "https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt",
+        "sha256": "b81f02e9fd37a9dce302e70911525a2b2c1b4e771415e6f4f156fdf21e3105f2",
+        "previous_sha256": null,
+        "raw_html_matches_previous": false,
+        "bytes": 99828,
+        "checked_on": "2026-11-12",
+        "result": "current-index-reviewed-no-prior-hash",
+        "review_scope": "Current framework page reviewed: extended mnemonic and attribution/licence boundary agree with the existing chapter. No prior HTML hash was recorded, so unchanged bytes cannot be established."
+      }
+    ]
+  },
+  "source_checks": {
+    "official_glossary_count": 83,
+    "missing_glossary_entries": [],
+    "extra_glossary_entries": [],
+    "entity_platforms": 45,
+    "card_keys": 71,
+    "feature_keys": 53,
+    "selector_keys": 61,
+    "view_keys": 4,
+    "native_label_pointer_mismatches": [],
+    "all_terms_have_inventory_membership": true,
+    "duplicate_term_ids": 0,
+    "duplicate_native_label_ids": 0,
+    "example_markup": "All12 YAML specimens parsed; IDs unique within each specimen; local fragment/label/ARIA references resolve; no click-handler message placed on a form.",
+    "additional_native_state_domains": 15,
+    "missing_additional_domains": [],
+    "extra_domains_in_native_census": [],
+    "separately_documented_domains": [
+      "plant",
+      "zone",
+      "schedule"
+    ],
+    "all_supplemental_mappings_resolve": true
+  },
+  "bounded_review_corrections": [
+    {
+      "id": "TERM-REV-001",
+      "result": "fixed",
+      "detail": "Use data-demo-success on the validated example form; do not announce success from a field click."
+    },
+    {
+      "id": "TERM-REV-002",
+      "result": "fixed",
+      "detail": "Domain definition includes integration and action namespaces, with provider/entity-family distinctions."
+    },
+    {
+      "id": "TERM-REV-003",
+      "result": "fixed",
+      "detail": "Helper creation and saved state changes can trigger dependent automations; only opening/draft editing is described as non-dispatching."
+    },
+    {
+      "id": "TERM-REV-004",
+      "result": "fixed",
+      "detail": "Classified underscore as a translation fallback key, not a copyable entity or device-class identifier."
+    },
+    {
+      "id": "TERM-REV-005",
+      "result": "fixed",
+      "detail": "Added all15 state domains from the native row/dialog census via reusable concept/helper entries, plus separately scoped Plant/Zone/Schedule. Five additional original domain explanations now cover Alert, Configurator, Person, Sun and Plant Monitor."
+    },
+    {
+      "id": "TERM-REV-006",
+      "result": "fixed",
+      "detail": "Person explanation explicitly includes away (not_home) alongside home and named-zone outcomes."
+    }
+  ],
+  "existing_navigation_findings": [
+    {
+      "id": "TERM-DRIFT-001",
+      "path": "README.md",
+      "line": 45,
+      "current": "Developer tools → Actions → frontend.reload_themes",
+      "proposed": "Settings → Tools → Actions → frontend.reload_themes",
+      "reason": "Pinned frontend labels Settings dashboard Tools and the Actions tab; preserve frontend.reload_themes literally.",
+      "resolution": "Parent corrected the current instruction/wording on 2026-11-12; no literal route or backend identifier changed."
+    },
+    {
+      "id": "TERM-DRIFT-002",
+      "path": "docs/source/components/navigation.html.md.erb",
+      "line": 40,
+      "current": "Energy, History, Map, Settings and developer tools retain their native routes.",
+      "proposed": "Energy, History, Map and Settings, including Tools, retain their native routes.",
+      "reason": "Consistency with the current Tools destination; no route or backend identifier change.",
+      "resolution": "Parent corrected the current instruction/wording on 2026-11-12; no literal route or backend identifier changed."
+    }
+  ],
+  "retained_historical_language": "No current Add-ons or Services-tab instruction defect confirmed elsewhere in the authored guide/example search. Historical labels, literal backend service fields, source names and ordinary services remain valid in context.",
+  "provenance": {
+    "website_licence": "CC-BY-NC-SA-4.0; native glossary names/aliases and links only, original household definitions",
+    "native_labels_licence": "Apache-2.0; source versions, change notice and full licence text in register.provenance",
+    "new_artwork": "none"
+  },
+  "pending": [
+    "Independent final content review completion",
+    "Parent integrated documentation and rendered checks; parent reports scoped wrapping correction and disclosure styles in progress",
+    "No live native/device or translated-language coverage claimed"
+  ],
+  "current_owned_files": {
+    "docs/data/ha-terminology.json": "1a1b472e48add357943611a3072321e6664bf03b83e1aa4bb7463830a7a3876b",
+    "docs/data/terminology-examples.yml": "505804b8ced997466985f5760c40972708f1ab34f473ba6bfe75f942649c663a",
+    "docs/source/content/home-assistant-terminology.html.md.erb": "e346c6459cae7f874121c5163a71d6309415ad638bc3cfdf9b771cd5331d3921",
+    "docs/source/content/ha-glossary.html.md.erb": "d5cb00c0121fcfc8219bcca76f6d1ab9dcc927f714aa1d66d0a0c41db76c715f",
+    "docs/source/content/entity-and-state-language.html.md.erb": "7dccaf1f4ad730c436a8f4076d5e6784e0c2e5b993c5f3bf93a20b6bc8007893",
+    "docs/source/content/interface-terminology.html.md.erb": "aa72e47432226a960e6d6195a1de488e340750517c38161658f23de4419ff9e8"
+  }
+}

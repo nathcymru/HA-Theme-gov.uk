@@ -3,8 +3,10 @@ title: "Source coverage and implementation status"
 description: "An auditable mapping of the GOV.UK, NHS and publishing-guide catalogues to civica.uk guidance and examples."
 section: community
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: 2026-11-12
 updates:
+  - date: 2026-11-12
+    description: "Added the pinned Home Assistant interface census, terminology supplement, wider UK systems review and slider owner."
   - date: 2026-11-11
     description: "Separated current guide and example counts, shared component owners and maintained custom-card types."
   - date: 2026-11-11
@@ -34,16 +36,19 @@ A working documentation control proves its local example behaviour. A live Home 
 | [NHS patterns](https://service-manual.nhs.uk/design-system/patterns) | 13 | Inclusive content, household tasks and page patterns |
 | [Publishing Design Guide](https://design-guide.publishing.service.gov.uk/) | 42 | 11 components, 1 search-filter pattern and 30 page-template entries, including nested variants |
 
-Overlapping source entries share one canonical local page rather than creating competing implementations. The source counts therefore do not add up to a unique-page count. ONS charts, the MOJ notification badge and existing DWP/Home Office-informed guidance remain in their established sections.
+Overlapping source entries share one canonical local page rather than creating competing implementations. The source counts therefore do not add up to a unique-page count. The [dated UK systems review](uk-design-system-review.html) adds MoJ, DWP, Home Office, ONS and Scottish Government catalogue decisions, with detail-page review recorded separately.
 
 The machine-readable [coverage record](../reference/coverage.json) includes every source URL, local route and example ID. The [complete sitemap](../sitemap.html) and [search](../search.html) use the same Middleman page catalogue as section navigation.
 
 ## Local guidance and maintained implementation
 
 <% coverage_pages = guide_pages; coverage_examples = config[:civica_examples] %>
-<p>The current build contains <strong><%= coverage_pages.length %> guides</strong> and <strong><%= coverage_examples.length %> examples</strong>. The 68 component URLs have 58 canonical shared-rule owners. The 130 official source entries include 28 GOV.UK/NHS overlaps; these are source mappings to shared pages, not duplicate components.</p>
+<% owners = JSON.parse(File.read(File.join(root, 'data', 'component-rationalisation.json')))['current'] %>
+<p>The current build contains <strong><%= coverage_pages.length %> guides</strong> and <strong><%= coverage_examples.length %> examples</strong>. The <%= owners['componentPages'] %> component URLs have <%= owners['componentCanonicalOwners'] %> canonical shared-rule owners. The original 130 official source entries include 28 GOV.UK/NHS overlaps; these are source mappings to shared pages, not duplicate components.</p>
 
-The repository maintains three custom-card types: the lighting card, theme settings and action links. The legacy lighting name is an alias of the same component. Shell, Energy and the three household-card presentation adapters are separately listed in the [compatibility register](../home-assistant/compatibility-register.html); an adapter is not another installed card. The [30 Home Assistant specifications](../home-assistant/index.html) are design and acceptance guidance for existing native capabilities.
+The repository maintains three custom-card types: the lighting card, theme settings and action links. The legacy lighting name is an alias of the same component. Shell, Energy and the three household-card presentation adapters are separately listed in the [compatibility register](../home-assistant/compatibility-register.html); an adapter is not another installed card. The [Home Assistant specifications](../home-assistant/index.html) provide design and acceptance guidance. The [interface census](../home-assistant/interface-coverage.html) now maps each entry in the pinned built-in registries, including shared controls, settings and tools; it is more specific than the original 30-gap task list.
+
+The [terminology supplement](../content/home-assistant-terminology.html) records the official glossary, entity domains and selected native vocabulary. Use its explicit source denominators and version boundaries. It does not claim every vendor-defined integration label or future custom card has been reviewed.
 
 ## Adaptation decisions
 
