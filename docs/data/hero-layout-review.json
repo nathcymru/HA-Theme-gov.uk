@@ -139,14 +139,14 @@
       "status": "passed",
       "passed": 10,
       "failed": 0,
-      "scope": "Four hero tests exercise all eleven assigned routes at1440px/320px, doubled text, no images/no scripting and ordinary-page exclusions. Six guide tests cover structure, history, automated accessibility and reflow."
+      "scope": "Four hero tests exercise all eleven assigned routes at 1440px and 320px, doubled text, no images/no scripting and ordinary-page exclusions. Six guide tests cover structure, history, automated accessibility and reflow."
     },
     "full_browser": {
       "status": "mandatory-publication-gate",
       "evidence": "The final merged-version workflow and exact results are recorded in the linked corrective pull request."
     },
-    "source_integrity": "Passed:103 current source snapshots,214guide records,459examples,673built-page link checks, existing coverage and176supplied asset hashes; palette generation remains current.",
-    "manual_review": "Connected Chrome confirmed the full right-edge hero at1905px. Parent and independent reviewer compared the1440px Data and320px Colour renders with the official source; no concrete layout defect found in that bounded visual review.",
+    "source_integrity": "Passed: 103 current source snapshots, 214 guide records, 459 examples, 673 built-page link checks, existing coverage and 176 supplied asset hashes; palette generation remains current.",
+    "manual_review": "Connected Chrome confirmed the full right-edge hero at 1905px. Parent and independent reviewer compared the 1440px Data and 320px Colour renders with the official source; no concrete layout defect found in that bounded visual review.",
     "evidence_files": [
       "tests/section-artwork.browser.spec.mjs",
       "tests/docs.browser.spec.mjs"

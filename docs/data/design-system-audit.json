@@ -17846,7 +17846,7 @@
     },
     {
       "path": "docs/data/hero-layout-review.json",
-      "sha256": "312dab956cc7b31b4adfb1cccc3556f321097a7d53a9b15478140984592767bb",
+      "sha256": "225b6674b629b9fc416eb0566a4ef1fe88d5b6cb9bfe3ebb3ee6d93a7a0662d6",
       "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
     },
     {
