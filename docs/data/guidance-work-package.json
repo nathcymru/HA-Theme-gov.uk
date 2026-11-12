@@ -549,6 +549,16 @@
         "All five expanded-catalogue keyboard, reflow and accessibility checks pass.",
         "Full-site regression and live publication are tracked in ha-coverage-verification.json."
       ]
+    },
+    {
+      "id": "loop-12",
+      "title": "Loop 12: correct the wider UK slider-source omission",
+      "outcome": "Added the current Royal Navy range slider and its 37-component index; the current record covers 9 systems and 402 entries. Additional departmental discovery has explicit scope and access limits.",
+      "checks": [
+        "Verified current source release 4.64.2 separately from the live Storybook and legacy Axure guidance.",
+        "Retained explicit labels, exact decimals, precise alternatives and independent local accessibility checks.",
+        "Mapped all 37 Royal Navy components to a justified local-owner decision or explicit exclusion."
+      ]
     }
   ],
   "limitations": [

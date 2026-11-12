@@ -6261,7 +6261,7 @@
       "title": "Sliders and precise values",
       "section": "components",
       "group": "Home Assistant components",
-      "sha256": "1c69fc6b97559bacf2395a6644c69c98ba95952cc062f8fa6117a31f78718f7f",
+      "sha256": "84566e7b05a2ecba75cce7849333945a4f400bd190bfac0347ed1004445ae37e",
       "examples": [
         "slider-brightness",
         "slider-temperature",
@@ -6278,7 +6278,8 @@
       "proposedRedirect": null,
       "sourceMappings": [
         "https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders",
-        "https://www.w3.org/WAI/ARIA/apg/patterns/slider/"
+        "https://www.w3.org/WAI/ARIA/apg/patterns/slider/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "runtimeEvidenceFiles": [],
       "coverageMeaning": "Local reference component; no private native slider adapter is claimed.",
@@ -7519,7 +7520,7 @@
     {
       "id": "core-exit-visible",
       "sourceFile": "docs/data/core-examples.yml",
-      "title": "Departure control — demonstration only",
+      "title": "Departure control \u2014 demonstration only",
       "sha256": "c322fb63cc7edfc2596b0c4d0ce68b4f03efead8eee4d40f6fbd988396fc4ac9",
       "ownerPage": "/components/exit-this-page.html",
       "referencedBy": [
@@ -8117,7 +8118,7 @@
     {
       "id": "local-colour-vivid",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Civic Cobalt — Vivid",
+      "title": "Civic Cobalt \u2014 Vivid",
       "sha256": "446a6e26c811ffee2949459844b7c786705c48a3038f7c11c17e7a951817b30b",
       "ownerPage": "/get-started/colour-settings.html",
       "referencedBy": [
@@ -8133,7 +8134,7 @@
     {
       "id": "local-colour-muted",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Civic Cobalt — Muted",
+      "title": "Civic Cobalt \u2014 Muted",
       "sha256": "866c3d7c61ad8b206c916bca1ebedf8f7abc4e3de3d7d7989f8ae8c93e3205ad",
       "ownerPage": "/get-started/colour-settings.html",
       "referencedBy": [
@@ -8308,7 +8309,7 @@
     {
       "id": "local-chart-power",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Power sources — individual unfilled lines",
+      "title": "Power sources \u2014 individual unfilled lines",
       "sha256": "b6ebed274683cd2286f6f2f945f148f5ef886ae206ddcd114f9a25e95f7d7009",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8327,7 +8328,7 @@
     {
       "id": "local-chart-usage",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Consumption — solid and hatched columns",
+      "title": "Consumption \u2014 solid and hatched columns",
       "sha256": "2e787958bfe5e2e97cc407cd7f76dd50eaf5ae83beadb4fb82b6405177d5fd01",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8344,7 +8345,7 @@
     {
       "id": "local-chart-devices",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Device comparison — horizontal bars",
+      "title": "Device comparison \u2014 horizontal bars",
       "sha256": "282b9aa4ddd7fe925c1b8995bb26f9ac9bbd564ebc35380ed2828fd16c3233be",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8358,7 +8359,7 @@
     {
       "id": "local-chart-many",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "24 named series — generated colours",
+      "title": "24 named series \u2014 generated colours",
       "sha256": "e595b74223e00354b21cdc0202d4d3fa0670e82186dd1e42d9c44ec7162865a5",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8374,7 +8375,7 @@
     {
       "id": "local-chart-empty",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "No values — an explicit empty state",
+      "title": "No values \u2014 an explicit empty state",
       "sha256": "7b4908596d2e38ac771c2d433ac22b9ba544a0a8aeb95834c948963401fe8db5",
       "ownerPage": "/components/charts.html",
       "referencedBy": [

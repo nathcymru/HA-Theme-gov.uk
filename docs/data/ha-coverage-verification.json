@@ -46,8 +46,8 @@
         "Record slider provenance and a complete precise-input alternative."
       ],
       "evidence": [
-        "docs/data/uk-design-system-crosswalk.json:8 systems, 17 catalogues, 365 entries, 38 task-family decisions and 13 detailed constraint reviews.",
-        "docs/source/components/sliders.html.md.erb: explicitly local extension with precise alternatives and native behaviour boundary."
+        "docs/data/uk-design-system-crosswalk.json: 9 systems, 18 catalogues, 402 entries, 38 task-family decisions, 14 detailed constraint reviews and 10 bounded supplemental checks.",
+        "docs/source/components/sliders.html.md.erb: original local implementation informed by the current Royal Navy Range Slider, GOV.UK and W3C, retaining precise alternatives and native behaviour boundaries."
       ]
     },
     {
@@ -107,6 +107,13 @@
       "status": "local-validation-complete-publication-pending",
       "scope": "Whole-site regression and publication",
       "outcome": "All 844 browser checks pass. Required GitHub CI and live publication are the remaining gates."
+    },
+    {
+      "id": "HC-LOOP-5",
+      "status": "complete",
+      "scope": "Wider UK slider-source correction",
+      "outcome": "The user was correct that an official UK slider exists. The Royal Navy component was missing from the initial eight-system source set. Current Storybook and released 4.64.2 source are now documented, with 37 current component entries and ten explicitly bounded departmental/discovery checks. The original local controls retain exact values and non-drag alternatives.",
+      "record": "docs/data/uk-design-system-crosswalk.json"
     }
   ],
   "automated_checks": [
@@ -137,6 +144,11 @@
       "check": "Final terminology/public-record rebuild and eleven affected browser checks",
       "status": "passed",
       "tests": 11
+    },
+    {
+      "check": "Royal Navy source correction: all integrity checks and three affected guide browser checks",
+      "status": "passed",
+      "tests": 3
     }
   ],
   "publication": {
@@ -152,8 +164,8 @@
     "interface_registries": 27,
     "overlapping_interface_entries": 632,
     "unmapped_interface_entries": 0,
-    "uk_systems": 8,
-    "uk_catalogue_entries": 365,
+    "uk_systems": 9,
+    "uk_catalogue_entries": 402,
     "task_family_decisions": 38,
     "terms": 456,
     "terminology_inventories": 17,
@@ -171,5 +183,11 @@
     }
   ],
   "automated_status": "passed",
-  "browser_tests": 844
+  "browser_tests": 844,
+  "prior_head_ci": {
+    "commit": "cee9e55555c37b33d3377e837a746c02c3aaf507",
+    "run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43132014833",
+    "status": "passed",
+    "scope": "Full pipeline before the bounded Royal Navy documentation addition; final main deployment pipeline remains required."
+  }
 }

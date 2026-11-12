@@ -533,8 +533,8 @@
       "url": "/community/uk-design-system-review.html",
       "title": "UK design systems and Home Assistant controls",
       "example_ids": [],
-      "sha256": "6a62cdf1276a9da15b18cd4cacc617962c8a7c2e34d4a74888fd91cf2aa4b488",
-      "note": "Reviewed all eight system catalogue decisions and 38 HA family mappings; detailed review is distinct from index inclusion; local slider provenance and non-drag alternatives are explicit.",
+      "sha256": "0b8c8d07a22350cb813b65a3aa9f0c65d364385bb1d6ecefd0ec7845795435f1",
+      "note": "Reviewed all eight system catalogue decisions and 38 HA family mappings; detailed review is distinct from index inclusion; local slider provenance and non-drag alternatives are explicit. Wider source correction reviewed: current Royal Navy range-slider release/source and 37 component entries, original local implementation, precise alternatives and exact catalogue limits are explicit.",
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
     },
@@ -2121,8 +2121,8 @@
         "slider-request-failed",
         "slider-unavailable"
       ],
-      "sha256": "1c69fc6b97559bacf2395a6644c69c98ba95952cc062f8fa6117a31f78718f7f",
-      "note": "Reviewed source provenance, local/native boundary and all five complete numeric examples. Precise input, signed/decimal values, request/report distinction and unavailable state are specified; rendered keyboard/forced-colour checks recorded separately.",
+      "sha256": "84566e7b05a2ecba75cce7849333945a4f400bd190bfac0347ed1004445ae37e",
+      "note": "Reviewed source provenance, local/native boundary and all five complete numeric examples. Precise input, signed/decimal values, request/report distinction and unavailable state are specified; rendered keyboard/forced-colour checks recorded separately. Wider source correction reviewed: current Royal Navy range-slider release/source and 37 component entries, original local implementation, precise alternatives and exact catalogue limits are explicit.",
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
     },
@@ -17388,7 +17388,7 @@
     {
       "path": "docs/data/uk-design-system-crosswalk.json",
       "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
-      "sha256": "d687053f3c05dbc0798aabc8d56613be5a57aef78eee8402cd6ea60d42287c68"
+      "sha256": "fd51df55f6fce81dbe064163fa41798a34f34ae8d4e2b53a54898ee991b9d41e"
     },
     {
       "path": "docs/data/ha-administration-examples.yml",

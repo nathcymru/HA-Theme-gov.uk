@@ -11,14 +11,14 @@ last_reviewed_on: "2026-11-12"
 review_in: "3 months"
 updates:
   - date: 2026-11-12
-    description: "Recorded current UK catalogue inventories, all 38 Home Assistant family mappings and the independently sourced slider decision."
+    description: "Recorded current UK catalogue inventories and all 38 Home Assistant family mappings; widened the source check to include the current Royal Navy Range Slider."
 ---
 
 # UK design systems and Home Assistant controls
 
 Use the GOV.UK foundations for clear structure, readable content and familiar form controls. Add a pattern from another official system only when it addresses the same user need. Preserve native Home Assistant capabilities, state meanings and accessible interactions where a public-service component does not describe the task.
 
-This review maps the **38 documented Home Assistant families** (30 task specifications and 8 additional control/panel families) to specific official sources and local owners. It also records **365 direct catalogue entries across 17 indexes from 8 UK systems**. These counts describe reviewed information architecture and design decisions. They are not counts of new native adapters, installed packages or individually certified controls.
+This review maps the **38 documented Home Assistant families** (30 task specifications and 8 additional control/panel families) to specific official sources and local owners. It records **402 direct catalogue entries across 18 indexes from 9 UK systems**, including the Royal Navy Design System identified in the wider slider check. These counts describe the declared source set, not every UK public-sector system. They are not counts of new native adapters, installed packages or individually certified controls.
 
 The [machine-readable crosswalk](../reference/uk-design-system-crosswalk.json) contains the exact source URLs, retrieval hashes, dates, existing local mappings and the decisions rendered below. The [component organisation review](component-audit.html) still owns shared component families and retained URLs. No existing guide is deprecated merely because another system uses a different name.
 
@@ -26,7 +26,7 @@ The [machine-readable crosswalk](../reference/uk-design-system-crosswalk.json) c
 
 ## What was checked
 
-The component and pattern indexes were read on **12 November 2026**. The Publishing frontend-template index was also checked. The inventory records direct entries, including the Home Office's named query routes; it does not count every descendant example as a separate component. The existing Publishing inventory includes 42 pages across nested examples and variations, while this top-level review records 26 direct entries. Those counts have different scopes.
+The component and pattern indexes were read on **12 November 2026**. The Publishing frontend-template index was also checked. The inventory records direct entries, including the Home Office's named query routes; it does not count every descendant example as a separate component. Royal Navy contributes 37 distinct titles from its current Storybook's `Components/` namespace, deduplicating documentation and variant stories. Other Storybook namespaces are outside that catalogue count. The existing Publishing inventory includes 42 pages across nested examples and variations, while this top-level review records 26 direct entries. Those counts have different scopes.
 
 Specific rules were checked against their owning guidance where they affect a decision: GOV.UK slider questions, numeric entry, grouping, choice, summary and error components, NHS cards/images, Home Office long-list guidance, W3C slider/dragging requirements, the MOJ notification badge and status model, DWP's retired key details bar and the Home Office time-display component. Entries marked **not selected** are recorded for completeness; they are not silently adopted or presented as a completed detail-page assessment.
 
@@ -34,18 +34,33 @@ GOV.UK brand foundations remain covered by the [brand guidance inventory](../ref
 
 ## The slider finding
 
-None of the eight reviewed component indexes lists a slider or range component. This does not rule out an old prototype, a community suggestion or a component outside the selected catalogues. We did find a published [USWDS range slider](https://designsystem.digital.gov/components/range-slider/), but that is from the United States and is not evidence of a GOV.UK, MOJ, NHS or Scottish Government component.
+**There is a current official UK range-slider component:** the [Royal Navy Range Slider](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs). The first eight catalogues did not list one; widening the check found this ninth source. The initial finding was too narrow to answer a question about all UK systems. The current Storybook lists ten slider stories, including multiple handles, steps, labels, formatting, reversed scales, thresholds and a disabled state.
 
-GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against using sliders for questions and requires an alternative to dragging when they are used. Home Assistant still has legitimate continuous-adjustment tasks. The [civica.uk slider component](../components/sliders.html) therefore documents a deliberate local extension: a native range with precise text entry and visible step buttons, all editing one draft. It follows the [W3C slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) and separates requested values from reported state.
+The owning repository's [4.64.2 release](https://github.com/Royal-Navy/design-system/releases/tag/4.64.2), published on 11 November 2026, contains the component. The live Storybook index does not declare its deployed package version, so these are separate pieces of evidence. The [Design guidance page](https://design-system.navy.digital.mod.uk/guidance/design) explicitly calls itself legacy; its Axure library version 3.2 is not the React package version. Neither a current release nor a working story establishes accessibility certification.
 
-It does not import a USWDS implementation, claim an official UK slider design, or replace every native Home Assistant slider. The [continuous-controls pattern](../home-assistant/continuous-controls.html) remains responsible for integration ranges, commits, remote updates and failures.
+GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against using sliders for questions and requires an alternative to dragging when they are used. Home Assistant still has legitimate continuous-adjustment tasks. The [civica.uk slider component](../components/sliders.html) compares the Royal Navy's bounded scale, displayed value, steps and disabled-state anatomy with the local household requirements. Its original implementation uses a native range with precise text entry and visible step buttons, all editing one draft. It follows the [W3C slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) and separates requested values from reported state.
+
+The Royal Navy React package, branding and threshold meanings are not imported. The reference does not replace native Home Assistant sliders. The [continuous-controls pattern](../home-assistant/continuous-controls.html) remains responsible for integration ranges, commits, remote updates and failures. The [USWDS slider](https://designsystem.digital.gov/components/range-slider/) remains an explicitly United States comparator; it is no longer the only published comparator recorded here.
+
+## Wider departmental discovery
+
+The [GOV.UK community resources page](https://design-system.service.gov.uk/community/resources-and-tools/) links to the [MoJ-curated GOV Reuse Library](https://dev.reuselibrary.service.justice.gov.uk/). That directory lists more systems than the original source set. Ten supplemental records below distinguish a directory discovery, an index check, a source access failure and a detailed component review. They are excluded from the 402-entry catalogue total.
+
+<% review['supplemental_source_checks'].each do |check| %>
+<h3><%= escape(check['name']) %></h3>
+<p><strong>Scope:</strong> <%= escape(check['review_scope']) %> <%= escape(check['finding']) %></p>
+<p><strong>Decision:</strong> <%= escape(check['decision']) %></p>
+<ul><% check['source_urls'].each do |url| %><li><a href="<%= escape(url) %>"><%= escape(url.sub('https://', '')) %></a></li><% end %></ul>
+<% end %>
+
+These checks do not establish that no other UK slider exists. A published source set is reproducible; an unbounded claim to cover every departmental, devolved or regional system is not supported by this review.
 
 ## Choose the pattern by meaning
 
 | Home Assistant need | Preferred design basis | Boundary |
 | --- | --- | --- |
 | Enter, choose or validate an ordinary value | GOV.UK fieldsets, text inputs, radios, checkboxes, selects and errors | Preserve the actual input type, label, unit and integration capability |
-| Adjust a bounded setting | Local slider component plus native HA semantics | No direct slider component in the reviewed UK catalogues |
+| Adjust a bounded setting | Royal Navy range-slider anatomy, GOV.UK non-drag guidance and the local slider contract | An official UK primitive exists; native HA capabilities, exact entry and device state still require local integration |
 | Start an action or request a consequential change | GOV.UK buttons and MOJ confirmation principles | Request accepted is different from physical outcome |
 | Show new or unread items | MOJ notification badge | Do not reuse a status tag as a notification count or badge every ordinary number |
 | Summarise a device or room | NHS/card principles and GOV.UK summary content | A card is not an instruction to make the entire area clickable around nested controls |
@@ -66,6 +81,8 @@ For individual inventory entries, **mapped reference** points to an existing loc
 Source maturity must be checked separately. MOJ distinguishes Official, To be reviewed, Experimental and Archived building blocks. Its [notification badge is Official](https://design-patterns.service.justice.gov.uk/components/notification-badge/); that status is not assigned to every indexed MOJ component, and its accessibility statements do not certify this adaptation. [DWP's key details bar is retired](https://design-system.dwp.gov.uk/components/key-details-bar); it should not be introduced as a new preferred device summary. DWP directs new work to Quick reference.
 
 The Home Office [Time component](https://design.homeoffice.gov.uk/design-system/components?name=Time) displays a time. It is not an editable time picker. Its display preferences also do not override a Home Assistant user's chosen clock format or configured time zone.
+
+Royal Navy's current component catalogue includes Range Slider, Number Input, Context Menu, Switch and Tooltip. The non-slider entries below point to the existing local owner and explain why another library is not selected; their behaviour has not received a full detail review. The current `Components/` index does not separately list Time Picker or Stepper. A Time picker mention in its legacy design guidance must not be presented as a current indexed component.
 
 ## Home Assistant task-family decisions
 
@@ -89,7 +106,7 @@ Each entry retains its source URL. A current index listing is not an upstream ma
 <% system['indexes'].each do |index| %>
 <details><summary><%= escape(index['category'].tr('-', ' ').capitalize) %>: <%= index['items'].length %> catalogue entries</summary>
 <p>Source: <a href="<%= escape(index['url']) %>"><%= escape(system['name']) %> <%= escape(index['category'].tr('-', ' ')) %> index</a>. Checked <%= escape(index['reviewed_on']) %>.</p>
-<ul><% index['items'].each do |item| %><li><a href="<%= escape(item['url']) %>"><%= escape(item['title']) %></a> — <%= escape(item['decision'].tr('-', ' ')) %><% if item['existing_local_route'] %>; <a href="<%= docs_path(item['existing_local_route']) %>">local guide for <%= escape(item['title']) %></a><% end %><% unless item['ha_mapping_ids'].empty? %>; <% item['ha_mapping_ids'].each_with_index do |id, position| %><%= ', ' unless position.zero? %><a href="#<%= escape(id.downcase) %>"><%= escape(id) %></a><% end %><% end %>.</li><% end %></ul>
+<ul><% index['items'].each do |item| %><li><a href="<%= escape(item['url']) %>"><%= escape(item['title']) %></a> — <%= escape(item['decision'].tr('-', ' ')) %><% if item['existing_local_route'] %>; <a href="<%= docs_path(item['existing_local_route']) %>">local guide for <%= escape(item['title']) %></a><% end %><% unless item['ha_mapping_ids'].empty? %>; <% item['ha_mapping_ids'].each_with_index do |id, position| %><%= ', ' unless position.zero? %><a href="#<%= escape(id.downcase) %>"><%= escape(id) %></a><% end %><% end %>.<% if system['id'] == 'royal-navy' %> <%= escape(item['reason']) %><% end %></li><% end %></ul>
 </details>
 <% end %>
 <% end %>

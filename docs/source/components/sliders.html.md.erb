@@ -11,16 +11,35 @@ last_reviewed_on: "2026-11-12"
 review_in: "3 months"
 updates:
   - date: 2026-11-12
-    description: "Added the local slider component, five complete specimens, verified source status and the native Home Assistant integration boundary."
+    description: "Added five complete slider specimens and the native integration boundary; corrected the wider source review to include the current official Royal Navy Range Slider."
 ---
 
 # Sliders and precise values
 
 Use a slider to adjust a known, bounded value such as brightness or volume. Pair it with a precise text field and visible decrease and increase buttons when the task requires an exact value. All inputs represent one draft. Keep the last reported device value separate.
 
-**This is a civica.uk component extension.** The current GOV.UK, Ministry of Justice, NHS, DWP, Home Office, ONS and Scottish Government catalogues reviewed on 12 November 2026 do not list a slider component. This is a finding about those published catalogues, not proof that no earlier or unpublished experiment exists. The [UK systems review](../community/uk-design-system-review.html) records the source inventory and decisions.
+**This is an original civica.uk implementation informed by an official UK range-slider reference.** The [Royal Navy Design System publishes a Range Slider](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs). It was found when the initial eight-catalogue review was widened. The [UK systems review](../community/uk-design-system-review.html) now records nine indexed systems and distinguishes current component evidence from legacy guidance and partial departmental checks.
 
 GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against slider questions and requires a non-drag alternative if one is used. The local exception is adjustment of an existing device setting. It does not justify using a slider to collect a person's precise answer in an ordinary form.
+
+## Royal Navy reference and local decisions
+
+Royal Navy's current [component source at release 4.64.2](https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Slider.tsx) supports one or two handles, minimum/maximum bounds, steps, ticks, displayed units, custom formatting, disabled and reversed scales, and optional threshold tracks. Its [ten published stories](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs) include brightness icons and labelled scales. These are relevant numeric-input primitives. They do not specify a light's supported range, a heating limit, a request policy or a confirmed device result.
+
+| Upstream primitive | civica.uk decision |
+| --- | --- |
+| Bounded track, handle and displayed value | Keep the recognisable anatomy using native HTML range semantics and civica.uk colours and focus |
+| Steps and optional value formatting | Use the actual integration step and unit; preserve decimal precision in both the input and accessible value |
+| Optional ticks and endpoint icons | Add only when useful; retain written labels, bounds and units so icons are not the only explanation |
+| Two handles and crossing/pushing modes | Not implemented by these examples; use two labelled precise fields with ordering validation unless a dual-handle task has separate evidence |
+| Coloured thresholds and reversed scales | Not adopted by default; direction and thresholds need an actual device meaning and independent validation |
+| Disabled component | Keep the unavailable reason and previous reading separate; never present a numeric thumb position as an unknown observation |
+
+The current [Handle source](https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Handle.tsx) uses the generic accessible name “Select range”, and the default formatter floors numeric values. The local design requires a specific value label and exact decimal formatting. It also provides visible exact-entry and step-button alternatives, which are not supplied by that source component. These local requirements must not be removed when taking visual inspiration from it.
+
+Royal Navy's [Storybook accessibility configuration](https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/a11y/storyAccessibilityConfig.ts) disables its `color-contrast` rule for Range Slider. This is not proof of a particular contrast failure, but it prevents treating the presence of its stories as evidence that this check passed. Test the actual local colours and interactions independently.
+
+The package release was published on 11 November 2026. The rolling Storybook index does not declare its deployed package version. The separate [Design guidance page](https://design-system.navy.digital.mod.uk/guidance/design) is explicitly legacy and describes Axure library versions, including 3.2; it must not be mistaken for the current React package version. This project imports neither the Royal Navy React dependency nor its branding, fonts or accessibility claims.
 
 ## Choose the right control
 
@@ -119,6 +138,7 @@ See the [native task test matrix](../home-assistant/native-task-accessibility.ht
 
 ## Sources and decisions
 
+- [Royal Navy Range Slider](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs) and [release 4.64.2](https://github.com/Royal-Navy/design-system/releases/tag/4.64.2): current official UK component reference; relevant anatomy is compared above, while the local implementation remains original.
 - [GOV.UK Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders): constraint on slider questions and non-drag alternatives.
 - [GOV.UK Text input](https://design-system.service.gov.uk/components/text-input/): precise-entry input choice and decimal/negative keyboard considerations.
 - [HTML range state](https://html.spec.whatwg.org/multipage/input.html#range-state-(type=range)): native control, bounds and step behaviour.

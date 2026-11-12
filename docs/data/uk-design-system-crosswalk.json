@@ -2,16 +2,17 @@
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
   "title": "UK design-system and Home Assistant control crosswalk",
-  "scope": "Current direct component/pattern catalogue entries, plus Publishing frontend-template entries; brand foundations and all 38 documented HA families (the original 30 task specifications and 8 additional native control/panel families). This is not a claim that every listed upstream detail page was reread or every native HA surface was modified.",
-  "inventory_method": "Official indexes opened and linked names/URLs recorded; one level of entries per catalogue, except Home Office named query routes and grouped pattern paths. Descendant examples and historical/community prototypes are not counted as current components.",
+  "scope": "Direct component/pattern catalogue entries from the eight initial named systems, plus Publishing frontend templates and the subsequently identified Royal Navy Components Storybook namespace; brand foundations and all 38 documented HA families. Supplemental departmental discovery is recorded separately. This is not an exhaustive inventory of every UK public-sector design system, a claim that every detail page was read, or evidence that every native HA surface was modified.",
+  "inventory_method": "Official indexes opened and linked names/URLs recorded; one level per catalogue, except Home Office named query routes and grouped pattern paths. Royal Navy Components titles are deduplicated across docs and variant stories. Descendant examples, non-component Storybook namespaces, historical/community prototypes and supplemental directory discoveries are not added to catalogue-entry counts.",
   "counts": {
-    "uk_systems": 8,
-    "catalogue_indexes": 17,
-    "catalogue_entries": 365,
+    "uk_systems": 9,
+    "catalogue_indexes": 18,
+    "catalogue_entries": 402,
     "ha_task_mappings": 38,
     "brand_foundation_records": 1,
     "original_task_specifications": 30,
-    "additional_native_families": 8
+    "additional_native_families": 8,
+    "supplemental_source_checks": 10
   },
   "decision_definitions": {
     "adopted": "A named bounded civica implementation explicitly uses the pattern; this does not transfer certification.",
@@ -4059,6 +4060,539 @@
         }
       ],
       "slider_result": "No slider or range component is listed in the reviewed indexes. This does not prove that no historical or unpublished prototype exists."
+    },
+    {
+      "id": "royal-navy",
+      "name": "Royal Navy Design System",
+      "url": "https://design-system.navy.digital.mod.uk/",
+      "version_basis": "Current official Storybook index reviewed 12 November 2026; package source independently checked at @royalnavy/react-component-library 4.64.2, released 11 November 2026, commit 13163badc75f09695bb48968a0f82928eead6d35. The live Storybook index does not itself declare a package version. The separate Design guidance page labels itself legacy and its Axure 3.2 number is not the package version.",
+      "indexes": [
+        {
+          "system": "royal-navy",
+          "url": "https://storybook.design-system.navy.digital.mod.uk/index.json",
+          "category": "components",
+          "reviewed_on": "2026-11-12",
+          "response_sha256": "372d1510109c054670cf187b31e50ba2fe0689def2099546480ab8f086934663",
+          "inventory_scope": "All 37 unique titles in the Components/ namespace; docs and variant stories deduplicated by title. Non-Components namespaces and descendant variants excluded.",
+          "items": [
+            {
+              "title": "Alert",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-alert--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-002",
+                "UK-HA-028"
+              ],
+              "existing_local_route": "/components/notification-banners.html",
+              "decision": "not-selected",
+              "reason": "Keep the existing notification/status owners; distinguish an actionable alert from a transient message. The RN component has not had a detail review."
+            },
+            {
+              "title": "Autocomplete",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-autocomplete--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-008",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/search-input.html",
+              "decision": "not-selected",
+              "reason": "Keep the existing search-input and native eligible-entity picker contracts. A matching component name is not evidence that RN handles HA targets or selected sets."
+            },
+            {
+              "title": "Avatar",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-avatar--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-013",
+                "UK-HA-014"
+              ],
+              "existing_local_route": "/home-assistant/presence-and-privacy.html",
+              "decision": "not-selected",
+              "reason": "Use the existing person/presence privacy contract. An avatar must not imply identity, occupancy or permission; no RN avatar styling is adopted."
+            },
+            {
+              "title": "Badge",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-badge--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-028",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/notification-badge.html",
+              "decision": "not-selected",
+              "reason": "Retain the already bounded MoJ notification-badge owner. Do not stack another badge style or equate unread counts with ordinary entity state."
+            },
+            {
+              "title": "Breadcrumbs",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-breadcrumbs--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-037"
+              ],
+              "existing_local_route": "/components/breadcrumbs.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing GOV.UK-derived breadcrumb owner for hierarchical navigation; no RN replacement is needed."
+            },
+            {
+              "title": "Button",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-button--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-002",
+                "UK-HA-006"
+              ],
+              "existing_local_route": "/components/buttons.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing GOV.UK button owner and native action semantics; RN package adoption would duplicate the primitive."
+            },
+            {
+              "title": "Checkbox",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-checkbox--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-008",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/checkboxes.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing GOV.UK checkbox owner for multiple independent selections; actual capability and schema remain native."
+            },
+            {
+              "title": "Classification Bar",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-classification-bar--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [],
+              "existing_local_route": null,
+              "decision": "not-applicable",
+              "reason": "Military information-classification presentation has no demonstrated household need in this review. Do not imply an official security classification or reuse it for household status."
+            },
+            {
+              "title": "Compound Timeline",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-compound-timeline--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-010",
+                "UK-HA-011"
+              ],
+              "existing_local_route": "/home-assistant/history-and-statistics.html",
+              "decision": "not-selected",
+              "reason": "Keep native History/statistics and schedule contracts. This name does not establish an equivalent event source, time-zone model or trace editor; no detail review or import claimed."
+            },
+            {
+              "title": "Context Menu",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-context-menu--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-029",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/navigation.html",
+              "decision": "not-selected",
+              "reason": "Retain native contextual actions with visible, keyboard-reachable alternatives. Existing navigation/action guidance remains owner; RN menu behaviour has not been inspected."
+            },
+            {
+              "title": "Data Grid",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-data-grid--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-029",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/table.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing table and native registry bulk-action contracts. A richer grid requires independent editing, selection, keyboard and permission evidence."
+            },
+            {
+              "title": "Date Picker",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-date-picker--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-010",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/date-input.html",
+              "decision": "not-selected",
+              "reason": "Retain precise date entry and native calendar semantics. The RN picker is a candidate reference, not a verified replacement for recurrence or time zones."
+            },
+            {
+              "title": "Description List",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-description-list--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-001",
+                "UK-HA-032"
+              ],
+              "existing_local_route": "/components/summary-list.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing GOV.UK summary-list owner for labelled readings, retaining units and freshness."
+            },
+            {
+              "title": "Dialog",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-dialog--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-002",
+                "UK-HA-006",
+                "UK-HA-032"
+              ],
+              "existing_local_route": "/components/dialogs.html",
+              "decision": "not-selected",
+              "reason": "Keep the shared dialog owner and native focus/confirmation semantics. No second RN dialog implementation is adopted."
+            },
+            {
+              "title": "Dismissible Banner",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-dismissible-banner--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-018",
+                "UK-HA-028"
+              ],
+              "existing_local_route": "/components/notification-banners.html",
+              "decision": "not-selected",
+              "reason": "Use the existing banner owner; dismissing a message must not falsely acknowledge or resolve the underlying device condition."
+            },
+            {
+              "title": "Drawer",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-drawer--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/navigation.html",
+              "decision": "not-selected",
+              "reason": "Retain native side-panel and navigation interaction. A drawer is not automatically a modal; focus, escape and narrow layouts need component-specific evidence before adaptation."
+            },
+            {
+              "title": "List",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-list--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-026",
+                "UK-HA-032"
+              ],
+              "existing_local_route": "/home-assistant/entity-lists-and-rows.html",
+              "decision": "not-selected",
+              "reason": "Retain semantic lists and native entity-row actions. An RN generic list does not replace a to-do state machine or capability-specific row."
+            },
+            {
+              "title": "Masthead",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-masthead--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-013",
+                "UK-HA-022"
+              ],
+              "existing_local_route": "/components/header.html",
+              "decision": "not-selected",
+              "reason": "Prefer the civica.uk header and supplied artwork. Do not import the RN service identity or classified-service presentation."
+            },
+            {
+              "title": "Modal",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-modal--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-002",
+                "UK-HA-006",
+                "UK-HA-032"
+              ],
+              "existing_local_route": "/components/dialogs.html",
+              "decision": "not-selected",
+              "reason": "Use the existing dialog owner, with a deliberate trigger, accessible name, focus return and explicit action consequences. No parallel modal family is introduced."
+            },
+            {
+              "title": "Navigation Card",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-navigation-card--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/cards.html",
+              "decision": "not-selected",
+              "reason": "Prefer existing cards/action links; keep real destinations and avoid a nested interactive whole-card target."
+            },
+            {
+              "title": "Number Input",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-number-input--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-003",
+                "UK-HA-034",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/home-assistant/helpers-and-scalar-inputs.html",
+              "decision": "not-selected",
+              "reason": "Retain precise local text entry, step alternatives and native scalar constraints. The RN numeric input has not been detail-reviewed or adopted."
+            },
+            {
+              "title": "Phase Banner",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-phase-banner--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-020"
+              ],
+              "existing_local_route": "/components/phase-banner.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing phase-banner owner for a service phase, not device availability or update progress."
+            },
+            {
+              "title": "Popover",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-popover--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-031",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/dialogs.html",
+              "decision": "not-selected",
+              "reason": "Keep existing disclosure/dialog ownership and native overlays. A popover name does not establish modal focus or form behaviour; inspect the concrete host before adding an adapter."
+            },
+            {
+              "title": "Progress Bar",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-progress-bar--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-007",
+                "UK-HA-019",
+                "UK-HA-020"
+              ],
+              "existing_local_route": "/components/status.html",
+              "decision": "not-selected",
+              "reason": "Retain supported progress measurements and explicit unknown/indeterminate states. No RN graphic is adopted or used to invent a percentage."
+            },
+            {
+              "title": "Progress Indicator",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-progress-indicator--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-019",
+                "UK-HA-020",
+                "UK-HA-021"
+              ],
+              "existing_local_route": "/components/task-list.html",
+              "decision": "not-selected",
+              "reason": "Use the existing task/flow owners and native progress evidence. A step indicator is not proof that a device action or restore has completed."
+            },
+            {
+              "title": "Radio",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-radio--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-004",
+                "UK-HA-005",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/radios.html",
+              "decision": "not-selected",
+              "reason": "Prefer existing GOV.UK radios for one choice from supported options; no duplicate RN primitive is needed."
+            },
+            {
+              "title": "Range Slider",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "component source and stories read at release 4.64.2",
+              "ha_mapping_ids": [
+                "UK-HA-003",
+                "UK-HA-004",
+                "UK-HA-005",
+                "UK-HA-016",
+                "UK-HA-034",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/sliders.html",
+              "decision": "mapped-principle",
+              "reason": "Official UK range-slider primitive informs the local comparison; package, branding and native HA replacement are not adopted."
+            },
+            {
+              "title": "Select",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-select--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-004",
+                "UK-HA-005",
+                "UK-HA-008",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/select.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing select owner and native eligible options. Do not flatten distinct schema selectors into one imported dropdown."
+            },
+            {
+              "title": "Sidebar",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-sidebar--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-013",
+                "UK-HA-022",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/navigation.html",
+              "decision": "not-selected",
+              "reason": "Keep the current bounded civica sidebar adapter and native navigation ownership; no RN sidebar or service branding is imported."
+            },
+            {
+              "title": "Switch",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-switch--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-002",
+                "UK-HA-034",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/controls.html",
+              "decision": "not-selected",
+              "reason": "Retain native Boolean state/action semantics and the existing controls owner. A switch is not suitable for an unconfirmed one-off command merely because its appearance is compact."
+            },
+            {
+              "title": "Tab Nav",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-tab-nav--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/navigation.html",
+              "decision": "not-selected",
+              "reason": "Keep real navigation destinations and the existing navigation owner; do not confuse page links with in-page tabs."
+            },
+            {
+              "title": "Tab Set",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-tab-set--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-022",
+                "UK-HA-031"
+              ],
+              "existing_local_route": "/components/tabs.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing tabs owner for related panels. RN behaviour is not presumed equivalent without a keyboard and history review."
+            },
+            {
+              "title": "TablePagination",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-tablepagination--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-011",
+                "UK-HA-029"
+              ],
+              "existing_local_route": "/components/pagination.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing pagination owner, with an explicit result range and preserved filters/selection scope."
+            },
+            {
+              "title": "Text Area",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-text-area--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-009",
+                "UK-HA-025",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/textarea.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing GOV.UK textarea owner; structured automation/code editors and conversation actions retain their own semantics."
+            },
+            {
+              "title": "Text Input",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-text-input--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-003",
+                "UK-HA-021",
+                "UK-HA-034",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/text-input.html",
+              "decision": "not-selected",
+              "reason": "Prefer the existing GOV.UK text-input owner for exact values and validation; no duplicate RN field styling is adopted."
+            },
+            {
+              "title": "Toast",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-toast--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-002",
+                "UK-HA-018",
+                "UK-HA-028"
+              ],
+              "existing_local_route": "/components/feedback.html",
+              "decision": "not-selected",
+              "reason": "Keep the existing feedback owner with a persistent route for important results. A transient toast is not physical confirmation or the sole error explanation."
+            },
+            {
+              "title": "Tooltip",
+              "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-tooltip--docs",
+              "catalogue_status": "listed in current official Storybook",
+              "review_depth": "catalogue-entry and existing local-owner comparison; upstream detail behaviour not reviewed",
+              "ha_mapping_ids": [
+                "UK-HA-024",
+                "UK-HA-031",
+                "UK-HA-035"
+              ],
+              "existing_local_route": "/components/hint-text.html",
+              "decision": "not-selected",
+              "reason": "Keep essential instructions as persistent hint text and native accessible names. RN Tooltip is a candidate for supplementary help only; hover-only text must not carry required information."
+            }
+          ]
+        }
+      ],
+      "slider_result": "Current official Range Slider component with ten story variants; source reviewed at release 4.64.2. No MoJ-style maturity label or accessibility certification is inferred.",
+      "source_evidence": {
+        "package_name": "@royalnavy/react-component-library",
+        "package_version": "4.64.2",
+        "release_url": "https://github.com/Royal-Navy/design-system/releases/tag/4.64.2",
+        "release_published_at": "2026-11-11T09:13:16Z",
+        "commit": "13163badc75f09695bb48968a0f82928eead6d35",
+        "repository_archived": false,
+        "package_url": "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/package.json",
+        "slider_url": "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Slider.tsx",
+        "stories_url": "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/RangeSlider.stories.tsx",
+        "handle_url": "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Handle.tsx",
+        "accessibility_config_url": "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/a11y/storyAccessibilityConfig.ts",
+        "legacy_design_guidance_url": "https://design-system.navy.digital.mod.uk/guidance/design",
+        "license": "Apache-2.0; no upstream code, fonts or identity assets imported by this review.",
+        "catalogue_boundary": "Current Components/ index has Range Slider and Number Input, but no separately listed Time Picker or Stepper. A legacy design-guide mention of Time picker does not create a current component entry."
+      }
     }
   ],
   "brand_foundations": {
@@ -4079,7 +4613,7 @@
     ],
     "exclusions": [
       "No official GOV.UK crown, wordmark or other official brand asset.",
-      "No official NHS, MoJ, DWP, Home Office or Scottish Government identity.",
+      "No official NHS, MoJ, DWP, Home Office, Scottish Government, Royal Navy or other departmental identity.",
       "Do not import Transport fonts; retain Arial and supplied civica.uk artwork."
     ]
   },
@@ -4135,16 +4669,17 @@
       "id": "UK-HA-003",
       "ha_gap_id": "HA-GAP-003",
       "title": "Continuous controls and discoverable alternatives",
-      "decision": "no-direct-equivalent",
+      "decision": "adapted",
       "source_urls": [
         "https://design-system.service.gov.uk/patterns/question-pages/",
-        "https://www.w3.org/WAI/ARIA/apg/patterns/slider/"
+        "https://www.w3.org/WAI/ARIA/apg/patterns/slider/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "local_routes": [
         "/home-assistant/continuous-controls.html",
         "/components/sliders.html"
       ],
-      "adaptation": "No slider is listed in the reviewed UK component indexes. The original range/text/stepper reference follows GOV.UK non-drag guidance and native HTML semantics.",
+      "adaptation": "The Royal Navy publishes a current official range-slider primitive. Its bounded scale, displayed value, step and disabled-state anatomy inform the comparison. The civica.uk native range/text/stepper reference retains explicit labels, precise decimal entry and non-drag alternatives under GOV.UK/W3C guidance. Device state, capabilities and commit policy remain the local/native HA contract.",
       "implementation_scope": "Five local interactive reference examples; native ha-control-slider is not replaced.",
       "reviewed_on": "2026-11-12",
       "acceptance": [
@@ -4161,14 +4696,15 @@
       "source_urls": [
         "https://design-system.service.gov.uk/components/button/",
         "https://design-system.service.gov.uk/components/radios/",
-        "https://design-system.service.gov.uk/components/select/"
+        "https://design-system.service.gov.uk/components/select/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "local_routes": [
         "/home-assistant/lighting.html",
         "/components/sliders.html",
         "/components/devices.html"
       ],
-      "adaptation": "Reuse labelled choices and actions. Brightness, colour temperature, RGB/XY pickers and supported colour modes are native device capabilities, not a UK publishing component.",
+      "adaptation": "Reuse labelled choices and actions. Brightness, colour temperature, RGB/XY pickers and supported colour modes are native device capabilities, not a UK publishing component. Royal Navy Range Slider provides a related brightness/range primitive, not a lighting capability model.",
       "implementation_scope": "Native lighting controls plus the separately documented civica house-lighting card; no universal colour-picker replacement.",
       "reviewed_on": "2026-11-12",
       "acceptance": [
@@ -4185,13 +4721,14 @@
       "source_urls": [
         "https://design-system.service.gov.uk/components/radios/",
         "https://design-system.service.gov.uk/components/select/",
-        "https://design-system.service.gov.uk/components/text-input/"
+        "https://design-system.service.gov.uk/components/text-input/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "local_routes": [
         "/home-assistant/climate-and-air.html",
         "/components/sliders.html"
       ],
-      "adaptation": "Mode choices and precise target entry reuse public-service primitives. Preserve climate/fan/humidity units, presets and supported modes; do not invent a thermostat dial standard.",
+      "adaptation": "Mode choices and precise target entry reuse public-service primitives. Preserve climate/fan/humidity units, presets and supported modes; do not invent a thermostat dial standard. Royal Navy Range Slider is a numeric-input reference; its default integer formatting is not suitable for precise decimal targets without adaptation.",
       "implementation_scope": "Reference contract; native domain controls retained.",
       "reviewed_on": "2026-11-12",
       "acceptance": [
@@ -4439,13 +4976,14 @@
       "decision": "no-direct-equivalent",
       "source_urls": [
         "https://design-system.service.gov.uk/components/button/",
-        "https://design-system.service.gov.uk/components/select/"
+        "https://design-system.service.gov.uk/components/select/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "local_routes": [
         "/home-assistant/media-playback.html",
         "/components/sliders.html"
       ],
-      "adaptation": "Labelled buttons, source choices and range alternatives support media tasks. Play/pause, seek, mute, volume and player capability contracts remain native.",
+      "adaptation": "Labelled buttons, source choices and range alternatives support media tasks. Play/pause, seek, mute, volume and player capability contracts remain native. The Royal Navy range primitive can inform a bounded volume input; playback, seeking and commit semantics remain native.",
       "implementation_scope": "Reference contract; no imported media-player library.",
       "reviewed_on": "2026-11-12",
       "acceptance": [
@@ -4863,7 +5401,8 @@
         "https://design-system.service.gov.uk/components/text-input/",
         "https://design-system.service.gov.uk/components/checkboxes/",
         "https://design-system.service.gov.uk/components/select/",
-        "https://design-system.service.gov.uk/components/button/"
+        "https://design-system.service.gov.uk/components/button/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "local_routes": [
         "/home-assistant/helpers-and-scalar-inputs.html",
@@ -4871,7 +5410,7 @@
         "/components/checkboxes.html",
         "/components/text-input.html"
       ],
-      "adaptation": "Apply precise labels, boolean choice and ordinary action controls. Preserve stored helper values versus reported measurements and one-off operations. A known setting may be preselected; never turn an unknown value into a default answer.",
+      "adaptation": "Apply precise labels, boolean choice and ordinary action controls. Preserve stored helper values versus reported measurements and one-off operations. A known setting may be preselected; never turn an unknown value into a default answer. Royal Navy Range Slider informs bounded-value anatomy, while helper creation and saved state changes retain native consequences.",
       "implementation_scope": "Complete reference specification and isolated synthetic examples; native Home Assistant components and management APIs remain authoritative. No additional runtime adapter is installed by this guide.",
       "reviewed_on": "2026-11-12",
       "acceptance": [
@@ -4892,7 +5431,8 @@
         "https://design-system.service.gov.uk/components/radios/",
         "https://design-system.service.gov.uk/components/checkboxes/",
         "https://design-system.service.gov.uk/components/error-summary/",
-        "https://design.homeoffice.gov.uk/design-system/patterns/help-users-to/long-lists"
+        "https://design.homeoffice.gov.uk/design-system/patterns/help-users-to/long-lists",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
       ],
       "local_routes": [
         "/home-assistant/schema-selectors.html",
@@ -4900,7 +5440,7 @@
         "/components/select.html",
         "/components/error-summary.html"
       ],
-      "adaptation": "Use the schema type, allowed values and multiplicity to choose a primitive. Group related inputs and preserve source identifiers, structured objects and validation. Prefer a small visible choice to an unnecessary select; HA frequently used settings are an explicit select adaptation.",
+      "adaptation": "Use the schema type, allowed values and multiplicity to choose a primitive. Group related inputs and preserve source identifiers, structured objects and validation. Prefer a small visible choice to an unnecessary select; HA frequently used settings are an explicit select adaptation. A bounded number selector can refer to Royal Navy Range Slider; actual schema bounds, steps and units remain authoritative.",
       "implementation_scope": "Complete reference specification and isolated synthetic examples; native Home Assistant components and management APIs remain authoritative. No additional runtime adapter is installed by this guide.",
       "reviewed_on": "2026-11-12",
       "acceptance": [
@@ -4991,7 +5531,7 @@
   ],
   "slider_review": {
     "id": "UK-SLIDER-001",
-    "classification": "Original civica.uk extension; not an official UK government slider component.",
+    "classification": "Original civica.uk implementation informed by a current official Royal Navy range-slider reference and GOV.UK/W3C guidance; no imported Royal Navy component or native HA replacement.",
     "local_route": "/components/sliders.html",
     "examples": [
       "slider-brightness",
@@ -5000,7 +5540,7 @@
       "slider-request-failed",
       "slider-unavailable"
     ],
-    "catalogue_finding": "No slider/range component is listed in the eight reviewed component catalogues. Historical and unpublished prototypes were not ruled out.",
+    "catalogue_finding": "The eight initially reviewed catalogues did not list a slider. A wider official-source check identified the current Royal Navy Range Slider, now recorded as the ninth catalogue. The earlier bounded finding must not be generalised to all UK systems.",
     "official_uk_guidance": "https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders",
     "platform_sources": [
       "https://html.spec.whatwg.org/multipage/input.html#range-state-(type=range)",
@@ -5013,7 +5553,39 @@
       "published_version_seen": "3.14.0",
       "decision": "Comparison only. Not UK provenance and no imported component code or certification."
     },
-    "reference_scope": "HTML documentation specimens. Native HA slider and colour/temperature/position semantics are retained."
+    "reference_scope": "HTML documentation specimens. Native HA slider and colour/temperature/position semantics are retained.",
+    "official_uk_component": {
+      "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs",
+      "system": "Royal Navy Design System",
+      "maturity": "Current official published Storybook component and released package source; no experimental marker observed, but no formal maturity or accessibility certification inferred.",
+      "package_version": "4.64.2",
+      "source_commit": "13163badc75f09695bb48968a0f82928eead6d35",
+      "variants": [
+        "Default",
+        "Multiple handles",
+        "Single threshold",
+        "Double threshold",
+        "Custom value formatter",
+        "Stepped",
+        "Icons",
+        "Labels",
+        "Reversed scale",
+        "Disabled"
+      ],
+      "local_decision": "Adapt its relevant numeric-input anatomy, retain original native HTML implementation, exact entry and visible step alternatives; no React dependency, Royal Navy branding, threshold semantics or automatic device action is imported.",
+      "implementation_limits": [
+        "Current Handle source uses a generic Select range accessible name; local controls require a specific device/value label.",
+        "The default formatter floors values; precise local decimal targets must preserve their actual precision.",
+        "The Storybook accessibility configuration disables the color-contrast rule for Range Slider. This is not proof of a specific failure or a passed contrast assessment.",
+        "The source does not provide the local exact-entry/stepper/report-versus-draft contract. These remain separately implemented and tested civica.uk requirements."
+      ],
+      "sources": [
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Slider.tsx",
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Handle.tsx",
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/RangeSlider.stories.tsx",
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/a11y/storyAccessibilityConfig.ts"
+      ]
+    }
   },
   "status_observations": [
     {
@@ -5042,9 +5614,17 @@
       "url": "https://design.homeoffice.gov.uk/design-system/components?name=Time",
       "finding": "Time is a display component with 12/24-hour options, not an editable time-picker widget.",
       "local_boundary": "Retain HA user clock/time-zone preferences."
+    },
+    {
+      "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs",
+      "upstream_status": "Current official component; published package 4.64.2 checked independently from the rolling Storybook index.",
+      "legacy_guidance_url": "https://design-system.navy.digital.mod.uk/guidance/design",
+      "finding": "The Design guidance page is explicitly legacy and labels Axure libraries 3.2/3.1; the active React package release is 4.64.2. Do not confuse design-library versions with package or live Storybook versions.",
+      "local_boundary": "Reference and original local adaptation only; no native HA slider replacement or inherited accessibility certification."
     }
   ],
   "evidence_limits": [
+    "Nine indexed systems are a declared source set, not all UK departmental or regional systems. Supplemental discovery records preserve partial and unavailable-source checks without adding them to the complete catalogue counts.",
     "Catalogues establish what is publicly listed, not historical absence or component accessibility certification.",
     "All 38 HA families have a recorded design decision, not 38 new native adapters.",
     "Reference examples use synthetic data and local feedback only; no physical actions or live installation checks are inferred.",
@@ -5129,6 +5709,136 @@
       "finding": "Avoid slider questions; if used, supply a non-drag alternative. HA adjustment controls are an explicit local extension, not evidence of a GOV.UK slider component.",
       "reviewed_on": "2026-11-12",
       "review_scope": "Owning official component/pattern guidance read for the stated constraint; no runtime or accessibility certification implied."
+    },
+    {
+      "url": "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs",
+      "finding": "Current official UK slider primitive includes one/two handles, numeric bounds/step, ticks, unit/formatter, disabled/reversed states and optional thresholds. Local implementation retains native HTML, explicit names, exact decimals, non-drag inputs and separate reported state; the React package and threshold meanings are not adopted.",
+      "reviewed_on": "2026-11-12",
+      "review_scope": "Live Storybook index and pinned release 4.64.2 Slider, Handle, stories and accessibility configuration read; no browser/assistive-technology or native-HA execution claimed.",
+      "source_urls": [
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Slider.tsx",
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Handle.tsx",
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/RangeSlider.stories.tsx",
+        "https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/a11y/storyAccessibilityConfig.ts"
+      ]
+    }
+  ],
+  "supplemental_source_checks": [
+    {
+      "id": "UK-SUP-001",
+      "name": "Official discovery directories",
+      "source_urls": [
+        "https://design-system.service.gov.uk/community/resources-and-tools/",
+        "https://dev.reuselibrary.service.justice.gov.uk/"
+      ],
+      "review_scope": "Official GOV.UK community page and its linked MoJ-curated GOV Reuse Library directory read.",
+      "finding": "The directory lists additional departmental and regional systems beyond the original eight. Directory listing is not a full component review or GDS support/certification.",
+      "decision": "Discovery evidence only; Royal Navy was separately verified from its owning official site and repository.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-002",
+      "name": "Department for Education",
+      "source_urls": [
+        "https://design.education.gov.uk/design-system/components",
+        "https://design.education.gov.uk/design-system/patterns"
+      ],
+      "review_scope": "Current component and pattern indexes read; no complete detail-page inventory added.",
+      "finding": "No slider listed in these indexes. The component index separates published Card/Filter/Header from In progress and Backlog entries.",
+      "decision": "Supplemental scope evidence; no package or new component adopted.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-003",
+      "name": "HMRC",
+      "source_urls": [
+        "https://design.tax.service.gov.uk/hmrc-design-patterns/"
+      ],
+      "review_scope": "Owning patterns landing page and targeted slider/range search checked, not every HMRC pattern.",
+      "finding": "HMRC publishes tax-service patterns supplementing GOV.UK. No reusable slider was established by this bounded check; this is not proof of absence.",
+      "decision": "Supplemental scope evidence; no new component adopted.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-004",
+      "name": "HMCTS Frontend",
+      "source_urls": [
+        "https://github.com/hmcts/frontend"
+      ],
+      "review_scope": "Owning repository metadata and README checked.",
+      "finding": "The repository is archived, read-only since 31 January 2022. Its historical design-system link is not evidence of a current supported package or slider.",
+      "decision": "Historical evidence only; do not present this repository as a current adopted library.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-005",
+      "name": "HM Land Registry",
+      "source_urls": [
+        "https://dev.reuselibrary.service.justice.gov.uk/",
+        "https://hmlr-design-system.herokuapp.com/"
+      ],
+      "review_scope": "Official directory entry checked; linked site retrieval unavailable.",
+      "finding": "The directory names a separate design system. Its current contents and slider coverage were not verified.",
+      "decision": "Unresolved source-access limitation; excluded from complete catalogue counts.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-006",
+      "name": "Defra",
+      "source_urls": [
+        "https://digital.defra.gov.uk/service-manual",
+        "https://defra-design.github.io/accessibility/resources/content/how-to-make-a-qualtrics-form-more-accessible/"
+      ],
+      "review_scope": "Official directory and targeted primary-source search checked; service manual returned HTTP 403.",
+      "finding": "Defra accessibility guidance discusses Qualtrics slider question types. This is platform-specific form guidance, not evidence of an owned reusable slider component.",
+      "decision": "Supplemental evidence with an access limitation; not a complete Defra catalogue review.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-007",
+      "name": "The National Archives",
+      "source_urls": [
+        "https://design-system.nationalarchives.gov.uk/components/"
+      ],
+      "review_scope": "Current component index read; not every detail page.",
+      "finding": "No slider listed in the reviewed index. Several entries carry To be reviewed labels; an index listing is not equivalent to production maturity.",
+      "decision": "Supplemental catalogue-scope evidence; no new component adopted.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-008",
+      "name": "Intelligence Community Design System",
+      "source_urls": [
+        "https://design.sis.gov.uk/components/"
+      ],
+      "review_scope": "Current published component index read.",
+      "finding": "The index includes switch, toggle button, stepper, time input and tree view, but no slider. Its page displays a last-reviewed date of 14 November 2023; retrieval date must not replace that upstream date.",
+      "decision": "Supplemental scope evidence; no complete detail review or native HA adaptation claimed.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-009",
+      "name": "Bristol City Council",
+      "source_urls": [
+        "https://dev.reuselibrary.service.justice.gov.uk/",
+        "https://design.bristol.gov.uk/"
+      ],
+      "review_scope": "MoJ-curated directory entry only.",
+      "finding": "A regional design system outside the nine indexed systems. Components were not audited in this check.",
+      "decision": "Discovered, not reviewed or adopted; excluded from complete catalogue counts.",
+      "reviewed_on": "2026-11-12"
+    },
+    {
+      "id": "UK-SUP-010",
+      "name": "Transport for West Midlands",
+      "source_urls": [
+        "https://dev.reuselibrary.service.justice.gov.uk/",
+        "https://designsystem.tfwm.org.uk/"
+      ],
+      "review_scope": "MoJ-curated directory entry only.",
+      "finding": "A regional transport design system outside the nine indexed systems. Components were not audited in this check.",
+      "decision": "Discovered, not reviewed or adopted; excluded from complete catalogue counts.",
+      "reviewed_on": "2026-11-12"
     }
   ]
 }
