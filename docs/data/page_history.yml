@@ -519,8 +519,12 @@
   },
   "get-started/index.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Added the project story under Get started and linked its household design motivation."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the brand and writing source decisions, audit links and provenance boundaries."

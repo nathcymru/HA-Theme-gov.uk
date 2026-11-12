@@ -573,6 +573,23 @@
         "docs/data/ha-coverage-verification.json",
         "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43133737331"
       ]
+    },
+    {
+      "id": "loop-14",
+      "title": "Loop 14: project story and independent Writing guide navigation",
+      "outcome": "Added the user-provided project motivation, a Get started About page with three original illustrations, and a separate Writing guide section while preserving existing URLs and rule anchors.",
+      "checks": [
+        "Reviewed original copy against local writing and illustration rules; distinguished accessibility aims from conformance claims and code licences from identity.",
+        "All 852 local browser cases, 50 unit tests, type checks, internal links and source/brand/coverage integrity checks passed.",
+        "Checked desktop reading flow in connected Chrome and complete text alternatives when images or scripting are unavailable.",
+        "Publication evidence is recorded in the change pull request and GitHub deployment workflow; this local record does not claim a Home Assistant runtime deployment."
+      ],
+      "evidence": [
+        "docs/data/project-story-review.json",
+        "docs/data/project-artwork-provenance.json",
+        "tests/project-story.browser.spec.mjs",
+        "tests/writing-navigation.browser.spec.mjs"
+      ]
     }
   ],
   "limitations": [

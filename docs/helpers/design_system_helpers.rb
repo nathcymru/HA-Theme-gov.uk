@@ -19,9 +19,13 @@ module DesignSystemHelpers
   end
 
   def section_groups(section)
-    pages = guide_pages.select { |resource| section_for(resource) == section && (!resource.destination_path.end_with?('/index.html') || ['content/index.html', 'home-assistant/index.html'].include?(resource.destination_path)) }
+    section_home = data.navigation.sections.find { |item| item.id == section }&.path
+    pages = guide_pages.select do |resource|
+      section_for(resource) == section && '/' + resource.destination_path != section_home &&
+        (!resource.destination_path.end_with?('/index.html') || resource.destination_path == 'home-assistant/index.html')
+    end
     pages.group_by { |resource| resource.data.group || (section == 'components' ? 'Home Assistant components' : 'Guidance') }
-      .sort_by { |group, _| ['Guidance', 'Brand guidance', 'Writing guide', 'Home Assistant components', 'Home Assistant: controls', 'Home Assistant: flows', 'Form elements', 'Content presentation', 'Navigation', 'Inclusive content', 'Task patterns', 'Page patterns', 'Publishing components', 'Publishing patterns', 'Page templates'].index(group) || 99 }
+      .sort_by { |group, _| ['Guidance', 'Brand guidance', 'Writing standards', 'Home Assistant terminology', 'Quick reference', 'Home Assistant components', 'Home Assistant: controls', 'Home Assistant: flows', 'Form elements', 'Content presentation', 'Navigation', 'Inclusive content', 'Task patterns', 'Page patterns', 'Publishing components', 'Publishing patterns', 'Page templates'].index(group) || 99 }
       .map { |group, resources| [group, resources.sort_by { |resource| [resource.data.nav_order || 100, resource.data.title.downcase] }] }
   end
 

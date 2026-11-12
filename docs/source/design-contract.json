@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "civica.uk Design System",
-  "reviewedOn": "2026-11-11",
+  "reviewedOn": "2026-11-12",
   "authority": {
     "purpose": "Local design contract, not instructions overriding the user",
     "order": [
@@ -312,6 +312,7 @@
     "informationArchitecture": [
       "get-started",
       "styles",
+      "content",
       "components",
       "patterns",
       "community",
@@ -342,13 +343,15 @@
       "scope": "every editorial guide except homepage; standalone canvases use owning-guide history",
       "dates": "authored publication/update entries, never generated review dates"
     },
-    "navigation": "six primary sections; page groups generated from source metadata",
+    "navigation": "Seven primary sections, including Writing guide (content); page groups generated from source metadata and existing URLs preserved.",
     "homepageIllustrations": "original repository-native SVG; supplied identity unchanged",
     "referenceStatus": "catalogue coverage is not native Home Assistant implementation coverage",
     "guidanceWorkPackage": "community/guidance-work-package.html",
     "complianceAudit": "reference/design-system-audit.json",
     "auditCompleteMeansAllFindingsFixed": false,
-    "reviewResponsibility": "civica.uk repository maintainers; see content/content-review.html"
+    "reviewResponsibility": "civica.uk repository maintainers; see content/content-review.html",
+    "projectStory": "get-started/about.html",
+    "projectIllustrations": "reference/documentation-artwork.json"
   },
   "sources": [
     "https://design-system.service.gov.uk/",

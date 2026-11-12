@@ -6,6 +6,7 @@
 
 - [Design contract](design-contract.json): machine-readable rules, scope, source hierarchy and verification boundaries.
 - [Get started](get-started/index.html): layers and principles.
+- [About this project](get-started/about.html): the author's purpose, independent identity, original explanatory illustrations and accessibility aims.
 - [Compatibility](get-started/compatibility.html): native/third-party coverage and limits.
 - [Architecture](community/architecture.html): real Middleman Tech Docs Template; GOV.UK Design System information architecture.
 
@@ -32,7 +33,7 @@
 - [Layout](styles/layout.html): native responsive grids and consistent spacing.
 - [Images](styles/images.html): purposeful icons and images with labels.
 - [Notification badge](components/notification-badge.html): exact MOJ rounded red geometry, count limits and HA live-update adaptation.
-- [Content](styles/content.html): plain UK English, precise state/action wording.
+- [Writing guide](content/index.html): a main section for plain UK English, precise state/action wording and dated Home Assistant terminology. Existing /content/ links and rule anchors are preserved; /styles/content.html is a legacy entry point.
 
 ## Components and patterns
 
@@ -77,11 +78,11 @@ Reference catalogue coverage does not mean those components have replaced native
 - [Brand rules and evidence](reference/brand-guidance.json), [writing rules and evidence](reference/writing-guide.json): machine-readable rules and source coverage.
 - [Work-package checklist](community/guidance-work-package.html): original review and follow-up remediation phases, evidence and repeatable checks.
 - [Whole-system audit](community/design-system-audit.html) and [audit data](reference/design-system-audit.json): evidence, affected rules, priorities and acceptance criteria.
-- [Component organisation](community/component-audit.html) and [Home Assistant specification coverage](community/missing-components.html): shared owners, 30 dedicated native-task specifications, stable URLs and implementation boundaries.
+- [Component organisation](community/component-audit.html) and [Home Assistant specification coverage](community/missing-components.html): shared owners, 38 dedicated native-task specifications, stable URLs and implementation boundaries.
 
 Apply MUST rules to their stated scope. SHOULD rules allow an evidenced exception. Do not treat audit proposals as implemented features or infer live Home Assistant verification from documentation checks.
 
-- [Native controls and flows](home-assistant/index.html): state/capability contracts, complete synthetic examples and integration acceptance for all 30 identified design gaps.
+- [Native controls and flows](home-assistant/index.html): state/capability contracts, complete synthetic examples and integration acceptance for the 38 documented task families.
 - [Compatibility register](home-assistant/compatibility-register.html): exact maintained adapters and native fallback.
 
 ## Versioned Home Assistant coverage and terminology
@@ -92,3 +93,5 @@ Apply MUST rules to their stated scope. SHOULD rules allow an evidenced exceptio
 - [UK systems review](community/uk-design-system-review.html) and [crosswalk](reference/uk-design-system-crosswalk.json): current catalogues, detail-review constraints and source-to-family decisions.
 - [Sliders](components/sliders.html): local civica.uk range anatomy, precise alternatives, explicit provenance and failure states.
 - [Coverage verification](reference/ha-coverage-verification.json): independently reviewed scope, executed checks and publication status. A registry mapping is not live native implementation evidence.
+
+- [Project story and navigation review](reference/project-story-review.json): copy, illustration provenance and verification for the About page and separate Writing guide section.

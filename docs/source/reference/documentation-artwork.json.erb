@@ -1,4 +1,4 @@
 ---
 layout: false
 ---
-<%= JSON.pretty_generate({schema_version: 1, scope: 'Original documentation artwork; supplied brand marks retain their separate manifest and rights.', illustrations: JSON.parse(File.read(File.join(root, 'data', 'illustration-assets.json'))), cards: JSON.parse(File.read(File.join(root, 'data', 'card-artwork-provenance.json'))), examples: config[:civica_examples].filter_map { |id, item| {id: id, artwork: item['artwork']} if item['artwork'] }}) %>
+<%= JSON.pretty_generate({schema_version: 2, scope: 'Original documentation artwork; supplied brand marks retain their separate manifest and rights.', illustrations: JSON.parse(File.read(File.join(root, 'data', 'illustration-assets.json'))), cards: JSON.parse(File.read(File.join(root, 'data', 'card-artwork-provenance.json'))), project: JSON.parse(File.read(File.join(root, 'data', 'project-artwork-provenance.json'))), examples: config[:civica_examples].filter_map { |id, item| {id: id, artwork: item['artwork']} if item['artwork'] }}) %>

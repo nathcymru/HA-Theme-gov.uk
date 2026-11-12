@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "family": "Original civica.uk project explanation illustrations",
+  "scope": "Three original editable SVG illustrations for the About story. No runtime assets or supplied civica identity assets changed.",
+  "integration_class": "c-project-figure",
+  "assets": [
+    {
+      "id": "project-information-hierarchy",
+      "path": "docs/source/images/project-information-hierarchy.svg",
+      "sha256": "68b5d2e64a1c3c63fd5fe1207df082c397f73020c83df580b0490a53640e9e00",
+      "width": 960,
+      "height": 560,
+      "view_box": "0 0 960 560",
+      "creator": "civica.uk project; Codex-assisted original SVG markup",
+      "created_on": "2026-11-12",
+      "licence": "MIT, original repository documentation artwork under LICENSE",
+      "provenance": "Original flat vector geometry authored in this repository. No external artwork, stock photograph, screenshot, government identity path, supplied civica logo geometry or font file copied.",
+      "purpose": "Explain the difference between equally weighted small panels and grouped information with clear hierarchy.",
+      "classification": "Explanatory schematic, not a Home Assistant screenshot or evidence of deployed behaviour",
+      "palette": [
+        "#0B0C0C",
+        "#103E65",
+        "#1D70B8",
+        "#BFD9ED",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Opaque #F3F6F9 light canvas inside the SVG; suitable on a light or dark surrounding page without changing the asset. Fixed Civic Cobalt illustration colours do not encode device state or follow the selected theme.",
+      "caption": "Illustration, not a Home Assistant screenshot. The left arrangement gives many small details similar weight. The right groups related information, with a clear heading, a reading and one action in each row. This explains a design intention; it is not a measured usability result.",
+      "alternative_text_decision": {
+        "recommended_img_alt": "",
+        "reason": "The complete adjacent figcaption states the meaning, values and limitations, so the embedded image is redundant. Keep the figcaption whenever using empty alt.",
+        "standalone_informative_alt": "Two schematic information arrangements: crowded tiles on the left and three grouped rows on the right.",
+        "standalone_svg_accessibility": "SVG role=img references its title and description. All internal shapes are non-interactive.",
+        "text_alternative": "Illustration, not a Home Assistant screenshot. The left arrangement gives many small details similar weight. The right groups related information, with a clear heading, a reading and one action in each row. This explains a design intention; it is not a measured usability result."
+      },
+      "source_background": [
+        "docs/source/styles/illustration.html.md.erb#bg-ill-01",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-02",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-03",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-04",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-06",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-08",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-09",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-10",
+        "docs/source/styles/images.html.md.erb"
+      ],
+      "local_decisions": [
+        "HTML carries the full explanation; no vital small labels are embedded in the artwork.",
+        "Only the detail illustration includes large numeric text and simple plus/minus/action symbols; the full values and meanings are repeated in HTML.",
+        "Functional control boundaries use ink strokes; other flat objects have no ornamental outlines, texture, gradients or 3D effects.",
+        "Objects and rooms are invented; no people, personal data, actual household layout or stereotype-dependent role is depicted."
+      ],
+      "verification": {
+        "source_checks": "XML parse, explicit dimensions/viewBox, at most six flat colours, no scripts, embedded raster, external dependencies, animation, filters or gradients.",
+        "render_checks": "Rendered with isolated local Playwright Chromium headless-shell build 1243 at 992px and 320px viewports; images displayed at 960px and 288px. No horizontal overflow recorded. All three images and text were visually inspected at both sizes.",
+        "context_checks": "Visually inspected 320px dark-surround, grayscale and images-omitted versions. Objects, groupings and 25%/40% distinction remain understandable; complete captions preserve meaning when images are omitted.",
+        "proof_files": [
+          "/tmp/civica-project-artwork-proof/project-information-hierarchy-desktop.png",
+          "/tmp/civica-project-artwork-proof/project-information-hierarchy-mobile.png"
+        ],
+        "shared_proof_files": [
+          "/tmp/civica-project-artwork-proof/dark-surround.png",
+          "/tmp/civica-project-artwork-proof/grayscale.png",
+          "/tmp/civica-project-artwork-proof/images-omitted.png",
+          "/tmp/civica-project-artwork-proof/render-results.json"
+        ],
+        "limitations": [
+          "Local artwork inspection only; no live Home Assistant, end-user usability test or assistive-technology certification is claimed.",
+          "Grayscale was reviewed as a loss-of-colour check; this is not a simulation of every colour-vision deficiency.",
+          "Final About-page layout and screen-reader reading order need integration review after the figures are inserted."
+        ]
+      }
+    },
+    {
+      "id": "project-household-overview",
+      "path": "docs/source/images/project-household-overview.svg",
+      "sha256": "f4c35add6081b06701340f584649e7db19dce398cef760ea9e03bbf1bd0ea0e6",
+      "width": 960,
+      "height": 560,
+      "view_box": "0 0 960 560",
+      "creator": "civica.uk project; Codex-assisted original SVG markup",
+      "created_on": "2026-11-12",
+      "licence": "MIT, original repository documentation artwork under LICENSE",
+      "provenance": "Original flat vector geometry authored in this repository. No external artwork, stock photograph, screenshot, government identity path, supplied civica logo geometry or font file copied.",
+      "purpose": "Explain grouping a household overview by location using recognisable objects, without depicting occupancy or operational status.",
+      "classification": "Explanatory schematic, not a Home Assistant screenshot or evidence of deployed behaviour",
+      "palette": [
+        "#103E65",
+        "#1D70B8",
+        "#BFD9ED",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Opaque #F3F6F9 light canvas inside the SVG; suitable on a light or dark surrounding page without changing the asset. Fixed Civic Cobalt illustration colours do not encode device state or follow the selected theme.",
+      "caption": "Illustration of three invented household spaces: a chair and reading lamp; a thermostat and radiator; and a table and pendant light. It explains grouping controls by location. It is not a real floor plan and shows no occupancy, device availability or on/off state.",
+      "alternative_text_decision": {
+        "recommended_img_alt": "",
+        "reason": "The complete adjacent figcaption states the meaning, values and limitations, so the embedded image is redundant. Keep the figcaption whenever using empty alt.",
+        "standalone_informative_alt": "A schematic home with a reading space, a comfort-control space and a table space.",
+        "standalone_svg_accessibility": "SVG role=img references its title and description. All internal shapes are non-interactive.",
+        "text_alternative": "Illustration of three invented household spaces: a chair and reading lamp; a thermostat and radiator; and a table and pendant light. It explains grouping controls by location. It is not a real floor plan and shows no occupancy, device availability or on/off state."
+      },
+      "source_background": [
+        "docs/source/styles/illustration.html.md.erb#bg-ill-01",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-02",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-03",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-04",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-06",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-08",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-09",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-10",
+        "docs/source/styles/images.html.md.erb"
+      ],
+      "local_decisions": [
+        "HTML carries the full explanation; no vital small labels are embedded in the artwork.",
+        "Only the detail illustration includes large numeric text and simple plus/minus/action symbols; the full values and meanings are repeated in HTML.",
+        "Functional control boundaries use ink strokes; other flat objects have no ornamental outlines, texture, gradients or 3D effects.",
+        "Objects and rooms are invented; no people, personal data, actual household layout or stereotype-dependent role is depicted."
+      ],
+      "verification": {
+        "source_checks": "XML parse, explicit dimensions/viewBox, at most six flat colours, no scripts, embedded raster, external dependencies, animation, filters or gradients.",
+        "render_checks": "Rendered with isolated local Playwright Chromium headless-shell build 1243 at 992px and 320px viewports; images displayed at 960px and 288px. No horizontal overflow recorded. All three images and text were visually inspected at both sizes.",
+        "context_checks": "Visually inspected 320px dark-surround, grayscale and images-omitted versions. Objects, groupings and 25%/40% distinction remain understandable; complete captions preserve meaning when images are omitted.",
+        "proof_files": [
+          "/tmp/civica-project-artwork-proof/project-household-overview-desktop.png",
+          "/tmp/civica-project-artwork-proof/project-household-overview-mobile.png"
+        ],
+        "shared_proof_files": [
+          "/tmp/civica-project-artwork-proof/dark-surround.png",
+          "/tmp/civica-project-artwork-proof/grayscale.png",
+          "/tmp/civica-project-artwork-proof/images-omitted.png",
+          "/tmp/civica-project-artwork-proof/render-results.json"
+        ],
+        "limitations": [
+          "Local artwork inspection only; no live Home Assistant, end-user usability test or assistive-technology certification is claimed.",
+          "Grayscale was reviewed as a loss-of-colour check; this is not a simulation of every colour-vision deficiency.",
+          "Final About-page layout and screen-reader reading order need integration review after the figures are inserted."
+        ]
+      }
+    },
+    {
+      "id": "project-control-detail",
+      "path": "docs/source/images/project-control-detail.svg",
+      "sha256": "453e28d8f7d2a66fb82974a2fdcc54e34b2fb7e2ca3113062ccb4cfa7d1fa469",
+      "width": 960,
+      "height": 560,
+      "view_box": "0 0 960 560",
+      "creator": "civica.uk project; Codex-assisted original SVG markup",
+      "created_on": "2026-11-12",
+      "licence": "MIT, original repository documentation artwork under LICENSE",
+      "provenance": "Original flat vector geometry authored in this repository. No external artwork, stock photograph, screenshot, government identity path, supplied civica logo geometry or font file copied.",
+      "purpose": "Explain the difference between a reported reading, an editable draft, alternative input methods and a deliberate action.",
+      "classification": "Explanatory schematic, not a Home Assistant screenshot or evidence of deployed behaviour",
+      "palette": [
+        "#0B0C0C",
+        "#103E65",
+        "#1D70B8",
+        "#BFD9ED",
+        "#F3F6F9",
+        "#FFFFFF"
+      ],
+      "background": "Opaque #F3F6F9 light canvas inside the SVG; suitable on a light or dark surrounding page without changing the asset. Fixed Civic Cobalt illustration colours do not encode device state or follow the selected theme.",
+      "caption": "Illustration with invented values. The left panel shows a reported lamp value of 25%. The right holds a proposed 40% setting, with a slider, exact entry and decrease/increase alternatives, followed by a separate action. Editing the draft does not confirm that the lamp changed. The drawing is not interactive and does not show a deployed Home Assistant control.",
+      "alternative_text_decision": {
+        "recommended_img_alt": "",
+        "reason": "The complete adjacent figcaption states the meaning, values and limitations, so the embedded image is redundant. Keep the figcaption whenever using empty alt.",
+        "standalone_informative_alt": "A reported lamp value of 25% sits apart from a 40% draft and its adjustment controls.",
+        "standalone_svg_accessibility": "SVG role=img references its title and description. All internal shapes are non-interactive.",
+        "text_alternative": "Illustration with invented values. The left panel shows a reported lamp value of 25%. The right holds a proposed 40% setting, with a slider, exact entry and decrease/increase alternatives, followed by a separate action. Editing the draft does not confirm that the lamp changed. The drawing is not interactive and does not show a deployed Home Assistant control."
+      },
+      "source_background": [
+        "docs/source/styles/illustration.html.md.erb#bg-ill-01",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-02",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-03",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-04",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-06",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-08",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-09",
+        "docs/source/styles/illustration.html.md.erb#bg-ill-10",
+        "docs/source/styles/images.html.md.erb"
+      ],
+      "local_decisions": [
+        "HTML carries the full explanation; no vital small labels are embedded in the artwork.",
+        "Only the detail illustration includes large numeric text and simple plus/minus/action symbols; the full values and meanings are repeated in HTML.",
+        "Functional control boundaries use ink strokes; other flat objects have no ornamental outlines, texture, gradients or 3D effects.",
+        "Objects and rooms are invented; no people, personal data, actual household layout or stereotype-dependent role is depicted."
+      ],
+      "verification": {
+        "source_checks": "XML parse, explicit dimensions/viewBox, at most six flat colours, no scripts, embedded raster, external dependencies, animation, filters or gradients.",
+        "render_checks": "Rendered with isolated local Playwright Chromium headless-shell build 1243 at 992px and 320px viewports; images displayed at 960px and 288px. No horizontal overflow recorded. All three images and text were visually inspected at both sizes.",
+        "context_checks": "Visually inspected 320px dark-surround, grayscale and images-omitted versions. Objects, groupings and 25%/40% distinction remain understandable; complete captions preserve meaning when images are omitted.",
+        "proof_files": [
+          "/tmp/civica-project-artwork-proof/project-control-detail-desktop.png",
+          "/tmp/civica-project-artwork-proof/project-control-detail-mobile.png"
+        ],
+        "shared_proof_files": [
+          "/tmp/civica-project-artwork-proof/dark-surround.png",
+          "/tmp/civica-project-artwork-proof/grayscale.png",
+          "/tmp/civica-project-artwork-proof/images-omitted.png",
+          "/tmp/civica-project-artwork-proof/render-results.json"
+        ],
+        "limitations": [
+          "Local artwork inspection only; no live Home Assistant, end-user usability test or assistive-technology certification is claimed.",
+          "Grayscale was reviewed as a loss-of-colour check; this is not a simulation of every colour-vision deficiency.",
+          "Final About-page layout and screen-reader reading order need integration review after the figures are inserted."
+        ]
+      }
+    }
+  ]
+}

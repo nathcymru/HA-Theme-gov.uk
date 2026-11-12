@@ -1,6 +1,6 @@
 # civica.uk documentation
 
-This is a real [GOV.UK Tech Docs Template](https://github.com/alphagov/tech-docs-template) site, using Middleman and pinned `govuk_tech_docs` 6.6.0. It follows the GOV.UK Design System's Get started / Styles / Components / Patterns / Community / Accessibility organisation with an independent civica.uk identity.
+This is a real [GOV.UK Tech Docs Template](https://github.com/alphagov/tech-docs-template) site, using Middleman and pinned `govuk_tech_docs` 6.6.0. It follows the GOV.UK Design System's Get started / Styles / Components / Patterns / Community / Accessibility organisation, with Writing guide added as a separate main section and an independent civica.uk identity.
 
 The upstream GOV.UK Design System website uses Node. This project maps its information architecture and layout into Middleman's `source/`, `layouts/`, `data/` and `config/` structure. It does not claim that the upstream Node repository is a Middleman template.
 
@@ -44,12 +44,12 @@ Use `.html.md.erb` for Markdown pages containing the shared `example()` helper. 
 
 Add examples to a `data/*examples.yml` catalogue with a unique ID, title, description and HTML. Middleman generates `/examples/<id>.html`, and the shared helper renders the same final markup in an iframe and the HTML tab. Standard components are enhanced with pinned GOV.UK Frontend 6.6.0. Ordinary demo forms use `data-demo-form` and a local status region; the build makes their controls inert until the local handler is ready. Publishing filters have a separate explicit local-data protocol. Never connect examples to a household.
 
-The component and pattern catalogues, section navigation, sitemap and search are generated from the page metadata. The six top-level routes remain in `data/navigation.yml`. Source-index inventories are published together in `reference/coverage.json`; keep their page and example mappings accurate.
+The component and pattern catalogues, section navigation, sitemap and search are generated from the page metadata. The seven main navigation sections are defined in `data/navigation.yml`, including Writing guide. Its existing `/content/` routes are preserved; `/styles/content.html` remains a legacy entry point. The project story is under Get started at `/get-started/about.html`. Source-index inventories are published together in `reference/coverage.json`; keep their page and example mappings accurate.
 
 Run the documentation browser suite after building:
 
 ```sh
-npx playwright test tests/docs.browser.spec.mjs tests/publishing-examples.browser.spec.mjs --workers=4
+npm run test:browser -- --workers=4
 ```
 
-It checks guide structure/history, source-to-preview parity, every standalone example’s accessibility/reflow, safe no-JavaScript forms and important interactions. The separate Energy browser suite tests the shared production adapter. Do not describe those checks as proof that every reference pattern is installed in native Home Assistant.
+It checks guide structure/history, source-to-preview parity, every standalone example’s accessibility/reflow, safe no-JavaScript forms and important interactions. The included Energy browser suite tests the shared production adapter. Do not describe those checks as proof that every reference pattern is installed in native Home Assistant.

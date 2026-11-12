@@ -1,0 +1,215 @@
+{
+  "reviewed_on": "2026-11-12",
+  "scope": "New About page and independent copy review of the parent-authored homepage excerpt; source and static content review only.",
+  "owner": "theme_palettes; parent owns homepage, rendered checks and publication",
+  "page": "docs/source/get-started/about.html.md.erb",
+  "page_sha256": "a5d96b3f3c74946491f9c489f97b87550f6a65a1636110f6f84926490ac00a91",
+  "result": "copy_source_and_local_render_review_complete",
+  "user_need": "Explain why civica.uk exists, how the public-service approach serves everyday household tasks, and where to start.",
+  "authorial_scope": {
+    "provided": "The author created civica.uk for a clear, predictable Home Assistant interface for the whole household, with older relatives, neurodivergent people and guests considered from the start.",
+    "preserved": [
+      "First-person purpose",
+      "Whole-household use",
+      "Predictable layout and readable text",
+      "Reported state and supported action clarity",
+      "GOV.UK research and reusable patterns as a starting point",
+      "Practical Home Assistant adaptations",
+      "Independent civica.uk identity"
+    ],
+    "not_asserted": [
+      "Personal diagnoses or unprovided family history",
+      "Age or diagnosis as a proxy for ability or preferred interface",
+      "Universal accessibility or low cognitive load",
+      "WCAG certification or blanket compliance",
+      "Superiority over named community themes",
+      "Government or Home Assistant affiliation",
+      "Installation of every reference example"
+    ]
+  },
+  "rules_reviewed": [
+    "WG-001",
+    "WG-002",
+    "WG-004",
+    "WG-010",
+    "WG-011",
+    "WG-012",
+    "WG-013",
+    "WG-021",
+    "WG-032",
+    "WG-034",
+    "WG-056",
+    "WG-060",
+    "WG-062",
+    "WG-086",
+    "WG-090",
+    "BG-COL-01",
+    "BG-COL-02",
+    "BG-TYP-01",
+    "BG-ILL-01",
+    "BG-ILL-10"
+  ],
+  "implementation_sources": [
+    "docs/source/get-started/index.html.md.erb",
+    "docs/source/get-started/compatibility.html.md.erb",
+    "docs/source/styles/brand.html.md.erb",
+    "docs/source/community/licensing.html.md.erb",
+    "docs/data/writing-guide-inventory.json",
+    "docs/data/brand-guidance-inventory.json"
+  ],
+  "primary_sources": [
+    {
+      "url": "https://design-system.service.gov.uk/",
+      "checked_on": "2026-11-12",
+      "supports": "Published purpose and research background; website footer states OGL v3.0 except where otherwise stated."
+    },
+    {
+      "url": "https://github.com/alphagov/govuk-design-system/blob/main/LICENSE",
+      "checked_on": "2026-11-12",
+      "supports": "Design System website repository code licence is MIT; licence and copyright notice conditions retained in source."
+    },
+    {
+      "url": "https://github.com/alphagov/govuk-frontend/blob/main/LICENSE.txt",
+      "checked_on": "2026-11-12",
+      "supports": "GOV.UK Frontend code licence is MIT."
+    },
+    {
+      "url": "https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/",
+      "checked_on": "2026-11-12",
+      "supports": "Public guidance separates reusable Frontend code from branding; specifies own identity assets and changed font/brand settings."
+    },
+    {
+      "url": "https://design-system.service.gov.uk/styles/typeface/",
+      "checked_on": "2026-11-12",
+      "supports": "Public services outside service.gov.uk use an alternative typeface to GDS Transport."
+    }
+  ],
+  "checks": [
+    {
+      "check": "Read current relevant writing chapters and exact rule inventory",
+      "result": "passed"
+    },
+    {
+      "check": "Compare narrative with author-provided draft summary",
+      "result": "passed",
+      "evidence": "Purpose retained; blanket promises, denigration and stereotyping removed."
+    },
+    {
+      "check": "Prominent independence statement",
+      "result": "passed",
+      "evidence": "Opening identifies independence from UK government, GDS and Home Assistant."
+    },
+    {
+      "check": "Native capabilities, permissions, translations and reference boundaries",
+      "result": "passed",
+      "evidence": "Adaptation section distinguishes theme, maintained optional features and reference patterns."
+    },
+    {
+      "check": "Primary licence/source review",
+      "result": "passed",
+      "evidence": "Current official sources listed above; code/content/identity distinctions retained."
+    },
+    {
+      "check": "Local Markdown link destinations exist in repository",
+      "result": "passed",
+      "evidence": "All nine local link occurrences resolve to current source pages."
+    },
+    {
+      "check": "Figure source paths and paired HTML structure",
+      "result": "passed",
+      "evidence": "All three exact supplied SVG paths exist. Three figures retain 960\u00d7560 dimensions, complete sibling-authored captions and empty alternative text because the captions carry the explanation."
+    },
+    {
+      "check": "Rendered layout, links, images and accessibility",
+      "result": "passed",
+      "evidence": "See integration_review for the executed local browser suite and connected Chrome inspection."
+    }
+  ],
+  "homepage_review": {
+    "result": "no_substantive_finding",
+    "suggestions": [
+      "Use research and reusable patterns instead of research and open-source patterns to avoid conflating documentation with code.",
+      "Use UK government in sentence case."
+    ],
+    "suggested_excerpt": "I created civica.uk to make everyday Home Assistant controls clearer for the whole household, including older relatives, neurodivergent people and guests. This independent project adapts GOV.UK design principles and reusable patterns into predictable layouts, readable text and clear actions. It uses its own identity and is not affiliated with or endorsed by the UK government."
+  },
+  "figures": {
+    "status": "three_figures_integrated_with_complete_captions",
+    "positions": [
+      "After restrained-decoration motivation",
+      "After household overview explanation",
+      "After detailed-control explanation"
+    ],
+    "requirements": [
+      "Original schematic, not a named-theme comparison",
+      "Synthetic values and clear illustration label",
+      "Equivalent task meaning in adjacent HTML",
+      "Source/rights/background/alt metadata owned by artwork author",
+      "No screenshot or live-verification claim"
+    ],
+    "paths": [
+      "docs/source/images/project-information-hierarchy.svg",
+      "docs/source/images/project-household-overview.svg",
+      "docs/source/images/project-control-detail.svg"
+    ],
+    "provenance": "docs/data/project-artwork-provenance.json",
+    "independent_source_review": "official_design_research found no substantive capability/accessibility overclaim in the About draft.",
+    "render_evidence_scope": "Original asset proofs plus integrated About rendering; see integration_review. No live native Home Assistant change."
+  },
+  "integration_review": {
+    "reviewed_on": "2026-11-12",
+    "scope": "Homepage, About, seven-section navigation, preserved writing routes, complete text alternatives and original asset provenance.",
+    "source_result": "no_confirmed_finding",
+    "automated_status": "passed",
+    "publication_status": "Not claimed by this build record; the final GitHub deployment and live checks are recorded in the pull request.",
+    "limitations": [
+      "No Home Assistant runtime change or native-device test is part of this documentation update.",
+      "Automated accessibility checks and editorial review are not full WCAG conformance evidence."
+    ],
+    "checks": [
+      {
+        "name": "Focused story and navigation browser checks",
+        "status": "passed",
+        "count": 7,
+        "coverage": "Preserved writing routes, active main/section navigation, breadcrumbs, grouped search/sitemap, 320px keyboard use, doubled actual text sizes, no JavaScript, image failure, exact artwork hashes and complete captions."
+      },
+      {
+        "name": "Middleman build and local links",
+        "status": "passed",
+        "guides": 213,
+        "examples": 450,
+        "html_pages": 663
+      },
+      {
+        "name": "Source integrity, brand and Home Assistant coverage",
+        "status": "passed",
+        "coverage": "101 rules; original supplied assets unchanged; 632 interface entries and 456 terms retain their mappings."
+      },
+      {
+        "name": "Node tests and TypeScript",
+        "status": "passed",
+        "unit_tests": 50
+      },
+      {
+        "name": "Full browser regression",
+        "status": "passed",
+        "tests": 852,
+        "duration": "4.2 minutes",
+        "scope": "Every guide and standalone example plus component/runtime regression checks; subsequent record and legacy-anchor edits receive focused checks and deployment CI."
+      }
+    ],
+    "corrections": [
+      "Updated the maintainer README to describe seven sections and run the full browser suite.",
+      "Preserved the historical Styles #writing-guide link as a short route to the new section.",
+      "Separated the no-JavaScript reading check from axe execution, which requires an injected scripting frame."
+    ],
+    "copy_scope": "Homepage wording follows the supplied motivation; no personal diagnoses, universal usability guarantees or WCAG certification are asserted.",
+    "checked_at": "2026-11-12T08:29:34.917788+00:00",
+    "browser_tests": 852,
+    "manual_checks": [
+      "Connected Google Chrome: homepage intro, story link, About reading flow and original figure layout, Writing guide navigation and sitemap discoverability.",
+      "Original artwork inspected at desktop and 320px, grayscale, dark surround and images omitted; see project-artwork-provenance.json.",
+      "Independent integrated visual review at 320px: homepage intro, all three About figures and captions, and a 36px detail caption remained clear without clipping or horizontal overflow."
+    ]
+  }
+}

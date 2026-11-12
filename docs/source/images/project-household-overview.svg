@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title description">
+  <title id="title">Three household spaces grouped under one roof</title>
+  <desc id="description">A schematic home contains a reading space with a lamp, a shared comfort space with a thermostat and radiator, and a table space with a pendant light. The grouping illustrates finding controls by location. It is not a real floor plan, and no device state or occupancy is shown.</desc>
+  <!-- Original civica.uk explanatory artwork. MIT. Schematic only: not a screenshot or device-state evidence. -->
+  <rect width="960" height="560" fill="#F3F6F9"/>
+  <path d="M48 176 480 48 912 176Z" fill="#1D70B8"/>
+  <rect x="80" y="176" width="800" height="320" fill="#FFFFFF"/>
+  <rect x="336" y="176" width="16" height="320" fill="#F3F6F9"/>
+  <rect x="608" y="176" width="16" height="320" fill="#F3F6F9"/>
+  <!-- Reading space: a chair and a lamp, drawn as objects rather than interface icons. -->
+  <rect x="112" y="316" width="108" height="88" rx="18" fill="#BFD9ED"/>
+  <rect x="112" y="380" width="128" height="44" rx="10" fill="#1D70B8"/>
+  <rect x="124" y="424" width="16" height="32" fill="#103E65"/>
+  <rect x="208" y="424" width="16" height="32" fill="#103E65"/>
+  <path d="M246 242h48l26 68h-100Z" fill="#1D70B8"/>
+  <rect x="264" y="310" width="12" height="130" fill="#103E65"/>
+  <rect x="236" y="440" width="68" height="16" fill="#103E65"/>
+  <!-- Shared comfort: a thermostat and radiator; the disc is not a reading. -->
+  <rect x="406" y="224" width="148" height="100" rx="8" fill="#103E65"/>
+  <circle cx="480" cy="274" r="32" fill="#FFFFFF"/>
+  <rect x="454" y="266" width="52" height="16" fill="#BFD9ED"/>
+  <rect x="380" y="364" width="200" height="76" rx="8" fill="#BFD9ED"/>
+  <g fill="#1D70B8">
+    <rect x="396" y="376" width="12" height="52"/><rect x="432" y="376" width="12" height="52"/>
+    <rect x="468" y="376" width="12" height="52"/><rect x="504" y="376" width="12" height="52"/>
+    <rect x="540" y="376" width="12" height="52"/>
+  </g>
+  <rect x="396" y="440" width="12" height="16" fill="#103E65"/>
+  <rect x="552" y="440" width="12" height="16" fill="#103E65"/>
+  <!-- Table space: a pendant and table, with no implied occupancy or device state. -->
+  <rect x="744" y="176" width="12" height="66" fill="#103E65"/>
+  <path d="M714 242h72l26 68H688Z" fill="#1D70B8"/>
+  <rect x="656" y="364" width="192" height="24" fill="#103E65"/>
+  <rect x="672" y="388" width="16" height="68" fill="#103E65"/>
+  <rect x="816" y="388" width="16" height="68" fill="#103E65"/>
+  <rect x="704" y="338" width="92" height="26" rx="13" fill="#BFD9ED"/>
+
+</svg>

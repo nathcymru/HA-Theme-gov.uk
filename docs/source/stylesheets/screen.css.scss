@@ -172,6 +172,11 @@ a:focus-visible { background:#ffdd00; color:#0b0c0c; text-decoration:none; }
 .c-home h2 { font-size:36px; line-height:1.15; margin:0 0 30px; }
 .c-home h3 { font-size:24px; line-height:1.25; margin:0 0 15px; }
 .c-home p { margin:0 0 20px; }
+.c-project-intro { padding-top:40px; padding-bottom:25px; }
+.c-project-intro p { max-width:70ch; }
+.c-project-figure { margin:30px 0; }
+.c-project-figure img { display:block; width:100%; max-width:100%; height:auto; }
+.technical-documentation .c-project-figure figcaption { margin-top:15px; font-size:18px; line-height:1.5; }
 .c-whats-new { background:#f3f6f9; padding:45px 0 30px; }
 .c-home-columns { display:grid; grid-template-columns:2fr 1fr; gap:60px; }
 .c-home-categories { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; padding-top:50px; padding-bottom:50px; }

@@ -2466,8 +2466,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Seven rules cover actual semantics, non-colour meaning, alternatives, links, form associations and media. SCULPT attribution and reuse boundary are clear.",
-      "sha256": "92cc4a36a9688b3d0692dd33714884f7d102dd04218a4783674c23c085dbd80a",
+      "note": "Seven rules cover actual semantics, non-colour meaning, alternatives, links, form associations and media. SCULPT attribution and reuse boundary are clear. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "8239b79e2dbfd81cb3f9a713b2ea14adfc073d1efe1d361281b64761f2233628",
       "url": "/content/accessible-content.html",
       "title": "Accessible content",
       "example_ids": [
@@ -2496,8 +2496,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Six rules separate ownership, meaningful changes, editorial/data dates, evidence types and exceptions. Reusable checklist remains a template rather than a blanket pass.",
-      "sha256": "6bad4fd96eec0fd3d85e1c6e85c1f854634dbebf816e2c3b4bf45bb189cd3f12",
+      "note": "Six rules separate ownership, meaningful changes, editorial/data dates, evidence types and exceptions. Reusable checklist remains a template rather than a blanket pass. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "5f7faca5d88574138db31cc8e233e044970bc3d0cfe3371ecfbbe62b29edeb16",
       "url": "/content/content-review.html",
       "title": "Review and maintain content",
       "example_ids": [
@@ -2525,8 +2525,8 @@
         "term-climate-meaning",
         "term-missing-state"
       ],
-      "sha256": "7dccaf1f4ad730c436a8f4076d5e6784e0c2e5b993c5f3bf93a20b6bc8007893",
-      "note": "Full source read plus all 45 platform explanations, state-record and helper entries. Raw states, attributes, device-class keys and translation fallbacks are distinct. Unknown/unavailable/zero and mode/action/measurement/target remain separate; native labels are platform-specific source references. Re-read new supplemental mapping table and five definitions, including exact domain links, distinct 15-key/3-domain source scopes, native Alert acknowledgement and Person away state.",
+      "sha256": "fa12693280948f55a1d37db329315ce7927adba68bc3f978022d353613a5877e",
+      "note": "Full source read plus all 45 platform explanations, state-record and helper entries. Raw states, attributes, device-class keys and translation fallbacks are distinct. Unknown/unavailable/zero and mode/action/measurement/target remain separate; native labels are platform-specific source references. Re-read new supplemental mapping table and five definitions, including exact domain links, distinct 15-key/3-domain source scopes, native Alert acknowledgement and Person away state. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
     },
@@ -2550,8 +2550,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Seven rules avoid unsupported diagnosis, recovery, urgency and completion claims; private delivery channels and interruption frequency are bounded.",
-      "sha256": "4dbaf3152e34657158f6fca4ad8c7793268d099dae5a9c040c374f396c1b4bbd",
+      "note": "Seven rules avoid unsupported diagnosis, recovery, urgency and completion claims; private delivery channels and interruption frequency are bounded. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "e7f39974b419ab6c6b64e4e3af72aa9a83aec8df5667ffec6c219045a6a81273",
       "url": "/content/errors-and-alerts.html",
       "title": "Errors, warnings and notifications",
       "example_ids": [
@@ -2581,8 +2581,8 @@
         "term-native-label",
         "term-historical-name"
       ],
-      "sha256": "d5cb00c0121fcfc8219bcca76f6d1ab9dcc927f714aa1d66d0a0c41db76c715f",
-      "note": "Full source read and semantic review of all 83 authored glossary explanations/confusion notes. Stable term and letter links are derived from exact source names; original explanations do not replace native translations. Historical Apps/Lovelace/Core/Supervised distinctions are scoped.",
+      "sha256": "848eb8f7cd82352cbe9216285424a5c1916e760ff64b5e9bf8d6f8f6eacd1f40",
+      "note": "Full source read and semantic review of all 83 authored glossary explanations/confusion notes. Stable term and letter links are derived from exact source names; original explanations do not replace native translations. Historical Apps/Lovelace/Core/Supervised distinctions are scoped. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
     },
@@ -2605,8 +2605,8 @@
         "term-same-word-different-layer",
         "term-identifiers"
       ],
-      "sha256": "e346c6459cae7f874121c5163a71d6309415ad638bc3cfdf9b771cd5331d3921",
-      "note": "Full source read. Distinguishes native translated labels, supplied names, literal identifiers and original household explanations. Completeness is bounded to named dated inventories; native labels are not counts of installed features. Source freshness and licensing statements do not claim runtime compliance. Re-read the final count/overlap explanation: supplemental mappings reuse entries; 45 platforms remain separate from additional domains.",
+      "sha256": "331f016a3c24b7c75c4f9faf033ef100a66582569b7aa8e211321ad94a752343",
+      "note": "Full source read. Distinguishes native translated labels, supplied names, literal identifiers and original household explanations. Completeness is bounded to named dated inventories; native labels are not counts of installed features. Source freshness and licensing statements do not claim runtime compliance. Re-read the final count/overlap explanation: supplemental mappings reuse entries; 45 platforms remain separate from additional domains. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
     },
@@ -2630,8 +2630,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Seven rules cover household assumptions, sensitive information, names, language, BSL and presence uncertainty without importing clinical assurance.",
-      "sha256": "b2c5a8f35afc6fa0c00505b1d10c0659073452a20f69b8437e98d802149a7146",
+      "note": "Seven rules cover household assumptions, sensitive information, names, language, BSL and presence uncertainty without importing clinical assurance. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "539ae1732df1b46b79e24c72bfd29ff04ab26736156ec96477cff325b59d7601",
       "url": "/content/inclusive-content.html",
       "title": "Inclusive household content",
       "example_ids": [
@@ -2661,8 +2661,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Ownership scope, source adaptation, requirement levels and chapter navigation are clear; examples distinguish authored help from native labels and names.",
-      "sha256": "17dcb4016ae90af7002a5a6a5461de802e01e696ab6713a654dbae7ae0569c67",
+      "note": "Ownership scope, source adaptation, requirement levels and chapter navigation are clear; examples distinguish authored help from native labels and names. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "ae0297931f353206c7879f61349a9adc0ce1fa1a536348969c89e0069534b437",
       "url": "/content/index.html",
       "title": "Writing for a connected home",
       "example_ids": [
@@ -2693,8 +2693,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Seven rules cover prerequisites, real labels, question purpose, learning order and honest prototypes; no invented workflow is presented as native.",
-      "sha256": "97d3d5109823ba7e5d2d4922ac3a9b8a6b86b1d692f2392e8a1a53ff9f9970ff",
+      "note": "Seven rules cover prerequisites, real labels, question purpose, learning order and honest prototypes; no invented workflow is presented as native. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "304280099ae2f1bbc6df69c583d77efbecec18f26cdd4245f5ab82b44b20b225",
       "url": "/content/instructions-and-learning.html",
       "title": "Instructions, questions and learning",
       "example_ids": [
@@ -2723,8 +2723,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Nine rules distinguish action, reported state, request acceptance, permission, persistence, cancellation and empty outcomes.",
-      "sha256": "5c9c99fa4518bffa696ab7716c3d3cc8420f49c61dda940b6020fdec6320b562",
+      "note": "Nine rules distinguish action, reported state, request acceptance, permission, persistence, cancellation and empty outcomes. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "8650cf3c86b1d10ad7cffc361b562e7ea09e0f3ac5aca01a7ea00a4b457ad544",
       "url": "/content/interface-copy.html",
       "title": "Interface copy and truthful states",
       "example_ids": [
@@ -2753,8 +2753,8 @@
         "term-navigation-action",
         "term-power-energy"
       ],
-      "sha256": "aa72e47432226a960e6d6195a1de488e340750517c38161658f23de4419ff9e8",
-      "note": "Full source read and task-vocabulary/card/feature/selector review. Settings labels and internal dispatch identifiers remain distinct. Source explicitly separates condition results from physical confirmation and recognises internal/legacy keys, capability checks and permissions.",
+      "sha256": "8c61794007702597c0c48846ce9613dbf5b44d47891f5e50ecca7840580a5896",
+      "note": "Full source read and task-vocabulary/card/feature/selector review. Settings labels and internal dispatch identifiers remain distinct. Source explicitly separates condition results from physical confirmation and recognises internal/legacy keys, capability checks and permissions. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
     },
@@ -2778,8 +2778,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Nine rules distinguish rates/intervals/targets, native precision/locales, timestamp types, DST, missing values and like-for-like comparisons.",
-      "sha256": "391c89e7b8b951b870f94ff3f0a93a57ff8bc30318f7cf1a3aeb82935bb036cd",
+      "note": "Nine rules distinguish rates/intervals/targets, native precision/locales, timestamp types, DST, missing values and like-for-like comparisons. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "94b235ae0bab1ede7cd46bfb3a3502d28c195c7a8bbf42f826b63850d164586f",
       "url": "/content/numbers-and-data.html",
       "title": "Numbers, dates and household data",
       "example_ids": [
@@ -2809,8 +2809,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Six rules preserve evidence and necessary detail while making language calmer and easier to follow; readability is not treated as proof.",
-      "sha256": "0794d5184f849c3cb6a25ca5e8121bbd711ecc7aeff8542872b4203e1ff66c0e",
+      "note": "Six rules preserve evidence and necessary detail while making language calmer and easier to follow; readability is not treated as proof. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "7126fe51e485545aad055c015749ae40ac9111653048be8eb57d9d0a9873cc46",
       "url": "/content/voice-and-language.html",
       "title": "Voice and language",
       "example_ids": [
@@ -2840,8 +2840,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Six rules preserve names and literal identifiers. Automation terminology was corrected to distinguish triggers and conditions before freeze.",
-      "sha256": "290780aa82f6ed75a514a676b99050d745754a7752c657a79e38d28ee14be17c",
+      "note": "Six rules preserve names and literal identifiers. Automation terminology was corrected to distinguish triggers and conditions before freeze. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "6f7919c6ac617ce7009564df7772d91fff68ca6f942cfcd72acdab3476a69f26",
       "url": "/content/words-and-style.html",
       "title": "Words and style",
       "example_ids": [
@@ -2851,6 +2851,33 @@
       "resolved_finding_ids": [],
       "current_review_on": "2026-11-12",
       "current_review_scope": "Current source read and source-integrity reconciliation; rendered evidence is separately recorded in ha-coverage-verification.json."
+    },
+    {
+      "path": "docs/source/get-started/about.html.md.erb",
+      "reviewed_rule_families": [
+        "BG-COL",
+        "BG-TYP",
+        "BG-DAT",
+        "BG-ILL",
+        "WG-00",
+        "WG-01",
+        "WG-02",
+        "WG-03",
+        "WG-04",
+        "WG-05",
+        "WG-06",
+        "WG-07",
+        "WG-08",
+        "WG-09"
+      ],
+      "result": "no_confirmed_finding",
+      "finding_ids": [],
+      "resolved_finding_ids": [],
+      "note": "Reviewed user-provided authorial purpose, inclusive wording, prominent independence, verified code/content licence distinctions, three original schematic figures with complete HTML alternatives, truthful accessibility aims and explicit implementation limits. Integration evidence: docs/data/project-story-review.json.",
+      "sha256": "a5d96b3f3c74946491f9c489f97b87550f6a65a1636110f6f84926490ac00a91",
+      "url": "/get-started/about.html",
+      "title": "About civica.uk",
+      "example_ids": []
     },
     {
       "path": "docs/source/get-started/colour-settings.html.md.erb",
@@ -2932,8 +2959,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "The three-layer scope and ordered start path distinguish theme, companion and custom cards; new guidance entry points are connected.",
-      "sha256": "0d1e406f66be5af71cc180ed8d911a4be967e7718f947913df64b95531e3b471",
+      "note": "The three-layer scope and ordered start path distinguish theme, companion and custom cards; new guidance entry points are connected. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim.",
+      "sha256": "e3bb4680a94c5407cd4118e9bf4e6c1c7bf41940bc6354bb663633131794b06c",
       "url": "/get-started/index.html",
       "title": "Get started",
       "example_ids": [
@@ -4178,8 +4205,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims.",
-      "sha256": "91189ec4373993c82a13db48a94c7cb444d635e890455ef8fb52dec3496bd5e8",
+      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. Project-story review: first-person user-provided purpose, independent identity, descriptive About link and current coverage; Writing guide has a distinct home entry.",
+      "sha256": "c8f1f07234548376f7bf3240c4adee9d5711998f40183e6b5c620eb45c20f223",
       "url": "/index.html",
       "title": "Home",
       "example_ids": [],
@@ -6230,8 +6257,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Search is local and its no-JavaScript route is explained; completeness of the shared catalogue has a confirmed hub-omission finding. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims.",
-      "sha256": "d7b06a9539359c7057b4d4ccbe28ebd21ecef4853eae0028e1a463c8a35f18ed",
+      "note": "Search is local and its no-JavaScript route is explained; completeness of the shared catalogue has a confirmed hub-omission finding. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim.",
+      "sha256": "2f7493537e244f3743dd05e1a095a2811809d8fcc25b5b765f1ae9924cbd3595",
       "url": "/search.html",
       "title": "Search the Design System",
       "example_ids": [],
@@ -6259,8 +6286,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Section grouping exposes the editorial resources, including the new writing guide. Standalone example ownership is stated separately.",
-      "sha256": "e60f837de0d346ce90c29b5b1a73aa800ad9ee22bbb2d651bf69e7d7753b92a9",
+      "note": "Section grouping exposes the editorial resources, including the new writing guide. Standalone example ownership is stated separately. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim.",
+      "sha256": "b48ad70cec68b63f1e727a4bce5e1551d61e1aa0e6cc235e005a1e2dfe19664a",
       "url": "/sitemap.html",
       "title": "Sitemap",
       "example_ids": [],
@@ -6469,8 +6496,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Legacy URL now points to the full writing guide; existing summary preserves state/action differences, real retry capability, locale and user names.",
-      "sha256": "b7841bc2dc46bb4ad154ecba2792e971d478fd279f8078147d4a6eb290184d4e",
+      "note": "Legacy URL now points to the full writing guide; existing summary preserves state/action differences, real retry capability, locale and user names. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section.",
+      "sha256": "fb323a4e65b405e1900c257b60ec0008bcb0b51602f0f2058caa192392051579",
       "url": "/styles/content.html",
       "title": "Content design",
       "example_ids": [
@@ -6560,8 +6587,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Visual roles, brand chapters and the complete writing guide have clear entry points; canonical tokens remain outside authored prose.",
-      "sha256": "4cab35c9eceeeabd94d21f97b8b4ece5f4427531cda694674216cdef568f958e",
+      "note": "Visual roles, brand chapters and the complete writing guide have clear entry points; canonical tokens remain outside authored prose. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim. Preserved the historical #writing-guide anchor with a route to the new section.",
+      "sha256": "7597278ff9cf91ba109fbce65955e2100e6b5b4c75d465e68534f6e5dbe26dee",
       "url": "/styles/index.html",
       "title": "Styles",
       "example_ids": [
@@ -15904,7 +15931,7 @@
       "evidence": [
         {
           "path": "docs/helpers/design_system_helpers.rb",
-          "line": 30,
+          "line": 34,
           "excerpt": "def search_groups",
           "detail": "Search uses the full editorial collection, including all section and publishing hubs, independently of sidebar filtering."
         }
@@ -17102,13 +17129,13 @@
     },
     {
       "path": "docs/source/layouts/civica_core.erb",
-      "sha256": "6aadc1f74350a87c20262926e55752d03d46dfe165e6ce4891fa77500a6988d9",
-      "scope": "Authored/shared documentation source review."
+      "sha256": "0c9caf5e06049a6fc314a039bb7a4ad9b469515e283ce22b92d047877275e67b",
+      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
       "path": "docs/source/partials/_catalogue.erb",
-      "sha256": "5dc3863a2c6e93e0dc0bea96d637ee79cc980ffcc5104ec91097cbcade7efa80",
-      "scope": "Authored/shared documentation source review."
+      "sha256": "d8a916f9b07e43e7e7dd43176f4bd8a11518709eba62b24293384db897150a97",
+      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
       "path": "docs/source/partials/_example.erb",
@@ -17127,8 +17154,8 @@
     },
     {
       "path": "docs/source/stylesheets/screen.css.scss",
-      "sha256": "1ff44309aa28f9d13cbf8a5dc18d03576e8a76bdd68a96d29a480f45b8458ffa",
-      "scope": "Authored/shared documentation source review."
+      "sha256": "6d9b6d6f1906e2e6dadef12bf45fe3c3968055d8ac53e21a892290e647f0afeb",
+      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
       "path": "docs/source/javascripts/civica-docs.js",
@@ -17157,8 +17184,8 @@
     },
     {
       "path": "docs/helpers/design_system_helpers.rb",
-      "sha256": "8dc2388c9ac3fe5e20cfd2462191a2a3e4ce78effdb20d21aed1c8636a1a4698",
-      "scope": "Authored/shared documentation source review."
+      "sha256": "b35865724b5933a630c9b5c8b21b9b99ed1fac2960260df036766e0e0e887f55",
+      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
       "path": "docs/config.rb",
@@ -17167,8 +17194,8 @@
     },
     {
       "path": "docs/source/design-contract.json",
-      "sha256": "1a76a402df0125d4958755b4059d7bbb88b122f6f3e0f1dfd54314cb59736d77",
-      "scope": "Authored/shared documentation source review."
+      "sha256": "78c6a72bf202b0a9d85b498525c9204fa9bc212673d4b951359e9587cc241c17",
+      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
       "path": "design-system/palettes.json",
@@ -17409,6 +17436,51 @@
       "path": "docs/data/terminology-examples.yml",
       "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
       "sha256": "505804b8ced997466985f5760c40972708f1ab34f473ba6bfe75f942649c663a"
+    },
+    {
+      "path": "docs/data/navigation.yml",
+      "sha256": "db8498fac53013e07fe408fe4af0a69d818887f8eaa7d6b3de22b5aa0e20c255",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "sha256": "4727033f46d6629fbc81aae79a7f95f64e5205fcb3af0b89e12ed460cd96df87",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/source/reference/coverage.json.erb",
+      "sha256": "f3dbd8dee938fd3e8a49302e171cf6e00720548d5c19dcf0b3674f76d3e78852",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/source/reference/documentation-artwork.json.erb",
+      "sha256": "0381c87083a962b70929092c1725e0c0bc86bb7c35a58775a5134a967e5162a9",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/source/llms.txt",
+      "sha256": "782e6905efaa7c89dc25e803b9fa5382ec638d6fc9be4437651d025493ada80a",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/data/project-artwork-provenance.json",
+      "sha256": "d8e04461c1edf8195bd3965262905aa27c23ee0e15686c9d61799eda59323ac6",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/source/images/project-control-detail.svg",
+      "sha256": "453e28d8f7d2a66fb82974a2fdcc54e34b2fb7e2ca3113062ccb4cfa7d1fa469",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/source/images/project-household-overview.svg",
+      "sha256": "f4c35add6081b06701340f584649e7db19dce398cef760ea9e03bbf1bd0ea0e6",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+    },
+    {
+      "path": "docs/source/images/project-information-hierarchy.svg",
+      "sha256": "68b5d2e64a1c3c63fd5fe1207df082c397f73020c83df580b0490a53640e9e00",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
     }
   ],
   "limitations": [
@@ -17421,5 +17493,6 @@
   ],
   "verification_record": "docs/data/remediation-verification.json",
   "remediation_baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
-  "completeness_verification_record": "docs/data/ha-coverage-verification.json"
+  "completeness_verification_record": "docs/data/ha-coverage-verification.json",
+  "latest_documentation_review": "docs/data/project-story-review.json"
 }
