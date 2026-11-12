@@ -1,18 +1,18 @@
 examples:
   bg-colour-role-separation:
-    title: Identity changes; status meaning stays stable
+    title: Interface colours change; status meaning stays stable
     description: Two supplied palette primaries sit above the same explicit device failure. This is a colour-role specimen, not a palette settings control.
     height: 650
     html: |
       <div class="civica-pattern-grid">
         <section class="civica-card" aria-labelledby="moss-title">
-          <div style="background:#006853;padding:16px"><img src="../images/themes/racing-moss/vivid/lockup-on-primary.svg" alt="civica.uk" width="245" height="39" style="max-width:100%;height:auto"></div>
+          <div style="background:#006853;padding:16px"><strong style="color:#ffffff">Morgan household</strong></div>
           <h2 class="govuk-heading-m" id="moss-title">Racing Moss</h2>
           <p class="govuk-body"><strong>Kitchen sensor unavailable</strong></p>
           <p class="govuk-body">There is no current reading. The last confirmed reading was 20 °C at 09:10.</p>
         </section>
         <section class="civica-card" aria-labelledby="crimson-title">
-          <div style="background:#b2292e;padding:16px"><img src="../images/themes/sovereign-crimson/vivid/lockup-on-primary.svg" alt="civica.uk" width="245" height="39" style="max-width:100%;height:auto"></div>
+          <div style="background:#b2292e;padding:16px"><strong style="color:#ffffff">Morgan household</strong></div>
           <h2 class="govuk-heading-m" id="crimson-title">Sovereign Crimson</h2>
           <p class="govuk-body"><strong>Kitchen sensor unavailable</strong></p>
           <p class="govuk-body">There is no current reading. The last confirmed reading was 20 °C at 09:10.</p>

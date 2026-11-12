@@ -1,17 +1,17 @@
 ---
 title: Colour
 description: Ten civica.uk palettes, Vivid and Muted variants, and independent semantic colours.
-last_reviewed_on: 2026-11-11
+last_reviewed_on: 2026-11-12
 review_in: 3 months
 ---
 
 # Colour
 
-Choose one of ten palettes and a Vivid or Muted variant. These choices change the brand primary and canvas while keeping status and data meanings consistent.
+Choose one of ten palettes and a Vivid or Muted variant. These choices change the interface primary and canvas while keeping status and data meanings consistent.
 
 This page is generated from `design-system/palettes.json`. The [machine-readable palette reference](../reference/palettes.json) preserves every supplied hex, RGB, RGBA, CMYK and RAL or descriptive reference. Hex values in sRGB are authoritative for screens. CMYK and RAL entries reproduce the supplied specification; they are not measured colour-match guarantees.
 
-Read the [brand colour guidance](brand-colour.html) for colour roles, combinations, proportion and accessible use. The exact supplied palette values below remain the screen-colour authority.
+Read the [colour roles and accessibility guidance](brand-colour.html) for colour roles, combinations, proportion and accessible use. The exact supplied palette values below remain the screen-colour authority.
 
 
 ## Examples
@@ -43,7 +43,7 @@ These isolated examples illustrate the decisions on this page. Any household val
 This demonstration changes only the example. To change Home Assistant, use [the profile colour controls](../get-started/colour-settings.html).
 
 <div class="c-demo" data-palette-demo>
-<div class="c-demo__header"><img data-variant-primary src="../images/themes/civic-cobalt/vivid/lockup-on-primary.svg" alt="civica.uk on primary colour" width="306" height="49"></div>
+<div class="c-demo__header"><strong>Morgan household</strong></div>
 <label for="palette-preview">Colour palette</label>
 <select id="palette-preview">
 <option data-palette-id="civic-cobalt" data-vivid="#1D70B8" data-muted="#103E65" data-canvas="#F3F6F9">Civic Cobalt</option>
@@ -58,13 +58,13 @@ This demonstration changes only the example. To change Home Assistant, use [the 
 <option data-palette-id="umber-bronze" data-vivid="#5C3D28" data-muted="#332216" data-canvas="#F6F4F1">Umber Bronze</option>
 </select>
 <label><input type="checkbox"> Muted colours</label>
-<div class="c-demo__assets"><img data-variant-canvas src="../images/themes/civic-cobalt/vivid/lockup-on-canvas.svg" alt="civica.uk on canvas colour" width="306" height="49"><img data-variant-icon src="../images/themes/civic-cobalt/vivid/app-icon.svg" alt="civica.uk app icon" width="64" height="64"></div>
+<p>This preview uses an invented household name. A logo is optional.</p>
 <p>Living room temperature: <strong>21 °C</strong></p>
 <p class="c-status">All monitored devices are available.</p>
 <p role="status">Civic Cobalt, Vivid preview. These choices affect this example only.</p>
 </div>
 
-The V3.2 artwork preview uses the supplied lockups for the selected primary and canvas, plus its app icon. The accent dot colour comes from each original asset; CSS does not recolour it. [Read the artwork manifest](../reference/brand-assets.json).
+The preview changes interface colours without changing the household name or the meaning of any state. Follow [personalisation](../get-started/personalisation.html) for optional names, crests and logos. The separate [project artwork manifest](../reference/brand-assets.json) records supplied civica.uk assets for documentation and promotion.
 
 ## Light and dark modes
 
@@ -191,6 +191,6 @@ RGB and RGBA values refer to screen colours. Print and paint references are supp
 
 Edit the canonical JSON, then run `node scripts/generate-themes.mjs` and `python3 docs/scripts/sync-palettes.py` from the repository root. Commit the generated YAML, theme JSON and this colour reference together. Use `--check` on both generators to detect drift.
 
-The native theme name is `civica {palette name} {Vivid|Muted}`. The `govuk` entry is a compatibility alias for Civic Cobalt Vivid and uses civica.uk branding.
+The native theme name is `civica {palette name} {Vivid|Muted}`. The `govuk` entry is a compatibility alias for Civic Cobalt Vivid. Existing companion identity behaviour is described in [Compatibility](../get-started/compatibility.html#household-identity-transition); this colour reference does not require a project logo inside a household interface.
 
 The semantic role approach follows [GOV.UK colour guidance](https://design-system.service.gov.uk/styles/colour/). The ten named palettes and theme toggle are local civica.uk decisions.

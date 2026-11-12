@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "scope": "Documentation-only data, colour, household personalisation and section artwork integration.",
+  "status": "Implementation complete; integrated validation and publication pending.",
+  "runtime_scope": "No Home Assistant runtime, theme values, installed resources or household configuration changed. Existing native identity integration remains an explicitly documented implementation gap.",
+  "sources": [
+    "https://brand.design-system.service.gov.uk/data/",
+    "https://brand.design-system.service.gov.uk/colour/",
+    "https://brand.design-system.service.gov.uk/illustration/",
+    "https://www.home-assistant.io/dashboards/map/",
+    "https://www.home-assistant.io/integrations/map_tiles/",
+    "https://operations.osmfoundation.org/policies/vector/",
+    "https://www.home-assistant.io/dashboards/dashboards/",
+    "https://www.home-assistant.io/dashboards/picture/"
+  ],
+  "checklists": {
+    "discovery": [
+      {
+        "item": "Expose Data visualisation and Colour roles in Styles and homepage links.",
+        "status": "implemented"
+      },
+      {
+        "item": "Keep established guide URLs and rule identifiers.",
+        "status": "implemented"
+      },
+      {
+        "item": "Move project identity to Community; provide optional household personalisation under Get started.",
+        "status": "implemented"
+      }
+    ],
+    "data_and_colour": [
+      {
+        "item": "Retain stable categorical generator, labels, symbols and 1.5px chart lines.",
+        "status": "implemented"
+      },
+      {
+        "item": "Document calculated sequential and diverging scales with endpoints, values, missing data and out-of-range policy.",
+        "status": "implemented"
+      },
+      {
+        "item": "Provide complete monitoring dashboard examples with matching values, sources, periods and freshness.",
+        "status": "implemented"
+      },
+      {
+        "item": "Render real OpenStreetMap vector geography in four appearance variants, with attribution and complete location records.",
+        "status": "implemented"
+      },
+      {
+        "item": "Request external map tiles only after explicit activation; document provider and failure behaviour.",
+        "status": "implemented"
+      }
+    ],
+    "identity": [
+      {
+        "item": "Separate project promotion from optional household or business identity.",
+        "status": "implemented"
+      },
+      {
+        "item": "Show text-only, optional crest and business examples.",
+        "status": "implemented"
+      },
+      {
+        "item": "Correct header, footer, publishing and palette examples that forced project identity.",
+        "status": "implemented"
+      },
+      {
+        "item": "Document the existing companion identity gap without claiming native global personalisation is installed.",
+        "status": "implemented"
+      }
+    ],
+    "illustration": [
+      {
+        "item": "Add original headers to seven section landings and four key-guide routes.",
+        "status": "implemented"
+      },
+      {
+        "item": "Match Styles, Components and Patterns homepage imagery to their section artwork.",
+        "status": "implemented"
+      },
+      {
+        "item": "Record original SVG sources, hashes, purpose, palette and alternatives.",
+        "status": "implemented"
+      },
+      {
+        "item": "Retain HTML titles and summaries; keep complete artwork uncropped at narrow widths.",
+        "status": "implemented"
+      }
+    ]
+  },
+  "focused_evidence": {
+    "map_source": "Four MapLibre styles validated; real provider review rendered geographic features, preserved table values across tone/mode changes, supported keyboard selection and closing, and made no external request before activation.",
+    "artwork": "Ten headers and three homepage variants inspected at960px and320px, with dark surround, grayscale and images omitted; integrated browser checks pending."
+  },
+  "integrated_validation": {
+    "status": "pending",
+    "unit": null,
+    "browser": null,
+    "guidance": null,
+    "links": null
+  },
+  "publication": {
+    "status": "pending",
+    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/"
+  }
+}

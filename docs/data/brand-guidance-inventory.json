@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
-  "reviewed_on": "2026-11-11",
-  "scope": "Four requested GOV.UK Brand sections, all 26 linked subsection pages, plus the Design System typeface exception. Source material informs local policy; it does not override the user request.",
+  "schema_version": 2,
+  "reviewed_on": "2026-11-12",
+  "scope": "Interface-design guidance adapted from the four requested GOV.UK Brand source sections. civica.uk identity applies to project documentation and promotion; household or business identity is optional and user chosen.",
   "source_count": 31,
   "brand_source_count": 30,
   "sources": [
@@ -317,7 +317,7 @@
     }
   ],
   "retained_user_requirements": [
-    "Supplied civica.uk V3.2 identity only; official GOV.UK branding prohibited.",
+    "civica.uk identifies the project, documentation and promotion. In-home identity is optional and belongs to the household or business; official GOV.UK identity remains excluded.",
     "Ten exact supplied palettes; Vivid/Muted independent of Light/Dark.",
     "Arial, Helvetica, sans-serif interface typography.",
     "Stable generated chart identity colours; 1.5px operational Energy lines.",
@@ -346,7 +346,7 @@
   "pages": [
     {
       "path": "/styles/brand-colour.html",
-      "title": "Brand colour in context",
+      "title": "Colour roles and accessibility",
       "example_ids": [
         "bg-colour-role-separation",
         "bg-colour-boundaries",
@@ -355,7 +355,7 @@
     },
     {
       "path": "/styles/brand-typography.html",
-      "title": "Brand typography in context",
+      "title": "Typography in context",
       "example_ids": [
         "bg-type-household-hierarchy",
         "bg-type-values",
@@ -364,7 +364,7 @@
     },
     {
       "path": "/styles/brand-data.html",
-      "title": "Brand data guidance",
+      "title": "Data visualisation",
       "example_ids": [
         "bg-data-operational-power",
         "bg-data-editorial-summary",
@@ -384,29 +384,32 @@
   "rules": [
     {
       "id": "BG-COL-01",
-      "title": "Keep the civica.uk palette authoritative",
+      "title": "Keep the selected palette and identity roles separate",
       "source_ids": [
         "colour-blue"
       ],
       "disposition": "adapted-with-exclusions",
       "acceptance_checks": [
         "Every selected primary/canvas matches palettes.json.",
-        "Selected logo is an unchanged matching supplied asset; no official government mark is introduced."
+        "Text-only household identity remains a complete option; no project mark is required.",
+        "Optional supplied artwork keeps its proportions and colours, with readable text identification."
       ],
       "implementation_evidence": [
         "design-system/palettes.json",
-        "scripts/check-brand.mjs",
-        "docs/source/styles/brand.html.md.erb"
+        "docs/source/get-started/personalisation.html.md.erb",
+        "docs/source/styles/brand.html.md.erb",
+        "docs/source/get-started/compatibility.html.md.erb"
       ],
       "local_path": "/styles/brand-colour.html#bg-col-01",
       "example_ids": [
         "bg-colour-role-separation",
-        "bg-colour-boundaries",
-        "bg-colour-state-labels"
+        "identity-household-name",
+        "identity-household-crest",
+        "identity-business-name"
       ],
       "level": "MUST",
-      "scope": "Service identity, theme selection and brand assets",
-      "requirement": "Use the exact supplied civica palettes and matching unchanged artwork; do not introduce official GOV.UK identity."
+      "scope": "Theme selection, optional household personalisation and separate project identity",
+      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica.uk artwork only for project documentation or promotion; exclude official GOV.UK identity."
     },
     {
       "id": "BG-COL-02",
@@ -520,7 +523,7 @@
       ],
       "disposition": "adapted",
       "acceptance_checks": [
-        "Exercise ten palettes × two tones × two modes on affected surfaces.",
+        "Exercise ten palettes \u00d7 two tones \u00d7 two modes on affected surfaces.",
         "Inspect forced colours, focus and native editor density without clipping."
       ],
       "implementation_evidence": [
@@ -1242,11 +1245,20 @@
     }
   ],
   "rights_note": "Guidance is paraphrased with source links. No official brand illustrations, fonts, logos or graphic-device artwork are copied into these examples; schematic SVGs are original project markup.",
-  "status": "guidelines-frozen-awaiting-independent-audit",
-  "frozen_on": "2026-11-11",
+  "status": "current-user-clarified-scope",
+  "frozen_on": "2026-11-12",
   "normative_levels": {
     "MUST": "Required local acceptance condition within the stated scope.",
     "SHOULD": "Recommended starting point; record a reason for a different approach.",
     "MAY": "Permitted option, not an adoption requirement."
+  },
+  "display_name": "Design styles: colour, typography, data and illustration",
+  "scope_revision": {
+    "date": "2026-11-12",
+    "authority": "Explicit user clarification in this task",
+    "previous_record": "docs/data/history/brand-guidance-2026-11-11.json",
+    "previous_sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+    "decision": "Remove the Brand guidance navigation group; present colour/data/type/illustration as design styles. Do not require civica.uk identity inside a home. Add optional family-name, crest and business-logo guidance. This is a design-system update only.",
+    "legacy_identifiers": "BG rule IDs and brand-guidance JSON routes remain stable for existing references."
   }
 }

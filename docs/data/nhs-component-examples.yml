@@ -731,7 +731,7 @@ examples:
       <div>
       <img src="../images/civica-emblem.svg" width="64" height="64" alt="">
       <h2 class="govuk-heading-m">civica.uk</h2>
-      <p class="govuk-body">Home information and controls, organised around your household.</p>
+      <p class="govuk-body">Independent Home Assistant theme documentation and project information.</p>
       </div>
   nhs-inset-estimate:
     title: "Explain an estimated cost"
@@ -1276,7 +1276,7 @@ examples:
     html: |
       <header class="civica-header">
       <a class="civica-header__brand" href="#service-home">
-      <img src="../images/civica-lockup.svg" width="150" height="44" alt="civica.uk">
+      <strong>Morgan household</strong>
       </a>
       <span>Dashboard setup</span>
       </header>
@@ -1286,12 +1286,12 @@ examples:
       </main>
   nhs-header-navigation:
     title: "A service header with a few destinations"
-    description: "The civica lockup replaces NHS and GOV.UK identity assets."
+    description: "A chosen household name identifies the interface without a required project logo."
     height: 400
     html: |
       <header class="civica-header">
       <a class="civica-header__brand" href="#service-home">
-      <img src="../images/civica-lockup.svg" width="150" height="44" alt="civica.uk">
+      <strong>Morgan household</strong>
       </a>
       <span>My home</span>
       <nav class="civica-header__navigation" aria-label="Main">
@@ -1402,7 +1402,7 @@ examples:
     html: |
       <a class="govuk-skip-link" href="#skip-form-content" data-module="govuk-skip-link">Skip to main content</a>
       <header>
-      <p class="govuk-body">civica.uk — dashboard setup</p>
+      <p class="govuk-body">Morgan household — dashboard setup</p>
       </header>
       <a class="govuk-back-link" href="#skip-previous">Back to review</a>
       <main id="skip-form-content" tabindex="-1">

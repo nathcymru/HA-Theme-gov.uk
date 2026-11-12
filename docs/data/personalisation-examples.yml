@@ -1,0 +1,38 @@
+{
+  "examples": {
+    "identity-household-name": {
+      "title": "A household name without a logo",
+      "description": "Reference personalisation only. Names and artwork are invented; this example does not add a Home Assistant setting.",
+      "height": 440,
+      "html": "<header class=\"civica-personal-header\"><a class=\"civica-personal-header__home\" href=\"#identity-household-name-home\"><span>Morgan household</span></a></header><main id=\"identity-household-name-home\" tabindex=\"-1\"><h1 class=\"govuk-heading-l\">Home</h1><p class=\"govuk-body\">A text name provides the identity. No logo is required.</p><p class=\"govuk-body\">Keep room names, reported states and supported actions clear. Choosing an identity does not change any device.</p></main>"
+    },
+    "identity-household-crest": {
+      "title": "An optional household crest",
+      "description": "Reference personalisation only. Names and artwork are invented; this example does not add a Home Assistant setting.",
+      "height": 440,
+      "html": "<header class=\"civica-personal-header\"><a class=\"civica-personal-header__home\" href=\"#identity-household-crest-home\"><svg viewBox=\"0 0 80 88\" width=\"60\" height=\"66\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M8 8h64v38c0 18-16 29-32 36C24 75 8 64 8 46Z\" fill=\"#103e65\"/><path d=\"M40 23v38M23 38l17 13 17-13\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg><span>Morgan household</span></a></header><main id=\"identity-household-crest-home\" tabindex=\"-1\"><h1 class=\"govuk-heading-l\">Home</h1><p class=\"govuk-body\">The original example emblem repeats the nearby name and has no separate alternative text. It is not a registered coat of arms.</p><p class=\"govuk-body\">Keep room names, reported states and supported actions clear. Choosing an identity does not change any device.</p></main>",
+      "artwork": {
+        "creator": "civica.uk project contributors",
+        "source": "Original inline SVG geometry in this example",
+        "licence": "MIT original example artwork",
+        "purpose": "Demonstrate optional household or business identity alongside its complete text name",
+        "alternative_text_decision": "Decorative duplicate of the adjacent identity name; aria-hidden=true",
+        "background": "White neutral surface; supplied customer artwork must retain its own colours"
+      }
+    },
+    "identity-business-name": {
+      "title": "A business name with an optional symbol",
+      "description": "Reference personalisation only. Names and artwork are invented; this example does not add a Home Assistant setting.",
+      "height": 440,
+      "html": "<header class=\"civica-personal-header\"><a class=\"civica-personal-header__home\" href=\"#identity-business-name-home\"><svg viewBox=\"0 0 80 80\" width=\"60\" height=\"60\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M8 65V28l22 12V22l20 12V12h22v53Z\" fill=\"#103e65\"/><path d=\"M18 54h44\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg><span>Example workshop</span></a></header><main id=\"identity-business-name-home\" tabindex=\"-1\"><h1 class=\"govuk-heading-l\">Home</h1><p class=\"govuk-body\">The original workshop symbol is an example, not a real business mark. The text name remains readable when the image is unavailable.</p><p class=\"govuk-body\">Keep room names, reported states and supported actions clear. Choosing an identity does not change any device.</p></main>",
+      "artwork": {
+        "creator": "civica.uk project contributors",
+        "source": "Original inline SVG geometry in this example",
+        "licence": "MIT original example artwork",
+        "purpose": "Demonstrate optional household or business identity alongside its complete text name",
+        "alternative_text_decision": "Decorative duplicate of the adjacent identity name; aria-hidden=true",
+        "background": "White neutral surface; supplied customer artwork must retain its own colours"
+      }
+    }
+  }
+}

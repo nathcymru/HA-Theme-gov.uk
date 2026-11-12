@@ -1,0 +1,299 @@
+examples:
+  data-colour-categorical:
+    title: Stable device identities in four display settings
+    description: The existing identity generator supplies each colour and line/marker choice; a common table distinguishes a missing reading from zero.
+    height: 1600
+    html: |-
+      <section aria-labelledby="categorical-heading">
+      <h2 class="govuk-heading-m" id="categorical-heading">The same devices keep their identity</h2>
+      <p class="govuk-body">Synthetic data: energy used from 09:00 to 10:00 on 12 November 2026, Europe/London. Each panel uses the same three fixed entity IDs and the existing chart-colour generator. The device names and line/marker choices remain the same across all four settings.</p>
+      <p class="govuk-body">These are labelled reference views, not theme controls. In the maintained charts, Vivid or Muted follows the colour toggle and Light or Dark follows the display mode. Choosing another identity palette does not change a device’s chart colour.</p>
+      <div class="c-data-colour-contexts"><section class="c-data-colour-context" aria-labelledby="categorical-vivid-light" style="--example-chart-surface:#FFFFFF;--example-chart-text:#0B0C0C">
+      <h3 class="govuk-heading-s" id="categorical-vivid-light">Vivid / Light</h3>
+      <ul class="c-data-colour-keys"><li data-chart-key="sensor.washing_machine_energy" data-chart-tone="vivid" data-chart-mode="light" data-chart-colour="#007684" data-chart-pattern="diagonal" data-chart-symbol="circle" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#007684" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><circle cx="42" cy="12" r="6" fill="#007684" stroke="#007684" stroke-width="1.5"/></svg><span><strong>Washing machine</strong><br><span class="c-data-colour-code">#007684</span></span></li>
+      <li data-chart-key="sensor.tumble_dryer_energy" data-chart-tone="vivid" data-chart-mode="light" data-chart-colour="#007B8C" data-chart-pattern="dots" data-chart-symbol="diamond" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#007B8C" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><path d="m42 4 7 8-7 8-7-8Z" fill="#007B8C" stroke="#007B8C" stroke-width="1.5"/></svg><span><strong>Tumble dryer</strong><br><span class="c-data-colour-code">#007B8C</span></span></li>
+      <li data-chart-key="sensor.dishwasher_energy" data-chart-tone="vivid" data-chart-mode="light" data-chart-colour="#9F3A03" data-chart-pattern="cross" data-chart-symbol="emptyCircle" data-chart-line-dash="6,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#9F3A03" stroke-width="1.5" stroke-dasharray="6 3"/><circle cx="42" cy="12" r="6" fill="none" stroke="#9F3A03" stroke-width="1.5"/></svg><span><strong>Dishwasher</strong><br><span class="c-data-colour-code">#9F3A03</span></span></li></ul>
+      </section>
+      <section class="c-data-colour-context" aria-labelledby="categorical-muted-light" style="--example-chart-surface:#FFFFFF;--example-chart-text:#0B0C0C">
+      <h3 class="govuk-heading-s" id="categorical-muted-light">Muted / Light</h3>
+      <ul class="c-data-colour-keys"><li data-chart-key="sensor.washing_machine_energy" data-chart-tone="muted" data-chart-mode="light" data-chart-colour="#228593" data-chart-pattern="diagonal" data-chart-symbol="circle" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#228593" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><circle cx="42" cy="12" r="6" fill="#228593" stroke="#228593" stroke-width="1.5"/></svg><span><strong>Washing machine</strong><br><span class="c-data-colour-code">#228593</span></span></li>
+      <li data-chart-key="sensor.tumble_dryer_energy" data-chart-tone="muted" data-chart-mode="light" data-chart-colour="#0A8A9C" data-chart-pattern="dots" data-chart-symbol="diamond" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#0A8A9C" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><path d="m42 4 7 8-7 8-7-8Z" fill="#0A8A9C" stroke="#0A8A9C" stroke-width="1.5"/></svg><span><strong>Tumble dryer</strong><br><span class="c-data-colour-code">#0A8A9C</span></span></li>
+      <li data-chart-key="sensor.dishwasher_energy" data-chart-tone="muted" data-chart-mode="light" data-chart-colour="#91614F" data-chart-pattern="cross" data-chart-symbol="emptyCircle" data-chart-line-dash="6,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#91614F" stroke-width="1.5" stroke-dasharray="6 3"/><circle cx="42" cy="12" r="6" fill="none" stroke="#91614F" stroke-width="1.5"/></svg><span><strong>Dishwasher</strong><br><span class="c-data-colour-code">#91614F</span></span></li></ul>
+      </section>
+      <section class="c-data-colour-context" aria-labelledby="categorical-vivid-dark" style="--example-chart-surface:#24282B;--example-chart-text:#FFFFFF">
+      <h3 class="govuk-heading-s" id="categorical-vivid-dark">Vivid / Dark</h3>
+      <ul class="c-data-colour-keys"><li data-chart-key="sensor.washing_machine_energy" data-chart-tone="vivid" data-chart-mode="dark" data-chart-colour="#00C4DB" data-chart-pattern="diagonal" data-chart-symbol="circle" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#00C4DB" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><circle cx="42" cy="12" r="6" fill="#00C4DB" stroke="#00C4DB" stroke-width="1.5"/></svg><span><strong>Washing machine</strong><br><span class="c-data-colour-code">#00C4DB</span></span></li>
+      <li data-chart-key="sensor.tumble_dryer_energy" data-chart-tone="vivid" data-chart-mode="dark" data-chart-colour="#00C9E3" data-chart-pattern="dots" data-chart-symbol="diamond" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#00C9E3" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><path d="m42 4 7 8-7 8-7-8Z" fill="#00C9E3" stroke="#00C9E3" stroke-width="1.5"/></svg><span><strong>Tumble dryer</strong><br><span class="c-data-colour-code">#00C9E3</span></span></li>
+      <li data-chart-key="sensor.dishwasher_energy" data-chart-tone="vivid" data-chart-mode="dark" data-chart-colour="#ED8860" data-chart-pattern="cross" data-chart-symbol="emptyCircle" data-chart-line-dash="6,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#ED8860" stroke-width="1.5" stroke-dasharray="6 3"/><circle cx="42" cy="12" r="6" fill="none" stroke="#ED8860" stroke-width="1.5"/></svg><span><strong>Dishwasher</strong><br><span class="c-data-colour-code">#ED8860</span></span></li></ul>
+      </section>
+      <section class="c-data-colour-context" aria-labelledby="categorical-muted-dark" style="--example-chart-surface:#24282B;--example-chart-text:#FFFFFF">
+      <h3 class="govuk-heading-s" id="categorical-muted-dark">Muted / Dark</h3>
+      <ul class="c-data-colour-keys"><li data-chart-key="sensor.washing_machine_energy" data-chart-tone="muted" data-chart-mode="dark" data-chart-colour="#62B6C4" data-chart-pattern="diagonal" data-chart-symbol="circle" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#62B6C4" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><circle cx="42" cy="12" r="6" fill="#62B6C4" stroke="#62B6C4" stroke-width="1.5"/></svg><span><strong>Washing machine</strong><br><span class="c-data-colour-code">#62B6C4</span></span></li>
+      <li data-chart-key="sensor.tumble_dryer_energy" data-chart-tone="muted" data-chart-mode="dark" data-chart-colour="#59BBCC" data-chart-pattern="dots" data-chart-symbol="diamond" data-chart-line-dash="8,3,2,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#59BBCC" stroke-width="1.5" stroke-dasharray="8 3 2 3"/><path d="m42 4 7 8-7 8-7-8Z" fill="#59BBCC" stroke="#59BBCC" stroke-width="1.5"/></svg><span><strong>Tumble dryer</strong><br><span class="c-data-colour-code">#59BBCC</span></span></li>
+      <li data-chart-key="sensor.dishwasher_energy" data-chart-tone="muted" data-chart-mode="dark" data-chart-colour="#C49583" data-chart-pattern="cross" data-chart-symbol="emptyCircle" data-chart-line-dash="6,3"><svg width="84" height="24" viewBox="0 0 84 24" aria-hidden="true" focusable="false"><line x1="2" y1="12" x2="82" y2="12" stroke="#C49583" stroke-width="1.5" stroke-dasharray="6 3"/><circle cx="42" cy="12" r="6" fill="none" stroke="#C49583" stroke-width="1.5"/></svg><span><strong>Dishwasher</strong><br><span class="c-data-colour-code">#C49583</span></span></li></ul>
+      </section></div>
+      <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Categorical example values and stable identities"><table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">The values are the same in every colour setting</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Device and stable identity</th><th scope="col" class="govuk-table__header">Energy (kWh)</th><th scope="col" class="govuk-table__header">Data status</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Washing machine<br><code class="c-data-colour-id">sensor.washing_machine_energy</code></th><td class="govuk-table__cell">0.8</td><td class="govuk-table__cell">Supplied in this invented example.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Tumble dryer<br><code class="c-data-colour-id">sensor.tumble_dryer_energy</code></th><td class="govuk-table__cell">1.2</td><td class="govuk-table__cell">Supplied in this invented example.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Dishwasher<br><code class="c-data-colour-id">sensor.dishwasher_energy</code></th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">No reading for this period. It is not zero.</td></tr></tbody></table></div>
+      <p class="govuk-body">The dishwasher keeps its identity colour even though its reading is missing. A colour key identifies the source; it does not say that a value was received. Labels and the table remain essential because neither different hex values nor a contrast check proves that every colour pair or marker is easy to distinguish.</p>
+      <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">How these swatches were produced</span></summary><div class="govuk-details__text"><p>Each row was calculated with <code>chartSeriesStyle(entityId, { tone, mode })</code> from <code>design-system/chart-colours.mjs</code>, algorithm <code>oklch-identity-v1</code>. The line specimens use the existing 1.5px width. The values above do not affect the colour.</p><p>There is no new categorical palette in this example. If the generator changes, regenerate these references and review the result. The quantitative examples below use a different mapping because colour represents a measured value rather than an identity.</p></div></details>
+      </section>
+    colour_reference:
+      reviewed_on: 2026-11-12
+      classification: Generated categorical reference; no second palette
+      generator: design-system/chart-colours.mjs
+      generator_sha256: b24ceb52e76843c58dad497ba860c8044ba15fb7d45dd9e197e1795eff50dcee
+      specification: design-system/chart-colours.json
+      algorithm_version: oklch-identity-v1
+      series:
+        - key: sensor.washing_machine_energy
+          label: Washing machine
+          value: 0.8
+        - key: sensor.tumble_dryer_energy
+          label: Tumble dryer
+          value: 1.2
+        - key: sensor.dishwasher_energy
+          label: Dishwasher
+          value: null
+      contexts:
+        - tone: vivid
+          mode: light
+          surface: "#FFFFFF"
+          series:
+            - key: sensor.washing_machine_energy
+              label: Washing machine
+              color: "#007684"
+              index: 813364115
+              pattern: diagonal
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: circle
+            - key: sensor.tumble_dryer_energy
+              label: Tumble dryer
+              color: "#007B8C"
+              index: 1066216152
+              pattern: dots
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: diamond
+            - key: sensor.dishwasher_energy
+              label: Dishwasher
+              color: "#9F3A03"
+              index: 16130568
+              pattern: cross
+              lineDash:
+                - 6
+                - 3
+              symbol: emptyCircle
+        - tone: muted
+          mode: light
+          surface: "#FFFFFF"
+          series:
+            - key: sensor.washing_machine_energy
+              label: Washing machine
+              color: "#228593"
+              index: 813364115
+              pattern: diagonal
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: circle
+            - key: sensor.tumble_dryer_energy
+              label: Tumble dryer
+              color: "#0A8A9C"
+              index: 1066216152
+              pattern: dots
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: diamond
+            - key: sensor.dishwasher_energy
+              label: Dishwasher
+              color: "#91614F"
+              index: 16130568
+              pattern: cross
+              lineDash:
+                - 6
+                - 3
+              symbol: emptyCircle
+        - tone: vivid
+          mode: dark
+          surface: "#24282B"
+          series:
+            - key: sensor.washing_machine_energy
+              label: Washing machine
+              color: "#00C4DB"
+              index: 813364115
+              pattern: diagonal
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: circle
+            - key: sensor.tumble_dryer_energy
+              label: Tumble dryer
+              color: "#00C9E3"
+              index: 1066216152
+              pattern: dots
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: diamond
+            - key: sensor.dishwasher_energy
+              label: Dishwasher
+              color: "#ED8860"
+              index: 16130568
+              pattern: cross
+              lineDash:
+                - 6
+                - 3
+              symbol: emptyCircle
+        - tone: muted
+          mode: dark
+          surface: "#24282B"
+          series:
+            - key: sensor.washing_machine_energy
+              label: Washing machine
+              color: "#62B6C4"
+              index: 813364115
+              pattern: diagonal
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: circle
+            - key: sensor.tumble_dryer_energy
+              label: Tumble dryer
+              color: "#59BBCC"
+              index: 1066216152
+              pattern: dots
+              lineDash:
+                - 8
+                - 3
+                - 2
+                - 3
+              symbol: diamond
+            - key: sensor.dishwasher_energy
+              label: Dishwasher
+              color: "#C49583"
+              index: 16130568
+              pattern: cross
+              lineDash:
+                - 6
+                - 3
+              symbol: emptyCircle
+      line_width: 1.5
+      sources:
+        - https://brand.design-system.service.gov.uk/colour/charts/
+        - https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts
+  data-colour-quantitative:
+    title: Sequential and divergent colour scales with explicit missing data
+    description: Calculated sample colours have declared endpoints, units and a genuine zero centre; matching tables retain every synthetic value.
+    height: 2000
+    html: |-
+      <section aria-labelledby="quantitative-heading">
+      <h2 class="govuk-heading-m" id="quantitative-heading">Colour can represent an amount or a difference</h2>
+      <p class="govuk-body">Synthetic reference scales on a light canvas. These worked examples are documentation only: they do not replace device identity colours, add a heatmap or restyle a native map. Every fill is opaque; text stays outside the coloured areas.</p>
+      <section class="c-data-colour-reference" aria-labelledby="sequential-heading">
+      <h3 class="govuk-heading-m" id="sequential-heading">An increasing amount: energy from 0 to 2 kWh</h3>
+      <p class="govuk-body">Invented energy used in each room from 09:00 to 10:00 on 12 November 2026, Europe/London. Lighter to darker means a smaller to larger amount within this declared range. Zero is a supplied reading; missing data has no place on the numeric scale.</p>
+      <ul class="c-data-colour-scale" aria-label="Sequential energy scale and missing value"><li data-scale="sequential" data-scale-value="0" data-scale-colour="#D2E2F1"><span class="c-data-colour-fill" style="background:#D2E2F1;" aria-hidden="true"></span><strong>0.0 kWh</strong><span class="c-data-colour-code">#D2E2F1</span></li><li data-scale="sequential" data-scale-value="0.5" data-scale-colour="#A2B9CE"><span class="c-data-colour-fill" style="background:#A2B9CE;" aria-hidden="true"></span><strong>0.5 kWh</strong><span class="c-data-colour-code">#A2B9CE</span></li><li data-scale="sequential" data-scale-value="1" data-scale-colour="#7190AB"><span class="c-data-colour-fill" style="background:#7190AB;" aria-hidden="true"></span><strong>1.0 kWh</strong><span class="c-data-colour-code">#7190AB</span></li><li data-scale="sequential" data-scale-value="1.5" data-scale-colour="#416788"><span class="c-data-colour-fill" style="background:#416788;" aria-hidden="true"></span><strong>1.5 kWh</strong><span class="c-data-colour-code">#416788</span></li><li data-scale="sequential" data-scale-value="2" data-scale-colour="#103E65"><span class="c-data-colour-fill" style="background:#103E65;" aria-hidden="true"></span><strong>2.0 kWh</strong><span class="c-data-colour-code">#103E65</span></li><li data-scale="sequential" data-scale-value="missing" data-scale-colour="none"><span class="c-data-colour-fill c-data-colour-fill--missing" style="" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m4 4 16 16M20 4 4 20" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><strong>Not supplied</strong><span class="c-data-colour-code">No numeric colour</span></li></ul>
+      <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Sequential energy values and colour mapping"><table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">The sequential colours and their underlying values</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Room</th><th scope="col" class="govuk-table__header">Energy (kWh)</th><th scope="col" class="govuk-table__header">Displayed colour</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Kitchen</th><td class="govuk-table__cell">0.0</td><td class="govuk-table__cell"><code>#D2E2F1</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hall</th><td class="govuk-table__cell">0.5</td><td class="govuk-table__cell"><code>#A2B9CE</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Study</th><td class="govuk-table__cell">1.0</td><td class="govuk-table__cell"><code>#7190AB</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Utility room</th><td class="govuk-table__cell">1.5</td><td class="govuk-table__cell"><code>#416788</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Living room</th><td class="govuk-table__cell">2.0</td><td class="govuk-table__cell"><code>#103E65</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Garage</th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">Not supplied: crossed empty swatch</td></tr></tbody></table></div>
+      <p class="govuk-body">Endpoints: <code>#D2E2F1</code> at 0 kWh and <code>#103E65</code> at 2 kWh. For an in-range value, use <code>t = value / 2</code> and interpolate each encoded sRGB channel between the endpoints, rounding to the nearest integer. The displayed intermediate values are calculated, not separately chosen colours.</p>
+      </section>
+      <section class="c-data-colour-reference" aria-labelledby="divergent-heading">
+      <h3 class="govuk-heading-m" id="divergent-heading">A meaningful centre: difference from 20 °C</h3>
+      <p class="govuk-body">Invented room readings at 10:00 on 12 November 2026, Europe/London. The difference is <strong>reported temperature minus the example target of 20 °C</strong>. Zero means equal to that target; it does not mean missing. Below and above target are directions, not automatic failure and success states.</p>
+      <ul class="c-data-colour-scale" aria-label="Divergent temperature difference scale and missing value"><li data-scale="divergent" data-scale-value="-2" data-scale-colour="#1D70B8"><span class="c-data-colour-fill" style="background:#1D70B8;" aria-hidden="true"></span><strong>−2 °C</strong><span class="c-data-colour-code">#1D70B8</span></li><li data-scale="divergent" data-scale-value="-1" data-scale-colour="#88B2D6"><span class="c-data-colour-fill" style="background:#88B2D6;" aria-hidden="true"></span><strong>−1 °C</strong><span class="c-data-colour-code">#88B2D6</span></li><li data-scale="divergent" data-scale-value="0" data-scale-colour="#F3F3F3"><span class="c-data-colour-fill" style="background:#F3F3F3;" aria-hidden="true"></span><strong>0 °C</strong><span class="c-data-colour-code">#F3F3F3</span></li><li data-scale="divergent" data-scale-value="1" data-scale-colour="#BFAA7A"><span class="c-data-colour-fill" style="background:#BFAA7A;" aria-hidden="true"></span><strong>+1 °C</strong><span class="c-data-colour-code">#BFAA7A</span></li><li data-scale="divergent" data-scale-value="2" data-scale-colour="#8A6100"><span class="c-data-colour-fill" style="background:#8A6100;" aria-hidden="true"></span><strong>+2 °C</strong><span class="c-data-colour-code">#8A6100</span></li><li data-scale="divergent" data-scale-value="missing" data-scale-colour="none"><span class="c-data-colour-fill c-data-colour-fill--missing" style="" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m4 4 16 16M20 4 4 20" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><strong>Not supplied</strong><span class="c-data-colour-code">No numeric colour</span></li></ul>
+      <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Temperature readings, signed differences and colour mapping"><table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">The divergent colours and their underlying values</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Room</th><th scope="col" class="govuk-table__header">Reading (°C)</th><th scope="col" class="govuk-table__header">Difference (°C)</th><th scope="col" class="govuk-table__header">Displayed colour</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Kitchen</th><td class="govuk-table__cell">18</td><td class="govuk-table__cell">−2</td><td class="govuk-table__cell"><code>#1D70B8</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hall</th><td class="govuk-table__cell">19</td><td class="govuk-table__cell">−1</td><td class="govuk-table__cell"><code>#88B2D6</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Study</th><td class="govuk-table__cell">20</td><td class="govuk-table__cell">0</td><td class="govuk-table__cell"><code>#F3F3F3</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Utility room</th><td class="govuk-table__cell">21</td><td class="govuk-table__cell">+1</td><td class="govuk-table__cell"><code>#BFAA7A</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Living room</th><td class="govuk-table__cell">22</td><td class="govuk-table__cell">+2</td><td class="govuk-table__cell"><code>#8A6100</code></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Garage</th><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">Not supplied</td><td class="govuk-table__cell">Not supplied: crossed empty swatch</td></tr></tbody></table></div>
+      <p class="govuk-body">The negative endpoint is <code>#1D70B8</code> at −2 °C; the centre is <code>#F3F3F3</code> at 0 °C; the positive endpoint is <code>#8A6100</code> at +2 °C. Interpolate negative to centre using <code>(value + 2) / 2</code>, then centre to positive using <code>value / 2</code>. Each branch is separate and every intermediate value is calculated.</p>
+      </section>
+      <p class="govuk-body">Both reference mappings leave an out-of-range value unmapped and require the explanation <strong>outside this scale</strong>, rather than silently giving it an endpoint colour. A real view must show the actual value and explain or revise its range. It must not turn missing data into zero, a centre or a reassuring colour.</p>
+      <p class="govuk-body">These simple sRGB examples are not claimed to be perceptually uniform, interchangeable with categorical colours or universally distinguishable. Some pale fills have low contrast against white. Visible outlines, numeric labels and tables carry the information; inspect the actual chart or map marks and adjacent colours before using a scale.</p>
+      <p class="govuk-body">Source: the values and calculations on this page are invented documentation data. GOV.UK’s chart colour guidance recommends no more than two quantitative colour scales in one chart. Separate the view when more measures would make the meaning unclear.</p>
+      </section>
+    colour_reference:
+      reviewed_on: 2026-11-12
+      classification: Documentation-only light-canvas quantitative references; not runtime tokens or a categorical palette
+      interpolation: Linear interpolation of encoded sRGB channels, rounded to nearest integer. Opaque hex output. Not claimed perceptually uniform.
+      sequential:
+        id: sequential
+        unit: kWh
+        minimum: 0
+        maximum: 2
+        start: "#D2E2F1"
+        end: "#103E65"
+        formula: t = value / 2 for 0 ≤ value ≤ 2; round each encoded sRGB channel of (1 − t) × start + t × end.
+        rows:
+          - label: Kitchen
+            value: 0
+            color: "#D2E2F1"
+          - label: Hall
+            value: 0.5
+            color: "#A2B9CE"
+          - label: Study
+            value: 1
+            color: "#7190AB"
+          - label: Utility room
+            value: 1.5
+            color: "#416788"
+          - label: Living room
+            value: 2
+            color: "#103E65"
+          - label: Garage
+            value: null
+            color: null
+      divergent:
+        id: divergent
+        unit: °C difference
+        minimum: -2
+        centre: 0
+        maximum: 2
+        negative: "#1D70B8"
+        neutral: "#F3F3F3"
+        positive: "#8A6100"
+        formula: For −2 ≤ value ≤ 0, interpolate negative → neutral using (value + 2) / 2. For 0 ≤ value ≤ 2, interpolate neutral → positive using value / 2. Round each encoded sRGB channel.
+        target_temperature: 20
+        rows:
+          - label: Kitchen
+            value: -2
+            measurement: 18
+            color: "#1D70B8"
+          - label: Hall
+            value: -1
+            measurement: 19
+            color: "#88B2D6"
+          - label: Study
+            value: 0
+            measurement: 20
+            color: "#F3F3F3"
+          - label: Utility room
+            value: 1
+            measurement: 21
+            color: "#BFAA7A"
+          - label: Living room
+            value: 2
+            measurement: 22
+            color: "#8A6100"
+          - label: Garage
+            value: null
+            measurement: null
+            color: null
+      missing: No mapped colour; crossed empty swatch plus Not supplied label and table value.
+      out_of_range: Outside this scale; no automatic clipping to an endpoint.
+      sources:
+        - https://brand.design-system.service.gov.uk/colour/charts/
+        - https://brand.design-system.service.gov.uk/colour/maps/
+        - https://brand.design-system.service.gov.uk/data/charts/

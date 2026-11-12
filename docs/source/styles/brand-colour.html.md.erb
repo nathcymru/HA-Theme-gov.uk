@@ -1,22 +1,34 @@
 ---
-title: "Brand colour in context"
+title: "Colour roles and accessibility"
 description: "How GOV.UK brand colour principles become civica.uk interface, state, data and output-channel rules."
 section: "styles"
-group: "Brand guidance"
+group: "Guidance"
 source_url: "https://brand.design-system.service.gov.uk/colour/"
 status: "reference"
 published_on: "2026-11-11"
-updated_on: "2026-11-11"
+updated_on: "2026-11-12"
 last_reviewed_on: "2026-11-11"
 review_in: "3 months"
 updates:
-  - date: 2026-11-11
+  - date: "2026-11-12"
+    description: "Integrated colour roles with data examples and optional household identity, with an original guide illustration."
+  - date: "2026-11-11"
     description: "Added source-mapped civica.uk rules, contextual examples and explicit adoption boundaries."
 ---
 
-# Brand colour in context
+# Colour roles and accessibility
 
-Apply GOV.UK’s role-based colour discipline to civica.uk, while preserving our supplied palettes and independent operational meanings. This page explains the decisions behind [Colour](colour.html); it does not introduce another palette. Official government brand requirements are source material, not instructions to replace the user’s identity.
+Apply GOV.UK’s role-based colour discipline to civica.uk, while preserving our supplied palettes and independent operational meanings. This page explains the decisions behind [Colour](colour.html); it does not introduce another palette. The palette styles the interface; it does not require a civica.uk logo inside a home. The project’s documentation and promotional identity are separate from optional household or business personalisation.
+
+## Choose colours for the task
+
+| Task | Use |
+| --- | --- |
+| Select interface colours | [Ten palettes and Vivid/Muted](colour.html) |
+| Identify a chart series | [Stable categorical chart colours](chart-colour.html) |
+| Show increasing values or distance from a target | [Quantitative colour scales](chart-colour.html#choose-the-colour-mapping) |
+| Show locations and spatial measurements | [Maps and zones](../home-assistant/maps-and-zones.html) |
+| Explain a task visually | [Illustration](illustration.html) |
 
 ## Examples
 
@@ -28,13 +40,13 @@ These reference examples use invented household details. They do not operate dev
 
 <%= example('bg-colour-state-labels') %>
 
-<h2 id="bg-col-01">BG-COL-01: Keep the civica.uk palette authoritative</h2>
+<h2 id="bg-col-01">BG-COL-01: Keep the selected palette and identity roles separate</h2>
 
-**Local requirement: MUST.** Applies to service identity, theme selection and brand assets.
+**Local requirement: MUST.** Applies to theme selection, household personalisation and separate project identity assets.
 
-Use the exact ten supplied [brand palettes](colour.html), each with Vivid and Muted variants. Select the matching supplied civica.uk artwork rather than recolouring a logo. Civic Cobalt shares a blue value with GOV.UK; that does not make civica.uk an official government service.
+Use the exact ten supplied [interface palettes](colour.html), each with Vivid and Muted variants. A palette choice must not insert a project logo or replace a household name. Optional family crests and business logos keep their own supplied colours; choose an appropriate background rather than recolouring them. Civic Cobalt shares a blue value with GOV.UK; that does not make civica.uk an official government service.
 
-GOV.UK’s blue/teal identity, restrictions on inventing its colours, and internal brand-team approval process apply to that identity. They do not replace the user-approved civica palette or authorise its crown, wordmark or graphic device. The [brand asset rules](brand.html) remain authoritative for supplied geometry and provenance.
+GOV.UK’s blue/teal identity, restrictions on inventing its colours, and internal brand-team approval process apply to that identity. They do not replace the user-approved civica palette or authorise its crown, wordmark or graphic device. The [project identity rules](brand.html) apply to civica.uk documentation and promotion. Follow [personalisation](../get-started/personalisation.html) for a family name, crest or business logo inside a home.
 
 Source: [GOV.UK is a blue brand](https://brand.design-system.service.gov.uk/colour/govuk-blue/).
 
@@ -42,7 +54,7 @@ Source: [GOV.UK is a blue brand](https://brand.design-system.service.gov.uk/colo
 
 **Local requirement: MUST.** Applies to interface colour tokens and semantic states.
 
-Use separate roles for identity, reading, interaction, state and data. The palette primary identifies the service and navigation. Text tokens support reading. Focus and validation tokens identify an interaction state. Device colours may express a native domain state. Chart colours identify a source.
+Use separate roles for identity, reading, interaction, state and data. The palette primary supports navigation and interaction hierarchy. Text tokens support reading. Focus and validation tokens identify an interaction state. Device colours may express a native domain state. Chart colours identify a source.
 
 Do not use a red brand primary as an error token or a green primary as proof of success. A yellow lighting scene is a light recipe, not a warning. Choose a semantic fill and its paired text colour together; a dark-mode error text colour is not automatically a safe button background.
 

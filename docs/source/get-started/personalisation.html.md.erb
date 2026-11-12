@@ -1,0 +1,73 @@
+---
+title: "Personalise your home"
+description: "Add a family or business name, with an optional crest or logo, while keeping household controls clear."
+section: get-started
+group: Guidance
+nav_order: 3
+status: reference
+published_on: "2026-11-12"
+updated_on: "2026-11-12"
+updates:
+  - date: "2026-11-12"
+    description: "Separated project identity from optional household personalisation, with current native options and proposed header examples."
+---
+
+# Personalise your home
+
+Your Home Assistant interface belongs to your household or business. Use a name people recognise, with a family crest, household emblem or business logo if it helps them recognise the space. A clear text name is enough.
+
+civica.uk identifies the theme project, its documentation and promotion. It is not a required name or logo inside your home. The [project identity guide](../styles/brand.html) applies when referring to the project itself.
+
+## What you can do now
+
+Home Assistant supports named dashboards and picture cards. These are existing native features; this page does not change your installation.
+
+1. Choose a recognisable dashboard title, such as “Morgan household” or “Example workshop”. Keep built-in page names where Home Assistant owns them. A dashboard title does not rename accounts, entities or devices.
+2. If an image helps, add a native Picture card and use its **Upload picture** option or an existing authorised image. Keep the name available as text and provide suitable alternative text.
+3. Set the picture's action deliberately. An identity image should not unexpectedly turn on a device. A home link should lead to the actual dashboard home; an image that has no action should not look like a button.
+4. Check the result on a phone, with keyboard navigation and enlarged text. Keep the room names, current states and essential actions more prominent than decorative artwork.
+
+The official [dashboard guidance](https://www.home-assistant.io/dashboards/dashboards/) describes dashboard titles and configuration. The [Picture card guidance](https://www.home-assistant.io/dashboards/picture/) documents image upload, alternative text and actions. Review these against the version you use before changing a setup.
+
+## Proposed theme personalisation
+
+The following headers define the design-system target for optional shell personalisation. They are reference examples, not new theme settings. The current companion still inserts civica.uk artwork into supported sidebar and browser identity surfaces; a global family-name, crest or logo setting has not been implemented. See the [compatibility record](compatibility.html#household-identity-transition).
+
+| Choice | Required behaviour |
+| --- | --- |
+| No custom identity | Retain the native title or chosen dashboard name. Do not insert a project logo automatically. |
+| Text name | Display the exact household or business name and allow it to wrap. Do not change account or device names. |
+| Optional crest or logo | Preserve its proportions and colours, with a readable name alongside it. A logo is not a requirement. |
+| Remove the image | Return to the text name without losing navigation or changing the selected palette. |
+| Image fails to load | Keep the text name and all navigation usable. |
+
+### A name without a logo
+
+<%= example('identity-household-name') %>
+
+### An optional household crest
+
+<%= example('identity-household-crest') %>
+
+### A business name and logo
+
+<%= example('identity-business-name') %>
+
+## Keep identity separate from meaning
+
+The selected [interface palette](../styles/colour.html) controls presentation. A family crest or business logo does not redefine errors, warnings, focus or chart series. Do not recolour supplied artwork when a palette changes; use a suitable neutral background instead.
+
+Use authorised artwork and preserve its meaning. Do not copy a government mark or imply endorsement. The crest and business symbol in these examples are original illustrative shapes, not a claim to a registered coat of arms or a real business identity.
+
+Keep names and state descriptions as real text. When an image repeats the adjacent name, use empty alternative text; when it conveys otherwise missing identity, supply a concise name. Never place essential controls or readings inside the image.
+
+## Check a personalised interface
+
+- A text-only option works fully, including when images are unavailable.
+- Long, Welsh and multilingual names remain readable without clipping.
+- The home link has a meaningful name and destination and a visible keyboard focus.
+- Light and dark surfaces retain readable names and unchanged artwork.
+- Shared displays reveal only the identity the household chose to show; no address or full personal name is required.
+- Removing personalisation leaves controls, chart meanings, permissions and device names unchanged.
+
+Use the shared [header](../components/header.html), [colour roles](../styles/brand-colour.html) and [image guidance](../styles/images.html) when implementing this specification.

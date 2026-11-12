@@ -6,14 +6,16 @@ group: Navigation
 source_url: https://service-manual.nhs.uk/design-system/components/header
 status: reference
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-12"
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 updates:
-  - date: 2026-11-11
-    description: Established one header identity family with focused and service-navigation responsibilities kept distinct.
-  - date: 2026-11-11
-    description: Added NHS-informed header guidance and 2 Home Assistant reference examples.
+  - date: "2026-11-12"
+    description: "Separated optional household identity from the project logo in header guidance and examples."
+  - date: "2026-11-11"
+    description: "Established one header identity family with focused and service-navigation responsibilities kept distinct."
+  - date: "2026-11-11"
+    description: "Added NHS-informed header guidance and 2 Home Assistant reference examples."
 ---
 
 # Header
@@ -24,9 +26,9 @@ These are civica.uk reference implementations for component authors. They do not
 
 ## Identity and navigation have separate responsibilities
 
-This page owns the civica.uk header identity contract. Use the [generic-header variant](generic-header.html) for a focused identity and home link. Add [service navigation](service-navigation.html) only when the page needs several stable destinations; that component owns current-route and small-screen menu behaviour.
+This page owns the household header and optional identity contract. Use the [generic-header variant](generic-header.html) for a focused identity and home link. Add [service navigation](service-navigation.html) only when the page needs several stable destinations; that component owns current-route and small-screen menu behaviour.
 
-All variants use supplied civica.uk artwork and the permitted local font stack. A source reference to a government or NHS header does not authorise its identity assets. A documentation header is not proof that a native login, account screen or onboarding flow has been redesigned. Preserve Home Assistant’s actual authentication and routing boundaries.
+A clear household or business name is the default. A crest or logo is optional; see [Personalise your home](../get-started/personalisation.html). The project logo belongs to project documentation and promotion. All variants use the permitted local font stack. A source reference to a government or NHS header does not authorise its identity assets. A documentation header is not proof that a native login, account screen or onboarding flow has been redesigned. Preserve Home Assistant’s actual authentication and routing boundaries.
 
 ## When to use it
 
@@ -38,7 +40,7 @@ Do not reproduce NHS branding or add a second application header inside Home Ass
 
 ## Home Assistant adaptation
 
-The NHS header’s identity rules apply to NHS services, not this project. civica.uk uses the supplied lockup and palette masthead. Preserve Home Assistant’s native menu, account actions and permissions. A constrained task may need fewer exits than a browsing dashboard.
+The NHS header’s identity rules apply to NHS services, not this project. Use the household’s chosen name and an optional authorised image on a readable surface. Preserve Home Assistant’s native menu, account actions and permissions. A constrained task may need fewer exits than a browsing dashboard.
 
 ## Accessibility and behaviour
 
@@ -54,7 +56,7 @@ Only identity and the task’s service name are present.
 
 ### A service header with a few destinations
 
-The civica lockup replaces NHS and GOV.UK identity assets.
+The chosen household name provides identity; no project or government logo is required.
 
 <%= example('nhs-header-navigation') %>
 
@@ -66,6 +68,6 @@ Use the [civica.uk accessibility checks](../accessibility/testing.html) and comp
 
 ## Source and related guidance
 
-[NHS header](https://service-manual.nhs.uk/design-system/components/header) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+[NHS header](https://service-manual.nhs.uk/design-system/components/header) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and original household examples. NHS logos and service identity are not used.
 
 See also [navigation](navigation.html).

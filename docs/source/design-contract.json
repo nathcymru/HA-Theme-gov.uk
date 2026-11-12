@@ -41,7 +41,20 @@
     },
     "variantAssetPattern": "brand/civica/themes/{palette.id}/{vivid|muted}/{lockup-on-primary.svg|lockup-on-canvas.svg|app-icon.svg|app-icon.png}",
     "paletteArtwork": "Select the complete supplied variant file; no CSS filters or SVG recolouring",
-    "documentationMasthead": "core/lockup-on-blue.svg"
+    "documentationMasthead": "core/lockup-on-blue.svg",
+    "scope": "civica.uk project documentation and promotion; not a required in-home identity",
+    "household": {
+      "requiredProjectLogo": false,
+      "default": "A clear household, dashboard or business name; a logo is optional.",
+      "optionalArtwork": [
+        "family crest",
+        "household emblem",
+        "business logo"
+      ],
+      "preserveUserChoice": true,
+      "guide": "get-started/personalisation.html",
+      "implementationBoundary": "Current companion still injects civica.uk sidebar/browser identity; custom global identity controls are a design specification, not implemented by this documentation update."
+    }
   },
   "tokens": {
     "canonicalPalettes": "design-system/palettes.json",
@@ -452,6 +465,8 @@
       "deterministic chart identity colours",
       "1.5px Energy lines"
     ],
-    "functionalAndDecorativeScopesSeparate": true
+    "functionalAndDecorativeScopesSeparate": true,
+    "displayName": "Design styles",
+    "sourceNaming": "The source is GOV.UK Brand; local guidance is organised as colour, typography, data and illustration. Legacy BG rule IDs and JSON routes are retained."
   }
 }

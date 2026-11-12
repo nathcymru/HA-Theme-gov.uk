@@ -22,7 +22,7 @@
     },
     {
       "path": "docs/source/images/category-styles.svg",
-      "sha256": "aceacde36a73c9428910e7808caaf4b26496b411bb88fdfdb91c54b13999ab0d",
+      "sha256": "8db31a71a91570c65982d0b7932c7e84278b44ed2f2f1a73274a3bc07e02ee1f",
       "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
       "purpose": "Introduce typography and colour foundations.",
       "palette": [
@@ -38,7 +38,7 @@
     },
     {
       "path": "docs/source/images/category-components.svg",
-      "sha256": "644d61975ffda965546acc09342cd86730c79e9e3981f9b9176308c72f94eb15",
+      "sha256": "8e5510489e3e26c06f2b8d285767fb721929ac6835c40dd88615c7946a526fa7",
       "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
       "purpose": "Introduce reusable interface parts.",
       "palette": [
@@ -54,7 +54,7 @@
     },
     {
       "path": "docs/source/images/category-patterns.svg",
-      "sha256": "c72ba2f82ba4961515a355e0e93dfc9a92f69c6476ebb1820f404c1a64f1fabd",
+      "sha256": "9d5a02851359658dec10820dae22f58edb69046f1960fce19e58023a3c6ed276",
       "source": "Original vector artwork authored for this repository; no supplied identity geometry reused.",
       "purpose": "Introduce a sequence of related task steps.",
       "palette": [

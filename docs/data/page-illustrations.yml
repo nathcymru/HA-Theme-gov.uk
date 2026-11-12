@@ -1,0 +1,33 @@
+get-started/index.html:
+  asset: section-get-started.svg
+  summary: Choose the theme layers you need, then adapt the interface to everyday household tasks.
+styles/index.html:
+  asset: section-styles.svg
+  summary: Use colour, type, spacing and imagery to make information and controls clear.
+content/index.html:
+  asset: section-content.svg
+  summary: Write clear names, states and instructions for people sharing a connected home.
+components/index.html:
+  asset: section-components.svg
+  summary: Build complete controls and information displays from reusable parts.
+patterns/index.html:
+  asset: section-patterns.svg
+  summary: Combine components into clear household tasks, from an overview to a confirmed result.
+community/index.html:
+  asset: section-community.svg
+  summary: Review evidence, contribute improvements and keep the design system consistent.
+accessibility/index.html:
+  asset: section-accessibility.svg
+  summary: Design for keyboard access, readable content and equivalent ways to understand information.
+styles/brand-data.html:
+  asset: guide-data.svg
+  summary: Help people understand a reading, a comparison or a location through clear charts, dashboards and maps.
+styles/brand-colour.html:
+  asset: guide-colour.svg
+  summary: Choose colours for their purpose and support their meaning with words, shapes and patterns.
+styles/colour.html:
+  asset: guide-colour.svg
+  summary: Choose an interface palette and tone while keeping states and data meanings stable.
+styles/illustration.html:
+  asset: guide-illustration.svg
+  summary: Use simple, purposeful illustrations to explain a task or relationship, with its full meaning available in text.

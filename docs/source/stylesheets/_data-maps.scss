@@ -1,0 +1,67 @@
+/* Documentation map controls and records. Vector cartographic roles are kept
+   separately in map-examples.mjs; changing them never changes observations. */
+.civica-map-demo {
+  --map-canvas:#fff;
+  --map-context:#f3f2f1;
+  --map-divider:#cecece;
+  --map-ink:#0b0c0c;
+  --map-a:#0b0c0c;
+  --map-b:#0b0c0c;
+  --map-marker-label:#fff;
+  min-width:0;
+  color:var(--map-ink);
+  background:var(--map-canvas);
+}
+.civica-map-demo__figure { margin:20px 0; }
+.civica-map-demo__plot { display:block; width:100%; height:auto; max-width:720px; background:var(--map-canvas); }
+.civica-map-demo__context { fill:var(--map-context); }
+.civica-map-demo__divider { fill:none; stroke:var(--map-divider); stroke-width:1; vector-effect:non-scaling-stroke; }
+.civica-map-demo__uncertainty { fill:none; stroke:var(--map-ink); stroke-width:1.5; stroke-dasharray:6 6; vector-effect:non-scaling-stroke; }
+.civica-map-demo__selection { fill:none; stroke:var(--map-ink); stroke-width:2; vector-effect:non-scaling-stroke; }
+.civica-map-demo__marker-a { fill:var(--map-a); }
+.civica-map-demo__marker-b { fill:var(--map-b); }
+.civica-map-demo__marker-label { fill:var(--map-marker-label); font:700 30px Arial,Helvetica,sans-serif; text-anchor:middle; }
+.civica-map-demo__place-label { fill:var(--map-ink); font:400 28px Arial,Helvetica,sans-serif; text-anchor:middle; }
+.civica-map-demo__key { display:flex; flex-wrap:wrap; gap:12px 24px; list-style:none; padding:0; margin:0 0 20px; }
+.civica-map-demo__key li { display:flex; align-items:center; gap:10px; min-width:0; }
+.civica-map-demo__key svg { width:32px; height:32px; flex:none; overflow:visible; background:var(--map-marker-label); }
+.civica-map-demo__key .civica-map-demo__marker-label { font-size:19px; }
+.civica-map-demo__key .civica-map-demo__selection,.civica-map-demo__key .civica-map-demo__uncertainty { stroke:var(--map-a); }
+.civica-map-demo__missing { padding:20px; background:var(--map-context); border:1px solid var(--map-divider); margin:20px 0; }
+.civica-map-demo__missing > :last-child { margin-bottom:0; }
+.civica-map-demo__fallback-symbol { width:80px; height:64px; display:block; margin-bottom:16px; }
+.civica-map-demo__fallback-symbol path { fill:none; stroke:var(--map-ink); stroke-width:2; vector-effect:non-scaling-stroke; }
+.civica-map-demo__appearance,.civica-map-demo__navigation { display:flex; flex-wrap:wrap; gap:15px 20px; }
+.civica-map-demo__appearance > div { min-width:0; }
+.civica-map-demo__navigation .govuk-button { margin-bottom:15px; }
+.civica-map-demo__canvas { position:relative; width:100%; height:420px; min-width:0; border:1px solid #cecece; }
+.civica-map-demo__canvas[hidden] { display:none; }
+.civica-map-demo__marker {
+  width:44px; height:44px; min-width:44px; padding:0; border:2px solid var(--map-marker-label);
+  border-radius:50%; background:var(--map-a); color:var(--map-marker-label);
+  font:700 20px/40px Arial,Helvetica,sans-serif; text-align:center; cursor:pointer;
+}
+.civica-map-demo__marker--b { border-radius:0; background:var(--map-marker-label); }
+.civica-map-demo__marker--b svg { display:block; width:40px; height:40px; }
+.civica-map-demo__marker--b path { fill:var(--map-b); }
+.civica-map-demo__marker--b text { fill:var(--map-marker-label); font:700 20px Arial,Helvetica,sans-serif; text-anchor:middle; }
+.civica-map-demo__marker[aria-pressed="true"] { box-shadow:0 0 0 3px var(--map-marker-label),0 0 0 5px var(--map-a); }
+.civica-map-demo__marker:focus-visible { outline:3px solid #ffdd00; outline-offset:3px; box-shadow:0 0 0 7px #0b0c0c; }
+.civica-map-demo__canvas .maplibregl-ctrl-attrib { font:14px/1.5 Arial,Helvetica,sans-serif; background:#fff; color:#0b0c0c; max-width:100%; }
+.civica-map-demo__canvas .maplibregl-ctrl-attrib a { color:#0b0c0c; text-decoration:underline; }
+.civica-map-demo__canvas .maplibregl-ctrl-scale { font:14px/1.5 Arial,Helvetica,sans-serif; background:#fff; color:#0b0c0c; border-color:#0b0c0c; }
+.civica-map-demo__attribution { margin-top:15px; }
+.civica-map-demo [data-map-select][aria-pressed="true"] { font-weight:700; }
+@media(max-width:480px) { .civica-map-demo__canvas { height:360px; } }
+@media(forced-colors:active) {
+  .civica-map-demo {
+    --map-canvas:Canvas;
+    --map-context:Canvas;
+    --map-divider:GrayText;
+    --map-ink:CanvasText;
+    --map-a:CanvasText!important;
+    --map-b:CanvasText!important;
+    --map-marker-label:Canvas!important;
+  }
+  .civica-map-demo__marker-label { fill:Canvas; }
+}

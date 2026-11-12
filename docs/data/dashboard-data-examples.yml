@@ -1,0 +1,115 @@
+# Original, synthetic data compositions. They do not fetch readings or operate a home.
+examples:
+  dashboard-data-electricity-monitor:
+    title: "A monitoring overview with a chart and its complete data"
+    description: "A dated grid-import question combines indicators, an actual column chart, a missing interval, matching values and local source details."
+    height: 1450
+    chart_data:
+      classification: "Static reference chart with invented values; not a native Energy screenshot or a connected control."
+      measure: "Grid electricity imported in each complete hourly interval"
+      unit: kWh
+      date: "2026-11-12"
+      time_zone: Europe/London
+      period_start: "2026-11-12T06:00:00+00:00"
+      period_end: "2026-11-12T12:00:00+00:00"
+      reported_at: "2026-11-12T12:05:00+00:00"
+      values: [0.42, 0.36, null, 0.72, 0.54, 0.30]
+      known_interval_count: 5
+      expected_interval_count: 6
+      known_interval_sum: 2.34
+      source_identity: grid-consumption
+      colour: "#206095"
+      colour_source: "chartColour('grid-consumption', {tone: 'vivid', mode: 'light'}) from design-system/chart-colours.mjs"
+      geometry: "Original SVG columns: 44px opaque square bars; y=260−300×value; x=78+90×interval index. Scale 0–0.8kWh. No rectangle for the missing interval."
+      presentation_source: "ui/src/energy-charts.ts ENERGY_CHART_SPEC: Arial; 14px minimum chart labels; 1px #D9D9D9 numeric grid; 1.5px #B3B3B3 zero baseline. Existing native renderer remains the production implementation."
+    artwork:
+      creator: "civica.uk project; original documentation SVG geometry"
+      licence: "MIT for original repository code and documentation artwork under LICENSE"
+      source: "Inline SVG authored from the synthetic chart_data values in this record; no third-party SVG paths or brand marks copied."
+      purpose: "Compare complete hourly grid-import quantities while showing the gap and the partial total."
+      background: "White documentation canvas; data-source blue is independent of household identity and error/status colours."
+      alternative_text_decision: "The chart has a short accessible title and description. Its full values, missing interval, period, units and source are available as normal HTML and a table."
+      rendered_review: "Pending integrated documentation checks; source geometry alone is not rendering or usability evidence."
+    html: |
+      <section class="civica-data-dashboard" aria-labelledby="electricity-title">
+        <p class="govuk-body-s">Example home · Invented data · Static reference</p>
+        <h1 class="govuk-heading-l" id="electricity-title">How much electricity came from the grid this morning?</h1>
+        <p class="govuk-body">Hourly grid import for <time datetime="2026-11-12">12 November 2026</time>, 06:00 to 12:00 GMT (Europe/London). These are energy quantities in kilowatt-hours (kWh), not current power readings.</p>
+        <p class="govuk-body">Example report prepared at <time datetime="2026-11-12T12:05:00+00:00">12:05 GMT</time>. This page does not update or connect to Home Assistant.</p>
+        <nav aria-label="Electricity report sections"><ul class="govuk-list"><li><a class="govuk-link" href="#electricity-values">Read the hourly values</a></li><li><a class="govuk-link" href="#electricity-source">Check the source and missing coverage</a></li></ul></nav>
+
+        <dl class="civica-data-dashboard__metrics">
+          <div><dt>Recorded grid import</dt><dd>2.34 <span>kWh</span></dd><dd class="civica-data-dashboard__metric-note">Sum of 5 known intervals. The full period total is unknown.</dd></div>
+          <div><dt>Complete hourly intervals</dt><dd>5 of 6</dd><dd class="civica-data-dashboard__metric-note">No value was supplied for 08:00 to 09:00.</dd></div>
+          <div><dt>Latest complete interval</dt><dd>0.30 <span>kWh</span></dd><dd class="civica-data-dashboard__metric-note">11:00 to 12:00. This is not the present rate of use.</dd></div>
+        </dl>
+
+        <h2 class="govuk-heading-m" id="electricity-chart-heading">Hourly grid electricity import (kWh)</h2>
+        <p class="govuk-body">The largest <strong>recorded</strong> interval is 09:00 to 10:00 at 0.72 kWh. The missing hour could change which interval was largest across the full period.</p>
+        <figure class="civica-data-dashboard__figure" aria-labelledby="electricity-chart-heading">
+          <div class="civica-data-dashboard__plot" role="region" tabindex="0" aria-label="Hourly grid import chart. Scroll horizontally on smaller screens; all values follow in a table.">
+            <svg class="civica-data-dashboard__chart" viewBox="0 0 600 320" width="600" height="320" role="img" aria-labelledby="grid-chart-title grid-chart-description">
+              <title id="grid-chart-title">Grid import by complete hourly interval, 06:00 to 12:00</title>
+              <desc id="grid-chart-description">Five square columns show 0.42, 0.36, 0.72, 0.54 and 0.30 kilowatt-hours. A gap at 08:00 to 09:00 means no value was supplied. The next table contains all six intervals.</desc>
+              <g class="civica-data-dashboard__grid"><line x1="60" y1="20" x2="590" y2="20"/><line x1="60" y1="80" x2="590" y2="80"/><line x1="60" y1="140" x2="590" y2="140"/><line x1="60" y1="200" x2="590" y2="200"/></g>
+              <line class="civica-data-dashboard__zero" x1="60" y1="260" x2="590" y2="260"/>
+              <g class="civica-data-dashboard__labels" text-anchor="end"><text x="49" y="25">0.8</text><text x="49" y="85">0.6</text><text x="49" y="145">0.4</text><text x="49" y="205">0.2</text><text x="49" y="265">0</text></g>
+              <g class="civica-data-dashboard__bars" fill="#206095"><rect x="78" y="134" width="44" height="126"/><rect x="168" y="152" width="44" height="108"/><rect x="348" y="44" width="44" height="216"/><rect x="438" y="98" width="44" height="162"/><rect x="528" y="170" width="44" height="90"/></g>
+              <g class="civica-data-dashboard__labels" text-anchor="middle"><text x="100" y="284">06–07</text><text x="190" y="284">07–08</text><text x="280" y="284">08–09</text><text x="370" y="284">09–10</text><text x="460" y="284">10–11</text><text x="550" y="284">11–12</text><text x="280" y="240">No value</text><text x="325" y="311">Hourly interval (GMT)</text></g>
+            </svg>
+          </div>
+          <figcaption class="govuk-body-s">Source: the invented Example home grid-import meter. Opaque blue identifies grid import; it does not indicate a good or bad result. The empty interval is missing data, not zero. The chart can scroll on smaller screens.</figcaption>
+        </figure>
+
+        <h2 class="govuk-heading-m" id="electricity-values">Hourly values</h2>
+        <div class="civica-table-scroll" role="region" tabindex="0" aria-label="Hourly grid import values, scroll horizontally if needed">
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--s">12 November 2026 · All times GMT (Europe/London) · Same values as the chart</caption>
+            <thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Hourly interval</th><th class="govuk-table__header govuk-table__header--numeric" scope="col">Grid import (kWh)</th><th class="govuk-table__header" scope="col">Coverage</th></tr></thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">06:00 to 07:00</th><td class="govuk-table__cell govuk-table__cell--numeric">0.42</td><td class="govuk-table__cell">Complete interval</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">07:00 to 08:00</th><td class="govuk-table__cell govuk-table__cell--numeric">0.36</td><td class="govuk-table__cell">Complete interval</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">08:00 to 09:00</th><td class="govuk-table__cell govuk-table__cell--numeric">Not supplied</td><td class="govuk-table__cell">Missing interval</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">09:00 to 10:00</th><td class="govuk-table__cell govuk-table__cell--numeric">0.72</td><td class="govuk-table__cell">Complete interval</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">10:00 to 11:00</th><td class="govuk-table__cell govuk-table__cell--numeric">0.54</td><td class="govuk-table__cell">Complete interval</td></tr>
+              <tr class="govuk-table__row"><th class="govuk-table__header" scope="row">11:00 to 12:00</th><td class="govuk-table__cell govuk-table__cell--numeric">0.30</td><td class="govuk-table__cell">Complete interval</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="govuk-heading-m" id="electricity-source">Source and coverage</h2>
+        <p class="govuk-body">This report uses one invented grid-import meter and six consecutive, non-overlapping hourly intervals. Five intervals have a supplied quantity; the third does not. The recorded sum is 0.42 + 0.36 + 0.72 + 0.54 + 0.30 = 2.34 kWh.</p>
+        <p class="govuk-body">The missing interval is not estimated. No full-period total, percentage saving or comparison with another day is calculated. Grid import excludes any electricity supplied directly by solar generation or a battery, so it is not the home's complete electricity use.</p>
+        <p class="govuk-body"><a class="govuk-link" href="#electricity-title">Return to the report summary</a></p>
+      </section>
+
+  dashboard-data-room-report:
+    title: "A text-first report that separates recent, old and absent readings"
+    description: "A fixed room-temperature review defines its window, keeps all rooms visible and explains which observations can be compared."
+    height: 1450
+    html: |
+      <section class="civica-data-dashboard" aria-labelledby="room-report-title">
+        <p class="govuk-body-s">Example home · Invented data · Static reference</p>
+        <h1 class="govuk-heading-l" id="room-report-title">Which room temperatures can I compare?</h1>
+        <p class="govuk-body">Report prepared for <time datetime="2026-11-12T12:00:00+00:00">12 November 2026 at 12:00 GMT</time> (Europe/London). This review uses observations from 11:55 to 12:00. That five-minute window is an example reporting choice, not a universal Home Assistant freshness rule.</p>
+        <p class="govuk-body"><strong>2 of 3 configured sensors reported within the review window.</strong> A fourth room has no configured sensor. The older bedroom observation remains visible but is excluded from this comparison.</p>
+        <nav aria-label="Temperature report sections"><ul class="govuk-list"><li><a class="govuk-link" href="#room-report-readings">Read all room records</a></li><li><a class="govuk-link" href="#room-report-method">Read the comparison limits and sources</a></li></ul></nav>
+
+        <h2 class="govuk-heading-m" id="room-report-readings">Room records</h2>
+        <dl class="govuk-summary-list civica-data-dashboard__room-list">
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Kitchen</dt><dd class="govuk-summary-list__value"><p class="govuk-body"><strong>19.4 °C</strong> · Within the review window</p><p class="govuk-body">Observed at <time datetime="2026-11-12T11:59:00+00:00">11:59 GMT</time> on 12 November 2026. Source: Kitchen temperature sensor.</p><a class="govuk-link" href="#room-report-method">Check how the readings are compared</a></dd></div>
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Study</dt><dd class="govuk-summary-list__value"><p class="govuk-body"><strong>18.7 °C</strong> · Within the review window</p><p class="govuk-body">Observed at <time datetime="2026-11-12T11:58:00+00:00">11:58 GMT</time> on 12 November 2026. Source: Study temperature sensor.</p><a class="govuk-link" href="#room-report-method">Check how the readings are compared</a></dd></div>
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Bedroom</dt><dd class="govuk-summary-list__value"><p class="govuk-body"><strong>No reading within the review window.</strong></p><p class="govuk-body">Last supplied value: 21.0 °C, observed at <time datetime="2026-11-12T09:10:00+00:00">09:10 GMT</time> on 12 November 2026. Source: Bedroom temperature sensor. Its temperature at 12:00 is unknown.</p><a class="govuk-link" href="#room-report-bedroom">Read the bedroom record</a></dd></div>
+          <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Garden room</dt><dd class="govuk-summary-list__value"><p class="govuk-body"><strong>No temperature sensor configured.</strong></p><p class="govuk-body">No reading or observation time is available. This is a coverage gap, not a zero temperature or evidence of a device failure.</p><a class="govuk-link" href="#room-report-inventory">Read the sensor inventory</a></dd></div>
+        </dl>
+
+        <h2 class="govuk-heading-m" id="room-report-method">Comparison limits and sources</h2>
+        <p class="govuk-body">The Kitchen and Study observations use the same unit and fall within the stated review window. Their recorded difference is 0.7 °C. They were observed a minute apart, not at the same instant. These values alone do not establish comfort, a heating fault or a need to change a setting.</p>
+        <p class="govuk-body">Each source name refers to one invented room sensor. The times here are observation times supplied for the example, not Home Assistant's generic last-changed timestamp. The report does not assume the two sensors have matching calibration or installation conditions.</p>
+        <h3 class="govuk-heading-s" id="room-report-bedroom">Bedroom record</h3>
+        <p class="govuk-body">The only supplied bedroom observation is 21.0 °C at 09:10 GMT. There is no evidence here explaining the gap, so the report does not diagnose a lost connection or show the old value as current. In a connected dashboard, inspect the entity's native details and observation source before deciding whether a recovery action is needed.</p>
+        <h3 class="govuk-heading-s" id="room-report-inventory">Sensor inventory</h3>
+        <p class="govuk-body">Four rooms are in this invented report. Kitchen, Study and Bedroom each have one configured temperature sensor. Garden room has none. A household-wide average is not shown because coverage and observation times differ.</p>
+        <p class="govuk-body">This text report is useful without a chart or status colours. It is a fixed reference example: it does not refresh readings, add a sensor or change heating.</p>
+        <p class="govuk-body"><a class="govuk-link" href="#room-report-title">Return to the report summary</a></p>
+      </section>

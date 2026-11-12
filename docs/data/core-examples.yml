@@ -2,7 +2,7 @@
   "examples": {
     "core-accordion-troubleshooting": {
       "title": "Troubleshooting topics",
-      "html": "<div class=\"govuk-accordion\" data-module=\"govuk-accordion\" id=\"troubleshooting\"><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"troubleshooting-heading-1\">Check power</span></h2></div><div id=\"troubleshooting-content-1\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Check the device display or power indicator. Follow its manufacturer\u2019s instructions before opening a cover.</p></div></div><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"troubleshooting-heading-2\">Check the connection</span></h2></div><div id=\"troubleshooting-content-2\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Check the integration\u2019s status in Home Assistant. A missing reading does not prove the device is off.</p></div></div></div>",
+      "html": "<div class=\"govuk-accordion\" data-module=\"govuk-accordion\" id=\"troubleshooting\"><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"troubleshooting-heading-1\">Check power</span></h2></div><div id=\"troubleshooting-content-1\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Check the device display or power indicator. Follow its manufacturer’s instructions before opening a cover.</p></div></div><div class=\"govuk-accordion__section\"><div class=\"govuk-accordion__section-header\"><h2 class=\"govuk-accordion__section-heading\"><span class=\"govuk-accordion__section-button\" id=\"troubleshooting-heading-2\">Check the connection</span></h2></div><div id=\"troubleshooting-content-2\" class=\"govuk-accordion__section-content\"><p class=\"govuk-body\">Check the integration’s status in Home Assistant. A missing reading does not prove the device is off.</p></div></div></div>",
       "height": 300
     },
     "core-accordion-measures": {
@@ -17,11 +17,11 @@
     },
     "core-cookie-confirmation": {
       "title": "Choice confirmation",
-      "html": "<h2 class=\"govuk-heading-m\">Your choice has been saved</h2><p class=\"govuk-body\">Optional measurement is off. In a real service, this message appears only after the preference has been recorded.</p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">What this choice means</span></summary><div class=\"govuk-details__text\">Essential sign-in storage would remain available. You would be able to change optional choices from the service\u2019s privacy settings.</div></details>",
+      "html": "<h2 class=\"govuk-heading-m\">Your choice has been saved</h2><p class=\"govuk-body\">Optional measurement is off. In a real service, this message appears only after the preference has been recorded.</p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">What this choice means</span></summary><div class=\"govuk-details__text\">Essential sign-in storage would remain available. You would be able to change optional choices from the service’s privacy settings.</div></details>",
       "height": 300
     },
     "core-exit-visible": {
-      "title": "Departure control \u2014 demonstration only",
+      "title": "Departure control — demonstration only",
       "html": "<a class=\"govuk-button govuk-button--warning\" href=\"#example-left\">Exit this example</a><h2 class=\"govuk-heading-m\">Sensitive content example</h2><p class=\"govuk-body\">The real page would provide the agreed support content.</p><div id=\"example-left\" tabindex=\"-1\">Example destination. No browser history or session data has been cleared.</div>",
       "height": 300
     },
@@ -41,13 +41,13 @@
       "height": 300
     },
     "core-generic-header": {
-      "title": "civica.uk service identity",
-      "html": "<header class=\"civica-demo-header\"><a href=\"#service-home\"><img src=\"../images/civica-lockup.svg\" alt=\"civica.uk\" width=\"205\" height=\"33\"></a></header><main id=\"service-home\"><h2 class=\"govuk-heading-m\">Household guide</h2><p class=\"govuk-body\">Find the instructions for this home.</p></main>",
+      "title": "A household name and home link",
+      "html": "<header class=\"civica-demo-header\"><a href=\"#service-home\"><strong>Morgan household</strong></a></header><main id=\"service-home\"><h2 class=\"govuk-heading-m\">Household guide</h2><p class=\"govuk-body\">Find the instructions for this home.</p></main>",
       "height": 300
     },
     "core-generic-header-service": {
-      "title": "Named service header",
-      "html": "<header class=\"civica-demo-header\"><a href=\"#energy-guide\"><img src=\"../images/civica-lockup.svg\" alt=\"civica.uk\" width=\"205\" height=\"33\"></a><p class=\"govuk-!-margin-bottom-0\">Energy guide</p></header><main id=\"energy-guide\"><h2 class=\"govuk-heading-m\">Understand your readings</h2><p class=\"govuk-body\">Use the meter\u2019s units and the selected period.</p></main>",
+      "title": "Household header with a task name",
+      "html": "<header class=\"civica-demo-header\"><a href=\"#energy-guide\"><strong>Morgan household</strong></a><p class=\"govuk-!-margin-bottom-0\">Energy guide</p></header><main id=\"energy-guide\"><h2 class=\"govuk-heading-m\">Understand your readings</h2><p class=\"govuk-body\">Use the meter’s units and the selected period.</p></main>",
       "height": 300
     },
     "core-language-en": {
@@ -62,7 +62,7 @@
     },
     "core-phase-demo": {
       "title": "Demonstration banner",
-      "html": "<div class=\"govuk-phase-banner\"><p class=\"govuk-phase-banner__content\"><strong class=\"govuk-tag govuk-phase-banner__content__tag\">Demo</strong><span class=\"govuk-phase-banner__text\">Values are examples. Controls do not connect to a home.</span></p></div><h2 class=\"govuk-heading-m\">Kitchen overview</h2><p class=\"govuk-body\">Temperature: 20 \u00b0C \u2014 example reading.</p>",
+      "html": "<div class=\"govuk-phase-banner\"><p class=\"govuk-phase-banner__content\"><strong class=\"govuk-tag govuk-phase-banner__content__tag\">Demo</strong><span class=\"govuk-phase-banner__text\">Values are examples. Controls do not connect to a home.</span></p></div><h2 class=\"govuk-heading-m\">Kitchen overview</h2><p class=\"govuk-body\">Temperature: 20 °C — example reading.</p>",
       "height": 300
     },
     "core-phase-trial": {
@@ -111,7 +111,7 @@
       "title": "A corrected guide",
       "html": "<section aria-label=\"Example publication details\"><h2 class=\"govuk-heading-m\">Example meter guide</h2><p class=\"govuk-body\">Published <time datetime=\"2026-10-01\">1 October 2026</time><br>Last updated <time datetime=\"2026-11-01\">1 November 2026</time></p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">See all updates</span></summary><div class=\"govuk-details__text\"><ol class=\"govuk-list\"><li><time datetime=\"2026-11-01\">1 November 2026</time><p>Corrected the unit in the example from W to kW.</p></li><li><time datetime=\"2026-10-01\">1 October 2026</time><p>First published.</p></li></ol></div></details></section>",
       "height": 300,
-      "description": "An update note identifies the correction instead of saying only \u201cUpdated\u201d."
+      "description": "An update note identifies the correction instead of saying only “Updated”."
     }
   }
 }

@@ -12,6 +12,7 @@ await build({ entryPoints: ['ui/src/index.ts'], bundle: true, format: 'esm', out
 await build({ entryPoints: ['ui/dev/energy-charts-harness.ts'], bundle: true, format: 'esm', outfile: 'ui/dev/energy-charts-harness.js', target: 'es2022' });
 mkdirSync('docs/source/javascripts', { recursive: true });
 cpSync('ui/dev/energy-charts-harness.js', 'docs/source/javascripts/energy-chart-examples.js');
+execFileSync(process.execPath, ['scripts/build-docs-maps.mjs'], { stdio: 'inherit' });
 // A newer archive supersedes the complete old package. Remove stale filenames
 // so previous-generation artwork cannot leak into an installation ZIP.
 rmSync('ui/dist/brand', { recursive: true, force: true });

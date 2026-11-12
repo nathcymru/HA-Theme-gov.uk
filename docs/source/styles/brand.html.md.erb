@@ -1,21 +1,36 @@
 ---
-title: "Brand"
+title: "Project identity"
 description: "Use the supplied civica.uk V3.2 identity and palette artwork without alteration."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+section: community
+group: Guidance
+updated_on: "2026-11-12"
+published_on: "2026-11-11"
+updates:
+  - date: "2026-11-12"
+    description: "Limited the supplied civica.uk identity to project documentation and promotion, with a separate household personalisation route."
+  - date: "2026-11-11"
+    description: "Linked the complete brand and writing guidance and its audit work package."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
-# Brand
+# Project identity
 
-civica.uk is the only product identity used by this theme. The repository name is retained for continuity; it does not authorise GOV.UK branding.
+civica.uk identifies the theme project, this documentation site and promotional material. It is not a required identity inside a household or business interface. People can keep a plain title or use their own name, crest or logo. See [Personalise your home](../get-started/personalisation.html).
 
-
-## Brand guidance for home automation
-
-Read the [colour](brand-colour.html), [typography](brand-typography.html), [data](brand-data.html) and [illustration](illustration.html) chapters for the adapted GOV.UK Brand rules. This page remains the authority for supplied civica.uk artwork. The official graphic device, logo system and brand-in-use material are outside this work package; do not import their identity assets.
+The repository name is retained for continuity; it does not authorise GOV.UK branding. This page keeps its earlier URL for existing links.
 
 
-## Examples
+## Project identity and interface styles
+
+Read [colour](brand-colour.html), [typography](brand-typography.html), [data](brand-data.html) and [illustration](illustration.html) as interface-design guidance. This page governs supplied civica.uk artwork only when identifying or promoting the project. The official graphic device, logo system and brand-in-use material are outside this work package; do not import their identity assets.
+
+
+## Project artwork examples
 
 These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
 
@@ -31,9 +46,9 @@ The user-supplied V3.2 pack is stored in `brand/civica/`. It replaces the earlie
 | Surface | Supplied asset |
 | --- | --- |
 | Default documentation masthead | `core/lockup-on-blue.svg` |
-| Selected palette's primary header | `themes/{palette-id}/{vivid\|muted}/lockup-on-primary.svg` |
-| Selected palette's light canvas | `themes/{palette-id}/{vivid\|muted}/lockup-on-canvas.svg` |
-| Selected palette's browser/app artwork | `themes/{palette-id}/{vivid\|muted}/app-icon.svg` and `app-icon.png` |
+| Project promotional header on a selected palette | `themes/{palette-id}/{vivid\|muted}/lockup-on-primary.svg` |
+| Project artwork on a selected light canvas | `themes/{palette-id}/{vivid\|muted}/lockup-on-canvas.svg` |
+| Project website or promotional app artwork | `themes/{palette-id}/{vivid\|muted}/app-icon.svg` and `app-icon.png` |
 | Neutral light surface | `core/lockup-on-white.svg` or `core/lockup-monochrome-black.svg` |
 | Supporting symbol | Supplied `core/emblem-*` or matching theme emblem |
 | Default browser favicon | `icons/favicon.ico` and `icons/favicon.svg` |
@@ -55,9 +70,9 @@ Check the mark visually at the actual rendered size. A successful SVG parse or m
 
 ## Palette artwork in use
 
-The Home Assistant companion uses the selected variant's primary lockup and app icon. The primary header retains the exact supplied colour in native light and dark modes, so the on-primary asset remains appropriate. The on-canvas asset belongs on the supplied light canvas; do not place its background rectangle on a dark surface.
+For project documentation and promotional mock-ups, select the complete on-primary lockup for the chosen background. This is not a requirement to put the project logo into a household interface. The existing companion still applies project identity in some native surfaces; the [compatibility note](../get-started/compatibility.html#household-identity-transition) records that implementation gap. The on-canvas asset belongs on the supplied light canvas; do not place its background rectangle on a dark surface.
 
-The [colour preview](colour.html) shows both lockups and the app icon for all twenty palette/variant combinations. Changing the preview does not change Home Assistant or the documentation's global masthead.
+The [colour preview](colour.html) demonstrates household colour roles without a required project logo. The artwork manifest lists supplied project variants. Neither preview changes Home Assistant or this documentation site’s masthead.
 
 ## Verify provenance and copies
 

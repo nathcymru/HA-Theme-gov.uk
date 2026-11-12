@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="guide-colour-title guide-colour-description">
+<title id="guide-colour-title">Colour: choose roles that work together</title>
+<desc id="guide-colour-description">Three contrasting swatches sit beside a reading surface, separating palette choices from the text and interface roles they support.</desc>
+<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
+<rect x="78" y="48" width="138" height="224" fill="#103E65"/><rect x="102" y="76" width="90" height="90" fill="#FFFFFF"/><rect x="102" y="193" width="90" height="20" fill="#8EB8DC"/><rect x="244" y="48" width="138" height="224" fill="#1D70B8"/><rect x="268" y="76" width="90" height="90" fill="#FFFFFF"/><rect x="268" y="193" width="90" height="20" fill="#FFFFFF"/><rect x="410" y="48" width="138" height="224" fill="#8EB8DC"/><rect x="434" y="76" width="90" height="90" fill="#103E65"/><rect x="434" y="193" width="90" height="20" fill="#103E65"/><rect x="636" y="48" width="246" height="224" fill="#FFFFFF"/><rect x="636" y="48" width="246" height="38" fill="#103E65"/><rect x="666" y="112" width="186" height="22" fill="#103E65"/><rect x="666" y="159" width="152" height="15" fill="#8EB8DC"/><rect x="666" y="208" width="122" height="38" fill="#1D70B8"/>
+</svg>
