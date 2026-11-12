@@ -1,0 +1,96 @@
+---
+title: "About civica.uk"
+description: "Why civica.uk adapts public-service design principles to everyday tasks in Home Assistant."
+section: "get-started"
+group: "Guidance"
+nav_order: 0
+status: "reference"
+published_on: "2026-11-12"
+updated_on: "2026-11-12"
+updates:
+  - date: "2026-11-12"
+    description: "Added the project's household motivation, design approach, implementation boundaries and source-checked licensing explanation."
+---
+
+# About civica.uk
+
+I created civica.uk because I wanted Home Assistant to make sense to the whole household. Checking the heating or turning on a lamp should not depend on knowing how the dashboard was built.
+
+civica.uk adapts the GOV.UK Design System for home automation, using its own identity. The aim is a clear, predictable interface: readable text, familiar controls and useful information in a consistent place.
+
+civica.uk is an independent project. It is not affiliated with or endorsed by the UK government, the Government Digital Service or Home Assistant.
+
+## Designed for the people sharing a home
+
+I wanted older relatives, neurodivergent people and guests to be part of the design from the start. People have different preferences, experience and access needs. Age or a diagnosis does not tell us which layout will work for someone.
+
+The practical starting point is an everyday task. Someone opening a heating control needs to find the room, understand the current temperature and see what they can change. They should be able to distinguish the reported state from a request that is still waiting for confirmation.
+
+For this project, I chose restrained decoration and a clear order of information. Headings, spacing and plain language help separate the task from supporting detail. The goal is to reduce the effort of finding and understanding a control while keeping important faults and limits visible.
+
+<figure class="c-project-figure">
+  <img src="<%= docs_path('/images/project-information-hierarchy.svg') %>" width="960" height="560" alt="" loading="lazy" decoding="async">
+  <figcaption>Illustration, not a Home Assistant screenshot. The left arrangement gives many small details similar weight. The right groups related information, with a clear heading, a reading and one action in each row. This explains a design intention; it is not a measured usability result.</figcaption>
+</figure>
+
+## Why start with GOV.UK
+
+The [GOV.UK Design System](https://design-system.service.gov.uk/) brings together reusable styles, components and patterns informed by public-service research. Its emphasis on clear tasks, consistent presentation and accessible interaction gives this project a useful starting point.
+
+Those patterns still need adapting and testing in a home. A dashboard is used repeatedly, sometimes for a quick glance and sometimes to investigate a problem. It includes live readings, repeated controls and devices with different capabilities.
+
+civica.uk draws on other public-service systems where they address those needs: NHS guidance for some content and component patterns, MoJ for notification badges, and ONS for chart presentation. The [source register](../community/sources.html) records these influences. Their research informs the design; it does not establish that a particular household dashboard works for everyone.
+
+## Start with the overview, then offer detail
+
+A household overview should make common tasks easy to find. Room names, a few relevant readings and clearly labelled links can provide a useful starting point. A heating status needs a room and a unit. A warning needs an explanation. Colour and icons can support that meaning, but cannot carry it alone.
+
+<figure class="c-project-figure">
+  <img src="<%= docs_path('/images/project-household-overview.svg') %>" width="960" height="560" alt="" loading="lazy" decoding="async">
+  <figcaption>Illustration of three invented household spaces: a chair and reading lamp; a thermostat and radiator; and a table and pendant light. It explains grouping controls by location. It is not a real floor plan and shows no occupancy, device availability or on/off state.</figcaption>
+</figure>
+
+The next step should keep the same names and visual order. A person opening a room's heating controls can then find the current reading, target temperature and supported actions without learning a new layout. More detailed settings remain available when needed.
+
+Controls must reflect the actual device. A dashboard cannot promise a heating mode, schedule or remote action that an integration does not provide. A pending request, unavailable reading or permission limit needs an honest explanation and an appropriate next step.
+
+The lighting illustration below shows this distinction for a brightness setting.
+
+<figure class="c-project-figure">
+  <img src="<%= docs_path('/images/project-control-detail.svg') %>" width="960" height="560" alt="" loading="lazy" decoding="async">
+  <figcaption>Illustration with invented values. The left panel shows a reported lamp value of 25%. The right holds a proposed 40% setting, with a slider, exact entry and decrease/increase alternatives, followed by a separate action. Editing the draft does not confirm that the lamp changed. The drawing is not interactive and does not show a deployed Home Assistant control.</figcaption>
+</figure>
+
+## Adapt the design to Home Assistant
+
+Some home controls need patterns beyond a standard public-service form. A brightness slider, camera image or energy graph can be useful when it serves the task. civica.uk documents these adaptations, including their keyboard behaviour, labels and failure states.
+
+The project has three parts:
+
+- **A theme** supplies shared colours, typography and other presentation settings.
+- **An optional interface module and custom cards** add the specific features listed in the [compatibility guide](compatibility.html).
+- **A design and writing guide** provides reference patterns and examples for building further household interfaces.
+
+Installing the theme does not implement every example in the guide. Home Assistant continues to manage device capabilities, account permissions, native navigation and translations. Some native and third-party components have styling limits; the compatibility guide identifies the supported adaptations and what still needs checking.
+
+## Accessibility is part of the work
+
+Readable type, visible keyboard focus, sufficient contrast and clear state descriptions are design requirements here. They need to be checked alongside zoom, narrow screens, assistive technology and the tasks people actually carry out.
+
+A theme alone cannot establish that a complete dashboard meets WCAG or works for every person. Installed cards, device behaviour, content and individual needs all matter. Use the [accessibility testing guide](../accessibility/testing.html), record any limitations and involve the people who will use the home controls.
+
+## Credited sources and licensing
+
+The [GOV.UK Design System website](https://design-system.service.gov.uk/) publishes its content under the Open Government Licence v3.0, except where otherwise stated. Its [website code](https://github.com/alphagov/govuk-design-system/blob/main/LICENSE) and [GOV.UK Frontend code](https://github.com/alphagov/govuk-frontend/blob/main/LICENSE.txt) use the MIT licence. These terms have their own attribution and reuse conditions.
+
+Reusable guidance and code do not make civica.uk an official service. This project uses the supplied civica.uk identity and Arial, following the separation described in [GOV.UK's unbranded Frontend guidance](https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/). See [licensing and attribution](../community/licensing.html) for the project's dependencies, artwork and source notices.
+
+## Try it with a real household task
+
+Start with one task, such as finding a room's heating status or controlling a light. Check it with the people who will use it, including someone unfamiliar with the setup. Use what you learn to choose the information, wording and controls that belong on the page.
+
+- [Install civica.uk](install.html) and check the supported setup.
+- [Choose a colour palette](colour-settings.html) and its Vivid or Muted variant.
+- [Plan a household overview](../patterns/home.html) with clear routes to detail.
+- [Use the writing guide](../content/index.html) for labels, states and explanations.
+- [Check compatibility and limits](compatibility.html) before relying on a particular component.

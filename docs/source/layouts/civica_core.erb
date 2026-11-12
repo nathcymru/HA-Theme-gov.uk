@@ -23,15 +23,15 @@
 <aside class="c-sidebar" aria-label="Section navigation">
 <% section = data.navigation.sections.find { |item| item.id == current_section } %>
 <details class="c-section-menu" open><summary><%= section ? section.title : 'Design System' %> navigation</summary>
-<% if section %><h2><a href="<%= docs_path(section.path) %>"><%= section.title %></a></h2>
+<% if section %><h2><a href="<%= docs_path(section.path) %>"<%= ' aria-current="page"' if '/' + current_page.destination_path == section.path %>><%= section.title %></a></h2>
 <% section_groups(section.id).each do |group, resources| %>
-<details class="c-nav-group"<%= ' open' if resources.any? { |r| r.destination_path == current_page.destination_path } || group == 'Guidance' || group == 'Home Assistant components' %>><summary><%= group %></summary><ul>
+<details class="c-nav-group"<%= ' open' if resources.any? { |r| r.destination_path == current_page.destination_path } || ['Guidance', 'Writing standards', 'Home Assistant components'].include?(group) %>><summary><%= group %></summary><ul>
 <% resources.each do |resource| %><li><a href="<%= docs_path('/' + resource.destination_path) %>"<%= ' aria-current="page"' if resource.destination_path == current_page.destination_path %>><%= escape(resource.data.title) %></a></li><% end %>
 </ul></details><% end %>
 <% else %><ul><% data.navigation.sections.each do |item| %><li><a href="<%= docs_path(item.path) %>"><%= item.title %></a></li><% end %></ul><% end %>
 </details></aside>
 <main class="technical-documentation c-content" id="main-content" tabindex="-1">
-<nav class="c-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="<%= docs_path('/index.html') %>">Home</a></li><% if section && '/' + current_page.destination_path != section.path %><li><a href="<%= docs_path(section.path) %>"><%= section.title %></a></li><% end %><li><%= escape(current_page.data.title) %></li></ol></nav>
+<nav class="c-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="<%= docs_path('/index.html') %>">Home</a></li><% if section && '/' + current_page.destination_path != section.path %><li><a href="<%= docs_path(section.path) %>"><%= section.title %></a></li><% end %><li><%= escape(section && '/' + current_page.destination_path == section.path ? section.title : current_page.data.title) %></li></ol></nav>
 <%= yield %>
 <%= partial 'partials/component_family' %>
 <%= partial 'partials/history' %>

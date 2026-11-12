@@ -272,7 +272,7 @@ for (const loop of componentChecklist.loops) {
     if (check.families) for (const gapIds of Object.values(check.families)) for (const id of gapIds) assert.ok(proposalIds.has(id), `${check.id}: unknown requirement ${id}`);
   }
 }
-for (const name of ['illustration-assets', 'card-artwork-provenance']) for (const asset of json(name).assets) {
+for (const name of ['illustration-assets', 'card-artwork-provenance', 'project-artwork-provenance']) for (const asset of json(name).assets) {
   assert.equal(hash(asset.path), asset.sha256, `${asset.path}: artwork changed after provenance review`);
   assert.ok(asset.purpose && (asset.alt_decision || asset.alternative_text_decision), `${asset.path}: purpose and alternative-text decision`);
 }

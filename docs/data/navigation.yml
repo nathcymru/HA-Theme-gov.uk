@@ -5,6 +5,9 @@ sections:
   - id: styles
     title: Styles
     path: /styles/index.html
+  - id: content
+    title: Writing guide
+    path: /content/index.html
   - id: components
     title: Components
     path: /components/index.html
