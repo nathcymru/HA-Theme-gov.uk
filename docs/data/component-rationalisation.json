@@ -12868,7 +12868,7 @@
     "scopeRevision": "User clarified project-only civica.uk identity and optional household personalisation. Prior frozen review retained in guidanceReviewHistory; other rule requirements remain unchanged."
   },
   "currentCoverage": {
-    "guides": 214,
+    "guides": 216,
     "examples": 459,
     "homeAssistantSpecifications": 38,
     "componentRoutes": 69,

@@ -1,0 +1,22 @@
+<svg class="c-roadmap__art" viewBox="0 0 240 180" width="240" height="180" aria-hidden="true" focusable="false" data-roadmap-art="<%= escape(stage) %>">
+  <rect width="240" height="180" fill="#F3F6F9"/>
+  <% if stage == 'in-works' %>
+    <rect x="42" y="34" width="130" height="116" rx="3" fill="#103E65"/>
+    <rect x="52" y="45" width="110" height="94" fill="#FFFFFF"/>
+    <rect x="65" y="60" width="47" height="13" fill="#1D70B8"/>
+    <rect x="65" y="88" width="83" height="8" fill="#8EB8DC"/>
+    <rect x="65" y="106" width="59" height="8" fill="#8EB8DC"/>
+    <path d="M139 127 150 99 187 62 203 78 166 115Z" fill="#1D70B8"/>
+    <path d="M139 127 146 109 157 120Z" fill="#103E65"/>
+    <path d="M187 62 195 54 211 70 203 78Z" fill="#8EB8DC"/>
+  <% else %>
+    <rect x="34" y="48" width="139" height="104" rx="3" fill="#8EB8DC"/>
+    <rect x="51" y="35" width="139" height="104" rx="3" fill="#1D70B8"/>
+    <rect x="68" y="22" width="139" height="104" rx="3" fill="#103E65"/>
+    <rect x="78" y="33" width="119" height="82" fill="#FFFFFF"/>
+    <rect x="91" y="46" width="80" height="12" fill="#1D70B8"/>
+    <rect x="91" y="71" width="26" height="28" fill="#8EB8DC"/>
+    <rect x="129" y="71" width="55" height="8" fill="#103E65"/>
+    <rect x="129" y="89" width="42" height="8" fill="#8EB8DC"/>
+  <% end %>
+</svg>

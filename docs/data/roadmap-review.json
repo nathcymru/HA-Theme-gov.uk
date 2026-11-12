@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "id": "DOC-ROADMAP-01",
+  "reviewed_on": "2026-11-12",
+  "scope": "A documentation-only, theme-feature roadmap generated from reviewed GitHub issues. The page, issue form, parser, build gate and publication workflow do not change Home Assistant runtime behaviour or establish that any feature has shipped.",
+  "status": "source-review-and-local-validation-passed; full-regression-and-publication-gated",
+  "baseline_revision": "df7a26a640f1e7242598a61e4197dd1f468b3b70",
+  "previous_evidence": {
+    "record": "docs/data/hero-layout-review.json",
+    "scope": "Preserved evidence for the preceding illustrated-header correction, not acceptance of this roadmap pipeline.",
+    "pull_request": "https://github.com/nathcymru/HA-Theme-gov.uk/pull/35",
+    "main_workflow": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43315250739",
+    "unit_passed": 50,
+    "browser_passed": 879,
+    "deployment_completed_at": "2026-11-12T22:09:21Z",
+    "sha256": "225b6674b629b9fc416eb0566a4ef1fe88d5b6cb9bfe3ebb3ee6d93a7a0662d6"
+  },
+  "sources": [
+    {
+      "url": "https://www.freeagent.com/timeline/",
+      "reviewed": "Read the official page and its HTML: two named sections, concise titled feature entries, status/category context and a delivered chronology grouped by year and month.",
+      "adaptation": "Use one semantic page with ordinary anchor navigation and fully visible sections. Do not copy FreeAgent artwork, product content or identity, and do not adopt a JavaScript-dependent tab interface."
+    },
+    {
+      "url": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms",
+      "reviewed": "Input responses become an editable Markdown issue body. Template labels must already exist."
+    },
+    {
+      "url": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema",
+      "reviewed": "Static Markdown form blocks are not submitted. The Developer Notes boundary must come from a real textarea label, not an instruction block."
+    },
+    {
+      "url": "https://docs.github.com/en/rest/issues/issues#list-repository-issues",
+      "reviewed": "Use separate single-label requests for the required OR selection, state=all and complete pagination. Issue responses also include pull requests. A closed issue may be completed, not planned, duplicate or have no reason; closure alone is not release evidence."
+    },
+    {
+      "url": "https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api",
+      "reviewed": "Follow next-page Link semantics, including documented page and cursor parameters. A read-only request to this repository returned the canonical /repositories/1437953677/issues path and an opaque after cursor; pagination must support that real response without forwarding credentials to an untrusted destination."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows",
+      "reviewed": "Issue and scheduled workflows use the default branch. Scheduled runs can be delayed, dropped or disabled; the daily refresh is a recovery mechanism, not a real-time publication promise."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency",
+      "reviewed": "Concurrency can replace a pending run and does not guarantee dispatch order. Serialise the full trusted build and publication, use current main source, and keep irrelevant issue events out of the publication group."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/concepts/security/script-injections",
+      "reviewed": "Issue titles, bodies and labels are untrusted. Parse API JSON in the trusted script, constrain exported fields and escape rendered text; never interpolate raw issue content into shell commands."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow",
+      "reviewed": "Issue changes made with the workflow GITHUB_TOKEN do not themselves trigger another issue workflow. Manual and scheduled refreshes remain necessary recovery routes."
+    }
+  ],
+  "implementation_contract": {
+    "content": "Publish only a reviewed public title, one- or two-sentence benefit and one readable category. The fixed scope is Theme feature only. Developer Notes remain public on GitHub but are never exported to the roadmap. No BSL or audio feature is added by this work.",
+    "status": "Exactly one maintainer-controlled roadmap status and one tag category are required. In-works issues must be open. Delivered items must be closed as completed and explicitly labelled after the maintainer checks release evidence; the parser cannot prove delivery.",
+    "chronology": "In-works entries sort by category and title. Delivered entries use newest-first UTC year/month groups from closed_at, with deterministic tie ordering. No planned date or release history is invented.",
+    "presentation": "Semantic headings, sections and lists; one-column entries; decorative timeline rule and original stage illustrations. Text carries the complete meaning and remains available without scripting or images.",
+    "fetch": "A read-only issue token is used only by an explicit trusted refresh. Requests are bounded, paginated and restricted to the configured repository. Pull requests are excluded. A malformed reviewed issue or API error fails the build without replacing the previous snapshot.",
+    "publication": "PR builds check the committed offline snapshot and cannot deploy. Trusted main, relevant issue, manual and daily refresh runs retain the full build, source, unit, browser, asset and package checks before Pages publication. Concurrency covers verification and deployment together.",
+    "public_snapshot": "docs/data/roadmap.json is an intentionally dynamic public projection, refreshed during trusted CI without a source commit. Its schema and rendering are checked; its current bytes are excluded from frozen source hashes. An empty valid snapshot means no reviewed items are listed, not that no features exist."
+  },
+  "review_findings": [
+    {
+      "id": "ROADMAP-R01",
+      "issue": "Irrelevant issue events originally shared the publishing concurrency group and could replace a pending main update before their verification job was skipped.",
+      "resolution": "Use a separate ignored-event concurrency group while retaining the same relevant-label predicate for the verification job.",
+      "status": "source-corrected; targeted-regression-passed",
+      "evidence": ".github/workflows/validate.yml; test/roadmap-workflow.test.mjs"
+    },
+    {
+      "id": "ROADMAP-R02",
+      "issue": "The initial pagination validator rejected GitHub's actual numeric repository endpoint and discarded its after cursor.",
+      "resolution": "Support the observed official Link shape while reconstructing requests at the trusted configured repository endpoint and retaining the opaque pagination cursor.",
+      "status": "source-corrected; targeted-regression-passed",
+      "evidence": "scripts/roadmap.mjs; primary API pagination documentation and the read-only public response"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "ROADMAP-A01",
+      "criterion": "The form and parser agree on submitted field headings, exact theme-only scope and the Developer Notes boundary; no raw developer content reaches the exported projection or error logs.",
+      "status": "verified-in-stated-local-scope"
+    },
+    {
+      "id": "ROADMAP-A02",
+      "criterion": "Pagination supports real GitHub canonical repository links and opaque cursors, rejects unsafe destinations and incomplete responses, and preserves the previous snapshot after failure.",
+      "status": "verified-in-stated-local-scope"
+    },
+    {
+      "id": "ROADMAP-A03",
+      "criterion": "Open, completed, reopened, duplicate, not-planned, conflicting-label and malformed-date states cannot publish misleading delivery claims.",
+      "status": "verified-in-stated-local-scope"
+    },
+    {
+      "id": "ROADMAP-A04",
+      "criterion": "The real roadmap template escapes all public values, preserves semantic chronology and empty states, and remains readable with narrow screens, enlarged text and no scripting.",
+      "status": "verified-in-stated-local-scope"
+    },
+    {
+      "id": "ROADMAP-A05",
+      "criterion": "Trusted refreshes, ignored issue events and PR checks have appropriate concurrency, permissions and checkout scopes; the complete existing verification gate remains before deployment.",
+      "status": "verified-in-stated-local-scope"
+    },
+    {
+      "id": "ROADMAP-A06",
+      "criterion": "Current source hashes, guide counts and public evidence wrappers agree while preceding validation and publication evidence remain unchanged.",
+      "status": "verified-in-stated-local-scope",
+      "evidence": "Final Middleman rebuild, 675-page link check, guidance evidence and Home Assistant coverage checks passed after audit reconciliation."
+    }
+  ],
+  "integrated_validation": {
+    "status": "local-validation-passed; full-regression-and-publication-gated",
+    "unit": {
+      "status": "passed",
+      "passed": 74,
+      "failed": 0,
+      "focused_passed": 24,
+      "scope": "Parent executed the complete current Node suite and the final 24 focused parser/workflow checks, including 20 roadmap parser cases and 4 workflow regressions."
+    },
+    "browser": {
+      "status": "focused-passed; full-suite-pending",
+      "passed": 9,
+      "failed": 0,
+      "scope": "Final integrated focused run passed six roadmap cases plus structure, history, accessibility and 320px reflow for the roadmap, its maintainer guide and the Community index. Full browser regression remains gated in CI."
+    },
+    "source_integrity": {
+      "status": "passed",
+      "scope": "Final Middleman rebuild, internal links and anchors in 675 HTML pages, 101-rule guidance evidence across 216 guides and 459 examples, Home Assistant coverage, palette/brand sync and diff whitespace checks passed. Type checking and HA template checks also passed; no runtime source changed."
+    },
+    "api": {
+      "status": "read-only-preview-passed",
+      "scope": "Parent authenticated a real repository fetch into /tmp/civica-roadmap-preview.json; the result was a valid empty reviewed-item projection. No test feature was created or published."
+    },
+    "manual_review": {
+      "status": "bounded-owner-visual-review-passed",
+      "scope": "The roadmap owner inspected actual populated production-template screenshots at desktop and 320px: complete illustrations, readable grouping and wrapping, with no observed overflow. This is not a full usability or assistive-technology assessment."
+    },
+    "meaning": "The current local checks do not assert full browser regression, GitHub CI, a live Pages update or physical Home Assistant acceptance."
+  },
+  "publication": {
+    "status": "pending",
+    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/community/roadmap.html",
+    "workflow": ".github/workflows/validate.yml: verify then deploy-docs",
+    "evidence_location": "The resulting pull request and merged-version workflow will record actual publication and post-deployment checks. No result is predicted in this source record."
+  },
+  "limitations": [
+    "The earlier 879 browser and 50 unit passes belong to the preceding hero-layout revision and are not results for this change.",
+    "Maintainer review establishes public wording and release status; syntax validation cannot certify either.",
+    "The source snapshot is not a release catalogue, live Home Assistant feature inventory or whole-site accessibility certification.",
+    "This change adds no device commands, theme runtime feature, BSL content or audio explanation."
+  ],
+  "source_evidence": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/roadmap_item.yml",
+      "line": 38,
+      "excerpt": "label: Developer Notes",
+      "detail": "Real optional textarea heading supplies the submitted boundary; the form assigns no publishing labels.",
+      "sha256": "6bdfd998cd8132b1e75f060cd11b62afff93b7a29ce9535be1dc8b6b8ebeb991"
+    },
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 71,
+      "excerpt": "export function parsePublicFields(body, issueNumber) {",
+      "detail": "Parse only the exact theme-feature fields above the real developer-notes heading.",
+      "sha256": "d5c7f6f50e352201b39f836e8db3860112204dc14bbe64ab74fe1074b28230ad"
+    },
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 185,
+      "excerpt": "function nextPage(link, current, expected) {",
+      "detail": "Constrain official pagination and preserve opaque cursors at the trusted repository endpoint.",
+      "sha256": "d5c7f6f50e352201b39f836e8db3860112204dc14bbe64ab74fe1074b28230ad"
+    },
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 235,
+      "excerpt": "export async function writeSnapshotAtomic(output, snapshot) {",
+      "detail": "Validate the whole projection before an atomic replacement.",
+      "sha256": "d5c7f6f50e352201b39f836e8db3860112204dc14bbe64ab74fe1074b28230ad"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "line": 20,
+      "excerpt": "group: >-",
+      "detail": "Keep ignored issue events out of the complete publishing concurrency group.",
+      "sha256": "938bf02f9f0cc6e9a83c64fe80f9c04a1dd27a2bc7081152588bd00d17700cce"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "line": 51,
+      "excerpt": "- name: Refresh reviewed theme roadmap",
+      "detail": "Explicit trusted refresh runs before build; PRs retain the committed offline projection.",
+      "sha256": "938bf02f9f0cc6e9a83c64fe80f9c04a1dd27a2bc7081152588bd00d17700cce"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "line": 74,
+      "excerpt": "- run: npm run test:browser",
+      "detail": "The mandatory complete browser gate remains before Pages artifact upload and deployment.",
+      "sha256": "938bf02f9f0cc6e9a83c64fe80f9c04a1dd27a2bc7081152588bd00d17700cce"
+    },
+    {
+      "path": "docs/source/partials/_roadmap_card.erb",
+      "line": 2,
+      "excerpt": "<span class=\"govuk-tag c-roadmap__category\"><%= escape(item.fetch('category')) %></span>",
+      "detail": "Each public card has exactly an escaped category, title and household benefit.",
+      "sha256": "453392bb255fd90061ccc4141d1a0aec950f438c26bba68da59c59d7cdf4f9e7"
+    },
+    {
+      "path": "docs/source/partials/_roadmap.erb",
+      "line": 5,
+      "excerpt": "<nav class=\"c-roadmap__navigation\" aria-label=\"Roadmap sections\">",
+      "detail": "Native section links preserve reading order and work without scripting.",
+      "sha256": "2026c96b4f62bb99ecb7adb22d86daf7ac94fcfd1af57c4ffc2f4efefd296bed"
+    },
+    {
+      "path": "docs/source/index.html.erb",
+      "line": 14,
+      "excerpt": "<section class=\"c-whats-new\"><div class=\"c-container\"><h2>What\u2019s new</h2><div class=\"c-home-columns\"><div><h3>12 November 2026: Home Assistant coverage and writing guidance</h3><p>Explore <a href=\"<%= docs_path('/home-assistant/index.html') %>\">38 Home Assistant specifications</a> for device controls and household tasks. The <a href=\"<%= docs_path('/content/index.html') %>\">Writing guide</a> now has its own section, with plain English guidance and a dated Home Assistant terminology reference.</p><p><a href=\"<%= docs_path('/community/home-assistant-coverage-audit.html') %>\">Read the coverage and verification record</a></p></div><div><h3>Follow the project</h3><p>See the theme features being worked on and those already delivered.</p><p><a href=\"<%= docs_path('/community/roadmap.html') %>\">Explore the theme roadmap</a></p><p><a href=\"https://github.com/nathcymru/HA-Theme-gov.uk/releases\">View releases on GitHub</a></p></div></div></div></section>",
+      "detail": "Homepage links to the new public theme-feature timeline.",
+      "sha256": "2fa8f838ad76175a5eb59697eb5063cd5fe2da42a8e3865dfca45098dc80eccf"
+    },
+    {
+      "path": "docs/source/community/maintain-roadmap.html.md.erb",
+      "line": 44,
+      "excerpt": "The automated checks enforce field structure, length and sentence limits. They remove developer references and reject unsafe or incomplete content. They cannot establish that a feature works, that its wording is clear, or that it meets an accessibility standard. A maintainer must make those judgements.",
+      "detail": "Plain-English quality and release truth remain explicit maintainer responsibilities.",
+      "sha256": "9246606b943673b8f46e607386db91df160ea5f09fcffb4f9cdbf5d8bf403895"
+    }
+  ],
+  "source_freeze": {
+    "status": "reviewed-source-snapshot",
+    "date": "2026-11-12",
+    "scope": "Owner-confirmed implementation freeze after independent source review. Excludes dynamic docs/data/roadmap.json and the audit records that refer to this review.",
+    "paths": [
+      {
+        "path": ".github/ISSUE_TEMPLATE/roadmap_item.yml",
+        "sha256": "6bdfd998cd8132b1e75f060cd11b62afff93b7a29ce9535be1dc8b6b8ebeb991"
+      },
+      {
+        "path": ".github/roadmap-labels.json",
+        "sha256": "75b57cbe15a37f11587744f459ad6573e2d91ed8eac0b94b41dbbf92274cb3fe"
+      },
+      {
+        "path": ".github/workflows/validate.yml",
+        "sha256": "938bf02f9f0cc6e9a83c64fe80f9c04a1dd27a2bc7081152588bd00d17700cce"
+      },
+      {
+        "path": "scripts/roadmap.mjs",
+        "sha256": "d5c7f6f50e352201b39f836e8db3860112204dc14bbe64ab74fe1074b28230ad"
+      },
+      {
+        "path": "scripts/build.mjs",
+        "sha256": "e09b38eea21f9c5ba97f9a0a955bf667acbeb52071b097e2080914508b7149a9"
+      },
+      {
+        "path": "package.json",
+        "sha256": "7be922060d4e1cd4ba8cb22c27912e6a101cf572b6e01318c1263ec01539e972"
+      },
+      {
+        "path": "test/roadmap.test.mjs",
+        "sha256": "990bcbc0b4810f0fc1e8c4acb07ff6aea398876f6216f600478894b72d5fef04"
+      },
+      {
+        "path": "test/roadmap-workflow.test.mjs",
+        "sha256": "546e6c1b833b3b39de0507d6ec20b48230752c3866a195f809f2e79e76a8e67d"
+      },
+      {
+        "path": "tests/roadmap.browser.spec.mjs",
+        "sha256": "f838c9b9ceecfab6b09f581e050e757864f3bff1e37245ca3bc3ff480e98e337"
+      },
+      {
+        "path": "docs/config.rb",
+        "sha256": "0f707a73a8935a1bac18dcfa5d3947fec39bb8e712b3898d8025ee0acaf05cfb"
+      },
+      {
+        "path": "docs/README.md",
+        "sha256": "601ad03cd058beff7f0bde31f9365c3b2583f0fb044b0f6871a43734b9f57aa2"
+      },
+      {
+        "path": "docs/source/index.html.erb",
+        "sha256": "2fa8f838ad76175a5eb59697eb5063cd5fe2da42a8e3865dfca45098dc80eccf"
+      },
+      {
+        "path": "docs/source/community/index.html.md.erb",
+        "sha256": "da9e2c5c4b5147c0a5172d0a4e59b0e169187c3adee882252fa5e5188fd3069f"
+      },
+      {
+        "path": "docs/source/community/roadmap.html.erb",
+        "sha256": "d883979ab4fafc0d6dda3e8c1ea816fa3dabd5d7383c9a57cfc3ab000ac861ae"
+      },
+      {
+        "path": "docs/source/community/maintain-roadmap.html.md.erb",
+        "sha256": "9246606b943673b8f46e607386db91df160ea5f09fcffb4f9cdbf5d8bf403895"
+      },
+      {
+        "path": "docs/source/partials/_roadmap.erb",
+        "sha256": "2026c96b4f62bb99ecb7adb22d86daf7ac94fcfd1af57c4ffc2f4efefd296bed"
+      },
+      {
+        "path": "docs/source/partials/_roadmap_card.erb",
+        "sha256": "453392bb255fd90061ccc4141d1a0aec950f438c26bba68da59c59d7cdf4f9e7"
+      },
+      {
+        "path": "docs/source/partials/_roadmap_art.erb",
+        "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de"
+      },
+      {
+        "path": "docs/source/stylesheets/_roadmap.scss",
+        "sha256": "5b39c2a5fc0379e1132cc0765bb81bcec99d70239dde5a54bd01d42292ad20ed"
+      },
+      {
+        "path": "docs/source/stylesheets/screen.css.scss",
+        "sha256": "2d01ce96feb1a7047e3dd064facde4faabc0e1eaf41f202da913d612855550a9"
+      },
+      {
+        "path": "docs/source/llms.txt",
+        "sha256": "027c1f94f8120031183be6d713a30b0e26dc9d7d868068cbf1c2ffe1eb491603"
+      },
+      {
+        "path": "docs/data/roadmap-artwork-provenance.json",
+        "sha256": "9ff8adc7af1372b37dfc03d11bc53e9ae8f51af2bf913999fadf2645d11588d9"
+      },
+      {
+        "path": "docs/source/reference/documentation-artwork.json.erb",
+        "sha256": "e9a9cc73d824e32484c3dd7671e2230cc28caaeb068c8fb42d6a85f6ff575b62"
+      },
+      {
+        "path": "docs/source/reference/roadmap.json.erb",
+        "sha256": "f2eb8ac4a4f800850a1ee5dbc199cb973f39445a45f04d0c80315792c3098f27"
+      },
+      {
+        "path": "docs/source/reference/roadmap-review.json.erb",
+        "sha256": "d6ab1505eb9bfa4463960c40f129b1de1aed9c01646a381ee25d356df6c044bf"
+      }
+    ]
+  }
+}

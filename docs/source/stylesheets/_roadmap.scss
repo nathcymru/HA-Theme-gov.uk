@@ -1,0 +1,45 @@
+/* Public theme roadmap: a reading sequence, not a board of controls. */
+.c-roadmap { max-width:48rem; margin:35px 0 50px; }
+.c-roadmap__navigation { margin:0 0 55px; }
+.c-roadmap__navigation .govuk-list { display:flex; flex-wrap:wrap; gap:12px 30px; margin:0; }
+.c-roadmap__section + .c-roadmap__section { margin-top:75px; }
+.c-roadmap__section-heading { display:grid; grid-template-columns:150px minmax(0,1fr); align-items:center; gap:30px; margin-bottom:30px; }
+.c-roadmap__section-heading h2 { margin:0 0 10px; }
+.c-roadmap__section-heading p { margin:0; }
+.c-roadmap__art { display:block; width:150px; height:auto; max-width:100%; }
+.c-roadmap h2:focus-visible { outline:3px solid #ffdd00; outline-offset:3px; box-shadow:0 0 0 6px #0b0c0c; }
+.c-roadmap__features { list-style:none; padding:0; margin:0; }
+.c-roadmap__features > li { margin:0; }
+.c-roadmap__feature { padding:28px 0 32px; border-bottom:1px solid var(--c-border,#cecece); }
+.c-roadmap__feature h3,.c-roadmap__feature h5 { margin:14px 0 12px; font-size:24px; line-height:1.3; overflow-wrap:anywhere; }
+.c-roadmap__feature p { margin:0; max-width:65ch; overflow-wrap:anywhere; }
+.c-roadmap__category {
+  display:inline-block; max-width:100%; border-radius:20px; padding:5px 13px;
+  background:#f3f6f9; color:#103e65; font:700 16px/1.4 Arial,Helvetica,sans-serif;
+  text-transform:none; letter-spacing:normal; white-space:normal; overflow-wrap:anywhere;
+}
+.c-roadmap__empty { padding:25px 0 30px; margin:0; border-bottom:1px solid var(--c-border,#cecece); }
+.c-roadmap__timeline { margin:45px 0 0; padding:0 0 0 30px; border-left:1px solid var(--c-border,#cecece); }
+.c-roadmap__year { margin:0 0 60px; }
+.c-roadmap__year:last-child { margin-bottom:0; }
+.c-roadmap__year > h3 { margin:0 0 30px; }
+.c-roadmap__month { margin:0 0 40px; }
+.c-roadmap__month:last-child { margin-bottom:0; }
+.c-roadmap__month > h4 { margin:0; }
+.c-roadmap__month .c-roadmap__feature { padding-top:25px; }
+@media(max-width:760px) {
+  .c-roadmap { margin-top:30px; }
+  .c-roadmap__navigation { margin-bottom:40px; }
+  .c-roadmap__section-heading { grid-template-columns:100px minmax(0,1fr); gap:20px; }
+  .c-roadmap__art { width:100px; }
+  .c-roadmap__section + .c-roadmap__section { margin-top:55px; }
+  .c-roadmap__timeline { padding-left:20px; }
+}
+@media(max-width:400px) {
+  .c-roadmap__section-heading { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .c-roadmap__feature h3,.c-roadmap__feature h5 { font-size:22px; }
+}
+@media(forced-colors:active) {
+  .c-roadmap__category { border:1px solid CanvasText; color:CanvasText; background:Canvas; }
+  .c-roadmap__timeline,.c-roadmap__feature,.c-roadmap__empty { border-color:CanvasText; }
+}

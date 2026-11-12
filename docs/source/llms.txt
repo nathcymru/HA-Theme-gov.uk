@@ -47,6 +47,12 @@
 - [Colour settings](get-started/colour-settings.html): native preference flow and standalone-card fallback.
 - [Deviations](community/deviations.html): explicit local adaptations and their limits.
 
+## Public theme roadmap
+
+- [Theme roadmap](community/roadmap.html): reviewed theme features only, with work in progress and delivered features grouped by UTC closure month. Documentation changes are excluded.
+- [Public roadmap data](reference/roadmap.json): allowlisted category, title and household benefit; no issue identities, developer notes or raw payloads.
+- [Maintain the roadmap](community/maintain-roadmap.html): standard GitHub issue form, maintainer publishing labels, writing review, status semantics and build checks.
+
 ## Evidence
 
 - [Testing](accessibility/testing.html): automation, manual checks and live HA verification.

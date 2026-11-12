@@ -1,0 +1,61 @@
+<% raise 'Roadmap must use the theme-features schema' unless roadmap.fetch('schemaVersion') == 1 && roadmap.fetch('scope') == 'theme-features' %>
+<% in_works = roadmap.fetch('inWorks') %>
+<% delivered = roadmap.fetch('delivered').select { |year| year.fetch('months').any? { |month| month.fetch('items').any? } } %>
+<div class="c-roadmap" data-roadmap>
+  <nav class="c-roadmap__navigation" aria-label="Roadmap sections">
+    <ul class="govuk-list">
+      <li><a class="govuk-link" href="#roadmap-in-the-works">In the works</a></li>
+      <li><a class="govuk-link" href="#roadmap-delivered">Delivered</a></li>
+    </ul>
+  </nav>
+
+  <section class="c-roadmap__section" aria-labelledby="roadmap-in-the-works" data-roadmap-section="in-works">
+    <div class="c-roadmap__section-heading">
+      <%= partial 'partials/roadmap_art', locals: { stage: 'in-works' } %>
+      <div>
+        <h2 class="govuk-heading-l" id="roadmap-in-the-works" tabindex="-1">In the works</h2>
+        <p class="govuk-body">Theme improvements being developed.</p>
+      </div>
+    </div>
+    <% if in_works.empty? %>
+      <p class="govuk-body c-roadmap__empty">There are no reviewed theme features in the works to show yet.</p>
+    <% else %>
+      <ul class="govuk-list c-roadmap__features">
+        <% in_works.each_with_index do |item, index| %>
+          <li><%= partial 'partials/roadmap_card', locals: { item: item, heading_level: 3, heading_id: "roadmap-work-#{index + 1}" } %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+
+  <section class="c-roadmap__section" aria-labelledby="roadmap-delivered" data-roadmap-section="delivered">
+    <div class="c-roadmap__section-heading">
+      <%= partial 'partials/roadmap_art', locals: { stage: 'delivered' } %>
+      <div>
+        <h2 class="govuk-heading-l" id="roadmap-delivered" tabindex="-1">Delivered</h2>
+        <p class="govuk-body">Theme features that have been delivered, grouped by year and month.</p>
+      </div>
+    </div>
+    <% if delivered.empty? %>
+      <p class="govuk-body c-roadmap__empty">No reviewed theme features have been added to this timeline yet.</p>
+    <% else %>
+      <div class="c-roadmap__timeline">
+        <% delivered.each do |year| %>
+          <section class="c-roadmap__year" aria-labelledby="roadmap-year-<%= escape(year.fetch('year')) %>" data-roadmap-year="<%= escape(year.fetch('year')) %>">
+            <h3 class="govuk-heading-l" id="roadmap-year-<%= escape(year.fetch('year')) %>"><%= escape(year.fetch('year')) %></h3>
+            <% year.fetch('months').select { |month| month.fetch('items').any? }.each do |month| %>
+              <section class="c-roadmap__month" aria-labelledby="roadmap-month-<%= escape(month.fetch('month')) %>" data-roadmap-month="<%= escape(month.fetch('month')) %>">
+                <h4 class="govuk-heading-m" id="roadmap-month-<%= escape(month.fetch('month')) %>"><time datetime="<%= escape(month.fetch('month')) %>"><%= escape(month.fetch('label')) %></time></h4>
+                <ul class="govuk-list c-roadmap__features">
+                  <% month.fetch('items').each_with_index do |item, index| %>
+                    <li><%= partial 'partials/roadmap_card', locals: { item: item, heading_level: 5, heading_id: "roadmap-feature-#{month.fetch('month')}-#{index + 1}" } %></li>
+                  <% end %>
+                </ul>
+              </section>
+            <% end %>
+          </section>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>

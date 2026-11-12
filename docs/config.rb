@@ -4,6 +4,13 @@ require 'pathname'
 require 'yaml'
 require 'date'
 
+# A direct Middleman build has the same public-data gate as the Node build.
+# Network access belongs to the explicit trusted refresh step, never a visitor.
+unless system('node', File.expand_path('../scripts/roadmap.mjs', __dir__), '--check',
+              '--output', File.expand_path('data/roadmap.json', __dir__))
+  raise 'Roadmap data is invalid. Run npm run roadmap:check from the repository root.'
+end
+
 # The official Tech Docs Template supplies Markdown rendering, code highlighting,
 # component styles, page metadata and table-of-contents helpers.
 GovukTechDocs.configure(self)
