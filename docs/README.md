@@ -33,6 +33,26 @@ After changing canonical `design-system/palettes.json`, run `python3 docs/script
 
 The same build creates the documentation-only OpenStreetMap vector example with pinned MapLibre and VersaTiles dependencies. Tiles load only after the reader selects **Load OpenStreetMap**. The public provider configuration is `source/reference/map-example-provider.json`; retain visible attribution and observe the linked provider policy. No Home Assistant connection is used.
 
+## Theme roadmap
+
+The public `/community/roadmap.html` page covers **theme features only**, not documentation work. Its canonical public input is `data/roadmap.json`; `source/reference/roadmap.json.erb` publishes the same safe fields. The committed empty snapshot is an honest starting point for offline builds, not a list of invented features. Live builds fetch the reviewed issues before rendering.
+
+Use the repository's **Theme roadmap item** issue form and follow [Maintain the theme roadmap](https://nathcymru.github.io/HA-Theme-gov.uk/community/maintain-roadmap.html). A maintainer reviews the household benefit, sets exactly one readable `tag: ` category, and applies `roadmap: in-works` to an open issue or `roadmap: completed` to a feature released to users and closed as completed. No publishing label is assigned by the form. `Developer Notes` is the final submitted textarea heading and a hard parser boundary. BSL/audio links are intentionally outside the current scope.
+
+```sh
+npm run roadmap:check
+# Explicit network refresh; supply a token through your environment, not source.
+GITHUB_REPOSITORY=nathcymru/HA-Theme-gov.uk npm run roadmap:fetch
+# Or write a separate review snapshot:
+GITHUB_REPOSITORY=nathcymru/HA-Theme-gov.uk node scripts/roadmap.mjs --fetch --output /tmp/civica-roadmap-preview.json
+```
+
+The fetcher reads `GITHUB_REPOSITORY` (set it explicitly to the repository being published) and `GH_TOKEN` or `GITHUB_TOKEN`. Use an issues-read token. The versioned label definitions are `.github/roadmap-labels.json`; these labels have been created in the upstream repository. A fork must create the labels in its own repository before maintainers use them. More readable `tag: ` categories may be added without changing code.
+
+Both the Node build and direct Middleman build validate the snapshot offline. The validation workflow refreshes it only on trusted non-PR runs. Relevant issue changes, a main push, a manual run and a daily recovery schedule use the same mandatory tests and Pages deployment gate. Whole-workflow concurrency and latest-main checkout prevent an old queued event from restoring old source. Failed API requests or invalid items stop deployment and leave the existing site intact. No raw issue payload, credentials, issue references or developer notes are written to public data, and generated content is never auto-committed.
+
+Run `node --test test/roadmap.test.mjs test/roadmap-workflow.test.mjs` and, after building the docs, `npm run test:browser -- tests/roadmap.browser.spec.mjs --workers=1`. Browser fixtures contain invented features and render the production partial; they are never shipped as roadmap entries. Human review still owns writing quality and release truth.
+
 ## Project identity
 
 The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It uses civica.uk identity for project documentation, keeps household personalisation separate, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.

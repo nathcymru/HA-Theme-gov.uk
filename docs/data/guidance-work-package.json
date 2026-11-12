@@ -516,6 +516,59 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-THEME-ROADMAP",
+      "title": "Publish a reviewed theme-feature roadmap through the existing validation pipeline",
+      "items": [
+        {
+          "id": "RM1",
+          "task": "Review the official timeline reference, GitHub issue-form boundary, issue API pagination/status semantics and workflow publication constraints.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/roadmap-review.json"
+          ]
+        },
+        {
+          "id": "RM2",
+          "task": "Implement a public-only issue projection, maintainer form and labels, semantic timeline, original artwork and honest empty states.",
+          "status": "complete",
+          "evidence": [
+            "scripts/roadmap.mjs",
+            ".github/ISSUE_TEMPLATE/roadmap_item.yml",
+            "docs/source/partials/_roadmap.erb",
+            "docs/data/roadmap-artwork-provenance.json",
+            "docs/data/roadmap-review.json"
+          ]
+        },
+        {
+          "id": "RM3",
+          "task": "Independently review failure paths and test developer-note exclusion, unsafe data, real pagination links, status changes, concurrency and the real responsive/no-script template.",
+          "status": "complete",
+          "evidence": [
+            "test/roadmap.test.mjs",
+            "test/roadmap-workflow.test.mjs",
+            "tests/roadmap.browser.spec.mjs",
+            "docs/data/roadmap-review.json"
+          ]
+        },
+        {
+          "id": "RM4",
+          "task": "Rebuild the final source snapshot and complete the full validation gate without reusing earlier historical test counts.",
+          "status": "pending",
+          "evidence": [
+            "docs/data/roadmap-review.json"
+          ]
+        },
+        {
+          "id": "RM5",
+          "task": "Verify the merged GitHub workflow and inspect the published page and safe public data before recording publication as complete.",
+          "status": "pending",
+          "evidence": [
+            "docs/data/roadmap-review.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -712,6 +765,24 @@
         "docs/data/page_history.yml",
         "tests/section-artwork.browser.spec.mjs"
       ]
+    },
+    {
+      "id": "loop-17",
+      "title": "Loop 17: independently review the theme-only roadmap and exercise concrete failure paths",
+      "outcome": "Source review found and corrected an ignored-event concurrency race and a real GitHub pagination mismatch. The current 74-unit suite, six focused roadmap browser cases and an authenticated empty preview fetch passed; final source rebuild, full browser regression and publication remain pending.",
+      "checks": [
+        "Compared the official FreeAgent timeline structure without importing its artwork, identity or features.",
+        "Verified static issue-form instructions are not submitted and the real Developer Notes textarea is the public-field boundary.",
+        "Reproduced GitHub canonical numeric repository links and after cursors, then reviewed the safe same-repository reconstruction and regression.",
+        "Reviewed status/release truth, failed-fetch preservation, PR offline scope, read-only token permissions and mandatory verify-before-deploy gates.",
+        "Retained previous hero/data review records and source snapshots; dynamic roadmap.json is structurally validated rather than frozen by hash."
+      ],
+      "evidence": [
+        "docs/data/roadmap-review.json",
+        "test/roadmap.test.mjs",
+        "test/roadmap-workflow.test.mjs",
+        "tests/roadmap.browser.spec.mjs"
+      ]
     }
   ],
   "limitations": [
@@ -719,7 +790,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "current-hero-correction-locally-validated-publication-evidence-in-linked-change",
+  "status": "current-roadmap-source-and-focused-review-passed; final-validation-and-publication-pending",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",
@@ -743,6 +814,6 @@
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
   ],
-  "latest_documentation_review": "docs/data/hero-layout-review.json",
-  "publication_verification_scope": "Historical verification of the explicitly named revisions. The preceding data/colour update remains in data-design-review.json; the new user-requested hero placement correction and its pending acceptance are tracked separately in hero-layout-review.json."
+  "latest_documentation_review": "docs/data/roadmap-review.json",
+  "publication_verification_scope": "Historical verification remains attached to its explicitly named revisions. The new documentation-only theme roadmap has local source/unit/focused-browser evidence and pending final validation/publication in roadmap-review.json; earlier release and live checks are not reused as a pass for it."
 }

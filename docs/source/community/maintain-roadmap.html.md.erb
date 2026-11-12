@@ -1,0 +1,96 @@
+---
+title: "Maintain the theme roadmap"
+description: "Review household benefits in GitHub issues and publish them on the theme roadmap."
+section: "community"
+group: "Guidance"
+nav_order: 3
+published_on: "2026-11-12"
+updated_on: "2026-11-12"
+updates:
+  - date: "2026-11-12"
+    description: "Added the theme-only issue workflow, public writing review, timeline rules and publication checks."
+---
+
+# Maintain the theme roadmap
+
+Use the [theme roadmap](roadmap.html) to help households understand what they may be able to do next and what has already been delivered. Keep developer discussion in GitHub. Only reviewed theme features belong on the public timeline; a new documentation example is not a delivered theme feature.
+
+## Prepare an issue
+
+Open a [theme roadmap issue](https://github.com/nathcymru/HA-Theme-gov.uk/issues/new?template=roadmap_item.yml). The form asks for a public title, a user benefit and confirmation that the item is a theme feature. It does not publish the issue automatically.
+
+1. Give the feature a plain-English title that identifies the household task.
+2. Write one or two sentences about the need and the useful change. Include a condition or limitation when it affects the benefit.
+3. Put implementation details, issue references and release evidence in **Developer Notes** at the bottom.
+4. Ask a maintainer to review the public fields and choose one category.
+
+The form supports Markdown in the benefit field, but the public card uses plain text. Emphasis becomes ordinary text and link labels remain without their URLs. Do not put essential instructions in a link, table, image, code block or developer note. BSL and audio explanations are not part of this roadmap yet.
+
+## Review the public wording
+
+Follow the [Writing guide](../content/index.html), especially [voice and language](../content/voice-and-language.html), [accessible content](../content/accessible-content.html) and [content review](../content/content-review.html).
+
+Check the facts before applying a publishing label:
+
+- Does the feature address a real household need?
+- Does the title identify that task without repeating the summary?
+- Does the benefit explain a useful change in familiar words?
+- Are supported devices, permissions or other necessary limits clear?
+- Is the status supported by implementation and release evidence?
+- Have you removed personal information, usernames, issue references and technical shorthand from the public fields?
+
+For example, **Find the right light** could introduce: “When several lights have similar names, it can be hard to choose the right one. Room labels will help you find the light you want to change.” This is an illustration of writing, not a planned feature. A delivered item should describe the available behaviour rather than use future tense.
+
+The automated checks enforce field structure, length and sentence limits. They remove developer references and reject unsafe or incomplete content. They cannot establish that a feature works, that its wording is clear, or that it meets an accessibility standard. A maintainer must make those judgements.
+
+## Choose a category and status
+
+Add exactly one label beginning `tag: `, followed by a short, readable category such as `tag: Controls`, `tag: Energy` or `tag: Accessibility`. The words after the prefix become the category pill. More categories may be added when they help people find relevant changes; do not put an internal project code in a public category.
+
+| Stage | Issue state | Publishing label | Meaning |
+| --- | --- | --- | --- |
+| Under review | Any | Neither roadmap label | The issue stays off the public timeline. |
+| In the works | Open | `roadmap: in-works` | A reviewed theme feature is being worked on. |
+| Delivered | Closed as completed | `roadmap: completed` | The reviewed feature has been released to users. |
+
+Apply only one publishing label. These labels are the maintainer's publication decision. Confirm release evidence in Developer Notes before calling an item delivered; closing an issue alone does not prove that a feature has shipped.
+
+To move an item to Delivered, remove `roadmap: in-works`, close the issue as completed after release, then apply `roadmap: completed`. Remove the completed label before reopening an issue. A cancelled, duplicate or “not planned” issue must not have a roadmap publishing label.
+
+To withdraw an item, remove its roadmap label. To correct its public copy, edit the named form fields. Keep the headings intact. If a correction must remove published information promptly, withdraw the item first, then restore its label after review.
+
+## How the timeline is organised
+
+**In the works** appears first, with features ordered by category, then title. It makes no promise about a delivery date or priority. **Delivered** uses newest-first year and month groups. Its date comes from GitHub's `closed_at` timestamp in UTC, not the documentation build date. Close an issue when the feature is released; do not backdate an item by changing its text.
+
+Each card contains a category, title and benefit. Dates belong to the surrounding timeline. Issue links, authors, hashes, developer notes and implementation controls are excluded. The two original section illustrations share the documentation's flat blue geometry; the adjacent headings and text preserve their complete meaning.
+
+The timeline uses real headings, sections and lists. It is one column, retains readable text at narrow widths and does not depend on colour, animation, JavaScript or hover. The quiet vertical rule is decorative. Empty sections explain that no reviewed features have been added; they do not invent future work or claim that nothing has ever been delivered.
+
+## Build and publication
+
+The form is `.github/ISSUE_TEMPLATE/roadmap_item.yml`. Its final textarea produces the `### Developer Notes` heading in the submitted issue body. Static Markdown instructions in an issue form are not submitted, so they are not used as the parser's boundary. The parser reads only the named public fields above the developer heading.
+
+`scripts/roadmap.mjs` requests both roadmap labels separately, follows pagination and combines the results without including pull requests. It checks the status, category, public fields and dates before replacing `docs/data/roadmap.json`. Invalid data or an API failure stops publication; it does not replace a working page with a false empty result.
+
+Use `npm run roadmap:check` for offline validation. Use `npm run roadmap:fetch` for an explicit refresh; it reads `GITHUB_REPOSITORY` and a `GH_TOKEN` or `GITHUB_TOKEN` with read access to issues. Never put a token in source files. The committed public-only snapshot supports offline and pull-request builds. The live build refreshes that snapshot without committing issue data back to the repository.
+
+The existing validation workflow refreshes the roadmap for relevant issue changes, main-branch builds, manual runs and a daily recovery schedule. It builds trusted main-branch code and runs the full existing checks before deploying GitHub Pages. Pull-request builds use their offline snapshot and cannot publish. The complete publishing workflow is serialised; queued refreshes may be combined and each trusted run fetches current issues again.
+
+Scheduled runs can be delayed or disabled by GitHub. They are a recovery measure, not an immediate-update guarantee. If a change does not appear, check the latest **Validate civica.uk** run, correct any reported issue fields or labels, and run the workflow again. A successful deployment updates both the [public timeline](roadmap.html) and its [public data](../reference/roadmap.json).
+
+## Check a change
+
+Run `npm test`, build the documentation, then run `npm run test:browser -- tests/roadmap.browser.spec.mjs --workers=1`. The parser tests cover developer-note exclusion, unsafe input, dates, label conflicts, pagination and failed requests. Browser tests exercise the same template with invented test data and check reading order, escaping, narrow screens, no-JavaScript rendering and automated accessibility. Test-only features are not added to the public data.
+
+Review the rendered copy as well as the checks. A passing automated test is not a full accessibility assessment or evidence of live Home Assistant behaviour.
+
+The [roadmap review record](../reference/roadmap-review.json) separates source review, automated checks and publication evidence. The [artwork manifest](../reference/documentation-artwork.json) records the original section illustrations and their alternatives.
+
+## Sources
+
+- [FreeAgent: product timeline](https://www.freeagent.com/timeline/)
+- [GitHub: syntax for issue forms](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)
+- [GitHub: REST API for issues](https://docs.github.com/en/rest/issues/issues)
+- [GitHub: events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
+- [GitHub: control workflow concurrency](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency)

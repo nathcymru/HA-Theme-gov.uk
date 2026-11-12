@@ -1,0 +1,47 @@
+[
+  {
+    "name": "roadmap: in-works",
+    "color": "1D70B8",
+    "description": "Reviewed theme feature currently being worked on; publishes on the roadmap."
+  },
+  {
+    "name": "roadmap: completed",
+    "color": "00703C",
+    "description": "Reviewed theme feature released to users; close as completed to publish."
+  },
+  {
+    "name": "tag: Controls",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: controls. Use exactly one tag category."
+  },
+  {
+    "name": "tag: Appearance",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: appearance. Use exactly one tag category."
+  },
+  {
+    "name": "tag: Accessibility",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: accessibility. Use exactly one tag category."
+  },
+  {
+    "name": "tag: Energy",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: energy. Use exactly one tag category."
+  },
+  {
+    "name": "tag: Navigation",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: navigation. Use exactly one tag category."
+  },
+  {
+    "name": "tag: Maps",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: maps. Use exactly one tag category."
+  },
+  {
+    "name": "tag: Notifications",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: notifications. Use exactly one tag category."
+  }
+]

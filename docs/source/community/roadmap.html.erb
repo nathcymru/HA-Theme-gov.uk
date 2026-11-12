@@ -1,0 +1,20 @@
+---
+title: "Theme roadmap"
+description: "See which Home Assistant theme features are in development and what has been delivered."
+section: community
+group: "Guidance"
+nav_order: 2
+published_on: 2026-11-12
+updated_on: 2026-11-12
+last_reviewed_on: 2026-11-12
+review_in: 3 months
+updates:
+  - date: 2026-11-12
+    description: "Added a theme-feature roadmap with work in progress, delivered features grouped by year and month, and clear empty states."
+---
+
+<h1>Theme roadmap</h1>
+<p class="govuk-body-l">See which Home Assistant theme features are in development and what has been delivered.</p>
+<p class="govuk-body">This roadmap covers theme features. Plans can change as the work develops.</p>
+<% roadmap = JSON.parse(File.read(File.join(root, 'data', 'roadmap.json'))) %>
+<%= partial 'partials/roadmap', locals: { roadmap: roadmap } %>

@@ -4,13 +4,40 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  issues:
+    types: [opened, edited, labeled, unlabeled, closed, reopened, deleted, transferred]
+  schedule:
+    - cron: '17 3 * * *'
 permissions:
   contents: read
+  issues: read
+# Serialise the complete build and publication, including issue-triggered runs.
+# Pending refreshes may be coalesced; each trusted run reads the latest main and
+# the complete current issue set, so an older event cannot restore old content.
+concurrency:
+  # Irrelevant issue events must not evict a pending publication before their
+  # job condition skips them. They get their own group instead.
+  group: >-
+    civica-validate-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||
+    (github.event_name == 'issues' &&
+    !contains(github.event.issue.labels.*.name, 'roadmap: in-works') &&
+    !contains(github.event.issue.labels.*.name, 'roadmap: completed') &&
+    github.event.label.name != 'roadmap: in-works' &&
+    github.event.label.name != 'roadmap: completed') && format('ignored-{0}', github.run_id) || 'publish' }}
+  cancel-in-progress: false
 jobs:
   verify:
+    if: >-
+      github.event_name != 'issues' ||
+      contains(github.event.issue.labels.*.name, 'roadmap: in-works') ||
+      contains(github.event.issue.labels.*.name, 'roadmap: completed') ||
+      github.event.label.name == 'roadmap: in-works' ||
+      github.event.label.name == 'roadmap: completed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.ref || 'main' }}
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -21,6 +48,12 @@ jobs:
           bundler-cache: true
           working-directory: docs
       - run: npm ci
+      - name: Refresh reviewed theme roadmap
+        if: github.event_name != 'pull_request'
+        run: npm run roadmap:fetch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
       - run: npm run build
       - run: npm run typecheck
       - run: npm test

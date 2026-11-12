@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "creator": "civica.uk project; Codex-assisted original editable SVG geometry",
+  "licence": "MIT, original repository documentation artwork under LICENSE",
+  "scope": "Two inline illustrations on the theme-feature roadmap; documentation only, not household identity assets or device-state indicators.",
+  "source": "Original rectangles and filled paths authored in the roadmap artwork partial. No government artwork, stock imagery, imported paths, logos or personal data.",
+  "palette": [
+    "#103E65",
+    "#1D70B8",
+    "#8EB8DC",
+    "#F3F6F9",
+    "#FFFFFF"
+  ],
+  "intended_background": "Each composition retains an opaque #F3F6F9 canvas. Illustration colours do not encode a device state, release promise or feature status.",
+  "composition": "Flat filled geometric objects with limited overlap and whitespace; no ornamental outlines, gradients, shadows, baked labels or animation. Entire 4:3 composition remains visible.",
+  "rule_ids": [
+    "BG-ILL-01",
+    "BG-ILL-02",
+    "BG-ILL-03",
+    "BG-ILL-04",
+    "BG-ILL-06",
+    "BG-ILL-09",
+    "BG-ILL-10",
+    "WG-038"
+  ],
+  "review_status": "Source and geometry review complete. Integrated browser and visual checks are recorded separately; this is not a usability certification.",
+  "assets": [
+    {
+      "id": "roadmap-in-works",
+      "path": "docs/source/partials/_roadmap_art.erb",
+      "fragment": "data-roadmap-art=in-works",
+      "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de",
+      "width": 240,
+      "height": 180,
+      "view_box": "0 0 240 180",
+      "purpose": "Support the adjacent In the works heading with a draft interface sheet and pencil.",
+      "alternative_text_decision": "Decorative inline SVG is aria-hidden and not focusable. The adjacent HTML section heading and introduction carry the full meaning.",
+      "informative_reuse_description": "A pencil rests across an unfinished interface sheet."
+    },
+    {
+      "id": "roadmap-delivered",
+      "path": "docs/source/partials/_roadmap_art.erb",
+      "fragment": "data-roadmap-art=delivered",
+      "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de",
+      "width": 240,
+      "height": 180,
+      "view_box": "0 0 240 180",
+      "purpose": "Support the adjacent Delivered heading with a small stack of completed interface sheets.",
+      "alternative_text_decision": "Decorative inline SVG is aria-hidden and not focusable. The adjacent HTML section heading and introduction carry the full meaning.",
+      "informative_reuse_description": "Three interface sheets form a tidy stack, with a simple layout on the front sheet."
+    }
+  ]
+}

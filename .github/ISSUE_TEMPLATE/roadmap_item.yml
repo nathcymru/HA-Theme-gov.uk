@@ -1,0 +1,41 @@
+name: Theme roadmap item
+description: Suggest a theme feature and explain how it will help people.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for theme features only. A maintainer must review the public wording and add a roadmap status and one category label before an item can appear on the roadmap.
+
+        Issues are public. Do not include credentials, private household information or personal contact details. Developer Notes stay out of the roadmap, but remain visible in this GitHub issue.
+  - type: input
+    id: public-title
+    attributes:
+      label: Public title
+      description: Give the feature a clear name in 5 to 120 characters. Use words people will recognise, without issue numbers or usernames.
+      placeholder: Clearer room navigation
+    validations:
+      required: true
+  - type: textarea
+    id: user-benefit
+    attributes:
+      label: User benefit
+      description: Explain what people will be able to do and why it helps, in 1 or 2 short sentences (20 to 400 characters). Simple Markdown is allowed; links and formatting will not appear on the roadmap. Keep implementation details in Developer Notes.
+      placeholder: Find the room you need from a clear list. Keep its lights and heating together so everyday controls are easier to reach.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: This roadmap covers features of the theme.
+      options:
+        - Theme feature only
+    validations:
+      required: true
+  - type: textarea
+    id: developer-notes
+    attributes:
+      label: Developer Notes
+      description: Optional implementation details for maintainers. This field is excluded from the public roadmap, but is still public on GitHub.
+    validations:
+      required: false
