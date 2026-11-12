@@ -1,0 +1,73 @@
+---
+title: "Helpers and scalar input controls"
+description: "Keep stored helper values, reported device values and one-off operations distinct."
+section: patterns
+group: "Home Assistant: interface coverage"
+status: reference
+source_url: https://www.home-assistant.io/integrations/number/
+published_on: 2026-11-12
+updated_on: 2026-11-12
+last_reviewed_on: 2026-11-12
+review_in: 3 months
+updates:
+  - date: 2026-11-12
+    description: "Added the helpers and scalar input controls contract, native registry mapping and complete synthetic examples."
+---
+
+# Helpers and scalar input controls
+
+A numeric field can edit a household preference or command physical equipment. Establish which one it is before choosing the control and feedback. A helper's saved value may later influence an automation; “local helper” does not mean “has no consequence”.
+
+<h2 id="values">Value families and their meaning</h2>
+
+| Native value or helper | Contract |
+| --- | --- |
+| Number / input number | Preserve min, max, step, unit and the supported slider/box presentation. Explain whether saving changes a device setting or a helper. |
+| Select / input select | Show only the supplied options. Preserve the stored option exactly, including case and translated/custom labels. |
+| Text / input text | Respect length and text/password mode. Keep a visible label; never expose a password in a summary or status message. |
+| Date, datetime, time / input datetime | Preserve which parts exist, local/time-zone semantics and validity. Do not add a time to a date-only value. |
+| Switch / input boolean | Name the actual enabled setting or requested power change. Do not label every boolean “On” without its subject. |
+| Counter | Preserve current value, configured step/bounds and separate increment, decrement and reset operations. Reset is not always zero. |
+| Timer / schedule | Preserve the native active, paused and idle states or schedule intervals. Use the dedicated [time contract](schedules-and-time.html). |
+
+A group summarises members; it is not automatically a new physical device. A scene applies stored settings; it does not prove that all members now match. A script runs a sequence; its execution state is not confirmation of every resulting physical action. Automation enabled state controls future runs, not the truth of its conditions. Keep these distinctions when a helper appears in an Entities row, Tile feature or More info dialog.
+
+<%= example('ha-coverage-helper-number') %>
+
+<%= example('ha-coverage-helper-choice') %>
+
+<h2 id="operations">Buttons, remote commands and sirens</h2>
+
+Button and input-button are momentary operations. A last-pressed timestamp records activation, not a persistent on state. Use an action verb that names the verified operation. A counter reset must show the actual reset target when known. The same-looking button may have very different consequences, so do not infer behaviour from a generic icon.
+
+Remote, infrared and radio-frequency entities can expose commands whose feedback varies by integration. Show only supplied/verified capabilities. A transmitted command does not establish that a receiver acted. Do not invent power, volume, pairing or learning controls solely because a domain exists. Siren activation can affect people nearby; keep the real target, supported tone/duration and confirmation policy visible. Native permissions remain authoritative.
+
+<%= example('ha-coverage-helper-operation') %>
+
+<h2 id="editing">Draft, saved value and observed result</h2>
+
+Keep three states separate: the draft being edited, the value accepted by Home Assistant, and a device's later report where a device is involved. Do not replace an in-progress draft when a subscription update arrives; show the conflict and let the person resolve it. Validate using the current schema before dispatch and preserve input after rejection. If a selected option disappears, retain an unresolved-value explanation instead of selecting the first replacement.
+
+Apply pending feedback to the affected control, not the entire household page. Prevent duplicate equivalent requests while the outcome is pending. A network timeout leaves the result unconfirmed; do not resend automatically. Local documentation forms below check draft validity only and say so explicitly.
+
+<h2 id="accessibility">Accessible scalar controls</h2>
+
+Use a labelled text input, select, checkbox, radios, number field or native range according to the actual value. A read-only number is text, not a disabled slider. Keep current and draft values distinguishable. Buttons that increase or decrease need target and step context. Do not intercept arrow keys outside the focused control, and avoid wheel changes while the person scrolls the page.
+
+Locale formatting must not change the serialised value. Native date/time inputs need clear timezone context where an instant is involved. Colour choices need meaningful named alternatives and accessible values; a colour swatch alone does not identify a mode or state.
+
+<h2 id="acceptance">Acceptance checks</h2>
+
+Test decimal/negative bounds, a non-zero counter reset, missing choice, hidden password, date-only value and daylight-saving ambiguity. Try a repeated request and an external update while editing. Verify that opening a helper or editing an unsaved draft sends no additional action. Creating or saving a helper can change native state and trigger dependent automations; preserve and explain those consequences. Confirm unsupported remote/siren actions are absent and that command acceptance is not presented as receiver confirmation.
+
+Sources: [Number](https://www.home-assistant.io/integrations/number/), [Select](https://www.home-assistant.io/integrations/select/), [Input text](https://www.home-assistant.io/integrations/input_text/), [Input datetime](https://www.home-assistant.io/integrations/input_datetime/), [Counter](https://www.home-assistant.io/integrations/counter/), [Button](https://www.home-assistant.io/integrations/button/) and [Remote](https://www.home-assistant.io/integrations/remote/).
+
+<h2 id="evidence">Implementation and evidence boundary</h2>
+
+This is a reference design specification, not a replacement for native Home Assistant components. The examples use invented records and local draft feedback; they do not call Home Assistant. Mapping a registry entry here establishes a design owner, not proof that every integration, browser or device has been tested. Keep native state formatting, translations, permissions, capabilities and event handling. Theme tokens can change presentation; they cannot supply missing application behaviour.
+
+The [interface coverage inventory](../reference/ha-interface-coverage.json) records the finite source baseline and exact mappings. Recheck native behaviour after frontend changes. Use the [native task acceptance process](native-task-accessibility.html) to record what was actually tested.
+
+Apply the [brand rules](../styles/brand.html), [writing guide](../content/index.html), [layout](../styles/layout.html), [colour roles](../styles/colour.html) and [typography](../styles/typography.html). Structural dividers use the quiet border token; editable boundaries and focus indicators remain distinct. Preserve 16px native control text, visible labels, keyboard access and readable names at 320px. A compact arrangement must not remove a capability explanation or essential recovery route.
+
+Review owner: civica.uk maintainers. Source baseline: Home Assistant Core 2026.11.1 and frontend 20261028.5; primary documentation reviewed on 12 November 2026.

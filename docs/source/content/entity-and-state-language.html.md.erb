@@ -1,0 +1,94 @@
+---
+title: Entity and state language
+description: Explain all 45 registered entity platforms, additional native state domains, named helpers and context-sensitive labels without changing their meaning.
+section: styles
+group: Writing guide
+nav_order: 12
+source_url: https://www.home-assistant.io/docs/configuration/state_object/
+status: reference
+published_on: 2026-11-12
+updated_on: 2026-11-12
+updates:
+  - date: 2026-11-12
+    description: Added the complete pinned entity-platform list, named helper types and contextual state, attribute and device-class terminology with precise identifier roles.
+---
+
+# Entity and state language
+
+A domain identifies an entity family, such as `light`. A device class gives more specific meaning, such as a door sensor. A state is the value Home Assistant holds; attributes add related information. None of these facts alone proves that a physical device was inspected or an action completed.
+
+Use the entity's actual native label and supplied name. Explain the meaning with its domain, device class, relevant unit and time. Do not substitute a global “on”, “off”, “failed” or “offline” label for the source's more precise state.
+
+<%= example('term-contextual-on') %>
+
+<%= example('term-climate-meaning') %>
+
+<%= example('term-missing-state') %>
+
+## Read identifiers according to their role
+
+| Kind | Example | How to use it |
+| --- | --- | --- |
+| Entity ID | `light.nains_reading_lamp` | A complete synthetic entity identifier; use the actual configured ID in a real instruction |
+| Domain | `light` | An entity family, not a complete entity ID |
+| Raw state | `on` | Interpret through domain and device-class context |
+| Attribute property | `hvac_action` | A key within the state record, not an entity ID |
+| Attribute value | `heating` | A value of a specified attribute, distinct from a selected mode |
+| Device-class translation key | `door` | The class-specific label mapping for the named domain |
+| Translation fallback key | `_` | An internal default translation entry; do not copy it as an entity ID or device-class setting |
+
+The tables below are **English source-label references**, not new translations. Home Assistant selects the native language and supported labels. Vendor-specific values may be supplied dynamically and are outside this fixed list.
+
+<% register = JSON.parse(File.read(File.join(root, 'data', 'ha-terminology.json'))) %>
+<% sources = register['sources'].to_h { |source| [source['id'], source] } %>
+
+## Domains outside the platform registry
+
+The generated 45-platform enum is not every entity domain. The native row and More info registries explicitly reference 15 additional domains. This table maps all 15, reusing existing glossary or helper explanations where appropriate. Plant, Zone and Schedule are separately included because current guide topics use those documented integrations; they are not added to the 15-key census or the 45-platform count.
+
+<% terms_by_id = register['terms'].to_h { |term| [term['id'], term] } %>
+<table><caption>Supplementary entity-domain mapping</caption><thead><tr><th scope="col">Exact domain</th><th scope="col">Terminology entry</th><th scope="col">Source scope</th></tr></thead><tbody>
+<% register['supplemental_domain_mappings'].sort_by { |mapping| mapping['domain'] }.each do |mapping| %>
+<% term = terms_by_id.fetch(mapping['entry_id']) %>
+<tr><th scope="row"><code><%= escape(mapping['domain']) %></code></th><td><a href="<%= docs_path(term['local_path']) %>"><%= escape(term['native_name']) %></a></td><td><%= escape(mapping['source_role']) %> · <a href="<%= escape(mapping['official_guidance_url']) %>">Official <%= escape(mapping['domain']) %> guidance</a></td></tr>
+<% end %>
+</tbody></table>
+
+A Person record can derive its state from trackers; it is not a user account or proof of a person's presence. Sun represents calculations for the configured location, not a light sensor. Plant Monitor compares configured readings and limits, not universal plant-health criteria. An alert's raw <code>off</code> state means Acknowledged while its condition can still be true. Configurator is retained as an internal legacy mechanism; it is not promoted as the general modern setup interface.
+
+<% [['state-records','State records and freshness'], ['helper-types','Named helper types'], ['additional-entity-domains','Additional domain explanations'], ['entity-platform','All registered entity platforms']].each do |category, title| %>
+<h2 id="<%= escape(category) %>"><%= escape(title) %></h2>
+<% if category == 'state-records' %><p>A change time, report time and requested target describe different facts. “Stale” needs a source-specific freshness rule; it must not be inferred from a long-unchanged value alone.</p><% end %>
+<% if category == 'helper-types' %><p>These nine types are the complete named scalar/helper subtree in the checked frontend. Other helper integrations, calculations and groups also exist; this is not an assertion that Home Assistant has only nine helpers.</p><% end %>
+<% if category == 'entity-platform' %><p>All 45 platforms from Core 2026.11.1 are included. A platform entry describes a family, not a guarantee that an installation has an entity in that family or every possible control.</p><% end %>
+<% register['terms'].select { |term| term['category'] == category }.sort_by { |term| term['native_name'].downcase }.each do |term| %>
+<details class="civica-audit-detail" id="<%= escape(term['id'].downcase) %>">
+<summary><strong><%= escape(term['native_name']) %></strong><% if term['code_identifiers'] %> — <code><%= escape(term['code_identifiers'].join(', ')) %></code><% end %></summary>
+<p><strong>Household wording:</strong> <%= escape(term['household_wording']) %>.</p>
+<p><strong>First-use explanation:</strong> <%= escape(term['first_use_explanation']) %></p>
+<p><strong>Keep distinct:</strong> <%= escape(term['avoid_confusion']) %></p>
+<% if term['native_label'] %><p><strong>Exact English picker label:</strong> <%= escape(term['native_label']) %>.</p><% end %>
+<p>Reference: <code><%= escape(term['id']) %></code>. <% term['source_ids'].each_with_index do |source_id,index| %><%= ' · ' unless index.zero? %><a href="<%= escape(sources.fetch(source_id)['url']) %>"><%= escape(sources.fetch(source_id)['title']) %></a><% end %>.</p>
+<% if category == 'entity-platform' %>
+<% values = register['native_values'].select { |value| value['domain'] == term['code_identifiers'].first } %>
+<% if values.empty? %><p>No <code>entity_component</code> label subtree is supplied for this platform in the checked Core strings. No labels are invented to fill that absence.</p><% else %>
+<details><summary><%= values.length %> context-specific native labels for <%= escape(term['code_identifiers'].first) %></summary>
+<table><caption>Literal source keys and their distinct roles</caption><thead><tr><th scope="col">Source label and context</th><th scope="col">Key and role</th><th scope="col">Meaning of this reference</th></tr></thead><tbody>
+<% values.each do |value| %>
+<tr id="<%= escape(value['id'].downcase) %>"><th scope="row"><%= escape(value['native_label']) %><br><small><%= escape(value['context']) %></small></th><td><code><%= escape(value['code']) %></code><br><%= escape(value['code_kind'].tr('-', ' ')) %></td><td><%= escape(value['first_use_explanation']) %><br><a href="<%= escape(sources.fetch(value['source_id'])['url']) %>">Source translation file</a> · <code><%= escape(value['native_label_pointer']) %></code></td></tr>
+<% end %>
+</tbody></table>
+</details>
+<% end %>
+<% end %>
+</details>
+<% end %>
+<% end %>
+
+## Use the reference safely in authored content
+
+Keep `unknown`, `unavailable` and real zero values distinct. Use the actual source label where available, then add enough context for the task. A lock can report Locked without an independent physical check; a climate entity can be set to Heat while its current action is Idle. A helper can store On without operating a device.
+
+For an unfamiliar integration-specific state, read that integration's documentation and source. Preserve the supplied value until its meaning is established. Do not invent a translation, apply another device's meaning or conceal the unknown value behind a generic success label.
+
+The [terminology register](../reference/ha-terminology.json) records every source pointer, key role and coverage denominator. Use the [entity-state specification](../home-assistant/entity-state.html) for freshness and missing data, and [action results](../home-assistant/action-results.html) for requests and confirmation. Source mappings do not certify an installed control or a physical result.

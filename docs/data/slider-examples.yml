@@ -1,0 +1,148 @@
+examples:
+  slider-brightness:
+    title: Brightness with an exact-value alternative
+    description: The range, text field and step buttons share one local draft. The reported brightness stays separate.
+    height: 850
+    html: >-
+      <section aria-labelledby="slider-brightness-heading">
+        <h2 class="govuk-heading-m" id="slider-brightness-heading">Reading lamp</h2>
+        <p class="govuk-body">Synthetic example. Last reported brightness: <strong>40%</strong>. Changing the draft does not change this reported value.</p>
+
+        <form data-demo-form data-civica-slider data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-unit="%" data-slider-outcome="accepted">
+          <fieldset class="govuk-fieldset" aria-describedby="slider-brightness-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Choose a draft brightness</legend>
+            <p class="govuk-hint" id="slider-brightness-hint">1 to 100 per cent, in steps of 1. Use the slider, type a value or use the decrease and increase buttons.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-brightness-range">Brightness slider (per cent)</label>
+              <input class="civica-slider" id="slider-brightness-range" type="range" min="1" max="100" step="1" value="40" aria-describedby="slider-brightness-hint slider-brightness-error" data-slider-range>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-brightness-value">Exact brightness (per cent)</label>
+              <input class="govuk-input govuk-input--width-5" id="slider-brightness-value" name="draft" type="text" inputmode="decimal" value="40" aria-describedby="slider-brightness-hint slider-brightness-error" data-slider-value required>
+            </div>
+            <div class="civica-slider__steps">
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="-1">Decrease brightness by 1 per cent</button>
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="1">Increase brightness by 1 per cent</button>
+            </div>
+            <p class="govuk-body">Draft: <output for="slider-brightness-range slider-brightness-value" data-slider-output aria-live="off">40%</output></p>
+            <p class="govuk-error-message" id="slider-brightness-error" data-slider-error hidden></p>
+          </fieldset>
+          <button class="govuk-button" type="submit">Preview brightness request</button>
+          <p class="govuk-body" role="status" data-demo-status></p>
+        </form>
+        <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">About this example</span></summary><div class="govuk-details__text">The range, step and reported value are invented. A real Home Assistant control must use the integration's current capabilities and permission checks. This preview only validates a draft and displays local feedback. It never sends a device command.</div></details>
+      </section>
+  slider-temperature:
+    title: A decimal target temperature
+    description: Half-degree increments demonstrate exact entry and step validation without claiming that a
+      thermostat accepted the draft.
+    height: 850
+    html: >-
+      <section aria-labelledby="slider-temperature-heading">
+        <h2 class="govuk-heading-m" id="slider-temperature-heading">Living room thermostat</h2>
+        <p class="govuk-body">Synthetic example. Last reported target temperature: <strong>19.5 °C</strong>. Changing the draft does not change this reported value.</p>
+
+        <form data-demo-form data-civica-slider data-slider-min="16" data-slider-max="28" data-slider-step="0.5" data-slider-unit="°C" data-slider-outcome="accepted">
+          <fieldset class="govuk-fieldset" aria-describedby="slider-temperature-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Choose a draft target temperature</legend>
+            <p class="govuk-hint" id="slider-temperature-hint">16 to 28 degrees Celsius, in steps of 0.5. Use the slider, type a value or use the decrease and increase buttons.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-temperature-range">Target temperature slider (degrees Celsius)</label>
+              <input class="civica-slider" id="slider-temperature-range" type="range" min="16" max="28" step="0.5" value="20" aria-describedby="slider-temperature-hint slider-temperature-error" data-slider-range>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-temperature-value">Exact target temperature (degrees Celsius)</label>
+              <input class="govuk-input govuk-input--width-5" id="slider-temperature-value" name="draft" type="text" inputmode="decimal" value="20" aria-describedby="slider-temperature-hint slider-temperature-error" data-slider-value required>
+            </div>
+            <div class="civica-slider__steps">
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="-1">Decrease target temperature by 0.5 degrees Celsius</button>
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="1">Increase target temperature by 0.5 degrees Celsius</button>
+            </div>
+            <p class="govuk-body">Draft: <output for="slider-temperature-range slider-temperature-value" data-slider-output aria-live="off">20 °C</output></p>
+            <p class="govuk-error-message" id="slider-temperature-error" data-slider-error hidden></p>
+          </fieldset>
+          <button class="govuk-button" type="submit">Preview target temperature request</button>
+          <p class="govuk-body" role="status" data-demo-status></p>
+        </form>
+        <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">About this example</span></summary><div class="govuk-details__text">The range, step and reported value are invented. A real Home Assistant control must use the integration's current capabilities and permission checks. This preview only validates a draft and displays local feedback. It never sends a device command.</div></details>
+      </section>
+  slider-signed-offset:
+    title: A signed calibration draft
+    description: The precision field permits a minus sign and deliberately avoids a decimal keypad that might hide it.
+    height: 850
+    html: >-
+      <section aria-labelledby="slider-signed-offset-heading">
+        <h2 class="govuk-heading-m" id="slider-signed-offset-heading">Temperature display offset</h2>
+        <p class="govuk-body">Synthetic example. Last reported offset: <strong>-1 °C</strong>. Changing the draft does not change this reported value.</p>
+        <p class="govuk-body">This draft adjusts an invented display offset, not a heating setpoint. Zero is a valid offset.</p>
+        <form data-demo-form data-civica-slider data-slider-min="-5" data-slider-max="5" data-slider-step="0.5" data-slider-unit="°C" data-slider-outcome="accepted">
+          <fieldset class="govuk-fieldset" aria-describedby="slider-signed-offset-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Choose a draft offset</legend>
+            <p class="govuk-hint" id="slider-signed-offset-hint">-5 to 5 degrees Celsius, in steps of 0.5. Use the slider, type a value or use the decrease and increase buttons.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-signed-offset-range">Offset slider (degrees Celsius)</label>
+              <input class="civica-slider" id="slider-signed-offset-range" type="range" min="-5" max="5" step="0.5" value="-1" aria-describedby="slider-signed-offset-hint slider-signed-offset-error" data-slider-range>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-signed-offset-value">Exact offset (degrees Celsius)</label>
+              <input class="govuk-input govuk-input--width-5" id="slider-signed-offset-value" name="draft" type="text" value="-1" aria-describedby="slider-signed-offset-hint slider-signed-offset-error" data-slider-value required>
+            </div>
+            <div class="civica-slider__steps">
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="-1">Decrease offset by 0.5 degrees Celsius</button>
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="1">Increase offset by 0.5 degrees Celsius</button>
+            </div>
+            <p class="govuk-body">Draft: <output for="slider-signed-offset-range slider-signed-offset-value" data-slider-output aria-live="off">-1 °C</output></p>
+            <p class="govuk-error-message" id="slider-signed-offset-error" data-slider-error hidden></p>
+          </fieldset>
+          <button class="govuk-button" type="submit">Preview offset request</button>
+          <p class="govuk-body" role="status" data-demo-status></p>
+        </form>
+        <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">About this example</span></summary><div class="govuk-details__text">The range, step and reported value are invented. A real Home Assistant control must use the integration's current capabilities and permission checks. This preview only validates a draft and displays local feedback. It never sends a device command.</div></details>
+      </section>
+  slider-request-failed:
+    title: A failed request preserves the draft
+    description: The local submit always demonstrates failure. It does not overwrite the earlier reported value or
+      imply that the speaker changed.
+    height: 850
+    html: >-
+      <section aria-labelledby="slider-request-failed-heading">
+        <h2 class="govuk-heading-m" id="slider-request-failed-heading">Study speaker</h2>
+        <p class="govuk-body">Synthetic example. Last reported volume: <strong>25%</strong>. Changing the draft does not change this reported value.</p>
+        <div class="govuk-inset-text">Earlier example request failed. The last reported volume remains 25%. Review the retained 40% draft before trying this local preview again.</div>
+        <form data-demo-form data-civica-slider data-slider-min="0" data-slider-max="100" data-slider-step="5" data-slider-unit="%" data-slider-outcome="failed">
+          <fieldset class="govuk-fieldset" aria-describedby="slider-request-failed-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Choose a draft volume</legend>
+            <p class="govuk-hint" id="slider-request-failed-hint">0 to 100 per cent, in steps of 5. Use the slider, type a value or use the decrease and increase buttons.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-request-failed-range">Volume slider (per cent)</label>
+              <input class="civica-slider" id="slider-request-failed-range" type="range" min="0" max="100" step="5" value="40" aria-describedby="slider-request-failed-hint slider-request-failed-error" data-slider-range>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="slider-request-failed-value">Exact volume (per cent)</label>
+              <input class="govuk-input govuk-input--width-5" id="slider-request-failed-value" name="draft" type="text" inputmode="decimal" value="40" aria-describedby="slider-request-failed-hint slider-request-failed-error" data-slider-value required>
+            </div>
+            <div class="civica-slider__steps">
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="-1">Decrease volume by 5 per cent</button>
+              <button class="govuk-button govuk-button--secondary" type="button" data-slider-step="1">Increase volume by 5 per cent</button>
+            </div>
+            <p class="govuk-body">Draft: <output for="slider-request-failed-range slider-request-failed-value" data-slider-output aria-live="off">40%</output></p>
+            <p class="govuk-error-message" id="slider-request-failed-error" data-slider-error hidden></p>
+          </fieldset>
+          <button class="govuk-button" type="submit">Preview volume request</button>
+          <p class="govuk-body" role="status" data-demo-status></p>
+        </form>
+        <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">About this example</span></summary><div class="govuk-details__text">The range, step and reported value are invented. A real Home Assistant control must use the integration's current capabilities and permission checks. This preview only validates a draft and displays local feedback. It never sends a device command.</div></details>
+      </section>
+  slider-unavailable:
+    title: Unavailable device without a fabricated numeric reading
+    description: No active slider or submitted value is shown when the integration has not supplied a current
+      reading. The disabled action has a visible reason and useful local detail.
+    height: 550
+    html: >-
+      <section aria-labelledby="slider-unavailable-heading">
+        <h2 class="govuk-heading-m" id="slider-unavailable-heading">Bedroom speaker</h2>
+        <p class="govuk-body"><strong>Volume unavailable</strong></p>
+        <p class="govuk-body" id="slider-unavailable-reason">This invented device is disconnected. No current volume is available, so there is no slider position to display.</p>
+        <button class="govuk-button" type="button" disabled aria-describedby="slider-unavailable-reason">Change volume</button>
+        <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">Connection details</span></summary><div class="govuk-details__text"><p>This is a static failure example. No request or recovery check runs when you open it.</p><p>In Home Assistant, retain the native device details route and retry only after the integration supplies a usable value and range. Unavailable is not zero or muted.</p></div></details>
+      </section>

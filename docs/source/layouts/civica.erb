@@ -40,9 +40,15 @@
     contents.add_child(list)
     headings.first.add_previous_sibling(contents)
   end
+  table_labels = Hash.new(0)
   fragment.css('table').each do |table|
     heading = table.xpath('preceding::*[self::h2 or self::h3][1]').first
-    label = heading ? heading.text : current_page.data.title
+    disclosure = table.ancestors('details').first
+    summary = disclosure&.at_xpath('./summary')
+    caption = table.at_xpath('./caption')
+    label = [heading&.text || current_page.data.title, summary&.text, caption&.text].compact.map(&:strip).reject(&:empty?).uniq.join(' — ')
+    table_labels[label] += 1
+    label = "#{label} (#{table_labels[label]})" if table_labels[label] > 1
     wrapper = Nokogiri::XML::Node.new('div', fragment.document)
     wrapper['class'] = 'c-table-region'
     wrapper['role'] = 'region'

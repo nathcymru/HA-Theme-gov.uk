@@ -110,11 +110,13 @@ const currentRoutes = new Map(guides.map(path => [routeFor(path), path]));
 const pageRecords = components.pageInventory;
 unique(pageRecords.map(page => page.url), 'Component inventory guide routes');
 const pagesByRoute = new Map(pageRecords.map(page => [page.url, page]));
-assert.equal(pageRecords.length, components.baseline.guides, 'Baseline guide count');
+assert.equal(pageRecords.filter(page => page.baselineMember !== false).length, components.baseline.guides, 'Preserved baseline guide count');
 const isComponent = route => /^\/(?:publishing\/)?components\//.test(route) && !route.endsWith('/index.html');
 const componentPages = pageRecords.filter(page => page.kind === 'component');
-assert.equal(componentPages.length, 68, 'All 68 existing component routes');
-assert.equal(componentPages.length, components.baseline.totalComponentPages, 'Declared component count');
+assert.equal(componentPages.filter(page => page.baselineMember !== false).length, 68, 'All 68 baseline component routes');
+assert.equal(componentPages.filter(page => page.baselineMember !== false).length, components.baseline.totalComponentPages, 'Declared baseline component count');
+assert.equal(componentPages.length, components.current.componentPages, 'Current component count includes additions');
+assert.equal(new Set(componentPages.map(page => page.canonicalOwner)).size, components.current.componentCanonicalOwners, 'Current canonical owner count');
 same(componentPages.map(page => page.url), [...currentRoutes.keys()].filter(isComponent), 'Every existing component route maps exactly once');
 for (const page of pageRecords) {
   assert.equal(currentRoutes.get(page.url), page.sourceFile, `${page.url}: existing source route`);
@@ -175,7 +177,8 @@ for (const entry of components.sourceMappings) {
 }
 assert.equal(components.sourceMappings.length, components.baseline.sourceCatalogueEntries, 'Source mapping count');
 unique(components.exampleInventory.map(example => example.id), 'Baseline example IDs');
-assert.equal(components.exampleInventory.length, components.baseline.examples, 'Baseline example count');
+assert.equal(components.exampleInventory.filter(example => example.baselineMember !== false).length, components.baseline.examples, 'Preserved baseline example count');
+assert.equal(components.exampleInventory.length, components.current.ownershipExamples, 'Current ownership includes added examples');
 for (const example of components.exampleInventory) {
   assert.ok(examples[example.id] && pagesByRoute.has(example.ownerPage), `${example.id}: example and owner exist`);
   same(example.referencedBy, pageRecords.filter(page => page.examples.includes(example.id)).map(page => page.url), `${example.id}: complete baseline references`);

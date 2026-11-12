@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "baseline_revision": "99f57ea254d7d511b5d149715a11b3e104ebc47f",
+  "status": "verified-awaiting-publication",
+  "scope": "Versioned documentation coverage, controlled terminology, UK source decisions and styled reference examples. Native runtime and physical-device verification remain separate.",
+  "checklists": [
+    {
+      "id": "HA-COVERAGE",
+      "title": "Home Assistant interface inventory",
+      "status": "complete-in-stated-scope",
+      "checks": [
+        "Pin Core and its matching frontend release.",
+        "Extract every entry from the named built-in registries and retain aliases explicitly.",
+        "Map each entry to a component, style or task pattern with a useful example.",
+        "Keep source coverage, reference implementation and native compatibility separate."
+      ],
+      "evidence": [
+        "docs/data/ha-interface-coverage.json: all 632 entries mapped in 27 distinct source denominators; immutable Core/frontend pins agree.",
+        "scripts/check-ha-coverage.mjs: exact IDs, sources, owners, rendered anchors and example links checked."
+      ]
+    },
+    {
+      "id": "HA-TERMS",
+      "title": "Writing and terminology",
+      "status": "complete-in-stated-scope",
+      "checks": [
+        "Recheck every recorded writing source and preserve its evidence.",
+        "Include all official glossary entries and Core entity-platform domains.",
+        "Inventory the reviewed native dashboard, state, automation and settings vocabulary.",
+        "Retain native labels, translations, product names and exact identifiers while explaining household meaning."
+      ],
+      "evidence": [
+        "docs/data/ha-terminology.json:456 explanations, 681 native labels, 17 named inventories.",
+        "docs/data/completeness-terminology-review.json:83 glossary entries, 45 platforms, 18 supplementary domains and exact native-label checks independently reviewed.",
+        "docs/data/terminology-source-review.json:37 unchanged writing sources; Plain English/SCULPT refresh limits explicit."
+      ]
+    },
+    {
+      "id": "HA-UK-SOURCES",
+      "title": "Official UK design systems",
+      "status": "complete-in-stated-scope",
+      "checks": [
+        "Review the requested systems and record index coverage separately from detail-page review.",
+        "Choose a justified upstream component or explicitly local/native contract for each task family.",
+        "Record slider provenance and a complete precise-input alternative."
+      ],
+      "evidence": [
+        "docs/data/uk-design-system-crosswalk.json: 9 systems, 18 catalogues, 402 entries, 38 task-family decisions, 14 detailed constraint reviews and 10 bounded supplemental checks.",
+        "docs/source/components/sliders.html.md.erb: original local implementation informed by the current Royal Navy Range Slider, GOV.UK and W3C, retaining precise alternatives and native behaviour boundaries."
+      ]
+    },
+    {
+      "id": "HA-PRESENTATION",
+      "title": "Consistent styling and complete examples",
+      "status": "complete-in-stated-scope",
+      "checks": [
+        "Use the shared typography, colour, border, spacing and focus roles.",
+        "Check all authored HA examples for responsive layout and accessibility.",
+        "Test slider keyboard, exact-entry, signed/decimal, invalid, failed and unavailable states.",
+        "Preserve chart presentation and supplied identity."
+      ],
+      "evidence": [
+        "All 844 browser regressions passed, including all 212 guides and 450 standalone examples, slider alternatives and expanded nested catalogues.",
+        "Shared HA example CSS classes, source ownership, labels, responsive behaviour and exact public record checks are enforced by the validation scripts.",
+        "Manual local Chrome check confirmed slider appearance and local feedback; native assistive-technology and physical-device testing remain separate."
+      ]
+    },
+    {
+      "id": "HA-PUBLICATION",
+      "title": "Independent review, checks and publication",
+      "status": "in-progress",
+      "checks": [
+        "Cross-review new guides and example records; correct confirmed findings.",
+        "Reconcile every route, example, term, inventory entry and source hash.",
+        "Pass build, integrity, unit and browser checks.",
+        "Publish and verify public routes, records and examples in Chrome."
+      ]
+    }
+  ],
+  "review_loops": [
+    {
+      "id": "HC-LOOP-1",
+      "status": "complete",
+      "scope": "Source census and writing refresh",
+      "outcome": "Replaced the earlier 30-family completeness assumption with explicit current source denominators, exact native vocabulary and eight additional reusable task families."
+    },
+    {
+      "id": "HC-LOOP-2",
+      "status": "complete",
+      "scope": "Independent source review",
+      "outcome": "All nine bounded source findings corrected and reread: source SHA, missing grid class, helper side effects, local Webpage support, slider endpoint focus, premature example feedback, helper creation guarantee, domain meaning and Person away-state omission.",
+      "records": [
+        "docs/data/completeness-interface-review.json",
+        "docs/data/completeness-parent-review.json",
+        "docs/data/completeness-terminology-review.json"
+      ]
+    },
+    {
+      "id": "HC-LOOP-3",
+      "status": "complete",
+      "scope": "Focused rendered accessibility and behaviour",
+      "outcome": "Eight slider tests and five expanded-catalogue tests pass. Fixed enlarged-text overflow and duplicate nested-table region names. Improved tests to expose nested source-member disclosures and check visible links. Manual local Chrome confirmed slider appearance and local feedback."
+    },
+    {
+      "id": "HC-LOOP-4",
+      "status": "local-validation-complete-publication-pending",
+      "scope": "Whole-site regression and publication",
+      "outcome": "All 844 browser checks pass. Required GitHub CI and live publication are the remaining gates."
+    },
+    {
+      "id": "HC-LOOP-5",
+      "status": "complete",
+      "scope": "Wider UK slider-source correction",
+      "outcome": "The user was correct that an official UK slider exists. The Royal Navy component was missing from the initial eight-system source set. Current Storybook and released 4.64.2 source are now documented, with 37 current component entries and ten explicitly bounded departmental/discovery checks. The original local controls retain exact values and non-drag alternatives.",
+      "record": "docs/data/uk-design-system-crosswalk.json"
+    }
+  ],
+  "automated_checks": [
+    {
+      "check": "Runtime build, strict typecheck and 50 unit tests",
+      "status": "passed"
+    },
+    {
+      "check": "176 supplied brand asset hashes and 20 palette variants",
+      "status": "passed"
+    },
+    {
+      "check": "9 HA scripts, 6 restart-mode wrappers and 88 template compilations",
+      "status": "passed"
+    },
+    {
+      "check": "Five expanded catalogue/accessibility and eight slider interaction checks",
+      "status": "passed"
+    },
+    {
+      "check": "Full browser regression suite",
+      "status": "passed",
+      "tests": 844,
+      "duration": "7.3 minutes",
+      "scope": "Whole rendered site and maintained runtime fixtures; final small terminology wording is checked again after rebuild and in required CI."
+    },
+    {
+      "check": "Final terminology/public-record rebuild and eleven affected browser checks",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "check": "Royal Navy source correction: all integrity checks and three affected guide browser checks",
+      "status": "passed",
+      "tests": 3
+    }
+  ],
+  "publication": {
+    "status": "pending"
+  },
+  "limitations": [
+    "A finite source registry is complete only for its pinned version and recorded extraction scope.",
+    "Third-party cards, integration-specific vendor terms and future additions require a new mapping; the fallback pattern is not implementation proof.",
+    "Reference examples use synthetic data and do not change a household.",
+    "Automated documentation checks do not certify full assistive-technology or native Home Assistant conformance."
+  ],
+  "counts": {
+    "interface_registries": 27,
+    "overlapping_interface_entries": 632,
+    "unmapped_interface_entries": 0,
+    "uk_systems": 9,
+    "uk_catalogue_entries": 402,
+    "task_family_decisions": 38,
+    "terms": 456,
+    "terminology_inventories": 17,
+    "contextual_native_labels": 681,
+    "guides": 212,
+    "examples": 450,
+    "new_guides": 16,
+    "new_examples": 45
+  },
+  "manual_checks": [
+    {
+      "environment": "Connected Chrome, local build",
+      "scope": "Slider guide and standalone temperature example",
+      "outcome": "Shared identity/navigation, blue round thumb, quiet track, exact field, step buttons and visible focus confirmed. Entering 20.5 and previewing kept the earlier 19.5 observation unchanged; only explicit local request feedback appeared."
+    }
+  ],
+  "automated_status": "passed",
+  "browser_tests": 844,
+  "prior_head_ci": {
+    "commit": "cee9e55555c37b33d3377e837a746c02c3aaf507",
+    "run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43132014833",
+    "status": "passed",
+    "scope": "Full pipeline before the bounded Royal Navy documentation addition; final main deployment pipeline remains required."
+  }
+}

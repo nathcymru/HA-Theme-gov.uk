@@ -285,8 +285,12 @@
   },
   "components/navigation.html": {
     "published_on": "2026-11-11",
-    "updated_on": "2026-11-11",
+    "updated_on": "2026-11-12",
     "updates": [
+      {
+        "date": "2026-11-12",
+        "description": "Updated the current native Tools destination while preserving Home Assistant navigation."
+      },
       {
         "date": "2026-11-11",
         "description": "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."

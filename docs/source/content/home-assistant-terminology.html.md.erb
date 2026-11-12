@@ -1,0 +1,106 @@
+---
+title: Home Assistant terminology
+description: Find exact native terms, explain them for household tasks and check the dated coverage of this register.
+section: styles
+group: Writing guide
+nav_order: 10
+source_url: https://www.home-assistant.io/docs/glossary/
+status: reference
+published_on: 2026-11-12
+updated_on: 2026-11-12
+updates:
+  - date: 2026-11-12
+    description: Added a source-pinned terminology register, complete named inventories and original household examples without changing native labels or the frozen writing rules.
+---
+
+# Home Assistant terminology
+
+Use the exact Home Assistant name when helping someone find a control. Use a short household explanation when helping them understand it. Keep a person's chosen name and any identifier they need to copy unchanged.
+
+This dated supplement applies [Words and style](words-and-style.html), including WG-021 on native labels and WG-025 on literal values. The `HT-` references identify terminology entries, not new writing rules. No native translation, device name or configuration is changed by this guide.
+
+<% register = JSON.parse(File.read(File.join(root, 'data', 'ha-terminology.json'))) %>
+
+## Find the right kind of term
+
+| What you need | Reference |
+| --- | --- |
+| An explanation of a concept such as entity, automation, app or template | [Complete official-glossary mapping](ha-glossary.html) |
+| A domain, helper type, raw state, attribute or device-class label | [Entity and state language](entity-and-state-language.html) |
+| A dashboard, action, Assist, Energy, security, Settings or configuration term | [Interface and configuration terminology](interface-terminology.html) |
+| A route or interface surface and its native-versus-civica coverage | [Native interface coverage record](../reference/ha-interface-coverage.json) |
+| Stable identifiers and exact source pointers for automation or review | [Terminology JSON](../reference/ha-terminology.json) |
+
+The reference pages have named sections and expandable entries. Use the page's contents links or your browser's find command to locate a name or literal key. No script is needed to read an entry or follow its source link.
+
+## Choose wording by purpose
+
+| Context | What to write | What to preserve |
+| --- | --- | --- |
+| A household control | The supported action and actual target, such as “Turn on Nain’s reading lamp” | The supplied name and actual capability |
+| A native navigation step | The actual translated control name for the stated version | Native wording, even when it is more technical than the surrounding explanation |
+| First use of a necessary concept | The native term followed by a short explanation | Its distinction from similar concepts |
+| Diagnostics or configuration | The exact field, value, path or identifier in code styling | Case, dots, underscores, spaces and punctuation required by the syntax |
+| An older instruction | Explain the current name while identifying the historical term | Literal old keys and saved routes unless a verified migration changes them |
+
+Do not run a global replacement from “entity” to “device”, “notification” to “message”, or “service” to “action”. These words can have different technical meanings. “Service” may describe a non-device information source, an older action label, or a backend API. Specify which meaning the task uses.
+
+<%= example('term-device-entity') %>
+
+<%= example('term-same-word-different-layer') %>
+
+<%= example('term-identifiers') %>
+
+## What complete coverage means here
+
+This register contains <strong><%= register['terms'].length %> explained terminology entries</strong> and <strong><%= register['native_values'].length %> context-specific native labels</strong>. The numbers have different meanings and must not be added together as a count of installed features.
+
+The source context is **Home Assistant Core 2026.11.1**, **frontend 20261028.5**, and the official website snapshot checked on **12 November 2026**. The JSON records complete commit identifiers and content hashes. A source version is evidence for this reference; it is not a claim about the version installed in a reader's home.
+
+<table>
+<caption>Explicit terminology inventories and their limits</caption>
+<thead><tr><th scope="col">Inventory</th><th scope="col">Entries</th><th scope="col">Coverage boundary</th></tr></thead>
+<tbody>
+<% register['inventories'].each do |inventory| %>
+<tr><th scope="row"><%= escape(inventory['title']) %></th><td><%= inventory['denominator'] %></td><td><%= escape(inventory['exclusions']) %></td></tr>
+<% end %>
+</tbody>
+</table>
+
+The official glossary mapping covers all **83** source entries: **72** Home Assistant concepts and **11** data or template types. The entity-platform mapping covers all **45** entries in the pinned Core registry. The card, feature, selector and view counts come from native dispatch registries and include technical or historical keys where the source includes them. They are not counts of public editor choices or maintained civica components.
+
+The supplementary domain map also covers all **15** additional state domains identified by the native row and dialog census, plus **Plant, Zone and Schedule** from the existing guide topics and official integration references. It reuses existing glossary and helper entries where they already explain the concept. Inventory counts can therefore overlap; they are not a sum of unique terms. These domains remain separate from the 45-platform denominator.
+
+The nine named helper types and Settings destinations cover the stated English translation subtrees. Other helper integrations exist. Native state labels cover the selected platform translation subtrees, including device-class and attribute context; they do not enumerate every integration-specific value. The separate [interface census](../reference/ha-interface-coverage.json) owns route and surface counts.
+
+This is a complete mapping of these **named, dated inventories**, not a promise to contain every vendor term, custom card, integration parameter, translated sentence or future release. A missing term needs a source-backed addition, not a guessed translation.
+
+## Keep translations and technical keys distinct
+
+Native English source labels are shown so an author can identify the reference. They are not instructions to force English into another locale. Keep the actual native translation and the person's supplied names. Explain an unfamiliar term near the task, and review any new authored translation in that language.
+
+The native-label tables distinguish a raw state, attribute property, attribute value, device-class translation key and translation fallback key. In particular, `_` is a default entry in a translation file. It is **not** an entity ID or a device-class setting to paste into configuration.
+
+## Source freshness and writing guidance
+
+On 12 November 2026, all **37** previously hashed NHS, Home Office and GOV.UK writing sources returned exactly the same HTML bytes as the 11 November review. This establishes that those retrieved pages did not change between the two checks; it does not establish that every sentence in this repository complies with them.
+
+The current [Plain English Campaign free-guides index](https://www.plainenglish.co.uk/free-guides) and [SCULPT framework page](https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt) were also checked. They had no previous recorded HTML hash, so this guide does not claim their bytes were unchanged. The earlier scoped PDF review remains dated 11 November; this refresh does not claim every linked PDF was reread.
+
+No change to the **68 frozen writing rules** was required by this source refresh. The terminology explanations are original civica content. Plain English word lists, SCULPT artwork and endorsement claims are not reproduced.
+
+## Source attribution
+
+The official Home Assistant website identifies its source under [CC BY-NC-SA 4.0](https://github.com/home-assistant/home-assistant.io/blob/644bcefb1b42d1f50d26847d7d11df06c3b84ae2/LICENSE.md). This register preserves its term names, aliases and source links; it links to the official definitions instead of bundling them. The household explanations and examples were written for civica.
+
+The extracted native keys and English labels come from Home Assistant Core and frontend contributors under [Apache License 2.0](https://github.com/home-assistant/frontend/blob/e32bc0696ebefde323f5b791269ad0c57f3f99d9/LICENSE.md). The [register's provenance record](../reference/ha-terminology.json) includes the licence text, exact sources and changes made to their organisation. Those native labels retain their upstream licence; they are not presented as original civica translations or relabelled as MIT material.
+
+## Maintain an entry
+
+1. Identify the task and whether the text is a native label, supplied name, technical value or authored explanation.
+2. Read its official source at the supported version. Check the actual integration when a capability or state is conditional.
+3. Preserve the native name and literal value; write a separate first-use explanation and the most likely confusion.
+4. Record the stable entry ID, source, checked date, version and inventory membership. Retain historical keys where saved configuration still depends on them.
+5. Check the example in ordinary, missing and ambiguous states, then review the rendered page and relevant user task. Record those checks separately from source inspection.
+
+The [terminology JSON](../reference/ha-terminology.json) contains the full source-refresh record and exact inventory members. The [content review chapter](content-review.html) explains evidence, exceptions and meaningful change notes.

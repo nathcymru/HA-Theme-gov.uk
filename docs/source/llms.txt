@@ -83,3 +83,12 @@ Apply MUST rules to their stated scope. SHOULD rules allow an evidenced exceptio
 
 - [Native controls and flows](home-assistant/index.html): state/capability contracts, complete synthetic examples and integration acceptance for all 30 identified design gaps.
 - [Compatibility register](home-assistant/compatibility-register.html): exact maintained adapters and native fallback.
+
+## Versioned Home Assistant coverage and terminology
+
+- [Coverage audit](community/home-assistant-coverage-audit.html): current source scope, checklists and verification boundaries.
+- [Interface census](home-assistant/interface-coverage.html) and [machine register](reference/ha-interface-coverage.json): exact source entries mapped to components, styles and patterns; pinned Core/frontend versions and exclusions.
+- [Terminology](content/home-assistant-terminology.html) and [machine register](reference/ha-terminology.json): official glossary, native domains, named vocabulary inventories and context-dependent labels. Preserve native translations and distinguish code values from translation keys.
+- [UK systems review](community/uk-design-system-review.html) and [crosswalk](reference/uk-design-system-crosswalk.json): current catalogues, detail-review constraints and source-to-family decisions.
+- [Sliders](components/sliders.html): local civica.uk range anatomy, precise alternatives, explicit provenance and failure states.
+- [Coverage verification](reference/ha-coverage-verification.json): independently reviewed scope, executed checks and publication status. A registry mapping is not live native implementation evidence.

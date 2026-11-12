@@ -1,0 +1,81 @@
+---
+title: "Dashboard composition and card features"
+description: "Choose native layouts, group cards by household task and preserve capability-dependent features."
+section: patterns
+group: "Home Assistant: interface coverage"
+status: reference
+source_url: https://www.home-assistant.io/dashboards/views/
+published_on: 2026-11-12
+updated_on: 2026-11-12
+last_reviewed_on: 2026-11-12
+review_in: 3 months
+updates:
+  - date: 2026-11-12
+    description: "Added the dashboard composition and card features contract, native registry mapping and complete synthetic examples."
+---
+
+# Dashboard composition and card features
+
+A dashboard answers a small set of household questions. Arrange it around those questions before choosing a card shape. A card is a container, a view is a layout, and a feature is a capability-dependent control inside a supported card. They are not interchangeable layers.
+
+<h2 id="layouts">Four native view layouts</h2>
+
+| Native view | Local design contract | Boundary |
+| --- | --- | --- |
+| Sections | Group related tasks under descriptive headings. Put urgent exceptions before routine summaries. | Preserve native section order, grid sizing and the editor's placement rules. |
+| Masonry | Let cards retain their intrinsic height; make each understandable independently. | Do not promise a left-to-right reading sequence from visual columns. Check actual keyboard and reading order. |
+| Panel | Give one task the available width, such as a map or floor plan. | Supply a usable text alternative and controls outside precision overlays. |
+| Sidebar | Put the main task first and related context second. | Related content must remain useful when the native layout collapses on a narrow screen. |
+
+Grid, horizontal stack and vertical stack are card containers, not additional view types. Avoid nested stacks that shrink labels or make unrelated cards look like one control. Prefer responsive sections when a row of controls cannot fit. Native view visibility hides navigation; it is not an authorisation boundary. Keep account permissions separate.
+
+<h2 id="cards">Card hierarchy and generated dashboards</h2>
+
+Use Heading for a task title, Tile for a concise entity with suitable features, Area for a real configured area, and Shortcut for an identified destination or action. Button cards need an action name; a friendly device name alone does not explain whether activation opens details or changes state. Home summary, toggle-group and generated overview cards must retain their native membership and eligibility rules. Counts must include or explain unavailable members.
+
+A Conditional card controls visibility of its child. Entity filter selects matching entities. Neither can establish that a hidden entity is safe, off, absent or forbidden. Distinguish an intentionally empty result from failed data and retain another route to essential controls. Internal startup, error and empty-state cards keep their actual error context; do not disguise a failed card as an empty household.
+
+<%= example('ha-coverage-composition-sections') %>
+
+<%= example('ha-coverage-composition-filter') %>
+
+<h2 id="features">Features, placement and variants</h2>
+
+The pinned frontend registers 53 feature types. The inventory maps each one to its domain contract. Render only the features and options the native card and entity support. Tile feature placement can be bottom or inline; moving a feature must preserve its label and reading order. A feature's configured mode list must not invent modes the device lacks.
+
+| Feature family | Supported presentation variants to preserve | Local rule |
+| --- | --- | --- |
+| Climate, fan, humidifier and water-heater mode choices | Native dropdown or icon choices where that feature exposes them | Keep a text equivalent for every icon; use a dropdown when labels need room. |
+| Select options | Dropdown or buttons | Display native option labels and retain the original stored value. |
+| Numeric input, target temperature and target humidity | Buttons or slider | Keep bounds, steps and units; provide precise value entry where the native flow supports it. |
+| Timer presets | Buttons or dropdown | A duration choice is not an elapsed timer reading. |
+| Cover and valve favourites; light colour favourites | Supported named or value-based shortcuts | A favourite is a requested setting, not confirmation of current position or colour. |
+| Bar gauge, trend and forecast | Read-only visualisations | Show quantity, period and a text value; never present a gauge as an adjustable slider. |
+
+Do not turn every feature into a filled icon tile. Use one consistent MDI vocabulary for domain actions, 24px icons where appropriate, square surfaces, quiet dividers and the shared spacing scale. Retain domain colours only when their meaning is explained independently of colour.
+
+<%= example('ha-coverage-composition-features') %>
+
+<h2 id="badges">Badges, headings, headers and footers</h2>
+
+Entity and state-label badges summarise one identified state. Energy total badges need units and the selected period. Alert badges require the real alert meaning. Shortcut badges must name the destination. Entity-filter badges inherit the same empty/error distinction as filtered cards. An error badge is a failure state, not a generic warning icon.
+
+Heading badges can show entity values or actions. Keep their accessible names meaningful outside the heading. Picture headers provide context; graph headers or footers need a matching summary; button headers or footers contain actual actions. Do not add decorative chart strips without a quantity and period. Preserve native support differences: not every card or view accepts every badge/header/footer.
+
+<%= example('ha-coverage-composition-badges') %>
+
+<h2 id="acceptance">Acceptance checks</h2>
+
+Check all four native layouts with long names, 320px width, keyboard order and enlarged text. Change feature capabilities while details are open; no unsupported command may remain active. Exercise empty filters, unknown states, hidden views accessed by URL and partial groups. A display filter must not become a permission check. Check native mode dropdown and icon variants separately, including selection announced by text.
+
+Sources: [Views](https://www.home-assistant.io/dashboards/views/), [Card features](https://www.home-assistant.io/dashboards/features/), [Badges](https://www.home-assistant.io/dashboards/badges/), [Card headers and footers](https://www.home-assistant.io/dashboards/header-footer/), and the [pinned feature registry](https://github.com/home-assistant/frontend/blob/e32bc0696ebefde323f5b791269ad0c57f3f99d9/src/panels/lovelace/card-features/registry.ts).
+
+<h2 id="evidence">Implementation and evidence boundary</h2>
+
+This is a reference design specification, not a replacement for native Home Assistant components. The examples use invented records and local draft feedback; they do not call Home Assistant. Mapping a registry entry here establishes a design owner, not proof that every integration, browser or device has been tested. Keep native state formatting, translations, permissions, capabilities and event handling. Theme tokens can change presentation; they cannot supply missing application behaviour.
+
+The [interface coverage inventory](../reference/ha-interface-coverage.json) records the finite source baseline and exact mappings. Recheck native behaviour after frontend changes. Use the [native task acceptance process](native-task-accessibility.html) to record what was actually tested.
+
+Apply the [brand rules](../styles/brand.html), [writing guide](../content/index.html), [layout](../styles/layout.html), [colour roles](../styles/colour.html) and [typography](../styles/typography.html). Structural dividers use the quiet border token; editable boundaries and focus indicators remain distinct. Preserve 16px native control text, visible labels, keyboard access and readable names at 320px. A compact arrangement must not remove a capability explanation or essential recovery route.
+
+Review owner: civica.uk maintainers. Source baseline: Home Assistant Core 2026.11.1 and frontend 20261028.5; primary documentation reviewed on 12 November 2026.

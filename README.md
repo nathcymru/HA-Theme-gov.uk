@@ -42,7 +42,7 @@ frontend:
   themes: !include_dir_merge_named themes
 ```
 
-Restart after changing `configuration.yaml`. For theme-file changes alone, run **Developer tools → Actions → `frontend.reload_themes`**. In your **Profile**, choose `civica Civic Cobalt Vivid` or another civica theme. The native selector works without extra JavaScript.
+Restart after changing `configuration.yaml`. For theme-file changes alone, run **Settings → Tools → Actions → `frontend.reload_themes`**. In your **Profile**, choose `civica Civic Cobalt Vivid` or another civica theme. The native selector works without extra JavaScript.
 
 ## Add the colour toggle and branding
 

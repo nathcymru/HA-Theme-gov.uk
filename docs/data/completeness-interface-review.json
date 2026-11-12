@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-12",
+  "reviewer": "official_design_research",
+  "scope": "Independent read-only source review of six interface coverage specifications and all 21 synthetic examples. Wrote only this private report; no source edits, builds, browser runs or Home Assistant operations.",
+  "files": [
+    {
+      "path": "docs/source/home-assistant/dashboard-composition.html.md.erb",
+      "sha256": "2908fab600bd5c18cd2bebbd39ba5036d86660d2896ae98b8fed25cb5e3706bd",
+      "review": "complete-source-read",
+      "notes": "Read full guide: four native view layouts, containers versus views, generated/filtered membership, capability-owned feature choices, badges and header/footer limits. Examples preserve reported values, partial-day meaning and no all-clear from an empty filter. The specimen grid class is now corrected to the supported local component."
+    },
+    {
+      "path": "docs/source/home-assistant/entity-lists-and-rows.html.md.erb",
+      "sha256": "a58c53b9824613206e2765ebfa07747e7d8953dbdb4926ce464fcbf6af897b50",
+      "review": "complete-source-read",
+      "notes": "Read full guide: current/period readings, domain-dependent rows, header/group eligibility, attribute units and missing values, More info and default fallbacks remain distinct. Corrected pinned source link now matches the stated frontend commit."
+    },
+    {
+      "path": "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb",
+      "sha256": "68e99809c9a884231fd02ace6a5bd63935ad8c12d69246dd493e1806e2ccdad2",
+      "review": "complete-source-read",
+      "notes": "Read full guide: decorative/live/retained imagery, equivalent normal-flow information, action gestures versus semantics, escaped authored content and blocked external embeds are covered. Local and external Webpage sources are now both acknowledged."
+    },
+    {
+      "path": "docs/source/home-assistant/helpers-and-scalar-inputs.html.md.erb",
+      "sha256": "b740f0850f9006f39303fd9f39bb424c98a71fa5f23e0383a0af4f6cf3aa9820",
+      "review": "complete-source-read",
+      "notes": "Read full guide: helpers versus device commands, real bounds/options, counter reset, remote feedback, draft/save/report separation and permissions are sound. Acceptance now explicitly preserves native automation consequences of real creation/saving."
+    },
+    {
+      "path": "docs/source/home-assistant/schema-selectors.html.md.erb",
+      "sha256": "8e8414d851b6fc72e7da0080528c20d3f8b56cdf01f7ebb1b76c60d116ff7bad",
+      "review": "complete-source-read",
+      "notes": "Read full guide: resource types and IDs, provider privacy, scalar/structured data, presentation/internal selector boundaries, errors and typed round trips remain distinct. The examples explicitly avoid claiming to implement a live searchable native selector or YAML parser."
+    },
+    {
+      "path": "docs/source/home-assistant/specialist-entities.html.md.erb",
+      "sha256": "03b735b155b5b454e0b398aa3448953ec939a8ad20c2f7be2d8632f91fac86f5",
+      "review": "complete-source-read",
+      "notes": "Read full guide: configured plant thresholds, environmental units, sun calculation, event timestamps, retained image evidence and generated output remain distinct. The examples make no diagnosis, safe-room verdict or automatic action claim."
+    },
+    {
+      "path": "docs/data/ha-coverage-examples.yml",
+      "sha256": "b840d2fcec4f1d9c2939ef0bd64284c0bb9bd749164ce62eb111fb29c2d5934c",
+      "review": "complete-source-read",
+      "notes": "Read all 21 complete HTML records and metadata, including all linked destination IDs and original illustration provenance."
+    }
+  ],
+  "examples": [
+    {
+      "id": "ha-coverage-composition-sections",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 3,
+      "line_end": 12,
+      "review": "complete-source-read",
+      "notes": "Named unavailable reading has recovery context; separate room links lead to existing complete specimens. Grid class now uses the supported local grid; no device action occurs.",
+      "owner": "docs/source/home-assistant/dashboard-composition.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-composition-filter",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 13,
+      "line_end": 22,
+      "review": "complete-source-read",
+      "notes": "Zero matches and one unavailable contact do not claim all windows closed; criteria, configured denominator and report time are explicit.",
+      "owner": "docs/source/home-assistant/dashboard-composition.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-composition-features",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 23,
+      "line_end": 32,
+      "review": "complete-source-read",
+      "notes": "Reported heat mode, measured temperature and target stay separate from the local Heat/Off draft. Native capability limits are stated.",
+      "owner": "docs/source/home-assistant/dashboard-composition.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-composition-badges",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 33,
+      "line_end": 42,
+      "review": "complete-source-read",
+      "notes": "4.2 kWh has a partial-day interval and GMT/Europe-London context. Locked is a reported read-only state rather than an Unlock action.",
+      "owner": "docs/source/home-assistant/dashboard-composition.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-rows-readings",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 43,
+      "line_end": 52,
+      "review": "complete-source-read",
+      "notes": "Zero power, unavailable temperature, current reading and completed-day mean remain distinct with appropriate units/periods.",
+      "owner": "docs/source/home-assistant/entity-lists-and-rows.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-rows-actions",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 53,
+      "line_end": 62,
+      "review": "complete-source-read",
+      "notes": "Scene operation is separate from a lamp state; explicit local preview changes only feedback and does not imply all members reached settings.",
+      "owner": "docs/source/home-assistant/entity-lists-and-rows.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-rows-attributes",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 63,
+      "line_end": 72,
+      "review": "complete-source-read",
+      "notes": "Absent title does not make playback unavailable; volume is 35%, and last changed is not falsely presented as a heartbeat.",
+      "owner": "docs/source/home-assistant/entity-lists-and-rows.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-picture-alternative",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 73,
+      "line_end": 87,
+      "review": "complete-source-read",
+      "notes": "Original schematic has accurate alternative text, provenance and declared non-live status. Normal-flow named readings and a real detail destination remain available.",
+      "owner": "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-picture-missing",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 88,
+      "line_end": 97,
+      "review": "complete-source-read",
+      "notes": "Image failure preserves entity/state/temperature/timestamp and is not conflated with a device or camera connection failure.",
+      "owner": "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-content-note",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 98,
+      "line_end": 107,
+      "review": "complete-source-read",
+      "notes": "Authored heating task guidance separates measurement from target and links to a complete local target specimen.",
+      "owner": "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-content-external",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 108,
+      "line_end": 117,
+      "review": "complete-source-read",
+      "notes": "External fallback names home-assistant.io, uses its verified official documentation URL and does not actually embed or fetch an external frame.",
+      "owner": "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-helper-number",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 118,
+      "line_end": 127,
+      "review": "complete-source-read",
+      "notes": "Helper preference is stored configuration rather than a current measurement; native numeric bounds/step/required label are explicit. Local form saves and commands nothing.",
+      "owner": "docs/source/home-assistant/helpers-and-scalar-inputs.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-helper-choice",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 128,
+      "line_end": 137,
+      "review": "complete-source-read",
+      "notes": "Removed saved option remains visible and unresolved; replacement initially empty and required. Existing dependencies must be reviewed before a real save.",
+      "owner": "docs/source/home-assistant/helpers-and-scalar-inputs.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-helper-operation",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 138,
+      "line_end": 147,
+      "review": "complete-source-read",
+      "notes": "Counter reset to 2 is distinct from decrementing or stock measurement. Static review offers no pretend reset operation.",
+      "owner": "docs/source/home-assistant/helpers-and-scalar-inputs.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-selector-resources",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 148,
+      "line_end": 157,
+      "review": "complete-source-read",
+      "notes": "Entity identifier and voice resources are separate; unknown provider location prevents a false local-processing claim. Summary explicitly is not a working selector.",
+      "owner": "docs/source/home-assistant/schema-selectors.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-selector-values",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 158,
+      "line_end": 167,
+      "review": "complete-source-read",
+      "notes": "Duration minutes and Europe/London clock time have distinct labels and schemas; no claim the clock input stores a duration.",
+      "owner": "docs/source/home-assistant/schema-selectors.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-selector-structured",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 168,
+      "line_end": 178,
+      "review": "complete-source-read",
+      "notes": "Labelled retained structured text checks only non-empty input and explicitly does not parse YAML, validate the HA schema or execute actions.",
+      "owner": "docs/source/home-assistant/schema-selectors.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-specialist-plant",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 179,
+      "line_end": 188,
+      "review": "complete-source-read",
+      "notes": "18% is compared to an explicitly invented 20% household threshold, while missing light is not zero and no plant diagnosis is offered.",
+      "owner": "docs/source/home-assistant/specialist-entities.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-specialist-environment",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 189,
+      "line_end": 198,
+      "review": "complete-source-read",
+      "notes": "720 ppm remains a measured quantity without an invented health/safety verdict; sun elevation is described as calculated, not measured brightness.",
+      "owner": "docs/source/home-assistant/specialist-entities.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-specialist-event",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 199,
+      "line_end": 208,
+      "review": "complete-source-read",
+      "notes": "Single-press timestamp is an event, not a duration, person identity or continuing presence; retained-image timing is explained.",
+      "owner": "docs/source/home-assistant/specialist-entities.html.md.erb"
+    },
+    {
+      "id": "ha-coverage-specialist-generated",
+      "path": "docs/data/ha-coverage-examples.yml",
+      "line_start": 209,
+      "line_end": 218,
+      "review": "complete-source-read",
+      "notes": "Generated suggestion is labelled unverified and cannot establish a missing contact state; reported light evidence and no-action scope are explicit.",
+      "owner": "docs/source/home-assistant/specialist-entities.html.md.erb"
+    }
+  ],
+  "source_checks": {
+    "guide_count": 6,
+    "complete_example_count": 21,
+    "each_example_has_one_guide_owner": true,
+    "example_counts_by_guide": {
+      "docs/source/home-assistant/dashboard-composition.html.md.erb": 4,
+      "docs/source/home-assistant/entity-lists-and-rows.html.md.erb": 3,
+      "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb": 4,
+      "docs/source/home-assistant/helpers-and-scalar-inputs.html.md.erb": 3,
+      "docs/source/home-assistant/schema-selectors.html.md.erb": 3,
+      "docs/source/home-assistant/specialist-entities.html.md.erb": 4
+    },
+    "local_example_destinations": "All referenced ../examples/ IDs resolve in existing example YAML sources; rendered asset/link checking was not run.",
+    "safe_forms": "All interactive forms use the existing data-demo-form protocol. docs/config.rb normalises fields/buttons to disabled when JavaScript is unavailable, while example.js prevents submission and gives local-only feedback. No request/backend handler is added by these specimens.",
+    "styling": "All custom classes now resolve in example.css.scss. GOV.UK classes rely on the existing imported frontend bundle. Original schematic SVG was read and matches its alternative text; no rendered layout/contrast assertion is made."
+  },
+  "findings": [
+    {
+      "id": "INTERFACE-001",
+      "priority": "P2",
+      "status": "source-corrected/pending-rendered",
+      "title": "Pinned More info source link had a malformed commit",
+      "evidence": [
+        {
+          "path": "docs/source/home-assistant/entity-lists-and-rows.html.md.erb",
+          "line": 65
+        }
+      ],
+      "observed": "Initial reviewed link used e32bc0696ebef323… instead of e32bc0696ebefde323….",
+      "resolution": "Parent corrected the link while review was in progress. Current source uses e32bc0696ebefde323f5b791269ad0c57f3f99d9 consistently.",
+      "acceptance": "Keep the correct immutable commit and file path; final source/link verification remains parent-owned."
+    },
+    {
+      "id": "INTERFACE-002",
+      "priority": "P2",
+      "status": "source-corrected/pending-rendered",
+      "title": "Composition specimen uses an undefined grid class",
+      "evidence": [
+        {
+          "path": "docs/data/ha-coverage-examples.yml",
+          "line": 11,
+          "excerpt": "class=\"civica-card-grid\""
+        },
+        {
+          "path": "docs/source/stylesheets/example.css.scss",
+          "line": 124,
+          "excerpt": ".civica-card-demo-grid { display:grid;"
+        }
+      ],
+      "impact": "The intended room-card grid has no stylesheet rule, so this particular composition example silently falls back to a normal block flow.",
+      "proposal": "Reuse the existing civica-card-demo-grid class with appropriate children rather than introduce a parallel class.",
+      "acceptance": "Confirm the rendered specimen uses the supported responsive grid at wider widths and wraps at 320px/200% text without changing its labels or destinations.",
+      "resolution": "Owner replaced the undefined class with the supported civica-card-demo-grid. Source verified; responsive rendering remains pending."
+    },
+    {
+      "id": "INTERFACE-003",
+      "priority": "P2",
+      "status": "source-corrected/pending-rendered",
+      "title": "Helper creation acceptance promises an unsupported absence of automation effects",
+      "evidence": [
+        {
+          "path": "docs/source/home-assistant/helpers-and-scalar-inputs.html.md.erb",
+          "line": 61,
+          "excerpt": "Verify that creating or viewing a helper does not run its dependent automation."
+        }
+      ],
+      "impact": "The no-effect guarantee is appropriate to viewing/editing a local draft, but actual helper creation or saved state publication can participate in native state/event automation triggers. Requiring suppression would contradict the guide’s own native-owned semantics.",
+      "proposal": "Require opening a helper or editing an unsubmitted draft to dispatch no action. State that real creation or saved value changes retain native state/event consequences and dependent automation behaviour.",
+      "sources": [
+        "https://www.home-assistant.io/integrations/input_number/",
+        "https://www.home-assistant.io/triggers/state/"
+      ],
+      "acceptance": "Copy clearly separates viewing/draft editing from committing creation/value changes; no blanket guarantee that actual creation/saving cannot run an automation.",
+      "resolution": "Owner now limits no-action acceptance to opening/editing an unsaved draft and explicitly preserves native automation consequences when creating/saving. Exact revised paragraph re-read."
+    },
+    {
+      "id": "INTERFACE-004",
+      "priority": "P3",
+      "status": "source-corrected/pending-rendered",
+      "title": "Webpage description excludes supported local content",
+      "evidence": [
+        {
+          "path": "docs/source/home-assistant/pictures-and-embedded-content.html.md.erb",
+          "line": 52,
+          "excerpt": "A Webpage card embeds another origin."
+        }
+      ],
+      "impact": "Native Webpage cards also support files served from /local. The absolute origin claim is factually too narrow for a comprehensive component mapping.",
+      "proposal": "Explain that Webpage can embed external content or a local file; apply provider/privacy/leave-HA wording specifically to external destinations and retain native sandbox/security settings for either source.",
+      "sources": [
+        "https://www.home-assistant.io/dashboards/iframe/"
+      ],
+      "acceptance": "Guide acknowledges /local files without treating local origin as proof of trust, accessibility or unrestricted embedding.",
+      "resolution": "Owner now explicitly includes an external origin or local /local file. External destination wording and native security limits remain conditional to their applicable source."
+    }
+  ],
+  "sources_reviewed": [
+    {
+      "url": "https://www.home-assistant.io/integrations/input_number/",
+      "reviewed_on": "2026-11-12",
+      "supports": "Helpers publish states which can be used in automation triggers; configured bounds, step and box/slider presentation remain native."
+    },
+    {
+      "url": "https://www.home-assistant.io/triggers/state/",
+      "reviewed_on": "2026-11-12",
+      "supports": "State triggers react to state changes, with explicit from/to filtering and attribute-only semantics."
+    },
+    {
+      "url": "https://www.home-assistant.io/dashboards/iframe/",
+      "reviewed_on": "2026-11-12",
+      "supports": "Webpage supports both external webpages and /local files; browser and native sandbox limitations remain relevant."
+    }
+  ],
+  "not_claimed": [
+    "No browser rendering, keyboard run, screen-reader test or live installation check was performed.",
+    "The finite registry mapping establishes design ownership, not proof that every integration or capability has been implemented or tested.",
+    "No screenshot/computed-style/contrast result is inferred from source inspection."
+  ],
+  "overall": "Six substantive native-owned family specifications and 21 complete, bounded examples have been read. All four bounded review findings were corrected by the owners during review and their exact source changes re-read. No unresolved source finding remains. Rendered/build/browser/live acceptance is not claimed."
+}

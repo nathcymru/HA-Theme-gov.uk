@@ -5,8 +5,10 @@ section: community
 group: Review
 status: reference
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: 2026-11-12
 updates:
+  - date: 2026-11-12
+    description: "Added the slider owner separately from the preserved 68-component baseline."
   - date: 2026-11-11
     description: "Implemented canonical owners, reciprocal family navigation and preserved route relationships."
   - date: 2026-11-11
@@ -28,17 +30,17 @@ The baseline contains **147 guides and 263 examples**, including **68 component 
 | --- | --- |
 | 130 official catalogue entries | 37 GOV.UK components, 38 NHS components, 13 NHS patterns and 42 publishing components, patterns and templates |
 | 28 shared GOV.UK and NHS routes | Two source entries already point to one local page; these are not duplicate local implementations |
-| 68 component pages | Existing component URLs reviewed individually |
-| 58 main guides for those components | A maintenance owner for shared rules; distinct interaction variants remain documented |
-| 263 examples | Inspectable documentation specimens, with every example linked to an owning guide and its other references |
+| <%= audit['current']['componentPages'] %> current component pages | Component URLs, including the new slider owner |
+| <%= audit['current']['componentCanonicalOwners'] %> current main guides | A maintenance owner for shared rules; distinct interaction variants remain documented |
+| <%= audit['currentCoverage']['examples'] %> current examples | Inspectable specimens; the whole-system audit records their current ownership |
 
-The machine-readable [organisation record](../reference/component-rationalisation.json) also maps all 147 baseline guides and all 130 source entries. Its 108 owners across the whole guide set include patterns, foundations and governance pages. That number is not a count of installed components.
+The machine-readable [organisation record](../reference/component-rationalisation.json) also maps all 147 baseline guides and all 130 source entries. The original snapshot’s 108 owners across its guide set include patterns, foundations and governance pages. That number is not a count of installed components.
 
 ## Separate the layers
 
 **Components** define a repeatable interaction or presentation: a button, field, breadcrumb, status tag or table. **Patterns** combine components for a task, such as checking answers or recovering from a failed request. **Page templates** organise authored information, such as a guide, collection or finder. A publishing template does not install a backend or replace a native automation editor.
 
-Home Assistant has a further layer of native domain controls and task flows. A light colour picker, climate control, entity selector or schedule editor needs its own capability and state contract. The [missing-specification register](missing-components.html) links the 30 completed specifications without describing existing native features as missing.
+Home Assistant has a further layer of native domain controls and task flows. A light colour picker, climate control, entity selector or schedule editor needs its own capability and state contract. The [missing-specification register](missing-components.html) preserves the 30 original completed specifications. The [versioned interface census](../home-assistant/interface-coverage.html) adds eight task families and item-by-item mappings without describing existing native features as missing.
 
 ## Implemented organisation
 
@@ -58,7 +60,7 @@ Each proposal has a stable identifier, evidence and acceptance criteria. Priorit
 Every existing component URL appears once below. “Main guide” identifies the owner of shared rules. A variant page retains its own context, examples, source attribution and URL. Similar appearance alone is not a reason to merge behaviours.
 
 <table>
-<caption>Ownership of all 68 baseline component pages</caption>
+<caption>Component ownership, including additions to the preserved baseline</caption>
 <thead><tr><th scope="col">Existing component page</th><th scope="col">Main guide</th><th scope="col">Relationship</th></tr></thead>
 <tbody>
 <% audit['pageInventory'].select { |page| page['kind'] == 'component' }.sort_by { |page| page['url'] }.each do |page| %>

@@ -1,0 +1,62 @@
+---
+title: Home Assistant glossary
+description: All 83 entries in the checked official glossary, with native names, household explanations and common confusions.
+section: styles
+group: Writing guide
+nav_order: 11
+source_url: https://www.home-assistant.io/docs/glossary/
+status: reference
+published_on: 2026-11-12
+updated_on: 2026-11-12
+updates:
+  - date: 2026-11-12
+    description: Mapped all 83 official glossary entries to original household explanations, retained historical terms and added contextual examples.
+---
+
+# Home Assistant glossary
+
+This page covers every entry in the [official Home Assistant glossary](https://www.home-assistant.io/docs/glossary/) snapshot checked on 12 November 2026. The native terms and aliases remain recognisable. The explanations below are original civica wording for household tasks, not a replacement translation or a copy of the official definitions.
+
+Read [how to use the terminology register](home-assistant-terminology.html) before treating an explanation as an interface label. For literal state values, device classes and platform identifiers, use [Entity and state language](entity-and-state-language.html).
+
+## Distinctions that matter during a task
+
+An integration supplies entities; a device can group several of them. A trigger starts a run, a condition checks whether it can continue, and an action requests an operation. Saving or enabling an automation does not establish that the action ran. A notification being sent does not establish that someone read it.
+
+<%= example('term-event-action') %>
+
+<%= example('term-native-label') %>
+
+<%= example('term-historical-name') %>
+
+## Browse the glossary
+
+<% register = JSON.parse(File.read(File.join(root, 'data', 'ha-terminology.json'))) %>
+<% sources = register['sources'].to_h { |source| [source['id'], source] } %>
+<% entries = register['terms'].select { |term| term['category'] == 'official-glossary' }.sort_by { |term| term['native_name'].downcase } %>
+<% letters = entries.map { |term| term['native_name'][0].upcase }.uniq %>
+<nav aria-label="Glossary letters"><p><% letters.each_with_index do |letter, index| %><%= ' · ' unless index.zero? %><a href="#letter-<%= letter.downcase %>"><%= letter %></a><% end %></p></nav>
+
+<% letters.each do |letter| %>
+<h2 id="letter-<%= letter.downcase %>"><%= letter %></h2>
+<% entries.select { |term| term['native_name'][0].upcase == letter }.each do |term| %>
+<details class="civica-audit-detail" id="<%= escape(term['id'].downcase) %>">
+<summary><strong><%= escape(term['native_name']) %></strong><%= ' — historical term retained' if term['status'] == 'historical-term-retained' %></summary>
+<p><strong>Household wording:</strong> <%= escape(term['household_wording']) %>.</p>
+<p><strong>First-use explanation:</strong> <%= escape(term['first_use_explanation']) %></p>
+<p><strong>Keep distinct:</strong> <%= escape(term['avoid_confusion']) %></p>
+<% unless term['aliases'].empty? %><p><strong>Aliases recorded by the source:</strong> <%= escape(term['aliases'].join(', ')) %>. These are lookup references, not instructions to replace native labels.</p><% end %>
+<p><a href="<%= escape(term['official_glossary_url']) %>">Official <%= escape(term['native_name']) %> entry</a><% if term['further_reading_url'] %> · <a href="<%= escape(term['further_reading_url']) %>">Related official guidance</a><% end %>. Reference: <code><%= escape(term['id']) %></code>.</p>
+</details>
+<% end %>
+<% end %>
+
+## Historical terms and current instructions
+
+Apps were formerly called add-ons. Lovelace remains in technical dashboard identifiers. Component was an older name for integration, while “component” also has a separate meaning in this design system. Home Assistant Core remains the main program even though the former standalone Core production installation method is deprecated. Home Assistant Supervised names a deprecated installation method; Supervisor is still a distinct software component.
+
+Preserve those distinctions. Use the current control name when giving a current instruction, and retain an old literal key when explaining saved configuration. Link to the [current official installation guidance](https://www.home-assistant.io/installation/) before recommending an installation method.
+
+## Scope and maintenance
+
+The register maps 83 source entries, not every phrase in the entire Home Assistant website. Source snapshots, aliases, entry identifiers and reviewed dates are in the [terminology JSON](../reference/ha-terminology.json). The [interface terminology chapter](interface-terminology.html) adds the specifically enumerated native UI and configuration vocabulary. Future or vendor-specific terms need a separate source check.

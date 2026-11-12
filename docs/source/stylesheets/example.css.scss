@@ -95,6 +95,32 @@ dialog::backdrop { background:rgb(11 12 12 / 50%); }
 .civica-card-demo__actions .govuk-button { margin-bottom:0; }
 .civica-card-demo__fallback { padding:20px; background:#f3f6f9; color:#505a5f; }
 .civica-control-range { width:100%; max-width:24rem; min-height:44px; }
+.civica-slider,.civica-control-range {
+  appearance:none; -webkit-appearance:none; display:block; width:100%; max-width:32rem;
+  min-width:0; height:44px; margin:0; padding:0; background:transparent; cursor:pointer;
+}
+.civica-slider::-webkit-slider-runnable-track,.civica-control-range::-webkit-slider-runnable-track {
+  height:6px; border:1px solid #505a5f; background:#cecece; border-radius:3px;
+}
+.civica-slider::-moz-range-track,.civica-control-range::-moz-range-track {
+  height:4px; border:1px solid #505a5f; background:#cecece; border-radius:3px;
+}
+.civica-slider::-webkit-slider-thumb,.civica-control-range::-webkit-slider-thumb {
+  appearance:none; -webkit-appearance:none; width:28px; height:28px; margin-top:-12px;
+  border:2px solid #0b0c0c; border-radius:50%; background:#1d70b8;
+}
+.civica-slider::-moz-range-thumb,.civica-control-range::-moz-range-thumb {
+  width:24px; height:24px; border:2px solid #0b0c0c; border-radius:50%; background:#1d70b8;
+}
+.civica-slider__steps { display:flex; flex-wrap:wrap; align-items:flex-start; gap:15px; margin:15px 0; }
+.civica-slider__steps .govuk-button { margin:0; max-width:100%; white-space:normal; }
+@media(forced-colors:active) {
+  .civica-slider,.civica-control-range { forced-color-adjust:auto; }
+  .civica-slider::-webkit-slider-runnable-track,.civica-control-range::-webkit-slider-runnable-track { border-color:CanvasText; background:Canvas; }
+  .civica-slider::-moz-range-track,.civica-control-range::-moz-range-track { border-color:CanvasText; background:Canvas; }
+  .civica-slider::-webkit-slider-thumb,.civica-control-range::-webkit-slider-thumb { border-color:CanvasText; background:Highlight; }
+  .civica-slider::-moz-range-thumb,.civica-control-range::-moz-range-thumb { border-color:CanvasText; background:Highlight; }
+}
 .civica-card-demo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:20px; list-style:none; padding:0; margin:0; }
 .civica-card-demo-grid > li { min-width:0; }
 @media(min-width:640px) { .civica-card-demo--horizontal { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); align-items:start; } }

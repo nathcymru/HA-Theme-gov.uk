@@ -1,0 +1,110 @@
+examples:
+  term-device-entity:
+    title: One device, two different entities
+    description: Synthetic household names distinguish a physical product from its reading and control. No device is connected.
+    html: |
+      <h2 class="govuk-heading-m">Nain’s reading lamp</h2>
+      <p class="govuk-body">Example device in the living room. Its name is kept exactly as supplied.</p>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Light control</dt><dd class="govuk-summary-list__value">Home Assistant reports Off<br><code>light.nains_reading_lamp</code></dd></div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Power reading</dt><dd class="govuk-summary-list__value">0 W<br><code>sensor.nains_reading_lamp_power</code></dd></div>
+      </dl>
+      <p class="govuk-body">These example values were recorded at <time datetime="2026-11-12T14:30:00Z">14:30 on 12 November 2026</time>, Europe/London. Off is a reported control state; it does not establish safe electrical isolation.</p>
+  term-same-word-different-layer:
+    title: Apps, integrations and the Companion app
+    description: A complete comparison keeps the current Apps label separate from integration and mobile-app concepts.
+    html: |
+      <h2 class="govuk-heading-m">Which part are you setting up?</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">App</dt><dd class="govuk-summary-list__value">Extra software running alongside Home Assistant on a supported OS installation. Older instructions may call it an add-on.</dd></div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Integration</dt><dd class="govuk-summary-list__value">The connection that supplies devices, readings or controls to Home Assistant.</dd></div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Companion app</dt><dd class="govuk-summary-list__value">The Home Assistant app on a supported phone or computer. Its permissions and notifications are device-specific.</dd></div>
+      </dl>
+      <p class="govuk-body">This explanation does not install any software. Check your installation type before following instructions for Apps.</p>
+  term-identifiers:
+    title: Explain an identifier without changing it
+    description: A local review form preserves an exact synthetic entity ID and a household-supplied display name.
+    html: |
+      <h2 class="govuk-heading-m">Check the example target</h2>
+      <p class="govuk-body">Display name: <strong>Nain’s reading lamp</strong>. Entity ID: <code>light.nains_reading_lamp</code>.</p>
+      <form data-demo-form data-demo-success="Example target reviewed. No Home Assistant setting or device was changed.">
+        <div class="govuk-form-group"><label class="govuk-label" for="term-target-id">Entity ID</label><div class="govuk-hint" id="term-target-hint">Keep the dot and underscores. This field contains an invented identifier for the example.</div><input class="govuk-input" id="term-target-id" name="entity_id" value="light.nains_reading_lamp" aria-describedby="term-target-hint" required></div>
+        <button class="govuk-button" type="submit">Review example target</button>
+        <p class="govuk-body" data-demo-status role="status" aria-live="polite"></p>
+      </form>
+  term-event-action:
+    title: An event and an action describe different things
+    description: A synthetic automation outline separates the observed event, condition and requested action; the button only gives local feedback.
+    html: |
+      <h2 class="govuk-heading-m">Hallway lighting example</h2>
+      <ol class="govuk-list govuk-list--number">
+        <li><strong>When:</strong> the hallway motion sensor reports motion.</li>
+        <li><strong>And if:</strong> the configured after-sunset condition passes.</li>
+        <li><strong>Then do:</strong> request Turn on for the hallway light.</li>
+      </ol>
+      <p class="govuk-body">A motion report is an event used by the trigger. The request to turn on the light is an action. Saving this outline would not prove that the light turned on.</p>
+      <button class="govuk-button govuk-button--secondary" type="button" data-demo-message="Example outline reviewed. No automation was saved or run.">Review example outline</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite"></p>
+  term-native-label:
+    title: Keep the native label, explain it nearby
+    description: An exact English native label is retained while its purpose is explained in plain language.
+    html: |
+      <h2 class="govuk-heading-m">Find a helper</h2>
+      <p class="govuk-body">In the English interface version used by this example, open <strong>Settings</strong>, then <strong>Devices &amp; services</strong>, then <strong>Helpers</strong>.</p>
+      <p class="govuk-body">A helper is a value or other building block you create for your setup. A <strong>Toggle</strong> helper stores an on/off choice; it does not necessarily operate a physical switch.</p>
+      <p class="govuk-body">These are reference instructions for frontend 20261028.5. Labels may differ in another language or version. This example does not open a live installation.</p>
+  term-historical-name:
+    title: Explain an older name while preserving a literal path
+    description: The current dashboard name and historical Lovelace technical identifier are both represented accurately.
+    html: |
+      <h2 class="govuk-heading-m">Dashboard terminology in an older guide</h2>
+      <p class="govuk-body">An older guide may call a dashboard “Lovelace”. Use <strong>dashboard</strong> in a new household explanation, but keep a literal route such as <code>/lovelace/overview</code> unchanged when it is the actual configured destination.</p>
+      <details class="govuk-details"><summary class="govuk-details__summary"><span class="govuk-details__summary-text">Why the path still says lovelace</span></summary><div class="govuk-details__text">A readable feature name and a technical route serve different purposes. Replacing text in a saved path can break navigation. This invented path is shown as text; it does not claim that a dashboard exists.</div></details>
+  term-contextual-on:
+    title: The same raw state can have different meanings
+    description: Source-derived binary-sensor labels show why raw on cannot be translated as powered on in every context.
+    html: |
+      <h2 class="govuk-heading-m">Read the sensor’s meaning</h2>
+      <table class="govuk-table"><caption class="govuk-table__caption govuk-table__caption--m">Synthetic state records at 14:30 on 12 November 2026, Europe/London</caption><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Device class</th><th class="govuk-table__header" scope="col">Raw state</th><th class="govuk-table__header" scope="col">Native English label</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Door</th><td class="govuk-table__cell"><code>on</code></td><td class="govuk-table__cell">Open</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Motion</th><td class="govuk-table__cell"><code>on</code></td><td class="govuk-table__cell">Detected</td></tr><tr class="govuk-table__row"><th class="govuk-table__header" scope="row">Battery</th><td class="govuk-table__cell"><code>on</code></td><td class="govuk-table__cell">Low</td></tr></tbody></table>
+      <p class="govuk-body">These are reported sensor states. They are not independent confirmation that a physical space is secure or that a device has been inspected.</p>
+  term-climate-meaning:
+    title: Mode, current action and temperature are different
+    description: A synthetic climate record separates selected mode, reported activity, current measurement and target.
+    html: |
+      <h2 class="govuk-heading-m">Living room heating</h2>
+      <p class="govuk-body">Synthetic record at <time datetime="2026-11-12T14:30:00Z">14:30 on 12 November 2026</time>, Europe/London.</p>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Selected mode</dt><dd class="govuk-summary-list__value">Heat — raw state <code>heat</code></dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reported current action</dt><dd class="govuk-summary-list__value">Heating — <code>hvac_action: heating</code></dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Current temperature</dt><dd class="govuk-summary-list__value">19.5 °C</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Target temperature</dt><dd class="govuk-summary-list__value">21 °C</dd></div></dl>
+      <p class="govuk-body">Selecting Heat does not by itself prove the heater is currently heating. The target is a setting, not the room measurement.</p>
+  term-missing-state:
+    title: Missing states and an old report need different wording
+    description: Three invented entities demonstrate unknown, unavailable and retained state without an unsupported network diagnosis.
+    html: |
+      <h2 class="govuk-heading-m">What is known about these readings?</h2>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Hallway temperature</dt><dd class="govuk-summary-list__value">No value reported — <code>unknown</code></dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Kitchen temperature</dt><dd class="govuk-summary-list__value">State unavailable — <code>unavailable</code></dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Bedroom temperature</dt><dd class="govuk-summary-list__value">Last recorded value: 18 °C, at <time datetime="2026-11-12T12:00:00Z">12:00 on 12 November 2026</time>, Europe/London. The example does not establish whether it is still current.</dd></div></dl>
+      <p class="govuk-body">None of these records is evidence for displaying 0 °C. No connection diagnosis is supplied in this synthetic example.</p>
+  term-all-condition:
+    title: A technical All result is not physical confirmation
+    description: A reference example explains the native condition rule that ignores unknown and unavailable targets.
+    html: |
+      <h2 class="govuk-heading-m">Check the meaning of All</h2>
+      <p class="govuk-body">Synthetic setup: an “All targets” window-closed condition has 2 target sensors. Both are Unavailable.</p>
+      <p class="govuk-body">The native condition can pass because unknown and unavailable targets do not count in this rule. That result does not tell us whether either window is closed.</p>
+      <div class="govuk-inset-text"><strong>Household wording:</strong> Window states unavailable. The automation’s technical condition result does not confirm that the windows are closed.</div>
+      <p class="govuk-body">This explains the documented condition semantics; it does not execute an automation or change the condition.</p>
+  term-navigation-action:
+    title: Navigation and a request have different labels
+    description: A real local link opens explanatory content; a separate example request returns explicit local-only feedback.
+    html: |
+      <h2 class="govuk-heading-m">Reading lamp example</h2>
+      <p class="govuk-body"><a class="govuk-link" href="#term-lamp-details">Read the example lamp details</a></p>
+      <button class="govuk-button" type="button" data-demo-message="Example request previewed. No light was controlled and no Home Assistant request was sent.">Preview a Turn on request</button>
+      <p class="govuk-body" data-demo-status role="status" aria-live="polite"></p>
+      <h3 class="govuk-heading-s" id="term-lamp-details">Example lamp details</h3>
+      <p class="govuk-body">The link changes the reading position in this example. The button demonstrates request wording through local feedback. Neither claims a live device result.</p>
+  term-power-energy:
+    title: Power, energy and cost remain separate
+    description: Complete synthetic quantity and time labels prevent rate, accumulated use and monetary estimates being treated as synonyms.
+    html: |
+      <h2 class="govuk-heading-m">Example electricity summary</h2>
+      <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Power at 14:30</dt><dd class="govuk-summary-list__value">0.8 kW</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Energy from 00:00 to 14:30</dt><dd class="govuk-summary-list__value">4 kWh</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Estimated usage cost</dt><dd class="govuk-summary-list__value">£1.00, using an example rate of £0.25 per kWh. Standing charges and other bill items are not included.</dd></div></dl>
+      <p class="govuk-body">Invented data for 12 November 2026, Europe/London. The energy total covers part of the day; the power value is a reading at one time.</p>

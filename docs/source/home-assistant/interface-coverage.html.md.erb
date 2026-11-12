@@ -1,0 +1,94 @@
+---
+title: Home Assistant interface coverage
+description: Inspect every entry in the pinned native interface registries and its component, style, task pattern and example.
+section: patterns
+group: "Home Assistant: interface coverage"
+nav_order: 0
+status: reference
+source_url: https://github.com/home-assistant/frontend/tree/20261028.5/src
+published_on: 2026-11-12
+updated_on: 2026-11-12
+last_reviewed_on: 2026-11-12
+review_in: 3 months
+updates:
+  - date: 2026-11-12
+    description: Added the complete finite registry crosswalk with separate reference and native-verification boundaries.
+---
+
+# Home Assistant interface coverage
+
+Every entry in the registries below has an assigned local component, style and task pattern, with a complete reference example. This is **design coverage of a defined source baseline**. It is not a claim that every Home Assistant integration has been redesigned, that every native control has passed browser testing, or that a documentation example installs a native adapter.
+
+<% inventory = JSON.parse(File.read(File.join(root, 'data', 'ha-interface-coverage.json'))) %>
+
+<h2 id="baseline">Coherent version baseline</h2>
+
+This inventory was reviewed on 12 November 2026 against Home Assistant Core **<%= inventory['baseline']['core_version'] %>** and frontend **<%= inventory['baseline']['frontend_version'] %>**. Core's frontend manifest pins that exact frontend release. Public documentation is separately fixed to the website commit recorded in the [machine-readable inventory](../reference/ha-interface-coverage.json).
+
+The <%= inventory['totals']['entries'] %> records belong to <%= inventory['totals']['categories'] %> overlapping registries. They are **not <%= inventory['totals']['entries'] %> unique user-visible components**: for example, a public card, its source dispatcher key and its domain control have different records. Internal routes, legacy aliases and reserved entries are labelled rather than recommended as new public configuration.
+
+<h2 id="scope">What is included</h2>
+
+- Every public dashboard card catalogue entry, all four native view layouts and every pinned card dispatcher key.
+- Every registered card feature, every closed feature style variant, Tile placement, badges, header/footer types and picture elements.
+- Every entity/special-row dispatcher key, domain-to-row mapping and dedicated More info control file.
+- Every public selector, native selector dispatcher key and explicit legacy selector alias.
+- All Core entity platforms; additional helper/state domains are separately limited to those referenced by the native row/dialog registries.
+- Native device-control primitives and shared user-facing primitive families, with their exact source members.
+- Top-level panel families, Settings routes, developer tools and native external settings destinations.
+
+Integration-specific modes, ranges, attributes, media sources and permissions remain dynamic. A fixed inventory cannot invent their values. Arbitrary custom cards, custom More info controls, custom panels and custom integrations require a separately reviewed extension record. Source utility functions, CSS-only helpers, animation machinery and instrumentation are not independent public components.
+
+<h2 id="interpretation">How to read a mapping</h2>
+
+The task-pattern link specifies the relevant behaviour and uncertainty boundaries. The component link identifies a reusable visual/interaction owner; the style link supplies the governing visual roles. The example demonstrates an original household scenario. It can be a reference for a family without pretending to reproduce the native component's source or every capability variant.
+
+Native implementation still needs an actual versioned acceptance record. Check the [compatibility register](compatibility-register.html), [native task accessibility](native-task-accessibility.html), and the [current audit evidence](../community/home-assistant-coverage-audit.html). Preserve native translations, user-supplied names, values, event handling and permissions. A theme cannot add missing application behaviour through CSS.
+
+<%= example('ha-flow-030-supported') %>
+
+<%= example('ha-state-missing') %>
+
+<h2 id="registry-summary">Registry summary</h2>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Separate coverage denominators</caption>
+  <thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Registry</th><th class="govuk-table__header" scope="col">Entries</th></tr></thead>
+  <tbody class="govuk-table__body">
+  <% inventory['categories'].each do |category| %>
+    <tr class="govuk-table__row"><th class="govuk-table__header" scope="row"><a class="govuk-link" href="#registry-<%= category['id'] %>"><%= category['label'] %></a></th><td class="govuk-table__cell"><%= category['count'] %></td></tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h2 id="entries">Inspect every mapping</h2>
+
+Open a registry to read its source-derived denominator and all entries. These native identifiers are technical references; the guide and example supply readable household language. “Not asserted” means this inventory makes no native test claim for that entry, not that the entry is necessarily untested elsewhere.
+
+<% inventory['categories'].each do |category| %>
+<details class="govuk-details" id="registry-<%= category['id'] %>">
+  <summary class="govuk-details__summary"><span class="govuk-details__summary-text"><%= category['label'] %> — <%= category['count'] %> entries</span></summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body"><%= category['extraction'] %></p>
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m"><%= category['label'] %> mappings</caption>
+      <thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header" scope="col">Native entry</th><th class="govuk-table__header" scope="col">Design ownership</th><th class="govuk-table__header" scope="col">Example and evidence</th></tr></thead>
+      <tbody class="govuk-table__body">
+      <% inventory['entries'].select { |entry| entry['category'] == category['id'] }.each do |entry| %>
+        <tr class="govuk-table__row" id="coverage-<%= entry['id'].gsub(/[^a-zA-Z0-9_-]/, '-') %>">
+          <th class="govuk-table__header" scope="row"><%= entry['native_id'] %><p class="govuk-body-s"><%= entry['availability'].tr('_', ' ') %></p><% if entry['source_members'] %><details><summary>Inspect <%= entry['source_members'].length %> source members</summary><ul class="govuk-list"><% entry['source_members'].each do |member| %><li><a class="govuk-link" href="https://github.com/home-assistant/frontend/blob/<%= inventory['baseline']['frontend_sha'] %>/<%= member %>"><%= member.split('/').last %></a></li><% end %></ul></details><% end %></th>
+          <td class="govuk-table__cell"><ul class="govuk-list"><li><a class="govuk-link" href="..<%= entry['guide'] %>">Task pattern: <%= entry['guide'].split('/').last.split('.html').first.tr('-', ' ') %></a></li><li><a class="govuk-link" href="..<%= entry['component'] %>">Component: <%= entry['component'].split('/').last.split('.html').first.tr('-', ' ') %></a></li><li><a class="govuk-link" href="..<%= entry['style'] %>">Style: <%= entry['style'].split('/').last.split('.html').first.tr('-', ' ') %></a></li></ul></td>
+          <td class="govuk-table__cell"><ul class="govuk-list"><% entry['examples'].each do |example_id| %><li><a class="govuk-link" href="../examples/<%= example_id %>.html"><%= escape(config[:civica_examples].fetch(example_id).fetch('title')) %></a></li><% end %></ul><p class="govuk-body-s">Native verification: not asserted by this inventory.</p><% if entry['style_variants'] && !entry['style_variants'].empty? %><p class="govuk-body-s">Style variants: <%= entry['style_variants'].join(', ') %>.</p><% end %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</details>
+<% end %>
+
+<h2 id="maintenance">Maintaining complete coverage</h2>
+
+On an upgrade, compare source registries before changing counts. Add or retire an entry with its exact source evidence, canonical design owner and a meaningful specimen. Retain explicit aliases while the native source supports them. Review changes to capabilities and semantics even when the key itself is unchanged. A renamed file is not automatically a new public feature.
+
+The JSON records source paths, immutable commits, hashes, index members, extraction methods, expected identifiers and mappings. Its reference-only status must not be promoted by a successful documentation build. Store native browser/live-device evidence separately, including version, scenario, outcome and limitation. Review owner: civica.uk maintainers.

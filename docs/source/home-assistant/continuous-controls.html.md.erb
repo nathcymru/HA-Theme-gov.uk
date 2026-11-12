@@ -8,10 +8,12 @@ gap_id: "HA-GAP-003"
 contract_id: "HA-CTRL-003"
 source_url: "https://github.com/home-assistant/frontend/blob/b1164739c3a853a28ba1c425415e96a17eb6286e/src/components/ha-control-slider.ts"
 published_on: "2026-11-11"
-updated_on: "2026-11-11"
-last_reviewed_on: "2026-11-11"
+updated_on: "2026-11-12"
+last_reviewed_on: "2026-11-12"
 review_in: "3 months"
 updates:
+  - date: 2026-11-12
+    description: "Linked the canonical local slider component and its precise-entry, failure and unavailable examples; native integration scope remains unchanged."
   - date: 2026-11-11
     description: "Added continuous controls and alternatives contract, domain-specific acceptance checks and synthetic reference examples."
 ---
@@ -19,6 +21,8 @@ updates:
 # Continuous controls and alternatives
 
 Use continuous controls when a person needs to adjust a meaningful range. Preserve the native control when it already supplies the right keyboard, touch and accessible-value behaviour. A decorative dial is not a substitute for a usable input.
+
+The [Sliders and precise values component](../components/sliders.html) owns the reusable range, exact-entry and step-button appearance, with five complete specimens. This pattern owns the native capability, commit and reconciliation contract. The slider is a local civica.uk extension; the [UK systems review](../community/uk-design-system-review.html) records the official guidance and catalogue evidence.
 
 **HA-CTRL-003 — reference design specification.** This specifies the local design coverage requested by HA-GAP-003 for an existing Home Assistant capability. The examples do not install a native adapter, connect to a backend or operate equipment.
 

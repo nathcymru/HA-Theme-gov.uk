@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "title": "Brand, writing and design-system audit work package",
-  "reviewed_on": "2026-11-11",
+  "reviewed_on": "2026-11-12",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
-  "scope": "Original brand/writing review and whole-system audit, followed by authorised remediation: 16 confirmed findings, 4 recommendations, 14 ownership decisions, 30 dedicated Home Assistant specifications and 104 additional examples. Native live-task coverage remains separately bounded.",
+  "scope": "Original brand/writing review and whole-system audit, followed by authorised remediation: 16 confirmed findings, 4 recommendations, 14 ownership decisions, 30 dedicated Home Assistant specifications and 104 additional examples. Native live-task coverage remains separately bounded. The 12 November completeness supplement adds 632 registry mappings, 456 terminology entries, 681 contextual native labels, eight additional task families and 45 examples; source coverage and native implementation remain separate.",
   "completion_meaning": "A completed review means its documented scope has been covered. Open audit findings remain open until their acceptance evidence exists.",
   "phases": [
     {
@@ -388,6 +388,47 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-HA-COMPLETENESS",
+      "title": "Versioned Home Assistant interface and writing coverage",
+      "items": [
+        {
+          "id": "HC1",
+          "task": "Enumerate and map all entries in the pinned built-in interface registries.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/ha-interface-coverage.json",
+            "scripts/check-ha-coverage.mjs"
+          ]
+        },
+        {
+          "id": "HC2",
+          "task": "Refresh writing sources and explain official glossary, entity platforms and named native vocabulary.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/ha-terminology.json",
+            "docs/data/completeness-terminology-review.json"
+          ]
+        },
+        {
+          "id": "HC3",
+          "task": "Review the UK catalogues and define explicit adoption or local contracts, including precise sliders.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/uk-design-system-crosswalk.json",
+            "docs/source/components/sliders.html.md.erb"
+          ]
+        },
+        {
+          "id": "HC4",
+          "task": "Validate shared reference styling, semantics, responsive layout and publication.",
+          "status": "pending",
+          "evidence": [
+            "docs/data/ha-coverage-verification.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -488,6 +529,36 @@
         "Extended the sample-date regression across the March 2027 daylight-saving boundary; all 23 energy browser checks passed.",
         "All three cache regressions passed, including published asset resolution, unchanged image bytes, card behaviour and project-prefix chart code parity. The Cards guide browser check also passed."
       ]
+    },
+    {
+      "id": "loop-10",
+      "title": "Loop 10: finite source coverage and terminology review",
+      "outcome": "Pinned matching Core/frontend versions, mapped every member of 27 overlapping interface registries, reviewed eight UK catalogues and refreshed the writing sources.",
+      "checks": [
+        "Cross-checked exact registry IDs between independently authored coverage and terminology records.",
+        "Reviewed 456 terms, 681 contextual labels and 18 additional documented/native domains.",
+        "Preserved exact native labels and identifiers while adding original household explanations."
+      ]
+    },
+    {
+      "id": "loop-11",
+      "title": "Loop 11: independent correction and expanded rendering",
+      "outcome": "Nine confirmed source issues were corrected and reread; focused browser checks additionally found and corrected enlarged-text overflow and duplicate nested-table region names.",
+      "checks": [
+        "All eight slider interaction checks pass.",
+        "All five expanded-catalogue keyboard, reflow and accessibility checks pass.",
+        "Full-site regression and live publication are tracked in ha-coverage-verification.json."
+      ]
+    },
+    {
+      "id": "loop-12",
+      "title": "Loop 12: correct the wider UK slider-source omission",
+      "outcome": "Added the current Royal Navy range slider and its 37-component index; the current record covers 9 systems and 402 entries. Additional departmental discovery has explicit scope and access limits.",
+      "checks": [
+        "Verified current source release 4.64.2 separately from the live Storybook and legacy Axure guidance.",
+        "Retained explicit labels, exact decimals, precise alternatives and independent local accessibility checks.",
+        "Mapped all 37 Royal Navy components to a justified local-owner decision or explicit exclusion."
+      ]
     }
   ],
   "limitations": [
@@ -495,7 +566,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "remediation-published-and-verified",
+  "status": "completeness-verified-awaiting-publication",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",

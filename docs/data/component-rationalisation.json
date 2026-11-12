@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-11-11",
+  "reviewedOn": "2026-11-12",
   "status": "organisation-implemented",
-  "scope": "All 147 baseline guide URLs and 263 examples; all 68 component pages have exactly one canonical family and owner. New brand and writing guidance supplied the separately frozen review standard.",
+  "scope": "The original 147-guide ownership snapshot and all 68 baseline component routes remain recorded. A separately marked slider addition extends current ownership; baseline counts are historical.",
   "baseline": {
     "guides": 147,
     "examples": 263,
@@ -1267,6 +1267,18 @@
       ],
       "componentPages": [],
       "rule": "One shared behaviour contract; retain distinct variants and source provenance. No page removal is proposed by this family assignment."
+    },
+    {
+      "id": "FAMILY-components-sliders",
+      "title": "Sliders and precise values",
+      "canonicalOwner": "/components/sliders.html",
+      "memberPages": [
+        "/components/sliders.html"
+      ],
+      "componentPages": [
+        "/components/sliders.html"
+      ],
+      "rule": "Own the input anatomy, precise alternatives and local examples; preserve native capability and draft/result contracts."
     }
   ],
   "pageInventory": [
@@ -6242,6 +6254,42 @@
         "file": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
         "line": 17
       }
+    },
+    {
+      "sourceFile": "docs/source/components/sliders.html.md.erb",
+      "url": "/components/sliders.html",
+      "title": "Sliders and precise values",
+      "section": "components",
+      "group": "Home Assistant components",
+      "sha256": "84566e7b05a2ecba75cce7849333945a4f400bd190bfac0347ed1004445ae37e",
+      "examples": [
+        "slider-brightness",
+        "slider-temperature",
+        "slider-signed-offset",
+        "slider-request-failed",
+        "slider-unavailable"
+      ],
+      "kind": "component",
+      "familyId": "FAMILY-components-sliders",
+      "canonicalOwner": "/components/sliders.html",
+      "relationship": "canonical",
+      "decision": "One canonical guide owns the range anatomy and exact-value alternatives; continuous-controls owns native reconciliation.",
+      "publishedUrlDisposition": "retain",
+      "proposedRedirect": null,
+      "sourceMappings": [
+        "https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders",
+        "https://www.w3.org/WAI/ARIA/apg/patterns/slider/",
+        "https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs"
+      ],
+      "runtimeEvidenceFiles": [],
+      "coverageMeaning": "Local reference component; no private native slider adapter is claimed.",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12",
+      "evidence": {
+        "file": "docs/source/components/sliders.html.md.erb",
+        "line": 2,
+        "excerpt": "title: \"Sliders and precise values\""
+      }
     }
   ],
   "sourceMappings": [
@@ -7472,7 +7520,7 @@
     {
       "id": "core-exit-visible",
       "sourceFile": "docs/data/core-examples.yml",
-      "title": "Departure control — demonstration only",
+      "title": "Departure control \u2014 demonstration only",
       "sha256": "c322fb63cc7edfc2596b0c4d0ce68b4f03efead8eee4d40f6fbd988396fc4ac9",
       "ownerPage": "/components/exit-this-page.html",
       "referencedBy": [
@@ -8070,7 +8118,7 @@
     {
       "id": "local-colour-vivid",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Civic Cobalt — Vivid",
+      "title": "Civic Cobalt \u2014 Vivid",
       "sha256": "446a6e26c811ffee2949459844b7c786705c48a3038f7c11c17e7a951817b30b",
       "ownerPage": "/get-started/colour-settings.html",
       "referencedBy": [
@@ -8086,7 +8134,7 @@
     {
       "id": "local-colour-muted",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Civic Cobalt — Muted",
+      "title": "Civic Cobalt \u2014 Muted",
       "sha256": "866c3d7c61ad8b206c916bca1ebedf8f7abc4e3de3d7d7989f8ae8c93e3205ad",
       "ownerPage": "/get-started/colour-settings.html",
       "referencedBy": [
@@ -8261,7 +8309,7 @@
     {
       "id": "local-chart-power",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Power sources — individual unfilled lines",
+      "title": "Power sources \u2014 individual unfilled lines",
       "sha256": "b6ebed274683cd2286f6f2f945f148f5ef886ae206ddcd114f9a25e95f7d7009",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8280,7 +8328,7 @@
     {
       "id": "local-chart-usage",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Consumption — solid and hatched columns",
+      "title": "Consumption \u2014 solid and hatched columns",
       "sha256": "2e787958bfe5e2e97cc407cd7f76dd50eaf5ae83beadb4fb82b6405177d5fd01",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8297,7 +8345,7 @@
     {
       "id": "local-chart-devices",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "Device comparison — horizontal bars",
+      "title": "Device comparison \u2014 horizontal bars",
       "sha256": "282b9aa4ddd7fe925c1b8995bb26f9ac9bbd564ebc35380ed2828fd16c3233be",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8311,7 +8359,7 @@
     {
       "id": "local-chart-many",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "24 named series — generated colours",
+      "title": "24 named series \u2014 generated colours",
       "sha256": "e595b74223e00354b21cdc0202d4d3fa0670e82186dd1e42d9c44ec7162865a5",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -8327,7 +8375,7 @@
     {
       "id": "local-chart-empty",
       "sourceFile": "docs/data/local-examples.yml",
-      "title": "No values — an explicit empty state",
+      "title": "No values \u2014 an explicit empty state",
       "sha256": "7b4908596d2e38ac771c2d433ac22b9ba544a0a8aeb95834c948963401fe8db5",
       "ownerPage": "/components/charts.html",
       "referencedBy": [
@@ -10926,6 +10974,81 @@
       "additionalFamilyReferences": [],
       "runtimeClaim": "isolated-documentation-example",
       "disposition": "retain; deduplicate only after behaviour/content equivalence review"
+    },
+    {
+      "id": "slider-brightness",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "Brightness with an exact-value alternative",
+      "sha256": "f568de67eee9a0039feabf16364daa310e54b88f5decf5e62efca1afa28f70dd",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-temperature",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "A decimal target temperature",
+      "sha256": "35e30acfb935c7f9162304de218dc1a252e809660c72ecfa20f1f6a8bff377d2",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-signed-offset",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "A signed calibration draft",
+      "sha256": "31c83515f1ad625a187d1de3d3e8da1c890a158e1f26167ed3ca672f5d82184f",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-request-failed",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "A failed request preserves the draft",
+      "sha256": "e2e4e47f29b9a9b4a7ee74f2d8de12e19cb425af8927698a7caa8ee3f7222ef2",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "slider-unavailable",
+      "sourceFile": "docs/data/slider-examples.yml",
+      "title": "Unavailable device without a fabricated numeric reading",
+      "sha256": "40d73c4f9f75f2c69423f7c24ede32b7dcdc738505f4c71074ebe035ba4670fc",
+      "ownerPage": "/components/sliders.html",
+      "referencedBy": [
+        "/components/sliders.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example",
+      "disposition": "retain as the canonical range reference",
+      "baselineMember": false,
+      "introducedOn": "2026-11-12"
     }
   ],
   "findings": [
@@ -12744,13 +12867,21 @@
     ]
   },
   "currentCoverage": {
-    "guides": 196,
-    "examples": 405,
-    "homeAssistantSpecifications": 30,
-    "componentRoutes": 68,
-    "componentOwners": 58,
+    "guides": 212,
+    "examples": 450,
+    "homeAssistantSpecifications": 38,
+    "componentRoutes": 69,
+    "componentOwners": 59,
     "sourceMappings": 130,
     "maintainedCustomCardTypes": 3,
     "exactAdapters": "See /home-assistant/compatibility-register.html; not counted as additional custom cards."
+  },
+  "current": {
+    "reviewedOn": "2026-11-12",
+    "ownershipEntries": 148,
+    "componentPages": 69,
+    "componentCanonicalOwners": 59,
+    "additionalComponentPages": 1,
+    "ownershipExamples": 268
   }
 }

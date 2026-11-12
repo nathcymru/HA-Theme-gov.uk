@@ -1,0 +1,67 @@
+---
+title: Interface and configuration terminology
+description: Exact native UI and configuration vocabulary for dashboards, automations, Assist, Energy, Settings, security and installation.
+section: styles
+group: Writing guide
+nav_order: 13
+source_url: https://www.home-assistant.io/docs/
+status: reference
+published_on: 2026-11-12
+updated_on: 2026-11-12
+updates:
+  - date: 2026-11-12
+    description: Added dated native-label and technical-key inventories with task-specific meanings, configuration boundaries and complete local examples.
+---
+
+# Interface and configuration terminology
+
+Use native wording to help people find a feature, then explain what it means for their task. Exact English labels below come from the checked frontend or official guidance. A literal dispatch key without an editor label is identified as technical; it is not promoted into an invented public control name.
+
+This chapter covers named inventories from frontend **20261028.5** and official documentation checked on **12 November 2026**. The separate [native interface census](../reference/ha-interface-coverage.json) records routes, panels, rows, badges and other interface surfaces. Neither inventory promises that every surface is adapted by civica or available to every account.
+
+## Distinguish requests, conditions and evidence
+
+“When”, “And if” and “Then do” name different parts of an automation. Manual **Run actions** is not the same as recreating its trigger. A native condition result describes the configured logical test; it is not automatically a statement about all physical devices.
+
+The current [target-condition guidance](https://www.home-assistant.io/docs/automation/targets/#conditions-any-and-all) excludes unknown and unavailable targets when evaluating Any or All. An All condition can therefore pass when every target is unknown or unavailable. Keep the technical result and missing household evidence separate.
+
+<%= example('term-all-condition') %>
+
+<%= example('term-navigation-action') %>
+
+<%= example('term-power-energy') %>
+
+## Browse by task or configuration type
+
+<% register = JSON.parse(File.read(File.join(root, 'data', 'ha-terminology.json'))) %>
+<% sources = register['sources'].to_h { |source| [source['id'], source] } %>
+<% categories = [['automation-language','Automations and scripts'], ['dashboard-language','Dashboard interactions'], ['assist-language','Assist and voice'], ['security-language','Accounts and security'], ['energy-language','Energy and quantities'], ['installation-language','Installation and maintenance'], ['settings-labels','Exact Settings destination names'], ['view-types','View layouts'], ['card-types','Card names and dispatch identifiers'], ['card-features','Card feature names'], ['selector-types','Selector identifiers']] %>
+<ul><% categories.each do |category,title| %><li><a href="#<%= escape(category) %>"><%= escape(title) %></a></li><% end %></ul>
+
+<% categories.each do |category,title| %>
+<h2 id="<%= escape(category) %>"><%= escape(title) %></h2>
+<% if category == 'settings-labels' %><p>These are the named destination labels in the checked Settings dashboard translation subtree. Keep the actual native translation in a different locale. A destination may be hidden or unavailable because of permissions, installation type or integration configuration.</p><% end %>
+<% if category == 'card-types' %><p>All 71 native card dispatch identifiers are mapped. This includes strategy, error, startup and historical entries as well as public cards. The presence of a key is not evidence that it is a supported standalone editor choice, public extension API or maintained civica adapter.</p><% end %>
+<% if category == 'card-features' %><p>All 53 feature registry keys are mapped. The compatible card and entity determine availability. Retain native capability checks, units, ranges and current state; do not invent operations from a feature name.</p><% end %>
+<% if category == 'selector-types' %><p>All 61 frontend selector-dispatch keys are mapped. The public blueprint-selector documentation is a smaller, separate catalogue. These keys identify schema input types, including internal and compatibility entries; they are not labels to show as unexplained household questions.</p><% end %>
+<% register['terms'].select { |term| term['category'] == category }.sort_by { |term| term['native_name'].downcase }.each do |term| %>
+<details class="civica-audit-detail" id="<%= escape(term['id'].downcase) %>">
+<summary><strong><%= escape(term['native_name']) %></strong><% if term['code_identifiers'] %> — <code><%= escape(term['code_identifiers'].join(', ')) %></code><% end %></summary>
+<% if term['native_name_kind'] %><p><strong>Name source:</strong> <%= escape(term['native_name_kind']) %>.</p><% end %>
+<p><strong>Household wording:</strong> <%= escape(term['household_wording']) %><%= '.' unless term['household_wording'].end_with?('.') %></p>
+<p><strong>First-use explanation:</strong> <%= escape(term['first_use_explanation']) %></p>
+<p><strong>Keep distinct:</strong> <%= escape(term['avoid_confusion']) %></p>
+<% if term['code_kind'] %><p><strong>Technical value scope:</strong> <%= escape(term['code_kind']) %>.</p><% end %>
+<p>Reference: <code><%= escape(term['id']) %></code>. <% term['source_ids'].each_with_index do |source_id,index| %><%= ' · ' unless index.zero? %><a href="<%= escape(sources.fetch(source_id)['url']) %>"><%= escape(sources.fetch(source_id)['title']) %></a><% end %>.</p>
+<% if term['native_label_pointer'] %><p><strong>Source label pointer:</strong> <code><%= escape(term['native_label_pointer']) %></code>.</p><% end %>
+</details>
+<% end %>
+<% end %>
+
+## Review instructions against the actual installation
+
+For this checked frontend, **Tools** is the Settings destination for diagnostic tools and **Apps** is the current additional-software label. Older material may say Developer tools or Add-ons. Current action instructions may also differ from older Services wording. Update a navigation instruction only after verifying the actual destination and supported version; keep backend `service` fields, historical quotations and saved configuration literal.
+
+An exact English source string may use a spelling such as “Color”. Preserve it when identifying that control, while using ordinary UK English “colour” in civica's explanation. Do not silently rewrite native labels to satisfy a prose preference or invent a translation for another language.
+
+Read [the terminology scope and maintenance process](home-assistant-terminology.html) for the explicit denominators and source freshness record. Use [native compatibility guidance](../home-assistant/compatibility-register.html) before claiming a live adapter or installed capability. This reference is writing guidance, not a new execution or permission layer.
