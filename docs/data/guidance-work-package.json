@@ -423,7 +423,7 @@
         {
           "id": "HC4",
           "task": "Validate shared reference styling, semantics, responsive layout and publication.",
-          "status": "pending",
+          "status": "complete",
           "evidence": [
             "docs/data/ha-coverage-verification.json"
           ]
@@ -559,6 +559,20 @@
         "Retained explicit labels, exact decimals, precise alternatives and independent local accessibility checks.",
         "Mapped all 37 Royal Navy components to a justified local-owner decision or explicit exclusion."
       ]
+    },
+    {
+      "id": "loop-13",
+      "title": "Loop 13: final deployment and live verification",
+      "outcome": "The merged implementation passed the main workflow and was verified on GitHub Pages in connected Chrome.",
+      "checks": [
+        "All 844 browser tests and the full build/integrity/unit/template pipeline passed on main.",
+        "Nine public JSON records match the source and 22 HTML routes load correctly.",
+        "Catalogue ownership, terminology counts, Royal Navy attribution and local-only slider feedback were checked live."
+      ],
+      "evidence": [
+        "docs/data/ha-coverage-verification.json",
+        "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43133737331"
+      ]
     }
   ],
   "limitations": [
@@ -566,7 +580,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "completeness-verified-awaiting-publication",
+  "status": "completeness-published-and-verified",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",

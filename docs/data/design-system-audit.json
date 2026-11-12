@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
-  "status": "coverage-verified-in-stated-scope",
+  "status": "coverage-published-and-verified-in-stated-scope",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
   "scope": "All current authored guides and examples; shared documentation presentation, original artwork and canonical ownership; maintained lighting request/count remediation and chart fixture date navigation. Current source review and named browser checks do not certify every native Home Assistant task or physical outcome. The 12 November supplement adds finite source-registry coverage, terminology, UK family decisions and authored references; acceptance is recorded separately.",
   "rule_links": {

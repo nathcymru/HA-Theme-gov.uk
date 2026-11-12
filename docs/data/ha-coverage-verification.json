@@ -2,7 +2,7 @@
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
   "baseline_revision": "99f57ea254d7d511b5d149715a11b3e104ebc47f",
-  "status": "verified-awaiting-publication",
+  "status": "published-and-verified-in-stated-scope",
   "scope": "Versioned documentation coverage, controlled terminology, UK source decisions and styled reference examples. Native runtime and physical-device verification remain separate.",
   "checklists": [
     {
@@ -69,12 +69,18 @@
     {
       "id": "HA-PUBLICATION",
       "title": "Independent review, checks and publication",
-      "status": "in-progress",
+      "status": "complete-in-stated-scope",
       "checks": [
         "Cross-review new guides and example records; correct confirmed findings.",
         "Reconcile every route, example, term, inventory entry and source hash.",
         "Pass build, integrity, unit and browser checks.",
         "Publish and verify public routes, records and examples in Chrome."
+      ],
+      "evidence": [
+        "Independent source review and all recorded corrections are complete.",
+        "Main deployment run 43133737331 passed the full pipeline and published revision b9da8189d05998d7dc0516cb28c5d56e9fffac9b.",
+        "Nine exact public JSON comparisons and 22 public HTML routes passed.",
+        "Connected Chrome verified the public catalogue disclosure/owner links, terminology counts and live slider draft/feedback behaviour."
       ]
     }
   ],
@@ -104,9 +110,9 @@
     },
     {
       "id": "HC-LOOP-4",
-      "status": "local-validation-complete-publication-pending",
+      "status": "complete",
       "scope": "Whole-site regression and publication",
-      "outcome": "All 844 browser checks pass. Required GitHub CI and live publication are the remaining gates."
+      "outcome": "The final implementation passed the main deployment pipeline, including all 844 browser checks. Public records/routes and interactive Chrome checks then passed."
     },
     {
       "id": "HC-LOOP-5",
@@ -149,10 +155,150 @@
       "check": "Royal Navy source correction: all integrity checks and three affected guide browser checks",
       "status": "passed",
       "tests": 3
+    },
+    {
+      "check": "Final main CI and public record/route verification",
+      "status": "passed",
+      "browser_tests": 844,
+      "public_records": 9,
+      "public_routes": 22,
+      "run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43133737331"
     }
   ],
   "publication": {
-    "status": "pending"
+    "status": "verified",
+    "implementation_revision": "b9da8189d05998d7dc0516cb28c5d56e9fffac9b",
+    "run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43133737331",
+    "verified_at": "2026-11-12T01:31:02.719153+00:00",
+    "public_records": [
+      {
+        "path": "reference/ha-interface-coverage.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/ha-terminology.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/uk-design-system-crosswalk.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/ha-coverage-verification.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/coverage.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/writing-guide.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/design-system-audit.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/component-rationalisation.json",
+        "source_parity": true
+      },
+      {
+        "path": "reference/guidance-work-package.json",
+        "source_parity": true
+      }
+    ],
+    "public_routes": [
+      {
+        "path": "index.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/index.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/interface-coverage.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/dashboard-composition.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/entity-lists-and-rows.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/pictures-and-embedded-content.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/helpers-and-scalar-inputs.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/schema-selectors.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/specialist-entities.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/integration-and-app-settings.html",
+        "status": 200
+      },
+      {
+        "path": "home-assistant/system-and-developer-tools.html",
+        "status": 200
+      },
+      {
+        "path": "content/home-assistant-terminology.html",
+        "status": 200
+      },
+      {
+        "path": "content/ha-glossary.html",
+        "status": 200
+      },
+      {
+        "path": "content/entity-and-state-language.html",
+        "status": 200
+      },
+      {
+        "path": "content/interface-terminology.html",
+        "status": 200
+      },
+      {
+        "path": "community/home-assistant-coverage-audit.html",
+        "status": 200
+      },
+      {
+        "path": "community/uk-design-system-review.html",
+        "status": 200
+      },
+      {
+        "path": "components/sliders.html",
+        "status": 200
+      },
+      {
+        "path": "examples/slider-brightness.html",
+        "status": 200
+      },
+      {
+        "path": "examples/slider-temperature.html",
+        "status": 200
+      },
+      {
+        "path": "examples/slider-request-failed.html",
+        "status": 200
+      },
+      {
+        "path": "examples/card-image-device.html",
+        "status": 200
+      }
+    ],
+    "follow_up": "This publication evidence is stored by a subsequent metadata-only commit, which is subject to the same required deployment workflow. It does not claim a new native Home Assistant installation or physical-device test."
   },
   "limitations": [
     "A finite source registry is complete only for its pinned version and recorded extraction scope.",
@@ -180,6 +326,11 @@
       "environment": "Connected Chrome, local build",
       "scope": "Slider guide and standalone temperature example",
       "outcome": "Shared identity/navigation, blue round thumb, quiet track, exact field, step buttons and visible focus confirmed. Entering 20.5 and previewing kept the earlier 19.5 observation unchanged; only explicit local request feedback appeared."
+    },
+    {
+      "environment": "Connected Chrome, public GitHub Pages site",
+      "scope": "Sliders guide, standalone temperature example, interface catalogue and terminology overview",
+      "outcome": "Current Royal Navy attribution visible; catalogue expanded and canonical links present; 456 terms and 681 contextual labels visible. Entering 20.5 synchronised slider/field/output and produced explicit local feedback while the reported 19.5 remained unchanged."
     }
   ],
   "automated_status": "passed",
