@@ -1,6 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="section-accessibility-title section-accessibility-description">
-<title id="section-accessibility-title">Accessibility: keep reading and keyboard routes available</title>
-<desc id="section-accessibility-description">A page with a clear heading is shown beside an enlarged text view and a keyboard with a distinct focused key.</desc>
-<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
-<rect x="70" y="40" width="238" height="232" fill="#FFFFFF"/><rect x="70" y="40" width="16" height="232" fill="#8EB8DC"/><rect x="106" y="68" width="168" height="20" fill="#103E65"/><rect x="108" y="116" width="160" height="14" fill="#8EB8DC"/><rect x="108" y="146" width="134" height="14" fill="#8EB8DC"/><rect x="108" y="176" width="160" height="14" fill="#8EB8DC"/><rect x="108" y="206" width="95" height="14" fill="#8EB8DC"/><path d="M346 119h46v-17l30 26-30 26v-17H346z" fill="#103E65"/><rect x="470" y="44" width="412" height="117" fill="#FFFFFF"/><rect x="498" y="70" width="238" height="25" fill="#103E65"/><rect x="498" y="112" width="330" height="20" fill="#1D70B8"/><rect x="420" y="201" width="466" height="83" fill="#103E65"/><rect x="438" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="480" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="522" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="564" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="606" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="648" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="690" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="732" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="774" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="816" y="216" width="30" height="20" fill="#FFFFFF"/><rect x="438" y="247" width="56" height="20" fill="#FFFFFF"/><rect x="506" y="247" width="220" height="20" fill="#8EB8DC"/><rect x="738" y="243" width="56" height="28" fill="#1D70B8"/><rect x="750" y="251" width="32" height="12" fill="#FFFFFF"/><rect x="807" y="247" width="61" height="20" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-labelledby="section-accessibility-title section-accessibility-description">
+  <title id="section-accessibility-title">Accessibility: keep reading and keyboard routes available</title>
+  <desc id="section-accessibility-description">A page with a clear heading is shown beside an enlarged text view and a keyboard with a distinct focused key.</desc>
+  <rect x="0" y="0" width="640" height="480" fill="#F3F6F9" />
+  <g transform="translate(44 50) scale(0.85) translate(-70 -40)">
+    <rect x="70" y="40" width="238" height="232" fill="#FFFFFF" />
+    <rect x="70" y="40" width="16" height="232" fill="#8EB8DC" />
+    <rect x="106" y="68" width="168" height="20" fill="#103E65" />
+    <rect x="108" y="116" width="160" height="14" fill="#8EB8DC" />
+    <rect x="108" y="146" width="134" height="14" fill="#8EB8DC" />
+    <rect x="108" y="176" width="160" height="14" fill="#8EB8DC" />
+    <rect x="108" y="206" width="95" height="14" fill="#8EB8DC" />
+  </g>
+  <g transform="translate(252 137) scale(0.5) translate(-346 -102)">
+    <path d="M346 119h46v-17l30 26-30 26v-17H346z" fill="#103E65" />
+  </g>
+  <g transform="translate(296 96) scale(0.78) translate(-470 -44)">
+    <rect x="470" y="44" width="412" height="117" fill="#FFFFFF" />
+    <rect x="498" y="70" width="238" height="25" fill="#103E65" />
+    <rect x="498" y="112" width="330" height="20" fill="#1D70B8" />
+  </g>
+  <g transform="translate(66 332) scale(1.08) translate(-420 -201)">
+    <rect x="420" y="201" width="466" height="83" fill="#103E65" />
+    <rect x="438" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="480" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="522" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="564" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="606" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="648" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="690" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="732" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="774" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="816" y="216" width="30" height="20" fill="#FFFFFF" />
+    <rect x="438" y="247" width="56" height="20" fill="#FFFFFF" />
+    <rect x="506" y="247" width="220" height="20" fill="#8EB8DC" />
+    <rect x="738" y="243" width="56" height="28" fill="#1D70B8" />
+    <rect x="750" y="251" width="32" height="12" fill="#FFFFFF" />
+    <rect x="807" y="247" width="61" height="20" fill="#FFFFFF" />
+  </g>
 </svg>

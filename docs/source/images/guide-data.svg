@@ -1,6 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="guide-data-title guide-data-description">
-<title id="guide-data-title">Data: pair a graphic with its values and context</title>
-<desc id="guide-data-description">A simple column-chart schematic is paired with aligned rows of values, showing visual and text routes to the same information.</desc>
-<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
-<rect x="74" y="55" width="354" height="214" fill="#FFFFFF"/><rect x="100" y="236" width="302" height="10" fill="#103E65"/><rect x="120" y="154" width="54" height="82" fill="#1D70B8"/><rect x="215" y="96" width="54" height="140" fill="#103E65"/><rect x="310" y="124" width="54" height="112" fill="#1D70B8"/><path d="M460 154h38v-17l30 26-30 26v-17H460z" fill="#103E65"/><rect x="576" y="55" width="314" height="214" fill="#FFFFFF"/><rect x="576" y="55" width="314" height="38" fill="#103E65"/><rect x="598" y="114" width="118" height="14" fill="#103E65"/><rect x="760" y="114" width="104" height="14" fill="#1D70B8"/><rect x="598" y="159" width="118" height="14" fill="#103E65"/><rect x="760" y="159" width="104" height="14" fill="#1D70B8"/><rect x="598" y="204" width="118" height="14" fill="#103E65"/><rect x="760" y="204" width="104" height="14" fill="#1D70B8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-labelledby="guide-data-title guide-data-description">
+  <title id="guide-data-title">Data: pair a graphic with its values and context</title>
+  <desc id="guide-data-description">A simple column-chart schematic is paired with aligned rows of values, showing visual and text routes to the same information.</desc>
+  <rect x="0" y="0" width="640" height="480" fill="#F3F6F9" />
+  <g transform="translate(35 38) scale(1.08) translate(-74 -55)">
+    <rect x="74" y="55" width="354" height="214" fill="#FFFFFF" />
+    <rect x="100" y="236" width="302" height="10" fill="#103E65" />
+    <rect x="120" y="154" width="54" height="82" fill="#1D70B8" />
+    <rect x="215" y="96" width="54" height="140" fill="#103E65" />
+    <rect x="310" y="124" width="54" height="112" fill="#1D70B8" />
+  </g>
+  <g transform="translate(431 215) rotate(90) scale(0.8) translate(-460 -137)">
+    <path d="M460 154h38v-17l30 26-30 26v-17H460z" fill="#103E65" />
+  </g>
+  <g transform="translate(286 270) scale(0.84) translate(-576 -55)">
+    <rect x="576" y="55" width="314" height="214" fill="#FFFFFF" />
+    <rect x="576" y="55" width="314" height="38" fill="#103E65" />
+    <rect x="598" y="114" width="118" height="14" fill="#103E65" />
+    <rect x="760" y="114" width="104" height="14" fill="#1D70B8" />
+    <rect x="598" y="159" width="118" height="14" fill="#103E65" />
+    <rect x="760" y="159" width="104" height="14" fill="#1D70B8" />
+    <rect x="598" y="204" width="118" height="14" fill="#103E65" />
+    <rect x="760" y="204" width="104" height="14" fill="#1D70B8" />
+  </g>
 </svg>

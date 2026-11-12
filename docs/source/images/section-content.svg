@@ -1,6 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="section-content-title section-content-description">
-<title id="section-content-title">Writing guide: structure and edit a clear explanation</title>
-<desc id="section-content-description">An open reference book sits beside a page with grouped text and a pencil pointing to its final paragraph.</desc>
-<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
-<path d="M64 75Q158 35 276 72V268Q165 230 64 264Z" fill="#8EB8DC"/><path d="M276 72Q385 35 474 75V264Q368 230 276 268Z" fill="#FFFFFF"/><rect x="269" y="72" width="14" height="196" fill="#103E65"/><rect x="96" y="108" width="136" height="13" fill="#103E65"/><rect x="96" y="139" width="116" height="13" fill="#103E65"/><rect x="96" y="170" width="136" height="13" fill="#103E65"/><rect x="96" y="201" width="90" height="13" fill="#103E65"/><rect x="307" y="108" width="128" height="13" fill="#1D70B8"/><rect x="307" y="139" width="104" height="13" fill="#1D70B8"/><rect x="307" y="170" width="128" height="13" fill="#1D70B8"/><rect x="307" y="201" width="87" height="13" fill="#1D70B8"/><rect x="548" y="40" width="260" height="242" fill="#FFFFFF"/><rect x="548" y="40" width="16" height="242" fill="#8EB8DC"/><rect x="584" y="68" width="190" height="20" fill="#103E65"/><rect x="586" y="112" width="176" height="14" fill="#8EB8DC"/><rect x="586" y="144" width="145" height="14" fill="#8EB8DC"/><rect x="586" y="176" width="176" height="14" fill="#8EB8DC"/><rect x="586" y="208" width="112" height="14" fill="#8EB8DC"/><g transform="translate(851 64) rotate(27)"><rect x="0" y="0" width="28" height="164" fill="#1D70B8"/><rect x="7" y="0" width="14" height="164" fill="#8EB8DC"/><path d="M0 164H28L14 195Z" fill="#103E65"/><rect x="0" y="-18" width="28" height="18" fill="#103E65"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-labelledby="section-content-title section-content-description">
+  <title id="section-content-title">Writing guide: structure and edit a clear explanation</title>
+  <desc id="section-content-description">An open reference book sits beside a page with grouped text and a pencil pointing to its final paragraph.</desc>
+  <rect x="0" y="0" width="640" height="480" fill="#F3F6F9" />
+  <g transform="translate(35 48) scale(0.95) translate(-64 -55)">
+    <path d="M64 75Q158 35 276 72V268Q165 230 64 264Z" fill="#8EB8DC" />
+    <path d="M276 72Q385 35 474 75V264Q368 230 276 268Z" fill="#FFFFFF" />
+    <rect x="269" y="72" width="14" height="196" fill="#103E65" />
+    <rect x="96" y="108" width="136" height="13" fill="#103E65" />
+    <rect x="96" y="139" width="116" height="13" fill="#103E65" />
+    <rect x="96" y="170" width="136" height="13" fill="#103E65" />
+    <rect x="96" y="201" width="90" height="13" fill="#103E65" />
+    <rect x="307" y="108" width="128" height="13" fill="#1D70B8" />
+    <rect x="307" y="139" width="104" height="13" fill="#1D70B8" />
+    <rect x="307" y="170" width="128" height="13" fill="#1D70B8" />
+    <rect x="307" y="201" width="87" height="13" fill="#1D70B8" />
+  </g>
+  <g transform="translate(325 244) scale(0.82) translate(-548 -40)">
+    <rect x="548" y="40" width="260" height="242" fill="#FFFFFF" />
+    <rect x="548" y="40" width="16" height="242" fill="#8EB8DC" />
+    <rect x="584" y="68" width="190" height="20" fill="#103E65" />
+    <rect x="586" y="112" width="176" height="14" fill="#8EB8DC" />
+    <rect x="586" y="144" width="145" height="14" fill="#8EB8DC" />
+    <rect x="586" y="176" width="176" height="14" fill="#8EB8DC" />
+    <rect x="586" y="208" width="112" height="14" fill="#8EB8DC" />
+  </g>
+  <g transform="translate(575 255) scale(0.82) translate(-851 -64)">
+    <g transform="translate(851 64) rotate(27)">
+      <rect x="0" y="0" width="28" height="164" fill="#1D70B8" />
+      <rect x="7" y="0" width="14" height="164" fill="#8EB8DC" />
+      <path d="M0 164H28L14 195Z" fill="#103E65" />
+      <rect x="0" y="-18" width="28" height="18" fill="#103E65" />
+    </g>
+  </g>
 </svg>
