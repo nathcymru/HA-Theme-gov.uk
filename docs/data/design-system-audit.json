@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
-  "status": "current-documentation-reviewed-integrated-verification-pending",
+  "status": "current-documentation-reviewed-and-validated",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
   "scope": "All current authored guides and examples; shared documentation presentation, original artwork and canonical ownership; maintained lighting request/count remediation and chart fixture date navigation. Current source review and named browser checks do not certify every native Home Assistant task or physical outcome. The 12 November supplement adds finite source-registry coverage, terminology, UK family decisions and authored references; acceptance is recorded separately.",
   "rule_links": {
@@ -17712,7 +17712,7 @@
     {
       "path": "docs/data/data-design-review.json",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "90928cc205fb3a959c1db70b0aae49192acc8bfa5f5d5f181025b80e1d406b44"
+      "sha256": "3f0000989a5728195e6394339b012a57a1b04c3a7c7e45ae2e2e4b4a6923187f"
     },
     {
       "path": "docs/data/map-design-examples.yml",

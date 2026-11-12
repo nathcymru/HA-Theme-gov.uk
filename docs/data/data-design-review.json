@@ -2,7 +2,7 @@
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
   "scope": "Documentation-only data, colour, household personalisation and section artwork integration.",
-  "status": "Implementation complete; integrated validation and publication pending.",
+  "status": "Documentation implementation and integrated validation complete within the stated scope.",
   "runtime_scope": "No Home Assistant runtime, theme values, installed resources or household configuration changed. Existing native identity integration remains an explicitly documented implementation gap.",
   "sources": [
     "https://brand.design-system.service.gov.uk/data/",
@@ -90,17 +90,53 @@
   },
   "focused_evidence": {
     "map_source": "Four MapLibre styles validated; real provider review rendered geographic features, preserved table values across tone/mode changes, supported keyboard selection and closing, and made no external request before activation.",
-    "artwork": "Ten headers and three homepage variants inspected at960px and320px, with dark surround, grayscale and images omitted; integrated browser checks pending."
+    "artwork": "Ten headers and three homepage variants reviewed at 960px and 320px, with dark surround, grayscale and images omitted. Integrated browser checks verified 11 assigned routes, complete dimensions, source hashes, text alternatives and no-script narrow layouts."
   },
   "integrated_validation": {
-    "status": "pending",
-    "unit": null,
-    "browser": null,
-    "guidance": null,
-    "links": null
+    "status": "passed",
+    "revision": "b96f022214568f4d54e905b39ef961af1fe3caca",
+    "workflow_run": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43307144763",
+    "unit": {
+      "passed": 50
+    },
+    "browser": {
+      "passed": 878,
+      "failed": 0,
+      "skipped": 0
+    },
+    "focused_local_browser": {
+      "passed": 19,
+      "scope": "Seven data/identity checks, six map checks, three artwork/navigation checks and three guide structure/history/accessibility checks."
+    },
+    "guidance": {
+      "rules": 101,
+      "guides": 214,
+      "examples": 459,
+      "source_snapshots": 100
+    },
+    "links": {
+      "html_pages": 673,
+      "result": "passed"
+    },
+    "other_checks": [
+      "Type checking",
+      "Home Assistant configuration/template validation",
+      "Canonical theme and palette generation",
+      "Supplied asset hashes",
+      "Versioned interface and terminology coverage",
+      "Packaging"
+    ],
+    "manual_browser": "Real OpenStreetMap loaded in connected Chrome with labelled synthetic markers and source attribution. Integrated Data and Components headers inspected on desktop; Styles, Colour and Illustration headers inspected at 320px.",
+    "limits": [
+      "Automated accessibility checks do not establish complete WCAG conformance.",
+      "Map automation uses deterministic fixtures; populated real-provider rendering was reviewed separately.",
+      "No Home Assistant runtime or live household deployment was part of this documentation change."
+    ]
   },
   "publication": {
-    "status": "pending",
-    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/"
+    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/",
+    "workflow": ".github/workflows/validate.yml: verify then deploy-docs on main",
+    "pull_request": "https://github.com/nathcymru/HA-Theme-gov.uk/pull/34",
+    "evidence_location": "The pull request records the resulting deployment run and live checks after publication. This immutable source record reports the tested candidate; it does not predict the completion time of its own deployment."
   }
 }

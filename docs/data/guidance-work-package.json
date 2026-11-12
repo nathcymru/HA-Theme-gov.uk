@@ -467,8 +467,8 @@
         },
         {
           "id": "DD4",
-          "task": "Verify the integrated documentation and publish the current update.",
-          "status": "pending",
+          "task": "Validate the integrated documentation and record the gated publication handover and live-evidence location.",
+          "status": "complete",
           "evidence": [
             "docs/data/data-design-review.json"
           ]
@@ -639,12 +639,12 @@
     {
       "id": "loop-15",
       "title": "Loop 15: data, colour, optional household identity and coherent section artwork",
-      "outcome": "Source review and current inventory reconciliation are complete for the documentation update. Integrated validation and publication remain separately pending; no Home Assistant runtime change is claimed.",
+      "outcome": "Current source review and integrated validation passed for 214 guides and 459 examples, including 878 browser tests and 50 unit tests. Publication is handled by the mandatory GitHub Pages workflow; the linked pull request records the resulting deployment and live checks. No Home Assistant runtime change is claimed.",
       "checks": [
         "Connected discoverable data and colour guidance to worked reference examples with dates, sources, missing-value meaning and complete alternatives.",
         "Separated optional household identity from supplied project assets, keeping the existing native companion limitation explicit.",
         "Reconciled current guide/example counts, source hashes, dated page history and exact current evidence while preserving historical baselines, publication evidence and frozen rule history.",
-        "Integrated rendering, interaction, accessibility checks and publication are tracked in the scoped data-design review, not inferred from source checks."
+        "Integrated rendering, interaction, accessibility, source integrity and package checks passed; candidate revision, scope, limits and publication evidence location are recorded in data-design-review.json."
       ],
       "evidence": [
         "docs/data/data-design-review.json",
@@ -661,7 +661,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "current-documentation-implemented-integrated-verification-pending",
+  "status": "current-documentation-validated-publication-evidence-in-linked-pull-request",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",
