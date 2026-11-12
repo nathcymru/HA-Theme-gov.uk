@@ -1,6 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="section-community-title section-community-description">
-<title id="section-community-title">Community: discuss and review shared guidance</title>
-<desc id="section-community-description">Two speech bubbles surround a shared document, showing discussion around a proposed change.</desc>
-<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
-<path d="M66 54H304V184H218L171 223V184H66Z" fill="#1D70B8"/><rect x="100" y="88" width="168" height="14" fill="#FFFFFF"/><rect x="100" y="116" width="132" height="14" fill="#FFFFFF"/><rect x="100" y="144" width="148" height="14" fill="#FFFFFF"/><rect x="390" y="40" width="204" height="242" fill="#FFFFFF"/><rect x="390" y="40" width="16" height="242" fill="#8EB8DC"/><rect x="426" y="68" width="134" height="20" fill="#103E65"/><rect x="426" y="118" width="130" height="14" fill="#8EB8DC"/><rect x="426" y="149" width="110" height="14" fill="#8EB8DC"/><rect x="426" y="180" width="130" height="14" fill="#8EB8DC"/><rect x="426" y="211" width="82" height="14" fill="#8EB8DC"/><path d="M674 112H902V242H797L750 279V242H674Z" fill="#103E65"/><rect x="708" y="147" width="160" height="14" fill="#FFFFFF"/><rect x="708" y="175" width="122" height="14" fill="#FFFFFF"/><rect x="708" y="203" width="140" height="14" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-labelledby="section-community-title section-community-description">
+  <title id="section-community-title">Community: discuss and review shared guidance</title>
+  <desc id="section-community-description">Two speech bubbles surround a shared document, showing discussion around a proposed change.</desc>
+  <rect x="0" y="0" width="640" height="480" fill="#F3F6F9" />
+  <g transform="translate(38 42) scale(0.94) translate(-66 -54)">
+    <path d="M66 54H304V184H218L171 223V184H66Z" fill="#1D70B8" />
+    <rect x="100" y="88" width="168" height="14" fill="#FFFFFF" />
+    <rect x="100" y="116" width="132" height="14" fill="#FFFFFF" />
+    <rect x="100" y="144" width="148" height="14" fill="#FFFFFF" />
+  </g>
+  <g transform="translate(318 83) translate(-390 -40)">
+    <rect x="390" y="40" width="204" height="242" fill="#FFFFFF" />
+    <rect x="390" y="40" width="16" height="242" fill="#8EB8DC" />
+    <rect x="426" y="68" width="134" height="20" fill="#103E65" />
+    <rect x="426" y="118" width="130" height="14" fill="#8EB8DC" />
+    <rect x="426" y="149" width="110" height="14" fill="#8EB8DC" />
+    <rect x="426" y="180" width="130" height="14" fill="#8EB8DC" />
+    <rect x="426" y="211" width="82" height="14" fill="#8EB8DC" />
+  </g>
+  <g transform="translate(70 279) scale(0.98) translate(-674 -112)">
+    <path d="M674 112H902V242H797L750 279V242H674Z" fill="#103E65" />
+    <rect x="708" y="147" width="160" height="14" fill="#FFFFFF" />
+    <rect x="708" y="175" width="122" height="14" fill="#FFFFFF" />
+    <rect x="708" y="203" width="140" height="14" fill="#FFFFFF" />
+  </g>
 </svg>

@@ -1,3 +1,4 @@
+<% illustrated_page = !!data['page-illustrations'][current_page.destination_path] %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
 <% if home_page? %>
 <main id="main-content" class="c-home-content" tabindex="-1"><%= yield %></main>
 <% else %>
-<div class="c-container c-page">
+<div class="c-container c-page<%= ' c-page--illustrated' if illustrated_page %>">
 <aside class="c-sidebar" aria-label="Section navigation">
 <% section = data.navigation.sections.find { |item| item.id == current_section } %>
 <details class="c-section-menu" open><summary><%= section ? section.title : 'Design System' %> navigation</summary>
@@ -30,12 +31,13 @@
 </ul></details><% end %>
 <% else %><ul><% data.navigation.sections.each do |item| %><li><a href="<%= docs_path(item.path) %>"><%= item.title %></a></li><% end %></ul><% end %>
 </details></aside>
-<main class="technical-documentation c-content" id="main-content" tabindex="-1">
-<nav class="c-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="<%= docs_path('/index.html') %>">Home</a></li><% if section && '/' + current_page.destination_path != section.path %><li><a href="<%= docs_path(section.path) %>"><%= section.title %></a></li><% end %><li><%= escape(section && '/' + current_page.destination_path == section.path ? section.title : current_page.data.title) %></li></ol></nav>
+<main class="technical-documentation c-content<%= ' c-content--illustrated' if illustrated_page %>" id="main-content" tabindex="-1">
+<% if illustrated_page %><%= yield_content :illustrated_header %><div class="c-reading-content"><% else %><%= partial 'partials/breadcrumbs' %><% end %>
 <%= yield %>
 <%= partial 'partials/component_family' %>
 <%= partial 'partials/history' %>
 <div class="c-contribute"><h2>Help improve this guidance</h2><p>Review responsibility: the civica.uk repository maintainers. Follow the <a href="<%= docs_path('/content/content-review.html') %>">content review process</a> when changing this guidance.</p><p><a href="https://github.com/nathcymru/HA-Theme-gov.uk/issues/new">Report an issue or suggest a change</a>. Include the page, the task you were trying to complete and what happened. Do not include household credentials or private sensor data.</p><p><a href="https://github.com/nathcymru/HA-Theme-gov.uk/blob/main/docs/source/<%= current_page.source_file.sub(root + '/source/', '') %>">View this page’s source</a></p></div>
+<%= '</div>' if illustrated_page %>
 </main></div><% end %>
 <footer class="c-footer"><div class="c-container"><ul><li><a href="<%= docs_path('/accessibility/index.html') %>">Accessibility</a></li><li><a href="<%= docs_path('/community/licensing.html') %>">Licensing and attribution</a></li><li><a href="<%= docs_path('/sitemap.html') %>">Sitemap</a></li><li><a href="<%= docs_path('/llms.txt') %>">AI reading guide</a></li><li><a href="https://github.com/nathcymru/HA-Theme-gov.uk">GitHub repository</a></li></ul><div class="c-footer__identity"><img src="<%= docs_path('/images/civica-emblem.svg') %>" alt="" width="40" height="40"><p>civica.uk is an independent Home Assistant design system. It is not a UK government service and is not endorsed by GOV.UK, the NHS or Home Assistant.</p></div></div></footer>
 <%= javascript_include_tag 'civica-docs', defer: true %>

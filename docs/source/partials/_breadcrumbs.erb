@@ -1,0 +1,2 @@
+<% section = data.navigation.sections.find { |item| item.id == current_section } %>
+<nav class="c-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="<%= docs_path('/index.html') %>">Home</a></li><% if section && '/' + current_page.destination_path != section.path %><li><a href="<%= docs_path(section.path) %>"><%= section.title %></a></li><% end %><li><%= escape(section && '/' + current_page.destination_path == section.path ? section.title : current_page.data.title) %></li></ol></nav>

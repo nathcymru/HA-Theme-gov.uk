@@ -474,6 +474,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-HERO-LAYOUT",
+      "title": "Correct the illustrated landing layout after direct comparison with the source pages",
+      "items": [
+        {
+          "id": "HL1",
+          "task": "Identify the placement mismatch and measure the official shared desktop/mobile hero composition.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/hero-layout-review.json"
+          ]
+        },
+        {
+          "id": "HL2",
+          "task": "Implement the shared sidebar/hero band and preserve real text, complete original art and responsive navigation.",
+          "status": "complete",
+          "evidence": [
+            "docs/source/layouts/civica.erb",
+            "docs/source/layouts/civica_core.erb",
+            "docs/source/stylesheets/screen.css.scss",
+            "docs/data/hero-layout-review.json"
+          ]
+        },
+        {
+          "id": "HL3",
+          "task": "Verify all eleven routes, layout geometry, narrow and enlarged text, ordinary-page regression and evidence consistency.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/hero-layout-review.json",
+            "tests/section-artwork.browser.spec.mjs"
+          ]
+        },
+        {
+          "id": "HL4",
+          "task": "Record the mandatory publication gate and the change record for actual workflow and live-page evidence.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/hero-layout-review.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -654,6 +696,22 @@
         "tests/maps.browser.spec.mjs",
         "tests/section-artwork.browser.spec.mjs"
       ]
+    },
+    {
+      "id": "loop-16",
+      "title": "Loop 16: correct hero placement and test the missed geometry",
+      "outcome": "The missed placement is corrected. All eleven routes pass explicit desktop/right-edge and mobile geometry, enlarged-text and no-script checks; six guide regressions and current source/link/coverage checks also pass. The mandatory merged-version workflow gates publication; its result and live receipt are recorded in the linked corrective pull request.",
+      "checks": [
+        "Rechecked the three official source pages and responsive CSS using measured viewport geometry.",
+        "Retained earlier test/deployment evidence without treating it as proof of the newly corrected placement.",
+        "Reworked the shared composition and original art; added explicit side-by-side, right-edge, mobile and ordinary-page regression acceptance.",
+        "Preserved the complete prior 100-source snapshot set and added dated route history without deleting earlier entries."
+      ],
+      "evidence": [
+        "docs/data/hero-layout-review.json",
+        "docs/data/page_history.yml",
+        "tests/section-artwork.browser.spec.mjs"
+      ]
     }
   ],
   "limitations": [
@@ -661,7 +719,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "current-documentation-validated-publication-evidence-in-linked-pull-request",
+  "status": "current-hero-correction-locally-validated-publication-evidence-in-linked-change",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",
@@ -685,6 +743,6 @@
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
   ],
-  "latest_documentation_review": "docs/data/data-design-review.json",
-  "publication_verification_scope": "Historical verification of the explicitly named revision and routes below. It does not verify the current unmerged documentation update; current integrated checks and publication are tracked separately in data-design-review.json."
+  "latest_documentation_review": "docs/data/hero-layout-review.json",
+  "publication_verification_scope": "Historical verification of the explicitly named revisions. The preceding data/colour update remains in data-design-review.json; the new user-requested hero placement correction and its pending acceptance are tracked separately in hero-layout-review.json."
 }

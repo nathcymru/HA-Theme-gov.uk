@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "id": "DOC-HERO-01",
+  "reviewed_on": "2026-11-12",
+  "scope": "Documentation-only correction to eleven assigned landing and style-guide hero layouts; no Home Assistant runtime, theme token, installed resource or household configuration change.",
+  "status": "local-geometry-and-source-acceptance-passed; full-regression-and-publication-evidence-in-linked-change",
+  "reason": "The user identified that the deployed illustrations were narrow strips below the H1 in the reading column. The requested reference places the title and lead beside the illustration within a shared hero band extending to the right viewport edge, with section navigation alongside. The earlier generic image, source and reflow checks did not assert this placement and therefore did not detect the mismatch.",
+  "previous_evidence": {
+    "record": "docs/data/data-design-review.json",
+    "sha256": "3f0000989a5728195e6394339b012a57a1b04c3a7c7e45ae2e2e4b4a6923187f",
+    "scope": "Immutable evidence for the preceding data/colour/identity documentation update. Its successful tests remain true for that tested scope; they do not prove the corrected hero geometry.",
+    "candidate_revision": "b96f022214568f4d54e905b39ef961af1fe3caca",
+    "pull_request": "https://github.com/nathcymru/HA-Theme-gov.uk/pull/34",
+    "merged_revision": "eda4fb5e5ff550c1fdb6b2adb4fb5966b5a87239",
+    "main_workflow": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43308990894",
+    "unit_passed": 50,
+    "browser_passed": 878,
+    "main_deployment_completed_at": "2026-11-12T21:28:19Z"
+  },
+  "source_review": {
+    "reviewed_on": "2026-11-12",
+    "method": "Read the official HTML and CSS and measured the rendered pages in isolated Chromium at 1440, 1020, 960, 769, 768, 641, 640, 375 and 320 CSS pixels; allowed responsive handlers to settle before recording geometry.",
+    "pages": [
+      "https://brand.design-system.service.gov.uk/data/",
+      "https://brand.design-system.service.gov.uk/colour/",
+      "https://brand.design-system.service.gov.uk/illustration/"
+    ],
+    "stylesheet": "https://brand.design-system.service.gov.uk/assets/stylesheet.css",
+    "stylesheet_sha256": "4c1813d31c172e30d3cea8935d9d799e8abdde5fcdaa447a04960cc81ddf2987",
+    "desktop": {
+      "wrapper_max_width_px": 960,
+      "sidebar_width_px": {
+        "from_641": 210,
+        "from_769": 265
+      },
+      "gap_px": 30,
+      "hero_text_max_width_px": 463.3333,
+      "hero_total_height_px": 390,
+      "breadcrumb_band_height_px": 60,
+      "art_offset_from_hero_left_px": 493.3333,
+      "art_width_px": {
+        "data": 510,
+        "colour": 580,
+        "illustration": 420
+      },
+      "measured_at_1440": {
+        "sidebar_left": 240,
+        "sidebar_right": 505,
+        "hero_left": 505,
+        "hero_right": 1440,
+        "text_left": 535,
+        "reading_left": 535
+      },
+      "backdrop": "A pale full-viewport band sits behind the section navigation and hero; the hero itself starts 30px before the reading text and reaches the right viewport edge."
+    },
+    "mobile": {
+      "maximum_width_px": 640,
+      "sidebar": "Hidden in the source design.",
+      "horizontal_text_padding_px": 15,
+      "hero_total_height_px": 440,
+      "breadcrumb_band_height_px": 60,
+      "composition": "Title and lead remain real text above the decorative graphic within one edge-to-edge panel.",
+      "art_width_px": 360,
+      "art_top_px": {
+        "data": 160,
+        "colour": 160,
+        "illustration": 100
+      }
+    },
+    "limits": "Source measurements describe the official implementation, not a requirement to copy its brand assets, fixed art cropping, narrow table overflow or breakpoints. Original civica art and existing accessible navigation remain local responsibilities."
+  },
+  "implementation_contract": {
+    "geometry": "Shared hero starts at the content panel edge and extends to the right viewport edge; the bounded reading column resumes below. Section navigation sits beside the hero in the same pale band.",
+    "desktop": {
+      "minimum_height_px": 450,
+      "text_art_columns": "0.95fr / 1.05fr",
+      "art_intrinsic_width": 640,
+      "art_intrinsic_height": 480,
+      "art_policy": "Show the complete original SVG without cropping or stretching; keep heading, lead and breadcrumb as HTML."
+    },
+    "mobile": {
+      "maximum_width_px": 760,
+      "composition": "One column, text above complete artwork; section navigation remains a native disclosure above the band instead of adopting the source website’s hidden sidebar."
+    },
+    "adaptations": [
+      "Arial and the existing civica blue documentation colours replace official font and identity treatments.",
+      "The whole illustration remains visible; no official asset is imported.",
+      "Height grows with longer headings and enlarged text rather than clipping the text to a fixed box.",
+      "The breakpoint is the existing local 760px shell boundary, not the official 640px boundary.",
+      "Printed pages retain textual context while omitting redundant decorative art."
+    ],
+    "identity": "This is project documentation presentation. It does not add a required civica logo or a global personalisation setting inside Home Assistant."
+  },
+  "rule_dependencies": [
+    "BG-ILL-01",
+    "BG-ILL-02",
+    "BG-ILL-03",
+    "BG-ILL-04",
+    "BG-ILL-06",
+    "BG-ILL-10",
+    "BG-TYP-04",
+    "WG-056"
+  ],
+  "acceptance": [
+    {
+      "id": "HERO-A01",
+      "criterion": "Every assigned route has one H1 and one breadcrumb in the text panel, with complete original art in the adjacent desktop panel.",
+      "status": "verified_in_local_scope"
+    },
+    {
+      "id": "HERO-A02",
+      "criterion": "On wide screens the hero reaches the viewport right edge and shares its vertical band with the section navigation; the body remains a bounded reading column.",
+      "status": "verified_in_local_scope"
+    },
+    {
+      "id": "HERO-A03",
+      "criterion": "At the local mobile breakpoint, text and art stack; all text and navigation remain usable at 320px and with enlarged text, without page overflow.",
+      "status": "verified_in_local_scope"
+    },
+    {
+      "id": "HERO-A04",
+      "criterion": "The whole 640 by 480 original art viewBox is displayed with its aspect ratio; redundant art has empty alternatives and complete text remains without images or scripting.",
+      "status": "verified_in_local_scope"
+    },
+    {
+      "id": "HERO-A05",
+      "criterion": "Ordinary guides retain their existing breadcrumb, headings, reading layout and keyboard navigation; the hero does not leak into unassigned pages.",
+      "status": "verified_in_local_scope"
+    },
+    {
+      "id": "HERO-A06",
+      "criterion": "Current source hashes, route history, public evidence JSON, links and the required integrated checks are verified for the corrective candidate before publication.",
+      "status": "verified_in_local_scope"
+    }
+  ],
+  "integrated_validation": {
+    "status": "local-focused-validation-passed",
+    "focused_browser": {
+      "status": "passed",
+      "passed": 10,
+      "failed": 0,
+      "scope": "Four hero tests exercise all eleven assigned routes at 1440px and 320px, doubled text, no images/no scripting and ordinary-page exclusions. Six guide tests cover structure, history, automated accessibility and reflow."
+    },
+    "full_browser": {
+      "status": "mandatory-publication-gate",
+      "evidence": "The final merged-version workflow and exact results are recorded in the linked corrective pull request."
+    },
+    "source_integrity": "Passed: 103 current source snapshots, 214 guide records, 459 examples, 673 built-page link checks, existing coverage and 176 supplied asset hashes; palette generation remains current.",
+    "manual_review": "Connected Chrome confirmed the full right-edge hero at 1905px. Parent and independent reviewer compared the 1440px Data and 320px Colour renders with the official source; no concrete layout defect found in that bounded visual review.",
+    "evidence_files": [
+      "tests/section-artwork.browser.spec.mjs",
+      "tests/docs.browser.spec.mjs"
+    ]
+  },
+  "publication": {
+    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/",
+    "branch": "docs/illustrated-hero-layout",
+    "change_record": "https://github.com/nathcymru/HA-Theme-gov.uk/pulls?q=is%3Apr+head%3Adocs%2Fillustrated-hero-layout",
+    "workflow": ".github/workflows/validate.yml: verify then deploy-docs on main",
+    "evidence_location": "The corrective pull request records the actual merged revision, deployment workflow and post-publication browser checks. This source record does not predict its own deployment completion."
+  },
+  "limitations": [
+    "The preceding 878/50 result is historical evidence, not a new result for this correction.",
+    "Source review and automated rendering do not establish full accessibility conformance or an end-user study.",
+    "No Home Assistant runtime, live household configuration or physical device behaviour is changed or reverified."
+  ],
+  "routes": [
+    {
+      "url": "/get-started/index.html",
+      "source": "docs/source/get-started/index.html.md.erb",
+      "asset": "docs/source/images/section-get-started.svg"
+    },
+    {
+      "url": "/styles/index.html",
+      "source": "docs/source/styles/index.html.md.erb",
+      "asset": "docs/source/images/section-styles.svg"
+    },
+    {
+      "url": "/content/index.html",
+      "source": "docs/source/content/index.html.md.erb",
+      "asset": "docs/source/images/section-content.svg"
+    },
+    {
+      "url": "/components/index.html",
+      "source": "docs/source/components/index.html.erb",
+      "asset": "docs/source/images/section-components.svg"
+    },
+    {
+      "url": "/patterns/index.html",
+      "source": "docs/source/patterns/index.html.erb",
+      "asset": "docs/source/images/section-patterns.svg"
+    },
+    {
+      "url": "/community/index.html",
+      "source": "docs/source/community/index.html.md.erb",
+      "asset": "docs/source/images/section-community.svg"
+    },
+    {
+      "url": "/accessibility/index.html",
+      "source": "docs/source/accessibility/index.html.md.erb",
+      "asset": "docs/source/images/section-accessibility.svg"
+    },
+    {
+      "url": "/styles/brand-data.html",
+      "source": "docs/source/styles/brand-data.html.md.erb",
+      "asset": "docs/source/images/guide-data.svg"
+    },
+    {
+      "url": "/styles/brand-colour.html",
+      "source": "docs/source/styles/brand-colour.html.md.erb",
+      "asset": "docs/source/images/guide-colour.svg"
+    },
+    {
+      "url": "/styles/colour.html",
+      "source": "docs/source/styles/colour.html.md.erb",
+      "asset": "docs/source/images/guide-colour.svg"
+    },
+    {
+      "url": "/styles/illustration.html",
+      "source": "docs/source/styles/illustration.html.md.erb",
+      "asset": "docs/source/images/guide-illustration.svg"
+    }
+  ],
+  "source_evidence": [
+    {
+      "path": "docs/source/layouts/civica.erb",
+      "line": 66,
+      "excerpt": "text_panel = Nokogiri::XML::Node.new('div', fragment.document)",
+      "detail": "Build one semantic header with breadcrumb, H1, lead and separate original art panel.",
+      "sha256": "07725251e8c2a94a7be3d3dbeee390337bb713867ca0869bd941c0c222234bc8"
+    },
+    {
+      "path": "docs/source/layouts/civica_core.erb",
+      "line": 23,
+      "excerpt": "<div class=\"c-container c-page<%= ' c-page--illustrated' if illustrated_page %>\">",
+      "detail": "Place the hero in the main column beside the section navigation; retain a bounded reading body.",
+      "sha256": "a7319c8d1c2d134cb1fa1e30b29713e939a9a8320903c9f24eba971e76e489b0"
+    },
+    {
+      "path": "docs/source/partials/_breadcrumbs.erb",
+      "line": 2,
+      "excerpt": "<nav class=\"c-breadcrumbs\" aria-label=\"Breadcrumb\"><ol><li><a href=\"<%= docs_path('/index.html') %>\">Home</a></li><% if section && '/' + current_page.destination_path != section.path %><li><a href=\"<%= docs_path(section.path) %>\"><%= section.title %></a></li><% end %><li><%= escape(section && '/' + current_page.destination_path == section.path ? section.title : current_page.data.title) %></li></ol></nav>",
+      "detail": "Share one breadcrumb implementation between illustrated and ordinary guides.",
+      "sha256": "07d2038b15d3bf0bab870b186a4d4dda1c51f66001266c7b9de501b8d61985f3"
+    },
+    {
+      "path": "docs/source/stylesheets/screen.css.scss",
+      "line": 234,
+      "excerpt": ".c-page--illustrated {",
+      "detail": "Right-edge hero geometry, text/art split, flexible height, mobile and print adaptation.",
+      "sha256": "d6cbe8bd7e789059e2e9ce8b6824bae188fb0b08cba6aea6e9712f153c58d59d"
+    },
+    {
+      "path": "docs/source/styles/illustration.html.md.erb",
+      "line": 29,
+      "excerpt": "The Styles, Components and Patterns homepage cards reuse the geometry of their corresponding header. Keep that relationship when either asset changes. Place the breadcrumb, heading and introduction inside one large header panel, with the illustration alongside them on desktop. The panel starts 30 pixels before the reading text and extends to the right edge of the viewport. Use a minimum desktop height of 450 pixels, allowing it to grow with longer or enlarged text. The complete 640 by 480 illustration fills the right-hand area without cropping or distortion. On narrow screens, stack the text and artwork inside the same full-width panel and retain access to section navigation. Do not embed headings in the image. Homepage variants keep their own 320 by 140 composition.",
+      "detail": "Document the corrected composition and complete artwork rather than the superseded strip layout.",
+      "sha256": "3be00eed06deb6f617ed47e30e5b48ec9a1edbfefb207b5d257fc8b9cfc7cbb6"
+    },
+    {
+      "path": "docs/README.md",
+      "line": 51,
+      "excerpt": "Section headers are assigned in `data/page-illustrations.yml`. Use the original 640 by 480 SVGs without cropping in the right-hand half of the wide header panel. Keep the breadcrumb, title and summary as HTML on its left. The panel extends from the content edge to the viewport edge; mobile stacks text and art, and enlarged text increases its height. The Styles, Components and Patterns homepage cards share the same scene geometry as their section headers. Purpose, alt decisions, provenance and checks are recorded in `data/section-artwork-provenance.json`.",
+      "detail": "Document how authors use the hero assignment and the responsive composition.",
+      "sha256": "934e18e8f13e5a0c5ee3713987c639081fe8acba7f2a44bd6bd9fa35c2b2ddaa"
+    },
+    {
+      "path": "docs/data/page-illustrations.yml",
+      "line": 1,
+      "excerpt": "get-started/index.html:",
+      "detail": "Keep the exact eleven assigned landing/guide routes.",
+      "sha256": "ea427b31388c3a07bffde0de51af90e0452410c14363def1a4c76552b65152dc"
+    },
+    {
+      "path": "docs/data/section-artwork-provenance.json",
+      "line": 4,
+      "excerpt": "\"family\": \"Original documentation navigation and style-guide illustrations\",",
+      "detail": "Original art source, geometry, rights, alternatives and separately scoped visual review.",
+      "sha256": "0c893e6e8bba28011db142e30233a29d33f02091b9f2e3c7ecc7dc9cb282b6e8"
+    }
+  ],
+  "source_freeze": {
+    "status": "reviewed-source-snapshot",
+    "date": "2026-11-12",
+    "paths": [
+      {
+        "path": "docs/source/layouts/civica.erb",
+        "sha256": "07725251e8c2a94a7be3d3dbeee390337bb713867ca0869bd941c0c222234bc8"
+      },
+      {
+        "path": "docs/source/layouts/civica_core.erb",
+        "sha256": "a7319c8d1c2d134cb1fa1e30b29713e939a9a8320903c9f24eba971e76e489b0"
+      },
+      {
+        "path": "docs/source/partials/_breadcrumbs.erb",
+        "sha256": "07d2038b15d3bf0bab870b186a4d4dda1c51f66001266c7b9de501b8d61985f3"
+      },
+      {
+        "path": "docs/source/stylesheets/screen.css.scss",
+        "sha256": "d6cbe8bd7e789059e2e9ce8b6824bae188fb0b08cba6aea6e9712f153c58d59d"
+      },
+      {
+        "path": "docs/source/styles/illustration.html.md.erb",
+        "sha256": "3be00eed06deb6f617ed47e30e5b48ec9a1edbfefb207b5d257fc8b9cfc7cbb6"
+      },
+      {
+        "path": "docs/README.md",
+        "sha256": "934e18e8f13e5a0c5ee3713987c639081fe8acba7f2a44bd6bd9fa35c2b2ddaa"
+      },
+      {
+        "path": "docs/data/page-illustrations.yml",
+        "sha256": "ea427b31388c3a07bffde0de51af90e0452410c14363def1a4c76552b65152dc"
+      },
+      {
+        "path": "docs/data/section-artwork-provenance.json",
+        "sha256": "0c893e6e8bba28011db142e30233a29d33f02091b9f2e3c7ecc7dc9cb282b6e8"
+      },
+      {
+        "path": "docs/source/get-started/index.html.md.erb",
+        "sha256": "81b5fc5e0262af355aea80c9d55f068762cdf6e4d42a71d61e872a7ee5ea7e90"
+      },
+      {
+        "path": "docs/source/styles/index.html.md.erb",
+        "sha256": "c6db847683ef3e4898d7af765f583f28ea3e8433b8646df2116656bdb1e6dd31"
+      },
+      {
+        "path": "docs/source/content/index.html.md.erb",
+        "sha256": "7de1b77bd00df5608f9f62b5bb00890d3c436114a4820b141338c7fa74d3f6e2"
+      },
+      {
+        "path": "docs/source/components/index.html.erb",
+        "sha256": "a33249a73d69b8583446148947f9804e5862bbc5dd402432b600c3cb906a67ea"
+      },
+      {
+        "path": "docs/source/patterns/index.html.erb",
+        "sha256": "9c0f1a5979a442024767a9cd94be57783a7556bc386778010032543b74327ece"
+      },
+      {
+        "path": "docs/source/community/index.html.md.erb",
+        "sha256": "752f99608c15973b4ae614d57915ba9b91cd18c0d80183e02829f61fa51a0286"
+      },
+      {
+        "path": "docs/source/accessibility/index.html.md.erb",
+        "sha256": "a9599ffa1e8ba4b282fa314d2b4344ef0e120a88b53de0a1f50557df3edf73fa"
+      },
+      {
+        "path": "docs/source/styles/brand-data.html.md.erb",
+        "sha256": "1d7910802784be7d939de5cfd65209cb94080d8e452f0fdb7bc8f20edc56d0c6"
+      },
+      {
+        "path": "docs/source/styles/brand-colour.html.md.erb",
+        "sha256": "35dca22abdc1779d768cc10214dab6e791a72fcee68defa522bd484dcbab3600"
+      },
+      {
+        "path": "docs/source/styles/colour.html.md.erb",
+        "sha256": "e0cd98113c4c39b72d88c438193827162552eaa763cb5fd9fe89a100c9063b5b"
+      },
+      {
+        "path": "docs/source/images/section-get-started.svg",
+        "sha256": "bfccaa44345f0cb91aa70d300e41278ea7c22aa31c3b35ed25a2390519797774"
+      },
+      {
+        "path": "docs/source/images/section-styles.svg",
+        "sha256": "d3e00f9bf085f81d3e4422be6e661eeed314645595ac2f0d3a75a75d8e3502c4"
+      },
+      {
+        "path": "docs/source/images/section-content.svg",
+        "sha256": "d160152c9edf97acc2d0c750977c2557f9a2055359d9bd2f3a0a90a84b07771b"
+      },
+      {
+        "path": "docs/source/images/section-components.svg",
+        "sha256": "ca2676b2f53f702a851c993d7faa05fcfebc0a0a7f2cdf600d79919fb3034821"
+      },
+      {
+        "path": "docs/source/images/section-patterns.svg",
+        "sha256": "28fc88ec3f19f48b3e30acebddc1a8d38c2150629024b8c4ad378ba55ece9d1c"
+      },
+      {
+        "path": "docs/source/images/section-community.svg",
+        "sha256": "b014a725d70c00c21db7f1fccc56057b370adb70fc427be3c3325d59db5e6a0f"
+      },
+      {
+        "path": "docs/source/images/section-accessibility.svg",
+        "sha256": "4fff717897a336077413a672b49bc74bbe8e8b3088c7ef6ad0ee82e8fb396a9a"
+      },
+      {
+        "path": "docs/source/images/guide-data.svg",
+        "sha256": "6184769262aee4920a73eded4131b68846c698350e2c1b903f3a1a8f2ed7b020"
+      },
+      {
+        "path": "docs/source/images/guide-colour.svg",
+        "sha256": "335cdb10b5be23d922947ff9c18db8005b2b517342963aa785dbda1dbbe0041c"
+      },
+      {
+        "path": "docs/source/images/guide-illustration.svg",
+        "sha256": "97876507abd9165ad729f14c81e227012da5d5fd954edc04de727916e0505858"
+      },
+      {
+        "path": "docs/data/page_history.yml",
+        "sha256": "0f1c5d01ca4db36e6d4f96bab4a0ccb3187ad815e4138167b88622205902e34d"
+      },
+      {
+        "path": "docs/source/reference/hero-layout-review.json.erb",
+        "sha256": "41664cf697f0c62235050190cb3660a0fbb452d6b358d41820f3d62a312ec492"
+      }
+    ],
+    "scope": "Reviewed layout, CSS, route metadata, original artwork and focused test inputs. Local outcomes are above; the mandatory full workflow and live publication receipt are recorded with the linked change."
+  }
+}

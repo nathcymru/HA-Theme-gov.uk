@@ -48,7 +48,7 @@ Add examples to a `data/*examples.yml` catalogue with a unique ID, title, descri
 
 The component and pattern catalogues, section navigation, sitemap and search are generated from the page metadata. The seven main navigation sections are defined in `data/navigation.yml`, including Writing guide. Its existing `/content/` routes are preserved; `/styles/content.html` remains a legacy entry point. The project story is under Get started at `/get-started/about.html`. Source-index inventories are published together in `reference/coverage.json`; keep their page and example mappings accurate.
 
-Section headers are assigned in `data/page-illustrations.yml`. Use the original full-width SVGs without cropping; keep titles and summaries as HTML. The Styles, Components and Patterns homepage cards share the same scene geometry as their section headers. Purpose, alt decisions, provenance and checks are recorded in `data/section-artwork-provenance.json`.
+Section headers are assigned in `data/page-illustrations.yml`. Use the original 640 by 480 SVGs without cropping in the right-hand half of the wide header panel. Keep the breadcrumb, title and summary as HTML on its left. The panel extends from the content edge to the viewport edge; mobile stacks text and art, and enlarged text increases its height. The Styles, Components and Patterns homepage cards share the same scene geometry as their section headers. Purpose, alt decisions, provenance and checks are recorded in `data/section-artwork-provenance.json`.
 
 Run the documentation browser suite after building:
 

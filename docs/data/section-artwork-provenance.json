@@ -21,8 +21,9 @@
     "Functional selection, task acknowledgement and keyboard-focus schematics use blue/white shape contrast, not borrowed red/amber/green status roles.",
     "People, diagnoses, household roles and demographic traits are not inferred.",
     "The existing original household hero remains unchanged and shares this five-colour family.",
-    "Homepage styles/components/patterns assets use the same original scene geometry as their section header, scaled and centred on the 320×140 canvas.",
-    "Colour-combination swatches pair light marks with dark/primary surfaces and dark marks with the pale blue surface. The data schematic uses stronger primary/dark colours for its meaningful bars and table rows."
+    "Colour-combination swatches pair light marks with dark/primary surfaces and dark marks with the pale blue surface. The data schematic uses stronger primary/dark colours for its meaningful bars and table rows.",
+    "Header scenes reuse the existing object paths with uniform scale and regroup them into a compact 4:3 composition for the large hero art panel. No object is cropped or distorted.",
+    "Homepage styles/components/patterns artwork remains byte-identical. Its horizontal scenes and the corresponding regrouped headers share the same original letterform, swatches, components and task-step objects."
   ],
   "alt_decision": {
     "default_img_alt": "",
@@ -51,181 +52,181 @@
     {
       "id": "section-get-started",
       "path": "docs/source/images/section-get-started.svg",
-      "sha256": "8ec539096f9af29f0b2a0a7f62f679d423b80df4fb4cf7a27db85dced04ae54f",
+      "sha256": "bfccaa44345f0cb91aa70d300e41278ea7c22aa31c3b35ed25a2390519797774",
       "route": "/get-started/index.html",
       "title": "Get started: from guidance to a household interface",
       "purpose": "Explain that setup starts from guidance and leads to a household interface.",
       "informative_alt": "A short illustrated guide leads by an arrow to a home with distinct room areas.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-get-started-960.png",
-        "/tmp/civica-section-artwork-proof/section-get-started-320.png"
+        "/tmp/civica-hero-artwork-proof/section-get-started-640.png",
+        "/tmp/civica-hero-artwork-proof/section-get-started-320.png"
       ]
     },
     {
       "id": "section-styles",
       "path": "docs/source/images/section-styles.svg",
-      "sha256": "3e4f829c9a06953c469482de6e4589b512d1641e97c189dab76bc183e0c97dd1",
+      "sha256": "d3e00f9bf085f81d3e4422be6e661eeed314645595ac2f0d3a75a75d8e3502c4",
       "route": "/styles/index.html",
       "title": "Styles: type, colour and spacing",
       "purpose": "Introduce typography, colour roles and spacing as coordinated foundations.",
       "informative_alt": "A large letterform, three colour swatches and spaced text bars show the foundations of a consistent interface.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": "docs/source/images/category-styles.svg",
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-styles-960.png",
-        "/tmp/civica-section-artwork-proof/section-styles-320.png"
+        "/tmp/civica-hero-artwork-proof/section-styles-640.png",
+        "/tmp/civica-hero-artwork-proof/section-styles-320.png"
       ]
     },
     {
       "id": "section-content",
       "path": "docs/source/images/section-content.svg",
-      "sha256": "b2b947ee7ffe690820bf2eea5c401b16647f4cea88573eb8ab9c33a45da2f6fd",
+      "sha256": "d160152c9edf97acc2d0c750977c2557f9a2055359d9bd2f3a0a90a84b07771b",
       "route": "/content/index.html",
       "title": "Writing guide: structure and edit a clear explanation",
       "purpose": "Explain that useful writing combines reference, structure and revision.",
       "informative_alt": "An open reference book sits beside a page with grouped text and a pencil pointing to its final paragraph.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-content-960.png",
-        "/tmp/civica-section-artwork-proof/section-content-320.png"
+        "/tmp/civica-hero-artwork-proof/section-content-640.png",
+        "/tmp/civica-hero-artwork-proof/section-content-320.png"
       ]
     },
     {
       "id": "section-components",
       "path": "docs/source/images/section-components.svg",
-      "sha256": "2d3d9df37a9450cfe9bff71dfae97d6e6db677c935f059189b065b37e6a3f342",
+      "sha256": "ca2676b2f53f702a851c993d7faa05fcfebc0a0a7f2cdf600d79919fb3034821",
       "route": "/components/index.html",
       "title": "Components: reusable parts form a clear interface",
       "purpose": "Explain the relationship between reusable component parts and a composed interface.",
       "informative_alt": "A button, selection box and range control sit beside an assembled panel using the same visual parts.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": "docs/source/images/category-components.svg",
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-components-960.png",
-        "/tmp/civica-section-artwork-proof/section-components-320.png"
+        "/tmp/civica-hero-artwork-proof/section-components-640.png",
+        "/tmp/civica-hero-artwork-proof/section-components-320.png"
       ]
     },
     {
       "id": "section-patterns",
       "path": "docs/source/images/section-patterns.svg",
-      "sha256": "210da946ea7c270b924443f24c0b0530ea77c97fcecc7c743a41967bdbebc6f4",
+      "sha256": "28fc88ec3f19f48b3e30acebddc1a8d38c2150629024b8c4ad378ba55ece9d1c",
       "route": "/patterns/index.html",
       "title": "Patterns: connect steps into a task",
       "purpose": "Explain that a pattern connects components into an ordered task.",
       "informative_alt": "Three linked pages show entering information, reviewing it and reaching an acknowledgement.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": "docs/source/images/category-patterns.svg",
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-patterns-960.png",
-        "/tmp/civica-section-artwork-proof/section-patterns-320.png"
+        "/tmp/civica-hero-artwork-proof/section-patterns-640.png",
+        "/tmp/civica-hero-artwork-proof/section-patterns-320.png"
       ]
     },
     {
       "id": "section-community",
       "path": "docs/source/images/section-community.svg",
-      "sha256": "fe6645a42e27976b247d66b0b62ccd72d02c0d80527ef231b8b8cbd6041b177f",
+      "sha256": "b014a725d70c00c21db7f1fccc56057b370adb70fc427be3c3325d59db5e6a0f",
       "route": "/community/index.html",
       "title": "Community: discuss and review shared guidance",
       "purpose": "Introduce contribution, evidence and review without representing any particular person.",
       "informative_alt": "Two speech bubbles surround a shared document, showing discussion around a proposed change.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-community-960.png",
-        "/tmp/civica-section-artwork-proof/section-community-320.png"
+        "/tmp/civica-hero-artwork-proof/section-community-640.png",
+        "/tmp/civica-hero-artwork-proof/section-community-320.png"
       ]
     },
     {
       "id": "section-accessibility",
       "path": "docs/source/images/section-accessibility.svg",
-      "sha256": "ece0693e392930be6f9607c0283e6c13b317c5d703257e28651111a8e511b74e",
+      "sha256": "4fff717897a336077413a672b49bc74bbe8e8b3088c7ef6ad0ee82e8fb396a9a",
       "route": "/accessibility/index.html",
       "title": "Accessibility: keep reading and keyboard routes available",
       "purpose": "Explain two concrete review routes: readable content and keyboard interaction; it is not a certification symbol.",
       "informative_alt": "A page with a clear heading is shown beside an enlarged text view and a keyboard with a distinct focused key.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "section landing header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/section-accessibility-960.png",
-        "/tmp/civica-section-artwork-proof/section-accessibility-320.png"
+        "/tmp/civica-hero-artwork-proof/section-accessibility-640.png",
+        "/tmp/civica-hero-artwork-proof/section-accessibility-320.png"
       ]
     },
     {
       "id": "guide-data",
       "path": "docs/source/images/guide-data.svg",
-      "sha256": "1a69d145f5ceeeb81014e34ef10328fc3d18f047f7e032f589e11426137f02dc",
+      "sha256": "6184769262aee4920a73eded4131b68846c698350e2c1b903f3a1a8f2ed7b020",
       "route": "/styles/brand-data.html",
       "title": "Data: pair a graphic with its values and context",
       "purpose": "Explain the relationship between a chart and a usable data table. Bar heights are illustrative geometry, not real quantities.",
       "informative_alt": "A simple column-chart schematic is paired with aligned rows of values, showing visual and text routes to the same information.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "key style guide header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/guide-data-960.png",
-        "/tmp/civica-section-artwork-proof/guide-data-320.png"
+        "/tmp/civica-hero-artwork-proof/guide-data-640.png",
+        "/tmp/civica-hero-artwork-proof/guide-data-320.png"
       ]
     },
     {
       "id": "guide-colour",
       "path": "docs/source/images/guide-colour.svg",
-      "sha256": "71402ab9ac748c05c178141f9b16a18692a6932a989739fe77d8faeeca2ec0ed",
+      "sha256": "335cdb10b5be23d922947ff9c18db8005b2b517342963aa785dbda1dbbe0041c",
       "route": "/styles/brand-colour.html",
       "title": "Colour: choose roles that work together",
       "purpose": "Explain selecting contrasting colour combinations and applying them to distinct reading and interface roles.",
       "informative_alt": "Three contrasting swatches sit beside a reading surface, separating palette choices from the text and interface roles they support.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "key style guide header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/guide-colour-960.png",
-        "/tmp/civica-section-artwork-proof/guide-colour-320.png"
+        "/tmp/civica-hero-artwork-proof/guide-colour-640.png",
+        "/tmp/civica-hero-artwork-proof/guide-colour-320.png"
       ]
     },
     {
       "id": "guide-illustration",
       "path": "docs/source/images/guide-illustration.svg",
-      "sha256": "d66930271c1a765080cd5792dde703b40b77a4ac54ec5675b53fdd9b8f4be3e6",
+      "sha256": "97876507abd9165ad729f14c81e227012da5d5fd954edc04de727916e0505858",
       "route": "/styles/illustration.html",
       "title": "Illustration: turn simple shapes into an explanation",
       "purpose": "Explain building an original, recognisable scene from simple geometry rather than importing identity artwork.",
       "informative_alt": "A circle, triangle and rectangle lead to a simple room scene containing a window and a lamp.",
-      "width": 960,
-      "height": 320,
-      "view_box": "0 0 960 320",
+      "width": 640,
+      "height": 480,
+      "view_box": "0 0 640 480",
       "role": "key style guide header",
       "matching_homepage_asset": null,
       "proof_files": [
-        "/tmp/civica-section-artwork-proof/guide-illustration-960.png",
-        "/tmp/civica-section-artwork-proof/guide-illustration-320.png"
+        "/tmp/civica-hero-artwork-proof/guide-illustration-640.png",
+        "/tmp/civica-hero-artwork-proof/guide-illustration-320.png"
       ]
     },
     {
@@ -285,38 +286,85 @@
   ],
   "verification": {
     "reviewed_on": "2026-11-12",
-    "source_checks": "Passed for all 13 assets: XML parse, explicit dimensions/viewBox, named title/description, four or five colours from the shared five-colour family, matching hashes, no SVG text nodes, ornamental strokes, gradients, filters, scripts, embedded images or event handlers.",
-    "render_checks": "Rendered every asset at 960px and 320px display width using local Playwright Chromium headless shell build 1243. Visually inspected both header contact sheets and the mobile family, plus the updated colour/data mobile proofs. No document overflow was reported in 26 asset/width cases.",
-    "context_checks": "Visually inspected dark-surround, grayscale and images-omitted proof sheets. The source canvas stays opaque and unchanged; object relationships remain visible without colour. The accompanying HTML title and purpose remain when images are omitted.",
+    "source_checks": "Passed for all ten recomposed headers: XML,640\u00d7480 viewBox, names, unchanged original object geometry, five-colour family, no added labels/scripts/embedded images/ornamental strokes. All three homepage category files remain byte-identical to the prior published revision.",
+    "render_checks": "Rendered each revised header at 640px and 320px. All 20 cases have no document overflow; transformed object bounds stay within the complete viewBox. Visually inspected both contact sheets and the refined Data/Accessibility mobile proofs.",
+    "context_checks": "Visually inspected dark-surround, grayscale and images-omitted proof sheets. The opaque pale canvas and object relationships remain intact, with each topic and purpose retained as HTML.",
     "browser": "153.0.8010.12",
     "manual_refinements": [
-      "Changed the colour-guide swatch marks to retain clear foreground/background combinations.",
-      "Changed the data-guide columns and table rows to stronger primary/dark paints."
+      "Regrouped horizontal objects into compact scenes for the right-hand hero panel, preserving all object proportions.",
+      "Added breathing room beneath the data-table schematic and made the enlarged-text schematic visibly larger than its source text."
     ],
     "shared_proof_files": [
-      "/tmp/civica-section-artwork-proof/headers-a.png",
-      "/tmp/civica-section-artwork-proof/headers-b.png",
-      "/tmp/civica-section-artwork-proof/mobile.png",
-      "/tmp/civica-section-artwork-proof/dark.png",
-      "/tmp/civica-section-artwork-proof/grayscale.png",
-      "/tmp/civica-section-artwork-proof/images-omitted.png",
-      "/tmp/civica-section-artwork-proof/guide-data-mobile-full.png",
-      "/tmp/civica-section-artwork-proof/render-results.json"
+      "/tmp/civica-hero-artwork-proof/headers-a.png",
+      "/tmp/civica-hero-artwork-proof/headers-b.png",
+      "/tmp/civica-hero-artwork-proof/dark.png",
+      "/tmp/civica-hero-artwork-proof/grayscale.png",
+      "/tmp/civica-hero-artwork-proof/images-omitted.png",
+      "/tmp/civica-hero-artwork-proof/guide-data-320.png",
+      "/tmp/civica-hero-artwork-proof/section-accessibility-320.png",
+      "/tmp/civica-hero-artwork-proof/render-results.json"
     ],
-    "scope_limit": "Local artwork proofs only. Grayscale is a loss-of-colour check, not a simulation of every colour-vision deficiency. No live Home Assistant, end-user study or accessibility certification is claimed. Parent integration must verify the actual page layout, nearby explanations, reading order and navigation."
+    "scope_limit": "Local original-artwork proofs only. Grayscale checks loss of colour, not every colour-vision deficiency. Integrated hero dimensions, reading order, text enlargement and navigation need separate page-level verification; no live Home Assistant or accessibility certification is claimed."
   },
   "integration": {
-    "placement": "Full-width strip beneath the section or key guide title and introduction; no crop or CSS recolouring.",
+    "placement": "Large hero beside the HTML title and introduction on desktop, with the artwork panel extending towards the viewport right edge. Stack text above the complete artwork at narrow widths.",
     "header_dimensions": {
-      "width": 960,
-      "height": 320
+      "width": 640,
+      "height": 480
     },
     "category_dimensions": {
       "width": 320,
       "height": 140
     },
-    "responsive_rule": "Use width:100%; height:auto. Preserve the entire viewBox; avoid object-fit:cover or a fixed cropped height.",
-    "image_loading": "Parent may choose normal or lazy image loading based on placement; explicit width/height preserve space.",
+    "responsive_rule": "Preserve the 4:3 artwork ratio and its entire viewBox; use automatic sizing or object-fit:contain. Do not crop, stretch or recolour the objects. Hero height may grow with text size.",
+    "image_loading": "Use normal loading for the above-the-fold hero. Explicit intrinsic width and height preserve the artwork aspect ratio.",
     "scope": "Section landing pages and the three named key style guides; no blanket injection into component detail pages."
+  },
+  "revision_history": [
+    {
+      "date": "2026-11-12",
+      "change": "Recomposed the ten header scenes for a substantial right-hand hero panel after the earlier wide strip was rejected. The three homepage category assets are unchanged.",
+      "previous_header_dimensions": {
+        "width": 960,
+        "height": 320
+      },
+      "previous_verification": {
+        "reviewed_on": "2026-11-12",
+        "source_checks": "Passed for all 13 assets: XML parse, explicit dimensions/viewBox, named title/description, four or five colours from the shared five-colour family, matching hashes, no SVG text nodes, ornamental strokes, gradients, filters, scripts, embedded images or event handlers.",
+        "render_checks": "Rendered every asset at 960px and 320px display width using local Playwright Chromium headless shell build 1243. Visually inspected both header contact sheets and the mobile family, plus the updated colour/data mobile proofs. No document overflow was reported in 26 asset/width cases.",
+        "context_checks": "Visually inspected dark-surround, grayscale and images-omitted proof sheets. The source canvas stays opaque and unchanged; object relationships remain visible without colour. The accompanying HTML title and purpose remain when images are omitted.",
+        "browser": "153.0.8010.12",
+        "manual_refinements": [
+          "Changed the colour-guide swatch marks to retain clear foreground/background combinations.",
+          "Changed the data-guide columns and table rows to stronger primary/dark paints."
+        ],
+        "shared_proof_files": [
+          "/tmp/civica-section-artwork-proof/headers-a.png",
+          "/tmp/civica-section-artwork-proof/headers-b.png",
+          "/tmp/civica-section-artwork-proof/mobile.png",
+          "/tmp/civica-section-artwork-proof/dark.png",
+          "/tmp/civica-section-artwork-proof/grayscale.png",
+          "/tmp/civica-section-artwork-proof/images-omitted.png",
+          "/tmp/civica-section-artwork-proof/guide-data-mobile-full.png",
+          "/tmp/civica-section-artwork-proof/render-results.json"
+        ],
+        "scope_limit": "Local artwork proofs only. Grayscale is a loss-of-colour check, not a simulation of every colour-vision deficiency. No live Home Assistant, end-user study or accessibility certification is claimed. Parent integration must verify the actual page layout, nearby explanations, reading order and navigation."
+      }
+    }
+  ],
+  "layout_reference_review": {
+    "reviewed_on": "2026-11-12",
+    "sources": [
+      "https://brand.design-system.service.gov.uk/data/",
+      "https://brand.design-system.service.gov.uk/colour/",
+      "https://brand.design-system.service.gov.uk/illustration/"
+    ],
+    "observed_layout": "At 1440px viewport width the official header occupies a 450px-high region from the main-content left edge to the viewport right edge, with HTML text left and substantial artwork right. This informs the page composition only.",
+    "screenshots": [
+      "/tmp/civica-hero-artwork-proof/official-data.png",
+      "/tmp/civica-hero-artwork-proof/official-colour.png",
+      "/tmp/civica-hero-artwork-proof/official-illustration.png"
+    ],
+    "artwork_boundary": "No official illustration paths, marks or palette are reused."
   }
 }

@@ -1,6 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="section-components-title section-components-description">
-<title id="section-components-title">Components: reusable parts form a clear interface</title>
-<desc id="section-components-description">A button, selection box and range control sit beside an assembled panel using the same visual parts.</desc>
-<rect x="0" y="0" width="960" height="320" fill="#F3F6F9"/>
-<rect x="74" y="56" width="178" height="56" fill="#1D70B8"/><rect x="111" y="77" width="104" height="14" fill="#FFFFFF"/><rect x="74" y="150" width="66" height="66" fill="#103E65"/><g transform="translate(90 162) scale(0.75)"><path d="M0 24 14 38 44 4 55 14 15 60-11 34Z" fill="#FFFFFF"/></g><rect x="162" y="164" width="132" height="16" fill="#8EB8DC"/><rect x="162" y="192" width="90" height="12" fill="#103E65"/><rect x="82" y="244" width="150" height="12" fill="#8EB8DC"/><circle cx="180" cy="250" r="22" fill="#1D70B8"/><path d="M352 153h60v-17l30 26-30 26v-17H352z" fill="#103E65"/><rect x="512" y="40" width="366" height="242" fill="#FFFFFF"/><rect x="512" y="40" width="366" height="32" fill="#103E65"/><rect x="542" y="100" width="178" height="44" fill="#1D70B8"/><rect x="570" y="116" width="120" height="12" fill="#FFFFFF"/><rect x="542" y="178" width="50" height="50" fill="#103E65"/><g transform="translate(556 185) scale(0.56)"><path d="M0 24 14 38 44 4 55 14 15 60-11 34Z" fill="#FFFFFF"/></g><rect x="618" y="186" width="204" height="14" fill="#8EB8DC"/><rect x="618" y="212" width="152" height="12" fill="#103E65"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-labelledby="section-components-title section-components-description">
+  <title id="section-components-title">Components: reusable parts form a clear interface</title>
+  <desc id="section-components-description">A button, selection box and range control sit beside an assembled panel using the same visual parts.</desc>
+  <rect x="0" y="0" width="640" height="480" fill="#F3F6F9" />
+  <g transform="translate(40 38) translate(-74 -56)">
+    <rect x="74" y="56" width="178" height="56" fill="#1D70B8" />
+    <rect x="111" y="77" width="104" height="14" fill="#FFFFFF" />
+    <rect x="74" y="150" width="66" height="66" fill="#103E65" />
+    <g transform="translate(90 162) scale(0.75)">
+      <path d="M0 24 14 38 44 4 55 14 15 60-11 34Z" fill="#FFFFFF" />
+    </g>
+    <rect x="162" y="164" width="132" height="16" fill="#8EB8DC" />
+    <rect x="162" y="192" width="90" height="12" fill="#103E65" />
+    <rect x="82" y="244" width="150" height="12" fill="#8EB8DC" />
+    <circle cx="180" cy="250" r="22" fill="#1D70B8" />
+  </g>
+  <g transform="translate(240 235) rotate(30) scale(0.62) translate(-352 -136)">
+    <path d="M352 153h60v-17l30 26-30 26v-17H352z" fill="#103E65" />
+  </g>
+  <g transform="translate(270 225) scale(0.92) translate(-512 -40)">
+    <rect x="512" y="40" width="366" height="242" fill="#FFFFFF" />
+    <rect x="512" y="40" width="366" height="32" fill="#103E65" />
+    <rect x="542" y="100" width="178" height="44" fill="#1D70B8" />
+    <rect x="570" y="116" width="120" height="12" fill="#FFFFFF" />
+    <rect x="542" y="178" width="50" height="50" fill="#103E65" />
+    <g transform="translate(556 185) scale(0.56)">
+      <path d="M0 24 14 38 44 4 55 14 15 60-11 34Z" fill="#FFFFFF" />
+    </g>
+    <rect x="618" y="186" width="204" height="14" fill="#8EB8DC" />
+    <rect x="618" y="212" width="152" height="12" fill="#103E65" />
+  </g>
 </svg>

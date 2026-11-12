@@ -57,25 +57,34 @@
     table.replace(wrapper)
     wrapper.add_child(table)
   end
-  # Purposeful section artwork shares its source family with the homepage cards.
-  # Titles, summaries and all instructions remain real HTML; the art is redundant.
+  # The title, lead and original art form one wide hero, as in the source
+  # guidance. Keep the breadcrumb in that panel and all copy as real HTML.
   illustration = data['page-illustrations'][current_page.destination_path]
   if illustration && (heading = fragment.at_css('h1'))
     header = Nokogiri::XML::Node.new('header', fragment.document)
     header['class'] = 'c-illustrated-header'
-    heading.add_previous_sibling(header)
-    header.add_child(heading.unlink)
+    text_panel = Nokogiri::XML::Node.new('div', fragment.document)
+    text_panel['class'] = 'c-illustrated-header__text'
+    text_panel.add_child(partial('partials/breadcrumbs'))
+    text_panel.add_child(heading.unlink)
     summary = Nokogiri::XML::Node.new('p', fragment.document)
     summary['class'] = 'c-illustrated-header__summary'
     summary.content = illustration['summary']
-    header.add_child(summary)
+    text_panel.add_child(summary)
+    header.add_child(text_panel)
+    art_panel = Nokogiri::XML::Node.new('div', fragment.document)
+    art_panel['class'] = 'c-illustrated-header__art'
     artwork = Nokogiri::XML::Node.new('img', fragment.document)
     artwork['src'] = docs_path('/images/' + illustration['asset'])
     artwork['alt'] = ''
-    artwork['width'] = '960'
-    artwork['height'] = '320'
+    artwork['width'] = '640'
+    artwork['height'] = '480'
     artwork['decoding'] = 'async'
-    header.add_child(artwork)
+    art_panel.add_child(artwork)
+    header.add_child(art_panel)
+    content_for :illustrated_header do
+      header.to_html
+    end
   end
   content = fragment.to_html
   content_for :page_contents do

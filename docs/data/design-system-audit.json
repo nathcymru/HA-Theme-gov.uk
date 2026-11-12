@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
-  "status": "current-documentation-reviewed-and-validated",
+  "status": "current-hero-correction-locally-validated-publication-gated",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
   "scope": "All current authored guides and examples; shared documentation presentation, original artwork and canonical ownership; maintained lighting request/count remediation and chart fixture date navigation. Current source review and named browser checks do not certify every native Home Assistant task or physical outcome. The 12 November supplement adds finite source-registry coverage, terminology, UK family decisions and authored references; acceptance is recorded separately.",
   "rule_links": {
@@ -149,8 +149,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "WCAG is a target, not a certification. Text/non-text context and manual-testing limits are explicit. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "a5a6db08e64719dc9535bfc0b98e7e16edb79731ec07fa4190a0732fc1d63498",
+      "note": "WCAG is a target, not a certification. Text/non-text context and manual-testing limits are explicit. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "a9599ffa1e8ba4b282fa314d2b4344ef0e120a88b53de0a1f50557df3edf73fa",
       "url": "/accessibility/index.html",
       "title": "Accessibility",
       "example_ids": [
@@ -418,8 +418,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers’ change process. 12 November 2026 source review: Linked the shared design styles and added an original contribution and review illustration. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "db8949fc5ddb06f577fdf03c0d34333be1814ba847c035e91973dd81ad668466",
+      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers’ change process. 12 November 2026 source review: Linked the shared design styles and added an original contribution and review illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "752f99608c15973b4ae614d57915ba9b91cd18c0d80183e02829f61fa51a0286",
       "url": "/community/index.html",
       "title": "Maintain the system",
       "example_ids": [
@@ -1574,7 +1574,7 @@
     },
     {
       "path": "docs/source/components/index.html.erb",
-      "sha256": "2de8cf90bff377b805f294194cfc68cf5d101be86bed7925b73b0dfbd0011045",
+      "sha256": "a33249a73d69b8583446148947f9804e5862bbc5dd402432b600c3cb906a67ea",
       "reviewed_rule_families": [
         "BG-COL",
         "BG-TYP",
@@ -1595,7 +1595,7 @@
       "finding_ids": [],
       "recommendation_ids": [],
       "example_ids": [],
-      "note": "The catalogue explicitly separates reference guidance from deployed native adaptation and links its source coverage record. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review.",
+      "note": "The catalogue explicitly separates reference guidance from deployed native adaptation and links its source coverage record. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
       "url": "/components/index.html",
       "title": "Components",
       "resolved_finding_ids": []
@@ -2661,8 +2661,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Ownership scope, source adaptation, requirement levels and chapter navigation are clear; examples distinguish authored help from native labels and names. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "c2c696016ae790fe5ea017609a1eab68b3f091c7f7b031da6a528f938ef396a4",
+      "note": "Ownership scope, source adaptation, requirement levels and chapter navigation are clear; examples distinguish authored help from native labels and names. Writing-section review: existing prose, rule anchors and URLs retained; metadata, navigation ownership and authored update history moved to the independent Writing guide section. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "7de1b77bd00df5608f9f62b5bb00890d3c436114a4820b141338c7fa74d3f6e2",
       "url": "/content/index.html",
       "title": "Writing for a connected home",
       "example_ids": [
@@ -2959,8 +2959,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "The three-layer scope and ordered start path distinguish theme, companion and custom cards; new guidance entry points are connected. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim. 12 November 2026 source review: Added a personalisation route and an original section illustration for the setup guidance. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "b4a4f960f88bfd288bc162090dc5ebfc4dc34c74b68692784191ab5337dd0d1d",
+      "note": "The three-layer scope and ordered start path distinguish theme, companion and custom cards; new guidance entry points are connected. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim. 12 November 2026 source review: Added a personalisation route and an original section illustration for the setup guidance. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "81b5fc5e0262af355aea80c9d55f068762cdf6e4d42a71d61e872a7ee5ea7e90",
       "url": "/get-started/index.html",
       "title": "Get started",
       "example_ids": [
@@ -4558,8 +4558,8 @@
       "result": "no_confirmed_finding",
       "finding_ids": [],
       "example_ids": [],
-      "note": "Read the ERB catalogue entry and its catalogue partial. Purpose, searchable scope, reference-only labels and source-coverage route are explicit; generated list/CSS behaviour is part of shared framework QA. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "2bede9f87dba55b618124f6ca8581f0d90a440ae6e6b20b1359c8ca0efa86ed7",
+      "note": "Read the ERB catalogue entry and its catalogue partial. Purpose, searchable scope, reference-only labels and source-coverage route are explicit; generated list/CSS behaviour is part of shared framework QA. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. 12 November 2026 source review: Added an original section illustration that matches the documentation navigation family and keeps the complete meaning in text. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "9c0f1a5979a442024767a9cd94be57783a7556bc386778010032543b74327ece",
       "url": "/patterns/index.html",
       "title": "Patterns",
       "resolved_finding_ids": []
@@ -6348,8 +6348,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "All eight colour rules reviewed for local palette authority, semantic independence, contrast context, channel distinctions and functional/decorative scope. 12 November 2026 source review: Integrated colour roles with data examples and optional household identity, with an original guide illustration. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "84fb47f6af2586d9394e493b3293eb15182f46a1af886dbe52e56f740a4e7de2",
+      "note": "All eight colour rules reviewed for local palette authority, semantic independence, contrast context, channel distinctions and functional/decorative scope. 12 November 2026 source review: Integrated colour roles with data examples and optional household identity, with an original guide illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "35dca22abdc1779d768cc10214dab6e791a72fcee68defa522bd484dcbab3600",
       "url": "/styles/brand-colour.html",
       "title": "Colour roles and accessibility",
       "example_ids": [
@@ -6379,8 +6379,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "All nine data rules reviewed; clarified private HA adapter versus public ECharts APIs before freeze. Power/energy, original dates, gaps and native controls are preserved. 12 November 2026 source review: Linked the data rules to complete chart, dashboard and map examples, with an original guide illustration. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "8046d6202df658cb067f9efd86f003affc837a8aa15e13b8a06f0a3849234d5a",
+      "note": "All nine data rules reviewed; clarified private HA adapter versus public ECharts APIs before freeze. Power/energy, original dates, gaps and native controls are preserved. 12 November 2026 source review: Linked the data rules to complete chart, dashboard and map examples, with an original guide illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "1d7910802784be7d939de5cfd65209cb94080d8e452f0fdb7bc8f20edc56d0c6",
       "url": "/styles/brand-data.html",
       "title": "Data visualisation",
       "example_ids": [
@@ -6503,7 +6503,7 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Reviewed generated exact palette references and semantic-role table; tone is independent of mode, chart identity and print metadata are qualified. 12 November 2026 source review: Connected the palette reference to colour roles, optional household identity and an original guide illustration. Integrated validation is recorded separately in the data-design review.",
+      "note": "Reviewed generated exact palette references and semantic-role table; tone is independent of mode, chart identity and print metadata are qualified. 12 November 2026 source review: Connected the palette reference to colour roles, optional household identity and an original guide illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
       "sha256": "e0cd98113c4c39b72d88c438193827162552eaa763cb5fd9fe89a100c9063b5b",
       "url": "/styles/colour.html",
       "title": "Colour",
@@ -6563,8 +6563,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "All ten illustration rules reviewed. New authored artwork is separated from functional strokes, photographs, cameras, maps and unchanged supplied identity. 12 November 2026 source review: Documented the original section-header family, its usage and provenance, separately from project or household identity. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "52ef0ae554524d44b22239118ed45ce24981f5bf65181a25027d894ec1200ee8",
+      "note": "All ten illustration rules reviewed. New authored artwork is separated from functional strokes, photographs, cameras, maps and unchanged supplied identity. 12 November 2026 source review: Documented the original section-header family, its usage and provenance, separately from project or household identity. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "3be00eed06deb6f617ed47e30e5b48ec9a1edbfefb207b5d257fc8b9cfc7cbb6",
       "url": "/styles/illustration.html",
       "title": "Illustration",
       "example_ids": [
@@ -6624,8 +6624,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Visual roles, brand chapters and the complete writing guide have clear entry points; canonical tokens remain outside authored prose. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim. Preserved the historical #writing-guide anchor with a route to the new section. 12 November 2026 source review: Made data and colour guidance directly discoverable and added the matching original section illustration. Integrated validation is recorded separately in the data-design review.",
-      "sha256": "e057e517f745a962c223856fffdbbdc36fedb7614725d00e0ec93b213679880e",
+      "note": "Visual roles, brand chapters and the complete writing guide have clear entry points; canonical tokens remain outside authored prose. Project-story navigation review: discoverable About and Writing guide links, section grouping and update history are consistent; no new runtime claim. Preserved the historical #writing-guide anchor with a route to the new section. 12 November 2026 source review: Made data and colour guidance directly discoverable and added the matching original section illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json.",
+      "sha256": "c6db847683ef3e4898d7af765f583f28ea3e8433b8646df2116656bdb1e6dd31",
       "url": "/styles/index.html",
       "title": "Styles",
       "example_ids": [
@@ -17341,12 +17341,12 @@
   "source_snapshots": [
     {
       "path": "docs/source/layouts/civica.erb",
-      "sha256": "e6539ccf1a081127a1b747b27358cdac53e273da1d446ac904d7985e483ad978",
+      "sha256": "07725251e8c2a94a7be3d3dbeee390337bb713867ca0869bd941c0c222234bc8",
       "scope": "Authored/shared documentation source review."
     },
     {
       "path": "docs/source/layouts/civica_core.erb",
-      "sha256": "0c9caf5e06049a6fc314a039bb7a4ad9b469515e283ce22b92d047877275e67b",
+      "sha256": "a7319c8d1c2d134cb1fa1e30b29713e939a9a8320903c9f24eba971e76e489b0",
       "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
@@ -17371,7 +17371,7 @@
     },
     {
       "path": "docs/source/stylesheets/screen.css.scss",
-      "sha256": "4120b86e7261ff4b2364b919c94abb369627553eb1a5b44355eb2221148823c1",
+      "sha256": "d6cbe8bd7e789059e2e9ce8b6824bae188fb0b08cba6aea6e9712f153c58d59d",
       "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
     },
     {
@@ -17661,7 +17661,7 @@
     },
     {
       "path": "docs/data/page_history.yml",
-      "sha256": "23a4d50ff019ffbde7ed29ba76571518e4536d8c8508b192d872569538f8ea4b",
+      "sha256": "0f1c5d01ca4db36e6d4f96bab4a0ccb3187ad815e4138167b88622205902e34d",
       "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
     },
     {
@@ -17732,7 +17732,7 @@
     {
       "path": "docs/data/section-artwork-provenance.json",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "5bae4c59c2a9782f2c119b729a5c5321b6c9e567f1f99d0ec06f5e2919dcfd61"
+      "sha256": "0c893e6e8bba28011db142e30233a29d33f02091b9f2e3c7ecc7dc9cb282b6e8"
     },
     {
       "path": "docs/javascript/map-examples.mjs",
@@ -17742,52 +17742,52 @@
     {
       "path": "docs/source/images/guide-colour.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "71402ab9ac748c05c178141f9b16a18692a6932a989739fe77d8faeeca2ec0ed"
+      "sha256": "335cdb10b5be23d922947ff9c18db8005b2b517342963aa785dbda1dbbe0041c"
     },
     {
       "path": "docs/source/images/guide-data.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "1a69d145f5ceeeb81014e34ef10328fc3d18f047f7e032f589e11426137f02dc"
+      "sha256": "6184769262aee4920a73eded4131b68846c698350e2c1b903f3a1a8f2ed7b020"
     },
     {
       "path": "docs/source/images/guide-illustration.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "d66930271c1a765080cd5792dde703b40b77a4ac54ec5675b53fdd9b8f4be3e6"
+      "sha256": "97876507abd9165ad729f14c81e227012da5d5fd954edc04de727916e0505858"
     },
     {
       "path": "docs/source/images/section-accessibility.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "ece0693e392930be6f9607c0283e6c13b317c5d703257e28651111a8e511b74e"
+      "sha256": "4fff717897a336077413a672b49bc74bbe8e8b3088c7ef6ad0ee82e8fb396a9a"
     },
     {
       "path": "docs/source/images/section-community.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "fe6645a42e27976b247d66b0b62ccd72d02c0d80527ef231b8b8cbd6041b177f"
+      "sha256": "b014a725d70c00c21db7f1fccc56057b370adb70fc427be3c3325d59db5e6a0f"
     },
     {
       "path": "docs/source/images/section-components.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "2d3d9df37a9450cfe9bff71dfae97d6e6db677c935f059189b065b37e6a3f342"
+      "sha256": "ca2676b2f53f702a851c993d7faa05fcfebc0a0a7f2cdf600d79919fb3034821"
     },
     {
       "path": "docs/source/images/section-content.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "b2b947ee7ffe690820bf2eea5c401b16647f4cea88573eb8ab9c33a45da2f6fd"
+      "sha256": "d160152c9edf97acc2d0c750977c2557f9a2055359d9bd2f3a0a90a84b07771b"
     },
     {
       "path": "docs/source/images/section-get-started.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "8ec539096f9af29f0b2a0a7f62f679d423b80df4fb4cf7a27db85dced04ae54f"
+      "sha256": "bfccaa44345f0cb91aa70d300e41278ea7c22aa31c3b35ed25a2390519797774"
     },
     {
       "path": "docs/source/images/section-patterns.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "210da946ea7c270b924443f24c0b0530ea77c97fcecc7c743a41967bdbebc6f4"
+      "sha256": "28fc88ec3f19f48b3e30acebddc1a8d38c2150629024b8c4ad378ba55ece9d1c"
     },
     {
       "path": "docs/source/images/section-styles.svg",
       "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
-      "sha256": "3e4f829c9a06953c469482de6e4589b512d1641e97c189dab76bc183e0c97dd1"
+      "sha256": "d3e00f9bf085f81d3e4422be6e661eeed314645595ac2f0d3a75a75d8e3502c4"
     },
     {
       "path": "docs/source/reference/map-example-provider.json",
@@ -17838,6 +17838,21 @@
       "path": "docs/source/reference/data-design-review.json.erb",
       "sha256": "3c6c71eeae5c69c4cd47b014e1be038a4609fa982d74d6370b60d5dba119c2e5",
       "scope": "Public reference wrapper for current scoped documentation evidence."
+    },
+    {
+      "path": "docs/source/partials/_breadcrumbs.erb",
+      "sha256": "07d2038b15d3bf0bab870b186a4d4dda1c51f66001266c7b9de501b8d61985f3",
+      "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
+    },
+    {
+      "path": "docs/data/hero-layout-review.json",
+      "sha256": "225b6674b629b9fc416eb0566a4ef1fe88d5b6cb9bfe3ebb3ee6d93a7a0662d6",
+      "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
+    },
+    {
+      "path": "docs/source/reference/hero-layout-review.json.erb",
+      "sha256": "41664cf697f0c62235050190cb3660a0fbb452d6b358d41820f3d62a312ec492",
+      "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
     }
   ],
   "limitations": [
@@ -17851,13 +17866,530 @@
   "verification_record": "docs/data/remediation-verification.json",
   "remediation_baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
   "completeness_verification_record": "docs/data/ha-coverage-verification.json",
-  "latest_documentation_review": "docs/data/data-design-review.json",
+  "latest_documentation_review": "docs/data/hero-layout-review.json",
   "rule_snapshot_history": [
     {
       "date": "2026-11-11",
       "path": "docs/data/history/brand-guidance-2026-11-11.json",
       "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
       "scope": "Original 33-rule design-style review before the explicit project/household identity separation."
+    }
+  ],
+  "documentation_review_history": [
+    {
+      "record": "docs/data/data-design-review.json",
+      "revision": "eda4fb5e5ff550c1fdb6b2adb4fb5966b5a87239",
+      "sha256": "3f0000989a5728195e6394339b012a57a1b04c3a7c7e45ae2e2e4b4a6923187f",
+      "scope": "Prior data/colour/identity documentation validation and deployment; preserved unchanged before the user-requested layout correction."
+    }
+  ],
+  "source_snapshot_history": [
+    {
+      "revision": "eda4fb5e5ff550c1fdb6b2adb4fb5966b5a87239",
+      "date": "2026-11-12",
+      "scope": "All 100 source snapshots as published before the hero placement correction. Preserved as historical evidence, not asserted to match revised files.",
+      "snapshots": [
+        {
+          "path": "docs/source/layouts/civica.erb",
+          "sha256": "e6539ccf1a081127a1b747b27358cdac53e273da1d446ac904d7985e483ad978",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/layouts/civica_core.erb",
+          "sha256": "0c9caf5e06049a6fc314a039bb7a4ad9b469515e283ce22b92d047877275e67b",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/source/partials/_catalogue.erb",
+          "sha256": "d8a916f9b07e43e7e7dd43176f4bd8a11518709eba62b24293384db897150a97",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/source/partials/_example.erb",
+          "sha256": "830b8298cedebd320145555b9f186588772a6087bd9378b0fb6c32209952aa6f",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/partials/_history.erb",
+          "sha256": "5d8244f2eae9b0cf43b21b7c795093ae139da77058969e5f587824b03c4989f5",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/stylesheets/example.css.scss",
+          "sha256": "11042edf22c159c45998370935d136d03584ab4fdeef47a72201305603f15910",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/stylesheets/screen.css.scss",
+          "sha256": "4120b86e7261ff4b2364b919c94abb369627553eb1a5b44355eb2221148823c1",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/source/javascripts/civica-docs.js",
+          "sha256": "1075adadab57dc3fd9e0eada81fb87df0565c5dbc5b2ac3c4e436f1442121edc",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/energy-chart-examples.js",
+          "sha256": "6b0ed4dbc691451d47d82a24ac8ac54d343392b543097a6547b0e4ba2489d36d",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/example-components.js",
+          "sha256": "c9c8159a46d4ff9407a53c56355be3cc673834576b499756913872c443c2603c",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "sha256": "1bedaa21fc7d7724658b844c32dbc4bfce3a9fa323100caad8a3db8245bee1f2",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/publishing-examples.js",
+          "sha256": "ec6aafb1b4499bbc011bcc4a70bf8eccfed29c6a0290b818157e1e0e8b8caef3",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/helpers/design_system_helpers.rb",
+          "sha256": "ed20e6bef57e8dbfe3b669661d23fe0201c3c0bf5f596aaa9f89d9dad7d79a47",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/config.rb",
+          "sha256": "96de0031469a4fe0eb4b69e3aab10c40c1f0791d59134aa7598df44de687150a",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/design-contract.json",
+          "sha256": "15c65a45fe3c8ec6ef328af9c67439594e3fc2c6bc7a28d2cb37afa407bcf7bd",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "design-system/palettes.json",
+          "sha256": "e89aae1ed7aab4cb07d3a429d90e5e081918bc09641816eddcbc90c983447c70",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "ui/dev/energy-charts-harness.ts",
+          "sha256": "bc324fe70ef1bbf709f7a5be9e2ab7d49853025c325584ed06120f41ded9da5d",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "card/src/card.ts",
+          "sha256": "5401ec58d1c031c14f74a9504da36aeb4afc7b9e004dd8b947500b4b115af7b5",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/action-links.ts",
+          "sha256": "45ebe4bdf71f434d9b8c147b35101058a10c80e1669ffedf3fee4a1255af60a8",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/civica-ui.ts",
+          "sha256": "7e93a2416f4864e5de6c7a93fa9cbc3190740dc3d1e66abee17ba974c8ee2168",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/energy-chart-data.ts",
+          "sha256": "e47a84a93d09621aeb05bba7de1456fadd6ebb9a3aed0195016768703f018ba0",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/energy-charts.ts",
+          "sha256": "a1a5e3cec847e7b78734f6a5153a84ec621c18302353131c73e9479709371a47",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/energy-power-series.ts",
+          "sha256": "39fb4e7347494c674b5fd8fcb10214490383de974377cc07924380593bf0dfa0",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/index.ts",
+          "sha256": "376a8614f7630365a9f4c969cd3d89022c7bff3555678b7d4bb6760dfefddba6",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/legacy-card-styles.ts",
+          "sha256": "359732952189f8bf7119287645abe0fb76c8688e72cf4e4641cb61a89ced73c1",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/sidebar-badges.ts",
+          "sha256": "006e875169089d29256355e470b05bd70cd0f01231bfba862c54ed820f856cf0",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/theme-settings.ts",
+          "sha256": "0c8e3d74ceb3dd9d88cf2b5e790c3271337df9051eca3d5aadf3e728da614635",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "docs/data/brand-guidance-examples.yml",
+          "sha256": "7c0799cdecdf264ea8959dd87e28fb7324f96e6dd289107cde53345aca751daa",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/core-examples.yml",
+          "sha256": "cc8ae6458b4c11cf6204fb7124f9e5c27c8fc263b819d4caaefa92941b359dea",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/local-examples.yml",
+          "sha256": "f12b572fd44b1ea80d0aaf6c742e1aa762a3946e153c9e3948c61c02aa9bd896",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "sha256": "b1308c143a8e505b4de87d0bdca620e8a9440a1fc258c248fe139c0f27576d0c",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "sha256": "6931bd0a8964911fccdb5e64fdfd56268d519f87173c76f060b337c86f0b3ff2",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/publishing-examples.yml",
+          "sha256": "1a50b45edcbace34701af942812f049ace5b46958dd85b2ce9ff52274a0cfab8",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/writing-guide-examples.yml",
+          "sha256": "db49e45bfc31be3ee2631f12f35db1e856887c03a74d1906f62380b259833661",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/brand-guidance-inventory.json",
+          "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/writing-guide-inventory.json",
+          "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/stylesheets/_civica-tokens.scss",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "5bdb6985fdebd53175de9e83aafef941d8252910fdb279cc7f4e2f2324da60f4"
+        },
+        {
+          "path": "docs/source/partials/_component_family.erb",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "86e91370c9df2719a0692092dff52daa8aba1be2ab792c7a3d7bd00b16f2dd5c"
+        },
+        {
+          "path": "docs/data/card-examples.yml",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "56fd5b82db1441a5cd1835aacb1a1479ef1c3e661ae05c0ab93f02d7eece7e4d"
+        },
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "27d2da1c43cd1a24b2de7ca97a175e34cfe2c04488205343f15d251fbfd6f2b9"
+        },
+        {
+          "path": "docs/data/ha-flows-examples.yml",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "af4bab139ed07e7976887f608688f56f5955064c603d0361685871d8c529e2d2"
+        },
+        {
+          "path": "docs/data/illustration-assets.json",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "74b804c58838e26735e4ace113cf389e60bb3b2a32ac7689ceaff46c40d594f1"
+        },
+        {
+          "path": "docs/data/card-artwork-provenance.json",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "134d240fde7ed6927e18cfdd265079c0f1bfdeaa9c20fd11c964f570570ba5f8"
+        },
+        {
+          "path": "docs/source/images/card-kitchen.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "b09c41ecd9a301478e12b7510beb6a9c74f18a73ff07fe15e186f37474622593"
+        },
+        {
+          "path": "docs/source/images/card-reading-lamp.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "f8a6bc789016d58327b5d2417e1a65b758af17138c7cfb8de42118e6fc427fe6"
+        },
+        {
+          "path": "docs/source/images/card-room-schematic.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "d4209d9e24bf04e75ae55fef1cbdf28ce0d89ed1a53e2bc2b01134ec9d028a34"
+        },
+        {
+          "path": "docs/source/images/category-components.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "8e5510489e3e26c06f2b8d285767fb721929ac6835c40dd88615c7946a526fa7"
+        },
+        {
+          "path": "docs/source/images/category-patterns.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "9d5a02851359658dec10820dae22f58edb69046f1960fce19e58023a3c6ed276"
+        },
+        {
+          "path": "docs/source/images/category-styles.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "8db31a71a91570c65982d0b7932c7e84278b44ed2f2f1a73274a3bc07e02ee1f"
+        },
+        {
+          "path": "docs/source/images/design-system-hero.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "30ed80ab58e25d2987f83106fd91b7903a70fcb62718cb78a03502f399e86f1b"
+        },
+        {
+          "path": "docs/source/images/ha-controls-camera-scene.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "0c7fd17ac0ac4908864001eb35c9db9b1da89cbd7d156580b2d29a6cbb7b72c2"
+        },
+        {
+          "path": "docs/source/example.html.erb",
+          "scope": "Standalone example rendering, shared markup and build-time cache invalidation review.",
+          "sha256": "eccbfd59ed22ee0a908ee03514a0e7bfa9c7be542a910a67b8c525adf1983e25"
+        },
+        {
+          "path": "docs/data/completeness-interface-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "9f1e1ab8b3d0d39c2fa546c1cdda03ceee1ad94a4fe2d4c6226859e6baacc132"
+        },
+        {
+          "path": "docs/data/completeness-parent-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "40c725d485548e902726332f34ba306e09cac9925fb1114f735b50782fabf102"
+        },
+        {
+          "path": "docs/data/completeness-terminology-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "8a08e88ed2a515cd6c775fe0918a5908d4153b52296672b3c79779aec2f88366"
+        },
+        {
+          "path": "docs/data/terminology-source-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "84924563aae466e1e4d1d7b95cb1f4ee37d9abbdeaba53932dc7dbd11d6f1eaf"
+        },
+        {
+          "path": "docs/data/ha-interface-coverage.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "30087422a2197c4a7171928db85f37a0c70604184698354266bb4d2d6ce842a5"
+        },
+        {
+          "path": "docs/data/ha-terminology.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "1a1b472e48add357943611a3072321e6664bf03b83e1aa4bb7463830a7a3876b"
+        },
+        {
+          "path": "docs/data/uk-design-system-crosswalk.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "fd51df55f6fce81dbe064163fa41798a34f34ae8d4e2b53a54898ee991b9d41e"
+        },
+        {
+          "path": "docs/data/ha-administration-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "d036fcf80fa78095dab1ce760c342dbb3d62fde3c96652b5edb915894fa4807f"
+        },
+        {
+          "path": "docs/data/ha-coverage-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "b840d2fcec4f1d9c2939ef0bd64284c0bb9bd749164ce62eb111fb29c2d5934c"
+        },
+        {
+          "path": "docs/data/slider-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "632c44fbc7b769f5c194b45e3baa750b4918b84a429bc32bfe39ada4b9192fd3"
+        },
+        {
+          "path": "docs/data/terminology-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "505804b8ced997466985f5760c40972708f1ab34f473ba6bfe75f942649c663a"
+        },
+        {
+          "path": "docs/data/navigation.yml",
+          "sha256": "db8498fac53013e07fe408fe4af0a69d818887f8eaa7d6b3de22b5aa0e20c255",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/data/page_history.yml",
+          "sha256": "23a4d50ff019ffbde7ed29ba76571518e4536d8c8508b192d872569538f8ea4b",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/reference/coverage.json.erb",
+          "sha256": "caae1504551498813bde9296af32ae0007611e7ac21c667798540e86556ba6b1",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/reference/documentation-artwork.json.erb",
+          "sha256": "e8e10f09ffc3139288e3fef17b29248da7a5fa4e206ae0c6ee9a138320248ac2",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/llms.txt",
+          "sha256": "7b02fe6b73279e07df89e7e29e25f2a4c23f09744e8eb79ec4418d60031889fb",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/data/project-artwork-provenance.json",
+          "sha256": "d8e04461c1edf8195bd3965262905aa27c23ee0e15686c9d61799eda59323ac6",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/images/project-control-detail.svg",
+          "sha256": "453e28d8f7d2a66fb82974a2fdcc54e34b2fb7e2ca3113062ccb4cfa7d1fa469",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/images/project-household-overview.svg",
+          "sha256": "f4c35add6081b06701340f584649e7db19dce398cef760ea9e03bbf1bd0ea0e6",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/images/project-information-hierarchy.svg",
+          "sha256": "68b5d2e64a1c3c63fd5fe1207df082c397f73020c83df580b0490a53640e9e00",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/data/dashboard-data-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "f58ffe131e502cc7d6f33186e7b4624bf1c20e6ba2e17b32ed356abc5ddee68a"
+        },
+        {
+          "path": "docs/data/data-colour-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "b13bbc18961820a79e16c0172807bea062bba72927ed34e2676e8b390b483cf8"
+        },
+        {
+          "path": "docs/data/data-design-review.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "3f0000989a5728195e6394339b012a57a1b04c3a7c7e45ae2e2e4b4a6923187f"
+        },
+        {
+          "path": "docs/data/map-design-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "3ef7f2b37b6e09bbb05d036a6d3a099a3b7d8bd4869f08b56e0e63d3dd73dc4e"
+        },
+        {
+          "path": "docs/data/page-illustrations.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "ea427b31388c3a07bffde0de51af90e0452410c14363def1a4c76552b65152dc"
+        },
+        {
+          "path": "docs/data/personalisation-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "2a3c3a1250ca66489af786c6553f0e5eb909a896c78b6a415255f4206eecdfd8"
+        },
+        {
+          "path": "docs/data/section-artwork-provenance.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "5bae4c59c2a9782f2c119b729a5c5321b6c9e567f1f99d0ec06f5e2919dcfd61"
+        },
+        {
+          "path": "docs/javascript/map-examples.mjs",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "82bb1679e0f4431ae463af186a8f4478c6ae462e83aa64088fb03a01752bc8f3"
+        },
+        {
+          "path": "docs/source/images/guide-colour.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "71402ab9ac748c05c178141f9b16a18692a6932a989739fe77d8faeeca2ec0ed"
+        },
+        {
+          "path": "docs/source/images/guide-data.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "1a69d145f5ceeeb81014e34ef10328fc3d18f047f7e032f589e11426137f02dc"
+        },
+        {
+          "path": "docs/source/images/guide-illustration.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "d66930271c1a765080cd5792dde703b40b77a4ac54ec5675b53fdd9b8f4be3e6"
+        },
+        {
+          "path": "docs/source/images/section-accessibility.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "ece0693e392930be6f9607c0283e6c13b317c5d703257e28651111a8e511b74e"
+        },
+        {
+          "path": "docs/source/images/section-community.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "fe6645a42e27976b247d66b0b62ccd72d02c0d80527ef231b8b8cbd6041b177f"
+        },
+        {
+          "path": "docs/source/images/section-components.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "2d3d9df37a9450cfe9bff71dfae97d6e6db677c935f059189b065b37e6a3f342"
+        },
+        {
+          "path": "docs/source/images/section-content.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "b2b947ee7ffe690820bf2eea5c401b16647f4cea88573eb8ab9c33a45da2f6fd"
+        },
+        {
+          "path": "docs/source/images/section-get-started.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "8ec539096f9af29f0b2a0a7f62f679d423b80df4fb4cf7a27db85dced04ae54f"
+        },
+        {
+          "path": "docs/source/images/section-patterns.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "210da946ea7c270b924443f24c0b0530ea77c97fcecc7c743a41967bdbebc6f4"
+        },
+        {
+          "path": "docs/source/images/section-styles.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "3e4f829c9a06953c469482de6e4589b512d1641e97c189dab76bc183e0c97dd1"
+        },
+        {
+          "path": "docs/source/reference/map-example-provider.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "1df56d3bb89ad26b0210c96c7c9a3ec2d593d157d14eda908246968c6e879b23"
+        },
+        {
+          "path": "docs/source/stylesheets/_data-colour.scss",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "6f1a8ea2f6b807af4e2fe3789077d80508c63261202147b33415978fdb8aaea8"
+        },
+        {
+          "path": "docs/source/stylesheets/_data-dashboard.scss",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "a84441e179e9db6fc3846f199e11e941d2aa6d9b23a22f6b2708b672905086ec"
+        },
+        {
+          "path": "docs/source/stylesheets/_data-maps.scss",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "da4923c4e393f36bdc61c6147ecee31a3b521c29f330b8d4e8b8ceca8cdccfe0"
+        },
+        {
+          "path": "scripts/build-docs-maps.mjs",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "8d87fabb143bfcc6a3d5da4d35cc09c339275cdef0f1d29a613e420f84054f3b"
+        },
+        {
+          "path": "docs/scripts/sync-palettes.py",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "0e527b1027e3c2500f6af71a920ed4a3c2b08063fbc33dcfa97052fdbf79beea"
+        },
+        {
+          "path": "scripts/build.mjs",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "dafce39c675aa4fc4aa1ba288352b1f996009221121d5c01ed060c4c3b9d0247"
+        },
+        {
+          "path": "package.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "5528e7e5576b9cf4bcea18450965cc611d63ac91281e3046105039e55f6ddc2b"
+        },
+        {
+          "path": "package-lock.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "0927c977938c6d3b84c16044e0413bdc09143543fce8944b2512d3bec2afd635"
+        },
+        {
+          "path": "docs/source/reference/data-design-review.json.erb",
+          "sha256": "3c6c71eeae5c69c4cd47b014e1be038a4609fa982d74d6370b60d5dba119c2e5",
+          "scope": "Public reference wrapper for current scoped documentation evidence."
+        }
+      ]
     }
   ]
 }
