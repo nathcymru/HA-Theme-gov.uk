@@ -1,0 +1,72 @@
+### civica Free Use Licence 1.0
+
+Copyright (c) 2026 Nathan
+
+#### Purpose and scope
+
+civica is free to use and share. It must not be sold or used to provide paid
+civica services. This is a custom licence, not the MIT Licence or an
+OSI-approved open-source licence.
+
+"Covered Work" means the original civica software and documentation supplied
+under this licence, including modifications to that work. It excludes
+third-party components, separately licensed artwork and material for which
+you already have permission under another licence. Each excluded item keeps
+its own terms. This licence does not revoke, narrow or replace permissions
+already granted for earlier copies under MIT or another licence.
+
+#### Free personal and internal business use
+
+You may use, run, copy, study and modify the Covered Work without charge for
+personal use or your organisation's own internal operations. This includes
+using Home Assistant in a business's office and work by that business's
+employees. Internal business use does not permit selling civica or providing
+paid civica services to others.
+
+#### Free sharing and modifications
+
+You may distribute the Covered Work, with or without modifications, only
+without charge. Include this licence, the copyright notice and all applicable
+third-party notices with every copy or substantial portion. Identify your
+modifications and distribute those modifications under these same terms.
+Do not add a charge or restrictions that prevent recipients from exercising
+the permissions granted here. Provide the corresponding source code, or an
+accessible link to it, without charge when distributing a modified version.
+
+#### No sale, paid access or paid services
+
+You must not sell the Covered Work, charge a licence or download fee, charge
+for access to its features, or include it in a paid product or bundle.
+Subscriptions, compulsory donations and indirect charges do not avoid this
+restriction.
+
+You must not provide installation, configuration, customisation, hosting,
+maintenance, support or other services involving the Covered Work to another
+person or organisation for payment or other consideration. Making the code
+available separately for free does not permit a paid civica service.
+
+These restrictions apply to the Covered Work and services involving it. They
+do not change the terms of independently licensed third-party software or
+permissions already granted for earlier copies.
+
+#### No endorsement or artwork permission
+
+This licence grants no right to use another person's trade marks, logos,
+fonts or artwork, and implies no endorsement by civica, GOV.UK, the UK
+Government, Home Assistant or any other organisation. Consult LICENSE.md
+and ARTWORK.md for separate notices and rights limits.
+
+#### Duration and breach
+
+The permissions granted for a copy continue for as long as you comply with
+these terms. A later licence change does not withdraw those permissions.
+A use or distribution that breaches these terms is outside this licence.
+
+#### No warranty
+
+To the extent permitted by applicable law, the Covered Work is provided
+"as is", without warranty of any kind, express or implied, including
+merchantability, fitness for a particular purpose and non-infringement.
+The copyright holders and contributors are not liable for claims, damages
+or other liability arising from the Covered Work or its use. Nothing in
+this licence excludes a liability that cannot lawfully be excluded.
