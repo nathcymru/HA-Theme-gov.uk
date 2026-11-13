@@ -115,4 +115,8 @@ Automated tests cover generated values, colour contrast, component behaviour, ke
 
 ## Licence
 
-Original code and documentation: [MIT](LICENSE). Upstream design guidance retains its stated attribution. Supplied and pre-existing artwork has separate [provenance and reuse terms](ARTWORK.md). No official GOV.UK brand assets or GDS Transport fonts are distributed in the deployable output.
+Original work supplied in this copy: [civica Free Use Licence 1.0](LICENSE). Earlier permissions and separately licensed artwork remain unchanged. Upstream design guidance retains its stated attribution. Supplied and pre-existing artwork has separate [provenance and reuse terms](ARTWORK.md). No official GOV.UK brand assets or GDS Transport fonts are distributed in the deployable output.
+
+## Licence update on 13 November 2026
+
+This offered copy uses the civica Free Use Licence 1.0 for covered original work: free personal and internal business use, with no sale, paid access, paid bundles or paid services involving that work. Earlier permissions and third-party terms remain unchanged. Read [the release-specific licence and attribution](LICENSE.md).
