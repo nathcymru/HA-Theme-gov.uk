@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "tag": "v1.0.1",
+  "licence_updated_on": "2026-11-13",
+  "original_source_commit": "95b7a587d02b92c7a71ffca3ace8889444adc672",
+  "licence": "LicenseRef-civica-Free-Use-1.0",
+  "licence_sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c",
+  "original_notice": "licences/history/LICENSE-original.txt",
+  "original_notice_sha256": "f349d38a414273e6e240c619162938f1df1e36c4ad3c9da38c7779da1e6fb78e",
+  "scope": "Licensing and release metadata only; original functional files unchanged.",
+  "existing_permissions": "Earlier grants and independently licensed material remain unchanged.",
+  "historical_evidence": "Existing audit and test receipts still describe their original revision."
+}
