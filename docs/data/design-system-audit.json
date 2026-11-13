@@ -417,8 +417,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished.",
-      "sha256": "9ee9d586a025c3ef4f9e8cbc45ae6d2815eb81f849cc339ca6bb1dc5fe169261",
+      "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished. 13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass.",
+      "sha256": "895871d7598a62dca3296fd434866484f242e082970c94635b3bf0f5a75947fa",
       "url": "/community/licensing.html",
       "title": "Licensing and attribution",
       "example_ids": [
@@ -15156,6 +15156,71 @@
       "path": "docs/source/example.html.erb",
       "scope": "Standalone example rendering, shared markup and build-time cache invalidation review.",
       "sha256": "eccbfd59ed22ee0a908ee03514a0e7bfa9c7be542a910a67b8c525adf1983e25"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "LICENSE.md",
+      "sha256": "68aa43adb07ca8a1f0bb568fdb7f28eaa8826ffa459d20ca768a0fedab0a47f1",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "ARTWORK.md",
+      "sha256": "dd124f1ce9dce8638ed90fa9c47095b329a9789357eceda12e124aa209582046",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "README.md",
+      "sha256": "44f779b995b5ad0ab7a24d36c6785a5748bfe127fc2985e15a16c30f128673a7",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "968d7152a58dd3ef65f42938e3e1224274c9cc65bfb2db8d6c373799f0a7a51b",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "3a7c881b6fade8493b241312542ddbc7353356bf11ff8d74fb25388bef53b116",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "scripts/package.mjs",
+      "sha256": "a573096cd540d91ce0111ec2a6923c6969a050ce63a126a01ce655a382bfd057",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "package.json",
+      "sha256": "178e5826366fa47b1a4e800a8bed782dfec1aec1a04c61c6383ed6f07a2d72c3",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "aa2a716bc6b733f6e4a2e08a17948b7e5f9c326a5b6a65713dfe43bb22879c17",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "RELEASE-LICENSING.json",
+      "sha256": "de945366dd2f2c208f0632b68eb2f9100365350d45abce8d8f57ba1ebeb81620",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "licences/history/LICENSE-original.txt",
+      "sha256": "f349d38a414273e6e240c619162938f1df1e36c4ad3c9da38c7779da1e6fb78e",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "docs/source/reference/licences/LICENSE.txt",
+      "sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "docs/source/reference/licences/LICENSE-original.txt",
+      "sha256": "f349d38a414273e6e240c619162938f1df1e36c4ad3c9da38c7779da1e6fb78e",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
     }
   ],
   "limitations": [
@@ -15167,5 +15232,50 @@
     "Original findings and evidence are retained as history. Resolved means the stated source/documentation or maintained-fixture remedy passed its checks, not universal native or live-device conformance."
   ],
   "verification_record": "docs/data/remediation-verification.json",
-  "remediation_baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4"
+  "remediation_baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
+  "page_review_history": [
+    {
+      "revision": "99f57ea254d7d511b5d149715a11b3e104ebc47f",
+      "date": "2026-11-13",
+      "scope": "Unchanged previous licensing-page review, before the release licence update.",
+      "pages": [
+        {
+          "path": "docs/source/community/licensing.html.md.erb",
+          "reviewed_rule_families": [
+            "BG-COL",
+            "BG-TYP",
+            "BG-DAT",
+            "BG-ILL",
+            "WG-00",
+            "WG-01",
+            "WG-02",
+            "WG-03",
+            "WG-04",
+            "WG-05",
+            "WG-06",
+            "WG-07",
+            "WG-08",
+            "WG-09"
+          ],
+          "result": "no_confirmed_finding",
+          "finding_ids": [],
+          "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished.",
+          "sha256": "9ee9d586a025c3ef4f9e8cbc45ae6d2815eb81f849cc339ca6bb1dc5fe169261",
+          "url": "/community/licensing.html",
+          "title": "Licensing and attribution",
+          "example_ids": [
+            "local-community-licence",
+            "local-brand-canvas"
+          ],
+          "resolved_finding_ids": []
+        }
+      ]
+    }
+  ],
+  "licensing_update_review": {
+    "date": "2026-11-13",
+    "record": "RELEASE-LICENSING.json",
+    "original_revision": "99f57ea254d7d511b5d149715a11b3e104ebc47f",
+    "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+  }
 }

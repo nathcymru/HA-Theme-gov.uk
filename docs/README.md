@@ -53,3 +53,7 @@ npx playwright test tests/docs.browser.spec.mjs tests/publishing-examples.browse
 ```
 
 It checks guide structure/history, source-to-preview parity, every standalone example’s accessibility/reflow, safe no-JavaScript forms and important interactions. The separate Energy browser suite tests the shared production adapter. Do not describe those checks as proof that every reference pattern is installed in native Home Assistant.
+
+## Licence update on 13 November 2026
+
+This offered copy uses the civica Free Use Licence 1.0 for covered original work: free personal and internal business use, with no sale, paid access, paid bundles or paid services involving that work. Earlier permissions and third-party terms remain unchanged. Read [the release-specific licence and attribution](../LICENSE.md).
