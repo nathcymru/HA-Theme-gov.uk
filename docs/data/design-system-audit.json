@@ -418,7 +418,7 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers\u2019 change process. 12 November 2026 source review: Linked the shared design styles and added an original contribution and review illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json. Roadmap source review: the new entry distinguishes reviewed theme features from documentation changes and links the public timeline and maintainer workflow. Accepted-stage source review: the entry names all three roadmap stages and preserves the theme-versus-documentation scope. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
+      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers’ change process. 12 November 2026 source review: Linked the shared design styles and added an original contribution and review illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json. Roadmap source review: the new entry distinguishes reviewed theme features from documentation changes and links the public timeline and maintainer workflow. Accepted-stage source review: the entry names all three roadmap stages and preserves the theme-versus-documentation scope. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
       "sha256": "8fb0916387084638cfd1d226c678ae5cd7b94dc422a1228a214e0f64d035fd2b",
       "url": "/community/index.html",
       "title": "Maintain the system",
@@ -448,8 +448,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished. 12 November 2026 source review: Recorded map-library and OpenStreetMap attribution alongside the original section-header artwork provenance. Integrated validation is recorded separately in the data-design review. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
-      "sha256": "eec1250d16594544239c7772b848e42555ff7e4f7fdb7efc0a2b17f5d9698adb",
+      "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished. 12 November 2026 source review: Recorded map-library and OpenStreetMap attribution alongside the original section-header artwork provenance. Integrated validation is recorded separately in the data-design review. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run. 13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass.",
+      "sha256": "ffda35995be31d932b6e1bfd7e69de91791734a8cbef62b1ffacac273922e55c",
       "url": "/community/licensing.html",
       "title": "Licensing and attribution",
       "example_ids": [
@@ -2917,7 +2917,7 @@
       "result": "no_confirmed_finding",
       "finding_ids": [],
       "resolved_finding_ids": [],
-      "note": "Reviewed user-provided authorial purpose, inclusive wording, prominent independence, verified code/content licence distinctions, three original schematic figures with complete HTML alternatives, truthful accessibility aims and explicit implementation limits. Integration evidence: docs/data/project-story-review.json. 12 November 2026 source review: Clarified that the project identity is separate from a household\u2019s optional name, crest or logo. Integrated validation is recorded separately in the data-design review. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
+      "note": "Reviewed user-provided authorial purpose, inclusive wording, prominent independence, verified code/content licence distinctions, three original schematic figures with complete HTML alternatives, truthful accessibility aims and explicit implementation limits. Integration evidence: docs/data/project-story-review.json. 12 November 2026 source review: Clarified that the project identity is separate from a household’s optional name, crest or logo. Integrated validation is recorded separately in the data-design review. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
       "sha256": "a7e3b44990723e8fa0ae3d8b3d7dad96bc98f242a5ee0cae094eaf57f0b0aa3e",
       "url": "/get-started/about.html",
       "title": "About civica",
@@ -6814,7 +6814,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Adapter Connected, per-device observations, missing values and \u221261 dBm are separate. GMT and Europe/London context are explicit and no scan is represented as running."
+      "review_note": "Adapter Connected, per-device observations, missing values and −61 dBm are separate. GMT and Europe/London context are explicit and no scan is represented as running."
     },
     {
       "id": "bg-colour-boundaries",
@@ -7367,7 +7367,7 @@
     },
     {
       "id": "core-exit-visible",
-      "title": "Departure control \u2014 demonstration only",
+      "title": "Departure control — demonstration only",
       "path": "docs/data/core-examples.yml",
       "authored_html_sha256": "864588582131288960968e74219b1a1b1be687419c3e3e391557b3b42b14b668",
       "owners": [
@@ -7381,7 +7381,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Read the Departure control \u2014 demonstration only specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the Departure control — demonstration only specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/core-examples.yml",
       "sha256": "cc8ae6458b4c11cf6204fb7124f9e5c27c8fc263b819d4caaefa92941b359dea"
     },
@@ -7638,7 +7638,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Six dated intervals preserve the missing 08:00\u201309:00 value; five supplied intervals sum to 2.34 kWh. The matching plot, complete table, qualified largest-recorded comparison, sources and working detail links are synthetic reference content.",
+      "review_note": "Six dated intervals preserve the missing 08:00–09:00 value; five supplied intervals sum to 2.34 kWh. The matching plot, complete table, qualified largest-recorded comparison, sources and working detail links are synthetic reference content.",
       "sha256": "f58ffe131e502cc7d6f33186e7b4624bf1c20e6ba2e17b32ed356abc5ddee68a",
       "authored_html_sha256": "e9577aef4f6fcce8991d3b784d979229e0800e853638b9fff55a6bd75ee61247",
       "owners": [
@@ -10079,7 +10079,7 @@
     },
     {
       "id": "local-chart-devices",
-      "title": "Device comparison \u2014 horizontal bars",
+      "title": "Device comparison — horizontal bars",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "af70898d699636b389b16c2e3828c5be304f69c741e8aab36445911cedfd7292",
       "owners": [
@@ -10096,13 +10096,13 @@
       "finding_ids": [
         "AUD-COMP-002"
       ],
-      "review_note": "Read the Device comparison \u2014 horizontal bars specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the Device comparison — horizontal bars specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
     {
       "id": "local-chart-empty",
-      "title": "No values \u2014 an explicit empty state",
+      "title": "No values — an explicit empty state",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "f145fb51eec67632c5a872368cc74215f7eb55d6be06c6696bbe984108ab3574",
       "owners": [
@@ -10119,13 +10119,13 @@
       "finding_ids": [
         "AUD-COMP-002"
       ],
-      "review_note": "Read the No values \u2014 an explicit empty state specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the No values — an explicit empty state specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
     {
       "id": "local-chart-many",
-      "title": "24 named series \u2014 generated colours",
+      "title": "24 named series — generated colours",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "ab35e7223a125562528a6f4c71b58a374beb037aa51d4f97fd699f7435fa73f5",
       "owners": [
@@ -10142,13 +10142,13 @@
       "finding_ids": [
         "AUD-COMP-002"
       ],
-      "review_note": "Read the 24 named series \u2014 generated colours specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the 24 named series — generated colours specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
     {
       "id": "local-chart-power",
-      "title": "Power sources \u2014 individual unfilled lines",
+      "title": "Power sources — individual unfilled lines",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "25ca59abfc9eca90cc01ccd9ac1009028426697f906e3da690419368aa267cb3",
       "owners": [
@@ -10167,13 +10167,13 @@
       "finding_ids": [
         "AUD-COMP-002"
       ],
-      "review_note": "Read the Power sources \u2014 individual unfilled lines specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the Power sources — individual unfilled lines specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
     {
       "id": "local-chart-usage",
-      "title": "Consumption \u2014 solid and hatched columns",
+      "title": "Consumption — solid and hatched columns",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "9cfeef5cd3f0d23b358ab96160d20837e06e2800456c4fd3f37176da865bcb46",
       "owners": [
@@ -10191,13 +10191,13 @@
       "finding_ids": [
         "AUD-COMP-002"
       ],
-      "review_note": "Read the Consumption \u2014 solid and hatched columns specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the Consumption — solid and hatched columns specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
     {
       "id": "local-colour-muted",
-      "title": "Civic Cobalt \u2014 Muted",
+      "title": "Civic Cobalt — Muted",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "c8b8ad8b09a99044a381534e5081367715a888959528a3b4b71f955a74ea9470",
       "owners": [
@@ -10213,13 +10213,13 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Read the Civic Cobalt \u2014 Muted specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the Civic Cobalt — Muted specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
     {
       "id": "local-colour-vivid",
-      "title": "Civic Cobalt \u2014 Vivid",
+      "title": "Civic Cobalt — Vivid",
       "path": "docs/data/local-examples.yml",
       "authored_html_sha256": "e3376f42ca2c9a74db2527f8d231e7576884aed516a602a474a797c245ee9e01",
       "owners": [
@@ -10234,7 +10234,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Read the Civic Cobalt \u2014 Vivid specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
+      "review_note": "Read the Civic Cobalt — Vivid specimen with its owning guide: complete local destination/feedback, state/action meaning, semantic structure and native integration boundaries checked. Rendered acceptance is recorded separately.",
       "source_file": "docs/data/local-examples.yml",
       "sha256": "c720736fa39963a041b288c97bcacd484c52a5a88c5c2cfbd1726cda147671d8"
     },
@@ -15145,7 +15145,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Heat mode, Heating action, current 19.5 \u00b0C and target 21 \u00b0C are different fields; source does not conflate mode with activity."
+      "review_note": "Heat mode, Heating action, current 19.5 °C and target 21 °C are different fields; source does not conflate mode with activity."
     },
     {
       "id": "term-contextual-on",
@@ -15259,7 +15259,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "Unknown, unavailable and retained 18 \u00b0C do not become zero or an unsupported offline diagnosis."
+      "review_note": "Unknown, unavailable and retained 18 °C do not become zero or an unsupported offline diagnosis."
     },
     {
       "id": "term-native-label",
@@ -15316,7 +15316,7 @@
         "WG"
       ],
       "finding_ids": [],
-      "review_note": "0.8 kW instantaneous power, 4 kWh partial-day energy and \u00a31.00 estimated variable cost at \u00a30.25/kWh are consistent; standing charges and complete-bill claims are excluded."
+      "review_note": "0.8 kW instantaneous power, 4 kWh partial-day energy and £1.00 estimated variable cost at £0.25/kWh are consistent; standing charges and complete-bill claims are excluded."
     },
     {
       "id": "term-same-word-different-layer",
@@ -15932,7 +15932,7 @@
         "BG-TYP-02",
         "BG-TYP-04"
       ],
-      "summary": "The example stylesheet explicitly reduces body text to 16px below 500px and imports the GOV.UK responsive type defaults. The local typography contract specifies 18\u201319px narrow-screen body text and 19px for maintained custom main controls; the reference examples do not state this extra density exception.",
+      "summary": "The example stylesheet explicitly reduces body text to 16px below 500px and imports the GOV.UK responsive type defaults. The local typography contract specifies 18–19px narrow-screen body text and 19px for maintained custom main controls; the reference examples do not state this extra density exception.",
       "evidence": [
         {
           "path": "docs/source/stylesheets/example.css.scss",
@@ -15993,7 +15993,7 @@
         "BG-COL-02",
         "BG-COL-05"
       ],
-      "summary": "The custom status and do/don\u2019t-list styles still use #00703C and #D4351C while the maintained semantic references use #0F7A52 and #CA3535. Several old declarations remain alongside later corrective overrides. Reference controls can therefore demonstrate a competing palette despite passing basic contrast checks.",
+      "summary": "The custom status and do/don’t-list styles still use #00703C and #D4351C while the maintained semantic references use #0F7A52 and #CA3535. Several old declarations remain alongside later corrective overrides. Reference controls can therefore demonstrate a competing palette despite passing basic contrast checks.",
       "evidence": [
         {
           "path": "docs/source/stylesheets/_civica-tokens.scss",
@@ -16061,7 +16061,7 @@
         "BG-COL-05",
         "WG-076"
       ],
-      "summary": "The lighting card calculates its denominator from available lights, then labels it simply \u201clights\u201d. A room with two available lights off and a third unavailable light can read \u201c2 of 2 lights off\u201d, omitting the unavailable member from the visible summary. The same omission can affect an unknown managed member; the capability model records unknown and unavailable separately.",
+      "summary": "The lighting card calculates its denominator from available lights, then labels it simply “lights”. A room with two available lights off and a third unavailable light can read “2 of 2 lights off”, omitting the unavailable member from the visible summary. The same omission can affect an unknown managed member; the capability model records unknown and unavailable separately.",
       "evidence": [
         {
           "path": "card/src/card.ts",
@@ -16254,7 +16254,7 @@
         "BG-TYP-02",
         "WG-080"
       ],
-      "summary": "A blank line separates CIV-016 from the deviation table. It renders as a paragraph containing pipe characters, so the chart-colour and 1.5px-line decision loses the table\u2019s header associations and is harder to read.",
+      "summary": "A blank line separates CIV-016 from the deviation table. It renders as a paragraph containing pipe characters, so the chart-colour and 1.5px-line decision loses the table’s header associations and is harder to read.",
       "evidence": [
         {
           "path": "docs/source/community/deviations.html.md.erb",
@@ -16669,7 +16669,7 @@
             "path": "docs/source/components/date-input.html.md.erb",
             "line": 55,
             "detail": "The comma runs into the date example.",
-            "excerpt": "Test missing parts,31 February, an unexpected future date and mobile number keyboards. Explain any domain-specific date restriction in plain language rather than rejecting it as \u201cinvalid\u201d."
+            "excerpt": "Test missing parts,31 February, an unexpected future date and mobile number keyboards. Explain any domain-specific date restriction in plain language rather than rejecting it as “invalid”."
           },
           {
             "path": "docs/data/nhs-component-examples.yml",
@@ -16729,25 +16729,25 @@
           "detail": "Uncertain save now says not confirmed and may have completed, with a real local draft destination."
         }
       ],
-      "proposed_change": "Use an uncertainty heading such as \u201cWe could not confirm the save\u201d and keep the advice to inspect saved schedules before retrying. Alternatively, if demonstrating a confirmed rejection, change the scenario to an explicitly rejected persistence response. Update the example title/description to match the chosen state.",
+      "proposed_change": "Use an uncertainty heading such as “We could not confirm the save” and keep the advice to inspect saved schedules before retrying. Alternatively, if demonstrating a confirmed rejection, change the scenario to an explicitly rejected persistence response. Update the example title/description to match the chosen state.",
       "acceptance": [
         "The heading, description, body and summary all distinguish an unconfirmed save from a known rejected save.",
         "The specimen does not assert that nothing changed or encourage an unqualified duplicate request."
       ],
       "status": "resolved",
-      "summary": "nhs-confirmation-not-saved says \u201cThe schedule was not saved\u201d. The only stated evidence is an interrupted connection before confirmation; the draft summary later says \u201cSave not confirmed\u201d.",
+      "summary": "nhs-confirmation-not-saved says “The schedule was not saved”. The only stated evidence is an interrupted connection before confirmation; the draft summary later says “Save not confirmed”.",
       "original_evidence": {
         "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "records": [
           {
             "path": "docs/data/nhs-pattern-examples.yml",
             "line": 718,
-            "detail": "nhs-confirmation-not-saved says \u201cThe schedule was not saved\u201d."
+            "detail": "nhs-confirmation-not-saved says “The schedule was not saved”."
           },
           {
             "path": "docs/data/nhs-pattern-examples.yml",
             "line": 719,
-            "detail": "The only stated evidence is an interrupted connection before confirmation; the draft summary later says \u201cSave not confirmed\u201d."
+            "detail": "The only stated evidence is an interrupted connection before confirmation; the draft summary later says “Save not confirmed”."
           }
         ]
       },
@@ -16805,26 +16805,26 @@
           "detail": "Separated unavailable, unknown, retained-old data, permission rejection and unmatched identifier meanings; no inferred network diagnosis."
         }
       ],
-      "proposed_change": "Split the recovery table into evidence-specific unknown, unavailable, retained-old-value, rejected-request and no-confirmation cases. Describe availability as whether a usable entity state is supplied, not proof of physical reachability. In the identifier specimen, use \u201cNo entity matches this ID\u201d within the authorised scope and keep unavailable-but-matched entities as a separate case.",
+      "proposed_change": "Split the recovery table into evidence-specific unknown, unavailable, retained-old-value, rejected-request and no-confirmation cases. Describe availability as whether a usable entity state is supplied, not proof of physical reachability. In the identifier specimen, use “No entity matches this ID” within the authorised scope and keep unavailable-but-matched entities as a separate case.",
       "acceptance": [
         "An unknown reading, unavailable entity and old retained value have distinct wording without being rendered as zero/off/offline.",
         "An explicit rejection does not say the device failed to respond.",
         "An unavailable matched identifier is not described as absent or misspelled."
       ],
       "status": "resolved",
-      "summary": "The table maps any sensor with no current reading to \u201cReading unavailable\u201d, omitting unknown or retained/stale readings. The table maps every failed device command to \u201cThe device did not respond\u201d; a request may instead be explicitly rejected. nhs-pattern-review-guidance says availability describes whether HA can currently reach each entity, equating entity state availability with network reachability. nhs-identifier-error says \u201cNo available entity matches this ID\u201d even though the scenario is a misspelled/not-found identifier; this conflates matching with current availability.",
+      "summary": "The table maps any sensor with no current reading to “Reading unavailable”, omitting unknown or retained/stale readings. The table maps every failed device command to “The device did not respond”; a request may instead be explicitly rejected. nhs-pattern-review-guidance says availability describes whether HA can currently reach each entity, equating entity state availability with network reachability. nhs-identifier-error says “No available entity matches this ID” even though the scenario is a misspelled/not-found identifier; this conflates matching with current availability.",
       "original_evidence": {
         "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "records": [
           {
             "path": "docs/source/patterns/recovery.html.md.erb",
             "line": 27,
-            "detail": "The table maps any sensor with no current reading to \u201cReading unavailable\u201d, omitting unknown or retained/stale readings."
+            "detail": "The table maps any sensor with no current reading to “Reading unavailable”, omitting unknown or retained/stale readings."
           },
           {
             "path": "docs/source/patterns/recovery.html.md.erb",
             "line": 28,
-            "detail": "The table maps every failed device command to \u201cThe device did not respond\u201d; a request may instead be explicitly rejected."
+            "detail": "The table maps every failed device command to “The device did not respond”; a request may instead be explicitly rejected."
           },
           {
             "path": "docs/data/nhs-pattern-examples.yml",
@@ -16834,7 +16834,7 @@
           {
             "path": "docs/data/nhs-pattern-examples.yml",
             "line": 48,
-            "detail": "nhs-identifier-error says \u201cNo available entity matches this ID\u201d even though the scenario is a misspelled/not-found identifier; this conflates matching with current availability."
+            "detail": "nhs-identifier-error says “No available entity matches this ID” even though the scenario is a misspelled/not-found identifier; this conflates matching with current availability."
           }
         ]
       },
@@ -16886,14 +16886,14 @@
         "No wording claims a saved name or changed entity unless that operation is actually implemented and verified."
       ],
       "status": "resolved",
-      "summary": "nhs-question-modal states \u201cRename changes only the displayed label in this preview\u201d. The generic demo submit handler only changes the local status text; it does not update the displayed control label or persist the entered name.",
+      "summary": "nhs-question-modal states “Rename changes only the displayed label in this preview”. The generic demo submit handler only changes the local status text; it does not update the displayed control label or persist the entered name.",
       "original_evidence": {
         "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "records": [
           {
             "path": "docs/data/nhs-pattern-examples.yml",
             "line": 1039,
-            "detail": "nhs-question-modal states \u201cRename changes only the displayed label in this preview\u201d."
+            "detail": "nhs-question-modal states “Rename changes only the displayed label in this preview”."
           },
           {
             "path": "docs/source/javascripts/example.js",
@@ -16946,14 +16946,14 @@
         "Future signed content would be commissioned from the corrected, versioned written instructions rather than this obsolete step."
       ],
       "status": "resolved",
-      "summary": "The written theme guide says \u201cPreview the selection before saving\u201d. The documented palette flow applies the generated theme when either control changes. Both controls call apply() on change; the actual component has no Preview or Save button.",
+      "summary": "The written theme guide says “Preview the selection before saving”. The documented palette flow applies the generated theme when either control changes. Both controls call apply() on change; the actual component has no Preview or Save button.",
       "original_evidence": {
         "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "records": [
           {
             "path": "docs/data/nhs-pattern-examples.yml",
             "line": 404,
-            "detail": "The written theme guide says \u201cPreview the selection before saving\u201d."
+            "detail": "The written theme guide says “Preview the selection before saving”."
           },
           {
             "path": "docs/source/patterns/settings.html.md.erb",
@@ -17013,24 +17013,24 @@
       ],
       "proposed_change": "Give the synthetic agenda an explicit example time zone and give the empty-week heading/caption an actual labelled example date range. Keep the all-day event as a date-based event rather than converting it to midnight.",
       "acceptance": [
-        "A reader can identify the example timed appointment\u2019s zone without assuming the browser or household zone.",
+        "A reader can identify the example timed appointment’s zone without assuming the browser or household zone.",
         "A reader can identify the selected empty period from visible text.",
         "Synthetic status and native calendar ownership remain explicit."
       ],
       "status": "resolved",
-      "summary": "The timed appointment is \u201c09:00\u201d on 12 November 2026, with no declared zone or offset in its table/caption. The empty state says \u201cselected week\u201d but provides no dates identifying that week.",
+      "summary": "The timed appointment is “09:00” on 12 November 2026, with no declared zone or offset in its table/caption. The empty state says “selected week” but provides no dates identifying that week.",
       "original_evidence": {
         "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
         "records": [
           {
             "path": "docs/data/publishing-examples.yml",
             "line": 622,
-            "detail": "The timed appointment is \u201c09:00\u201d on 12 November 2026, with no declared zone or offset in its table/caption."
+            "detail": "The timed appointment is “09:00” on 12 November 2026, with no declared zone or offset in its table/caption."
           },
           {
             "path": "docs/data/publishing-examples.yml",
             "line": 637,
-            "detail": "The empty state says \u201cselected week\u201d but provides no dates identifying that week."
+            "detail": "The empty state says “selected week” but provides no dates identifying that week."
           }
         ]
       },
@@ -17042,7 +17042,7 @@
         "evidence_record": "docs/data/remediation-verification.json",
         "acceptance_checks": [
           {
-            "criterion": "A reader can identify the example timed appointment\u2019s zone without assuming the browser or household zone.",
+            "criterion": "A reader can identify the example timed appointment’s zone without assuming the browser or household zone.",
             "status": "verified_in_stated_scope"
           },
           {
@@ -17076,7 +17076,7 @@
           "detail": "Four original homepage illustrations now share a restrained flat Civic Cobalt family, with per-asset purpose, rights, colour and alternative-text records."
         }
       ],
-      "proposed_change": "Redraw or simplify the decorative hero and category compositions using the declared flat illustration family. Record each original asset\u2019s purpose, creator/rights, intended backgrounds and alternative-text decision. Preserve supplied identity artwork and meaningful functional symbols.",
+      "proposed_change": "Redraw or simplify the decorative hero and category compositions using the declared flat illustration family. Record each original asset’s purpose, creator/rights, intended backgrounds and alternative-text decision. Preserve supplied identity artwork and meaningful functional symbols.",
       "acceptance": [
         "The hero has a clear focal point and restrained supporting colours without ornamental outlining.",
         "Each decorative asset has a traceable metadata record and justified empty or informative alternative.",
@@ -17870,13 +17870,13 @@
     },
     {
       "path": "package.json",
-      "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json.",
-      "sha256": "c9ded94dae67afc37a5b0d565014eccf995864d09585e5e05036ad3e1db48e3e"
+      "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json. 13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass.",
+      "sha256": "2565a2fb931f5b28ae84b2ceec8383c802e64495611f5b6fdac6b1f0522be4f1"
     },
     {
       "path": "package-lock.json",
-      "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json.",
-      "sha256": "36cfbcb2cf1bbe96d6ae7e44980f9b64f11d707ad25c34612886ebd177099bb7"
+      "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json. 13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass.",
+      "sha256": "e7ecc2cc071586698bf6790a2261913b236af04298324f79060bdd13d9e5ea7d"
     },
     {
       "path": "docs/source/reference/data-design-review.json.erb",
@@ -17935,8 +17935,8 @@
     },
     {
       "path": "docs/README.md",
-      "sha256": "277e8435f9bd43185fa5d9a568e5bcb8be634071c7c723add90e8abb686a1554",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json."
+      "sha256": "52f614acab4163e8ac17c35340423de4d7d3d11f54106d9d2eb31932d6bcafb0",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json. 13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
     },
     {
       "path": "docs/source/index.html.erb",
@@ -18047,6 +18047,56 @@
       "path": "docs/data/history/brand-guidance-before-civica-2026-11-13.json",
       "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
       "scope": "Current naming, compatibility and historical-evidence boundary review; final integrated acceptance is separately recorded."
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "LICENSE.md",
+      "sha256": "d490655282bf9707fae88caec5690464cfc7e06a2ea154d38cb243ee73c3ac30",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "ARTWORK.md",
+      "sha256": "ebacaacaae34c3259a0d8ab47f32ee1d7d6e0fab7d39683e704b1bdd2625155e",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "README.md",
+      "sha256": "f229eebe293248d3dd59b6830090cca72ba63d09617af49dba10142b0c5f049f",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "e8c606eb65893e6b0a22819729d3c3c944264d1b75aecdc9accd16c08c30e79e",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "scripts/package.mjs",
+      "sha256": "8a7dc8e942a2407cc65d41913d7227933b1928a070d6bd2966f9041c10fa59ca",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "RELEASE-LICENSING.json",
+      "sha256": "9a5d79af090de66117f3c97a95c20ef621073036a851f26e32cde33db67c17a3",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "licences/history/LICENSE-original.txt",
+      "sha256": "355e0fe8ecb21ab04610f27a1e001a2980f95cf66a10f15883b7bac07935ae7f",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "docs/source/reference/licences/LICENSE.txt",
+      "sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+    },
+    {
+      "path": "docs/source/reference/licences/LICENSE-original.txt",
+      "sha256": "355e0fe8ecb21ab04610f27a1e001a2980f95cf66a10f15883b7bac07935ae7f",
+      "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
     }
   ],
   "limitations": [
@@ -20384,6 +20434,73 @@
           "scope": "Accepted-stage roadmap source review; current evidence and limitations are recorded in docs/data/roadmap-accepted-review.json."
         }
       ]
+    },
+    {
+      "revision": "df148e8ecd811c801950874e224b4142c8652f73",
+      "date": "2026-11-13",
+      "scope": "Unchanged previous hashes for source files affected by the release licence update.",
+      "snapshots": [
+        {
+          "path": "package.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json.",
+          "sha256": "c9ded94dae67afc37a5b0d565014eccf995864d09585e5e05036ad3e1db48e3e"
+        },
+        {
+          "path": "package-lock.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json.",
+          "sha256": "36cfbcb2cf1bbe96d6ae7e44980f9b64f11d707ad25c34612886ebd177099bb7"
+        },
+        {
+          "path": "docs/README.md",
+          "sha256": "277e8435f9bd43185fa5d9a568e5bcb8be634071c7c723add90e8abb686a1554",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json."
+        }
+      ]
     }
-  ]
+  ],
+  "page_review_history": [
+    {
+      "revision": "df148e8ecd811c801950874e224b4142c8652f73",
+      "date": "2026-11-13",
+      "scope": "Unchanged previous licensing-page review, before the release licence update.",
+      "pages": [
+        {
+          "path": "docs/source/community/licensing.html.md.erb",
+          "reviewed_rule_families": [
+            "BG-COL",
+            "BG-TYP",
+            "BG-DAT",
+            "BG-ILL",
+            "WG-00",
+            "WG-01",
+            "WG-02",
+            "WG-03",
+            "WG-04",
+            "WG-05",
+            "WG-06",
+            "WG-07",
+            "WG-08",
+            "WG-09"
+          ],
+          "result": "no_confirmed_finding",
+          "finding_ids": [],
+          "note": "Original code, supplied artwork, dependency code and external writing material are separated. Plain English PDFs and SCULPT assets are not republished. 12 November 2026 source review: Recorded map-library and OpenStreetMap attribution alongside the original section-header artwork provenance. Integrated validation is recorded separately in the data-design review. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
+          "sha256": "eec1250d16594544239c7772b848e42555ff7e4f7fdb7efc0a2b17f5d9698adb",
+          "url": "/community/licensing.html",
+          "title": "Licensing and attribution",
+          "example_ids": [
+            "local-community-licence",
+            "local-brand-canvas"
+          ],
+          "resolved_finding_ids": []
+        }
+      ]
+    }
+  ],
+  "licensing_update_review": {
+    "date": "2026-11-13",
+    "record": "RELEASE-LICENSING.json",
+    "original_revision": "df148e8ecd811c801950874e224b4142c8652f73",
+    "scope": "13 November 2026 licence-only source review: current legal notices, licence-download copies and packaging of those notices are reconciled with RELEASE-LICENSING.json. Previous permissions, runtime, artwork and historical test receipts are unchanged. This records source integrity, not a new full browser, runtime or live acceptance pass."
+  }
 }

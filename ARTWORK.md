@@ -30,7 +30,7 @@ Supplied colours and successful image decoding do not certify surrounding interf
 
 ## Rights and attribution
 
-The archive does not include a separate redistribution licence for its artwork. The repository's MIT licence applies to original software and documentation, not automatically to these supplied marks or third-party artwork. Inclusion follows the owner's request to use this identity in the project; downstream users must establish permission for reuse of the artwork.
+The archive does not include a separate redistribution licence for its artwork. The project software licence does not automatically apply to these supplied marks or third-party artwork. Inclusion follows the owner's request to use this identity in the project; downstream users must establish permission for reuse of the artwork.
 
 No GOV.UK crown, official wordmark, crest or GDS Transport font is included in this supplied package or the deployable documentation identity. Links and factual attributions to official design systems remain. civica is independent of the UK Government and Home Assistant. The project repository is `nathcymru/civica`.
 
@@ -46,3 +46,7 @@ The homepage household scene and three category illustrations form a flat Civic 
 civica is the project and documentation identity. Households may choose their own home, family or organisation identity through the documented personalisation boundaries.
 
 The companion changes the authenticated sidebar label and browser icons only while a civica theme is selected. It restores native identity when the user switches away or enters safe/recovery mode. Home Assistant's login, startup, native app icon and installed PWA manifest are owned by Home Assistant and are not replaced by this theme. The native Energy and Map interfaces retain their names and functions.
+
+## Licence update on 13 November 2026
+
+Original documentation illustrations and specimens retain their previously recorded MIT permissions. The exact former project notice is preserved in `licences/history/LICENSE-original.txt`. The current root `LICENSE` sets the scoped civica Free Use Licence 1.0 terms; it does not revoke earlier grants or change any separately licensed artwork or third-party material.
