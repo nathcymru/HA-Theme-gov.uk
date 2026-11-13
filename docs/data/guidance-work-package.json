@@ -961,6 +961,25 @@
         "docs/data/startup-readiness-review.json",
         "tests/theme-settings.browser.spec.mjs"
       ]
+    },
+    {
+      "id": "loop-21",
+      "title": "Loop 21: distinguish actual storage, licensed code and excluded artwork",
+      "outcome": "Source review completed. The canonical Licence page reads LICENSE.md and distinguishes the current custom free-use/no-sale/no-paid-services terms from prior MIT grants and unchanged third-party terms. Five unused scene SVGs without recorded redistribution grants were removed, including sports marks; supplied identity and floorplan rights limits remain explicit. The new notice acknowledges dismissal rather than accepting terms or tracking. Local build, 84 unit tests/typecheck, 26 targeted browser tests and 676-page link checks passed as reported by the parent. The full browser suite and publication/release updates remain pending in the separate licensing-notice record.",
+      "checks": [
+        "Do not describe MIT source code as OGL website guidance or imply government affiliation.",
+        "Keep exact upstream licence text and copyright notices distinct from plain-language project explanations.",
+        "State actual cookie purpose, lifetime, path and failure behavior; acknowledgement is not consent to tracking or acceptance of terms.",
+        "Keep optional OpenStreetMap network requests, hosting logs and external terms explicit.",
+        "Preserve historical evidence; refresh current pages, examples and dependency/source inventories only."
+      ],
+      "evidence": [
+        "docs/data/licensing-notice-review.json",
+        "LICENSE.md",
+        "ARTWORK.md",
+        "docs/source/javascripts/site-notice.js",
+        "docs/source/javascripts/example-components.js"
+      ]
     }
   ],
   "limitations": [
@@ -992,6 +1011,6 @@
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
   ],
-  "latest_documentation_review": "docs/data/startup-readiness-review.json",
+  "latest_documentation_review": "docs/data/licensing-notice-review.json",
   "publication_verification_scope": "Historical verification remains attached to the explicitly named revisions. The original roadmap review is unchanged; the Accepted-stage extension, two actual proposals and current acceptance are recorded separately in roadmap-accepted-review.json."
 }

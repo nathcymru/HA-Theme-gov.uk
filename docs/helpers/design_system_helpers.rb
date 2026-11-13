@@ -3,6 +3,25 @@ module DesignSystemHelpers
     ERB::Util.html_escape(value.to_s)
   end
 
+  def repository_licence_markdown
+    # One authored Markdown source; only repo-relative notice links are resolved
+    # to their copied public files for the static documentation site.
+    File.read(File.expand_path('../LICENSE.md', root)).gsub(/\]\((licences\/[^)]+)\)/) do
+      "](#{docs_path('/reference/' + Regexp.last_match(1))})"
+    end
+  end
+
+  # The deployed notice and its catalogue example use one markup record.
+  # Only destinations and persistence mode differ in the live documentation shell.
+  def site_notice
+    fragment = Nokogiri::HTML::DocumentFragment.parse(config[:civica_examples].fetch('core-cookie-essential').fetch('html'))
+    notice = fragment.at_css('[data-site-notice]')
+    notice['data-site-notice'] = 'live'
+    notice['data-docs-home'] = docs_path('/index.html')
+    fragment.at_css('[data-site-licence]')['href'] = docs_path('/community/licensing.html')
+    fragment.to_html
+  end
+
   def home_page?
     current_page.destination_path == 'index.html'
   end

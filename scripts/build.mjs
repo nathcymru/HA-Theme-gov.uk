@@ -1,6 +1,7 @@
 import { build } from 'esbuild';
 import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+execFileSync(process.execPath, ['scripts/audit-licences.mjs'], { stdio: 'inherit' });
 execFileSync(process.execPath, ['scripts/roadmap.mjs', '--check'], { stdio: 'inherit' });
 execFileSync(process.execPath, ['scripts/generate-themes.mjs'], { stdio: 'inherit' });
 execFileSync(process.execPath, ['scripts/check-brand.mjs'], { stdio: 'inherit' });

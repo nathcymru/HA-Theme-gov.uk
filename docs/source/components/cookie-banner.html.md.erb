@@ -1,25 +1,39 @@
 ---
 title: "Cookie banner"
-description: "Explain optional storage and let people make an informed choice before it is used."
+description: "Explain storage clearly and distinguish an essential notice from optional consent."
 section: components
 group: Content presentation
 status: reference
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: 2026-11-13
 updates:
+  - date: 2026-11-13
+    description: "Added the deployed essential-only notice, its shared example, cookie lifetime and failure behaviour."
   - date: 2026-11-11
     description: "Added the civica.uk guidance, contextual examples and implementation boundaries."
 ---
 
 # Cookie banner
 
-Explain optional storage and let people make an informed choice before it is used.
+Explain what the site stores and why. Offer a choice only where there is an optional purpose.
 
 ## When to use
 
 First establish what the application actually stores and why. Distinguish essential sign-in or security state from optional measurement. A banner cannot make an inaccurate description acceptable. Do not add an empty consent ritual to every local dashboard.
 
-This documentation site has no analytics integration. The following examples illustrate a future service’s choice and confirmation; they do not set cookies or change Home Assistant’s storage.
+This documentation site uses the essential-only variant below. It combines project information with a storage explanation. Hiding it acknowledges the notice; it does not give consent to analytics or accept licence terms.
+
+## Essential-only site notice
+
+<%= example('core-cookie-essential') %>
+
+The deployed notice and this example share one markup record. The site saves a cookie only when you select **Hide this notice**. The example hides for the current preview only and never saves a cookie.
+
+The `civica_docs_notice` cookie holds the value `v1` for up to one year. It is limited to this documentation site's path, uses `SameSite=Lax` and is marked `Secure` on HTTPS. It contains no account or household information. Clearing it makes the notice appear again. A changed notice version can require a new acknowledgement.
+
+After dismissal, keyboard focus moves to the main content. If storage is blocked, the notice hides for this page and explains that it may appear again. With JavaScript off, the notice remains readable and the dismiss button stays hidden. The footer and [Licence and site information](../community/licensing.html) remain available in every case.
+
+The following optional-storage examples describe a different service. They do not set cookies, enable analytics or change Home Assistant’s storage.
 
 ## Offer equally clear choices
 

@@ -77,3 +77,13 @@ npm run test:browser -- --workers=4
 ```
 
 It checks guide structure/history, source-to-preview parity, every standalone example’s accessibility/reflow, safe no-JavaScript forms and important interactions. The included Energy browser suite tests the shared production adapter. Do not describe those checks as proof that every reference pattern is installed in native Home Assistant.
+
+## First-visit notice and licence page
+
+`/community/licensing.html` renders the repository's `LICENSE.md` through `repository_licence_markdown` on every Middleman build. It does not fetch legal text in the visitor's browser. The helper resolves repository-relative `licences/` links to exact files copied into `build/reference/licences/` by the build hook. The rendered block carries the source SHA-256, and its source link points to the root Markdown file. `LICENSE` contains the custom civica Free Use Licence, and the licence check verifies that its full text also appears unchanged in `LICENSE.md`. Do not label these no-sale and no-paid-services terms as MIT or OSI open source. Dependencies and previously licensed materials retain their separate terms.
+
+The deployed notice and `core-cookie-essential` example share the example's HTML record. The helper changes only its destinations and persistence mode for the live shell. `site-notice.js` runs immediately after the notice, so a valid acknowledgement hides it before the rest of the page is parsed. With JavaScript off, the explanation stays visible and its dismiss button remains hidden. The example never saves a cookie.
+
+`civica_docs_notice=v1` is set only after **Hide this notice**, for up to one year, with a documentation-scoped path, `SameSite=Lax` and `Secure` on HTTPS. It contains no identity information. A failed read or write leaves a usable per-page dismissal and a truthful status. Keyboard dismissal moves focus to the main content. There is no optional consent, analytics or marketing code. Accordion demonstrations do not retain expanded states. Map examples still require explicit activation before contacting OpenStreetMap.
+
+Run `npm run check:licences` when dependencies or notice files change. Use `node scripts/audit-licences.mjs --write` only for an explicit reviewed refresh with the locked npm and Ruby dependencies installed. Then rebuild the documentation, check internal links and run `tests/docs-notice.browser.spec.mjs`. Review the actual terms and storage behaviour; an inventory or browser test is not legal clearance. Include `LICENSE.md`, `licences/` and `ARTWORK.md` in release packages.

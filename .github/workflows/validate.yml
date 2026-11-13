@@ -59,6 +59,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
       - run: npm run build
+      - run: npm run check:licences
       - run: npm run typecheck
       - run: npm test
       - run: python3 docs/scripts/sync-palettes.py --check

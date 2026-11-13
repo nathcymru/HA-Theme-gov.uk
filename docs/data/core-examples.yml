@@ -112,6 +112,12 @@
       "html": "<section aria-label=\"Example publication details\"><h2 class=\"govuk-heading-m\">Example meter guide</h2><p class=\"govuk-body\">Published <time datetime=\"2026-10-01\">1 October 2026</time><br>Last updated <time datetime=\"2026-11-01\">1 November 2026</time></p><details class=\"govuk-details\"><summary class=\"govuk-details__summary\"><span class=\"govuk-details__summary-text\">See all updates</span></summary><div class=\"govuk-details__text\"><ol class=\"govuk-list\"><li><time datetime=\"2026-11-01\">1 November 2026</time><p>Corrected the unit in the example from W to kW.</p></li><li><time datetime=\"2026-10-01\">1 October 2026</time><p>First published.</p></li></ol></div></details></section>",
       "height": 300,
       "description": "An update note identifies the correction instead of saying only “Updated”."
+    },
+    "core-cookie-essential": {
+      "title": "An essential-only first-visit notice",
+      "description": "The documentation notice uses this markup. Hiding this isolated example does not save a cookie.",
+      "html": "<section class=\"govuk-cookie-banner c-site-notice\" data-site-notice=\"example\" data-docs-home=\"../index.html\" data-nosnippet role=\"region\" aria-labelledby=\"site-notice-heading\">\n  <div class=\"govuk-cookie-banner__message c-container\">\n    <h2 id=\"site-notice-heading\" class=\"govuk-cookie-banner__heading govuk-heading-m\">About this site and cookies</h2>\n    <div class=\"govuk-cookie-banner__content\">\n      <p class=\"govuk-body\">civica is an independent community project. It is not affiliated with, endorsed by or connected to GOV.UK or the UK Government.</p>\n      <p class=\"govuk-body\">It uses open-source GOV.UK Frontend components under the MIT Licence.</p>\n      <p class=\"govuk-body\">This site uses essential storage only, to remember that you have hidden this notice. It does not use analytics or advertising cookies.</p>\n    </div>\n    <div class=\"govuk-button-group\">\n      <button type=\"button\" class=\"govuk-button\" data-site-notice-dismiss hidden>Hide this notice</button>\n      <a class=\"govuk-link\" data-site-licence href=\"../community/licensing.html\">Licence and site information</a>\n    </div>\n  </div>\n</section>\n<p class=\"govuk-body c-container c-site-notice-status\" data-site-notice-status role=\"status\" tabindex=\"-1\" hidden></p>",
+      "height": 490
     }
   }
 }

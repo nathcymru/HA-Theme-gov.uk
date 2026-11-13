@@ -17,7 +17,8 @@
     "roadmap:fetch": "node scripts/roadmap.mjs --fetch",
     "check:guidance": "node scripts/check-guidance.mjs",
     "check:coverage": "node scripts/check-ha-coverage.mjs",
-    "check:naming": "node scripts/check-naming.mjs"
+    "check:naming": "node scripts/check-naming.mjs",
+    "check:licences": "node scripts/audit-licences.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
@@ -29,5 +30,6 @@
     "typescript": "^7.0.2",
     "yaml": "^2.9.1"
   },
-  "version": "1.4.1"
+  "version": "1.4.1",
+  "license": "SEE LICENSE IN LICENSE"
 }

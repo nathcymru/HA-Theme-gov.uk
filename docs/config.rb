@@ -3,12 +3,17 @@ require 'json'
 require 'pathname'
 require 'yaml'
 require 'date'
+require 'digest'
 
 # A direct Middleman build has the same public-data gate as the Node build.
 # Network access belongs to the explicit trusted refresh step, never a visitor.
 unless system('node', File.expand_path('../scripts/roadmap.mjs', __dir__), '--check',
               '--output', File.expand_path('data/roadmap.json', __dir__))
   raise 'Roadmap data is invalid. Run npm run roadmap:check from the repository root.'
+end
+
+unless system('node', File.expand_path('../scripts/audit-licences.mjs', __dir__), chdir: File.expand_path('..', __dir__))
+  raise 'Licence evidence is out of date. Review the dependency inventory before building.'
 end
 
 # The official Tech Docs Template supplies Markdown rendering, code highlighting,
@@ -91,4 +96,12 @@ helpers do
   def palette_data
     JSON.parse(File.read(File.expand_path('../design-system/palettes.json', root)))
   end
+end
+
+# Publish the exact reviewed notices beside the page rendered from LICENSE.md.
+after_build do
+  destination = File.join(config[:build_dir], 'reference', 'licences')
+  FileUtils.rm_rf(destination)
+  FileUtils.mkdir_p(File.dirname(destination))
+  FileUtils.cp_r(File.expand_path('../licences', root), destination)
 end

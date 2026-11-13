@@ -86,6 +86,15 @@
       header.to_html
     end
   end
+  if current_page.data.repository_source == 'LICENSE.md'
+    # Keep the repository-rendered terms distinct from examples and page history.
+    licence = Nokogiri::XML::Node.new('div', fragment.document)
+    licence['data-license-content'] = ''
+    licence['data-source-sha256'] = Digest::SHA256.file(File.expand_path('../LICENSE.md', root)).hexdigest
+    nodes = fragment.children.take_while { |node| !(node.name == 'h2' && node.text == 'Examples') }
+    fragment.children.first.add_previous_sibling(licence)
+    nodes.each { |node| licence.add_child(node.unlink) }
+  end
   content = fragment.to_html
   content_for :page_contents do
     single_page_table_of_contents(content, max_level: 2)

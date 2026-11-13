@@ -13,7 +13,8 @@ cpSync('card/dist/govuk-house-lighting-card.js', `${root}/www/civica/card/dist/g
 cpSync('card/assets', `${root}/www/civica/card/assets`, { recursive: true });
 cpSync('themes', `${root}/themes/civica`, { recursive: true });
 cpSync('cards', `${root}/examples/cards`, { recursive: true });
-for (const name of ['LICENSE', 'ARTWORK.md', 'VERIFICATION.md']) cpSync(name, `${root}/${name}`);
+for (const name of ['LICENSE', 'LICENSE.md', 'ARTWORK.md', 'VERIFICATION.md']) cpSync(name, `${root}/${name}`);
+cpSync('licences', `${root}/licences`, { recursive: true });
 cpSync('INSTALL.md', `${root}/README.md`);
 cpSync('lighting', `${root}/lighting`, { recursive: true });
 cpSync('design-system', `${root}/design-system`, { recursive: true });

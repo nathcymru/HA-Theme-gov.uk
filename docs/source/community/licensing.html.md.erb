@@ -1,11 +1,14 @@
 ---
-title: "Licensing and attribution"
-description: "Licensing and attribution for the civica Home Assistant design system."
+title: "Licence"
+description: "Read the project licence, third-party notices and information about this site."
+repository_source: "LICENSE.md"
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 updated_on: "2026-11-13"
 published_on: "2026-11-11"
 updates:
+  - date: "2026-11-13"
+    description: "Now renders the repository licence directly, with dependency attribution, artwork limits and essential-cookie information."
   - date: "2026-11-13"
     description: "Updated the current project name and repository links to civica."
   - date: "2026-11-12"
@@ -18,56 +21,12 @@ updates:
     description: "First published in the civica.uk design system."
 ---
 
-# Licensing and attribution
-
-The repository's root licence governs its original code. Check individual assets and dependencies for their own terms.
-
+<%= repository_licence_markdown %>
 
 ## Examples
 
-These isolated examples illustrate the decisions on this page. Any household values are invented, and demonstration actions do not control a home. Open an example to inspect it at full width or view its exact HTML.
+These isolated examples explain licence and identity boundaries. They do not grant permission to use someone else's artwork.
 
 <%= example('local-community-licence') %>
 
 <%= example('local-brand-canvas') %>
-
-
-## Reused design guidance
-
-GOV.UK, MoJ, DWP, Home Office and ONS guidance informs this local system. Their documentation is generally published under the Open Government Licence where stated. NHS material has its own published terms. Links in this site identify the specific sources; attribution does not imply endorsement.
-
-The GOV.UK Tech Docs Template and its code are MIT licensed. Its documentation identifies separate Crown copyright/Open Government Licence treatment. Preserve dependency notices and the repository's existing attribution.
-
-Standalone chart examples include Apache ECharts, zrender and their supporting code. Their [licences and notices](../reference/chart-demo-licenses.txt) accompany the examples. The Home Assistant companion uses the native renderer and does not distribute another production chart engine. ONS visual specifications are adapted through original local code; the ONS Highcharts implementation is not included.
-
-Standalone map examples bundle MapLibre GL JS and VersaTiles Style; their [licences and notices](../reference/map-demo-licenses.txt) accompany the examples. Map features come from OpenStreetMap contributors under the [Open Database Licence](https://www.openstreetmap.org/copyright). Visible map attribution remains on the map. The [provider record](../reference/map-example-provider.json) identifies the reviewed tile service and usage policy.
-
-## Project identity assets
-
-The revised civica files were supplied by the user in `civica_brand_assets_revised.zip` on 13 November 2026. Their provenance, accepted-file inventory and archive verification records are retained in `brand/civica/`. Do not infer a new licence or legal clearance from the presence of those files. Accepted source artwork remains unchanged; the recorded empty WebP is not distributed.
-
-The civica mark is an independent identity. It is not an official GOV.UK or Home Assistant mark. Do not distribute the GOV.UK crown, GOV.UK logotype or GDS Transport as product branding.
-
-## Screenshots and data
-
-Use synthetic or authorised data in public examples. Do not publish private device names, location data, camera images or tokens incidentally captured in a screenshot.
-
-## Attribution wording
-
-“civica adapts guidance from the GOV.UK Design System and other UK public service design systems for Home Assistant. It is independent and is not endorsed by those organisations.”
-
-See the [source register](sources.html) for the reviewed references and the [unbranded Frontend guidance](https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/) for practical asset replacement requirements.
-
-## Expanded reference catalogue
-
-The new examples use original household wording and data. GOV.UK Frontend 6.6.0 component classes and enhancement code are used under its MIT licence through the pinned Tech Docs dependency. NHS and Publishing Design Guide pages are attributed on each adapted guide; their official identities and clinical/government authority claims are excluded. Source-index mappings and provenance are published in the [coverage record](../reference/coverage.json).
-
-The homepage, category and section-header SVG illustrations are original project artwork. Their purposes, text alternatives and source hashes are recorded in the [documentation artwork register](../reference/documentation-artwork.json). Simple component schematics and decorative SVG arrows in examples are also original. They are separate from the supplied revised identity assets, whose accepted-file provenance and byte-for-byte verification remain in force.
-
-## Writing-guide sources
-
-The writing guide is original civica guidance with original household examples. It links to the NHS, Home Office and GOV.UK publishing sources rather than claiming that their institutional policies apply to a home.
-
-Plain English Campaign retains copyright in its free guides and requires permission for republication. No guide PDF, proprietary word list or worked example from those guides is bundled here. The reviewed titles and links identify the source of general writing principles.
-
-SCULPT was developed by Helen Wilson at Worcestershire County Council. Its [source page](https://www.worcestershire.gov.uk/council-services/business/digital-worcestershire/sculpt-accessibility/what-sculpt) identifies a Creative Commons Attribution–NonCommercial–ShareAlike 4.0 licence. The source framework, poster and logo are not relicensed under this repository’s code licence. We link to that framework as an influence on our original accessibility checks; we do not bundle its poster or logo.

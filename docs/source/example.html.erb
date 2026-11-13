@@ -6,6 +6,7 @@
   <div class="c-example-canvas"><%= example_html(spec) %></div>
   <% unless spec['has_main'] %></main><% end %>
   <footer><p class="c-example-notice">civica design example. Any values are illustrative; actions do not control a home.</p></footer>
+  <% if example_id == 'core-cookie-essential' %><%= javascript_include_tag 'site-notice' %><% end %>
   <%= javascript_include_tag 'example-components', defer: true %>
   <%= javascript_include_tag 'example', defer: true %>
   <%= javascript_include_tag 'publishing-examples', defer: true %>

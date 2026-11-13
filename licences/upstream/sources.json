@@ -1,0 +1,37 @@
+[
+  {
+    "path": "licences/upstream/govuk-frontend-6.6.0-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/alphagov/govuk-frontend/v6.6.0/LICENSE.txt",
+    "retrieved_on": "2026-11-13",
+    "sha256": "c652f35b1f2e5b88eb49f1e8a935eec79b4761a81666ace576e1af723f4a9238",
+    "reason": "Exact pinned upstream licence; the gem-vendored GOV.UK Frontend package omits its standalone licence file."
+  },
+  {
+    "path": "licences/notices/reference/home-assistant-core/LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/home-assistant/core/d8a0dc698c8946b44e455d904000db563cfbf1ba/LICENSE.md",
+    "retrieved_on": "2026-11-13",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+  },
+  {
+    "path": "licences/notices/reference/home-assistant-frontend/LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/home-assistant/frontend/e32bc0696ebefde323f5b791269ad0c57f3f99d9/LICENSE.md",
+    "retrieved_on": "2026-11-13",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+  },
+  {
+    "path": "licences/notices/reference/material-design-icons/LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/Templarian/MaterialDesign/master/LICENSE",
+    "retrieved_on": "2026-11-13",
+    "sha256": "3bae6305bcaa6d10219b999f65c342034c2d40b1c0e8567fa08605e73ccba829",
+    "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+  },
+  {
+    "path": "licences/notices/reference/google-material-design-icons/LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/google/material-design-icons/master/LICENSE",
+    "retrieved_on": "2026-11-13",
+    "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+  }
+]

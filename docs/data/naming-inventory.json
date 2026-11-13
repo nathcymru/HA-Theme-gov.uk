@@ -915,7 +915,7 @@
     },
     {
       "path": "docs/source/community/licensing.html.md.erb",
-      "pointer": "/frontmatter/updates/4/description",
+      "pointer": "/frontmatter/updates/5/description",
       "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
       "reason": "Dated page history is preserved as originally published."
     },
@@ -963,7 +963,7 @@
     },
     {
       "path": "docs/source/components/cookie-banner.html.md.erb",
-      "pointer": "/frontmatter/updates/0/description",
+      "pointer": "/frontmatter/updates/1/description",
       "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
       "reason": "Dated page history is preserved as originally published."
     },

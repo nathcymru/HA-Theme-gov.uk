@@ -10,6 +10,8 @@
 </head>
 <body class="<%= home_page? ? 'c-home' : 'c-guide' %>">
 <a class="c-skip" href="#main-content">Skip to main content</a>
+<%= site_notice %>
+<%= javascript_include_tag 'site-notice' %>
 <header class="c-header"><div class="c-container c-header__inner">
 <a class="c-brand" href="<%= docs_path('/index.html') %>" aria-label="civica Design System home"><img src="<%= docs_path('/images/civica-lockup.svg') %>" alt="civica" width="236" height="52"><span class="c-header__name">Design System</span></a>
 <form class="c-search" role="search" action="<%= docs_path('/search.html') %>"><label class="govuk-visually-hidden" for="site-search">Search Design System</label><input id="site-search" name="q" type="search" placeholder="Search Design System"><button type="submit" aria-label="Search"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15 15 6 6" stroke="currentColor" stroke-width="2"/></svg></button></form>
@@ -36,9 +38,9 @@
 <%= yield %>
 <%= partial 'partials/component_family' %>
 <%= partial 'partials/history' %>
-<div class="c-contribute"><h2>Help improve this guidance</h2><p>Review responsibility: the civica repository maintainers. Follow the <a href="<%= docs_path('/content/content-review.html') %>">content review process</a> when changing this guidance.</p><p><a href="https://github.com/nathcymru/civica/issues/new">Report an issue or suggest a change</a>. Include the page, the task you were trying to complete and what happened. Do not include household credentials or private sensor data.</p><p><a href="https://github.com/nathcymru/civica/blob/main/docs/source/<%= current_page.source_file.sub(root + '/source/', '') %>">View this page’s source</a></p></div>
+<div class="c-contribute"><h2>Help improve this guidance</h2><p>Review responsibility: the civica repository maintainers. Follow the <a href="<%= docs_path('/content/content-review.html') %>">content review process</a> when changing this guidance.</p><p><a href="https://github.com/nathcymru/civica/issues/new">Report an issue or suggest a change</a>. Include the page, the task you were trying to complete and what happened. Do not include household credentials or private sensor data.</p><p><a href="https://github.com/nathcymru/civica/blob/main/<%= current_page.data.repository_source || ('docs/source/' + current_page.source_file.sub(root + '/source/', '')) %>">View this page’s source</a></p></div>
 <%= '</div>' if illustrated_page %>
 </main></div><% end %>
-<footer class="c-footer"><div class="c-container"><ul><li><a href="<%= docs_path('/accessibility/index.html') %>">Accessibility</a></li><li><a href="<%= docs_path('/community/licensing.html') %>">Licensing and attribution</a></li><li><a href="<%= docs_path('/sitemap.html') %>">Sitemap</a></li><li><a href="<%= docs_path('/llms.txt') %>">AI reading guide</a></li><li><a href="https://github.com/nathcymru/civica">GitHub repository</a></li></ul><div class="c-footer__identity"><img src="<%= docs_path('/images/civica-emblem.svg') %>" alt="" width="40" height="40"><p>civica is an independent Home Assistant design system. It is not a UK government service and is not endorsed by GOV.UK, the NHS or Home Assistant.</p></div></div></footer>
+<footer class="c-footer"><div class="c-container"><ul><li><a href="<%= docs_path('/accessibility/index.html') %>">Accessibility</a></li><li><a href="<%= docs_path('/community/licensing.html') %>">Licence</a></li><li><a href="<%= docs_path('/sitemap.html') %>">Sitemap</a></li><li><a href="<%= docs_path('/llms.txt') %>">AI reading guide</a></li><li><a href="https://github.com/nathcymru/civica">GitHub repository</a></li></ul><div class="c-footer__identity"><img src="<%= docs_path('/images/civica-emblem.svg') %>" alt="" width="40" height="40"><p>civica is independent of the UK Government and uses open-source GOV.UK Frontend components; see <a href="<%= docs_path('/community/licensing.html') %>">Licence and attribution</a>.</p></div></div></footer>
 <%= javascript_include_tag 'civica-docs', defer: true %>
 </body></html>

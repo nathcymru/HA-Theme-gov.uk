@@ -30,16 +30,20 @@ Supplied colours and successful image decoding do not certify surrounding interf
 
 ## Rights and attribution
 
-The archive does not include a separate redistribution licence for its artwork. The repository's MIT licence applies to original software and documentation, not automatically to these supplied marks or third-party artwork. Inclusion follows the owner's request to use this identity in the project; downstream users must establish permission for reuse of the artwork.
+The archive does not include a separate redistribution licence for its artwork. The project software licence does not automatically apply to these supplied marks or third-party artwork. Inclusion follows the owner's request to use this identity in the project; downstream users must establish permission for reuse of the artwork.
 
 No GOV.UK crown, official wordmark, crest or GDS Transport font is included in this supplied package or the deployable documentation identity. Links and factual attributions to official design systems remain. civica is independent of the UK Government and Home Assistant. The project repository is `nathcymru/civica`.
 
-Existing scene symbols and the house floor plan in `card/assets/` predate this revision. They are retained for compatibility; their presence is not a new rights verification. The small cog path follows the existing Material Design icon convention. Do not infer a blanket artwork licence from the software licence.
+The five unused legacy scene SVGs under `card/assets/icons/` were removed on 13 November 2026. They included the Everton FC crest and the WRU mark; no redistribution grant was recorded for those files or the other three scene images. The lighting card already uses Home Assistant’s native scene icons and does not reference the removed files. They are excluded from current source and future release packages; Git history retains the historical files without granting new rights.
+
+`card/assets/floorplan.png` is an existing supplied household image. It remains in use by the lighting card, but no separate redistribution licence or author permission record was supplied in this repository. Its hash establishes file identity, not ownership or permission. It is excluded from the project software licence; downstream users must establish permission or provide their own authorised floor plan. The same unresolved redistribution-grant boundary applies to the revised civica marks described above.
+
+The card’s inline cog follows the Material Design icon source; native `mdi:` names refer to Home Assistant’s own icon system. Their licence and attribution treatment is separate from original project code. Do not infer a blanket artwork licence from the software licence.
 
 ## Original documentation illustrations
 
 
-The homepage household scene and three category illustrations form a flat Civic Cobalt family. They were redrawn on 11 November 2026 using a restrained set of blue tones and white, without decorative outlines. They are original repository illustrations under MIT, separate from the supplied brand marks. Per-file purpose, colour, background, alternative-text decisions and hashes are recorded in `docs/data/illustration-assets.json`. They are conceptual illustrations, not screenshots or evidence of a device state. The card specimens have their own original-artwork record in `docs/data/card-artwork-provenance.json`.
+The homepage household scene and three category illustrations form a flat Civic Cobalt family. They were redrawn on 11 November 2026 using a restrained set of blue tones and white, without decorative outlines. They are existing original repository illustrations under MIT, separate from the supplied brand marks. Their previously granted terms remain unchanged; the notice is preserved in `licences/history/LICENSE-v1.4.1.txt`. Per-file purpose, colour, background, alternative-text decisions and hashes are recorded in `docs/data/illustration-assets.json`. They are conceptual illustrations, not screenshots or evidence of a device state. The card specimens have their own original-artwork record in `docs/data/card-artwork-provenance.json`.
 
 ## Surface coverage
 

@@ -359,6 +359,16 @@
             "docs/data/remediation-controls-review.json",
             "docs/data/remediation-flows-review.json"
           ]
+        },
+        {
+          "iteration": 3,
+          "result": "13 November 2026 licensing/notice source review distinguishes current custom project terms, earlier MIT grants, shared notice markup, the non-persistent example, licensed dependencies and excluded artwork. Existing routes and historical audit evidence are retained. Targeted local checks passed; full browser validation and publication are pending in the separate review record.",
+          "evidence": [
+            "docs/data/licensing-notice-review.json",
+            "docs/source/components/cookie-banner.html.md.erb",
+            "docs/source/components/footer.html.md.erb",
+            "docs/source/community/licensing.html.md.erb"
+          ]
         }
       ],
       "checks": [

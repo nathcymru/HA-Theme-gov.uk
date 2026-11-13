@@ -1,0 +1,4102 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-13",
+  "purpose": "Exact dependency and notice evidence, not a guarantee of rights clearance or legal compatibility.",
+  "inputs": {
+    "package-lock.json": "2805e323c494fdbb80a46d5c901e9b7b98b360743db29ad22272be492599cf2e",
+    "docs/Gemfile.lock": "5b2212de1fd00aadae33de3635519d18f0294740e59692a0289a93bd93f09fde"
+  },
+  "project_licence": {
+    "path": "LICENSE",
+    "sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c",
+    "expression": "LicenseRef-civica-Free-Use-1.0",
+    "identifier_type": "Project-specific LicenseRef; not an SPDX-listed or OSI-approved licence",
+    "scope": "Original civica contributions supplied under these terms, subject to the licence exclusions for prior permissions, third-party components and separately licensed artwork. This is not a licence expression for the whole mixed distribution.",
+    "previous_permissions_cutoff_commit": "d6dd7c869fd419baa8ee29a572b4b69ddd639f14",
+    "historical_notice": {
+      "path": "licences/history/LICENSE-v1.4.1.txt",
+      "sha256": "355e0fe8ecb21ab04610f27a1e001a2980f95cf66a10f15883b7bac07935ae7f",
+      "expression": "MIT",
+      "source_commit": "d6dd7c869fd419baa8ee29a572b4b69ddd639f14",
+      "source_tag_at_review": "v1.4.1",
+      "source_url": "https://github.com/nathcymru/civica/blob/d6dd7c869fd419baa8ee29a572b4b69ddd639f14/LICENSE",
+      "scope": "Exact published project notice retained as historical evidence of prior permissions, including the MIT grant. Its historical attribution introduction is not a substitute for the current third-party review."
+    }
+  },
+  "direct_npm_dependencies": [
+    "@axe-core/playwright",
+    "@playwright/test",
+    "@versatiles/style",
+    "echarts",
+    "esbuild",
+    "maplibre-gl",
+    "typescript",
+    "yaml"
+  ],
+  "npm": [
+    {
+      "name": "@axe-core/playwright",
+      "version": "4.14.0",
+      "lock_path": "node_modules/@axe-core/playwright",
+      "declared_licence": "MPL-2.0",
+      "direct": true,
+      "scopes": [
+        "test_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-SGUhG5PIHd2eMdpgBF2PyQLOhX+qyDR2PT4cmoS4Qk2ak+jX/rrSvst9l0PGv5WTHolKpUMvVmoHpr4cZgf1RQ==",
+      "resolved": "https://registry.npmjs.org/@axe-core/playwright/-/playwright-4.14.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "812e9d96e900a093ae4d1d3f22c5f82f568a0a0461c3007a99d00573d41c5461",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "@esbuild/aix-ppc64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/aix-ppc64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/android-arm",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/android-arm",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-kXXoiPVVGQcnIYGOeaovwOURpniDBpSq4A03qkQ+BMQqtGG6HYap3xne9C1O1yo4TR3qxlCX5IqqmX6fFo2Lqg==",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/android-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/android-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-5YfKeeI8qWfBZIX+u2xZC3Zlb3Os/gLS2sbEKM+I4ZOcsWmHS2WLysCcQZDAFRslDUU5Oiq44gf6PYN1vGwG5A==",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/android-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/android-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-O387ite7SzUyCcy3JQX4P4bLtEA7bLLkx+esve5JHnyYfNTxcVpXZo9jhdB0lTKN44gztELTdU7nS8Nr16Fs1Q==",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/darwin-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/darwin-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-n4KqkOQrraxHJcgjM1RvwbigfQKIKJVpM7xp+KsxiyUSrRdIXnt73VhrPAx0fV44hgfmIVKjxMN9J1t5jySVkw==",
+      "resolved": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.2.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [],
+      "review_limit": "No standalone complete notice located; metadata only."
+    },
+    {
+      "name": "@esbuild/darwin-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/darwin-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-uq6suIWYP37qzGddBKPw5QEQPi6HiLGsO7UmkpfyaYNQ3D+rN6w6WfwH+nuqcGXWvawGwxOEroO4YGnFh95azw==",
+      "resolved": "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/freebsd-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/freebsd-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-n+I0BTSRIoy+d6RPKnEVwql5UwBJolytvY4mAOIEJorKlqgPII8ix6slVVrfZ5Tnj7glIZvloylbB/EJPMWEXw==",
+      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/freebsd-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/freebsd-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-78XJTJkvPs0kz2w61301PJjXl4g7q3JqiYMZ/M/yVI73EHBrCRTgkhu9oqG7vPqq+a/yadEW8aD+agKlk5xrmg==",
+      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-arm",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-arm",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-XlDnu2q5yoqems+xay6wSAcg9DDD7K9RLKZEBOMZm3ckNpJBvOX20tSfby8KfrrhINDyv9V2YVZKY/SpoGJI8w==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-pW4AC0P3it8c7do9MVM4p51FzHzdM/TZrerurgRcHJ2WTa1VQ1CIq18xncfpBJw4ojkiZZrKW2yIBWBP92j6Ug==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-ia32",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-ia32",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-CYbnj78HsIeA+DhgUKgFCfvNsTHFhMMrinUrMZpDXJXKN8T3XViTZ/+wtHeVxEWY8ewSzTFN+nRmSwO2tZaLUQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-loong64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-loong64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-buwkd8nsph4R+ajRvw0qM5Hja/TXQow3ptzWO2EbG/cqcIkHloRrdlBtQlshyYGTNFvfkfJ5tpPLVkY4DtsPfQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-mips64el",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-mips64el",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-ZVykbDyk7519VwiNb9Lcj9m8XM6v5V9uKPvrEMkkEedVewf+0itkhahp4HDpgERXhwLRpWFypsGbG/J8s0QjJA==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-ppc64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-ppc64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-CAXl+Dtd9UUuJd8pKKdwh6MLm3MUMiqMPmhZ3tTSXPqfyQ3vDl6R5hZdZ/kYojK4ofXtdfSv1tFq8XzWx3heNQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-riscv64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-riscv64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-GeXCej4IQtU1B+QlDV8W/RRvbzI3O/Stss+/bCXv4lZls5WGRtu2a+3JkA3i4qIUlMXpcHebWpF8AkJhATowuA==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-s390x",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-s390x",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-3H1weTYZPxt/WOhByszQZybS9w5lKzUn1FDMsgEChbHWQwHYQQRfBxgCcZvPhjHfKyJjIievvMmEUawJrdY9Dg==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/linux-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/linux-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-4xTZr1FUmSoQW4XIWmit3tzQrUTZM+N3P0XV8xROKYF50XfI7xeO90+1bZvNwxIufQ9hDQVRJH5YhgPVF8A/HQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/netbsd-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/netbsd-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-sSATRjPeDBg3pdgHoQfoYBob11Kk1FGa9lui5RIHZCoCkJa9QKlvl3/vKz2usCmYYjs7ymJR/2Nnsqe+Hjt5nw==",
+      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-arm64/-/netbsd-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/netbsd-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/netbsd-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-lqnzCV+mM0gIADaKihiCg6ifgfU2L3h5E33rNQBN1Y4MaVGnzryzmvvf7UHxprpQdE8hpqLolJ9Rl+SkIRDpyw==",
+      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/openbsd-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/openbsd-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-AL2qJILH7lNjrDmCQDvdxMfAUIv8KMNZOvrwAQ8i8//ntL9FflhOyMJ8OZSMBb8/AWXe3/5v5S20y3zCoZWKoQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-arm64/-/openbsd-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/openbsd-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/openbsd-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-QtiuPytchRyC4rwUKhexJdQKvDuZ6hWloi3igqPQNUJCS1/v9EiO3UTOXR6A3FoMo4fnAKbWJdqaIwhOzh8qEw==",
+      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/openharmony-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/openharmony-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-WkhYDmpTjLvGlScA1rwjRUmhl4k8oXR3cIbtqWmELgU/dFeHHlEllxDvdWcNJV9rbzCexB5vz8gtNewWLgCT7Q==",
+      "resolved": "https://registry.npmjs.org/@esbuild/openharmony-arm64/-/openharmony-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/sunos-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/sunos-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-GPMSkTOtMnv2U2F8gxe4Io6qmVs+YKyp832Etqqxr0hFngmXQ3rzwytelm3GIn7T4VviRUlf3sOgBOiTdvaf7g==",
+      "resolved": "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/win32-arm64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/win32-arm64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-PIhhEkE9uPBleRBrQEJpUn7MBnibZzbGzYWPmY3x+YoVg/95zbjB4CxPPOQ8l5tYYM4mMaCthF8/1DIfBQQyWQ==",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/win32-ia32",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/win32-ia32",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-YmJbfTlvU7Sdn9BB+4PRES4oB6pxgS37MAONj+hBr/cpXS1aBPKXxNnDbu+QCWPj0o9dgyxeq79g6c5P8KeuYA==",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@esbuild/win32-x64",
+      "version": "0.28.2",
+      "lock_path": "node_modules/@esbuild/win32-x64",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-5ebpxr3nWMzrL/rnUI755Jkuee0bHL/Gq0WTF9lvcpv73wAp5eu8MfBUgWK9bhWvZjj7yX8etf/8tI8Ney695g==",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.28.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@mapbox/jsonlint-lines-primitives",
+      "version": "2.0.3",
+      "lock_path": "node_modules/@mapbox/jsonlint-lines-primitives",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-0SElaV0uMxEnxzBhhX9WTuPyUeMsAN/SS0i16tjuba4/mio63MG9khjC1a0JAiPGXAwvwm4UfHJURCN7nyudQg==",
+      "resolved": "https://registry.npmjs.org/@mapbox/jsonlint-lines-primitives/-/jsonlint-lines-primitives-2.0.3.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/mapbox__jsonlint-lines-primitives-2.0.3/LICENSE",
+          "sha256": "5dcae6b71018b5454d00228bd08ccbcd9801ee27b19959b88ebcb55602604e6d",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@mapbox/point-geometry",
+      "version": "1.1.0",
+      "lock_path": "node_modules/@mapbox/point-geometry",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-YGcBz1cg4ATXDCM/71L9xveh4dynfGmcLDqufR+nQQy3fKwsAZsWd/x4621/6uJaeB9mwOHE6hPeDgXz9uViUQ==",
+      "resolved": "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-1.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/mapbox__point-geometry-1.1.0/LICENSE",
+          "sha256": "0c0ede0036a425ff8b2d49341ea9aa8eccbeeae1ac4eb59874c9dd8bcf5186d3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@mapbox/tiny-sdf",
+      "version": "2.3.0",
+      "lock_path": "node_modules/@mapbox/tiny-sdf",
+      "declared_licence": "BSD-2-Clause",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-gBvcNDBBB66bgQYvnaJ6Jk+VCaMmVq5+IZR2kWPisT88Z8s0kBQt6hfVi8QgRW8Vpg0UWZzBA4ZSyzHHC+VeRA==",
+      "resolved": "https://registry.npmjs.org/@mapbox/tiny-sdf/-/tiny-sdf-2.3.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/mapbox__tiny-sdf-2.3.0/LICENSE.txt",
+          "sha256": "4f78063c6c0757df950aa3440cef9a2a6bd1c552c994c32237c3acc283e72ee6",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@mapbox/unitbezier",
+      "version": "1.0.0",
+      "lock_path": "node_modules/@mapbox/unitbezier",
+      "declared_licence": "BSD-2-Clause",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-fqd515fjBmANKGGsQ286E2Wvj/XvDFpGzwJxq4CI6jMQue6Oy04uCKp+JWKF00xRTmk6cEu1jPJ9p3xqH8YWqQ==",
+      "resolved": "https://registry.npmjs.org/@mapbox/unitbezier/-/unitbezier-1.0.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/mapbox__unitbezier-1.0.0/LICENSE",
+          "sha256": "f0dc305ad097eddbc66eebb79288c92d8a5043818ace81206383a4c1a3268fe3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@mapbox/vector-tile",
+      "version": "3.0.0",
+      "lock_path": "node_modules/@mapbox/vector-tile",
+      "declared_licence": "BSD-3-Clause",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-Qf10S1uIHMk20ri/IVBnpS+esUEkVaR5Hftmz88jTInrpmWgPGJfPe3LVjjlE77trLx8tH6qjTG7uWH9hIq/0Q==",
+      "resolved": "https://registry.npmjs.org/@mapbox/vector-tile/-/vector-tile-3.0.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/mapbox__vector-tile-3.0.0/LICENSE.txt",
+          "sha256": "5b09a507df6f21d6c2112c46dcaf2927b9dbd8b580a08b542d8ec2f9191d783d",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@maplibre/geojson-vt",
+      "version": "6.3.1",
+      "lock_path": "node_modules/@maplibre/geojson-vt",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-743sKqGQPU35Vgdjw0GFk58mUdKlxI3c36vvUvrU9qBx7EdWGSXagLU5yNlOTP12WADo+foDyP5vtlDJjzlvHw==",
+      "resolved": "https://registry.npmjs.org/@maplibre/geojson-vt/-/geojson-vt-6.3.1.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/maplibre__geojson-vt-6.3.1/LICENSE",
+          "sha256": "9eb90e1c920aeccc6d630bd48c1512683d454c669701d46ff8c4c41f922dc4f3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@maplibre/maplibre-gl-style-spec",
+      "version": "26.6.0",
+      "lock_path": "node_modules/@maplibre/maplibre-gl-style-spec",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-4ECXBhVGAXgPvUOQNyKotfCDTs+s9DgxIb7vPTw5tz34VhobO3VS4qSI4KKtMJ+rCjxlfx/yZltleznb93XukQ==",
+      "resolved": "https://registry.npmjs.org/@maplibre/maplibre-gl-style-spec/-/maplibre-gl-style-spec-26.6.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/maplibre__maplibre-gl-style-spec-26.6.0/LICENSE.txt",
+          "sha256": "bfd4cb919eec574e9213e1e61f880831eb5fc372d467be429fd0a8d51d1df890",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@maplibre/mlt",
+      "version": "1.3.0",
+      "lock_path": "node_modules/@maplibre/mlt",
+      "declared_licence": "(MIT OR Apache-2.0)",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-7M2O7ABM80Oi8XPkfkrjKB8mOBIxGoVgkA52Mu4RMWoBvvMdagQ522+WxVYujZsMpqIr3BpzrTbXrm4k8lCzCQ==",
+      "resolved": "https://registry.npmjs.org/@maplibre/mlt/-/mlt-1.3.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/maplibre__mlt-1.3.0/LICENSE.txt",
+          "sha256": "3c0a2cc8dfe44b856c2577b4d6fe30a999557c795686d52b159a6e1659ea8023",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@maplibre/vt-pbf",
+      "version": "4.3.3",
+      "lock_path": "node_modules/@maplibre/vt-pbf",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-dEe5XUd64RQbxNxy2OzIkJnwNDWjVmSXjCd0A7zLirm7QJ/WWbmtDFIkfsiM4yt1cplqzG6oSivRYeWx1SM1yg==",
+      "resolved": "https://registry.npmjs.org/@maplibre/vt-pbf/-/vt-pbf-4.3.3.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/maplibre__vt-pbf-4.3.3/LICENSE",
+          "sha256": "4c61c5753d4b021bc3b07f21d2a830506974ce200c19cfadf3d4a25e747fc853",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@playwright/test",
+      "version": "1.65.0",
+      "lock_path": "node_modules/@playwright/test",
+      "declared_licence": "Apache-2.0",
+      "direct": true,
+      "scopes": [
+        "test_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-iGURLGuKDLakSEl7Pgfv8h7f+XLT+V861Wfhz0zlEl5nyFuKUopdkFBPKqTllTUp06aOwPuH8iuUEb3yp3MpbQ==",
+      "resolved": "https://registry.npmjs.org/@playwright/test/-/test-1.65.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "NOTICE",
+          "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "@types/geojson",
+      "version": "7946.0.16",
+      "lock_path": "node_modules/@types/geojson",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==",
+      "resolved": "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.16.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/types__geojson-7946.0.16/LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "@typescript/typescript-aix-ppc64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-aix-ppc64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-aix-ppc64/-/typescript-aix-ppc64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-darwin-arm64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-darwin-arm64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-gowzar9MwS/aRWp6f3a4KUqzRjAZjOsmGNCM6LcTgXum+dBfgsBVMN+AgvOCCbguXyick6LJhpBszxMebJ8syA==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-darwin-arm64/-/typescript-darwin-arm64-7.0.2.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "NOTICE.txt",
+          "sha256": "f5c708b59114507b8b27b48181b6883d106bbca0c1634bbee45b5e344237b66b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "@typescript/typescript-darwin-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-darwin-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-SZ9xZInqApNlNGc9s0W1VSsktYSOe9cFqNOIqmN1Gs8SmkjKZYFt017G4VwPxASInODuAdbTW7sXiFUf893RgA==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-darwin-x64/-/typescript-darwin-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-freebsd-arm64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-freebsd-arm64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-W5NH4y/J0plIIS5b2xvTEkU7JFxyqdMAOgf+Ilhl0vHQXKO5dZoxd+C/jEtq56c4F3wk71RB4BMRQ2XdI+bwYQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-freebsd-arm64/-/typescript-freebsd-arm64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-freebsd-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-freebsd-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-UMGDx5sTpzNw3WiPebH7l90IWfJggEd+egHt/q6p7/Cm3zqoV7VxkGXt+3DxPIw8CcmvAB0j3sVVfbhX+M4Tpw==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-freebsd-x64/-/typescript-freebsd-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-arm",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-arm",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-gffT3xPz9sR7j/YJExkyPntrI0P2EP9XbOyWzth2/Gs0RstK+90RBcO0ncXoXy/beYll1SXw846Nf2zdnEz0QQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-arm/-/typescript-linux-arm-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-arm64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-arm64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-Qh4eU4/y3yDjnfjjyPYihMj5/ODIlmt+Bzu17OI+fiSRDW57QmU5SiN63exPRNJPKUzcc1INa1NXdrJ+MqHjUQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-arm64/-/typescript-linux-arm64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-loong64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-loong64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-uEHck9i8hoAzXPiYRib1O7miOnz23SxIeVl6F4LXox+qov1K35jHcEW6VHKvZI+pyvl7fZEP4MCU5LYvIq1GuQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-loong64/-/typescript-linux-loong64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-mips64el",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-mips64el",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-R4KvAMnE43W5Qeqb0Ly56O3mWMWIAgsMyz36DCaycd5nbg/9kzm0liw3JocfRqyJY0KPmzFjbswozXyW0DnIYA==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-mips64el/-/typescript-linux-mips64el-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-ppc64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-ppc64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-DORx5b3sd/4S7eayxm4FQv+A7CrkUIGRaHiwI8oiHTAI1fAPWhF4J0vAlkC8biAlHSVVwxMQ3tjZ2/DVbnQiiA==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-ppc64/-/typescript-linux-ppc64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-riscv64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-riscv64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-wf0jqEDOjrPRnKwYRyyJDRo11KMbvMFrU+q4zqKyChODBzvlkbhNQfKvLxQCcwTpdDaXSHZTVuh0JoCrKCUMHQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-riscv64/-/typescript-linux-riscv64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-s390x",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-s390x",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-IkwJc3L7yhytWd/ewjyxNDfOmswCm9GWMJT/ue/dU4aZNbwZeYAetq42VyLmsmSjvoX7z74X6ZaYCtzAr0EuGw==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-s390x/-/typescript-linux-s390x-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-linux-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-linux-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-EYdf2cNg7rgCWJnxCdJ+F3V39O8ihb37eHAu1LK8oAFizgTQbPOK7zHHXbPt8rX24COqODXeI3sIf0fCXG7H/A==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-x64/-/typescript-linux-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-netbsd-arm64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-netbsd-arm64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-+polYF4MF04aPpO5FTkHran9yUQDSXqy5GiSDKpsll5jy3l3+g9QLhpf39T+ePtefhXLOGrLl0QIjkQP6VnelA==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-netbsd-arm64/-/typescript-netbsd-arm64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-netbsd-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-netbsd-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-8YIT0EHM/3dq10ZOVF/A7pc/YSMtbcecct4rWtexrnSCHOPcpC2KTLXfTCR6vDpnSiY12heNb1GiN/wu+T/FyA==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-netbsd-x64/-/typescript-netbsd-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-openbsd-arm64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-openbsd-arm64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-APT8+ClYnuYm1u9+kgGXoMj2VzWzcymwh2gNSQVySHfkRDGOTVkoWLjCmOQSaO+PoqQ57B0flRp9SA+7GnnkzQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-openbsd-arm64/-/typescript-openbsd-arm64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-openbsd-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-openbsd-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-yX7s+Q0Dln0Dt9tEzZsAjXXR/+ytBM7AlglaqyeMPxQszJ1JhlJdZ6jLA+IzldHtflX81em7lDao1xXu+aRRkg==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-openbsd-x64/-/typescript-openbsd-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-sunos-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-sunos-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-dLJDGaLZ1D4HPQn62u1n8mBDkJREwMsAkCdkwd4Ieqw+x3TUyTsqY0YiBCtE6H6OzzgGk3iuZ3vFWRS+E8/d1g==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-sunos-x64/-/typescript-sunos-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-win32-arm64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-win32-arm64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-Gyl1Vy6OsWesLzmq+EP0Fb7b4Nid5232AvcA2SFcdYreldpNtYFFofPjnt62y9hQy7VTaZp65ICJjuAQRaVcIQ==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-win32-arm64/-/typescript-win32-arm64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@typescript/typescript-win32-x64",
+      "version": "7.0.2",
+      "lock_path": "node_modules/@typescript/typescript-win32-x64",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "optional_platform_build_or_test_tool"
+      ],
+      "optional": true,
+      "integrity": "sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g==",
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-win32-x64/-/typescript-win32-x64-7.0.2.tgz",
+      "installed_during_review": false,
+      "notice_evidence": [],
+      "review_limit": "Optional platform package absent from this review environment; lock metadata only."
+    },
+    {
+      "name": "@versatiles/style",
+      "version": "7.0.1",
+      "lock_path": "node_modules/@versatiles/style",
+      "declared_licence": "MIT",
+      "direct": true,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-ArZ09BwFWthylcvChgm8rwQ2FhIvvL4rRAOy1z+qn2tniOyEkEItBeQIJRTJlh09Wn8HsRgcMw9hFIfDLgWhSw==",
+      "resolved": "https://registry.npmjs.org/@versatiles/style/-/style-7.0.1.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "path": "licences/notices/npm/versatiles__style-7.0.1/LICENSE.md",
+          "sha256": "e2b5ef416c74e9d66dfa3469ee0a476fd09dd1bdd61a1f8e3e9f4885ba57ff19",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "axe-core",
+      "version": "4.14.0",
+      "lock_path": "node_modules/axe-core",
+      "declared_licence": "MPL-2.0",
+      "direct": false,
+      "scopes": [
+        "test_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-9WTZxEjsZ7b13TH8JPmbV2z8CHbl80/2hm3XPEG4JgNdQLK81IBRXmSxHfMAOkSqQeRxT/0dwNDz2GOm3zzpcQ==",
+      "resolved": "https://registry.npmjs.org/axe-core/-/axe-core-4.14.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "af175b9d96ee93c21a036152e1b905b0b95304d4ae8c2c921c7609100ba8df7e",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "LICENSE-3RD-PARTY.txt",
+          "sha256": "4f8563870d0fca38bbc3e00b6f670cb7fa9f380ba9f26a7f7d1184a6b18b1653",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "bidi-js",
+      "version": "1.1.0",
+      "lock_path": "node_modules/bidi-js",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-fX1Onk0tdVPC7obPWB5EbJ1z7NVhLq4m2xZLq2YXBkxzMXIGRpNMU88n0EPgWseKl12J7zXs7qrDxPK4sRs2fg==",
+      "resolved": "https://registry.npmjs.org/bidi-js/-/bidi-js-1.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/bidi-js-1.1.0/LICENSE.txt",
+          "sha256": "49d4d143fed599deb502a0fe6e02f49832f87e9a3a4cd0502e469596d50faa6d",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "earcut",
+      "version": "3.2.4",
+      "lock_path": "node_modules/earcut",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-FHc6yNpnTORB0tM5kmZ03iD2mDuNakDE2lvf4Hw1XkfxtEHIGVi01B/GqUSwx+NcC1WGjidAfpTXzeALtPtfpg==",
+      "resolved": "https://registry.npmjs.org/earcut/-/earcut-3.2.4.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/earcut-3.2.4/LICENSE",
+          "sha256": "0b348fff56384b43dbb37593906904e56d0f9deb51eae590d4dc6d427fbf1808",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "echarts",
+      "version": "6.1.0",
+      "lock_path": "node_modules/echarts",
+      "declared_licence": "Apache-2.0",
+      "direct": true,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-q0yaFPggC9FUdsWH4blavRWFmxdrIodbkoKNAjJudAI6CA9gNPxHtV2RcZNEepZVlk4yvBYkOkbk6HIVpIyHZA==",
+      "resolved": "https://registry.npmjs.org/echarts/-/echarts-6.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/echarts-6.1.0/LICENSE",
+          "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "NOTICE",
+          "path": "licences/notices/npm/echarts-6.1.0/NOTICE",
+          "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "licenses/LICENSE-d3",
+          "path": "licences/notices/npm/echarts-6.1.0/licenses/LICENSE-d3",
+          "sha256": "e1211892da0b0e0585b7aebe8f98c1274fba15bafe47fa1f4ee8a7a502c06304",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "esbuild",
+      "version": "0.28.2",
+      "lock_path": "node_modules/esbuild",
+      "declared_licence": "MIT",
+      "direct": true,
+      "scopes": [
+        "build_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-HKVLS8dvII+xoKW9kmqxbRKrnWEXfJJr/FZhhJmiqIB0e053QNYFqOBouTMO/k5sID4MvCiUCvv8b9M4h32wIA==",
+      "resolved": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.2.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "gl-matrix",
+      "version": "3.4.4",
+      "lock_path": "node_modules/gl-matrix",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-latSnyDNt/8zYUB6VIJ6PCh2jBjJX6gnDsoCZ7LyW7GkqrD51EWwa9qCoGixj8YqBtETQK/xY7OmpTF8xz1DdQ==",
+      "resolved": "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.4.4.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "path": "licences/notices/npm/gl-matrix-3.4.4/LICENSE.md",
+          "sha256": "af62d31a0cdc1bf95d5e19428c3e0de368b727d9d5b6b6cdb466f8a52e68ad06",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "json-stringify-pretty-compact",
+      "version": "4.0.0",
+      "lock_path": "node_modules/json-stringify-pretty-compact",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-3CNZ2DnrpByG9Nqj6Xo8vqbjT4F6N+tb4Gb28ESAZjYZ5yqvmc56J+/kuIwkaAMOyblTQhUW7PxMkUb8Q36N3Q==",
+      "resolved": "https://registry.npmjs.org/json-stringify-pretty-compact/-/json-stringify-pretty-compact-4.0.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/json-stringify-pretty-compact-4.0.0/LICENSE",
+          "sha256": "2d51145876dda3dd13253463b852aa83b78aa598b90fca1709f39f1740ff9a2f",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "kdbush",
+      "version": "4.1.0",
+      "lock_path": "node_modules/kdbush",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-e9vurzrXJQrFX6ckpHP3bvj5l+9CnYzkxDNnNQ1h2QTqdWsUAJgXiKdGNcOa1EY85dU8KbQ+z/FdQdB7P+9yfQ==",
+      "resolved": "https://registry.npmjs.org/kdbush/-/kdbush-4.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/kdbush-4.1.0/LICENSE",
+          "sha256": "0aba693a2c2e5b1b1465f9e06d29c21769450add9dbb7dc915b41a60e900196f",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "maplibre-gl",
+      "version": "6.16.0",
+      "lock_path": "node_modules/maplibre-gl",
+      "declared_licence": "BSD-3-Clause",
+      "direct": true,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-gApO66EMtoDZuio680RUBvskR7ahFd/NNhLN4tBAs+Y7FeT4gQV8zVFgYVMRmFxQznOEzecW19w6xOd9XjZjiA==",
+      "resolved": "https://registry.npmjs.org/maplibre-gl/-/maplibre-gl-6.16.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/maplibre-gl-6.16.0/LICENSE.txt",
+          "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "minimist",
+      "version": "1.2.8",
+      "lock_path": "node_modules/minimist",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/minimist-1.2.8/LICENSE",
+          "sha256": "435a6722c786b0a56fbe7387028f1d9d3f3a2d0fb615bb8fee118727c3f59b7b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "murmurhash-js",
+      "version": "1.0.0",
+      "lock_path": "node_modules/murmurhash-js",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-TvmkNhkv8yct0SVBSy+o8wYzXjE4Zz3PCesbfs8HiCXXdcTuocApFv11UWlNFWKYsP2okqrhb7JNlSm9InBhIw==",
+      "resolved": "https://registry.npmjs.org/murmurhash-js/-/murmurhash-js-1.0.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "README.md",
+          "path": "licences/notices/npm/murmurhash-js-1.0.0/README.md.licence-section.txt",
+          "sha256": "0439b967686bd53ae0f059314fdcf140bbc08002891c54b0ee7597a6bb5ef215",
+          "extracted_verbatim_section": true
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "pbf",
+      "version": "5.1.2",
+      "lock_path": "node_modules/pbf",
+      "declared_licence": "BSD-3-Clause",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-mnvGdvOrIvJOBGUEdGkrVXjN8E/VkIJCkf2eS1DH2yv82ORUlLttmDt0rWY38yYZmVwciZwBUvHM20qxBZf40w==",
+      "resolved": "https://registry.npmjs.org/pbf/-/pbf-5.1.2.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/pbf-5.1.2/LICENSE",
+          "sha256": "fdf1d5279107d760c7df8c6edab1faab2b72ba17528273a8b417b08f1e12ebbe",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "playwright",
+      "version": "1.65.0",
+      "lock_path": "node_modules/playwright",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "test_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-F3AMWcR44qMBt4kq+6Kb6mX7bjGXshktKFOPULd7reED6ZJWevjbNRqysP7q+AATE9kdPEZBibex1BYsvpVoeA==",
+      "resolved": "https://registry.npmjs.org/playwright/-/playwright-1.65.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "NOTICE",
+          "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "ThirdPartyNotices.txt",
+          "sha256": "b17ac0bd6f4b8207e440639cc8e0ba1bf1d9eaf9b12236764ab93b346c7abd8e",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/matchers/expect.js.LICENSE",
+          "sha256": "1430642774a958cc1734cf56f0b05d3d4c03a17205e83b0f14bf172a1d9767ad",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/transform/babelBundle.js.LICENSE",
+          "sha256": "2018f402988d0cff56531005b77bce7c2816a34d0c157ecb510043abd41b1ad3",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/transform/esmLoader.js.LICENSE",
+          "sha256": "9b28b549421356a2f648b1c908c9d955f0a9e8d49af8da1a62c1516c3ad3658c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "playwright-core",
+      "version": "1.65.0",
+      "lock_path": "node_modules/playwright-core",
+      "declared_licence": "Apache-2.0",
+      "direct": false,
+      "scopes": [
+        "test_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-vNSKgH6YqtN7cdT/L334zo0a+YwkrpicyrHJlWWPIm/Q+Nn2SWInil01oT0mbu96U4GgoRtCYQD9CzJQgju+lA==",
+      "resolved": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.65.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "NOTICE",
+          "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "ThirdPartyNotices.txt",
+          "sha256": "a549d329bad8806fe279f0ecae0fc0270dec7e7c2dc8ec10f90e394f7c32b144",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/serverRegistry.js.LICENSE",
+          "sha256": "3098a6efcbc11752cbdf6075fa65480f5470f78c8d981fab9c0796dc9a41cefe",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/utilsBundle.js.LICENSE",
+          "sha256": "0b85cf59012e8a11c869ed21b61724e934f10222dfb29e95412bf0b8a8d341b1",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/webp_codec.LICENSE",
+          "sha256": "995c7ee35aceb7666829b7a501ca89c0864e12b493c1174b155774ab1e03d831",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "potpack",
+      "version": "2.1.0",
+      "lock_path": "node_modules/potpack",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-pcaShQc1Shq0y+E7GqJqvZj8DTthWV1KeHGdi0Z6IAin2Oi3JnLCOfwnCo84qc+HAp52wT9nK9H7FAJp5a44GQ==",
+      "resolved": "https://registry.npmjs.org/potpack/-/potpack-2.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/potpack-2.1.0/LICENSE",
+          "sha256": "cfec0482fb785fe27e3b368a2d9e84bf7a61b275e83ec582bf288e98cd530bb0",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "protocol-buffers-schema",
+      "version": "3.6.1",
+      "lock_path": "node_modules/protocol-buffers-schema",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-VG2K63Igkiv9p76tk1lilczEK1cT+kCjKtkdhw1dQZV3k3IXJbd3o6Ho8b9zJZaHSnT2hKe4I+ObmX9w6m5SmQ==",
+      "resolved": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.6.1.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/protocol-buffers-schema-3.6.1/LICENSE",
+          "sha256": "3fe8d55a98dbf260eace67c00cf9bc53edb46234e840098a0b93df3096b97fb6",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "quickselect",
+      "version": "3.0.0",
+      "lock_path": "node_modules/quickselect",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-XdjUArbK4Bm5fLLvlm5KpTFOiOThgfWWI4axAZDWg4E/0mKdZyI9tNEfds27qCi1ze/vwTR16kvmmGhRra3c2g==",
+      "resolved": "https://registry.npmjs.org/quickselect/-/quickselect-3.0.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/quickselect-3.0.0/LICENSE",
+          "sha256": "238ddb00e12a420a54e060afa19bdab4f70bf49e0e2a8ebb1a5e851f9ef447df",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "require-from-string",
+      "version": "2.0.2",
+      "lock_path": "node_modules/require-from-string",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==",
+      "resolved": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "license",
+          "path": "licences/notices/npm/require-from-string-2.0.2/license",
+          "sha256": "6ee0feb1f6ef996ff5a68600f8cf98909cf412d39ef3cdceaefd87d636fa1b7f",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "resolve-protobuf-schema",
+      "version": "2.1.0",
+      "lock_path": "node_modules/resolve-protobuf-schema",
+      "declared_licence": "MIT",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-kI5ffTiZWmJaS/huM8wZfEMer1eRd7oJQhDuxeCLe3t7N7mX3z94CN0xPxBQxFYQTSNz9T0i+v6inKqSdK8xrQ==",
+      "resolved": "https://registry.npmjs.org/resolve-protobuf-schema/-/resolve-protobuf-schema-2.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/resolve-protobuf-schema-2.1.0/LICENSE",
+          "sha256": "c0993ca46cd47c09710a977d3a3d51602cff96f19e8d2eb8d5887aa20a7beead",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "tinyqueue",
+      "version": "3.0.0",
+      "lock_path": "node_modules/tinyqueue",
+      "declared_licence": "ISC",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-gRa9gwYU3ECmQYv3lslts5hxuIa90veaEcxDYuu3QGOIAEM2mOZkVHp48ANJuu1CURtRdHKUBY5Lm1tHV+sD4g==",
+      "resolved": "https://registry.npmjs.org/tinyqueue/-/tinyqueue-3.0.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/tinyqueue-3.0.0/LICENSE",
+          "sha256": "780453e05abdc22307ee01c706a2e73f508d3e484fc4c804485ebf6fe0964694",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "tslib",
+      "version": "2.3.0",
+      "lock_path": "node_modules/tslib",
+      "declared_licence": "0BSD",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==",
+      "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "CopyrightNotice.txt",
+          "path": "licences/notices/npm/tslib-2.3.0/CopyrightNotice.txt",
+          "sha256": "dd835e67a9a297da32f9467d7677a5d02c8e50e10f15da43b810147c79c04b9b",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "LICENSE.txt",
+          "path": "licences/notices/npm/tslib-2.3.0/LICENSE.txt",
+          "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    },
+    {
+      "name": "typescript",
+      "version": "7.0.2",
+      "lock_path": "node_modules/typescript",
+      "declared_licence": "Apache-2.0",
+      "direct": true,
+      "scopes": [
+        "build_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-7.0.2.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "NOTICE.txt",
+          "sha256": "f5c708b59114507b8b27b48181b6883d106bbca0c1634bbee45b5e344237b66b",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "vendor/vscode-jsonrpc/License.txt",
+          "sha256": "ec9ee83580841e8eb687aca9867f221503809ba6426c7f876ede17d91b9fcfd0",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "yaml",
+      "version": "2.9.1",
+      "lock_path": "node_modules/yaml",
+      "declared_licence": "ISC",
+      "direct": true,
+      "scopes": [
+        "build_tool"
+      ],
+      "optional": false,
+      "integrity": "sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==",
+      "resolved": "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "5bba27375d93e9119f76c1015f7672cf9ad5f70952296e0842fb2243d6376869",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Build/test tool notice filenames and hashes recorded; tool code is not part of the shipped Home Assistant modules."
+    },
+    {
+      "name": "zrender",
+      "version": "6.1.0",
+      "lock_path": "node_modules/zrender",
+      "declared_licence": "BSD-3-Clause",
+      "direct": false,
+      "scopes": [
+        "documentation_dependency"
+      ],
+      "optional": false,
+      "integrity": "sha512-oEGMDB6pOP2S6OwRR4PdVv610zrjnA3Bh+JnSG12fYJlBKjtNAoEb5fSUoCOOINlH96I2fU38/A2UpRKs67xYQ==",
+      "resolved": "https://registry.npmjs.org/zrender/-/zrender-6.1.0.tgz",
+      "installed_during_review": true,
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/npm/zrender-6.1.0/LICENSE",
+          "sha256": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "Verbatim notices retained; dependency membership does not imply every source file or type declaration is bundled."
+    }
+  ],
+  "gems": [
+    {
+      "name": "activesupport",
+      "version": "8.1.4.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://rubyonrails.org",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "717ba1949502290f8e47688ae2e323acd06c8ca47aec9f7596b15f678c1af4a2",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "addressable",
+      "version": "2.9.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Apache-2.0"
+      ],
+      "reviewed_licences": [
+        "Apache-2.0"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/sporkmonger/addressable",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "b04c8850fdf64d17233f0acbe4eb632f03bd663094233c949bdbe788858bb841",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "autoprefixer-rails",
+      "version": "10.6.1.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ai/autoprefixer-rails",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "c4630ac8b89cb317ac5bdd60ac5e4e185eab9bd5151a0c7b3afa41aa83d7ec9b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "base64",
+      "version": "0.3.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/base64",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "967586d538a28955ec2541910cf63c5ac345fcdea94bfb1f1705a1f6eb36bcbb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "bigdecimal",
+      "version": "4.1.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/bigdecimal",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "5572bf03c3c8c4770e8153038f5f54faad9c3db9900864a7c82a19de4434d74b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "chronic",
+      "version": "0.10.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/mojombo/chronic",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "465ce02d97fcf260244ea20a99969f2baa88412cad0cea2f9f51bc6d37433532",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "chunky_png",
+      "version": "1.4.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/wvanbergen/chunky_png/wiki",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "7ae80e4dab084da7343ec5a3539a0004de5a33296d6616b816ab433c89ff1184",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "coffee-script",
+      "version": "2.4.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/josh/ruby-coffee-script",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "28d89fe2a19775516507d2e48812d2f212858732fbf411e4d93031a0d0f75ba4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "coffee-script-source",
+      "version": "1.12.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://coffeescript.org",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "commonmarker",
+      "version": "2.10.1",
+      "platforms": [
+        "aarch64-linux",
+        "aarch64-linux-musl",
+        "arm-linux-gnu",
+        "arm-linux-musl",
+        "arm64-darwin",
+        "x86_64-darwin",
+        "x86_64-linux",
+        "x86_64-linux-musl"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/gjtorikian/commonmarker",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "arm64-darwin",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "1d47889eaca2a6c9ef977745d678ffef73b5abe982c0a650a5615fd120981a94",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "compass",
+      "version": "1.0.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "MIT permission text in installed notice/README, despite absent gemspec field",
+      "homepage": "http://compass-style.org",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.markdown",
+          "sha256": "92a6b402f053ae7d6fe4046d5405565abd377d121a2a09c765cf07d623fd8879",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "compass-core",
+      "version": "1.0.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://compass-style.org/reference/compass/",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "af73f6f6eb0b1c937a8333c7a825301bd75d17cff589a1995519e42f4084a0b3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "compass-import-once",
+      "version": "1.0.5",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/chriseppstein/compass/tree/master/import-once",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "af73f6f6eb0b1c937a8333c7a825301bd75d17cff589a1995519e42f4084a0b3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "concurrent-ruby",
+      "version": "1.3.8",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://www.concurrent-ruby.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "c700bdb2093a4993b871cc5604820d0cfb2f6e69aa8f0e758f10148fe8809b3f",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "connection_pool",
+      "version": "3.0.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/mperham/connection_pool",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "e5243681533fbca296f58b9d62748639b50a6f4892e7a303b9342126033829a4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "contracts",
+      "version": "0.17.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/egonSchiele/contracts.ruby",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "a8efd2afd258cc3fa8a449e22ad53f839d2b774778201f6ee90a05952eadb83e",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "csv",
+      "version": "3.3.7",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/csv",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "c5c4bd3e35643f7dd61d7e0532430ac854621fb1ed6e487118884b2158685398",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "dotenv",
+      "version": "3.2.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/bkeepers/dotenv",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "6b2edd44729dabf8c820ba16553c2ab5f995c269fb50f594bab849f30158cc00",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "drb",
+      "version": "2.2.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/drb",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "a5e3042dacb53eebda91f3b1caefbfec8307711df8c4ed1ed20e4e97c43307a4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "em-websocket",
+      "version": "0.5.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/igrigorik/em-websocket",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENCE",
+          "sha256": "3fae2c45628798cf35ded32d90a74dbc7771ebe7ab068e224a92a4543bf6e53b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "erubi",
+      "version": "1.13.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/jeremyevans/erubi",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "8b9fd3d439ac571518f0c78775316fa9f18a05ac3de43b6fed07f223a4ba0881",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "eventmachine",
+      "version": "1.2.7",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "GPL-2.0"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "GPL-2.0"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://rubyeventmachine.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "4dc8a4bc39abbc8989df81b6f6fb7b9a1b515e9bc36b118859be7740ae7cab7a",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "execjs",
+      "version": "2.10.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/rails/execjs",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "18000773140df342ce61aa3573f5c6fafb65a0f12d500a2a15fa67de47c2fe28",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "fast_blank",
+      "version": "1.0.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/SamSaffron/fast_blank",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "2b50f1156981fe70edb2055db906a80b35329cc62814c3a55460e644e5578811",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "fastimage",
+      "version": "2.4.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/sdsykes/fastimage",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "969addd62e6cc1c66e3e144c41c46a439fa691ca848d173c3745416106bae1e3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "ffi",
+      "version": "1.17.4",
+      "platforms": [
+        "aarch64-linux-gnu",
+        "aarch64-linux-musl",
+        "arm-linux-gnu",
+        "arm-linux-musl",
+        "arm64-darwin",
+        "x86_64-darwin",
+        "x86_64-linux-gnu",
+        "x86_64-linux-musl"
+      ],
+      "declared_licences": [
+        "BSD-3-Clause"
+      ],
+      "reviewed_licences": [
+        "BSD-3-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ffi/ffi/wiki",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "arm64-darwin",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "27c69b029b6269e126f73c9f7b077fb432f5694aeeaff6341511f6e0125fa04a",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "LICENSE",
+          "sha256": "bb343aa812eaaddbaf97814edaf86977b18d3cc5ced3122d43bddf96cf0443dd",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "LICENSE.SPECS",
+          "sha256": "19811daba7c403768b93cad47abae8afa8bf34a027478aedaf63903672272e0c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "google-protobuf",
+      "version": "4.36.2",
+      "platforms": [
+        "ruby",
+        "aarch64-linux-gnu",
+        "aarch64-linux-musl",
+        "arm64-darwin",
+        "x86_64-darwin",
+        "x86_64-linux-gnu",
+        "x86_64-linux-musl"
+      ],
+      "declared_licences": [
+        "BSD-3-Clause"
+      ],
+      "reviewed_licences": [
+        "BSD-3-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://developers.google.com/protocol-buffers",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "arm64-darwin",
+      "notice_evidence": [
+        {
+          "source_file": "ext/google/protobuf_c/third_party/utf8_range/LICENSE",
+          "sha256": "02de69b64fc36d9e938f418e52723e42f0b2b226d58a9cb3c8dcbdf7059f5074",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "govuk_tech_docs",
+      "version": "6.6.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/alphagov/tech-docs-gem",
+      "scope": "documentation-derived-assets-and-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENCE",
+          "path": "licences/notices/gems/govuk_tech_docs-6.6.0/LICENCE",
+          "sha256": "1d41c59be4914e390bf1cccc20c3c3274094a51f18a9a2084c95a82fa38059a9",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "haml",
+      "version": "6.4.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://haml.info",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "dbf936686e663368e493a0699f4721f49ae91238042f07cf4b85522865a8882e",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "hamster",
+      "version": "3.0.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/hamstergem/hamster",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "8d14022b03a115e3699de135edea93107b7e516c08d68b0faf89b4f4d126b8a2",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "hashie",
+      "version": "5.2.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/hashie/hashie",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "89f5f7cbc36e55b55cb885aab34766cc1d5d2f945ee4f5adb3633e54777b074c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "http_parser.rb",
+      "version": "0.8.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/tmm1/http_parser.rb",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE-MIT",
+          "sha256": "baec922a852a7ae74ac08cd030968cd6665d8a519eb1f7d4a8f7d90bc48ea82f",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "ext/ruby_http_parser/vendor/http-parser-java/LICENSE-MIT",
+          "sha256": "6926db6772da02fdd2474693b7f74aa8918f66d801f05ce5c2e15ce94296274f",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "ext/ruby_http_parser/vendor/http-parser/LICENSE-MIT",
+          "sha256": "79e6ba8b687cb54786207342b9b6fcee0ac10218453ed9009b84d949b2233cc0",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "i18n",
+      "version": "1.14.8",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby-i18n/i18n",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "bf8f134092d93ef2c64852f407defef26e905ddb5eda9a546fab163a3c9a5409",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "json",
+      "version": "3.1.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby"
+      ],
+      "reviewed_licences": [
+        "Ruby"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/json",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "f5eb1b2956d5f7a67b2e5722a3749bc2fe86f9c580f2e3f5a08519cf073b5864",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "kramdown",
+      "version": "2.5.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://kramdown.gettalong.org",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "cc29f6a800189c6a0fa61756f52e3d4f0c13dc533a00705482998660f5b36f54",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "listen",
+      "version": "3.10.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/guard/listen",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "ee8797e9fe23f5109b6d403a11d53617d28a619937279e6cbade8be30739e6f4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "logger",
+      "version": "1.7.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/logger",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "967586d538a28955ec2541910cf63c5ac345fcdea94bfb1f1705a1f6eb36bcbb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "memoist",
+      "version": "0.16.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/matthewrudy/memoist",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "75fc86df5468c2e5d2fc657bd3650dd5201258aceb2d68e33c25a798394d39c4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman",
+      "version": "4.6.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://middlemanapp.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-autoprefixer",
+      "version": "3.0.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/middleman/middleman-autoprefixer",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-cli",
+      "version": "4.6.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://middlemanapp.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-compass",
+      "version": "4.0.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/middleman/middleman-compass",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "ac387dbfbae3dd3bdaed8b46bfe4c9b43e10d54168515b632e42ab73a1cce86c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-core",
+      "version": "4.6.3",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://middlemanapp.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "fixtures/extensionless-text-files-app/source/LICENSE",
+          "sha256": "9f6fd03fb92d21fd7947711600e2ea7803a823d48da86da84ebe35f1abfe4f64",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "fixtures/import-app/bower_components/jquery/MIT-LICENSE.txt",
+          "sha256": "44254c9a91a4647b9192584f17b2d27bf43696ba1ea16b0e88ac7bd6bf0780f1",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "fixtures/more-extensionless-text-files-app/source/LICENSE",
+          "sha256": "9f6fd03fb92d21fd7947711600e2ea7803a823d48da86da84ebe35f1abfe4f64",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-livereload",
+      "version": "3.5.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/middleman/middleman-livereload",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "fdd86f5d7932bdf59448056d8d87483db7e62308893d13ffc0e07d84b5928def",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-search-gds",
+      "version": "0.11.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/alphagov/middleman-search",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "7005b7dcb5f882de5e2c505b33fb9ed8a00fc83feb9c97a0ccd74553052df5a6",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-sprockets",
+      "version": "4.0.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/middleman/middleman-sprockets",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "ac387dbfbae3dd3bdaed8b46bfe4c9b43e10d54168515b632e42ab73a1cce86c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "middleman-syntax",
+      "version": "3.6.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/middleman/middleman-syntax",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "22ad4e60707985caef0d47ef256cd77e14310b17d39a0e9cea7ed0f0f5612a04",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "minitest",
+      "version": "6.1.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://minite.st/",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "README.rdoc",
+          "sha256": "26e07fd7fde54984930854bd57d1b3af715eb75c36e3bf756fca7b0e19e514ec",
+          "extracted_verbatim_section": true
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "multi_json",
+      "version": "1.21.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/sferik/multi_json",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "c5a378a865d06a0e24c42b347eb3a463c5803d45db5bf75d7e62b501de1ff3c2",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "mutex_m",
+      "version": "0.3.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/mutex_m",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "967586d538a28955ec2541910cf63c5ac345fcdea94bfb1f1705a1f6eb36bcbb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "nokogiri",
+      "version": "1.19.7",
+      "platforms": [
+        "aarch64-linux-gnu",
+        "aarch64-linux-musl",
+        "arm-linux-gnu",
+        "arm-linux-musl",
+        "arm64-darwin",
+        "x86_64-darwin",
+        "x86_64-linux-gnu",
+        "x86_64-linux-musl"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://nokogiri.org",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "arm64-darwin",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE-DEPENDENCIES.md",
+          "sha256": "d1e493c109029ebf0ffc5f8df218d6c0ae56fcb7b77508205ec7f16cfbdab13b",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "fdc2068b104e269be2946e21d271d340dfd003f0c8f964308cba4404f75db1aa",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "openapi3_parser",
+      "version": "0.10.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/kevindew/openapi_parser",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENCE",
+          "sha256": "da52f6ad5b380806772a741bed33cfaff33b9574ba0f7a373638c1c246e299ce",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "padrino-helpers",
+      "version": "0.16.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://www.padrinorb.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "c056265e36f6fbe7c6210533719e5b6688e432be3432413334e8317db47bc265",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "padrino-support",
+      "version": "0.16.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://www.padrinorb.com",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "c056265e36f6fbe7c6210533719e5b6688e432be3432413334e8317db47bc265",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "parallel",
+      "version": "2.3.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/grosser/parallel",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE.txt",
+          "sha256": "e001f999206c1d0857b4ec6628fd9751a84403d5eddd5ff2a6017e0c6324d758",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "parslet",
+      "version": "2.0.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://kschiess.github.io/parslet",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "6134cc650251ba92543fbe80b762e35d685ee89948ca822efdae41dbd71d9efd",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "prism",
+      "version": "2.1.0",
+      "platforms": [
+        "aarch64-linux-gnu",
+        "aarch64-linux-musl",
+        "arm-linux-gnu",
+        "arm-linux-musl",
+        "arm64-darwin",
+        "x86_64-darwin",
+        "x86_64-linux-gnu",
+        "x86_64-linux-musl"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/prism",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "arm64-darwin",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "ad6d2bf10a661cba4cfa9cacbe0fc9b54bef3aedc8bb4df0452490753f7021cb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "public_suffix",
+      "version": "7.0.5",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://simonecarletti.com/code/publicsuffix-ruby",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "84aee3995603dcd4139bd52df9cc0d3d8e26b05bb127de0da9780d85df76ea8c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "racc",
+      "version": "1.8.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/racc",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "967586d538a28955ec2541910cf63c5ac345fcdea94bfb1f1705a1f6eb36bcbb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rack",
+      "version": "3.1.23",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/rack/rack",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "1b7ebcb5691b416620794892b6ff40473485770dbcc6c63bd33409d4cfd0cefc",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rack-livereload",
+      "version": "0.6.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/onesupercoder/rack-livereload",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "5a09b47016ca7f2f0c844760997a3903ee256cdd19a15ec99bf718e207d69085",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rackup",
+      "version": "2.3.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/rack/rackup",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "license.md",
+          "sha256": "673b5cdb0c4da92d8a7cffce824341ab0fd25bd5310d46c67dbf5a93dedada32",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rake",
+      "version": "13.4.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/rake",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "3e8179ae8e3354a22ad6c9f08a81ac2e7e39cf7b65c7dd97895cb23bf22cd48c",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rb-fsevent",
+      "version": "0.11.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://rubygems.org/gems/rb-fsevent",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "0f424ef8584179cad10a12cd5afb9ca6903e2091a18c93e32970ec3a5cab371a",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "ext/LICENSE",
+          "sha256": "be3d7abd4d97d55c007061d6e06bd08c29fc683d223e8953ca2ba8815d100e28",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rb-inotify",
+      "version": "0.11.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/guard/rb-inotify",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "a25acbadab800fd49a418350ef31bbed47fbbde2d51c9fe6300838bf069ab220",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "redcarpet",
+      "version": "3.6.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/vmg/redcarpet",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "51089c5242da082418f82712befd344f07eddf079730a4c4ad33ae21629ee7e7",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rexml",
+      "version": "3.4.4",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/rexml",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "a5e3042dacb53eebda91f3b1caefbfec8307711df8c4ed1ed20e4e97c43307a4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "rouge",
+      "version": "4.7.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "MIT",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://rouge.jneen.net/",
+      "scope": "documentation-derived-assets-and-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "path": "licences/notices/gems/rouge-4.7.0/LICENSE",
+          "sha256": "8d83d5d00214259174a833837563a22b3559d208bc791da32c170234bbf9d78a",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "sass",
+      "version": "3.4.25",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://sass-lang.com/",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "c53d95ae61a03752d3e617048fa3d80a4100118b96d00280146cbdddfba37ec2",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "vendor/listen/LICENSE",
+          "sha256": "834bcb6194008c92ec8df34e786cee29f1a387cf4b4091a4b5e04d1f9258167d",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "sass-embedded",
+      "version": "1.108.2",
+      "platforms": [
+        "aarch64-linux-gnu",
+        "aarch64-linux-musl",
+        "arm-linux-gnueabihf",
+        "arm-linux-musleabihf",
+        "arm64-darwin",
+        "x86_64-darwin",
+        "x86_64-linux-gnu",
+        "x86_64-linux-musl"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/sass-contrib/sass-embedded-host-ruby",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "arm64-darwin",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "c8fb1b810b831d7465d1e7db59b5e10119f5512cd78b0a5eae3833d8a09421d2",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "lib/sass/dart-sass/src/LICENSE",
+          "sha256": "300102c64ae32cb1ac7e8da418ed42c50f4ec8ba6a38a68f7f53e5bb5a7845bd",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "sassc",
+      "version": "2.4.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/sass/sassc-ruby",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "3ff5593a1286c1fbc81d652fc0c001e86acf379ad11b3fe32f9f4ea518c77aaa",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "sassc-embedded",
+      "version": "1.80.10",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/sass-contrib/sassc-embedded-shim-ruby",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "217865b6116b4f1f9bb77eb04c5bdfe96a64af3a4b7f3b9df439b485e5f2e69e",
+          "extracted_verbatim_section": false
+        },
+        {
+          "source_file": "vendor/github.com/sass/sassc-ruby/LICENSE.txt",
+          "sha256": "3ff5593a1286c1fbc81d652fc0c001e86acf379ad11b3fe32f9f4ea518c77aaa",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "schmooze",
+      "version": "0.2.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/Shopify/schmooze",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "560536d8db487aaec95fd5a6f77fee72962852bfac9196be1953aff3730d053b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "securerandom",
+      "version": "0.4.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/securerandom",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "967586d538a28955ec2541910cf63c5ac345fcdea94bfb1f1705a1f6eb36bcbb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "servolux",
+      "version": "0.13.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "MIT permission text in installed notice/README, despite absent gemspec field",
+      "homepage": "http://rubygems.org/gems/servolux",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "README.md",
+          "sha256": "dbec07881312e28ecec6d75cac5c43d37aee2c8ab13660b8ed5f5cdf48a5fa27",
+          "extracted_verbatim_section": true
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "sprockets",
+      "version": "4.4.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/rails/sprockets",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "MIT-LICENSE",
+          "sha256": "da59f9f3486a7c47fbc72d26a6f873dfb75742741b50fc5a285d85e635fd887b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "temple",
+      "version": "0.10.7",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/judofyr/temple",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "9deaf1d8e740e73831ab06604c366054a7d64aea4739f7013a5601613cd64a01",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "terser",
+      "version": "1.2.8",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/ahorek/terser-ruby",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "5d768b0d88c0bc66d1ab196f44c92e33a8765e962db15de7cec0748f33293e88",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "thor",
+      "version": "1.5.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/rails/thor",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "4df3e92a124b84d6767b1a0f1302600ea41d7616cda0b0fc40c1eefe4c9e414b",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "tilt",
+      "version": "2.9.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/jeremyevans/tilt",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "f6d4f8b3b35d3d751489e12f48a65400b2dd61e635af9e5258625b21e2e7c5e6",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "toml",
+      "version": "0.3.0",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "http://github.com/jm/toml",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "465ce02d97fcf260244ea20a99969f2baa88412cad0cea2f9f51bc6d37433532",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "tzinfo",
+      "version": "2.0.6",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://tzinfo.github.io",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "fc3d625cad2c31a7ae7511bb966f5df841ee9edbb3b30cb367b80d634cff25f3",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "uglifier",
+      "version": "4.2.1",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "MIT"
+      ],
+      "reviewed_licences": [
+        "MIT"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/lautis/uglifier",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "cbad7cc82846e05b3adb896d6395bdfcae1664c40a605a0f291ada692e38c001",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "uri",
+      "version": "1.1.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/uri",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "COPYING",
+          "sha256": "967586d538a28955ec2541910cf63c5ac345fcdea94bfb1f1705a1f6eb36bcbb",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    },
+    {
+      "name": "webrick",
+      "version": "1.9.2",
+      "platforms": [
+        "ruby"
+      ],
+      "declared_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "reviewed_licences": [
+        "Ruby",
+        "BSD-2-Clause"
+      ],
+      "licence_basis": "gemspec metadata; retain actual notice terms",
+      "homepage": "https://github.com/ruby/webrick",
+      "scope": "documentation-build-tool",
+      "reviewed_platform": "ruby",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.txt",
+          "sha256": "a5e3042dacb53eebda91f3b1caefbfec8307711df8c4ed1ed20e4e97c43307a4",
+          "extracted_verbatim_section": false
+        }
+      ],
+      "review_limit": "One installed platform reviewed. Other locked binary variants may carry additional bundled notices; no distribution of these build-tool binaries is claimed."
+    }
+  ],
+  "embedded_npm": [
+    {
+      "name": "a-sync-waterfall",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "container": "govuk_tech_docs@6.6.0",
+      "scope": "documentation-build-tool",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "8b483d5373ee747309528f4a3ef811e48b077ebd2984eaa49574fb03704e57c4",
+          "extracted_verbatim_section": false
+        }
+      ]
+    },
+    {
+      "name": "asap",
+      "version": "2.0.6",
+      "declared_licence": "MIT",
+      "container": "govuk_tech_docs@6.6.0",
+      "scope": "documentation-build-tool",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE.md",
+          "sha256": "e80373b1ed0f33cecc47173b4b0c6afe0d0318b32dbd84116a1a957e3f7f43a8",
+          "extracted_verbatim_section": false
+        }
+      ]
+    },
+    {
+      "name": "commander",
+      "version": "5.1.0",
+      "declared_licence": "MIT",
+      "container": "govuk_tech_docs@6.6.0",
+      "scope": "documentation-build-tool",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "04512a63dce4d2d506ad612dc0bd7681ccf6e3655f7b6eaef7dfac8323d1ec0b",
+          "extracted_verbatim_section": false
+        }
+      ]
+    },
+    {
+      "name": "govuk-frontend",
+      "version": "6.6.0",
+      "declared_licence": "MIT",
+      "container": "govuk_tech_docs@6.6.0",
+      "scope": "documentation-css-and-component-javascript",
+      "notice_evidence": [
+        {
+          "path": "licences/upstream/govuk-frontend-6.6.0-LICENSE.txt",
+          "sha256": "c652f35b1f2e5b88eb49f1e8a935eec79b4761a81666ace576e1af723f4a9238",
+          "source_url": "https://raw.githubusercontent.com/alphagov/govuk-frontend/v6.6.0/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "name": "nunjucks",
+      "version": "3.2.4",
+      "declared_licence": "BSD-2-Clause",
+      "container": "govuk_tech_docs@6.6.0",
+      "scope": "documentation-build-tool",
+      "notice_evidence": [
+        {
+          "source_file": "LICENSE",
+          "sha256": "dd9bb6e4b0e4c48da23c049ac9fbe0f10be5d429cd6a603a60b425567187b341",
+          "extracted_verbatim_section": false
+        }
+      ]
+    }
+  ],
+  "bundler": {
+    "version": "4.0.23",
+    "scope": "documentation-build-tool",
+    "licence": "MIT",
+    "notice_status": "Toolchain metadata only; installed default-gem directory does not contain a standalone notice."
+  },
+  "bundles": [
+    {
+      "id": "home-assistant-card",
+      "entry": "card/src/card.ts",
+      "packages": [],
+      "scope": "Resolved input packages from an esbuild write:false trace; prebundled library internals require their own notices and dependency metadata."
+    },
+    {
+      "id": "home-assistant-companion",
+      "entry": "ui/src/index.ts",
+      "packages": [],
+      "scope": "Resolved input packages from an esbuild write:false trace; prebundled library internals require their own notices and dependency metadata."
+    },
+    {
+      "id": "documentation-charts",
+      "entry": "ui/dev/energy-charts-harness.ts",
+      "packages": [
+        "node_modules/echarts",
+        "node_modules/tslib",
+        "node_modules/zrender"
+      ],
+      "scope": "Resolved input packages from an esbuild write:false trace; prebundled library internals require their own notices and dependency metadata."
+    },
+    {
+      "id": "documentation-maps",
+      "entry": "docs/javascript/map-examples.mjs",
+      "packages": [
+        "node_modules/@versatiles/style",
+        "node_modules/maplibre-gl"
+      ],
+      "scope": "Resolved input packages from an esbuild write:false trace; prebundled library internals require their own notices and dependency metadata."
+    },
+    {
+      "id": "documentation-map-worker",
+      "entry": "node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs",
+      "packages": [
+        "node_modules/maplibre-gl"
+      ],
+      "scope": "Resolved input packages from an esbuild write:false trace; prebundled library internals require their own notices and dependency metadata."
+    }
+  ],
+  "upstream_notice_sources": [
+    {
+      "path": "licences/upstream/govuk-frontend-6.6.0-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/alphagov/govuk-frontend/v6.6.0/LICENSE.txt",
+      "retrieved_on": "2026-11-13",
+      "sha256": "c652f35b1f2e5b88eb49f1e8a935eec79b4761a81666ace576e1af723f4a9238",
+      "reason": "Exact pinned upstream licence; the gem-vendored GOV.UK Frontend package omits its standalone licence file."
+    },
+    {
+      "path": "licences/notices/reference/home-assistant-core/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/home-assistant/core/d8a0dc698c8946b44e455d904000db563cfbf1ba/LICENSE.md",
+      "retrieved_on": "2026-11-13",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+    },
+    {
+      "path": "licences/notices/reference/home-assistant-frontend/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/home-assistant/frontend/e32bc0696ebefde323f5b791269ad0c57f3f99d9/LICENSE.md",
+      "retrieved_on": "2026-11-13",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+    },
+    {
+      "path": "licences/notices/reference/material-design-icons/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/Templarian/MaterialDesign/master/LICENSE",
+      "retrieved_on": "2026-11-13",
+      "sha256": "3bae6305bcaa6d10219b999f65c342034c2d40b1c0e8567fa08605e73ccba829",
+      "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+    },
+    {
+      "path": "licences/notices/reference/google-material-design-icons/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/google/material-design-icons/master/LICENSE",
+      "retrieved_on": "2026-11-13",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "reason": "Verbatim primary-source licence for retained native-label attribution or the adapted Google-authored cog-outline path; not a new licence grant for unrelated marks."
+    }
+  ],
+  "limitations": [
+    "Package licence metadata is evidence, not permission for unrelated artwork or trademarks.",
+    "The npm devDependency field does not describe redistribution: documentation examples bundle chart/map libraries.",
+    "Ruby platform variants and npm optional platform tools are inventoried from the lock but only locally installed notices are inspected.",
+    "GOV.UK Frontend code terms do not authorise Crown marks or GDS Transport fonts; the project excludes those identity assets.",
+    "Map data, remote tiles/glyphs and providers have separate attribution/usage terms. The map example retains visible OpenStreetMap credit.",
+    "Supplied project marks and the retained household floor plan do not have an independently established blanket redistribution licence; consult ARTWORK.md.",
+    "Native Home Assistant libraries and MDI icons are supplied by Home Assistant, not redistributed as another engine/icon package by the companion."
+  ]
+}

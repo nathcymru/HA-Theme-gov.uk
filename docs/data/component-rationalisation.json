@@ -85,7 +85,7 @@
     },
     {
       "id": "FAMILY-community-licensing",
-      "title": "Licensing and attribution",
+      "title": "Licence",
       "canonicalOwner": "/community/licensing.html",
       "memberPages": [
         "/community/licensing.html"
@@ -1564,10 +1564,10 @@
     {
       "sourceFile": "docs/source/community/licensing.html.md.erb",
       "url": "/community/licensing.html",
-      "title": "Licensing and attribution",
+      "title": "Licence",
       "section": "community",
       "group": null,
-      "sha256": "bfe49a74cbf7f6c1bc8511339e217be242e89b7eb0e4fbc52579702a045e6a9e",
+      "sha256": "097d32125da6ca19b1bbaecb2a3ad39824d07ed06d0767b99989cd0acf23335a",
       "examples": [
         "local-community-licence",
         "local-brand-canvas"
@@ -1585,7 +1585,7 @@
       "evidence": {
         "file": "docs/source/community/licensing.html.md.erb",
         "line": 2,
-        "excerpt": "title: \"Licensing and attribution\""
+        "excerpt": "title: \"Licence\""
       },
       "original_evidence": {
         "revision": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
@@ -2090,8 +2090,9 @@
       "title": "Cookie banner",
       "section": "components",
       "group": "Content presentation",
-      "sha256": "aa5c41bdc150c78b4f0360f020d2818e21cc80751262ee785295e8f93b30147d",
+      "sha256": "bd334d45f6d5bf7eee2c4b8b4d0baf42fc2a11a4382135e65c24ac0a7daa2525",
       "examples": [
+        "core-cookie-essential",
         "core-cookie-choice",
         "core-cookie-confirmation"
       ],
@@ -2576,7 +2577,7 @@
       "title": "Footer",
       "section": "components",
       "group": "Navigation",
-      "sha256": "30b1b96aa22992c0712d152b63bcbfe427afe648e74e150cd0ba6c15acac0bec",
+      "sha256": "a4705bd717488063df79ebb3b6864b9ff165059ef68b12e1951993d276a338ae",
       "examples": [
         "nhs-footer-simple",
         "nhs-footer-information"
@@ -11049,6 +11050,21 @@
       "disposition": "retain as the canonical range reference",
       "baselineMember": false,
       "introducedOn": "2026-11-12"
+    },
+    {
+      "id": "core-cookie-essential",
+      "sourceFile": "docs/data/core-examples.yml",
+      "title": "An essential-only first-visit notice",
+      "sha256": "cd0330e905c438e1cd98397cbdafbc6d8f2ac4182003df787a3ecc4004e08365",
+      "ownerPage": "/components/cookie-banner.html",
+      "referencedBy": [
+        "/components/cookie-banner.html"
+      ],
+      "additionalFamilyReferences": [],
+      "runtimeClaim": "isolated-documentation-example-and-shared-site-notice-markup",
+      "disposition": "retain as the essential-only variant; optional-consent specimens remain distinct",
+      "baselineMember": false,
+      "addedOn": "2026-11-13"
     }
   ],
   "findings": [
@@ -12869,7 +12885,7 @@
   },
   "currentCoverage": {
     "guides": 216,
-    "examples": 459,
+    "examples": 460,
     "homeAssistantSpecifications": 38,
     "componentRoutes": 69,
     "componentOwners": 59,
@@ -12878,12 +12894,12 @@
     "exactAdapters": "See /home-assistant/compatibility-register.html; not counted as additional custom cards."
   },
   "current": {
-    "reviewedOn": "2026-11-12",
+    "reviewedOn": "2026-11-13",
     "ownershipEntries": 148,
     "componentPages": 69,
     "componentCanonicalOwners": 59,
     "additionalComponentPages": 1,
-    "ownershipExamples": 268
+    "ownershipExamples": 269
   },
   "guidanceReviewHistory": [
     {

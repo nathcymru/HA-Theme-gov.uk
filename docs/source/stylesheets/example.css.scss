@@ -5,7 +5,7 @@ $govuk-new-link-styles: true;
 @import 'govuk/base';
 @import 'govuk/core';
 @import 'govuk/objects';
-@import 'govuk/components';
+@import 'civica-components';
 @import 'govuk/utilities';
 :root { --c-border:#{$civica-border}; --c-success:#{$civica-success}; --c-error:#{$civica-error}; --c-body-size:1.1875rem; }
 * { box-sizing:border-box; }

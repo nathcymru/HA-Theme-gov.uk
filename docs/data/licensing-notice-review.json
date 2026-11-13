@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "id": "licensing-and-site-notice-2026-11-13",
+  "reviewed_on": "2026-11-13",
+  "status": "source-review-complete-targeted-validation-passed-full-validation-pending",
+  "automated_status": "pending",
+  "baseline_revision": "d6dd7c869fd419baa8ee29a572b4b69ddd639f14",
+  "scope": "Documentation licence presentation, permanent independence footer, first-visit notice and storage explanation, dependency notices, removal of unused legacy scene artwork, and current audit reconciliation. No change to native Home Assistant device behaviour or claim of legal clearance.",
+  "licence_intent": {
+    "status": "final-source-text-reviewed",
+    "requested_terms": "The user requests free use, including internal business use, while prohibiting sale of project work and paid services based on it. These project terms must remain separate from third-party licences.",
+    "historical_boundary": "Earlier published MIT permissions cannot be withdrawn retroactively by changing the current project licence. Existing third-party permissions and copyright notices remain unchanged.",
+    "review_boundary": "Source review can establish wording, provenance and implementation behaviour; it is not a guarantee of legal enforceability, rights ownership or compliance in every reuse.",
+    "identifier": "LicenseRef-civica-Free-Use-1.0",
+    "earlier_release_downloads": "The user authorised updating the offered copies for earlier release downloads. Preparation or later replacement does not revoke permissions previously granted under MIT or other applicable terms. Publication and archive verification remain the parent release task."
+  },
+  "writing_rule_review": [
+    {
+      "rules": [
+        "WG-004",
+        "WG-011"
+      ],
+      "application": "Distinguish independent project terms from official-source licences; qualify unknown artwork rights and third-party behaviour."
+    },
+    {
+      "rules": [
+        "WG-024",
+        "WG-083"
+      ],
+      "application": "Explain licence/storage terms in ordinary wording and provide direct, descriptive destinations while preserving legal text verbatim."
+    },
+    {
+      "rules": [
+        "WG-090",
+        "WG-091",
+        "WG-092"
+      ],
+      "application": "Keep reviewed versions, authorship, dated source changes and pre-existing grants distinct."
+    },
+    {
+      "rules": [
+        "WG-086",
+        "WG-094",
+        "WG-095",
+        "BG-ILL-10"
+      ],
+      "application": "Separate rights/source review, synthetic browser behaviour, deployed documentation observations and untested legal or live-device claims."
+    }
+  ],
+  "asset_review": {
+    "retained_supplied_identity": "224 accepted supplied files, including 218 images; accepted archive omissions/corrections remain unchanged. No separate redistribution grant was supplied.",
+    "floorplan": "Existing supplied floorplan remains in use; its identity hash is not evidence of a redistribution licence. lighting/README.md identifies original-installation mappings separately from synthetic documentation examples.",
+    "removed_unused_files": [
+      "card/assets/icons/christmas.svg",
+      "card/assets/icons/football.svg",
+      "card/assets/icons/rugby.svg",
+      "card/assets/icons/halloween.svg",
+      "card/assets/icons/emergency.svg"
+    ],
+    "removal_reason": "No runtime or authored-reference use was found. Visual review identified Everton FC and WRU marks among these files, with no recorded redistribution grant. Current source/package inputs exclude them; Git history is not a new rights grant.",
+    "native_icons": "Home Assistant supplies mdi: icons. The local cog path is an adapted historical variant of the Google-authored Material Design cog-outline; its source/licence notice remains separate from original code.",
+    "fonts": "No font files were found in the reviewed built documentation. Arial and fallback names refer to installed system fonts. Restricted GOV.UK identity/font assets are excluded; permitted Crown-copyright source code retains its own notices."
+  },
+  "storage_network_review": {
+    "baseline_public_observation": {
+      "date": "2026-11-13",
+      "routes": [
+        "/index.html",
+        "/examples/core-accordion-troubleshooting.html",
+        "/examples/map-neighbourhood-records.html"
+      ],
+      "result": "Fresh sessions set no cookies and had no localStorage values. The prior accordion initializer used sessionStorage after a toggle. The map made only same-origin requests before activation, then requested OpenStreetMap data after Load map; no third-party cookies were observed in that session.",
+      "boundary": "These baseline observations precede the new notice cookie; they are not a fresh pass for the changed site."
+    },
+    "baseline_static_scan": {
+      "html_pages": 675,
+      "external_initial_resource_urls": 0,
+      "external_stylesheet_urls": 0,
+      "font_files": 0,
+      "boundary": "Static URL scan of the prior built HTML/CSS; activation-driven requests are covered separately."
+    },
+    "candidate_accordion_check": {
+      "source": "docs/source/javascripts/example-components.js",
+      "configuration": "accordion.rememberExpanded=false",
+      "examples": 2,
+      "result": "Mouse and keyboard expansion remained functional; no storage reads or writes occurred; reloading reset expansion.",
+      "method": "Published GOV.UK6.6.0 component bundle with only initAll replaced by the current authored initializer. Full rebuilt-site verification remains pending."
+    },
+    "new_notice": "Shared markup has a persistent site mode and non-persistent isolated-example mode. The cookie remembers only explicit dismissal; acknowledgement is not consent to tracking or acceptance of licence terms. Twelve targeted notice browser tests passed in the parent local run, including keyboard, no-JavaScript, blocked-storage, path and HTTPS behaviour. Full integrated browser validation is separate.",
+    "external_services": "OpenStreetMap requests require explicit map activation and reveal request information to its provider. GitHub hosting may process request logs. The project cannot promise that external providers never process data or change their policies."
+  },
+  "primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/alphagov/govuk-frontend/v6.6.0/LICENSE.txt",
+      "checked_on": "2026-11-13",
+      "finding": "GOV.UK Frontend code is MIT with its Crown copyright notice."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/alphagov/tech-docs-gem/v6.6.0/LICENCE",
+      "checked_on": "2026-11-13",
+      "finding": "Tech Docs gem code is MIT with its own Crown copyright notice."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/alphagov/govuk-design-system/main/LICENSE",
+      "checked_on": "2026-11-13",
+      "finding": "Design System repository code is MIT; website content licensing is separately stated."
+    },
+    {
+      "url": "https://design-system.service.gov.uk/styles/typeface/",
+      "checked_on": "2026-11-13",
+      "finding": "Public services outside service.gov.uk use an alternative to GDS Transport."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/home-assistant/frontend/20261028.5/LICENSE.md",
+      "checked_on": "2026-11-13",
+      "finding": "The pinned frontend software is Apache-2.0."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/home-assistant/home-assistant.io/current/LICENSE.md",
+      "checked_on": "2026-11-13",
+      "finding": "Website documentation has CC BY-NC-SA4.0 terms, separate from Home Assistant software."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Templarian/MaterialDesign/master/LICENSE",
+      "checked_on": "2026-11-13",
+      "finding": "Material Design Icons distinguishes icon/font Apache2 terms from code MIT and separately licensed material."
+    },
+    {
+      "url": "https://www.openstreetmap.org/copyright",
+      "checked_on": "2026-11-13",
+      "finding": "Map data is ODbL with visible attribution; linked documentation and trade marks have separate terms."
+    },
+    {
+      "url": "https://operations.osmfoundation.org/policies/vector/",
+      "checked_on": "2026-11-13",
+      "finding": "Tile use requires attribution and normal cache/referrer behaviour, prohibits bulk offline download and remains subject to provider policy."
+    }
+  ],
+  "validation": {
+    "source_review": "completed-with-recorded-rights-and-legal-limits",
+    "dependency_inventory": "passed-owner-reported-source-and-notice-integrity-checks",
+    "integrated_build": "passed-parent-local-build",
+    "node_tests": {
+      "status": "passed-parent-local-run",
+      "tests": 84,
+      "typecheck": "passed"
+    },
+    "browser_tests": {
+      "targeted": {
+        "status": "passed-parent-local-run",
+        "tests": 26,
+        "notice_tests": 12,
+        "scope": "Notice behaviour plus cache, maps and writing-navigation regressions."
+      },
+      "full_suite": "pending-parent-run"
+    },
+    "internal_links": {
+      "status": "passed-parent-local-run",
+      "pages": 676
+    },
+    "package_review": "pending-parent-release-task",
+    "publication": "authorised-pending-parent-verification",
+    "live_home_assistant": "not_in_scope"
+  },
+  "current_inventory": {
+    "guides": 216,
+    "examples": 460,
+    "component_ownership_examples": 269,
+    "new_guide_routes": 0
+  },
+  "source_freeze": [
+    {
+      "path": "LICENSE",
+      "sha256": "eee5fc07596254061beda945a0b1b535e799bd1bd4d1ead4b35b64df96bafc8c"
+    },
+    {
+      "path": "LICENSE.md",
+      "sha256": "86426e10c561ef122583c8284518e5599a2ec94a534cc9440f2a53754940a9fb"
+    },
+    {
+      "path": "ARTWORK.md",
+      "sha256": "b5f779843d6625bddda5d9c0ace5f824f7f3437b920d6b771f2d50e25a2d96f5"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ac9bd5a041e4684d73bf13f931e5d2c88092531f71a000e677a5bef93de482fa"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "f346761def2dad5d84be34ee4fa570f7ff4d8891c47ed228ddf352e0307932a3"
+    },
+    {
+      "path": "docs/config.rb",
+      "sha256": "1ec49d57383238aa2a4ea9199e320348a5538553921fe026b2c489d0b5fa814d"
+    },
+    {
+      "path": "docs/helpers/design_system_helpers.rb",
+      "sha256": "6297262c0f22e6aaa8ea1c6cef59e90cfa4f0988882ba8215b7ad69bcaaa6e47"
+    },
+    {
+      "path": "docs/source/community/licensing.html.md.erb",
+      "sha256": "097d32125da6ca19b1bbaecb2a3ad39824d07ed06d0767b99989cd0acf23335a"
+    },
+    {
+      "path": "docs/source/components/cookie-banner.html.md.erb",
+      "sha256": "bd334d45f6d5bf7eee2c4b8b4d0baf42fc2a11a4382135e65c24ac0a7daa2525"
+    },
+    {
+      "path": "docs/source/components/footer.html.md.erb",
+      "sha256": "a4705bd717488063df79ebb3b6864b9ff165059ef68b12e1951993d276a338ae"
+    },
+    {
+      "path": "docs/data/core-examples.yml",
+      "sha256": "1b0935ce14e76dcbffd9d54eb0214f0930c45fdaf139e592679fa61d371e9afd"
+    },
+    {
+      "path": "docs/source/javascripts/site-notice.js",
+      "sha256": "28a1a738eef3d1bdeb5c4cd6a362c1e216a4b61f06de9362360eb2934c7531fc"
+    },
+    {
+      "path": "docs/source/javascripts/example-components.js",
+      "sha256": "0429de8f6580081beb3146d14128a384e200aad60110dfeecd52f4ecbb5d916c"
+    },
+    {
+      "path": "docs/source/layouts/civica.erb",
+      "sha256": "5d9b62718b5f053c612259998ded2be943d7aabffe44300e701adfe71d3de24b"
+    },
+    {
+      "path": "docs/source/layouts/civica_core.erb",
+      "sha256": "ea9c979486d1b5dd05375ffb01989bb81c479ff9caed6083eef647f035999652"
+    },
+    {
+      "path": "docs/source/example.html.erb",
+      "sha256": "213806a1609f1c755cc7d02833de881a53e8853c11207903dc92b2c5df4575ed"
+    },
+    {
+      "path": "docs/source/stylesheets/_civica-components.scss",
+      "sha256": "3f6267a498c5ad7dfebaddbeae6b42ad3c698307936ef3ba13b456ccf90237f7"
+    },
+    {
+      "path": "docs/source/stylesheets/example.css.scss",
+      "sha256": "6c9ae99a89e4f274d78601709d8c212d1a3c66c3d67938ea55b3b6e8205c0bf7"
+    },
+    {
+      "path": "docs/source/stylesheets/screen.css.scss",
+      "sha256": "bd661022e374d85178f869402cee58fcf06dddde4600eeebf9d08c579d0a2f7f"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "247664dfe1705be2ccab7ce6eb59b104f0ed8a6467b939c9d189108254d79e6f"
+    },
+    {
+      "path": "package.json",
+      "sha256": "dbc751a0d4e38deb706f7a2d15f29a9860f3fe89298e80aacc200eb43f813b03"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "2805e323c494fdbb80a46d5c901e9b7b98b360743db29ad22272be492599cf2e"
+    },
+    {
+      "path": "docs/Gemfile.lock",
+      "sha256": "5b2212de1fd00aadae33de3635519d18f0294740e59692a0289a93bd93f09fde"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "677be9aeb4730b757e53dfccb9b8068fdab51504314ac5209b016ca865dbd389"
+    },
+    {
+      "path": "scripts/package.mjs",
+      "sha256": "9930294497057d2d958eff7549c7245318b59b7ce8b00e0c2f9ca5937ff48445"
+    },
+    {
+      "path": "scripts/audit-licences.mjs",
+      "sha256": "0febdfc85309887e02df3689b4eca248eff038e560512e75b6b92c83374e64d1"
+    },
+    {
+      "path": "licences/dependencies.json",
+      "sha256": "4965f7b326fb8d8b9c69546f6b5da5639bde3425b7e6407a7d111c2a5686c62b"
+    },
+    {
+      "path": "licences/README.md",
+      "sha256": "a9e9c09c9abb10e45a802a037545e236f9e99058bb486494037d0c2dc8ca648f"
+    },
+    {
+      "path": "licences/upstream/sources.json",
+      "sha256": "e1ad6a6c9e44f0bda2662e3dfb15d3f9b315fcf6419a665e875f74e22706ae26"
+    },
+    {
+      "path": "licences/history/LICENSE-v1.4.1.txt",
+      "sha256": "355e0fe8ecb21ab04610f27a1e001a2980f95cf66a10f15883b7bac07935ae7f"
+    },
+    {
+      "path": "tests/docs-notice.browser.spec.mjs",
+      "sha256": "9088acce74dc7f8086c3ca9a56018c52e9aa9485c940004817bd4970ccb8350a"
+    },
+    {
+      "path": "docs/source/reference/licensing-notice-review.json.erb",
+      "sha256": "403a91793488a14244fab495630a72f5acbfff15157a7e9b95654542b646f817"
+    }
+  ],
+  "limitations": [
+    "No independent redistribution grant was established for supplied identity marks or the existing household floorplan.",
+    "A dependency inventory records observed licences and distribution roles; it does not provide legal advice or clear unknown artwork rights.",
+    "Preserved historical review records remain unchanged and are not fresh validation of the current licence/notice work."
+  ],
+  "validation_evidence_boundary": "Local run results were supplied by the coordinating parent on 13 November 2026. They do not constitute deployed-site verification, a full-suite pass, retroactive rights changes or legal clearance."
+}
