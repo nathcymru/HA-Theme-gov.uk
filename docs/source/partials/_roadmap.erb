@@ -1,10 +1,12 @@
-<% raise 'Roadmap must use the theme-features schema' unless roadmap.fetch('schemaVersion') == 1 && roadmap.fetch('scope') == 'theme-features' %>
+<% raise 'Roadmap must use version 2 of the theme-features schema' unless roadmap.fetch('schemaVersion') == 2 && roadmap.fetch('scope') == 'theme-features' %>
 <% in_works = roadmap.fetch('inWorks') %>
+<% accepted = roadmap.fetch('accepted') %>
 <% delivered = roadmap.fetch('delivered').select { |year| year.fetch('months').any? { |month| month.fetch('items').any? } } %>
 <div class="c-roadmap" data-roadmap>
   <nav class="c-roadmap__navigation" aria-label="Roadmap sections">
     <ul class="govuk-list">
       <li><a class="govuk-link" href="#roadmap-in-the-works">In the works</a></li>
+      <li><a class="govuk-link" href="#roadmap-accepted">Accepted</a></li>
       <li><a class="govuk-link" href="#roadmap-delivered">Delivered</a></li>
     </ul>
   </nav>
@@ -23,6 +25,25 @@
       <ul class="govuk-list c-roadmap__features">
         <% in_works.each_with_index do |item, index| %>
           <li><%= partial 'partials/roadmap_card', locals: { item: item, heading_level: 3, heading_id: "roadmap-work-#{index + 1}" } %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+
+  <section class="c-roadmap__section" aria-labelledby="roadmap-accepted" data-roadmap-section="accepted">
+    <div class="c-roadmap__section-heading">
+      <%= partial 'partials/roadmap_art', locals: { stage: 'accepted' } %>
+      <div>
+        <h2 class="govuk-heading-l" id="roadmap-accepted" tabindex="-1">Accepted</h2>
+        <p class="govuk-body">Agreed features that we have not started. These are intended benefits, which still need testing.</p>
+      </div>
+    </div>
+    <% if accepted.empty? %>
+      <p class="govuk-body c-roadmap__empty">There are no reviewed accepted theme features to show yet.</p>
+    <% else %>
+      <ul class="govuk-list c-roadmap__features">
+        <% accepted.each_with_index do |item, index| %>
+          <li><%= partial 'partials/roadmap_card', locals: { item: item, heading_level: 3, heading_id: "roadmap-accepted-feature-#{index + 1}" } %></li>
         <% end %>
       </ul>
     <% end %>

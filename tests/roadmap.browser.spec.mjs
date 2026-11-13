@@ -4,22 +4,26 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
 const path = '/docs/build/community/roadmap.html';
-const empty = { schemaVersion:1, scope:'theme-features', inWorks:[], delivered:[] };
+const empty = { schemaVersion:2, scope:'theme-features', accepted:[], inWorks:[], delivered:[] };
 const populated = {
-  schemaVersion:1, scope:'theme-features',
+  schemaVersion:2, scope:'theme-features',
   inWorks:[
-    { category:'Colour', title:'Keep your chosen palette when opening device details', summary:'Move between the dashboard and device details with a consistent colour scheme.', issueNumber:999, username:'PRIVATE_AUTHOR', commit:'PRIVATE_COMMIT', technicalNotes:'PRIVATE_NOTES' },
-    { category:'Layouts', title:'Make room names easier to read', summary:'Recognise rooms without losing the end of a long name.' },
+    { categories:['Colour','Device details'], title:'Keep your chosen palette when opening device details', summary:'Move between the dashboard and device details with a consistent colour scheme.', issueNumber:999, username:'PRIVATE_AUTHOR', commit:'PRIVATE_COMMIT', technicalNotes:'PRIVATE_NOTES' },
+    { categories:['Layouts'], title:'Make room names easier to read', summary:'Recognise rooms without losing the end of a long name.' },
+  ],
+  accepted:[
+    { categories:['Accessibility','Guidance','Navigation'], title:'Offer guidance in BSL', summary:'Make guidance fully accessible through BSL explanations of theme settings.' },
+    { categories:['Theme settings'], title:'Review an appearance choice before saving', summary:'Check how a chosen appearance will look before applying it.' },
   ],
   delivered:[
     { year:2026, months:[
       { month:'2026-11', label:'November', items:[
-        { category:'Colour', title:'Choose Vivid or Muted colours', summary:'Choose the colour strength that suits your display.' },
-        { category:'Layouts', title:'Read controls on a small screen', summary:'Use the main controls without scrolling the whole page sideways.' },
+        { categories:['Colour'], title:'Choose Vivid or Muted colours', summary:'Choose the colour strength that suits your display.' },
+        { categories:['Layouts'], title:'Read controls on a small screen', summary:'Use the main controls without scrolling the whole page sideways.' },
       ] },
-      { month:'2026-10', label:'October', items:[{ category:'Theme settings', title:'Change the theme in one place', summary:'Find related appearance choices together.' }] },
+      { month:'2026-10', label:'October', items:[{ categories:['Theme settings'], title:'Change the theme in one place', summary:'Find related appearance choices together.' }] },
     ] },
-    { year:2025, months:[{ month:'2025-12', label:'December', items:[{ category:'Keyboard access', title:'Follow a clear keyboard focus', summary:'See which link or control will respond before you activate it.' }] }] },
+    { year:2025, months:[{ month:'2025-12', label:'December', items:[{ categories:['Keyboard access'], title:'Follow a clear keyboard focus', summary:'See which link or control will respond before you activate it.' }] }] },
   ],
 };
 
@@ -59,17 +63,20 @@ async function fixture(page, data) {
 }
 
 const noOverflow = async page => expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-const allItems = data => [...data.inWorks, ...data.delivered.flatMap(year => year.months.flatMap(month => month.items))];
+const allItems = data => [...data.inWorks, ...data.accepted, ...data.delivered.flatMap(year => year.months.flatMap(month => month.items))];
 
-test('the public roadmap shows exactly the reviewed theme fields and two section illustrations', async ({ page }) => {
+test('the public roadmap shows exactly the reviewed theme fields and three section illustrations', async ({ page }) => {
   const data = JSON.parse(readFileSync('docs/data/roadmap.json', 'utf8'));
+  expect(data.schemaVersion).toBe(2);
   expect(data.scope).toBe('theme-features');
   await page.goto(path);
   await expect(page.locator('main h1')).toHaveText('Theme roadmap');
   await expect(page.locator('[data-roadmap-feature]')).toHaveCount(allItems(data).length);
-  expect(await page.locator('[data-roadmap-feature]').evaluateAll(nodes => nodes.map(node => [...node.children].map(child => child.textContent.trim()))))
-    .toEqual(allItems(data).map(item => [item.category, item.title, item.summary]));
-  await expect(page.locator('[data-roadmap-art]')).toHaveCount(2);
+  expect(await page.locator('[data-roadmap-feature]').evaluateAll(nodes => nodes.map(node => ({
+    categories:[...node.children[0].children].map(child=>child.textContent.trim()),
+    title:node.children[1].textContent.trim(),summary:node.children[2].textContent.trim(),
+  })))).toEqual(allItems(data).map(({categories,title,summary})=>({categories,title,summary})));
+  await expect(page.locator('[data-roadmap-art]')).toHaveCount(3);
   for (const illustration of await page.locator('[data-roadmap-art]').all()) {
     await expect(illustration).toHaveAttribute('aria-hidden', 'true');
     await expect(illustration).toHaveAttribute('focusable', 'false');
@@ -82,20 +89,25 @@ test('the public roadmap shows exactly the reviewed theme fields and two section
 test('populated roadmap groups years and months in one reading column with three-part feature cards', async ({ page }, testInfo) => {
   await page.setViewportSize({width:1280,height:900});
   await fixture(page, populated);
+  expect(await page.locator('[data-roadmap-section]').evaluateAll(nodes=>nodes.map(node=>node.dataset.roadmapSection))).toEqual(['in-works','accepted','delivered']);
   expect(await page.locator('[data-roadmap-year]').evaluateAll(nodes => nodes.map(node => node.dataset.roadmapYear))).toEqual(['2026','2025']);
   expect(await page.locator('[data-roadmap-month] time').evaluateAll(nodes => nodes.map(node => [node.dateTime,node.textContent]))).toEqual([['2026-11','November'],['2026-10','October'],['2025-12','December']]);
   const cards = page.locator('[data-roadmap-feature]');
-  await expect(cards).toHaveCount(6);
+  await expect(cards).toHaveCount(8);
   expect(await cards.evaluateAll(nodes => nodes.map(node => [...node.children].map(child => child.tagName)))).toEqual([
-    ['SPAN','H3','P'],['SPAN','H3','P'],['SPAN','H5','P'],['SPAN','H5','P'],['SPAN','H5','P'],['SPAN','H5','P'],
+    ['DIV','H3','P'],['DIV','H3','P'],['DIV','H3','P'],['DIV','H3','P'],['DIV','H5','P'],['DIV','H5','P'],['DIV','H5','P'],['DIV','H5','P'],
   ]);
+  await expect(cards.getByRole('group',{name:'Categories',exact:true})).toHaveCount(8);
+  expect(await cards.evaluateAll(nodes=>nodes.map(node=>[...node.children[0].children].map(pill=>pill.textContent.trim())))).toEqual(allItems(populated).map(item=>item.categories));
   await expect(page.locator('[data-roadmap]')).not.toContainText(/PRIVATE_AUTHOR|PRIVATE_COMMIT|PRIVATE_NOTES|999/);
   await expect(cards.locator('a,button,input,time')).toHaveCount(0);
   const boxes = await cards.evaluateAll(nodes => nodes.map(node => {const b=node.getBoundingClientRect();return {x:b.x,y:b.y,bottom:b.bottom};}));
   for (let index=1;index<boxes.length;index++) expect(boxes[index].y).toBeGreaterThanOrEqual(boxes[index-1].bottom);
   const pending = await page.locator('[data-roadmap-section="in-works"]').boundingBox();
+  const accepted = await page.locator('[data-roadmap-section="accepted"]').boundingBox();
   const delivered = await page.locator('[data-roadmap-section="delivered"]').boundingBox();
-  expect(delivered.y).toBeGreaterThan(pending.y + pending.height);
+  expect(accepted.y).toBeGreaterThan(pending.y + pending.height);
+  expect(delivered.y).toBeGreaterThan(accepted.y + accepted.height);
   for (const [name,width] of [['desktop',1280],['320px',320]]) {
     await page.setViewportSize({width,height:900});
     await noOverflow(page);
@@ -107,6 +119,18 @@ test('populated roadmap groups years and months in one reading column with three
   expect(result.violations.map(({id,nodes}) => ({id,targets:nodes.map(node=>node.target)}))).toEqual([]);
 });
 
+test('accepted features preserve supplied intended benefits without claiming availability or adding media controls', async ({ page }) => {
+  await fixture(page,populated);
+  const accepted=page.locator('[data-roadmap-section="accepted"]');
+  await expect(accepted.locator('.c-roadmap__section-heading p')).toHaveText('Agreed features that we have not started. These are intended benefits, which still need testing.');
+  await expect(accepted.locator('[data-roadmap-feature] > p').first()).toHaveText(populated.accepted[0].summary);
+  await expect(accepted.locator('a,button,audio,video,iframe,input,time')).toHaveCount(0);
+  await expect(accepted.locator('[data-roadmap-year],[data-roadmap-month]')).toHaveCount(0);
+  const intro=await accepted.locator('.c-roadmap__section-heading').boundingBox();
+  const card=await accepted.locator('[data-roadmap-feature]').first().boundingBox();
+  expect(card.y).toBeGreaterThanOrEqual(intro.y+intro.height);
+});
+
 test('the production roadmap remains readable and navigable with JavaScript disabled', async ({ browser }) => {
   const context = await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:900}});
   try {
@@ -114,11 +138,17 @@ test('the production roadmap remains readable and navigable with JavaScript disa
     const data = JSON.parse(readFileSync('docs/data/roadmap.json','utf8'));
     await page.goto(`http://127.0.0.1:4173${path}`);
     await expect(page.locator('main h1')).toHaveText('Theme roadmap');
-    await expect(page.locator('[data-roadmap-section]')).toHaveCount(2);
+    await expect(page.locator('[data-roadmap-section]')).toHaveCount(3);
     await expect(page.locator('[data-roadmap-feature]')).toHaveCount(allItems(data).length);
-    await expect(page.locator('[data-roadmap-art]')).toHaveCount(2);
+    await expect(page.locator('[data-roadmap-art]')).toHaveCount(3);
     const sections = page.getByRole('navigation',{name:'Roadmap sections'});
     await sections.getByRole('link',{name:'In the works',exact:true}).focus();
+    await page.keyboard.press('Tab');
+    await expect(sections.getByRole('link',{name:'Accepted',exact:true})).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#roadmap-accepted')).toBeFocused();
+    await expect(page.locator('#roadmap-accepted')).toBeInViewport();
+    await sections.getByRole('link',{name:'Accepted',exact:true}).focus();
     await page.keyboard.press('Tab');
     await expect(sections.getByRole('link',{name:'Delivered',exact:true})).toBeFocused();
     await page.keyboard.press('Enter');
@@ -135,15 +165,16 @@ test('empty data keeps honest section-specific messages without fabricated featu
   await expect(page.locator('[data-roadmap-feature]')).toHaveCount(0);
   await expect(page.locator('[data-roadmap-year],[data-roadmap-month]')).toHaveCount(0);
   await expect(page.locator('[data-roadmap-section="in-works"]')).toContainText('There are no reviewed theme features in the works to show yet.');
+  await expect(page.locator('[data-roadmap-section="accepted"]')).toContainText('There are no reviewed accepted theme features to show yet.');
   await expect(page.locator('[data-roadmap-section="delivered"]')).toContainText('No reviewed theme features have been added to this timeline yet.');
-  await expect(page.locator('[data-roadmap-art]')).toHaveCount(2);
+  await expect(page.locator('[data-roadmap-art]')).toHaveCount(3);
   const result = await new AxeBuilder({page}).analyze();
   expect(result.violations.map(({id,nodes}) => ({id,targets:nodes.map(node=>node.target)}))).toEqual([]);
 });
 
 test('long roadmap copy wraps at 320px and enlarged text while artwork and keyboard section links remain usable', async ({ page }) => {
   const data = structuredClone(populated);
-  data.inWorks[0].category = 'Theme appearance for shared household displays';
+  data.inWorks[0].categories = ['Appearance for shared household displays','Device details','Theme settings'];
   data.inWorks[0].title = 'Keep a consistent appearance when moving between a room with a very long name and its available device controls';
   data.delivered[0].months[0].items[0].title = 'A theme label can include an exceptionallylongunbrokensuppliednamewithoutlosingitsending';
   await page.setViewportSize({width:320,height:900});
@@ -152,9 +183,9 @@ test('long roadmap copy wraps at 320px and enlarged text while artwork and keybo
   const firstLink = page.getByRole('navigation',{name:'Roadmap sections'}).getByRole('link',{name:'In the works',exact:true});
   await firstLink.focus();
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('link',{name:'Delivered',exact:true})).toBeFocused();
+  await expect(page.getByRole('link',{name:'Accepted',exact:true})).toBeFocused();
   await page.keyboard.press('Enter');
-  await expect(page.locator('#roadmap-delivered')).toBeFocused();
+  await expect(page.locator('#roadmap-accepted')).toBeFocused();
   await page.locator('[data-roadmap]').evaluate(root => {
     const sizes=[...root.querySelectorAll('h2,h3,h4,h5,p,.c-roadmap__category,a')].map(node=>[node,parseFloat(getComputedStyle(node).fontSize)]);
     for(const [node,size] of sizes) node.style.fontSize=`${size*2}px`;
@@ -169,9 +200,10 @@ test('long roadmap copy wraps at 320px and enlarged text while artwork and keybo
 
 test('roadmap fields remain literal text rather than active markup', async ({ page }) => {
   const data=structuredClone(empty);
-  data.inWorks.push({category:'Colour <choices>',title:'Use <strong> tags as supplied text',summary:'A name such as <img src="/unexpected-image" onerror="window.roadmapInjected=true"> is text.'});
+  data.inWorks.push({categories:['Colour <choices>','<em>Other</em>'],title:'Use <strong> tags as supplied text',summary:'A name such as <img src="/unexpected-image" onerror="window.roadmapInjected=true"> is text.'});
   await fixture(page,data);
-  await expect(page.locator('[data-roadmap-feature] strong,[data-roadmap-feature] img')).toHaveCount(0);
+  await expect(page.locator('[data-roadmap-feature] strong,[data-roadmap-feature] img,[data-roadmap-feature] em')).toHaveCount(0);
+  await expect(page.locator('[data-roadmap-feature] .c-roadmap__category')).toHaveText(data.inWorks[0].categories);
   await expect(page.locator('[data-roadmap-feature]')).toContainText(data.inWorks[0].summary);
   expect(await page.evaluate(()=>window.roadmapInjected)).toBeUndefined();
 });

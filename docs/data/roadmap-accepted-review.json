@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "id": "DOC-ROADMAP-ACCEPTED-01",
+  "reviewed_on": "2026-11-13",
+  "status": "source-unit-and-focused-browser-review-passed; final-integrity-and-publication-pending",
+  "scope": "Extend the documentation roadmap with an Accepted stage, one to three categories and the two requested BSL proposals. This records proposed theme features; it does not implement BSL, media playback, camera processing or any Home Assistant runtime capability.",
+  "baseline_revision": "478c666670b0947d43800b7213c14ea81a66abe4",
+  "previous_evidence": {
+    "record": "docs/data/roadmap-review.json",
+    "scope": "The original roadmap review remains unchanged. Its schema 1, two-stage and no-proposal descriptions are historical rather than the current schema contract.",
+    "pull_request": "https://github.com/nathcymru/HA-Theme-gov.uk/pull/36",
+    "workflow": "https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43333105226",
+    "unit_passed": 74,
+    "browser_passed": 887,
+    "deployment_completed_at": "2026-11-13T00:05:49Z",
+    "meaning": "These are verified results for the preceding merged revision, not acceptance of this follow-up.",
+    "sha256": "e57a184d7410598f5cfe92167de86bea058f83021e3e5af1db28ad740b386a36"
+  },
+  "implementation_contract": {
+    "schema": "Schema 2 adds accepted and replaces each singular category with categories. Public items contain only one to three sorted, unique, plain-text category names, a title and a benefit. Old schema 1 snapshots fail clearly instead of being guessed at.",
+    "accepted": "Exactly one roadmap: accepted label marks an agreed feature whose work has not started. The issue must be open, with no completion date and a valid open/reopened state reason. Accepted items have no delivery month or scheduled date.",
+    "progression": "Changing the sole status label moves the same public content between Accepted and In the works. Delivered still requires the completed label, closed-as-completed state and a real non-future closure date, after maintainer release review. Mixed status labels fail validation.",
+    "editorial_limit": "The user-requested summaries, including the intended fully accessible outcome, are preserved as proposal copy. The adjacent Accepted introduction explicitly says the work has not started and the intended benefits still need testing. Neither the roadmap nor this record establishes accessibility conformance, recognition accuracy, supported hardware or technical feasibility.",
+    "media": "The optional BSL / Audio Video Link field is reserved and must remain blank. Existing issue bodies without it remain valid. A supplied URL or other content fails safely before publication. No media URL, player or playback control is added to the public schema or page.",
+    "presentation": "The page retains ordinary anchor navigation, semantic lists, complete text and the reading sequence In the works, Accepted, Delivered. Category pills wrap. A third original decorative illustration supports the Accepted heading without encoding feature availability.",
+    "workflow": "Accepted is included in both current-label and removed-label predicates for verification and concurrency. Trusted-main checkout, read-only issue access, PR offline checks and the complete existing verify-before-deploy gate remain unchanged.",
+    "dynamic_data": "docs/data/roadmap.json is checked as a dynamic public projection and excluded from frozen source hashes. Synthetic test proposals do not become public roadmap items."
+  },
+  "independent_review": {
+    "status": "source-reviewed-after-owner-freeze",
+    "findings": [
+      {
+        "id": "ACCEPTED-R01",
+        "issue": "A draft maintenance instruction allowed work that had already started to return to Accepted, contradicting the visible meaning that work has not started.",
+        "resolution": "Removed that instruction and retained the explicit unstarted-stage boundary. Also corrected the three-label wording and public field list.",
+        "status": "source-corrected; focused-integrated-review-passed"
+      }
+    ],
+    "checks": [
+      "Checked Accepted in all four workflow relevance/concurrency predicates, including removal of its publishing label.",
+      "Reviewed schema migration, Accepted state/date guards, category bounds and case-insensitive uniqueness, all three independent API label queries and maintained pagination protections.",
+      "Reviewed old issue-body compatibility, the optional blank media boundary, safe diagnostics and exclusion of developer notes and raw issue metadata.",
+      "Checked the Accepted text, placement, semantic category group and unchanged future-versus-delivered distinction; the requested proposal wording is not treated as verified capability."
+    ],
+    "meaning": "The bounded wording finding was corrected before source freeze. No unresolved concrete defect remains in the reviewed source; this is not a whole-site accessibility or live Home Assistant assessment."
+  },
+  "acceptance": [
+    {
+      "id": "ACCEPTED-A01",
+      "criterion": "Accepted records are open and undated; transitions and conflicting labels cannot imply that an unstarted feature has been delivered.",
+      "status": "verified-in-stated-source-and-unit-scope"
+    },
+    {
+      "id": "ACCEPTED-A02",
+      "criterion": "One to three categories remain sorted, unique, escaped and readable; schema 1 fails clearly and legacy issue bodies still parse.",
+      "status": "verified-in-stated-source-and-unit-scope"
+    },
+    {
+      "id": "ACCEPTED-A03",
+      "criterion": "Reserved media stays blank and private developer content never enters public output; no BSL technology or media control is implemented by this change.",
+      "status": "verified-in-stated-source-and-unit-scope"
+    },
+    {
+      "id": "ACCEPTED-A04",
+      "criterion": "The three sections and exact proposed summaries render with the explicit not-started/testing boundary, usable keyboard navigation, no scripting, narrow screens and enlarged text.",
+      "status": "verified-in-stated-focused-browser-and-local-visual-scope"
+    },
+    {
+      "id": "ACCEPTED-A05",
+      "criterion": "Accepted label addition/removal enters the correct trusted publication group and preserves the full validation gate.",
+      "status": "verified-in-stated-source-and-unit-scope"
+    },
+    {
+      "id": "ACCEPTED-A06",
+      "criterion": "Current hashes, public evidence and dated guide history agree while the preceding roadmap review and source snapshots remain unchanged.",
+      "status": "pending"
+    }
+  ],
+  "integrated_validation": {
+    "status": "local-validation-passed; full-regression-and-publication-gated",
+    "unit": {
+      "status": "passed",
+      "passed": 79,
+      "failed": 0,
+      "parser_cases": 25,
+      "workflow_cases": 4,
+      "scope": "Parent executed the complete current Node suite after the final source corrections; all 79 cases passed. The parser owner also executed its 25 focused cases."
+    },
+    "browser": {
+      "status": "focused-passed; full-regression-pending",
+      "passed": 7,
+      "failed": 0,
+      "duration_seconds": 4.2,
+      "scope": "The UI owner executed all seven focused browser cases against the integrated schema 2 build with the two actual Accepted records. Checks cover exact public fields, three-stage order, one-to-three categories, explicit not-started/testing text, no media controls, no-JavaScript keyboard navigation, empty/long-copy specimens, 320px and doubled text, escaping and automated accessibility."
+    },
+    "source_integrity": {
+      "status": "passed",
+      "executed": "Final Middleman build, internal links and anchors in675 HTML pages, guidance evidence for101 rules across216 guides and459 examples, Home Assistant coverage, type checking and diff whitespace checks passed. Three further browser checks passed for roadmap, maintenance guide and Community structure/history/accessibility/320px reflow."
+    },
+    "actual_issue_projection": {
+      "status": "authenticated-fetch-confirmed-by-parent",
+      "accepted": 2,
+      "in_works": 0,
+      "delivered": 0,
+      "scope": "The parent created and verified the two requested real GitHub proposals, including exact supplied copy, two categories each, OPEN Accepted state and blank optional media. The authenticated local public projection contains those two proposals; no browser fixture entry is published."
+    },
+    "manual_review": {
+      "status": "bounded-local-render-review-passed",
+      "scope": "The UI owner visually inspected the actual Accepted cards at 1440px and 320px: exact summaries, complete category pills and clear testing context, with no observed clipping or overflow. The parent independently checked the actual Chrome DOM for exact text, categories, stage and absence of developer details. This is local evidence, not a live Pages or BSL capability verification."
+    }
+  },
+  "publication": {
+    "status": "pending",
+    "site": "https://nathcymru.github.io/HA-Theme-gov.uk/community/roadmap.html",
+    "evidence_location": "The follow-up pull request, merged-version workflow and post-deployment inspection will record the actual publication result."
+  },
+  "limitations": [
+    "Acceptance of a proposal is not a commitment to a delivery date or a statement that development has started.",
+    "The requested accessibility outcome needs research, user testing and technical acceptance before implementation or delivery can be claimed.",
+    "No hardware or language-recognition feasibility assessment has been performed as part of recording these proposals.",
+    "Prior 74-unit and 887-browser passes are historical; current validation is recorded separately."
+  ],
+  "source_evidence": [
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 8,
+      "excerpt": "export const STATUS_LABELS = Object.freeze({ accepted: 'roadmap: accepted', inWorks: 'roadmap: in-works', completed: 'roadmap: completed' });",
+      "detail": "Exactly three supported publishing stages.",
+      "sha256": "e0e05e48da885413c53d68ac50e17e26c0d775f8e1bda2f36749c81b7e8060dd"
+    },
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 90,
+      "excerpt": "function categoriesFor(labels, issueNumber) {",
+      "detail": "One to three unique, readable, sorted category names.",
+      "sha256": "e0e05e48da885413c53d68ac50e17e26c0d775f8e1bda2f36749c81b7e8060dd"
+    },
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 145,
+      "excerpt": "if ([STATUS_LABELS.accepted, STATUS_LABELS.inWorks].includes(status[0])) {",
+      "detail": "Accepted shares the open/no-completion-date guard, without delivered dates.",
+      "sha256": "e0e05e48da885413c53d68ac50e17e26c0d775f8e1bda2f36749c81b7e8060dd"
+    },
+    {
+      "path": "scripts/roadmap.mjs",
+      "line": 86,
+      "excerpt": "if (values.length === 4 && values[3] !== '' && values[3] !== '_No response_') fail('BSL / Audio Video Link must be blank until roadmap media is supported. Clear this field before publishing.', issueNumber);",
+      "detail": "Reserved media must be absent or blank; non-empty content fails before export.",
+      "sha256": "e0e05e48da885413c53d68ac50e17e26c0d775f8e1bda2f36749c81b7e8060dd"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "line": 23,
+      "excerpt": "!contains(github.event.issue.labels.*.name, 'roadmap: accepted') &&",
+      "detail": "Accepted issues cannot be misclassified as ignored concurrency events.",
+      "sha256": "e090b3955e7d724e72ec43208597a663cb0005e018fef7fbf19dc252b5b0c27a"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "line": 37,
+      "excerpt": "github.event.label.name == 'roadmap: accepted' ||",
+      "detail": "Removing the Accepted label still triggers withdrawal from the public projection.",
+      "sha256": "e090b3955e7d724e72ec43208597a663cb0005e018fef7fbf19dc252b5b0c27a"
+    },
+    {
+      "path": "docs/source/partials/_roadmap.erb",
+      "line": 38,
+      "excerpt": "<p class=\"govuk-body\">Agreed features that we have not started. These are intended benefits, which still need testing.</p>",
+      "detail": "The public Accepted introduction identifies intended benefits and testing still required.",
+      "sha256": "159230576b606557735f7b764b46196424b77e4965f45dd8ee4cabb21aee23e2"
+    },
+    {
+      "path": "docs/source/partials/_roadmap_card.erb",
+      "line": 3,
+      "excerpt": "<% item.fetch('categories').each do |category| %>",
+      "detail": "All public categories render as escaped non-interactive pills.",
+      "sha256": "dd9b84bbd73c2aebe57f881c204cf8f8fb0e91cd6aaea133a940fe5f2d4f9224"
+    },
+    {
+      "path": "docs/source/community/maintain-roadmap.html.md.erb",
+      "line": 69,
+      "excerpt": "Each card contains a category group, title and benefit. An Accepted benefit describes an intended outcome, not an available feature. The section makes clear that work has not started and the outcomes still need testing. Check feasibility, language quality and accessibility evidence before presenting a planned benefit as an achieved result; acceptance of a proposal is not that evidence. Dates belong to the surrounding timeline. Issue links, authors, hashes, developer notes and implementation controls are excluded. The three original section illustrations share the documentation's flat blue geometry; the adjacent headings and text preserve their complete meaning.",
+      "detail": "The maintainer guidance separates proposal acceptance from feasibility, language quality and accessibility evidence.",
+      "sha256": "63b12b2845392636d964d2528b9fb844cb583d31d5405f560a3b1bd9ff0c409e"
+    }
+  ],
+  "source_freeze": {
+    "status": "reviewed-source-snapshot",
+    "date": "2026-11-13",
+    "scope": "Owner-frozen schema, workflow, UI, writing, artwork and regression sources. Dynamic roadmap.json and circular audit records are excluded.",
+    "paths": [
+      {
+        "path": ".github/ISSUE_TEMPLATE/roadmap_item.yml",
+        "sha256": "e1dfe38efdb2a173a59e663bcfb19cadd161303bcedd972dc0cc79a774c4e375"
+      },
+      {
+        "path": ".github/roadmap-labels.json",
+        "sha256": "0030b7e6f6177df5be7b66fd5bb2fa2c3d9851de9674ec1dd74305e381688bc2"
+      },
+      {
+        "path": ".github/workflows/validate.yml",
+        "sha256": "e090b3955e7d724e72ec43208597a663cb0005e018fef7fbf19dc252b5b0c27a"
+      },
+      {
+        "path": "scripts/roadmap.mjs",
+        "sha256": "e0e05e48da885413c53d68ac50e17e26c0d775f8e1bda2f36749c81b7e8060dd"
+      },
+      {
+        "path": "test/roadmap.test.mjs",
+        "sha256": "b58b9d414d813d1e30134758f23269d0960f1b70a1d5939b1412c290c98ca89b"
+      },
+      {
+        "path": "test/roadmap-workflow.test.mjs",
+        "sha256": "42bbaa473eb5167caf43e3622997b56d8307623fbb425fe7f94f09c705b16cc1"
+      },
+      {
+        "path": "tests/roadmap.browser.spec.mjs",
+        "sha256": "077ddb0596a03a23c50f337ae0c3a0a0d6bdaad5020888a54714047f40725d3a"
+      },
+      {
+        "path": "docs/README.md",
+        "sha256": "735188ffe35f0c528d2237bfac6f7637a46b5f4abfb019ba3087c2a077c176ff"
+      },
+      {
+        "path": "docs/source/index.html.erb",
+        "sha256": "788e76ada69abffd1f22c2c8ac9908f9c7ab32466fd9341e1c9c8cae62eb2ba5"
+      },
+      {
+        "path": "docs/source/community/index.html.md.erb",
+        "sha256": "57d4f0b2b6c3a7ad04696f17e451ce3f3730ef573f21584d2d5f345c1bb2d66b"
+      },
+      {
+        "path": "docs/source/community/roadmap.html.erb",
+        "sha256": "a75a3c07d69c86e15e851afa512ff2d1ab0e6f351343c958028a5fef5e9cb95c"
+      },
+      {
+        "path": "docs/source/community/maintain-roadmap.html.md.erb",
+        "sha256": "63b12b2845392636d964d2528b9fb844cb583d31d5405f560a3b1bd9ff0c409e"
+      },
+      {
+        "path": "docs/source/partials/_roadmap.erb",
+        "sha256": "159230576b606557735f7b764b46196424b77e4965f45dd8ee4cabb21aee23e2"
+      },
+      {
+        "path": "docs/source/partials/_roadmap_card.erb",
+        "sha256": "dd9b84bbd73c2aebe57f881c204cf8f8fb0e91cd6aaea133a940fe5f2d4f9224"
+      },
+      {
+        "path": "docs/source/partials/_roadmap_art.erb",
+        "sha256": "8e53df8a23f7b5f7f8bd362628e46b12e1cc6e10d81dfb7cd00d504511533d2a"
+      },
+      {
+        "path": "docs/source/stylesheets/_roadmap.scss",
+        "sha256": "2389ee337e038bcbbc0cc2b47e9f418eddc22661dfe8321ef3c45c5f6a10f709"
+      },
+      {
+        "path": "docs/source/llms.txt",
+        "sha256": "108df108eb05ce1b892ba70dff8dbd1a4bf19ecbffd61c9fb39d10ee32e6e13b"
+      },
+      {
+        "path": "docs/data/roadmap-artwork-provenance.json",
+        "sha256": "f46c6c7b10203e25d88873fdae71d4a99df597b4da0fcccaa0ea06fb7f8f0e3a"
+      },
+      {
+        "path": "docs/source/reference/roadmap-accepted-review.json.erb",
+        "sha256": "7b8b19a4dbb8ab1aa80475ace3824026cf09a2d5dca8a83ce3798d6c32ec10db"
+      }
+    ]
+  }
+}

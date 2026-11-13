@@ -1,5 +1,10 @@
 [
   {
+    "name": "roadmap: accepted",
+    "color": "4C2C92",
+    "description": "Agreed theme feature that has not started; publishes in Accepted."
+  },
+  {
     "name": "roadmap: in-works",
     "color": "1D70B8",
     "description": "Reviewed theme feature currently being worked on; publishes on the roadmap."
@@ -12,36 +17,51 @@
   {
     "name": "tag: Controls",
     "color": "E8EFF5",
-    "description": "Public roadmap category: controls. Use exactly one tag category."
+    "description": "Public roadmap category: controls. Choose one to three relevant categories."
   },
   {
     "name": "tag: Appearance",
     "color": "E8EFF5",
-    "description": "Public roadmap category: appearance. Use exactly one tag category."
+    "description": "Public roadmap category: appearance. Choose one to three relevant categories."
   },
   {
     "name": "tag: Accessibility",
     "color": "E8EFF5",
-    "description": "Public roadmap category: accessibility. Use exactly one tag category."
+    "description": "Public roadmap category: accessibility. Choose one to three relevant categories."
   },
   {
     "name": "tag: Energy",
     "color": "E8EFF5",
-    "description": "Public roadmap category: energy. Use exactly one tag category."
+    "description": "Public roadmap category: energy. Choose one to three relevant categories."
   },
   {
     "name": "tag: Navigation",
     "color": "E8EFF5",
-    "description": "Public roadmap category: navigation. Use exactly one tag category."
+    "description": "Public roadmap category: navigation. Choose one to three relevant categories."
   },
   {
     "name": "tag: Maps",
     "color": "E8EFF5",
-    "description": "Public roadmap category: maps. Use exactly one tag category."
+    "description": "Public roadmap category: maps. Choose one to three relevant categories."
   },
   {
     "name": "tag: Notifications",
     "color": "E8EFF5",
-    "description": "Public roadmap category: notifications. Use exactly one tag category."
+    "description": "Public roadmap category: notifications. Choose one to three relevant categories."
+  },
+  {
+    "name": "tag: Voice & BSL",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: Voice & BSL. Choose one to three relevant categories."
+  },
+  {
+    "name": "tag: Easy Controls",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: Easy Controls. Choose one to three relevant categories."
+  },
+  {
+    "name": "tag: Visual & Theme",
+    "color": "E8EFF5",
+    "description": "Public roadmap category: Visual & Theme. Choose one to three relevant categories."
   }
 ]

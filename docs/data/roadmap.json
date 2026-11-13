@@ -1,6 +1,24 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "scope": "theme-features",
+  "accepted": [
+    {
+      "categories": [
+        "Easy Controls",
+        "Voice & BSL"
+      ],
+      "title": "Control your home using British Sign Language through your camera",
+      "summary": "This feature allows you to sign to a connected camera to turn on lights, adjust the heating, or ask questions. It makes the smart home fully accessible for BSL users without requiring voice commands or touch screens."
+    },
+    {
+      "categories": [
+        "Visual & Theme",
+        "Voice & BSL"
+      ],
+      "title": "See British Sign Language video responses on your dashboard",
+      "summary": "When you check the weather or ask your home a question, your dashboard will show a high-quality animation signing the answer. This ensures you receive important household information directly in your primary language."
+    }
+  ],
   "inWorks": [],
   "delivered": []
 }

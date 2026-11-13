@@ -1,5 +1,9 @@
 <article class="c-roadmap__feature" aria-labelledby="<%= escape(heading_id) %>" data-roadmap-feature>
-  <span class="govuk-tag c-roadmap__category"><%= escape(item.fetch('category')) %></span>
+  <div class="c-roadmap__categories" role="group" aria-label="Categories">
+    <% item.fetch('categories').each do |category| %>
+      <span class="govuk-tag c-roadmap__category"><%= escape(category) %></span>
+    <% end %>
+  </div>
   <h<%= heading_level %> class="govuk-heading-m" id="<%= escape(heading_id) %>"><%= escape(item.fetch('title')) %></h<%= heading_level %>>
   <p class="govuk-body"><%= escape(item.fetch('summary')) %></p>
 </article>

@@ -49,8 +49,8 @@
 
 ## Public theme roadmap
 
-- [Theme roadmap](community/roadmap.html): reviewed theme features only, with work in progress and delivered features grouped by UTC closure month. Documentation changes are excluded.
-- [Public roadmap data](reference/roadmap.json): allowlisted category, title and household benefit; no issue identities, developer notes or raw payloads.
+- [Theme roadmap](community/roadmap.html): reviewed theme features only, with separate agreed-but-not-started Accepted work, work in progress and delivered features grouped by UTC closure month. Documentation changes are excluded.
+- [Public roadmap data](reference/roadmap.json): schema2 allowlisted categories, title and household benefit; no issue identities, developer notes or raw payloads.
 - [Maintain the roadmap](community/maintain-roadmap.html): standard GitHub issue form, maintainer publishing labels, writing review, status semantics and build checks.
 
 ## Evidence

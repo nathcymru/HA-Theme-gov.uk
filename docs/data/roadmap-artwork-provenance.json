@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-11-12",
+  "reviewed_on": "2026-11-13",
   "creator": "civica.uk project; Codex-assisted original editable SVG geometry",
   "licence": "MIT, original repository documentation artwork under LICENSE",
-  "scope": "Two inline illustrations on the theme-feature roadmap; documentation only, not household identity assets or device-state indicators.",
+  "scope": "Three inline illustrations on the theme-feature roadmap; documentation only, not household identity assets or device-state indicators.",
   "source": "Original rectangles and filled paths authored in the roadmap artwork partial. No government artwork, stock imagery, imported paths, logos or personal data.",
   "palette": [
     "#103E65",
@@ -30,7 +30,7 @@
       "id": "roadmap-in-works",
       "path": "docs/source/partials/_roadmap_art.erb",
       "fragment": "data-roadmap-art=in-works",
-      "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de",
+      "sha256": "8e53df8a23f7b5f7f8bd362628e46b12e1cc6e10d81dfb7cd00d504511533d2a",
       "width": 240,
       "height": 180,
       "view_box": "0 0 240 180",
@@ -39,10 +39,22 @@
       "informative_reuse_description": "A pencil rests across an unfinished interface sheet."
     },
     {
+      "id": "roadmap-accepted",
+      "path": "docs/source/partials/_roadmap_art.erb",
+      "fragment": "data-roadmap-art=accepted",
+      "sha256": "8e53df8a23f7b5f7f8bd362628e46b12e1cc6e10d81dfb7cd00d504511533d2a",
+      "width": 240,
+      "height": 180,
+      "view_box": "0 0 240 180",
+      "purpose": "Support the adjacent Accepted heading with a proposal sheet held in a document tray.",
+      "alternative_text_decision": "Decorative inline SVG is aria-hidden and not focusable. The adjacent HTML section heading and introduction carry the full meaning.",
+      "informative_reuse_description": "A proposal sheet rests in a document tray, without a pencil or completion mark."
+    },
+    {
       "id": "roadmap-delivered",
       "path": "docs/source/partials/_roadmap_art.erb",
       "fragment": "data-roadmap-art=delivered",
-      "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de",
+      "sha256": "8e53df8a23f7b5f7f8bd362628e46b12e1cc6e10d81dfb7cd00d504511533d2a",
       "width": 240,
       "height": 180,
       "view_box": "0 0 240 180",
