@@ -1,7 +1,13 @@
-# CIVICA.UK — Brand assets V3.2
+# Civica revised asset pack
 
-This package corrects the V3.1 dot issue.
+This archive contains the revised production asset library based on the approved Civica concept: a blue house-outline emblem with six internal dots paired with the `Civica` wordmark.
 
-- Dot geometry: cx=366.3318, cy=77.5, r=7.5
-- Dot position: lowered from the vertical midpoint to a bottom-aligned optical position between CIVICA and UK
-- Theme variants: contrasting accent dot colours generated per family and mode
+## Contents
+
+- `core/` — core SVG, PNG and WebP lock-ups, emblems and wordmarks
+- `icons/` — app icons, favicon and platform icon sizes
+- `themes/` — 10 theme families in vivid and muted modes
+- `docs/` — JSON/CSS theme tokens, manifest and verification
+- `proof/` — approved concept reference and pack proof sheet
+
+The identity remains independent of GOV.UK and Home Assistant.

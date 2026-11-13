@@ -408,4 +408,4 @@ class GovukHouseLightingCard extends HTMLElement {
 if (!customElements.get('govuk-house-lighting-card')) customElements.define('govuk-house-lighting-card', GovukHouseLightingCard);
 (window as any).customCards = (window as any).customCards ?? [];
 if (!customElements.get('civica-house-lighting-card')) customElements.define('civica-house-lighting-card', class extends GovukHouseLightingCard {});
-(window as any).customCards.push({ type: 'civica-house-lighting-card', name: 'civica.uk house lighting', description: 'Room lighting with floor plan, whites, colours and dynamic scenes.' });
+(window as any).customCards.push({ type: 'civica-house-lighting-card', name: 'civica house lighting', description: 'Room lighting with floor plan, whites, colours and dynamic scenes.' });

@@ -1,11 +1,13 @@
 ---
 title: "Typography"
-description: "Typography for the civica.uk Home Assistant design system."
+description: "Typography for the civica Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 published_on: "2026-11-11"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: "2026-11-12"
     description: "Linked the typography guidance without imposing the project identity inside a household interface."
   - date: "2026-11-11"
@@ -18,7 +20,7 @@ updates:
 
 # Typography
 
-Use Arial, Helvetica and the system sans-serif fallback consistently. Do not name GDS Transport anywhere in the active font stack. The supplied outlined civica.uk wordmark is artwork, not a font for interface text.
+Use Arial, Helvetica and the system sans-serif fallback consistently. Do not name GDS Transport anywhere in the active font stack. The supplied outlined civica wordmark is artwork, not a font for interface text.
 
 
 ## Apply the type hierarchy
@@ -46,7 +48,7 @@ These isolated examples illustrate the decisions on this page. Any household val
 | Supporting metadata | 16px, regular, 1.5 line height | 16px |
 | Primary sensor value | 32px to 48px, tabular numerals where useful | Fit the value and unit without truncation |
 
-These are local starting points informed by the [GOV.UK type scale](https://design-system.service.gov.uk/styles/type-scale/). Maintained custom civica.uk UI uses 19px body/main controls and 16px metadata. Native HA dense controls/body use 16px, supporting labels 14px and compact ancillary text 12px. Existing larger native headings retain HA values, with card titles explicitly 24px. This is a controlled density adaptation to preserve native geometry; check it in live Home Assistant at 200% text size. The shared custom base sizes are `civica-font-size-body: 19px`, `civica-font-size-small: 16px` and `civica-font-size-heading: 24px`; native `ha-font-size-xs/s/m/l` base sizes are 12/14/16/19px. The generated values use `calc()` with `--ha-font-size-scale` so Home Assistant’s user text scaling remains effective.
+These are local starting points informed by the [GOV.UK type scale](https://design-system.service.gov.uk/styles/type-scale/). Maintained custom civica UI uses 19px body/main controls and 16px metadata. Native HA dense controls/body use 16px, supporting labels 14px and compact ancillary text 12px. Existing larger native headings retain HA values, with card titles explicitly 24px. This is a controlled density adaptation to preserve native geometry; check it in live Home Assistant at 200% text size. The shared custom base sizes are `civica-font-size-body: 19px`, `civica-font-size-small: 16px` and `civica-font-size-heading: 24px`; native `ha-font-size-xs/s/m/l` base sizes are 12/14/16/19px. The generated values use `calc()` with `--ha-font-size-scale` so Home Assistant’s user text scaling remains effective.
 
 Native dashboard section titles in `hui-heading-card` share the 24px bold card-heading size so an H2 does not appear weaker than the cards it introduces. The theme sets `ha-heading-card-title-font-size` to `var(--civica-font-size-heading)`, `ha-heading-card-title-font-weight` to `700`, and `ha-heading-card-title-line-height` to `1.25`. This compact dashboard adaptation preserves Home Assistant’s text scale and the existing heading semantics. Subtitle and caption tokens retain their native supporting hierarchy.
 

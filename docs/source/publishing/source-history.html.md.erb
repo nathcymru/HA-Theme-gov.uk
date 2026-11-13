@@ -6,10 +6,12 @@ group: "Publishing guide"
 source_url: "https://github.com/alphagov/govuk_publishing_components/pull/5572"
 status: "reference"
 published_on: "2026-11-11"
-updated_on: "2026-11-11"
+updated_on: "2026-11-13"
 last_reviewed_on: "2026-11-11"
 review_in: "3 months"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: "2026-11-11"
     description: "Recorded the July 2026 metadata migration and current option names against pinned source."
 ---
@@ -41,7 +43,7 @@ Current `page_history` entries have `display_time`, `timestamp` and `note`. The 
 
 ## Local documentation rule
 
-Use genuine publication and update dates. A change note should explain the change that affects a reader. The local documentation frontmatter uses `published_on`, `updated_on` and `updates`; these are civica.uk authoring fields, not claimed aliases accepted by the upstream Ruby gem.
+Use genuine publication and update dates. A change note should explain the change that affects a reader. The local documentation frontmatter uses `published_on`, `updated_on` and `updates`; these are civica authoring fields, not claimed aliases accepted by the upstream Ruby gem.
 
 Render the update history as a native disclosure with semantic dates and readable notes. Keep it usable without JavaScript and avoid opening a long history automatically on page load. Do not invent a first-publication date for an older page: recover it from the actual repository history or state the evidence limit. Do not attach a government organisation, official logo or GOV.UK analytics to local metadata.
 

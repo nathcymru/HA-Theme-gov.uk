@@ -24,7 +24,7 @@ function paint() {
 document.addEventListener('settheme', e => { window.events.push(e.detail); app.hass.selectedTheme = { ...app.hass.selectedTheme, ...e.detail }; paint(); });
 document.getElementById('mode').onclick = e => { app.hass.selectedTheme.dark = !app.hass.selectedTheme.dark; e.target.textContent = app.hass.selectedTheme.dark ? 'Use light mode' : 'Use dark mode'; paint(); };
 paint();
-await import('../../card/dist/govuk-house-lighting-card.js');
+await import('../../card/dist/civica-house-lighting-card.js');
 const card = document.createElement('govuk-house-lighting-card');
 card.setConfig({type:'custom:govuk-house-lighting-card', image:'../../card/assets/floorplan.png'});
 card.hass = {states:{},entities:{},devices:{},callService:async()=>{}};

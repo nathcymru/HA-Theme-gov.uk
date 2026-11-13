@@ -4,8 +4,10 @@ description: The MOJ notification badge pattern and its bounded Home Assistant a
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-13"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: 2026-11-11
     description: Linked attention counts to the message decision guide without changing the MOJ geometry or native behaviour.
   - date: 2026-11-11
@@ -38,7 +40,7 @@ Keep the red rounded form and white count, independently of the selected palette
 
 | Property | Value |
 | --- | --- |
-| Text | 16px, bold; Arial in civica.uk |
+| Text | 16px, bold; Arial in civica |
 | Minimum content width | `0.75em` |
 | Minimum content height | `1.25em` |
 | Padding | `1px 0.25em 0` |
@@ -49,7 +51,7 @@ Keep the red rounded form and white count, independently of the selected palette
 
 Retain the outline in forced colours: the source uses it to preserve the number's boundary without affecting layout. Do not replace this geometry with the theme's square card corners or recolour it to the current palette. Check its surrounding background; the source explicitly warns against placing it on an unsuitable header.
 
-In dark mode, civica.uk uses its existing `#17191B` canvas for the sidebar so the fixed red badge retains a visible boundary. This changes the surrounding surface, not the MOJ red. White count text and the red-to-sidebar contrast are tested separately.
+In dark mode, civica uses its existing `#17191B` canvas for the sidebar so the fixed red badge retains a visible boundary. This changes the surrounding surface, not the MOJ red. White count text and the red-to-sidebar contrast are tested separately.
 
 ## Counts and accessible text
 
@@ -73,4 +75,4 @@ For updates, retain Home Assistant's own description of what is available. A the
 
 ## Acceptance checks
 
-Check counts 0, 1, 9, 10, 98, 99 and 100; no clipping at 200% text scaling; one accessible announcement of the count; keyboard activation of the parent control; live count changes; forced colours; all palette headers; and restoration when switching away from civica.uk. Confirm that radios, switches, avatars and ordinary status tags retain their own shapes.
+Check counts 0, 1, 9, 10, 98, 99 and 100; no clipping at 200% text scaling; one accessible announcement of the count; keyboard activation of the parent control; live count changes; forced colours; all palette headers; and restoration when switching away from civica. Confirm that radios, switches, avatars and ordinary status tags retain their own shapes.

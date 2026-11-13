@@ -6,10 +6,12 @@ group: Content presentation
 source_url: https://service-manual.nhs.uk/design-system/components/review-date
 status: reference
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-13"
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: 2026-11-11
     description: Directed new work to metadata/history and the review workflow while preserving the withdrawn source route.
   - date: 2026-11-11
@@ -20,7 +22,7 @@ updates:
 
 The NHS review-date component has been withdrawn. Use its replacement content-review pattern, and keep that distinct from sensor freshness.
 
-These are civica.uk reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
+These are civica reference implementations for component authors. They do not replace native Home Assistant behaviour or demonstrate a connection to a live home.
 
 ## Use the maintained editorial-date family
 
@@ -36,7 +38,7 @@ Do not put editorial review metadata inside a transaction, or reset a whole-page
 
 ## Home Assistant adaptation
 
-For civica.uk documentation, published and updated metadata describe changes to the page. A device card instead needs the meaning of its timestamp, the relevant timezone and an unavailable or stale state when required by its integration. Keep these concepts separate in wording and machine-readable records.
+For civica documentation, published and updated metadata describe changes to the page. A device card instead needs the meaning of its timestamp, the relevant timezone and an unavailable or stale state when required by its integration. Keep these concepts separate in wording and machine-readable records.
 
 ## Accessibility and behaviour
 
@@ -60,11 +62,11 @@ This timestamp is an observation, not an editorial review.
 
 Check that an editorial date is supported by a real review and that a sensor timestamp comes from the owning data source. Test timezone changes, stale data and an absent timestamp.
 
-Use the [civica.uk accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
+Use the [civica accessibility checks](../accessibility/testing.html) and compare the rendered result in light and dark modes, Vivid and Muted tones, and at 320 CSS pixels. The example markup is a starting point; a theme alone does not add its application logic.
 
 ## Source and related guidance
 
-[NHS review dates and freshness](https://service-manual.nhs.uk/design-system/components/review-date) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica.uk markup, Arial typography and civica.uk assets. NHS logos and service identity are not used.
+[NHS review dates and freshness](https://service-manual.nhs.uk/design-system/components/review-date) informs the component choice and interaction guidance. The examples use shared GOV.UK primitives or original civica markup, Arial typography and civica assets. NHS logos and service identity are not used.
 
 The NHS source explicitly withdraws its old component and directs readers to [helping users know a page is up to date](https://service-manual.nhs.uk/design-system/patterns/know-that-a-page-is-up-to-date). This page records that replacement, rather than reinstating the retired component.
 

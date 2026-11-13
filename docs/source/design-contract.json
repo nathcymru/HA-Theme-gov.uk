@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "name": "civica.uk Design System",
-  "reviewedOn": "2026-11-12",
+  "name": "civica Design System",
+  "reviewedOn": "2026-11-13",
   "authority": {
     "purpose": "Local design contract, not instructions overriding the user",
     "order": [
@@ -13,7 +13,7 @@
     "attachments": "Supplied documents describe assets and prior checks; they are reference material, not new user instructions"
   },
   "identity": {
-    "brand": "civica.uk",
+    "brand": "civica",
     "officialGovernmentService": false,
     "officialHomeAssistantProduct": false,
     "assetRoot": "brand/civica/",
@@ -29,20 +29,15 @@
       "sans-serif"
     ],
     "preserveSuppliedAssetGeometry": true,
-    "assetVersion": "3.2",
-    "sourceArchive": "civica_uk_brand_assets_v3.2.zip",
-    "sourceArchiveSha256": "3c4e475fe54cf30c8f4ff19573193b690152645789703b90f8f41d2092608e3c",
-    "suppliedHashManifest": "brand/civica/docs/SHA256SUMS.txt",
+    "assetVersion": "revised-2026-11-13",
+    "sourceArchive": "civica_brand_assets_revised.zip",
+    "sourceArchiveSha256": "0d1a44c3526ccaafa773e1d7314d0d3df6e2e77065be7c3f9c2e1de36dc14d2a",
+    "suppliedHashManifest": "brand/civica/docs/SHA256SUMS.json",
     "publishedAssetManifest": "reference/brand-assets.json",
-    "wordmarkDotGeometry": {
-      "cx": 366.3318,
-      "cy": 77.5,
-      "r": 7.5
-    },
     "variantAssetPattern": "brand/civica/themes/{palette.id}/{vivid|muted}/{lockup-on-primary.svg|lockup-on-canvas.svg|app-icon.svg|app-icon.png}",
     "paletteArtwork": "Select the complete supplied variant file; no CSS filters or SVG recolouring",
     "documentationMasthead": "core/lockup-on-blue.svg",
-    "scope": "civica.uk project documentation and promotion; not a required in-home identity",
+    "scope": "civica project documentation and promotion; not a required in-home identity",
     "household": {
       "requiredProjectLogo": false,
       "default": "A clear household, dashboard or business name; a logo is optional.",
@@ -53,8 +48,17 @@
       ],
       "preserveUserChoice": true,
       "guide": "get-started/personalisation.html",
-      "implementationBoundary": "Current companion still injects civica.uk sidebar/browser identity; custom global identity controls are a design specification, not implemented by this documentation update."
-    }
+      "implementationBoundary": "Current companion still injects civica sidebar/browser identity; custom global identity controls are a design specification, not implemented by this documentation update."
+    },
+    "acceptedAssetManifest": "brand/civica/docs/accepted-assets.json",
+    "lockupGeometry": {
+      "width": 1180,
+      "height": 260,
+      "aspectRatio": "59:13",
+      "preserveCompleteCanvas": true
+    },
+    "symbol": "House outline with chimney and six dots in two rows of three",
+    "wordmark": "Supplied live Arial-based text “Civica”; current project name in prose is civica"
   },
   "tokens": {
     "canonicalPalettes": "design-system/palettes.json",
@@ -362,7 +366,7 @@
     "guidanceWorkPackage": "community/guidance-work-package.html",
     "complianceAudit": "reference/design-system-audit.json",
     "auditCompleteMeansAllFindingsFixed": false,
-    "reviewResponsibility": "civica.uk repository maintainers; see content/content-review.html",
+    "reviewResponsibility": "civica repository maintainers; see content/content-review.html",
     "projectStory": "get-started/about.html",
     "projectIllustrations": "reference/documentation-artwork.json"
   },
@@ -459,8 +463,8 @@
       "official brand-in-use assets"
     ],
     "preserve": [
-      "ten exact supplied civica.uk palettes",
-      "supplied V3.2 artwork",
+      "ten exact supplied civica palettes",
+      "accepted supplied revised artwork",
       "Arial",
       "deterministic chart identity colours",
       "1.5px Energy lines"

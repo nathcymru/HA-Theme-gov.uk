@@ -1,9 +1,25 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
 import { palettes, allThemes, generatedFiles, contrast, rgb } from '../scripts/generate-themes.mjs';
 
 const themes = allThemes();
+test('default civica theme and legacy alias resolve to the same complete palette without changing saved selections', () => {
+  const files = generatedFiles();
+  const installed = parse(files['themes/civica.yaml']);
+  const legacy = parse(files['themes/govuk.yaml']).govuk;
+  assert.equal(Object.keys(installed).length, 21);
+  const { 'card-mod-theme': defaultName, ...defaultTokens } = installed.civica;
+  const { 'card-mod-theme': legacyName, ...legacyTokens } = legacy;
+  const { 'card-mod-theme': variantName, ...variantTokens } = installed['civica Civic Cobalt Vivid'];
+  assert.equal(defaultName, 'civica');
+  assert.equal(legacyName, 'govuk');
+  assert.equal(variantName, 'civica Civic Cobalt Vivid');
+  assert.deepEqual(defaultTokens, variantTokens);
+  assert.deepEqual(legacyTokens, variantTokens);
+  for (const [name, theme] of Object.entries(themes)) assert.deepEqual(installed[name], theme);
+});
 function minimum(foreground, background, ratio, description) {
   const actual = contrast(foreground, background);
   assert.ok(actual >= ratio, `${description}: ${foreground} on ${background} is ${actual.toFixed(2)}:1, needs ${ratio}:1`);

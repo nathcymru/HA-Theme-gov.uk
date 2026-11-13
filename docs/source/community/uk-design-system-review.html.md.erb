@@ -1,15 +1,17 @@
 ---
 title: "UK design systems and Home Assistant controls"
-description: "A dated crosswalk from official UK components and patterns to civica.uk controls, native Home Assistant tasks and explicit local extensions."
+description: "A dated crosswalk from official UK components and patterns to civica controls, native Home Assistant tasks and explicit local extensions."
 section: "community"
 group: "Review"
 status: "reference"
 source_url: "https://design-system.service.gov.uk/components/"
 published_on: "2026-11-12"
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 last_reviewed_on: "2026-11-12"
 review_in: "3 months"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: 2026-11-12
     description: "Recorded current UK catalogue inventories and all 38 Home Assistant family mappings; widened the source check to include the current Royal Navy Range Slider."
 ---
@@ -30,7 +32,7 @@ The component and pattern indexes were read on **12 November 2026**. The Publish
 
 Specific rules were checked against their owning guidance where they affect a decision: GOV.UK slider questions, numeric entry, grouping, choice, summary and error components, NHS cards/images, Home Office long-list guidance, W3C slider/dragging requirements, the MOJ notification badge and status model, DWP's retired key details bar and the Home Office time-display component. Entries marked **not selected** are recorded for completeness; they are not silently adopted or presented as a completed detail-page assessment.
 
-GOV.UK brand foundations remain covered by the [brand guidance inventory](../reference/brand-guidance.json). Its detailed chapter review keeps its own date. The current brand landing structure was rechecked for this review. Supplied civica.uk artwork, Arial typography and the prohibition on official government branding remain in force.
+GOV.UK brand foundations remain covered by the [brand guidance inventory](../reference/brand-guidance.json). Its detailed chapter review keeps its own date. The current brand landing structure was rechecked for this review. Supplied civica artwork, Arial typography and the prohibition on official government branding remain in force.
 
 ## The slider finding
 
@@ -38,7 +40,7 @@ GOV.UK brand foundations remain covered by the [brand guidance inventory](../ref
 
 The owning repository's [4.64.2 release](https://github.com/Royal-Navy/design-system/releases/tag/4.64.2), published on 11 November 2026, contains the component. The live Storybook index does not declare its deployed package version, so these are separate pieces of evidence. The [Design guidance page](https://design-system.navy.digital.mod.uk/guidance/design) explicitly calls itself legacy; its Axure library version 3.2 is not the React package version. Neither a current release nor a working story establishes accessibility certification.
 
-GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against using sliders for questions and requires an alternative to dragging when they are used. Home Assistant still has legitimate continuous-adjustment tasks. The [civica.uk slider component](../components/sliders.html) compares the Royal Navy's bounded scale, displayed value, steps and disabled-state anatomy with the local household requirements. Its original implementation uses a native range with precise text entry and visible step buttons, all editing one draft. It follows the [W3C slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) and separates requested values from reported state.
+GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against using sliders for questions and requires an alternative to dragging when they are used. Home Assistant still has legitimate continuous-adjustment tasks. The [civica slider component](../components/sliders.html) compares the Royal Navy's bounded scale, displayed value, steps and disabled-state anatomy with the local household requirements. Its original implementation uses a native range with precise text entry and visible step buttons, all editing one draft. It follows the [W3C slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) and separates requested values from reported state.
 
 The Royal Navy React package, branding and threshold meanings are not imported. The reference does not replace native Home Assistant sliders. The [continuous-controls pattern](../home-assistant/continuous-controls.html) remains responsible for integration ranges, commits, remote updates and failures. The [USWDS slider](https://designsystem.digital.gov/components/range-slider/) remains an explicitly United States comparator; it is no longer the only published comparator recorded here.
 
@@ -119,4 +121,4 @@ Each entry retains its source URL. A current index listing is not an upstream ma
 4. Test the actual input and failure behaviour, including keyboard, touch alternatives, narrow layout, forced colours and changing device state. A screenshot alone cannot establish functional coverage.
 5. Record whether the evidence comes from source inspection, a synthetic example, automated tests, a person using assistive technology or a live Home Assistant deployment. Keep those claims separate.
 
-No system's official crown, logo, service identity or accessibility certification is carried into civica.uk. A complete crosswalk is a design decision record; native implementation and live acceptance still need their own evidence.
+No system's official crown, logo, service identity or accessibility certification is carried into civica. A complete crosswalk is a design decision record; native implementation and live acceptance still need their own evidence.

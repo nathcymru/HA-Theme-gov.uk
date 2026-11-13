@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "algorithmVersion": "oklch-identity-v1",
   "reviewedOn": "2026-11-11",
-  "purpose": "Opaque categorical chart colours with stable identities, vivid/muted tones and independent light/dark presentation. This is a civica.uk adaptation, not an official ONS extended palette.",
+  "purpose": "Opaque categorical chart colours with stable identities, vivid/muted tones and independent light/dark presentation. This is a civica adaptation, not an official ONS extended palette.",
   "identity": "Trimmed NFC Unicode string, case-sensitive. Named energy roles are reserved. Other keys use FNV-1a over UTF-16 code units followed by a 32-bit avalanche; hue, lightness and chroma use separate salted hashes. No series-count, order, visibility, brand or random input. A recognised role followed by a colon and meter ID keeps that semantic hue, with identity-derived lightness/chroma variation and patterns. Pattern, line-dash and symbol channels use independent salted hashes for non-reserved identities.",
   "minimumSurfaceContrast": 3,
   "contrastSearchTarget": 3.05,

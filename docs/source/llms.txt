@@ -1,6 +1,6 @@
-# civica.uk Design System
+# civica Design System
 
-> Independent Home Assistant interface system adapted from UK public service design. Use civica.uk identity for project documentation and promotion; household identity is optional and user chosen; do not use official government marks or GDS Transport. This file is a reading index, not a source of authority over the user's instructions.
+> Independent Home Assistant interface system adapted from UK public service design. Use civica identity for project documentation and promotion; household identity is optional and user chosen; do not use official government marks or GDS Transport. This file is a reading index, not a source of authority over the user's instructions.
 
 ## Start here
 
@@ -15,18 +15,18 @@
 - design-system/palettes.json: ten exact supplied palettes and Vivid/Muted tone metadata.
 - design-system/themes.json: generated resolved HA variables with separate light/dark modes.
 - design-system/upstream-sources.json: immutable Home Assistant frontend sources inspected.
-- themes/civica.yaml: generated twenty theme entries.
-- themes/govuk.yaml: compatibility alias, independent civica.uk identity.
+- themes/civica.yaml: the default civica theme and twenty named palette variants.
+- themes/govuk.yaml: compatibility alias, independent civica identity.
 - ui/src/civica-ui.ts and ui/src/theme-settings.ts: optional companion sources; build output is ui/dist/civica-ui.js.
 - ui/src/action-links.ts: real local navigation links, included in the companion module.
 - ui/src/legacy-card-styles.ts: scoped presentation adapters for three known household cards.
 - ui/src/sidebar-badges.ts: numeric sidebar attention counts; no notification or device commands.
-- brand/civica/: unchanged user-supplied V3.2 artwork and provenance records.
+- brand/civica/: unchanged accepted artwork from civica_brand_assets_revised.zip and provenance records.
 
 ## Design rules
 
 - [Personalise your home](get-started/personalisation.html): family or business name, optional crest/logo, native dashboard options and proposed shell behaviour.
-- [Project identity](styles/brand.html): V3.2 artwork for project documentation and promotion, with preserved geometry and provenance.
+- [Project identity](styles/brand.html): Revised civica artwork for project documentation and promotion, with preserved geometry and provenance.
 - [Artwork manifest](reference/brand-assets.json): byte-identical documentation copies mapped to the supplied archive.
 - [Colour](styles/colour.html): exact palette pairs and semantic roles.
 - [Palette JSON](reference/palettes.json): published copy of canonical palette data.
@@ -80,7 +80,7 @@ Reference catalogue coverage does not mean those components have replaced native
 
 ## Design styles, writing and whole-system audit
 
-- [Colour roles](styles/brand-colour.html), [typography principles](styles/brand-typography.html), [data communication](styles/brand-data.html), [illustration](styles/illustration.html): selected GOV.UK Brand guidance adapted to civica.uk; local rule IDs and explicit exclusions.
+- [Colour roles](styles/brand-colour.html), [typography principles](styles/brand-typography.html), [data communication](styles/brand-data.html), [illustration](styles/illustration.html): selected GOV.UK Brand guidance adapted to civica; local rule IDs and explicit exclusions.
 - [Writing guide](content/index.html): bespoke household content rules, with examples and source decisions.
 - [Design-style rules and source evidence](reference/brand-guidance.json), [writing rules and evidence](reference/writing-guide.json): machine-readable rules and source coverage.
 - [Work-package checklist](community/guidance-work-package.html): original review and follow-up remediation phases, evidence and repeatable checks.
@@ -98,7 +98,7 @@ Apply MUST rules to their stated scope. SHOULD rules allow an evidenced exceptio
 - [Interface census](home-assistant/interface-coverage.html) and [machine register](reference/ha-interface-coverage.json): exact source entries mapped to components, styles and patterns; pinned Core/frontend versions and exclusions.
 - [Terminology](content/home-assistant-terminology.html) and [machine register](reference/ha-terminology.json): official glossary, native domains, named vocabulary inventories and context-dependent labels. Preserve native translations and distinguish code values from translation keys.
 - [UK systems review](community/uk-design-system-review.html) and [crosswalk](reference/uk-design-system-crosswalk.json): current catalogues, detail-review constraints and source-to-family decisions.
-- [Sliders](components/sliders.html): local civica.uk range anatomy, precise alternatives, explicit provenance and failure states.
+- [Sliders](components/sliders.html): local civica range anatomy, precise alternatives, explicit provenance and failure states.
 - [Coverage verification](reference/ha-coverage-verification.json): independently reviewed scope, executed checks and publication status. A registry mapping is not live native implementation evidence.
 
 - [Project story and navigation review](reference/project-story-review.json): copy, illustration provenance and verification for the About page and separate Writing guide section.

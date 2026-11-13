@@ -1,5 +1,5 @@
 // Dev-only fixture harness: fake hass with mixed hardware. Not shipped.
-import '../dist/govuk-house-lighting-card.js';
+import '../dist/civica-house-lighting-card.js';
 const { themes } = await (await fetch('../../design-system/themes.json')).json();
 const themeSelect = document.getElementById('preview-theme');
 const modeSelect = document.getElementById('preview-mode');

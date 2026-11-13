@@ -178,7 +178,7 @@ examples:
       <h2 class="govuk-heading-m">Report a documentation problem</h2>
       <p class="govuk-body">Do not include passwords, tokens or household details in a public report.</p>
       <p class="govuk-body">
-      <a class="govuk-link" href="https://github.com/nathcymru/HA-Theme-gov.uk/issues">Open the civica.uk repository issues</a>
+      <a class="govuk-link" href="https://github.com/nathcymru/civica/issues">Open the civica repository issues</a>
       </p>
   pub-components-global-banner-1:
     title: "Planned maintenance message"
@@ -902,7 +902,7 @@ examples:
     title: "Documentation entry"
     description: "Prioritise a few useful starting points."
     html: |
-      <h2 class="govuk-heading-m">civica.uk design guidance</h2>
+      <h2 class="govuk-heading-m">civica design guidance</h2>
       <nav aria-label="Start here">
       <ul class="govuk-list">
       <li>
@@ -1145,9 +1145,9 @@ examples:
     description: "The real public repository is clearly identified."
     html: |
       <h2 class="govuk-heading-m">Read release information</h2>
-      <p class="govuk-body">Continue to the public civica.uk repository on GitHub.</p>
+      <p class="govuk-body">Continue to the public civica repository on GitHub.</p>
       <p class="govuk-body">
-      <a class="govuk-link" href="https://github.com/nathcymru/HA-Theme-gov.uk/releases">Read releases on GitHub</a>
+      <a class="govuk-link" href="https://github.com/nathcymru/civica/releases">Read releases on GitHub</a>
       </p>
   pub-frontend-templates-finder-case-studies-finder-1:
     title: "Example projects"

@@ -1,10 +1,12 @@
 ---
 title: "Design-system compliance audit"
-description: "Original findings, implemented remedies and verification boundaries against the civica.uk brand and writing rules."
+description: "Original findings, implemented remedies and verification boundaries against the civica brand and writing rules."
 section: community
 published_on: 2026-11-11
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: "2026-11-12"
     description: "Linked the design-style rules without treating the project identity as a household requirement."
   - date: "2026-11-11"
@@ -53,8 +55,8 @@ The [work-package checklist](guidance-work-package.html) records the loops and v
 <p><strong>Original finding:</strong> <%= escape(finding['summary']) %></p>
 <p>Rules: <% finding['rule_ids'].each_with_index do |id, index| %><%= ', ' if index > 0 %><a href="<%= docs_path(audit['rule_links'].fetch(id)) %>"><%= escape(id) %></a><% end %>.</p>
 <p><strong>Implementation evidence:</strong></p>
-<ul><% finding['evidence'].each do |item| %><li><a href="https://github.com/nathcymru/HA-Theme-gov.uk/blob/main/<%= escape(item['path']) %>#L<%= item['line'] %>"><code><%= escape(item['path']) %>:<%= item['line'] %></code></a>: <%= escape(item['detail']) %></li><% end %></ul>
-<% if finding['original_evidence'] %><details><summary>Original evidence for <%= escape(finding['id']) %></summary><ul><% finding['original_evidence']['records'].each do |item| %><li><a href="https://github.com/nathcymru/HA-Theme-gov.uk/blob/<%= escape(finding['original_evidence']['revision']) %>/<%= escape(item['path']) %>#L<%= item['line'] %>"><code><%= escape(item['path']) %>:<%= item['line'] %></code></a>: <%= escape(item['detail']) %></li><% end %></ul></details><% end %>
+<ul><% finding['evidence'].each do |item| %><li><a href="https://github.com/nathcymru/civica/blob/main/<%= escape(item['path']) %>#L<%= item['line'] %>"><code><%= escape(item['path']) %>:<%= item['line'] %></code></a>: <%= escape(item['detail']) %></li><% end %></ul>
+<% if finding['original_evidence'] %><details><summary>Original evidence for <%= escape(finding['id']) %></summary><ul><% finding['original_evidence']['records'].each do |item| %><li><a href="https://github.com/nathcymru/civica/blob/<%= escape(finding['original_evidence']['revision']) %>/<%= escape(item['path']) %>#L<%= item['line'] %>"><code><%= escape(item['path']) %>:<%= item['line'] %></code></a>: <%= escape(item['detail']) %></li><% end %></ul></details><% end %>
 <p><strong>Remedy:</strong> <%= escape(finding['proposed_change']) %></p>
 <% if finding['resolution'] %><p><strong>Resolution:</strong> <%= escape(finding['resolution']['summary']) %></p><p>Verification scope: <%= escape(finding['resolution']['verification_scope']) %>.</p><% end %>
 <p><strong>Acceptance:</strong></p><ul><% finding['acceptance'].each do |check| %><li><%= escape(check) %></li><% end %></ul>

@@ -337,7 +337,7 @@
       "source_status": "withdrawn",
       "local_path": "/components/review-date.html",
       "local_status": "reference",
-      "adaptation": "For civica.uk documentation, published and updated metadata describe changes to the page. A device card instead needs the meaning of its timestamp, the relevant timezone and an unavailable or stale state when required by its integration. Keep these concepts separate in wording and machine-readable records.",
+      "adaptation": "For civica documentation, published and updated metadata describe changes to the page. A device card instead needs the meaning of its timestamp, the relevant timezone and an unavailable or stale state when required by its integration. Keep these concepts separate in wording and machine-readable records.",
       "examples": [
         "nhs-component-review-guidance",
         "nhs-review-reading"
@@ -493,7 +493,7 @@
       "source_status": "current",
       "local_path": "/components/footer.html",
       "local_status": "reference",
-      "adaptation": "Use civica.uk identity and the project’s actual licence and ownership information. Do not copy NHS or Crown copyright claims. Help links must lead to a known destination and appear consistently. An application’s native settings and about screens may be the appropriate home for equivalent information.",
+      "adaptation": "Use civica identity and the project’s actual licence and ownership information. Do not copy NHS or Crown copyright claims. Help links must lead to a known destination and appear consistently. An application’s native settings and about screens may be the appropriate home for equivalent information.",
       "examples": [
         "nhs-footer-simple",
         "nhs-footer-information"
@@ -507,7 +507,7 @@
       "source_status": "current",
       "local_path": "/components/header.html",
       "local_status": "reference",
-      "adaptation": "The NHS header’s identity rules apply to NHS services, not this project. civica.uk uses the supplied lockup and palette masthead. Preserve Home Assistant’s native menu, account actions and permissions. A constrained task may need fewer exits than a browsing dashboard.",
+      "adaptation": "The NHS header’s identity rules apply to NHS services, not this project. civica uses the supplied lockup and palette masthead. Preserve Home Assistant’s native menu, account actions and permissions. A constrained task may need fewer exits than a browsing dashboard.",
       "examples": [
         "nhs-header-minimal",
         "nhs-header-navigation"

@@ -90,7 +90,7 @@ test('keyboard activation preserves native hash navigation, back history and sam
   await expect(page.getByRole('heading', { name: 'House lighting', exact: true })).toBeVisible();
 });
 
-test('all 20 palettes in both modes keep link and circle-arrow contrast, including keyboard focus', async ({ page }) => {
+test('civica and all 20 palette variants in both modes keep link and circle-arrow contrast, including keyboard focus', async ({ page }) => {
   await mount(page);
   const measurements = await page.evaluate(() => {
     const link = window.actionLinks.shadowRoot.querySelector('a');
@@ -114,7 +114,7 @@ test('all 20 palettes in both modes keep link and circle-arrow contrast, includi
     }
     return out;
   });
-  expect(measurements).toHaveLength(40);
+  expect(measurements).toHaveLength(42);
   for (const state of measurements) {
     expect(state.label, `${state.theme} ${state.dark ? 'dark' : 'light'} text`).toBeGreaterThanOrEqual(4.5);
     expect(state.arrow, `${state.theme} ${state.dark ? 'dark' : 'light'} arrow`).toBeGreaterThanOrEqual(3);

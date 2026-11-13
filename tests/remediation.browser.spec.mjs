@@ -156,10 +156,18 @@ test('missing card media has a usable authored fallback and destination without 
 });
 
 test('the legacy lighting element loads from the stable bundle and preserves the maintained card behaviour', async ({ page, request }) => {
-  const bundle = await request.get('/card/dist/govuk-house-lighting-card.js');
+  const bundle = await request.get('/card/dist/civica-house-lighting-card.js');
   expect(bundle.ok()).toBe(true);
   await page.goto('/card/dev/');
   await expect(page.locator('civica-house-lighting-card h2.title')).toHaveText('House lighting');
+  const compatibility = await request.get('/card/dist/govuk-house-lighting-card.js');
+  expect(compatibility.ok()).toBe(true);
+  expect(await compatibility.text()).toContain("import './civica-house-lighting-card.js'");
+  await page.evaluate(async () => {
+    const original = customElements.get('civica-house-lighting-card');
+    await import('/card/dist/govuk-house-lighting-card.js');
+    if (customElements.get('civica-house-lighting-card') !== original) throw new Error('Compatibility import registered a second card');
+  });
   await page.evaluate(() => {
     const legacy = document.createElement('govuk-house-lighting-card');
     legacy.setConfig({ type: 'custom:govuk-house-lighting-card' });
@@ -180,7 +188,7 @@ test('the legacy lighting element loads from the stable bundle and preserves the
     await expect(card.locator('[data-room="lounge"].row [data-role=request-status]')).toContainText('Waiting for the requested lights to report off');
     await expect(card.locator('[data-room="lounge"].row [data-role=toggle]')).toBeDisabled();
   }
-  expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => new URL(entry.name).pathname === '/card/dist/govuk-house-lighting-card.js'))).toBe(true);
+  expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => new URL(entry.name).pathname === '/card/dist/civica-house-lighting-card.js'))).toBe(true);
 });
 
 test('quiet structural borders remain distinct from input boundaries in the built documentation', async ({ page }) => {

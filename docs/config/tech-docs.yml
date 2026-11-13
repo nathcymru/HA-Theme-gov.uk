@@ -1,5 +1,5 @@
-service_name: civica.uk Design System
-full_service_name: civica.uk Design System
+service_name: civica Design System
+full_service_name: civica Design System
 service_link: /
 show_govuk_logo: false
 phase: false
@@ -12,5 +12,5 @@ show_expiry: false
 show_review_banner: false
 enable_anchored_headings: false
 prevent_indexing: false
-github_repo: nathcymru/HA-Theme-gov.uk
+github_repo: nathcymru/civica
 github_branch: main

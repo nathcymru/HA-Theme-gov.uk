@@ -83,5 +83,5 @@ if (!customElements.get('civica-action-links')) customElements.define('civica-ac
 const registry = window as unknown as { customCards?: { type: string; name: string; description: string }[] };
 registry.customCards ||= [];
 if (!registry.customCards.some(card => card.type === 'civica-action-links')) registry.customCards.push({
-  type: 'civica-action-links', name: 'civica.uk action links', description: 'Clear, labelled links to Home Assistant pages and dashboard pop-ups.',
+  type: 'civica-action-links', name: 'civica action links', description: 'Clear, labelled links to Home Assistant pages and dashboard pop-ups.',
 });

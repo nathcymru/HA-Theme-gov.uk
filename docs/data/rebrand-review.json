@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "id": "civica-rename-2026-11-13",
+  "reviewed_on": "2026-11-13",
+  "status": "locally-validated-publication-and-live-acceptance-pending",
+  "scope": "User-authorised project/repository rename, supplied artwork replacement, current documentation/install references and provenance reconciliation. This record does not authorise changes to household device configuration or assert a fresh live Home Assistant acceptance run.",
+  "baseline_revision": "ba86ef03a2b1edabed6409c021bd3c49ab62d98b",
+  "current_identity": {
+    "project": "civica",
+    "repository": "nathcymru/civica",
+    "documentation_url": "https://nathcymru.github.io/civica/",
+    "release_archive": "civica.zip",
+    "package_version": "1.4.0",
+    "default_theme": "civica",
+    "named_palette_themes": 20,
+    "household_identity": "Optional family name, crest or business logo; project identity is not mandatory within Home Assistant."
+  },
+  "historical_context": {
+    "previous_project": "civica.uk",
+    "previous_repository": "nathcymru/HA-Theme-gov.uk",
+    "previous_pages": "https://nathcymru.github.io/HA-Theme-gov.uk/",
+    "boundary": "These names identify earlier records, not current installation destinations. Prior review JSON, original evidence, dated page history and original illustration creator credits remain unchanged. GitHub repository redirects do not imply that the former Pages URL redirects."
+  },
+  "authority": {
+    "decision": "The user explicitly requested the new project/repository name and deletion/replacement of old logos. Earlier local instructions to preserve V3.2 supplied identity do not override that request. Official GOV.UK marks remain prohibited.",
+    "rules_archive": {
+      "path": "docs/data/history/brand-guidance-before-civica-2026-11-13.json",
+      "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042"
+    },
+    "current_rules": {
+      "path": "docs/data/brand-guidance-inventory.json",
+      "sha256": "c80cb043babdb1a046b192aed657642a220485f5c1b0fe65a51ad494f94ddd24",
+      "rules": 33
+    }
+  },
+  "supplied_artwork": {
+    "archive": "civica_brand_assets_revised.zip",
+    "archive_sha256": "0d1a44c3526ccaafa773e1d7314d0d3df6e2e77065be7c3f9c2e1de36dc14d2a",
+    "version": "revised-2026-11-13",
+    "accepted_files": 224,
+    "manifest": {
+      "path": "brand/civica/docs/accepted-assets.json",
+      "sha256": "7e87c64002fc0ca0234011ec59cc91ead43eaeeb826d821aabc00e91f64c76f4"
+    },
+    "public_mapping": {
+      "path": "docs/source/reference/brand-assets.json",
+      "sha256": "bbf636afcd1f8c25e2d5a70776be2532f55bc317b8ca62236d1cc651043588bd"
+    },
+    "documentation_copies": 67,
+    "handling": "Original source archive metadata remains byte-identical. The accepted manifest records omitted empty WebP and supplied count/self-hash defects explicitly. Superseded logo files are removed from current source; earlier identity remains available through Git history. Original explanatory illustration geometry and creator credits are preserved."
+  },
+  "compatibility": [
+    "The bare civica default is added alongside twenty named palette themes; the legacy govuk alias and YAML remain.",
+    "The canonical card asset is civica-house-lighting-card.js; the old resource filename is an import shim and the old custom element remains registered.",
+    "Existing lighting automation and entity identifiers are preserved; no physical configuration migration is inferred from a branding request.",
+    "Companion artwork URLs include package version 1.4.0 to avoid reusing cached superseded logos after an upgrade.",
+    "The installer documents replacing the owned supplied-brand directory after backup, avoiding a merge that leaves superseded logos installed."
+  ],
+  "primary_source_review": [
+    {
+      "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository",
+      "reviewed_on": "2026-11-13",
+      "finding": "Repository information and Git operations redirect after a rename. Project Pages URLs do not. Update the remote and current documentation links; do not reuse the former repository name if its redirects are required."
+    },
+    {
+      "url": "https://www.hacs.xyz/docs/publish/update/",
+      "reviewed_on": "2026-11-13",
+      "finding": "The listed repository catalogue handles a renamed repository. This does not by itself verify every existing custom-repository installation."
+    },
+    {
+      "url": "https://www.hacs.xyz/docs/faq/data_sources/",
+      "reviewed_on": "2026-11-13",
+      "finding": "Custom repositories use the GitHub API. Metadata refresh and installation/file changes are distinct operations."
+    },
+    {
+      "url": "https://www.hacs.xyz/docs/use/repositories/dashboard/",
+      "reviewed_on": "2026-11-13",
+      "finding": "Update information refreshes metadata; Redownload updates installed files. Remove deletes installed repository files, so remove/re-add is not the default rename instruction."
+    },
+    {
+      "url": "https://github.com/hacs/integration/blob/main/custom_components/hacs/repositories/base.py",
+      "reviewed_on": "2026-11-13",
+      "finding": "Reviewed current upstream source detects a changed repository full name, records the rename and retries the update. This source evidence supports refreshing the existing entry first; it is not a claim about the installed HACS version."
+    },
+    {
+      "url": "https://github.com/hacs/integration/blob/main/custom_components/hacs/repositories/theme.py",
+      "reviewed_on": "2026-11-13",
+      "finding": "The reviewed theme repository handler derives the local directory from the YAML filename. Retaining the compatibility YAML avoids treating a repository rename as authority to change installed theme ownership."
+    }
+  ],
+  "independent_review": {
+    "findings_resolved": [
+      "Updated the dynamic original-evidence GitHub template to the current repository while preserving captured revisions and paths.",
+      "Replaced the current audit note that incorrectly treated V3.2 artwork as authoritative after the user supplied its replacement.",
+      "Preserved dated page history and historical workflow/source receipts, with exact bounded naming exceptions instead of a blind zero-match claim.",
+      "Confirmed the chart colour engine diff changes only its creator-name comment; refreshed the example generator SHA without changing the colour algorithm or assertions.",
+      "Relocated eighteen current evidence lines to their unchanged exact excerpts after frontmatter and stylesheet additions.",
+      "The naming guard distinguishes official GOV.UK source titles and legacy compatibility tokens from retired project names."
+    ],
+    "current_page_records_refreshed": 119,
+    "guide_count": 216,
+    "example_count": 459,
+    "method": "Owner-frozen source inspection, exact evidence matching, unchanged-history hashes, a bounded current-name scan and targeted guard regressions. Earlier runtime/visual passes are not reclassified as fresh rebrand acceptance."
+  },
+  "local_validation": [
+    {
+      "check": "Build and TypeScript validation",
+      "status": "passed",
+      "evidence_source": "Parent executed and reported final local build/typecheck."
+    },
+    {
+      "check": "Node unit tests",
+      "status": "passed",
+      "count": 84,
+      "evidence_source": "Parent executed final full Node suite, including four naming regressions."
+    },
+    {
+      "check": "Bounded naming guard",
+      "status": "passed",
+      "source_files": 601,
+      "immutable_records": 18,
+      "exact_historical_references": 229,
+      "scope": "Current source names and exact preservation exceptions; supplied artwork is checked separately."
+    },
+    {
+      "check": "Historical evidence preservation",
+      "status": "passed",
+      "pre_existing_records": 17,
+      "added_archive_records": 1,
+      "scope": "All pre-existing immutable records match pre-rename HEAD byte-for-byte. The new rule archive matches the declared original inventory hash."
+    },
+    {
+      "check": "Guidance/source integrity",
+      "status": "passed",
+      "rules": 101,
+      "guides": 216,
+      "examples": 459,
+      "evidence_source": "Parent executed check:guidance after the fresh documentation build."
+    },
+    {
+      "check": "Home Assistant specification coverage",
+      "status": "passed",
+      "entries": 632,
+      "terms": 456,
+      "contextual_labels": 681,
+      "native_family_mappings": 38,
+      "scope": "Specification/source inventory coverage, not proof that every native interface has been visually restyled."
+    },
+    {
+      "check": "Home Assistant template checks",
+      "status": "passed",
+      "count": 88
+    },
+    {
+      "check": "Internal HTML links",
+      "status": "reported_passed",
+      "pages": 675,
+      "evidence_source": "Parent reported the final local link check; public network links and new Pages deployment are separate."
+    },
+    {
+      "check": "Built supplied artwork parity",
+      "status": "passed",
+      "ui_files": 215,
+      "documentation_files": 67,
+      "scope": "Exact bytes/path mapping checked with check-brand --check-built, separate from original explanatory artwork."
+    },
+    {
+      "check": "Targeted runtime browser acceptance",
+      "status": "passed_across_initial_run_and_bounded_reruns",
+      "unique_cases": 110,
+      "execution_detail": "The initial run passed 109 cases and failed the expected theme-context count after the new default alias. The corrected action-link case passed its targeted rerun. After versioned artwork URLs were added, the theme-settings/action-link group was rerun with 15 passing cases. These overlapping reruns are not added to the 110 unique-case total.",
+      "scope": "Local synthetic runtime fixtures; no fresh physical-device command or live installation result is inferred."
+    },
+    {
+      "check": "Targeted documentation, cache and identity acceptance",
+      "status": "passed_across_initial_run_and_bounded_rerun",
+      "unique_cases": 13,
+      "execution_detail": "The initial run passed 12 cases; the categorical source-reference test failed because the generator comment-only rename changed its SHA. The reference was corrected and that test passed a targeted rerun. Its strong source-parity assertion remains intact."
+    },
+    {
+      "check": "Release archive build",
+      "status": "passed_before_final_evidence_freeze",
+      "artifact": "dist/civica.zip",
+      "scope": "Parent built the current package. The final evidence update must be included in the final documentation build/package; no published release is asserted."
+    },
+    {
+      "check": "Full CI browser suite, publication and live Home Assistant acceptance",
+      "status": "pending",
+      "scope": "To be recorded in the release pull request and deployment receipt. This frozen source record does not claim those later outcomes."
+    }
+  ],
+  "publication": {
+    "status": "pending",
+    "repository_rename": "Parent reported the repository rename completed and the former GitHub repository URL redirects to nathcymru/civica. Pages metadata now points to /civica/; final deployment and public asset acceptance remain pending.",
+    "release": "Not yet asserted in this record.",
+    "pages": "New path must be deployed and checked separately; the former project Pages path has no automatic redirect guarantee.",
+    "live_home_assistant": "The user subsequently authorised a scoped existing-install upgrade, handled separately by the parent and deployment owner. This record does not yet assert its completion.",
+    "evidence_location": "The release pull request and deployment receipt will record actual full CI, release, Pages and live-installation outcomes without rewriting this earlier frozen source evidence."
+  },
+  "limitations": [
+    "Text checks do not prove logo geometry, raster correctness or a successful remote migration; asset byte checks, rendered examples and public verification remain separate.",
+    "Immutable review records describe their original versions and dates. Their old names and URLs are retained intentionally, not recommended as current installation instructions.",
+    "Source review of current HACS behavior does not guarantee every installed HACS version handles a rename identically."
+  ],
+  "source_freeze": [
+    {
+      "path": "scripts/check-naming.mjs",
+      "sha256": "e316e8a55bbd7a036e716258e85e68b753c747b90a2b2cced879d7a1cdbc53a9"
+    },
+    {
+      "path": "test/naming.test.mjs",
+      "sha256": "5af582a28aea8dbc0d73a64afa04510228c4de6704036727d74aee8d619a3534"
+    },
+    {
+      "path": "docs/data/naming-inventory.json",
+      "sha256": "dbc4c878c66ccf25592ca8210c577cdef2b38b69963942ed0412b66d1eca8136"
+    },
+    {
+      "path": "docs/source/get-started/install.html.md.erb",
+      "sha256": "77ced31646a830771944fd81224b506964409f60376cca9986ccd1658355edb6"
+    },
+    {
+      "path": "docs/source/styles/brand.html.md.erb",
+      "sha256": "c00753500faf3982e41d89e2a6932d30f030098f6740230f3d47d3f84e089edf"
+    },
+    {
+      "path": "docs/source/index.html.erb",
+      "sha256": "6dbd079e328c5d984351f75045472721897e0d32fdd402480ecb090d57146262"
+    },
+    {
+      "path": "docs/source/community/design-system-audit.html.md.erb",
+      "sha256": "dbcf3bc9e74dcf476580344aa83a1a17a912b27f7762b4371db6ad200181b9de"
+    },
+    {
+      "path": "design-system/chart-colours.mjs",
+      "sha256": "e3fcc179b074f8fe8b767c4ef39927f5863f195e6ee2886094238f2e46246441"
+    },
+    {
+      "path": "docs/data/data-colour-examples.yml",
+      "sha256": "9f2081ce5ec31875dde1ee7b1e82b776038eb5c104256954add3f9afa84a3777"
+    },
+    {
+      "path": "ui/src/civica-ui.ts",
+      "sha256": "50dbb1285358bec79a6fd61c4cdabd8e16c7d17bfe34eaf49fb2672ce99538b6"
+    },
+    {
+      "path": "scripts/check-brand.mjs",
+      "sha256": "e3a601a6b8b70544741d8d50e318227984417c15a86cb100190955e4a6d8acc8"
+    },
+    {
+      "path": "ARTWORK.md",
+      "sha256": "5b2e4de9262ed8bf671c056c15cdb2a5e7ad84eb4fcdad3be70d940a283edb1f"
+    }
+  ]
+}

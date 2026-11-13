@@ -1,4 +1,4 @@
-# civica.uk design tokens
+# civica design tokens
 
 `palettes.json` is the canonical, human- and machine-readable colour specification. It preserves the 10 palettes supplied on 11 November 2026, their vivid and muted primary/canvas pairs, and the supplied RGB, RGBA, CMYK and RAL or descriptive references. Hex values in the sRGB colour space govern screens. The print references are reproduced as supplied, not certified colour matches.
 

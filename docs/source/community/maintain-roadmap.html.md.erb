@@ -8,6 +8,8 @@ published_on: "2026-11-12"
 updated_on: "2026-11-13"
 updates:
   - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
+  - date: "2026-11-13"
     description: "Added Accepted for agreed work that has not started, multiple categories and a blank optional explanation-link field."
   - date: "2026-11-12"
     description: "Added the theme-only issue workflow, public writing review, timeline rules and publication checks."
@@ -19,7 +21,7 @@ Use the [theme roadmap](roadmap.html) to help households understand what has bee
 
 ## Prepare an issue
 
-Open a [theme roadmap issue](https://github.com/nathcymru/HA-Theme-gov.uk/issues/new?template=roadmap_item.yml). The form asks for a public title, a user benefit, confirmation that the item is a theme feature and an optional explanation-link field. It does not publish the issue automatically.
+Open a [theme roadmap issue](https://github.com/nathcymru/civica/issues/new?template=roadmap_item.yml). The form asks for a public title, a user benefit, confirmation that the item is a theme feature and an optional explanation-link field. It does not publish the issue automatically.
 
 1. Give the feature a plain-English title that identifies the household task.
 2. Write one or two sentences about the need and the useful change. Include a condition or limitation when it affects the benefit.
@@ -82,7 +84,7 @@ Use `npm run roadmap:check` for offline validation. Use `npm run roadmap:fetch` 
 
 The existing validation workflow refreshes the roadmap for relevant issue changes, main-branch builds, manual runs and a daily recovery schedule. It builds trusted main-branch code and runs the full existing checks before deploying GitHub Pages. Pull-request builds use their offline snapshot and cannot publish. The complete publishing workflow is serialised; queued refreshes may be combined and each trusted run fetches current issues again.
 
-Scheduled runs can be delayed or disabled by GitHub. They are a recovery measure, not an immediate-update guarantee. If a change does not appear, check the latest **Validate civica.uk** run, correct any reported issue fields or labels, and run the workflow again. A successful deployment updates both the [public timeline](roadmap.html) and its [public data](../reference/roadmap.json).
+Scheduled runs can be delayed or disabled by GitHub. They are a recovery measure, not an immediate-update guarantee. If a change does not appear, check the latest **Validate civica** run, correct any reported issue fields or labels, and run the workflow again. A successful deployment updates both the [public timeline](roadmap.html) and its [public data](../reference/roadmap.json).
 
 ## Check a change
 

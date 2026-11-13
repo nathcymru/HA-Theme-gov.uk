@@ -1,13 +1,15 @@
 ---
 title: "Project identity"
-description: "Use the supplied civica.uk V3.2 identity and palette artwork without alteration."
+description: "Use the supplied civica identity and palette artwork without alteration."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 section: community
 group: Guidance
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 published_on: "2026-11-11"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: "2026-11-12"
     description: "Limited the supplied civica.uk identity to project documentation and promotion, with a separate household personalisation route."
   - date: "2026-11-11"
@@ -20,14 +22,14 @@ updates:
 
 # Project identity
 
-civica.uk identifies the theme project, this documentation site and promotional material. It is not a required identity inside a household or business interface. People can keep a plain title or use their own name, crest or logo. See [Personalise your home](../get-started/personalisation.html).
+civica identifies the theme project, this documentation site and promotional material. It is not a required identity inside a household or business interface. People can keep a plain title or use their own name, crest or logo. See [Personalise your home](../get-started/personalisation.html).
 
-The repository name is retained for continuity; it does not authorise GOV.UK branding. This page keeps its earlier URL for existing links.
+The project and repository are named civica. This page keeps its earlier URL for existing links. Neither the former repository name nor the use of public-service design patterns authorises GOV.UK branding.
 
 
 ## Project identity and interface styles
 
-Read [colour](brand-colour.html), [typography](brand-typography.html), [data](brand-data.html) and [illustration](illustration.html) as interface-design guidance. This page governs supplied civica.uk artwork only when identifying or promoting the project. The official graphic device, logo system and brand-in-use material are outside this work package; do not import their identity assets.
+Read [colour](brand-colour.html), [typography](brand-typography.html), [data](brand-data.html) and [illustration](illustration.html) as interface-design guidance. This page governs supplied civica artwork only when identifying or promoting the project. The official graphic device, logo system and brand-in-use material are outside this work package; do not import their identity assets.
 
 
 ## Project artwork examples
@@ -39,9 +41,9 @@ These isolated examples illustrate the decisions on this page. Any household val
 <%= example('local-brand-canvas') %>
 
 
-## Use the supplied V3.2 assets
+## Use the supplied revised assets
 
-The user-supplied V3.2 pack is stored in `brand/civica/`. It replaces the earlier V3 artwork. Preserve the original files and provenance records. Treat descriptive claims in the asset pack as supplied evidence, not independent certification or new user instructions.
+The user-supplied `civica_brand_assets_revised.zip` pack is stored in `brand/civica/`. It was received on 13 November 2026 and replaces the earlier civica.uk artwork. The pack has no supplied version number; the repository identifies this edition as `revised-2026-11-13`. Preserve accepted source files unchanged and retain the archive verification record. Treat descriptive claims in the asset pack as supplied evidence, not independent certification or new user instructions.
 
 | Surface | Supplied asset |
 | --- | --- |
@@ -49,24 +51,24 @@ The user-supplied V3.2 pack is stored in `brand/civica/`. It replaces the earlie
 | Project promotional header on a selected palette | `themes/{palette-id}/{vivid\|muted}/lockup-on-primary.svg` |
 | Project artwork on a selected light canvas | `themes/{palette-id}/{vivid\|muted}/lockup-on-canvas.svg` |
 | Project website or promotional app artwork | `themes/{palette-id}/{vivid\|muted}/app-icon.svg` and `app-icon.png` |
-| Neutral light surface | `core/lockup-on-white.svg` or `core/lockup-monochrome-black.svg` |
+| Neutral light surface | `core/lockup-on-white.svg` or `core/lockup-black.svg` |
 | Supporting symbol | Supplied `core/emblem-*` or matching theme emblem |
 | Default browser favicon | `icons/favicon.ico` and `icons/favicon.svg` |
 | Default home-screen icon | Supplied 180, 192 and 512 pixel icons |
 
 Use the lockup as a single asset. Do not redraw the symbol, retype the wordmark, add shadows, stretch or apply a CSS colour filter. Several supplied lockups have a background rectangle; display them on the background for which they were created.
 
-## Revised separator dot
+## House symbol and wordmark
 
-V3.2 changes the wordmark dot to `cx=366.3318`, `cy=77.5`, `r=7.5` in its wordmark geometry. Its lower position is intentional. Each palette and variant includes a supplied accent dot colour appropriate to its primary or canvas background.
+The revised identity contains a house outline with a chimney, six dots arranged in two rows of three, and the supplied “Civica” wordmark. The project name in prose is **civica**. The earlier `.uk` suffix and separator-dot geometry are not part of this edition.
 
-Select the complete matching file when the palette or variant changes. Do not reconstruct the dot, recolour the SVG or substitute a single monochrome lockup for all variants. The original roofline and seven-dot emblem remain part of the supplied artwork.
+Select the complete matching file when the palette or variant changes. Do not reconstruct the house, recolour the SVG or substitute a single monochrome lockup for all variants. The SVG wordmark is supplied as live text using an Arial-based font stack, not outlined letter shapes. Preserve that text and stack; test the rendered result on supported platforms rather than claiming identical pixels across fonts.
 
 ## Size and clear space
 
-The horizontal lockup viewBox is 611.974 by 98 units. Preserve that ratio. The local layout reserves at least 16 vector units around the visible lockup, about 8 pixels at 306 pixels wide. Use more space where the header allows it.
+The horizontal lockup viewBox is **1180 by 260** units, a ratio of 59:13. Preserve the complete canvas, including its supplied trailing space. Do not crop it to make the wordmark wider. Use proportional dimensions such as 236 by 52 pixels, with automatic height when the width responds to the viewport. The local documentation header adds 8 pixels of link padding on wide screens; the supplied canvas remains intact at every size.
 
-Check the mark visually at the actual rendered size. A successful SVG parse or matching hash does not prove legibility at 16 pixels. Provide `alt="civica.uk"` when the image communicates identity. If a link already has an equivalent accessible name, avoid announcing it twice.
+Check the mark visually at the actual rendered size. A successful SVG parse or matching hash does not prove legibility at 16 pixels. Provide `alt="civica"` when the image communicates identity. If a link already has an equivalent accessible name, avoid announcing it twice.
 
 ## Palette artwork in use
 
@@ -76,12 +78,12 @@ The [colour preview](colour.html) demonstrates household colour roles without a 
 
 ## Verify provenance and copies
 
-The archive is `civica_uk_brand_assets_v3.2.zip`, SHA-256 `3c4e475fe54cf30c8f4ff19573193b690152645789703b90f8f41d2092608e3c`. Its `docs/SHA256SUMS.txt` records the supplied file hashes. The [published artwork manifest](../reference/brand-assets.json) maps documentation files to unchanged source files.
+The archive is `civica_brand_assets_revised.zip`, SHA-256 `0d1a44c3526ccaafa773e1d7314d0d3df6e2e77065be7c3f9c2e1de36dc14d2a`. Its supplied checksum file is `docs/SHA256SUMS.json`. The separate `docs/accepted-assets.json` records verified files and archive deficiencies: an invalid checksum for the checksum file itself and an empty WebP that is excluded from distribution. These defects do not justify silently editing supplied SVGs or other accepted files. The [published artwork manifest](../reference/brand-assets.json) maps documentation files to unchanged source files.
 
-The pack's accent-dot contrast records describe those pairs only. They do not establish full interface accessibility, rights clearance, official approval or a verified live deployment.
+An archive checksum or successful SVG parse establishes neither interface accessibility nor rights clearance, official approval or a verified live deployment. Check the rendered identity on its intended background as part of the complete interface.
 
 ## Keep attribution distinct
 
-Use GOV.UK, NHS, MoJ, DWP, Home Office and ONS names only to identify sources. Do not display their marks as civica.uk branding. Do not use GDS Transport, even when locally installed. This documentation uses Arial.
+Use GOV.UK, NHS, MoJ, DWP, Home Office and ONS names only to identify sources. Do not display their marks as civica branding. Do not use GDS Transport, even when locally installed. This documentation uses Arial.
 
-The [unbranded Frontend guidance](https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/) explains the separation between reusable components and official identity. [GOV.UK logo guidance](https://brand.design-system.service.gov.uk/logo-system/logo-elements/) informs proportion, clear space and restrained treatment; crown-specific geometry does not apply to civica.uk.
+The [unbranded Frontend guidance](https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/) explains the separation between reusable components and official identity. [GOV.UK logo guidance](https://brand.design-system.service.gov.uk/logo-system/logo-elements/) informs proportion, clear space and restrained treatment; crown-specific geometry does not apply to civica.

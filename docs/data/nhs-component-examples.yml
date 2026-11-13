@@ -730,7 +730,7 @@ examples:
     html: |
       <div>
       <img src="../images/civica-emblem.svg" width="64" height="64" alt="">
-      <h2 class="govuk-heading-m">civica.uk</h2>
+      <h2 class="govuk-heading-m">civica</h2>
       <p class="govuk-body">Independent Home Assistant theme documentation and project information.</p>
       </div>
   nhs-inset-estimate:
@@ -1241,7 +1241,7 @@ examples:
       </li>
       </ul>
       </nav>
-      <p class="govuk-body-s">civica.uk reference service</p>
+      <p class="govuk-body-s">civica reference service</p>
       </footer>
   nhs-footer-information:
     title: "Information-handling links"
@@ -1267,7 +1267,7 @@ examples:
       </li>
       </ul>
       </nav>
-      <p class="govuk-body-s">civica.uk reference service</p>
+      <p class="govuk-body-s">civica reference service</p>
       </footer>
   nhs-header-minimal:
     title: "A focused setup header"

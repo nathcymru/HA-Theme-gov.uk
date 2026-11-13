@@ -1,0 +1,1264 @@
+{
+  "schema_version": 2,
+  "reviewed_on": "2026-11-12",
+  "scope": "Interface-design guidance adapted from the four requested GOV.UK Brand source sections. civica.uk identity applies to project documentation and promotion; household or business identity is optional and user chosen.",
+  "source_count": 31,
+  "brand_source_count": 30,
+  "sources": [
+    {
+      "id": "colour",
+      "title": "Colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Separate palette tiers from functional use and check colour combinations.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-blue",
+      "title": "GOV.UK is a blue brand",
+      "url": "https://brand.design-system.service.gov.uk/colour/govuk-blue/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Consistency and contrast inform civica; official blue/teal identity and brand-team approval route do not apply.",
+      "disposition": "partially-excluded"
+    },
+    {
+      "id": "colour-web",
+      "title": "Web colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/web/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Role-based functional colours, quiet borders and strong input boundaries.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-app",
+      "title": "App colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/app/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Coherent key-screen hierarchy and mode-specific palette adaptation.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-social",
+      "title": "Social colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/social/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Tone depends on context; accessible combinations and non-colour cues remain necessary.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-print",
+      "title": "Print colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/print/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Print is a separate output medium; do not replace supplied screen values with print references.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-charts",
+      "title": "Chart colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/charts/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Categorical and quantitative scales differ; readability and labels take priority over expression.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-maps",
+      "title": "Map colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/maps/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Keep spatial marks legible and supplement colour with labels and shapes.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "colour-illustrations",
+      "title": "Illustration colour",
+      "url": "https://brand.design-system.service.gov.uk/colour/illustrations/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Restrained colours, contextual palette and recognisable key elements.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "typography",
+      "title": "Typography",
+      "url": "https://brand.design-system.service.gov.uk/typography/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Typeface identity is official; readable hierarchy transfers.",
+      "disposition": "partially-excluded"
+    },
+    {
+      "id": "typography-web",
+      "title": "Web typography",
+      "url": "https://brand.design-system.service.gov.uk/typography/web/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "The official font requirement is tied to the official service context.",
+      "disposition": "partially-excluded"
+    },
+    {
+      "id": "typography-app",
+      "title": "App typography",
+      "url": "https://brand.design-system.service.gov.uk/typography/app/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Respect native platform conventions when custom fonts cannot or should not apply.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "typography-social",
+      "title": "Social typography",
+      "url": "https://brand.design-system.service.gov.uk/typography/social/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Readable weight, scale, spacing, alignment and sans-serif fallbacks.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "typography-print",
+      "title": "Print typography",
+      "url": "https://brand.design-system.service.gov.uk/typography/print/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "12pt body and 16pt heading reference; crown/logo print geometry excluded.",
+      "disposition": "partially-excluded"
+    },
+    {
+      "id": "typeface-exception",
+      "title": "Design System typeface",
+      "url": "https://design-system.service.gov.uk/styles/typeface/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Use an alternative typeface outside the relevant official service domain.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "data",
+      "title": "Data principles",
+      "url": "https://brand.design-system.service.gov.uk/data/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Purpose, audience, accuracy, accessibility and chart selection.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "data-charts",
+      "title": "Charts",
+      "url": "https://brand.design-system.service.gov.uk/data/charts/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Titles, measures, periods, annotations, sources and justified interactivity.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "data-dashboards",
+      "title": "Dashboards",
+      "url": "https://brand.design-system.service.gov.uk/data/dashboards/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Frequently refreshed overview with hierarchy and maintenance obligations; existing HA renderer retained.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "data-maps",
+      "title": "Maps",
+      "url": "https://brand.design-system.service.gov.uk/data/maps/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Spatial context, appropriate extent, scale, attribution and text alternatives.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "data-examples",
+      "title": "Data examples",
+      "url": "https://brand.design-system.service.gov.uk/data/examples/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Indicative publishing graphics are not an operational chart specification.",
+      "disposition": "reference-only"
+    },
+    {
+      "id": "illustration",
+      "title": "Illustration",
+      "url": "https://brand.design-system.service.gov.uk/illustration/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Illustrations explain a story; functional icons have a separate purpose.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-principles",
+      "title": "Illustration principles",
+      "url": "https://brand.design-system.service.gov.uk/illustration/illustration-principles/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Simple flat forms, limited detail, hierarchy and purposeful storytelling.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-creating",
+      "title": "Creating illustrations",
+      "url": "https://brand.design-system.service.gov.uk/illustration/creating-illustrations/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Research, sketch, simplify, compose and review; do not adopt official dot construction.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-layout",
+      "title": "Layout of a scene",
+      "url": "https://brand.design-system.service.gov.uk/illustration/layout-of-a-scene/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Use layering, empty space and framing without obstructing the main action.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-characters",
+      "title": "Characters",
+      "url": "https://brand.design-system.service.gov.uk/illustration/characters/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Respectful representation and believable proportion; official character construction is not a requirement.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-hands",
+      "title": "Hands and gestures",
+      "url": "https://brand.design-system.service.gov.uk/illustration/hands-and-gestures/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Show a gesture clearly only when needed; retain accuracy for instructional actions.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-objects",
+      "title": "Objects and props",
+      "url": "https://brand.design-system.service.gov.uk/illustration/objects-and-props/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Use real reference and recognisable simplified objects.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-incorrect",
+      "title": "Incorrect visual approaches",
+      "url": "https://brand.design-system.service.gov.uk/illustration/incorrect-approaches/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Avoid irrelevant decorative imagery, clutter, gradients and stereotypes; functional chart/icon exceptions documented.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-examples",
+      "title": "Illustration examples",
+      "url": "https://brand.design-system.service.gov.uk/illustration/illustration-examples/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Channel examples inform composition, not permission to reproduce official imagery.",
+      "disposition": "reference-only"
+    },
+    {
+      "id": "illustration-accessibility",
+      "title": "Illustration accessibility",
+      "url": "https://brand.design-system.service.gov.uk/illustration/accessibility/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Meaningful alternatives, colour-independent information and contrast review.",
+      "disposition": "adapt"
+    },
+    {
+      "id": "illustration-formats",
+      "title": "File formats and exporting",
+      "url": "https://brand.design-system.service.gov.uk/illustration/formats/",
+      "reviewed_on": "2026-11-11",
+      "review_status": "reviewed",
+      "evidence_method": "Official published page read through web retrieval",
+      "focus": "Keep editable sources; deliver appropriate web assets with accessibility information.",
+      "disposition": "adapt"
+    }
+  ],
+  "retained_user_requirements": [
+    "civica.uk identifies the project, documentation and promotion. In-home identity is optional and belongs to the household or business; official GOV.UK identity remains excluded.",
+    "Ten exact supplied palettes; Vivid/Muted independent of Light/Dark.",
+    "Arial, Helvetica, sans-serif interface typography.",
+    "Stable generated chart identity colours; 1.5px operational Energy lines.",
+    "Preserve native Home Assistant data, controls and supported operational semantics."
+  ],
+  "out_of_scope": [
+    {
+      "section": "Graphic device",
+      "url": "https://brand.design-system.service.gov.uk/graphic-device/",
+      "disposition": "excluded",
+      "reason": "Official dot/device construction is not adopted; supplied civica identity remains authoritative."
+    },
+    {
+      "section": "Logo system",
+      "url": "https://brand.design-system.service.gov.uk/logo-system/",
+      "disposition": "excluded-from-this-work-package",
+      "reason": "Existing local supplied-asset and provenance rules continue; no official mark or geometry is imported."
+    },
+    {
+      "section": "Brand in use",
+      "url": "https://brand.design-system.service.gov.uk/brand-in-use/",
+      "disposition": "excluded",
+      "reason": "Official channel identity layouts do not become local requirements."
+    }
+  ],
+  "pages": [
+    {
+      "path": "/styles/brand-colour.html",
+      "title": "Colour roles and accessibility",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ]
+    },
+    {
+      "path": "/styles/brand-typography.html",
+      "title": "Typography in context",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ]
+    },
+    {
+      "path": "/styles/brand-data.html",
+      "title": "Data visualisation",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ]
+    },
+    {
+      "path": "/styles/illustration.html",
+      "title": "Illustration",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "BG-COL-01",
+      "title": "Keep the selected palette and identity roles separate",
+      "source_ids": [
+        "colour-blue"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Every selected primary/canvas matches palettes.json.",
+        "Text-only household identity remains a complete option; no project mark is required.",
+        "Optional supplied artwork keeps its proportions and colours, with readable text identification."
+      ],
+      "implementation_evidence": [
+        "design-system/palettes.json",
+        "docs/source/get-started/personalisation.html.md.erb",
+        "docs/source/styles/brand.html.md.erb",
+        "docs/source/get-started/compatibility.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-01",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "identity-household-name",
+        "identity-household-crest",
+        "identity-business-name"
+      ],
+      "level": "MUST",
+      "scope": "Theme selection, optional household personalisation and separate project identity",
+      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica.uk artwork only for project documentation or promotion; exclude official GOV.UK identity."
+    },
+    {
+      "id": "BG-COL-02",
+      "title": "Choose a colour by its job",
+      "source_ids": [
+        "colour-web"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Changing brand leaves warning/error/success meaning intact.",
+        "Text and fill use documented semantic pairs, including dark mode."
+      ],
+      "implementation_evidence": [
+        "scripts/generate-themes.mjs",
+        "docs/source/styles/colour.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-02",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Interface colour tokens and semantic states",
+      "requirement": "Assign colours by identity, reading, interaction, state or data role; keep those roles independent."
+    },
+    {
+      "id": "BG-COL-03",
+      "title": "Test combinations and retain another cue",
+      "source_ids": [
+        "colour",
+        "colour-maps"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Audit actual rendered pairs and non-colour alternatives.",
+        "Verify keyboard focus independently of brand swatches."
+      ],
+      "implementation_evidence": [
+        "test/themes.test.mjs",
+        "docs/source/accessibility/index.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-03",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Rendered text, controls and meaningful graphical objects",
+      "requirement": "Meet applicable contrast requirements on actual surfaces and communicate essential meaning without colour alone."
+    },
+    {
+      "id": "BG-COL-04",
+      "title": "Separate dividers from editable boundaries",
+      "source_ids": [
+        "colour-web"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Card divider and input boundary remain visibly different.",
+        "No global radius reset or border override damages native controls."
+      ],
+      "implementation_evidence": [
+        "scripts/generate-themes.mjs",
+        "docs/source/styles/layout.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-04",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Structural borders, inputs and native control geometry",
+      "requirement": "Separate quiet structure from recognisable controls and strong input/focus boundaries without global radius resets."
+    },
+    {
+      "id": "BG-COL-05",
+      "title": "Preserve device, warning and notification meaning",
+      "source_ids": [
+        "colour-web",
+        "colour-app"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Native entity states remain recognisable after a palette change.",
+        "Unread counts, severity and service identity are not conflated."
+      ],
+      "implementation_evidence": [
+        "ui/src/civica-ui.ts",
+        "docs/source/components/notification-badge.html.md.erb",
+        "docs/source/components/status.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-05",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Device state, manufacturer identifiers and attention counts",
+      "requirement": "Preserve meaningful native device state and separate unread attention counts from severity and service identity."
+    },
+    {
+      "id": "BG-COL-06",
+      "title": "Review every display context",
+      "source_ids": [
+        "colour-app",
+        "colour-social"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Exercise ten palettes \u00d7 two tones \u00d7 two modes on affected surfaces.",
+        "Inspect forced colours, focus and native editor density without clipping."
+      ],
+      "implementation_evidence": [
+        "test/themes.test.mjs",
+        "tests/theme-settings.browser.spec.mjs",
+        "tests/card.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-06",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Affected components in all supported tone/mode and accessibility contexts",
+      "requirement": "Keep Vivid/Muted independent of Light/Dark and verify actual surfaces, focus and forced-colour behaviour."
+    },
+    {
+      "id": "BG-COL-07",
+      "title": "Keep chart and map scales independent",
+      "source_ids": [
+        "colour-charts",
+        "colour-maps"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Existing chart identities remain stable when brand/order/visibility changes.",
+        "Any proposed quantitative scale declares meaning and missing-data treatment."
+      ],
+      "implementation_evidence": [
+        "design-system/chart-colours.mjs",
+        "test/chart-colours.test.mjs",
+        "docs/source/styles/chart-colour.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-07",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Categorical chart identities and proposed quantitative map/chart scales",
+      "requirement": "Keep operational chart identities independent of the brand palette and document quantitative scale meaning."
+    },
+    {
+      "id": "BG-COL-08",
+      "title": "Adapt the output channel without importing identity",
+      "source_ids": [
+        "colour-social",
+        "colour-print",
+        "colour-illustrations"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Export/media treatment is identified as separate from the live UI.",
+        "Screen palette values and supplied metadata are preserved."
+      ],
+      "implementation_evidence": [
+        "design-system/palettes.json",
+        "docs/source/styles/illustration.html.md.erb"
+      ],
+      "local_path": "/styles/brand-colour.html#bg-col-08",
+      "example_ids": [
+        "bg-colour-role-separation",
+        "bg-colour-boundaries",
+        "bg-colour-state-labels"
+      ],
+      "level": "MUST",
+      "scope": "Screen, promotional and print colour output",
+      "requirement": "Preserve the authoritative screen palette and supplied metadata; assess exported media separately."
+    },
+    {
+      "id": "BG-TYP-01",
+      "title": "Use the approved typeface, not the official identity font",
+      "source_ids": [
+        "typography",
+        "typography-web",
+        "typeface-exception"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Computed maintained UI font stack contains no GDS Transport.",
+        "Wordmark artwork remains separate from editable text."
+      ],
+      "implementation_evidence": [
+        "scripts/generate-themes.mjs",
+        "docs/source/stylesheets/screen.css.scss",
+        "docs/source/stylesheets/example.css.scss"
+      ],
+      "local_path": "/styles/brand-typography.html#bg-typ-01",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ],
+      "level": "MUST",
+      "scope": "Maintained civica interface and documentation typography",
+      "requirement": "Use the approved Arial/Helvetica/sans-serif stack and keep official GDS Transport out of active use."
+    },
+    {
+      "id": "BG-TYP-02",
+      "title": "Build hierarchy with meaning, size and weight",
+      "source_ids": [
+        "typography-social"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Heading outline remains meaningful without CSS.",
+        "Long names/instructions wrap without shrinking or artificial headline limits."
+      ],
+      "implementation_evidence": [
+        "docs/source/styles/typography.html.md.erb",
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/brand-typography.html#bg-typ-02",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ],
+      "level": "MUST",
+      "scope": "Headings, labels and explanatory text",
+      "requirement": "Make heading semantics and readable visual hierarchy agree; allow essential labels to wrap."
+    },
+    {
+      "id": "BG-TYP-03",
+      "title": "Keep values, units and dates understandable",
+      "source_ids": [
+        "typography",
+        "data-charts"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Signed values and units survive narrow widths and text scaling.",
+        "Locale/timezone context is preserved for operational data."
+      ],
+      "implementation_evidence": [
+        "ui/src/energy-chart-data.ts",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-typography.html#bg-typ-03",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ],
+      "level": "MUST",
+      "scope": "Operational readings and exported measurement text",
+      "requirement": "Retain essential signs, units, dates, source identity and locale/timezone context in readable text."
+    },
+    {
+      "id": "BG-TYP-04",
+      "title": "Respect native density and operating-system controls",
+      "source_ids": [
+        "typography-app"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Check native editors/tables/dialogs as well as custom cards.",
+        "OS-owned UI and code alignment are preserved."
+      ],
+      "implementation_evidence": [
+        "scripts/generate-themes.mjs",
+        "ui/src/energy-charts.ts",
+        "docs/source/styles/typography.html.md.erb"
+      ],
+      "local_path": "/styles/brand-typography.html#bg-typ-04",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ],
+      "level": "MUST",
+      "scope": "Custom UI, native dense surfaces, charts and OS-owned controls",
+      "requirement": "Apply the documented local/native type scales while preserving native scaling, editor alignment and OS-owned UI."
+    },
+    {
+      "id": "BG-TYP-05",
+      "title": "Verify text scaling and failure states",
+      "source_ids": [
+        "typography-app",
+        "typography-social"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Inspect 200% text size and narrow reflow on affected component.",
+        "Full essential labels remain available without pointer hover."
+      ],
+      "implementation_evidence": [
+        "tests/card.browser.spec.mjs",
+        "tests/theme-settings.browser.spec.mjs",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-typography.html#bg-typ-05",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ],
+      "level": "MUST",
+      "scope": "Affected text and controls at narrow widths and user text settings",
+      "requirement": "Preserve essential labels and context under zoom/text scaling without requiring pointer hover."
+    },
+    {
+      "id": "BG-TYP-06",
+      "title": "Separate document and promotional typography",
+      "source_ids": [
+        "typography-print",
+        "typography-social"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Exported document is checked at its actual size and has readable text.",
+        "Graphic-only copy has an equivalent accessible text version."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/brand-typography.html#bg-typ-06",
+      "example_ids": [
+        "bg-type-household-hierarchy",
+        "bg-type-values",
+        "bg-type-handover"
+      ],
+      "level": "SHOULD",
+      "scope": "Printable household documents and promotional text",
+      "requirement": "Use readable channel-specific starting sizes, enlarge for reader needs and provide accessible accompanying text."
+    },
+    {
+      "id": "BG-DAT-01",
+      "title": "Start with a household question",
+      "source_ids": [
+        "data",
+        "data-dashboards"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Title and surrounding explanation state the actual task.",
+        "Unknown or no-data periods do not acquire fabricated conclusions."
+      ],
+      "implementation_evidence": [
+        "docs/source/components/charts.html.md.erb",
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-01",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Dashboard and publication data presentation",
+      "requirement": "State the household question and avoid a conclusion unsupported by available observations."
+    },
+    {
+      "id": "BG-DAT-02",
+      "title": "Choose a chart type for the data relationship",
+      "source_ids": [
+        "data",
+        "data-examples"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Chart family reflects the actual variable and comparison.",
+        "Unsupported chart families are not claimed as adapted."
+      ],
+      "implementation_evidence": [
+        "ui/src/energy-charts.ts",
+        "docs/source/components/charts.html.md.erb"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-02",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Chart type choice and maintained Energy chart scope",
+      "requirement": "Choose a truthful representation for the data relationship and preserve the maintained chart-family contract."
+    },
+    {
+      "id": "BG-DAT-03",
+      "title": "Give each chart enough context",
+      "source_ids": [
+        "data-charts"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "A person can identify measure, period and source without guessing from colour.",
+        "Exported context remains complete outside the dashboard."
+      ],
+      "implementation_evidence": [
+        "ui/src/energy-charts.ts",
+        "ui/src/energy-chart-data.ts",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-03",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Operational charts, static charts and exported data",
+      "requirement": "Supply sufficient title, measure, period, source and qualification context for the actual output."
+    },
+    {
+      "id": "BG-DAT-04",
+      "title": "Protect the underlying observations",
+      "source_ids": [
+        "data"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Compare source values/IDs with rendered and tabular values before/after lifecycle changes.",
+        "Inspect missing, zero, negative and non-zero-axis cases."
+      ],
+      "implementation_evidence": [
+        "ui/src/energy-power-series.ts",
+        "ui/src/energy-charts.ts",
+        "ui/src/energy-chart-data.ts",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-04",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Native chart adaptation, data alternatives and lifecycle restoration",
+      "requirement": "Preserve observed values, identities, original dates, missingness and current period without fabricated readings."
+    },
+    {
+      "id": "BG-DAT-05",
+      "title": "Use the operational chart specification",
+      "source_ids": [
+        "colour-charts",
+        "data-examples"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Canvas geometry, legend keys and tooltip markers match the shared spec.",
+        "Theme, series-order and visibility changes preserve identity and line weight."
+      ],
+      "implementation_evidence": [
+        "design-system/chart-colours.mjs",
+        "ui/src/energy-charts.ts",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-05",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Supported operational Energy plots, legends and tooltip markers",
+      "requirement": "Use the shared identity colours, matching cues and 1.5px line weight across normal and interaction states."
+    },
+    {
+      "id": "BG-DAT-06",
+      "title": "Retain useful native interaction",
+      "source_ids": [
+        "data-charts",
+        "data-dashboards"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Native legend/date/keyboard interactions still work.",
+        "No new renderer or service call is introduced merely for branding."
+      ],
+      "implementation_evidence": [
+        "ui/src/energy-charts.ts",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-06",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Maintained native Energy adapter and existing chart interaction",
+      "requirement": "Retain useful native controls and accessibility through bounded public ECharts APIs and a version-verified private HA adapter."
+    },
+    {
+      "id": "BG-DAT-07",
+      "title": "Provide a usable alternative and honest scope",
+      "source_ids": [
+        "data",
+        "data-charts"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Alternative contains the same supported facts with clear scope.",
+        "Keyboard users can reach, open and page the table."
+      ],
+      "implementation_evidence": [
+        "ui/src/energy-chart-data.ts",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-07",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Supported Energy data tables and proposed chart alternatives",
+      "requirement": "Provide a usable equivalent with honest selected-period scope and test it separately from the visual chart."
+    },
+    {
+      "id": "BG-DAT-08",
+      "title": "Treat maps as operational evidence",
+      "source_ids": [
+        "data-maps",
+        "colour-maps"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Map legend, attribution, scale/extent and alternative remain meaningful.",
+        "A schematic is never presented as a surveyed position or live map."
+      ],
+      "implementation_evidence": [
+        "docs/source/styles/images.html.md.erb",
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-08",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Native map content and future spatial adapters",
+      "requirement": "Preserve spatial meaning, source context and text alternatives; distinguish schematics from actual locations."
+    },
+    {
+      "id": "BG-DAT-09",
+      "title": "Separate publishing graphics from live monitoring",
+      "source_ids": [
+        "data-examples",
+        "colour-charts"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Publishing example declares source/synthetic status and denominator.",
+        "Operational and promotional treatment are explicitly separated."
+      ],
+      "implementation_evidence": [
+        "docs/source/components/chart-examples.html.erb",
+        "tests/energy-charts.browser.spec.mjs"
+      ],
+      "local_path": "/styles/brand-data.html#bg-dat-09",
+      "example_ids": [
+        "bg-data-operational-power",
+        "bg-data-editorial-summary",
+        "bg-data-location-alternative"
+      ],
+      "level": "MUST",
+      "scope": "Publishing summaries versus operational monitoring",
+      "requirement": "Keep fixed editorial graphics clearly sourced and separate from live monitoring semantics."
+    },
+    {
+      "id": "BG-ILL-01",
+      "title": "Use an illustration only when it explains something",
+      "source_ids": [
+        "illustration",
+        "illustration-incorrect"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "The artwork communicates a named task-relevant fact.",
+        "Text remains sufficient when the illustration is unavailable."
+      ],
+      "implementation_evidence": [
+        "docs/source/styles/images.html.md.erb",
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-01",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "New explanatory illustrations and dashboard imagery",
+      "requirement": "Use an illustration for a task-relevant message, with the instruction available in text."
+    },
+    {
+      "id": "BG-ILL-02",
+      "title": "Draw original, simple civica artwork",
+      "source_ids": [
+        "illustration-principles",
+        "illustration-creating",
+        "illustration-objects"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Illustration provenance and original source are recorded.",
+        "Small-size review confirms a clear focal point without official identity assets."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml",
+        "ARTWORK.md"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-02",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "New civica explanatory artwork",
+      "requirement": "Create simple original artwork without copying official identity assets or altering supplied civica marks."
+    },
+    {
+      "id": "BG-ILL-03",
+      "title": "Use a restrained palette without borrowing status",
+      "source_ids": [
+        "colour-illustrations",
+        "illustration-incorrect"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Colour supports the message and does not imply an unverified state.",
+        "Illustration restrictions are not applied to functional icons/charts."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml",
+        "docs/source/styles/chart-colour.html.md.erb"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-03",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "Explanatory illustration family, excluding functional icons and data marks",
+      "requirement": "Use restrained purposeful colour without decorative gradients/effects or false state meaning; retain functional cues elsewhere."
+    },
+    {
+      "id": "BG-ILL-04",
+      "title": "Compose around the action",
+      "source_ids": [
+        "illustration-layout",
+        "illustration-principles"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Action and sequence remain clear at narrow/wide sizes.",
+        "Any essential animation has a static accessible route."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-04",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "SHOULD",
+      "scope": "Composition and sequencing of explanatory illustrations",
+      "requirement": "Make the action clear through hierarchy, whitespace and coherent sequence across screen sizes."
+    },
+    {
+      "id": "BG-ILL-05",
+      "title": "Represent people and gestures carefully",
+      "source_ids": [
+        "illustration-characters",
+        "illustration-hands"
+      ],
+      "disposition": "adapted-with-exclusions",
+      "acceptance_checks": [
+        "Representation is relevant and avoids stereotypes.",
+        "Specific gestures and instructions have appropriate subject review."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-05",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "Illustrated people, gestures and avatars",
+      "requirement": "Represent people respectfully and validate specific instructional gestures without inferring identity or capability."
+    },
+    {
+      "id": "BG-ILL-06",
+      "title": "Give the image the right alternative",
+      "source_ids": [
+        "illustration-accessibility"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Informative meaning is available without seeing the image.",
+        "Redundant/decorative visuals do not create repeated announcements."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-06",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "Informative, redundant and decorative image alternatives",
+      "requirement": "Expose essential image meaning accessibly and suppress redundant announcements without omitting required alternative attributes."
+    },
+    {
+      "id": "BG-ILL-07",
+      "title": "Keep icons functional and recognisable",
+      "source_ids": [
+        "illustration"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Known entities retain their icon meaning and accessible names.",
+        "Functional symbols remain legible in light/dark and forced colours."
+      ],
+      "implementation_evidence": [
+        "ui/src/action-links.ts",
+        "docs/source/styles/images.html.md.erb"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-07",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "Functional entity/domain and navigation icons",
+      "requirement": "Retain recognisable native meanings, accessible names and component-specific vector/focus treatments."
+    },
+    {
+      "id": "BG-ILL-08",
+      "title": "Preserve photographs, video and map evidence",
+      "source_ids": [
+        "illustration",
+        "illustration-examples"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Operational content retains identifying detail and source context.",
+        "Illustrative and live/recorded media cannot be confused."
+      ],
+      "implementation_evidence": [
+        "docs/source/styles/images.html.md.erb"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-08",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "Photos, media, cameras, map tiles and illustrative stand-ins",
+      "requirement": "Preserve operational evidence and distinguish diagrams, still images and live states."
+    },
+    {
+      "id": "BG-ILL-09",
+      "title": "Limit personal information in shared imagery",
+      "source_ids": [
+        "illustration-accessibility"
+      ],
+      "disposition": "local-extension",
+      "acceptance_checks": [
+        "Public examples contain invented or appropriately cleared content.",
+        "Presentation changes preserve native privacy/access controls."
+      ],
+      "implementation_evidence": [
+        "docs/data/brand-guidance-examples.yml"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-09",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "Public examples and personal household imagery",
+      "requirement": "Use invented or appropriately cleared personal content and preserve native privacy/access controls."
+    },
+    {
+      "id": "BG-ILL-10",
+      "title": "Deliver and review the complete asset",
+      "source_ids": [
+        "illustration-formats",
+        "illustration-accessibility",
+        "illustration-creating"
+      ],
+      "disposition": "adapted",
+      "acceptance_checks": [
+        "Source/rights/alternative/background metadata are present.",
+        "Rendered review is recorded separately from syntax and source review."
+      ],
+      "implementation_evidence": [
+        "scripts/check-brand.mjs",
+        "ARTWORK.md",
+        "docs/data/brand-guidance-checklist.json"
+      ],
+      "local_path": "/styles/illustration.html#bg-ill-10",
+      "example_ids": [
+        "bg-illustration-sensor-placement",
+        "bg-illustration-network",
+        "bg-illustration-functional-icon"
+      ],
+      "level": "MUST",
+      "scope": "New asset delivery, rights metadata and rendered review",
+      "requirement": "Record source, rights, purpose, alternatives and display context, then verify rendered results separately from syntax."
+    }
+  ],
+  "rights_note": "Guidance is paraphrased with source links. No official brand illustrations, fonts, logos or graphic-device artwork are copied into these examples; schematic SVGs are original project markup.",
+  "status": "current-user-clarified-scope",
+  "frozen_on": "2026-11-12",
+  "normative_levels": {
+    "MUST": "Required local acceptance condition within the stated scope.",
+    "SHOULD": "Recommended starting point; record a reason for a different approach.",
+    "MAY": "Permitted option, not an adoption requirement."
+  },
+  "display_name": "Design styles: colour, typography, data and illustration",
+  "scope_revision": {
+    "date": "2026-11-12",
+    "authority": "Explicit user clarification in this task",
+    "previous_record": "docs/data/history/brand-guidance-2026-11-11.json",
+    "previous_sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+    "decision": "Remove the Brand guidance navigation group; present colour/data/type/illustration as design styles. Do not require civica.uk identity inside a home. Add optional family-name, crest and business-logo guidance. This is a design-system update only.",
+    "legacy_identifiers": "BG rule IDs and brand-guidance JSON routes remain stable for existing references."
+  }
+}

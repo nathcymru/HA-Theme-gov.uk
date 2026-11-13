@@ -1,4 +1,4 @@
-# civica.uk household alerts. These are user-supplied messages, not official warnings.
+# civica household alerts. These are user-supplied messages, not official warnings.
 # Legacy helper option IDs remain supported for existing automations.
 # Requires: card-mod (HACS), and the helpers in cards/helpers.yaml.
 # Paste into a dashboard card editor (Show code editor). One card per level;

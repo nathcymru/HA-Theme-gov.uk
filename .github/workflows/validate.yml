@@ -1,4 +1,4 @@
-name: Validate civica.uk
+name: Validate civica
 on:
   push:
     branches: [main]
@@ -70,7 +70,8 @@ jobs:
       - run: python3 scripts/check-docs.py
       - run: npm run check:guidance
       - run: npm run check:coverage
-      - run: npm run check:brand
+      - run: npm run check:brand -- --check-built
+      - run: npm run check:naming
       # The hosted runner supplies Chromium's shared libraries. Install the
       # pinned browser without a redundant, network-dependent apt refresh.
       # Browser launch and the full suite below remain mandatory.
@@ -79,8 +80,10 @@ jobs:
       - run: npm run package
       - uses: actions/upload-artifact@v4
         with:
-          name: civica-home-assistant
-          path: dist/civica-home-assistant.zip
+          name: civica
+          path: |
+            dist/civica.zip
+            dist/SHA256SUMS
       - uses: actions/upload-artifact@v4
         with:
           name: civica-design-system

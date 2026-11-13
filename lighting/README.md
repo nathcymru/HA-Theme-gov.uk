@@ -1,6 +1,6 @@
-# civica.uk house lighting
+# civica house lighting
 
-The lighting card presents a floor plan and room controls. Home Assistant runs the scenes and supplies the native brightness, colour and temperature controls. The `govuk` filenames and service IDs remain for compatibility; the visible product identity is civica.uk.
+The lighting card presents a floor plan and room controls. Home Assistant runs the scenes and supplies the native brightness, colour and temperature controls. The `govuk` filenames and service IDs remain for compatibility; the visible product identity is civica.
 
 | Part | Source | Purpose |
 | --- | --- | --- |
@@ -12,11 +12,11 @@ The lighting card presents a floor plan and room controls. Home Assistant runs t
 
 ## Install
 
-Adapting the lighting controller requires a [source checkout](https://github.com/nathcymru/HA-Theme-gov.uk) matching your release. The installation ZIP includes generated lighting files, but not the root npm commands or complete build source. Run the commands below from the source checkout's root directory, including when you downloaded the installation ZIP separately.
+Adapting the lighting controller requires a [source checkout](https://github.com/nathcymru/civica) matching your release. The installation ZIP includes generated lighting files, but not the root npm commands or complete build source. Run the commands below from the source checkout's root directory, including when you downloaded the installation ZIP separately.
 
-1. Run `npm ci` and `npm run package`. Extract `dist/civica-home-assistant.zip`.
+1. Run `npm ci` and `npm run package`. Extract `dist/civica.zip`.
 2. Copy the archive's `www/civica/` directory to Home Assistant's `config/www/civica/`. Keep `card/dist/` and `card/assets/` alongside one another. The card loads the floor plan relative to its JavaScript module. Scene actions use Home Assistant's native icons.
-3. In **Settings → Dashboards → Resources**, add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.0.1` as a **JavaScript module**.
+3. In **Settings → Dashboards → Resources**, add `/local/civica/card/dist/civica-house-lighting-card.js?v=1.4.0` as a **JavaScript module**.
 4. Review the room mappings in `lighting/rooms.json` and the group membership snapshot in `lighting/ha/area-lights.json`. They describe the original installation, so adapt them to your own entity and area IDs. Run `npm run generate` after changing them.
 5. Copy the generated `lighting/ha/govuk_lighting.yaml` and `lighting/ha/govuk_lighting_groups.yaml` to your Home Assistant `config/packages/` directory. Merge package loading into the existing configuration:
 
@@ -31,7 +31,7 @@ Adapting the lighting controller requires a [source checkout](https://github.com
    type: custom:civica-house-lighting-card
    ```
 
-The old `custom:govuk-house-lighting-card` name is still supported. Existing `/local/govuk-lighting/dist/govuk-house-lighting-card.js` installations also work if the adjacent assets remain at `www/govuk-lighting/assets/`; use one resource URL, not both.
+The old `custom:govuk-house-lighting-card` name is still supported. Existing `/local/govuk-lighting/dist/govuk-house-lighting-card.js` installations remain supported by the compatibility import. Copy both JavaScript files to the existing `dist/` folder and keep adjacent assets at `www/govuk-lighting/assets/`. Register only one resource URL.
 
 The card needs no card-mod or floor-plan add-on. Install the civica themes separately using the [repository installation guide](../README.md). HACS theme installation does not install this card, its assets or the controller package.
 

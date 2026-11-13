@@ -1,8 +1,17 @@
 ---
 title: "Documentation architecture"
-description: "Documentation architecture for the civica.uk Home Assistant design system."
+description: "Documentation architecture for the civica Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: "2026-11-11"
+updated_on: "2026-11-13"
+updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Documentation architecture
@@ -35,7 +44,7 @@ docs/
   config/tech-docs.yml    # Template configuration
   data/navigation.yml    # Shared page navigation
   source/                # Human-readable Markdown and assets
-    layouts/             # Unbranded civica.uk shell
+    layouts/             # Unbranded civica shell
     stylesheets/         # Selected GOV.UK/Tech Docs styles + local layout
     javascripts/         # Documentation demonstration behaviour
     design-contract.json # Machine-readable rules and scope
@@ -45,13 +54,13 @@ docs/
 
 ## Keep the build unbranded
 
-Set `show_govuk_logo: false`, replace the shell and favicon paths, omit default font-face rules and import only the needed component styles. The published site excludes upstream branded images and font files. The fact that a dependency contains official assets does not mean those assets may be published in civica.uk.
+Set `show_govuk_logo: false`, replace the shell and favicon paths, omit default font-face rules and import only the needed component styles. The published site excludes upstream branded images and font files. The fact that a dependency contains official assets does not mean those assets may be published in civica.
 
 ## Build and preview
 
 Use Ruby 3.3 and Bundler. First run `npm ci` and `npm run build` from the repository root to build the shared chart examples. From `/docs`, run `bundle install`, then `bundle exec middleman build`. Use `bundle exec middleman server` for a local preview. Run the documentation validator after building.
 
-Run `python3 docs/scripts/sync-brand.py --check` from the repository root to verify the V3.2 documentation artwork against `brand/civica/`.
+Run `python3 docs/scripts/sync-brand.py --check` from the repository root to verify the accepted revised documentation artwork against `brand/civica/`.
 
 Commit content, configuration and the lockfile. Do not commit `build/`, `vendor/` or `.bundle/`. Publish the generated `build/` directory through the repository's chosen static hosting workflow.
 
@@ -65,10 +74,10 @@ The Energy presentation adapter uses Home Assistant's existing ECharts instance.
 
 ## Shared examples and publication history
 
-The [example viewer](../components/example.html) reads reviewed YAML records, creates isolated standalone pages and displays the exact rendered HTML. Safe demonstration forms start disabled and are enabled only after the local handler is installed; without JavaScript they cannot submit household-like values as URL queries. GOV.UK Frontend 6.6.0 supplies the standard component enhancement, while civica.uk supplies the shell, safe demos and example tabs.
+The [example viewer](../components/example.html) reads reviewed YAML records, creates isolated standalone pages and displays the exact rendered HTML. Safe demonstration forms start disabled and are enabled only after the local handler is installed; without JavaScript they cannot submit household-like values as URL queries. GOV.UK Frontend 6.6.0 supplies the standard component enhancement, while civica supplies the shell, safe demos and example tabs.
 
 Every non-home editorial page uses the [page-history pattern](../components/page-history.html). Existing first-publication dates come from repository history; updates are authored records. The build does not manufacture a fresh review date. Example canvases carry a demonstration notice and link from their owning guide, which holds the editorial history.
 
 Navigation and search derive their pages from Middleman resources and frontmatter section/group values. Publishing pages appear within Components or Patterns instead of creating a competing top-level taxonomy. The JSON coverage record exposes the same catalogue for automated reading.
 
-The homepage and category illustrations are original SVG compositions stored under `docs/source/images`. The supplied civica.uk brand assets remain unchanged. All illustrations use ordinary interface shapes and avoid official government artwork.
+The homepage and category illustrations are original SVG compositions stored under `docs/source/images`. The supplied civica brand assets remain unchanged. All illustrations use ordinary interface shapes and avoid official government artwork.

@@ -8,7 +8,7 @@ import { projectPowerSeries } from './energy-power-series';
 export const ENERGY_CHART_SPEC = Object.freeze({
   source: 'https://github.com/ONSdigital/design-system/tree/74.0.0/src/components/chart',
   frontend: '20261028.5',
-  fontFamily: 'Arial, Helvetica, sans-serif', // civica.uk's documented typeface
+  fontFamily: 'Arial, Helvetica, sans-serif', // civica's documented typeface
   minimumFontSize: 14,
   lineWidth: 1.5, // Dense native Energy charts; ONS standalone reference is 3px.
   gridWidth: 1,

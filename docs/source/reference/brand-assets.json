@@ -1,346 +1,391 @@
 {
-  "schemaVersion": 1,
-  "brandVersion": "3.2",
-  "sourceArchive": "civica_uk_brand_assets_v3.2.zip",
-  "sourceArchiveSha256": "3c4e475fe54cf30c8f4ff19573193b690152645789703b90f8f41d2092608e3c",
-  "sourcePackManifest": "brand/civica/docs/SHA256SUMS.txt",
-  "assetPolicy": "Byte-for-byte supplied files; no geometry, dot colour or background changes.",
+  "schemaVersion": 2,
+  "brandName": "civica",
+  "brandVersion": "revised-2026-11-13",
+  "reviewedOn": "2026-11-13",
+  "sourceArchive": "civica_brand_assets_revised.zip",
+  "sourceArchiveSha256": "0d1a44c3526ccaafa773e1d7314d0d3df6e2e77065be7c3f9c2e1de36dc14d2a",
+  "sourcePackManifest": "brand/civica/docs/SHA256SUMS.json",
+  "acceptedPackManifest": "brand/civica/docs/accepted-assets.json",
+  "acceptedPackManifestSha256": "7e87c64002fc0ca0234011ec59cc91ead43eaeeb826d821aabc00e91f64c76f4",
+  "assetPolicy": "Accepted supplied files are byte-for-byte unchanged. Previous identity assets are removed; malformed files are omitted, never silently repaired.",
+  "sourceCounts": {
+    "sourceFiles": 225,
+    "acceptedSuppliedFiles": 224,
+    "acceptedImages": 218,
+    "excludedFiles": 1,
+    "localManifests": 1,
+    "activeFiles": 225,
+    "paletteFamilies": 10,
+    "paletteVariants": 20
+  },
+  "sourceExclusions": [
+    {
+      "path": "themes/civic-cobalt/muted/emblem-primary.webp",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty WebP cannot decode. Valid supplied SVG and PNG alternatives are retained."
+    }
+  ],
+  "sourceMetadataCorrections": [
+    {
+      "path": "docs/SHA256SUMS.json",
+      "field": "docs/SHA256SUMS.json",
+      "suppliedValue": "77f89cdf5262e937b6cc17e8a8a92d0c1685c3cd6c78e36bd8817a74c874c954",
+      "verifiedValue": "20718750c9b79811024c52051e1d582db5c0781a2266af6dd8b4c3158ceb9f89",
+      "reason": "The supplied manifest has a stale self-hash. All other supplied checksum entries match their archive bytes; the source manifest is retained unchanged."
+    },
+    {
+      "path": "docs/verification.json",
+      "field": "theme_files",
+      "suppliedValue": 197,
+      "verifiedValue": 167,
+      "reason": "The archive contains 167 theme files, including the omitted empty WebP; 166 are accepted."
+    },
+    {
+      "path": "docs/verification.json",
+      "field": "zip_entries",
+      "suppliedValue": 224,
+      "verifiedValue": 225,
+      "reason": "The archive contains 225 file entries."
+    }
+  ],
   "verificationScope": "Checks copy fidelity only, not independent rights or accessibility certification.",
   "assets": [
     {
       "publishedPath": "images/apple-touch-icon.png",
       "sourcePath": "brand/civica/icons/apple-touch-icon.png",
-      "sha256": "25c606c9df832283c03ad205bf8630a8c3b3460da7248fcf1ad8721e68ae7d66"
+      "sha256": "110a2e815d50a419588919d17377e53144e9e626626471b095c338f1c5aa4b44"
     },
     {
       "publishedPath": "images/civica-emblem.svg",
       "sourcePath": "brand/civica/core/emblem-black.svg",
-      "sha256": "1141fea27124f87489106d924070ebc1397b166972b26ea4c164a9f9e0f03459"
+      "sha256": "3177237d4c6b0975216bf562dc54ea62269633dff2fa512d894db232587250cc"
     },
     {
       "publishedPath": "images/civica-lockup.svg",
       "sourcePath": "brand/civica/core/lockup-on-blue.svg",
-      "sha256": "0ea1762e009e081824c5f332e27da07cc24c446d8e5db11aae5530c836298bf5"
+      "sha256": "2ad51d26bdc6e2b7ff364eae5ecaf42d45b454cd8a6f72935233ba2af662bce3"
     },
     {
       "publishedPath": "images/favicon.ico",
       "sourcePath": "brand/civica/icons/favicon.ico",
-      "sha256": "f4d3ce29c58d2f6e1df32e95faa3cf1fb577b1c6099aa46c43bc2ff126a48992"
+      "sha256": "31ab8bc151a079fc295207cd84f7e73b46a3267aa88d006d270358ab34ddb719"
     },
     {
       "publishedPath": "images/favicon.svg",
       "sourcePath": "brand/civica/icons/favicon.svg",
-      "sha256": "401f9cf4c922b46fa553382116731bdebb610720a35bc7263d550dcf72fa4bb1"
+      "sha256": "8e514ebf717e52a88d93e0a55e8247cee8e4180c83ef07217aadc3da75912d01"
     },
     {
       "publishedPath": "images/icon-192.png",
       "sourcePath": "brand/civica/icons/icon-192.png",
-      "sha256": "669e5fdbc55a7577b75b83f23c80fbca90dec2b0211f8e1e8c440a96d57c088d"
+      "sha256": "e37693dabaa9113ff40491eb584ed23599617a294402838cd9b9fa93c4e68997"
     },
     {
       "publishedPath": "images/icon-512.png",
       "sourcePath": "brand/civica/icons/icon-512.png",
-      "sha256": "777fb29fbeb269a9a28c8f48dfb4bb736bb1d0a6b49c258770c34f877298c202"
+      "sha256": "bbf5cc493f7cb396b8ce0f8869c0fac0316a81fc6593e09b255588691ee8e366"
     },
     {
       "publishedPath": "images/themes/civic-cobalt/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/civic-cobalt/muted/app-icon.svg",
-      "sha256": "e9170e82b26989c70c4bc0d362beb83cb3bf64672a863d93e30672cbda61d803"
+      "sha256": "3625d063999b2f241e430601b5d44fe364b9f37a1ffd7c0a6015a44fbc8d4ee8"
     },
     {
       "publishedPath": "images/themes/civic-cobalt/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/civic-cobalt/muted/lockup-on-canvas.svg",
-      "sha256": "40518b89328cfd68c65d2a7ec39efd97cb7acbf074f1adec267e2f304cefcebf"
+      "sha256": "42ab156e2fde973effc43cf6e6b699912aaf494d13754367878e803ba56f7999"
     },
     {
       "publishedPath": "images/themes/civic-cobalt/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/civic-cobalt/muted/lockup-on-primary.svg",
-      "sha256": "5ee5e9f1da879563cb018b79e62745c0643e82730009cff22b9fe59112b42d0f"
+      "sha256": "cac7fbbf3ad8bd9acddde09762f82887e276ad3432ab4968de5fe7254a905a1a"
     },
     {
       "publishedPath": "images/themes/civic-cobalt/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/civic-cobalt/vivid/app-icon.svg",
-      "sha256": "04a5c5992fb68a57e50846214845524b8f10d3144db098b832d0110a40d7e68b"
+      "sha256": "8d53c5876c1f816ed032b0fdd77ec3e57efac4e949583c5edf7dcb03b17914c8"
     },
     {
       "publishedPath": "images/themes/civic-cobalt/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/civic-cobalt/vivid/lockup-on-canvas.svg",
-      "sha256": "1db95ad40965463666a70755788d4cfaad2b6c10a70cd45c512e37877203190f"
+      "sha256": "b9d17ecfd765b525cef7ce620824cb582388d4acf37760c2cd66d9974e1ace4e"
     },
     {
       "publishedPath": "images/themes/civic-cobalt/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/civic-cobalt/vivid/lockup-on-primary.svg",
-      "sha256": "c7953b3eb4a0bec9576eebd2cb06002a6a5ac6e8ece2fafd391561a8ccc6a7d3"
+      "sha256": "8ccefbd56bfc77177d98025b5e6258267990aa3a55f3496a6eabec1ffac4ff3f"
     },
     {
       "publishedPath": "images/themes/heritage-ochre/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/heritage-ochre/muted/app-icon.svg",
-      "sha256": "b1057e5d2ce805848be9f4081ad2658af45f9758db9c04dd82014b2fd231684f"
+      "sha256": "eea5e44d949f5496e939247039521f9e4bf2427ebed6588edd8f115359fc9fc5"
     },
     {
       "publishedPath": "images/themes/heritage-ochre/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/heritage-ochre/muted/lockup-on-canvas.svg",
-      "sha256": "6826924ace92e27d05a52246862c2d8a5e2e28b38db69accf612fa8d4e90928b"
+      "sha256": "521c248d0df927487f0f9fb115a7c6bd5c5f0b9bc8b42e54a59aa6e52648a2ba"
     },
     {
       "publishedPath": "images/themes/heritage-ochre/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/heritage-ochre/muted/lockup-on-primary.svg",
-      "sha256": "e564afd71da6fbdff9bb6c68a61190b918e940f8ffce5a38286e7890bb652dfc"
+      "sha256": "a45b1aaa6651ca0f8f7451d5c18091ef96c9e757c3cbf44d54251aefa3e16ad1"
     },
     {
       "publishedPath": "images/themes/heritage-ochre/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/heritage-ochre/vivid/app-icon.svg",
-      "sha256": "f6133bfe2832a9ec195c49059994023196332db23c075bb238868434c7742e0e"
+      "sha256": "6be4956b9219413101937bbdfed31ba84b6950ac7c2c23ee1db614bf120e3836"
     },
     {
       "publishedPath": "images/themes/heritage-ochre/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/heritage-ochre/vivid/lockup-on-canvas.svg",
-      "sha256": "19ad2efd522f0cd6d171b844dea19689d7a2f620577bb82539016346a9ab77ae"
+      "sha256": "7288f3ff4ac36b183c9321c0ae7f177fbd43a1f65fb7c015c772680c9fe6e8c9"
     },
     {
       "publishedPath": "images/themes/heritage-ochre/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/heritage-ochre/vivid/lockup-on-primary.svg",
-      "sha256": "3dad82b7512c7c69ddcec7525305fe594895b83ae05fbd25adb957c88abb72aa"
+      "sha256": "87838ab38056f9906d57bb22c93d687fa200730c96c882d990ffad6386c61526"
     },
     {
       "publishedPath": "images/themes/imperial-damson/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/imperial-damson/muted/app-icon.svg",
-      "sha256": "4e9da77a29c04a4e7ac608c22df49e39a26550035b1295418881c26fe5ecc38f"
+      "sha256": "fdfcba2a42335929df146bb51748de6422c0a3abdfc79e16ec8b7ba2f2b0b986"
     },
     {
       "publishedPath": "images/themes/imperial-damson/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/imperial-damson/muted/lockup-on-canvas.svg",
-      "sha256": "c57fd22d2a341e6d4fff9ed7ecc7406db231b493296e7587f83614ad8afbb7a2"
+      "sha256": "7da9c2a2d7a8d1f77e9febca0911c40f2115ef10b2ce853fba9edb8bbf7374ec"
     },
     {
       "publishedPath": "images/themes/imperial-damson/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/imperial-damson/muted/lockup-on-primary.svg",
-      "sha256": "d5725e3acc3046c474f96d2b87ad5012b17e62093002fcc9599316deea2ed6a6"
+      "sha256": "13a15cffad9b711f02e67eb77f51a0198a949a901af51caae1859fa2ad436aa4"
     },
     {
       "publishedPath": "images/themes/imperial-damson/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/imperial-damson/vivid/app-icon.svg",
-      "sha256": "25649271f295789f5453cc0f1cb5cf1c5fc49462f24adff6905e4b1e6c7f9317"
+      "sha256": "bd7bb68c614d4c031ee88548fe97602fd3b51e3858a25b35c02ce50496ef2447"
     },
     {
       "publishedPath": "images/themes/imperial-damson/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/imperial-damson/vivid/lockup-on-canvas.svg",
-      "sha256": "162e34ab9c50919e0b508b07bea6c09bd50579330d91c208528af5d18f883305"
+      "sha256": "1198ef9faedb59c0551cdf2a6e8497883910ddb1dc2a9ddafbacd752cd5ca7dc"
     },
     {
       "publishedPath": "images/themes/imperial-damson/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/imperial-damson/vivid/lockup-on-primary.svg",
-      "sha256": "e3c06b3dacebb6e5ded7291610557736213102d5f2ff2035fae3f952f91cffbc"
+      "sha256": "d5c32c8ec2bff153fa9a03f34cbb32473e1de24c780d73adce6cbb1d68b83b88"
     },
     {
       "publishedPath": "images/themes/ink-charcoal/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/ink-charcoal/muted/app-icon.svg",
-      "sha256": "21e7c20d0cef3e46760a8d323100e5eaeb3ae956531056647b3676527179d964"
+      "sha256": "e7d223d47c4a7604efc46404bc48f43fad0453b6d8d1c5de8ccdcaa53e3c6e35"
     },
     {
       "publishedPath": "images/themes/ink-charcoal/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/ink-charcoal/muted/lockup-on-canvas.svg",
-      "sha256": "8360931be5aa4d44270ca256f76b8a257f11dcde46c6145c107c86b567fab0d7"
+      "sha256": "1c9d49bc8cd5abbef703b82f2f3fa02645b37632f78f1ec6ef76a537b399d65d"
     },
     {
       "publishedPath": "images/themes/ink-charcoal/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/ink-charcoal/muted/lockup-on-primary.svg",
-      "sha256": "136866c741ee05c441a7bca3975d315baebf98ab64fe6d537222f87d0fcba148"
+      "sha256": "9f06f61b9feeccdfa85fd36e9a23151f5d42c0a8fc28ef894de854eb71b7f736"
     },
     {
       "publishedPath": "images/themes/ink-charcoal/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/ink-charcoal/vivid/app-icon.svg",
-      "sha256": "13e7ea65414f800529281ba166c0eeaebe8519dae93f32889bfe86877e9e04a8"
+      "sha256": "ef6d560db11585bc5ef9bf3d4ef7ed742994c8c488447406e6132c66f6d0cf11"
     },
     {
       "publishedPath": "images/themes/ink-charcoal/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/ink-charcoal/vivid/lockup-on-canvas.svg",
-      "sha256": "906fc04f1150b53460c6d006a7a6b00bd6841fcc9ea16efcc3941b5ecc56bb9b"
+      "sha256": "410a941bbf27191031720005cf5ca8303e83ad72c744ecfa3ec94599374fd9a4"
     },
     {
       "publishedPath": "images/themes/ink-charcoal/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/ink-charcoal/vivid/lockup-on-primary.svg",
-      "sha256": "fc2eac78eb595fd08ef893681cbd19035895b10f737fd266a8dd2207e484895d"
+      "sha256": "6bc7bb8f24ade9e3cf39cfe762c1aee9d1f44b506efef9a1770125ada89534cb"
     },
     {
       "publishedPath": "images/themes/kiln-terracotta/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/kiln-terracotta/muted/app-icon.svg",
-      "sha256": "9aeeecb072784f1248c88071acf466581b43182175ad4710d69db0446f416055"
+      "sha256": "ac67979f635b28f7a7cec8fb37a179a401f0eacfe0a7799a61e87a7aaecfce09"
     },
     {
       "publishedPath": "images/themes/kiln-terracotta/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/kiln-terracotta/muted/lockup-on-canvas.svg",
-      "sha256": "3b602e3c286d256c02a0545e6fb7f2cab8155f27a055f3a9f64b46edb0deb842"
+      "sha256": "9f5aebffefdc0ad6831b74884a3a7e3789a7d209fc360cb070eb1c99cf74d32c"
     },
     {
       "publishedPath": "images/themes/kiln-terracotta/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/kiln-terracotta/muted/lockup-on-primary.svg",
-      "sha256": "182d63984e72b9e6aa02092f75c723a18b5d04e93cdf9632dd5ba562e78c0c12"
+      "sha256": "a56bf50f15f06fa7440b87dd54a22d1d72dea94a2fbf940a4b8acd96957dc029"
     },
     {
       "publishedPath": "images/themes/kiln-terracotta/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/kiln-terracotta/vivid/app-icon.svg",
-      "sha256": "ae975b028f3da99b058b57dd93896f0a0f72de0e4ad0b631b2325aa7a089a26e"
+      "sha256": "b84a960f01e2e3c8f2a152c13cb3d77eb91c04253520397a3084b104e35277de"
     },
     {
       "publishedPath": "images/themes/kiln-terracotta/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/kiln-terracotta/vivid/lockup-on-canvas.svg",
-      "sha256": "ad624b75481b76a3a35ed022f75242f6122e87679e06082946c247e61e396ee6"
+      "sha256": "2396b5879dcf61448930ea9e5b5c66e32a9c44053a6ea17c12614160a8b63c2f"
     },
     {
       "publishedPath": "images/themes/kiln-terracotta/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/kiln-terracotta/vivid/lockup-on-primary.svg",
-      "sha256": "21eb8c26d3d7c1075172a56dd42d116e06dcc687d34f9af81d93e8a51118f718"
+      "sha256": "e5dba24f318911f57391f39070b94d6e042a8ad6829f6fa8627b0dc1525f3fb7"
     },
     {
       "publishedPath": "images/themes/oxford-midnight/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/oxford-midnight/muted/app-icon.svg",
-      "sha256": "432ab15c95ddc158b81dae5c292c9aab99ddce1f95c47716996514b070f15b7b"
+      "sha256": "c1219db55c83ec3f5f81f639da53c87f548d07f475f01acd1c073da93249a616"
     },
     {
       "publishedPath": "images/themes/oxford-midnight/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/oxford-midnight/muted/lockup-on-canvas.svg",
-      "sha256": "c25534c9a00d3391e5607b9dd2461ce2983912e6048d9791dbeb3a0bb00220e3"
+      "sha256": "e165d49f5ca9403bd026d33b58e58be2cd200d03a7224ac2a83826b528bb16be"
     },
     {
       "publishedPath": "images/themes/oxford-midnight/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/oxford-midnight/muted/lockup-on-primary.svg",
-      "sha256": "22bdea7c2362c11e53fc8bc11e573f24bc0b93541b1ff1640ba1696717981b2a"
+      "sha256": "3693c125d2f6044d356bf1f8b6c37cd9663545d108dc6b2e82c35dd26bf26059"
     },
     {
       "publishedPath": "images/themes/oxford-midnight/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/oxford-midnight/vivid/app-icon.svg",
-      "sha256": "11af0c39696c8e8647ed5422a29f9bd23b1bdd0128ba6bce3349a44dd4387f12"
+      "sha256": "6a49f1fed0881aa1ab5b471cdbe8c19652c6486833d3a46e54621b7e6e4f4032"
     },
     {
       "publishedPath": "images/themes/oxford-midnight/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/oxford-midnight/vivid/lockup-on-canvas.svg",
-      "sha256": "7f7cf3ca13c270a34d24857868fdba515d987750aaa5aff0df515aaf2d03f598"
+      "sha256": "9387246f4e5a107e55e6d00df214312a91580c1f645383ba23a5f9ddaefa43b7"
     },
     {
       "publishedPath": "images/themes/oxford-midnight/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/oxford-midnight/vivid/lockup-on-primary.svg",
-      "sha256": "a8da60780638909273ade7a364e85fc294baa121c5643719303de42b2ca92fc5"
+      "sha256": "cc7a0d614c979dcf2c304eed4f2b9561ff97eb84385bd4ba7ae9461708b020e0"
     },
     {
       "publishedPath": "images/themes/racing-moss/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/racing-moss/muted/app-icon.svg",
-      "sha256": "1764f5434d1261a583e03fc447644ab8f55af19a407d0abaf9dc50a7b862081a"
+      "sha256": "aca95776a5fa7ac3e812bc261833d42a1aa0e7cc4ef721031071d8bb59bfc0c6"
     },
     {
       "publishedPath": "images/themes/racing-moss/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/racing-moss/muted/lockup-on-canvas.svg",
-      "sha256": "9bfc90e22728c367b53ced240bd0b6f0fe6f280d9c3491e32f6d41999ca8008e"
+      "sha256": "a59fad10a88312175ef9decaf86b288ab54eed2e4439eda96e9ffb64f914673f"
     },
     {
       "publishedPath": "images/themes/racing-moss/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/racing-moss/muted/lockup-on-primary.svg",
-      "sha256": "b4119da054ad486ded092a62c459e01264f21b17026f49b88647b67cac9953ab"
+      "sha256": "32fc774119750512797d5b51cee43f0e4bf0d20176ce4b38a6aec14b81feff81"
     },
     {
       "publishedPath": "images/themes/racing-moss/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/racing-moss/vivid/app-icon.svg",
-      "sha256": "0892bfa4c36c49fbcedf125229461508460f58648e205e22653a51416bac6996"
+      "sha256": "37d5a34f424df908904b1ae3ada6b56179c40224cbc665eda2fc8275dabc21f2"
     },
     {
       "publishedPath": "images/themes/racing-moss/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/racing-moss/vivid/lockup-on-canvas.svg",
-      "sha256": "cd887b5f1112efc817ead4f84eca15d805eb92d3a983326856d6169527b60ef7"
+      "sha256": "ab04394cc876032511d19c7054cf7b5f84b274b3966a6ccaae9609ef165fd3c4"
     },
     {
       "publishedPath": "images/themes/racing-moss/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/racing-moss/vivid/lockup-on-primary.svg",
-      "sha256": "b43900289840f58ce99b7fca0c5efd5d0039e9df86dabee82bf91c16eea5cfcb"
+      "sha256": "777bcc73a3d2008ba7fb1170513931da0e8b875ef77f4be5ce110752e4b47290"
     },
     {
       "publishedPath": "images/themes/regimental-plum/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/regimental-plum/muted/app-icon.svg",
-      "sha256": "db33f38ee0bc9c30d506a3c46fc377e0f94d942e616420842132269fa5a1dc9b"
+      "sha256": "f6df3d8737e9195e813d8fc8f4f6d485fadf5b72c16aed45146230c446353d8c"
     },
     {
       "publishedPath": "images/themes/regimental-plum/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/regimental-plum/muted/lockup-on-canvas.svg",
-      "sha256": "84eedee3f306787a85b14fae462c3c7fe07acb79798d427afe8df5b9f4825b8d"
+      "sha256": "886d6f8befa261dc506e3f3fc1a7a7ab377145c70e88baca569295566d1e4543"
     },
     {
       "publishedPath": "images/themes/regimental-plum/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/regimental-plum/muted/lockup-on-primary.svg",
-      "sha256": "36fb397b65bf6a6911c6cf5f677174e8ce3c1f93e9ec5454ecd345818c32a327"
+      "sha256": "f4cfc72df38db263b18352a261bfe7b0f05cb7bf2d7ae15bc0309101a285b1eb"
     },
     {
       "publishedPath": "images/themes/regimental-plum/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/regimental-plum/vivid/app-icon.svg",
-      "sha256": "a8947fe1fb7c46c1b4012753b08757762ca23cc85c02607a3a1550c7b0caae6f"
+      "sha256": "a5d02198167dfd7854f2c3cb7609676314ad156aabc75813304e1100ec57946c"
     },
     {
       "publishedPath": "images/themes/regimental-plum/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/regimental-plum/vivid/lockup-on-canvas.svg",
-      "sha256": "a3cf2a8c0521650cc07282cbca364744096a411ee00c18a5a2595e63f3e443fe"
+      "sha256": "6bb51eb1523fe5f25f856945669ee78be63806e82560aa1be1a4beaad52ce6b4"
     },
     {
       "publishedPath": "images/themes/regimental-plum/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/regimental-plum/vivid/lockup-on-primary.svg",
-      "sha256": "592ddcb22a6b9ac79518506f3fdcc89a53755b6d600bfe136b093543035d57cb"
+      "sha256": "b7b032329c973354b048ab021d53962096749d12f26af6f9810ca70ba55a59a7"
     },
     {
       "publishedPath": "images/themes/sovereign-crimson/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/sovereign-crimson/muted/app-icon.svg",
-      "sha256": "86c570c93ed8491c337e2aa828f3881f979caa37f19230f313123cc640d98358"
+      "sha256": "4c99bb7421dd8d64676a6107cf600d0f225a418cf5131abd313666da36dfe074"
     },
     {
       "publishedPath": "images/themes/sovereign-crimson/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/sovereign-crimson/muted/lockup-on-canvas.svg",
-      "sha256": "d242da2eaaecedc9b543df28b37a1a221741dc8ca5d1fe8957dc00fdb54e12a2"
+      "sha256": "adb1d3731095978733c2289b8fab2cb725cefdc4ab22babe4a06c7f83a373c82"
     },
     {
       "publishedPath": "images/themes/sovereign-crimson/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/sovereign-crimson/muted/lockup-on-primary.svg",
-      "sha256": "1f20d86eed04081b77e3f16228cfd8d8729cd640c4eebda9af199a97defa3e87"
+      "sha256": "4df11546d52154baae8cd25de367c683055056d474e3d929e325fc02b4e67fed"
     },
     {
       "publishedPath": "images/themes/sovereign-crimson/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/sovereign-crimson/vivid/app-icon.svg",
-      "sha256": "bdfdf20bdd1e41be9bc26675ee2da095d16d1e059be87a358667fe5c5d89396c"
+      "sha256": "b075107b3cd2ab88fd8d2e9d8ee44004c9e3558538900299f92a3d70707921f4"
     },
     {
       "publishedPath": "images/themes/sovereign-crimson/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/sovereign-crimson/vivid/lockup-on-canvas.svg",
-      "sha256": "c418cc1d23c2f2a99cc716997cc7ad45e8d05d98f40bf1c713f96854ecd5b968"
+      "sha256": "52354853bb86f987e2fb008e2d6d391543c6d072bae7582bb885e6cb44629db3"
     },
     {
       "publishedPath": "images/themes/sovereign-crimson/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/sovereign-crimson/vivid/lockup-on-primary.svg",
-      "sha256": "30be08f0f3880e5e8c9b1ab3fcfffdf55672d9eb0abe420ea8e86d792511ba40"
+      "sha256": "993dc1161d6d3906570f8dbb9eba3cb6403a9723a2351aad50929b016efe2401"
     },
     {
       "publishedPath": "images/themes/umber-bronze/muted/app-icon.svg",
       "sourcePath": "brand/civica/themes/umber-bronze/muted/app-icon.svg",
-      "sha256": "4a3adabeb731f98cee8e3f4d356a7bb0d984f5c4fa439a8ed0f05a8e053bb306"
+      "sha256": "f5a74e89c940860a4c55e61336ef8038c5978b997d4cd445b764e9ff5af1c636"
     },
     {
       "publishedPath": "images/themes/umber-bronze/muted/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/umber-bronze/muted/lockup-on-canvas.svg",
-      "sha256": "29fd29490a3edcd1946f4f64fb6ac544cee242475569c52742c144759259889c"
+      "sha256": "4c8dee19410c75a6e48f011d02aabfc9b74fb5fd486703cf6ec47c93bbde8782"
     },
     {
       "publishedPath": "images/themes/umber-bronze/muted/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/umber-bronze/muted/lockup-on-primary.svg",
-      "sha256": "7867b536e38d332cdf8adeb913686477b3444884c22623ae1ac48c1a8bb982ce"
+      "sha256": "40f696eae09079d649d7433bdb6fbdaf8bd0053d58c708d1ebe62c2ff67a9dc3"
     },
     {
       "publishedPath": "images/themes/umber-bronze/vivid/app-icon.svg",
       "sourcePath": "brand/civica/themes/umber-bronze/vivid/app-icon.svg",
-      "sha256": "88d433c802445077fb1e6f8889a7168142fe68d3a928091a9b39d21e074026a4"
+      "sha256": "d01f36ece57dcde6c257a224f1ec989cbec32144153e5f4f4d14e9c5f7d48ad5"
     },
     {
       "publishedPath": "images/themes/umber-bronze/vivid/lockup-on-canvas.svg",
       "sourcePath": "brand/civica/themes/umber-bronze/vivid/lockup-on-canvas.svg",
-      "sha256": "63763ca9d468f3fba3631beb9e07cea3ba999335256bbb8dbd53cca228acb24c"
+      "sha256": "65a440f050f66d4dbb1dbc21f79d254656da7e846f00955815b202d8152f40c6"
     },
     {
       "publishedPath": "images/themes/umber-bronze/vivid/lockup-on-primary.svg",
       "sourcePath": "brand/civica/themes/umber-bronze/vivid/lockup-on-primary.svg",
-      "sha256": "9a735a521d1e8d13e3c09fc723cbe2a723873877c1a651e749fabd240aa874cf"
+      "sha256": "01c892ede5d9932470139366fe25e3e44dcd6eabab528d408ce2c63ea7a191cc"
     }
   ]
 }
