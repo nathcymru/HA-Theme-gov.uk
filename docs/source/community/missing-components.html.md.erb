@@ -5,8 +5,10 @@ section: community
 group: Review
 status: reference
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-13"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: 2026-11-11
     description: "Linked 30 completed Home Assistant specifications and their task-specific examples, retaining native implementation boundaries."
   - date: 2026-11-11
@@ -15,7 +17,7 @@ updates:
 
 # Home Assistant specification coverage
 
-Home Assistant already provides device controls, automation editors, schedules, history, account management and recovery flows. The gaps below concern **civica.uk design specifications and acceptance coverage** for those capabilities. They are not a claim that Home Assistant lacks the features.
+Home Assistant already provides device controls, automation editors, schedules, history, account management and recovery flows. The gaps below concern **civica design specifications and acceptance coverage** for those capabilities. They are not a claim that Home Assistant lacks the features.
 
 The review identified 30 areas needing a dedicated specification or a more complete task contract. Each now has a linked guide with state/capability decisions, complete examples, accessibility and recovery guidance, and integration acceptance recipes. Start with the [Home Assistant catalogue](../home-assistant/index.html). Completion means design coverage; it does not mean a new native adapter or live device test.
 
@@ -27,7 +29,7 @@ The review identified 30 areas needing a dedicated specification or a more compl
 | Part | Evidence required |
 | --- | --- |
 | Native capability | Official Home Assistant documentation or source shows that the feature exists |
-| civica.uk implementation | A named maintained component or bounded adapter implements a change; theme variables alone are a narrower claim |
+| civica implementation | A named maintained component or bounded adapter implements a change; theme variables alone are a narrower claim |
 | Design specification | The guide explains capability, state, content, accessibility and failure behaviour, with task-specific acceptance checks |
 
 The current companion adapts known shell hosts, profile colour settings, numeric attention badges, seven native Energy graph types and three named household cards. It also supplies action links. The maintained lighting card adds its own room and scene controls. Other native surfaces retain their own behaviour and the styles they expose. See [Compatibility and limits](../get-started/compatibility.html) for the exact boundary.
@@ -47,7 +49,7 @@ The [machine-readable gap register](../reference/ha-component-gaps.json) contain
 <p><strong><%= escape(finding['priority']) %> · <%= escape(finding['designCoverage'].tr('-', ' ')) %>.</strong> <%= escape(finding['proposal']) %></p>
 <% if finding['specification'] %><p><strong>Completed specification:</strong> <a href="<%= docs_path(finding['specification']['url']) %>"><%= escape(finding['specification']['title']) %></a> — <%= finding['specification']['examples'].length %> complete examples.</p><% end %>
 <p><strong>Native capability:</strong> <%= escape(finding['nativeCapability']['evidence']) %></p>
-<p><strong>Current civica.uk scope:</strong> <%= escape(finding['civicaRuntime']) %>.</p>
+<p><strong>Current civica scope:</strong> <%= escape(finding['civicaRuntime']) %>.</p>
 <p><strong>Affected surfaces:</strong> <%= escape(finding['surfaces'].join(', ')) %>.</p>
 <p><strong>Integration acceptance criteria:</strong></p>
 <ul><% finding['acceptanceCriteria'].each do |check| %><li><%= escape(check) %></li><% end %></ul>

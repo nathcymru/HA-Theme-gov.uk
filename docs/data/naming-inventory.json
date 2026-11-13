@@ -1,0 +1,1493 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-13",
+  "purpose": "Guard current published identity and installation references while retaining exact historical evidence. This policy contains the retired names as matching definitions, not current product identity.",
+  "current": {
+    "project": "civica",
+    "repository": "nathcymru/civica",
+    "pages": "https://nathcymru.github.io/civica/",
+    "release_archive": "civica.zip"
+  },
+  "retired_patterns": [
+    "civica.uk",
+    "HA-Theme-gov.uk",
+    "civica_uk",
+    "civica-home-assistant.zip"
+  ],
+  "scope": "Tracked and non-ignored source files; excludes generated build output, local artifacts, dependencies and test fixtures. Structured historical values and original creator credits require exact hashes. Literal historical source lines require exact matches. Official GOV.UK source names and retained compatibility identifiers are not retired project names.",
+  "compatibility": [
+    {
+      "identifier": "govuk theme alias and govuk.yaml",
+      "reason": "Retain existing selections and HACS file ownership during the naming change."
+    },
+    {
+      "identifier": "govuk-house-lighting-card.js and custom:govuk-house-lighting-card",
+      "reason": "Legacy resource import and element registration remain compatibility interfaces; the canonical file/type use civica."
+    },
+    {
+      "identifier": "Existing automation and entity identifiers",
+      "reason": "Renaming physical Home Assistant configuration is outside the project naming change."
+    }
+  ],
+  "historical_files": [
+    {
+      "path": "docs/data/history/brand-guidance-before-civica-2026-11-13.json",
+      "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/audit-components-review.json",
+      "sha256": "377b790be992e0ba301d0491f9a4785ae4e9c48deff3f45d9efed9027942d38a",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/audit-foundations-review.json",
+      "sha256": "beba91901f7282f2fc5916d4b71537eca1fa83292dc07900f2b2c231a4f9dc36",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/audit-patterns-review.json",
+      "sha256": "1a5cedd9a2346ea15dec818311ad35154dffc33413aebad21dabbe90cf398e02",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/completeness-interface-review.json",
+      "sha256": "9f1e1ab8b3d0d39c2fa546c1cdda03ceee1ad94a4fe2d4c6226859e6baacc132",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/completeness-parent-review.json",
+      "sha256": "40c725d485548e902726332f34ba306e09cac9925fb1114f735b50782fabf102",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/completeness-terminology-review.json",
+      "sha256": "8a08e88ed2a515cd6c775fe0918a5908d4153b52296672b3c79779aec2f88366",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/data-design-review.json",
+      "sha256": "3f0000989a5728195e6394339b012a57a1b04c3a7c7e45ae2e2e4b4a6923187f",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/ha-coverage-verification.json",
+      "sha256": "c378fdd5b38ada600910f8a4df16396b2030421d5780373a17864c63e55a1765",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/hero-layout-review.json",
+      "sha256": "225b6674b629b9fc416eb0566a4ef1fe88d5b6cb9bfe3ebb3ee6d93a7a0662d6",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/history/brand-guidance-2026-11-11.json",
+      "sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/project-story-review.json",
+      "sha256": "94d9cecda569e976b5ace788e89dac201cf55e7d8fb01c0b5eece41ffe7e8922",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/remediation-controls-review.json",
+      "sha256": "92d8a1fb3351bab65465ad7fad20981ba4bbea90466fd36e9d3230a4ee467495",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/remediation-flows-review.json",
+      "sha256": "a2edc213402b58b263c6bfccaba00a8a92d8ce41f795790dcff74ea94477a712",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/remediation-verification.json",
+      "sha256": "859949e42f039256d7bcde7c1f4da895c107f5e13be9625a54f1534ab4b78ff8",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/roadmap-accepted-review.json",
+      "sha256": "406ea0212fbe15813882a186d0437b33e7a9b6f5ccc8aec8db2701c550f33ae9",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/roadmap-review.json",
+      "sha256": "e57a184d7410598f5cfe92167de86bea058f83021e3e5af1db28ad740b386a36",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/terminology-source-review.json",
+      "sha256": "84924563aae466e1e4d1d7b95cb1f4ee37d9abbdeaba53932dc7dbd11d6f1eaf",
+      "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    }
+  ],
+  "historical_values": [
+    {
+      "path": "docs/data/rebrand-review.json",
+      "pointer": "/historical_context/previous_project",
+      "sha256": "4a05960bdd254a54c3c60ef1bb8e9f200d5ee4ba78fb3e5f9177d046afd30f07",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/rebrand-review.json",
+      "pointer": "/historical_context/previous_repository",
+      "sha256": "b6142b22ebc52abab45e37d4d31b32aeaf924c0caede39d2f2f71bbec7b56d61",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/rebrand-review.json",
+      "pointer": "/historical_context/previous_pages",
+      "sha256": "7e5f72e778bbbf86a9a24823c97dccb5c1448aadd32daa1f1bb7d460b3d70f72",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/brand-guidance-checklist.json",
+      "pointer": "/scope_revision/decision",
+      "sha256": "d99f1a8a9e59f36ac0207c5f1ad8137a04264dfef507e662ffdee709a3133b78",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/brand-guidance-examples.yml",
+      "pointer": "/examples/bg-illustration-sensor-placement/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/brand-guidance-examples.yml",
+      "pointer": "/examples/bg-illustration-network/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/brand-guidance-examples.yml",
+      "pointer": "/examples/bg-illustration-functional-icon/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/brand-guidance-inventory.json",
+      "pointer": "/scope_revision/decision",
+      "sha256": "d99f1a8a9e59f36ac0207c5f1ad8137a04264dfef507e662ffdee709a3133b78",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/card-artwork-provenance.json",
+      "pointer": "/assets/0/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/card-artwork-provenance.json",
+      "pointer": "/assets/1/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/card-artwork-provenance.json",
+      "pointer": "/assets/2/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/component-audit-checklist.json",
+      "pointer": "/guidanceReviewHistory/1/scopeRevision",
+      "sha256": "ae433bf481d9cbe275eb3dd497ae24cdf4512af47592ec4d634e3482e308f732",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/component-rationalisation.json",
+      "pointer": "/guidanceReviewHistory/1/scopeRevision",
+      "sha256": "ae433bf481d9cbe275eb3dd497ae24cdf4512af47592ec4d634e3482e308f732",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/dashboard-data-examples.yml",
+      "pointer": "/examples/dashboard-data-electricity-monitor/artwork/creator",
+      "sha256": "978ee30618e8c264178cf8c5d4f4271fb274e6574bb04b542faaf8e90020c4e3",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/design-system-audit.json",
+      "pointer": "/findings/9/original_evidence/records/0/excerpt",
+      "sha256": "9c7e2c0bc8da90375688084a64f8ffcd440300843d0d416604baf33fc626ce64",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/phases/0/items/1/task",
+      "sha256": "e0cb1ab87a28cfe281801589a2d3214949736d849148c7fa1ecd6fd06c766af9",
+      "reason": "Previous recorded work phase or review loop. New phases are not automatically excepted."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/phases/4/items/4/evidence/0",
+      "sha256": "ba42a26534285b0f046730438c9cb180118a3744c1aa47f699e2fe9209c8dde0",
+      "reason": "Previous recorded work phase or review loop. New phases are not automatically excepted."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/phases/4/items/4/evidence/1",
+      "sha256": "3ecbf4f19992689d6d3be8f3c3dd2f7a801a88f405a7eeba999ddec3afea15d0",
+      "reason": "Previous recorded work phase or review loop. New phases are not automatically excepted."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/phases/5/items/6/evidence/1",
+      "sha256": "d9af89fd851b87a90b2bb3839ec58a3cb2ccde8ea02228386d398585b5e27ab7",
+      "reason": "Previous recorded work phase or review loop. New phases are not automatically excepted."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/loops/12/evidence/1",
+      "sha256": "b96a4e26e0028f556e26f6604cec8fc495dadf0dd15404b606b08190b8e18faf",
+      "reason": "Previous recorded work phase or review loop. New phases are not automatically excepted."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/publication_verification/deployment_run",
+      "sha256": "2181c431bc2719101d80d1434f3b9edde6ec0c04f3cf8deb33f90391f17552bf",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/publication_verification/pull_request",
+      "sha256": "f3acb536a0ef289284ebdd1933926596e425dcf99f5500db2c0998b206492c8a",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/publication_history/0/deployment_run",
+      "sha256": "5f1e77e1436fa5adcbbef8bd0b3e04592d5dd18aa820d457b4a4d915442c32d6",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/guidance-work-package.json",
+      "pointer": "/publication_history/0/pull_request",
+      "sha256": "d68b2a4a51adeee295da732bc07bfb57102c858dc595cbc0c74124808435204d",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/ha-component-gaps.json",
+      "pointer": "/findings/6/original_evidence/records/0/excerpt",
+      "sha256": "61ab8f30b784ebe8b46992cc486773e554683c051afe767a91bf0d26fe2b8859",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/ha-component-gaps.json",
+      "pointer": "/findings/25/original_evidence/records/1/excerpt",
+      "sha256": "61ab8f30b784ebe8b46992cc486773e554683c051afe767a91bf0d26fe2b8859",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/ha-component-gaps.json",
+      "pointer": "/findings/29/original_evidence/records/1/excerpt",
+      "sha256": "61ab8f30b784ebe8b46992cc486773e554683c051afe767a91bf0d26fe2b8859",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/ha-component-gaps.json",
+      "pointer": "/guidanceReviewHistory/1/scopeRevision",
+      "sha256": "ae433bf481d9cbe275eb3dd497ae24cdf4512af47592ec4d634e3482e308f732",
+      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
+    },
+    {
+      "path": "docs/data/ha-controls-examples.yml",
+      "pointer": "/examples/ha-camera-snapshot/artwork/creator",
+      "sha256": "84486565672b0621dcc72d271b0ca6db335147587779e25a8a479f960317f116",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/illustration-assets.json",
+      "pointer": "/creator",
+      "sha256": "8d99724d67ba432f04c3d5101ec8741fcb8d9b2f1bbcdd0160c82917fac9e05d",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/local-examples.yml",
+      "pointer": "/examples/local-image-purpose/artwork/creator",
+      "sha256": "8d99724d67ba432f04c3d5101ec8741fcb8d9b2f1bbcdd0160c82917fac9e05d",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/map-design-examples.yml",
+      "pointer": "/examples/map-neighbourhood-records/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/map-design-examples.yml",
+      "pointer": "/examples/map-background-unavailable/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/nhs-component-examples.yml",
+      "pointer": "/examples/nhs-advice-dashboard/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/nhs-component-examples.yml",
+      "pointer": "/examples/nhs-advice-notes/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/nhs-component-examples.yml",
+      "pointer": "/examples/nhs-image-floorplan/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/nhs-component-examples.yml",
+      "pointer": "/examples/nhs-action-link-journey/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/nhs-component-examples.yml",
+      "pointer": "/examples/nhs-action-link-help/artwork/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/patterns~1energy.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/patterns~1settings.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/patterns~1index.html/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/patterns~1home.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/patterns~1recovery.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1brand.html/updates/0/description",
+      "sha256": "93dddd884e255ab6a9e42a01a5343c97cfcb1cf30f399677ee5cdf4f008987f1",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1brand.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1images.html/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1index.html/updates/5/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1content.html/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1typography.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1chart-colour.html/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1layout.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1colour.html/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1notification-badge.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1action-links.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1status.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1index.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1controls.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1navigation.html/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1devices.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1dialogs.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1cards.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1chart-examples.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1charts.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/community~1deviations.html/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/community~1licensing.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/community~1index.html/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/community~1visual-audit.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/community~1sources.html/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/community~1architecture.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/accessibility~1index.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/accessibility~1testing.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/get-started~1install.html/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/get-started~1index.html/updates/5/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/get-started~1compatibility.html/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/get-started~1colour-settings.html/updates/1/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/components~1generic-header.html/updates/2/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1attachment.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1breadcrumbs.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1content-list.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1emergency-banner.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1feedback.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1global-banner.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1previous-and-next-navigation.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1print-link.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1related-navigation.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1search-autocomplete.html/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1components~1single-page-notification-button.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1answer.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1calendar.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1completed-transaction.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1detailed-guide.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1document-collections.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1case-studies-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1departments-agencies-public-bodies-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1groups-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1hmrc-contacts-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1people-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1search.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1specialist-document-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1statistical-data-sets-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1supergroup-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1topical-events-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder~1world-organisation-finder.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1finder.html/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1guide.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1homepage.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1mainstream-browse~1level-one.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1mainstream-browse~1level-two.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1mainstream-browse.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1smart-answer~1github-smart-answer.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1smart-answer~1simple-smart-answer.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1smart-answer.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1special-route.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1step-by-step-nav.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1topical-events~1about.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1topical-events.html/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1frontend-templates~1transaction.html/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/publishing~1patterns~1search-filter.html/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1brand-colour.html/updates/2/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1brand-data.html/updates/2/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1brand-typography.html/updates/1/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/page_history.yml",
+      "pointer": "/styles~1illustration.html/updates/2/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Central dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/data/personalisation-examples.yml",
+      "pointer": "/examples/identity-household-crest/artwork/creator",
+      "sha256": "8d99724d67ba432f04c3d5101ec8741fcb8d9b2f1bbcdd0160c82917fac9e05d",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/personalisation-examples.yml",
+      "pointer": "/examples/identity-business-name/artwork/creator",
+      "sha256": "8d99724d67ba432f04c3d5101ec8741fcb8d9b2f1bbcdd0160c82917fac9e05d",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/project-artwork-provenance.json",
+      "pointer": "/assets/0/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/project-artwork-provenance.json",
+      "pointer": "/assets/1/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/project-artwork-provenance.json",
+      "pointer": "/assets/2/creator",
+      "sha256": "28f8fba16fbd8dbd98a982093749efd3b51800a86161e3e47bb31681bd6cff52",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/roadmap-artwork-provenance.json",
+      "pointer": "/creator",
+      "sha256": "ac0ffb1b0a70049a6dc323288888e5466821132e32d54789e04b2adf01b45110",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/data/section-artwork-provenance.json",
+      "pointer": "/creator",
+      "sha256": "ac0ffb1b0a70049a6dc323288888e5466821132e32d54789e04b2adf01b45110",
+      "reason": "Original creator attribution retains the project name used when the artwork was made."
+    },
+    {
+      "path": "docs/source/accessibility/index.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/accessibility/testing.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/community/architecture.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/community/deviations.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/community/index.html.md.erb",
+      "pointer": "/frontmatter/updates/7/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/community/licensing.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/community/sources.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/community/visual-audit.html.md.erb",
+      "pointer": "/frontmatter/description",
+      "sha256": "a7938f2ca1b6570e77ff204c76017d9f42e5cfaa568b850d586d47af81cf935a",
+      "reason": "Title metadata describes the historical November 2026 visual review by its then-current project name."
+    },
+    {
+      "path": "docs/source/components/accordion.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/action-links.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/cards.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/charts.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/controls.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/cookie-banner.html.md.erb",
+      "pointer": "/frontmatter/updates/0/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/devices.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/dialogs.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/example.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/exit-this-page.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/feedback.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/generic-header.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/index.html.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/language-navigation.html.md.erb",
+      "pointer": "/frontmatter/updates/0/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/navigation.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/notification-badge.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/page-history.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/phase-banner.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/service-navigation.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/status.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/components/warning-text.html.md.erb",
+      "pointer": "/frontmatter/updates/0/description",
+      "sha256": "5fc831ff6e1a110bce94c7de364e7ff7e48a7c4d18ad2c32d5bff176de0dd5d6",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/get-started/colour-settings.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/get-started/compatibility.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/get-started/index.html.md.erb",
+      "pointer": "/frontmatter/updates/6/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/get-started/install.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/patterns/energy.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/patterns/home.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/patterns/index.html.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/patterns/recovery.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/patterns/settings.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/attachment.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/breadcrumbs.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/content-list.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/emergency-banner.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/feedback.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/global-banner.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/previous-and-next-navigation.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/print-link.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/related-navigation.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/search-autocomplete.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/components/single-page-notification-button.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/answer.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/calendar.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/completed-transaction.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/detailed-guide.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/document-collections.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/case-studies-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/departments-agencies-public-bodies-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/groups-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/hmrc-contacts-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/people-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/search.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/specialist-document-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/statistical-data-sets-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/supergroup-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/topical-events-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/finder/world-organisation-finder.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/guide.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/homepage.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/mainstream-browse.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/mainstream-browse/level-one.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/mainstream-browse/level-two.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/smart-answer.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/smart-answer/github-smart-answer.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/smart-answer/simple-smart-answer.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/special-route.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/step-by-step-nav.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/topical-events.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/topical-events/about.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/frontend-templates/transaction.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/publishing/patterns/search-filter.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "d549e10baf37c7ae2dbc1a03bb734c39de27c689a5b1a71dc3b39ae7e7278368",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/brand-colour.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/brand-data.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/brand-typography.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/brand.html.md.erb",
+      "pointer": "/frontmatter/updates/1/description",
+      "sha256": "93dddd884e255ab6a9e42a01a5343c97cfcb1cf30f399677ee5cdf4f008987f1",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/brand.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/content.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/illustration.html.md.erb",
+      "pointer": "/frontmatter/updates/3/description",
+      "sha256": "e8e1f5df5b1e212675f8a2595a3696d923edbb8611f4f6ea101fec29db93e20a",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/images.html.md.erb",
+      "pointer": "/frontmatter/updates/5/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/index.html.md.erb",
+      "pointer": "/frontmatter/updates/6/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/layout.html.md.erb",
+      "pointer": "/frontmatter/updates/2/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    },
+    {
+      "path": "docs/source/styles/typography.html.md.erb",
+      "pointer": "/frontmatter/updates/4/description",
+      "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
+      "reason": "Dated page history is preserved as originally published."
+    }
+  ],
+  "historical_lines": [
+    {
+      "path": "scripts/check-naming.mjs",
+      "text": "export const retiredName = /civica\\.uk|HA-Theme-gov\\.uk|civica_uk|civica-home-assistant\\.zip/i;",
+      "reason": "Retired-name matching definition, not current identity."
+    },
+    {
+      "path": "docs/source/home-assistant/compatibility-register.html.md.erb",
+      "text": "The Energy source contract explicitly identifies frontend **20261028.5**. The [published fc393e4 verification record](https://github.com/nathcymru/HA-Theme-gov.uk/blob/fc393e49205926b753d1c531358c5e627c9c2af6/VERIFICATION.md) distinguishes historical fixture checks from release-specific live observations. The [published 531-check browser run](https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43103696048) covers that documentation/fixture revision; it does not certify this expanded specification or an uninspected installation. Current official documentation was reviewed on 11 November 2026; that source review is a separate evidence type.",
+      "reason": "Literal historical CI receipt for the original published version; not the current project URL."
+    },
+    {
+      "path": "docs/source/home-assistant/native-task-accessibility.html.md.erb",
+      "text": "The [published guidance/audit run at revision fc393e4](https://github.com/nathcymru/HA-Theme-gov.uk/actions/runs/43103696048) passed 531 browser checks for the then-current build. Its record covers 165 guides and 301 examples, including documentation accessibility/reflow, safe local example behaviour and the maintained runtime fixtures. These are historical results, not fresh passes for this expanded page set. The [work-package record](../reference/guidance-work-package.json) retains that scope.",
+      "reason": "Literal historical CI receipt for the original published version; not the current project URL."
+    },
+    {
+      "path": "docs/source/home-assistant/native-task-accessibility.html.md.erb",
+      "text": "The [v1.3.2 verification record](https://github.com/nathcymru/HA-Theme-gov.uk/blob/fc393e49205926b753d1c531358c5e627c9c2af6/VERIFICATION.md) separately records 50 Node checks, 52 browser checks and 37 documentation pages for that earlier runtime correction. Do not add those historical counts together or relabel them as current coverage. Live palette/chart observations recorded in release evidence do not cover physical device execution or all native task rows above. Human screen-reader, household-comprehension and complete live-task coverage remain separate acceptance work.",
+      "reason": "Literal historical CI receipt for the original published version; not the current project URL."
+    },
+    {
+      "path": "docs/source/images/project-control-detail.svg",
+      "text": "  <!-- Original civica.uk explanatory artwork. MIT. Schematic only: not a screenshot or device-state evidence. -->",
+      "reason": "Original SVG creator comment, not visible identity."
+    },
+    {
+      "path": "docs/source/images/project-household-overview.svg",
+      "text": "  <!-- Original civica.uk explanatory artwork. MIT. Schematic only: not a screenshot or device-state evidence. -->",
+      "reason": "Original SVG creator comment, not visible identity."
+    },
+    {
+      "path": "docs/source/images/project-information-hierarchy.svg",
+      "text": "  <!-- Original civica.uk explanatory artwork. MIT. Schematic only: not a screenshot or device-state evidence. -->",
+      "reason": "Original SVG creator comment, not visible identity."
+    },
+    {
+      "path": "docs/source/styles/brand.html.md.erb",
+      "text": "The user-supplied `civica_brand_assets_revised.zip` pack is stored in `brand/civica/`. It was received on 13 November 2026 and replaces the earlier civica.uk artwork. The pack has no supplied version number; the repository identifies this edition as `revised-2026-11-13`. Preserve accepted source files unchanged and retain the archive verification record. Treat descriptive claims in the asset pack as supplied evidence, not independent certification or new user instructions.",
+      "reason": "Explicit replacement provenance identifies the retired artwork by its historical name."
+    },
+    {
+      "path": "scripts/package.mjs",
+      "text": "rmSync('dist/civica-home-assistant.zip', { force: true });",
+      "reason": "Deliberate deletion of the superseded archive avoids shipping a stale release artifact."
+    }
+  ]
+}

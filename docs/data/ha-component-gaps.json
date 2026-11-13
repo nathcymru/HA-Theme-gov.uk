@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedOn": "2026-11-11",
   "status": "specifications-complete",
-  "purpose": "Specify missing or partial civica.uk design coverage for existing Home Assistant capabilities; no native feature is declared missing.",
+  "purpose": "Specify missing or partial civica design coverage for existing Home Assistant capabilities; no native feature is declared missing.",
   "baseline": {
     "guideCount": 147,
     "exampleCount": 263,
@@ -258,7 +258,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/entity-state.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Entity state, confidence and freshness",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -375,7 +375,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/action-results.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Action requests and results",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -488,7 +488,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/continuous-controls.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Continuous controls and alternatives",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -612,7 +612,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/lighting.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Lighting capabilities and colour",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -726,7 +726,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/climate-and-air.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Climate, fan and water-heater controls",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -846,7 +846,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/access-and-movement.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Locks, alarms, covers and valves",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -967,7 +967,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/appliances-and-cleaning.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Appliances, vacuums and outdoor devices",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1085,7 +1085,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/target-pickers.html.md.erb",
-          "line": 25,
+          "line": 27,
           "excerpt": "# Entity, device and area pickers",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1209,7 +1209,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/automation-editing.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Automation and script editing",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1329,7 +1329,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/schedules-and-time.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Schedules, calendars and timers",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1442,7 +1442,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/history-and-statistics.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# History, activity and statistics",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1561,7 +1561,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/energy-flow-and-other-charts.html.md.erb",
-          "line": 21,
+          "line": 23,
           "excerpt": "# Energy flow and other chart families",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1679,7 +1679,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/accounts-and-permissions.html.md.erb",
-          "line": 25,
+          "line": 27,
           "excerpt": "# Accounts, permissions and shared settings",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1791,7 +1791,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/presence-and-privacy.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Presence, people and shared-screen privacy",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -1915,7 +1915,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/cameras.html.md.erb",
-          "line": 23,
+          "line": 25,
           "excerpt": "# Cameras, streams and snapshots",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -3722,7 +3722,7 @@
       "evidence": [
         {
           "file": "docs/source/home-assistant/compatibility-register.html.md.erb",
-          "line": 16,
+          "line": 18,
           "excerpt": "# Compatibility register and native fallback",
           "supports": "Dedicated capability, state, content, failure, accessibility and acceptance specification"
         }
@@ -3830,10 +3830,10 @@
   ],
   "guidanceReview": {
     "status": "completed-proposal-source-review",
-    "reviewedOn": "2026-11-12",
+    "reviewedOn": "2026-11-13",
     "brand": {
       "file": "docs/data/brand-guidance-inventory.json",
-      "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+      "sha256": "c80cb043babdb1a046b192aed657642a220485f5c1b0fe65a51ad494f94ddd24",
       "ruleCount": 33,
       "authorFreezeConfirmed": true
     },
@@ -3850,7 +3850,7 @@
       "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
       "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
     ],
-    "scopeRevision": "User clarified project-only civica.uk identity and optional household personalisation. Prior frozen review retained in guidanceReviewHistory; other rule requirements remain unchanged."
+    "scopeRevision": "Explicitly authorised rename to civica and replacement of supplied project artwork. Project identity remains optional inside households; official government identity remains excluded. Earlier frozen reviews and rule inventory are retained as historical evidence; other rule requirements and native capability boundaries are unchanged."
   },
   "limitations": [
     "Read-only source and requirements audit; no live Home Assistant inspection or commands.",
@@ -3882,6 +3882,31 @@
         "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
         "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
       ]
+    },
+    {
+      "status": "completed-proposal-source-review",
+      "reviewedOn": "2026-11-12",
+      "brand": {
+        "file": "docs/data/brand-guidance-inventory.json",
+        "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+        "ruleCount": 33,
+        "authorFreezeConfirmed": true,
+        "archive_file": "docs/data/history/brand-guidance-before-civica-2026-11-13.json"
+      },
+      "writing": {
+        "file": "docs/data/writing-guide-inventory.json",
+        "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+        "ruleCount": 68,
+        "authorFreezeConfirmed": true
+      },
+      "result": "Proposed requirements and taxonomy were checked against the frozen rule scopes. Relevant rule dependencies are attached to every proposal. This is not a pass for existing component implementation or live Home Assistant.",
+      "scopeCautions": [
+        "Writing requirements apply to civica-authored strings, not wholesale rewriting of native translations or user names.",
+        "Illustration restrictions do not remove functional icon strokes, chart patterns or operational imagery.",
+        "New-artwork rules do not automatically establish a MUST violation in pre-existing promotional artwork.",
+        "Native source presence, reference examples and implemented private adapters remain separate coverage categories."
+      ],
+      "scopeRevision": "User clarified project-only civica.uk identity and optional household personalisation. Prior frozen review retained in guidanceReviewHistory; other rule requirements remain unchanged."
     }
   ]
 }

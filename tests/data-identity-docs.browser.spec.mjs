@@ -165,7 +165,7 @@ test('optional household identity keeps its text and real home link without requ
   const guide = page.locator('main');
   await expect(guide).toContainText('not new theme settings');
   await expect(guide).toContainText('has not been implemented');
-  await expect(guide).toContainText('current companion still inserts civica.uk artwork');
+  await expect(guide).toContainText('current companion still inserts civica artwork');
   expect(Object.keys(identities)).toHaveLength(3);
   for (const id of Object.keys(identities)) {
     await page.goto(exampleUrl(id));

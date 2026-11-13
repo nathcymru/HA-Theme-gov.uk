@@ -1,6 +1,6 @@
 ---
 title: Colour
-description: Ten civica.uk palettes, Vivid and Muted variants, and independent semantic colours.
+description: Ten civica palettes, Vivid and Muted variants, and independent semantic colours.
 last_reviewed_on: 2026-11-12
 review_in: 3 months
 ---
@@ -64,7 +64,7 @@ This demonstration changes only the example. To change Home Assistant, use [the 
 <p role="status">Civic Cobalt, Vivid preview. These choices affect this example only.</p>
 </div>
 
-The preview changes interface colours without changing the household name or the meaning of any state. Follow [personalisation](../get-started/personalisation.html) for optional names, crests and logos. The separate [project artwork manifest](../reference/brand-assets.json) records supplied civica.uk assets for documentation and promotion.
+The preview changes interface colours without changing the household name or the meaning of any state. Follow [personalisation](../get-started/personalisation.html) for optional names, crests and logos. The separate [project artwork manifest](../reference/brand-assets.json) records supplied civica assets for documentation and promotion.
 
 ## Light and dark modes
 
@@ -191,6 +191,6 @@ RGB and RGBA values refer to screen colours. Print and paint references are supp
 
 Edit the canonical JSON, then run `node scripts/generate-themes.mjs` and `python3 docs/scripts/sync-palettes.py` from the repository root. Commit the generated YAML, theme JSON and this colour reference together. Use `--check` on both generators to detect drift.
 
-The native theme name is `civica {palette name} {Vivid|Muted}`. The `govuk` entry is a compatibility alias for Civic Cobalt Vivid. Existing companion identity behaviour is described in [Compatibility](../get-started/compatibility.html#household-identity-transition); this colour reference does not require a project logo inside a household interface.
+The default theme name is `civica`, using Civic Cobalt Vivid. The 20 named palette variants use `civica {palette name} {Vivid|Muted}`. The `govuk` entry is a compatibility alias for Civic Cobalt Vivid. Existing companion identity behaviour is described in [Compatibility](../get-started/compatibility.html#household-identity-transition); this colour reference does not require a project logo inside a household interface.
 
-The semantic role approach follows [GOV.UK colour guidance](https://design-system.service.gov.uk/styles/colour/). The ten named palettes and theme toggle are local civica.uk decisions.
+The semantic role approach follows [GOV.UK colour guidance](https://design-system.service.gov.uk/styles/colour/). The ten named palettes and theme toggle are local civica decisions.

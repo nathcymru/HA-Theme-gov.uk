@@ -3,12 +3,19 @@ import type { CivicaThemeSettings, ThemeHass } from './theme-settings';
 import { badgeStyles, updateBadges } from './sidebar-badges';
 import { LEGACY_CARD_STYLES } from './legacy-card-styles';
 import { updateEnergyCharts } from './energy-charts';
+import { version } from '../../package.json';
 
 // The theme tokens are the supported foundation. This small optional adapter
 // is limited to known HA elements, native Energy chart presentation and three
 // documented project cards. It does not patch Lit, attachShadow, routing,
 // native controls, statistics, Map or device services.
 const assetBase = new URL('./brand/', import.meta.url);
+function assetUrl(path: string) {
+  const url = new URL(path, assetBase);
+  // Local Home Assistant assets may be cached across companion upgrades.
+  url.searchParams.set('v', version);
+  return url.href;
+}
 type App = HTMLElement & { hass?: ThemeHass };
 const originalTitles = new Map<HTMLElement, Node[]>();
 const originalIcons = new Map<HTMLLinkElement, Record<string, string | null>>();
@@ -61,7 +68,7 @@ function updateBrand(app: App, targets: HTMLElement[]) {
   }
   // Artwork is supplied for palette/tone, not display mode. The masthead keeps
   // its exact primary colour in light and dark mode, so the same original file
-  // works in both. Never recolour the supplied separator dot with CSS filters.
+  // works in both. Never recolour the supplied house and wordmark with CSS filters.
   const variantPath = `themes/${variant!.palette.id}/${variant!.muted ? 'muted' : 'vivid'}/`;
   // Native icon buttons wrap Web Awesome plain/neutral buttons. Override both
   // neutral foreground roles at the icon boundary, not across a whole toolbar:
@@ -93,11 +100,11 @@ function updateBrand(app: App, targets: HTMLElement[]) {
     let logo = title.querySelector<HTMLImageElement>('img[data-civica-logo]');
     if (!logo) {
       if (!originalTitles.has(title)) originalTitles.set(title, Array.from(title.childNodes));
-      logo = document.createElement('img'); logo.dataset.civicaLogo = ''; logo.alt = 'civica.uk';
+      logo = document.createElement('img'); logo.dataset.civicaLogo = ''; logo.alt = 'civica';
       logo.style.cssText = 'display:block;width:100%;max-width:176px;height:auto;box-sizing:border-box;padding:5px 8px;';
       title.replaceChildren(logo);
     }
-    const logoUrl = new URL(`${variantPath}lockup-on-primary.svg`, assetBase).href;
+    const logoUrl = assetUrl(`${variantPath}lockup-on-primary.svg`);
     if (logo.src !== logoUrl) logo.src = logoUrl;
   }
   const icons = document.querySelectorAll<HTMLLinkElement>('link[rel="icon"],link[rel="shortcut icon"],link[rel="apple-touch-icon"]');
@@ -106,7 +113,7 @@ function updateBrand(app: App, targets: HTMLElement[]) {
     if (!originalIcons.has(icon) && icon !== ownIcon) originalIcons.set(icon, Object.fromEntries(['href', 'type', 'sizes'].map(name => [name, icon.getAttribute(name)])));
     const touchIcon = icon.rel === 'apple-touch-icon';
     const target = `${variantPath}app-icon.${touchIcon ? 'png' : 'svg'}`;
-    const href = new URL(target, assetBase).href;
+    const href = assetUrl(target);
     if (icon.href !== href) icon.href = href;
     icon.type = touchIcon ? 'image/png' : 'image/svg+xml';
     icon.sizes.value = touchIcon ? '512x512' : 'any';

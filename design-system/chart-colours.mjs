@@ -1,6 +1,6 @@
 import specification from './chart-colours.json' with { type: 'json' };
 
-// Original civica.uk identity algorithm. Oklab conversion follows CSS Color 4;
+// Original civica identity algorithm. Oklab conversion follows CSS Color 4;
 // the palette policy, stable hashes and tone ranges are specified in the JSON.
 const freeze = (value) => {
   if (value && typeof value === 'object') {

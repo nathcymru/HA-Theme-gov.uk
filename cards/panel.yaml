@@ -1,4 +1,4 @@
-# civica.uk confirmation panel. Requires card-mod and cards/helpers.yaml.
+# civica confirmation panel. Requires card-mod and cards/helpers.yaml.
 # Set this helper only after a real action succeeds, and reset it before retrying.
 # Replace the example message with the actual completed action. Never invent a reference.
 type: conditional

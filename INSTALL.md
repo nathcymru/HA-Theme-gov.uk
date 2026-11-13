@@ -1,4 +1,4 @@
-# Install civica.uk for Home Assistant
+# Install civica for Home Assistant
 
 This package contains themes, the optional colour controls and branding companion, the lighting card, its assets and lighting setup files. It does not change your Home Assistant configuration automatically.
 
@@ -10,7 +10,7 @@ This package contains themes, the optional colour controls and branding companio
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.3.3
+    - /local/civica/civica-ui.js?v=1.4.0
 ```
 
 4. Restart Home Assistant, then reload your browser. Choose a civica theme in **Profile → Theme**. Choose a palette and toggle **Use muted colours**. Your Light/Dark/Auto setting is separate. The native theme dropdown also works without the companion.
@@ -18,11 +18,19 @@ frontend:
 
 The companion clears native primary/accent colour overrides when you select a palette, so they cannot mask part of the theme. Home Assistant saves the preference and reports failures. Colours are unavailable in safe/recovery mode. Switching to a non-civica theme restores the sidebar and browser icon changes.
 
+## Renamed project and existing installations
+
+In HACS, use **Update information** on the existing repository entry and check that it now points to `nathcymru/civica`. Keep its existing theme folder and YAML filenames; do not install a second copy. The default theme is **civica** (Civic Cobalt Vivid). Existing named palette selections and the optional `govuk` alias still work.
+
+When upgrading the optional companion, back up and replace its owned `config/www/civica/brand/` folder with the new package’s `www/civica/brand/` folder. Replacing this folder removes obsolete logos that a merge would leave behind. Keep unrelated files.
+
+The new lighting resource is `civica-house-lighting-card.js`. The package retains `govuk-house-lighting-card.js` as a compatibility import alongside it. Keep both files together when upgrading an existing resource path. Register only one lighting resource.
+
 ## Optional lighting card
 
 Follow `lighting/README.md` to configure rooms, light groups and the required automation package before using the lighting card. The included sample room configuration is installation-specific: review it for your home. Do not install `lighting/ha/front_door.yaml` just to use this theme; it is an existing example of a separate automation.
 
-Add `/local/civica/card/dist/govuk-house-lighting-card.js?v=1.3.3` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. Existing `custom:govuk-house-lighting-card` dashboards remain compatible.
+Add `/local/civica/card/dist/civica-house-lighting-card.js?v=1.4.0` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. Existing `custom:govuk-house-lighting-card` dashboards remain compatible.
 
 The companion also applies the ONS-based chart specification to supported graphs in the native Energy panel. YAML themes alone cannot change chart options or add the View data table. Update both the companion and the HACS-owned theme files. The theme supplies Vivid/Muted chart tokens; the companion supplies opaque fills, individual power lines, native chart styling and data tables. Keep the companion resource version aligned with this release and reload the browser after upgrading. It preserves the native Energy data and controls; History and arbitrary custom charts are outside this adapter's scope. See `docs/source/components/charts.html.md.erb` for the exact support boundary.
 
@@ -40,8 +48,8 @@ To remove the theme, choose Home Assistant's default theme, remove the companion
 
 The package includes `docs/source/` Markdown, machine-readable data in `design-system/`, and a built documentation site in `docs/build/` when built during packaging. Read `docs/README.md` or the source repository:
 
-https://github.com/nathcymru/HA-Theme-gov.uk
+https://github.com/nathcymru/civica
 
 The repository was checked with automated and browser fixtures. A live deployment still needs the acceptance checks in `docs/source/accessibility/`. The theme cannot replace native Energy, Map, authentication, native app branding or arbitrary third-party component internals.
 
-See `LICENSE` for software terms and `ARTWORK.md` for supplied artwork provenance. civica.uk is an independent project, not a government service.
+See `LICENSE` for software terms and `ARTWORK.md` for supplied artwork provenance. civica is an independent project, not a government service.

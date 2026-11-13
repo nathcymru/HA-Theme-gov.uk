@@ -286,7 +286,7 @@
   ],
   "verification": {
     "reviewed_on": "2026-11-12",
-    "source_checks": "Passed for all ten recomposed headers: XML,640\u00d7480 viewBox, names, unchanged original object geometry, five-colour family, no added labels/scripts/embedded images/ornamental strokes. All three homepage category files remain byte-identical to the prior published revision.",
+    "source_checks": "Passed for all ten recomposed headers: XML,640×480 viewBox, names, unchanged original object geometry, five-colour family, no added labels/scripts/embedded images/ornamental strokes. All three homepage category files remain byte-identical to the prior published revision.",
     "render_checks": "Rendered each revised header at 640px and 320px. All 20 cases have no document overflow; transformed object bounds stay within the complete viewBox. Visually inspected both contact sheets and the refined Data/Accessibility mobile proofs.",
     "context_checks": "Visually inspected dark-surround, grayscale and images-omitted proof sheets. The opaque pale canvas and object relationships remain intact, with each topic and purpose retained as HTML.",
     "browser": "153.0.8010.12",
@@ -366,5 +366,10 @@
       "/tmp/civica-hero-artwork-proof/official-illustration.png"
     ],
     "artwork_boundary": "No official illustration paths, marks or palette are reused."
+  },
+  "project_identity": {
+    "name": "civica",
+    "updated_on": "2026-11-13",
+    "provenance_note": "Creator credits retain the project name used when these original illustrations were made. They are historical attribution, not the current displayed identity. This naming update does not alter the artwork geometry or its original file hashes."
   }
 }

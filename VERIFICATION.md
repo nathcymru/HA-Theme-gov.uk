@@ -1,4 +1,12 @@
-# Verification — 11 November 2026
+# Verification
+
+## v1.4.0 — civica rename and revised artwork (13 November 2026)
+
+The current product, repository links, documentation and installation package use **civica**. The revised supplied artwork replaces the previous logos. The accepted inventory contains 224 unchanged supplied files, including 218 valid images and all 20 palette variants. One empty WebP is excluded and the supplied metadata discrepancies are recorded in `brand/civica/docs/accepted-assets.json`.
+
+The default `civica` theme is Civic Cobalt Vivid. All 20 named palette variants, the optional `govuk` theme alias and existing automation/entity identifiers remain compatible. The new lighting module is `civica-house-lighting-card.js`; the previous filename imports that same module. The companion versions its logo and icon URLs to avoid showing cached artwork after an upgrade.
+
+Build, type checking and 84 unit tests pass locally. The mandatory publication workflow additionally checks source inventories, documentation links, artwork hashes, Home Assistant templates and the complete browser suite before deploying Pages. CI results and release receipts are recorded on the release pull request. Historical results below describe their original releases and are not current certification or live Home Assistant deployment claims.
 
 ## v1.3.3 documentation and lighting request remediation
 

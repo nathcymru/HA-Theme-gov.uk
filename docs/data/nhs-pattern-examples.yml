@@ -401,7 +401,7 @@ examples:
       <span class="govuk-details__summary-text">Read the example written guide</span>
       </summary>
       <div class="govuk-details__text">
-      <p class="govuk-body">Open civica.uk colours in your profile or the settings card. Choose a Colour palette and use the Use muted colours switch. Each selection applies through Home Assistant’s native theme flow; there is no separate Preview or Save button. The change affects the interface, not devices.</p>
+      <p class="govuk-body">Open civica colours in your profile or the settings card. Choose a Colour palette and use the Use muted colours switch. Each selection applies through Home Assistant’s native theme flow; there is no separate Preview or Save button. The change affects the interface, not devices.</p>
       </div>
       </details>
       <p class="govuk-body">Publish a BSL link only after a real translation and its player have been checked with BSL users.</p>

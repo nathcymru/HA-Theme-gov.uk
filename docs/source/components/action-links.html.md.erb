@@ -4,8 +4,10 @@ description: Clear navigation to Home Assistant pages and existing dashboard pop
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 published_on: 2026-11-11
-updated_on: 2026-11-11
+updated_on: "2026-11-13"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: 2026-11-11
     description: Aligned the second navigation example with actual display-colour help and recorded original icon provenance.
   - date: 2026-11-11
@@ -32,7 +34,7 @@ These isolated examples illustrate the decisions on this page. Any household val
 
 ## Add links
 
-Install the [civica.uk companion module](../get-started/install.html) from version 1.1.0. The action-link component is included in the same `civica-ui.js` file as the colour settings. Add a manual card:
+Install the [civica companion module](../get-started/install.html) from version 1.1.0. The action-link component is included in the same `civica-ui.js` file as the colour settings. Add a manual card:
 
 ```yaml
 type: custom:civica-action-links
@@ -67,13 +69,13 @@ Visited and unvisited links have the same appearance because dashboard content c
 
 ## Source and verification
 
-The [GOV.UK publishing action-link pattern](https://components.publishing.service.gov.uk/component-guide/action_link) and [GOV.UK link guidance](https://design-system.service.gov.uk/styles/links/) inform the hierarchy and interaction. This is a local implementation with an original simple arrow, not copied GOV.UK artwork. It uses civica.uk typography and palette tokens.
+The [GOV.UK publishing action-link pattern](https://components.publishing.service.gov.uk/component-guide/action_link) and [GOV.UK link guidance](https://design-system.service.gov.uk/styles/links/) inform the hierarchy and interaction. This is a local implementation with an original simple arrow, not copied GOV.UK artwork. It uses civica typography and palette tokens.
 
-Browser tests cover accessible names, keyboard focus, native navigation and history, invalid destinations, safe text rendering, 320px reflow, forced colours, and link/arrow contrast across all 20 palettes in both modes. Check the actual destination and any existing pop-up in the live Home Assistant dashboard before release.
+Browser tests cover accessible names, keyboard focus, native navigation and history, invalid destinations, safe text rendering, 320px reflow, forced colours, and link/arrow contrast for the default theme and 20 named palette variants in both modes. Check the actual destination and any existing pop-up in the live Home Assistant dashboard before release.
 
 ## NHS action-link adaptation
 
-The [NHS action link](https://service-manual.nhs.uk/design-system/components/action-link) emphasises entry to a service journey. civica.uk also uses this treatment for a small number of frequently used dashboard destinations. That is a deliberate local extension: a link still navigates and never sends a device command. The examples distinguish a task entry from a help destination.
+The [NHS action link](https://service-manual.nhs.uk/design-system/components/action-link) emphasises entry to a service journey. civica also uses this treatment for a small number of frequently used dashboard destinations. That is a deliberate local extension: a link still navigates and never sends a device command. The examples distinguish a task entry from a help destination.
 
 ## Example artwork record
 

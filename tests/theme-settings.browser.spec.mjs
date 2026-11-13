@@ -61,7 +61,7 @@ test('profile adapter mounts once, preserves native controls and restores brandi
   const profile = page.locator('ha-pick-theme-row');
   await expect(profile.locator('civica-theme-settings')).toHaveCount(1);
   await expect(profile.locator('ha-theme-settings')).toHaveCount(1);
-  await expect(page.locator('ha-sidebar img')).toHaveAttribute('alt', 'civica.uk');
+  await expect(page.locator('ha-sidebar img')).toHaveAttribute('alt', 'civica');
   // Resource cache-busting can accidentally load a second URL in a session.
   await page.evaluate(async () => { await import('/ui/dist/civica-ui.js?duplicate-resource'); });
   await page.evaluate(() => window.dispatchEvent(new Event('location-changed')));
@@ -146,13 +146,13 @@ test('supplied v3.2 logos and app icons follow every palette and tone in both di
       for (const muted of [false, true]) {
         await page.getByRole('switch').setChecked(muted);
         const stem = `/ui/dist/brand/themes/${palette.id}/${muted ? 'muted' : 'vivid'}/`;
-        await expect(logo).toHaveAttribute('src', new RegExp(`${stem}lockup-on-primary\\.svg$`));
+        await expect(logo).toHaveAttribute('src', new RegExp(`${stem}lockup-on-primary\\.svg\\?v=1\\.4\\.0$`));
         await expect(logo).toHaveAttribute('data-identity', 'preserve-this-node');
         await expect.poll(() => logo.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
-        await expect(favicon).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.svg$`));
+        await expect(favicon).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.svg\\?v=1\\.4\\.0$`));
         await expect(favicon).toHaveAttribute('type', 'image/svg+xml');
         await expect(favicon).toHaveAttribute('sizes', 'any');
-        await expect(touch).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.png$`));
+        await expect(touch).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.png\\?v=1\\.4\\.0$`));
         await expect(touch).toHaveAttribute('type', 'image/png');
         await expect(touch).toHaveAttribute('sizes', '512x512');
       }
@@ -176,7 +176,7 @@ test('legacy alias uses Cobalt Vivid artwork and unknown civica names do not rep
     app.hass.themes.theme = app.hass.selectedTheme.theme = 'govuk';
     window.dispatchEvent(new Event('settheme'));
   });
-  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg$/);
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg\?v=1\.4\.0$/);
   await page.evaluate(() => {
     const { app } = window.fixture;
     app.hass.themes.themes['civica unrelated custom theme'] = {};
@@ -184,6 +184,19 @@ test('legacy alias uses Cobalt Vivid artwork and unknown civica names do not rep
     window.dispatchEvent(new Event('settheme'));
   });
   await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', '../../brand/civica/icons/favicon.ico');
+});
+
+test('civica default selects the supplied default artwork and can change tone without resetting display mode', async ({ page }) => {
+  await page.evaluate(() => {
+    window.fixture.app.hass.selectedTheme = { theme: 'civica', dark: true };
+    window.fixture.paint();
+    window.dispatchEvent(new Event('settheme'));
+  });
+  await expect(page.getByLabel('Colour palette')).toHaveValue('civic-cobalt');
+  await expect(page.getByRole('switch')).not.toBeChecked();
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg\?v=1\.4\.0$/);
+  await page.getByRole('switch').check();
+  expect(await page.evaluate(() => window.fixture.app.hass.selectedTheme)).toEqual({ theme: 'civica Civic Cobalt Muted', dark: true });
 });
 
 test('production bundle waits for HA registry replacement before registering or starting its lifecycle', async ({ context }) => {

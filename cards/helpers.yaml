@@ -2,7 +2,7 @@
 # the emergency banner. Restart or reload helpers afterwards.
 input_select:
   govuk_banner_type:
-    name: civica.uk household alert type
+    name: civica household alert type
     icon: mdi:alert-octagon
     options:
       - none
@@ -12,7 +12,7 @@ input_select:
 
 input_text:
   govuk_banner_message:
-    name: civica.uk household alert message
+    name: civica household alert message
     icon: mdi:message-alert
     max: 255
 

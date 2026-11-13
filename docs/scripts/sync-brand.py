@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Copy the supplied civica.uk V3.2 artwork into the documentation unchanged."""
+"""Copy accepted supplied civica artwork into the documentation unchanged."""
 from pathlib import Path
 import hashlib
 import json
@@ -9,6 +9,8 @@ root = Path(__file__).resolve().parents[2]
 brand = root / 'brand/civica'
 source = root / 'docs/source'
 check = '--check' in sys.argv
+accepted = json.loads((brand / 'docs/accepted-assets.json').read_text())
+accepted_files = {record['path']: record for record in accepted['files']}
 mapping = {
     'images/civica-lockup.svg': 'core/lockup-on-blue.svg',
     'images/civica-emblem.svg': 'core/emblem-black.svg',
@@ -28,6 +30,9 @@ for palette in palettes['palettes']:
 records = []
 for destination, original in sorted(mapping.items()):
     content = (brand / original).read_bytes()
+    record = accepted_files.get(original)
+    if not record or record['sha256'] != hashlib.sha256(content).hexdigest():
+        raise SystemExit(f'Unverified supplied artwork: {original}')
     target = source / destination
     if check:
         if not target.exists() or target.read_bytes() != content:
@@ -38,12 +43,19 @@ for destination, original in sorted(mapping.items()):
     records.append({'publishedPath': destination, 'sourcePath': f'brand/civica/{original}', 'sha256': hashlib.sha256(content).hexdigest()})
 
 manifest = {
-    'schemaVersion': 1,
-    'brandVersion': '3.2',
-    'sourceArchive': 'civica_uk_brand_assets_v3.2.zip',
-    'sourceArchiveSha256': '3c4e475fe54cf30c8f4ff19573193b690152645789703b90f8f41d2092608e3c',
-    'sourcePackManifest': 'brand/civica/docs/SHA256SUMS.txt',
-    'assetPolicy': 'Byte-for-byte supplied files; no geometry, dot colour or background changes.',
+    'schemaVersion': 2,
+    'brandName': 'civica',
+    'brandVersion': accepted['brandVersion'],
+    'reviewedOn': accepted['reviewedOn'],
+    'sourceArchive': accepted['sourceArchive'],
+    'sourceArchiveSha256': accepted['sourceArchiveSha256'],
+    'sourcePackManifest': f'brand/civica/{accepted["sourcePackManifest"]}',
+    'acceptedPackManifest': 'brand/civica/docs/accepted-assets.json',
+    'acceptedPackManifestSha256': hashlib.sha256((brand / 'docs/accepted-assets.json').read_bytes()).hexdigest(),
+    'assetPolicy': accepted['assetPolicy'],
+    'sourceCounts': accepted['counts'],
+    'sourceExclusions': accepted['exclusions'],
+    'sourceMetadataCorrections': accepted['metadataCorrections'],
     'verificationScope': 'Checks copy fidelity only, not independent rights or accessibility certification.',
     'assets': records,
 }
@@ -55,4 +67,4 @@ if check:
 else:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content)
-print(f'{len(mapping)} documentation brand assets match V3.2.' if check else f'Copied {len(mapping)} supplied V3.2 documentation brand assets.')
+print(f'{len(mapping)} documentation brand assets match the accepted revised pack.' if check else f'Copied {len(mapping)} accepted revised documentation brand assets.')

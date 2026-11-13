@@ -130,22 +130,22 @@
     },
     "local-brand-primary": {
       "title": "Supplied identity on the primary colour",
-      "html": "<div class=\"civica-demo-header\"><img src=\"../images/civica-lockup.svg\" alt=\"civica.uk\" width=\"306\" height=\"49\"></div><p class=\"govuk-body\">Use the supplied on-primary lockup at its original aspect ratio.</p>",
+      "html": "<div class=\"civica-demo-header\"><img class=\"civica-project-lockup\" src=\"../images/civica-lockup.svg\" alt=\"civica\" width=\"295\" height=\"65\"></div><p class=\"govuk-body\">Use the supplied on-primary lockup at its original aspect ratio.</p>",
       "height": 300
     },
     "local-brand-canvas": {
       "title": "Supplied identity on a light canvas",
-      "html": "<img src=\"../images/themes/civic-cobalt/vivid/lockup-on-canvas.svg\" alt=\"civica.uk\" width=\"306\" height=\"49\"><p class=\"govuk-body\">Use the matching on-canvas asset. Do not recolour the artwork with a CSS filter.</p>",
+      "html": "<img class=\"civica-project-lockup\" src=\"../images/themes/civic-cobalt/vivid/lockup-on-canvas.svg\" alt=\"civica\" width=\"295\" height=\"65\"><p class=\"govuk-body\">Use the matching on-canvas asset. Do not recolour the artwork with a CSS filter.</p>",
       "height": 300
     },
     "local-colour-vivid": {
       "title": "Civic Cobalt \u2014 Vivid",
-      "html": "<section style=\"background:#ffffff;padding:20px\"><div style=\"background:#1d70b8;padding:20px\"><img src=\"../images/themes/civic-cobalt/vivid/lockup-on-primary.svg\" alt=\"civica.uk\" width=\"245\" height=\"39\"></div><h2 class=\"govuk-heading-m\">Vivid colours</h2><p class=\"govuk-body\">The brand pair changes together. Error, focus and success meanings remain stable.</p></section>",
+      "html": "<section style=\"background:#ffffff;padding:20px\"><div style=\"background:#1d70b8;padding:20px\"><img class=\"civica-project-lockup\" src=\"../images/themes/civic-cobalt/vivid/lockup-on-primary.svg\" alt=\"civica\" width=\"295\" height=\"65\"></div><h2 class=\"govuk-heading-m\">Vivid colours</h2><p class=\"govuk-body\">The brand pair changes together. Error, focus and success meanings remain stable.</p></section>",
       "height": 300
     },
     "local-colour-muted": {
       "title": "Civic Cobalt \u2014 Muted",
-      "html": "<section style=\"background:#f3f6f9;padding:20px\"><div style=\"background:#103e65;padding:20px\"><img src=\"../images/themes/civic-cobalt/muted/lockup-on-primary.svg\" alt=\"civica.uk\" width=\"245\" height=\"39\"></div><h2 class=\"govuk-heading-m\">Muted colours</h2><p class=\"govuk-body\">The brand pair changes together. Error, focus and success meanings remain stable.</p></section>",
+      "html": "<section style=\"background:#f3f6f9;padding:20px\"><div style=\"background:#103e65;padding:20px\"><img class=\"civica-project-lockup\" src=\"../images/themes/civic-cobalt/muted/lockup-on-primary.svg\" alt=\"civica\" width=\"295\" height=\"65\"></div><h2 class=\"govuk-heading-m\">Muted colours</h2><p class=\"govuk-body\">The brand pair changes together. Error, focus and success meanings remain stable.</p></section>",
       "height": 300
     },
     "local-install-layers": {

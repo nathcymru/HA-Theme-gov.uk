@@ -1,4 +1,4 @@
-// Shared Home Assistant and civica.uk tokens; no fixed interface colours.
+// Shared Home Assistant and civica tokens; no fixed interface colours.
 export const STYLES = `
 :host { display: block; min-width: 0; }
 *, *::before, *::after { box-sizing: border-box; }

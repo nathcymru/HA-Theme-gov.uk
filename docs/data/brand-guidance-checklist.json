@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-11-12",
+  "reviewed_on": "2026-11-13",
   "status": "guidance-and-static-audit-complete-interface-findings-open",
   "status_meaning": {
     "reviewed": "The named official source was read; this is not an implementation pass.",
@@ -97,7 +97,7 @@
       },
       "level": "MUST",
       "scope": "Theme selection, optional household personalisation and separate project identity",
-      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica.uk artwork only for project documentation or promotion; exclude official GOV.UK identity.",
+      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica artwork only for project documentation or promotion; exclude official GOV.UK identity.",
       "static_audit": {
         "status": "no-confirmed-finding-in-static-scope",
         "findings": [],
@@ -367,7 +367,7 @@
       "verification": {
         "status": "not-tested-in-this-package",
         "checks": [
-          "Exercise ten palettes \u00d7 two tones \u00d7 two modes on affected surfaces.",
+          "Exercise ten palettes × two tones × two modes on affected surfaces.",
           "Inspect forced colours, focus and native editor density without clipping."
         ],
         "result": "The checklist remains available for each affected interface. Source review, documentation scans and existing regression results do not close every rule-specific runtime acceptance check."
@@ -1902,5 +1902,13 @@
     "previous_sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
     "decision": "Remove the Brand guidance navigation group; present colour/data/type/illustration as design styles. Do not require civica.uk identity inside a home. Add optional family-name, crest and business-logo guidance. This is a design-system update only.",
     "legacy_identifiers": "BG rule IDs and brand-guidance JSON routes remain stable for existing references."
+  },
+  "identity_revision": {
+    "date": "2026-11-13",
+    "authority": "Explicit user request to rename the project and replace the supplied identity",
+    "current_project": "civica",
+    "previous_record": "docs/data/history/brand-guidance-before-civica-2026-11-13.json",
+    "previous_sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+    "decision": "Use the replacement civica identity for project documentation and promotion. The earlier supplied identity-preservation requirement does not prevent this authorised replacement. Household and business identity remains optional; official government marks remain excluded. Source mappings, rule identifiers and accessibility requirements are unchanged."
   }
 }

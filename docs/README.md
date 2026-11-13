@@ -1,6 +1,6 @@
-# civica.uk documentation
+# civica documentation
 
-This is a real [GOV.UK Tech Docs Template](https://github.com/alphagov/tech-docs-template) site, using Middleman and pinned `govuk_tech_docs` 6.6.0. It follows the GOV.UK Design System's Get started / Styles / Components / Patterns / Community / Accessibility organisation, with Writing guide added as a separate main section and an independent civica.uk identity.
+This is a real [GOV.UK Tech Docs Template](https://github.com/alphagov/tech-docs-template) site, using Middleman and pinned `govuk_tech_docs` 6.6.0. It follows the GOV.UK Design System's Get started / Styles / Components / Patterns / Community / Accessibility organisation, with Writing guide added as a separate main section and an independent civica identity.
 
 The upstream GOV.UK Design System website uses Node. This project maps its information architecture and layout into Middleman's `source/`, `layouts/`, `data/` and `config/` structure. It does not claim that the upstream Node repository is a Middleman template.
 
@@ -37,14 +37,14 @@ The same build creates the documentation-only OpenStreetMap vector example with 
 
 The public `/community/roadmap.html` page covers **theme features only**, not documentation work. Its canonical public input is `data/roadmap.json`; `source/reference/roadmap.json.erb` publishes the same safe fields. The committed public-only snapshot supports offline builds. Live builds fetch the reviewed issues before rendering; they do not invent future features or past releases.
 
-Use the repository's **Theme roadmap item** issue form and follow [Maintain the theme roadmap](https://nathcymru.github.io/HA-Theme-gov.uk/community/maintain-roadmap.html). A maintainer reviews the household benefit and chooses one to three readable `tag: ` categories. Apply `roadmap: accepted` to agreed work that has not started, `roadmap: in-works` once work begins, or `roadmap: completed` after a feature is released and the issue is closed as completed. Accepted and In the works issues remain open; use only one roadmap status at a time. No publishing label is assigned by the form. `Developer Notes` is the final submitted textarea heading and a hard parser boundary. The optional **BSL / Audio Video Link** field must remain blank for now. The parser accepts older bodies without this heading and blank form responses; populated media links fail explicitly until that rendering capability exists. Planning BSL features does not implement BSL input, translation or an avatar.
+Use the repository's **Theme roadmap item** issue form and follow [Maintain the theme roadmap](https://nathcymru.github.io/civica/community/maintain-roadmap.html). A maintainer reviews the household benefit and chooses one to three readable `tag: ` categories. Apply `roadmap: accepted` to agreed work that has not started, `roadmap: in-works` once work begins, or `roadmap: completed` after a feature is released and the issue is closed as completed. Accepted and In the works issues remain open; use only one roadmap status at a time. No publishing label is assigned by the form. `Developer Notes` is the final submitted textarea heading and a hard parser boundary. The optional **BSL / Audio Video Link** field must remain blank for now. The parser accepts older bodies without this heading and blank form responses; populated media links fail explicitly until that rendering capability exists. Planning BSL features does not implement BSL input, translation or an avatar.
 
 ```sh
 npm run roadmap:check
 # Explicit network refresh; supply a token through your environment, not source.
-GITHUB_REPOSITORY=nathcymru/HA-Theme-gov.uk npm run roadmap:fetch
+GITHUB_REPOSITORY=nathcymru/civica npm run roadmap:fetch
 # Or write a separate review snapshot:
-GITHUB_REPOSITORY=nathcymru/HA-Theme-gov.uk node scripts/roadmap.mjs --fetch --output /tmp/civica-roadmap-preview.json
+GITHUB_REPOSITORY=nathcymru/civica node scripts/roadmap.mjs --fetch --output /tmp/civica-roadmap-preview.json
 ```
 
 The fetcher reads `GITHUB_REPOSITORY` (set it explicitly to the repository being published) and `GH_TOKEN` or `GITHUB_TOKEN`. Use an issues-read token. The versioned label definitions are `.github/roadmap-labels.json`; these labels have been created in the upstream repository. A fork must create the labels in its own repository before maintainers use them. More readable `tag: ` categories may be added without changing code. Public schema version 2 adds an `accepted` array and replaces the single `category` field with a sorted `categories` array; regenerate version 1 snapshots with the fetch command. Each card still has three content areas: categories, title and benefit.
@@ -55,9 +55,9 @@ Run `node --test test/roadmap.test.mjs test/roadmap-workflow.test.mjs` and, afte
 
 ## Project identity
 
-The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It uses civica.uk identity for project documentation, keeps household personalisation separate, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
+The template's renderer, syntax highlighting, contents helpers and selected component styles are used. The local shell replaces all official identity. It uses civica identity for project documentation, keeps household personalisation separate, excludes upstream branded assets, and omits GDS Transport font-face rules. The built output must be checked after dependency upgrades.
 
-`source/images/` contains byte-for-byte copies of the needed supplied V3.2 core, icon and palette assets from `brand/civica/`. Keep the originals and provenance there unchanged. Run `python3 docs/scripts/sync-brand.py` after an authorised asset-pack update; it also regenerates the published artwork manifest. This site does not claim official government affiliation or a completed accessibility certification.
+`source/images/` contains byte-for-byte copies of accepted core, icon and palette assets from the revised `civica_brand_assets_revised.zip` pack in `brand/civica/`. Keep accepted originals and provenance there unchanged. The accepted-file inventory records the source checksum self-hash defect and the excluded empty WebP. Run `python3 docs/scripts/sync-brand.py` after an authorised asset-pack update; it also regenerates the published artwork manifest. This site does not claim official government affiliation or a completed accessibility certification.
 
 
 ## Author guidance and examples

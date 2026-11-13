@@ -1,4 +1,4 @@
-# civica.uk action buttons. Requires card-mod. Replace the example entities.
+# civica action buttons. Requires card-mod. Replace the example entities.
 type: grid
 columns: 2
 square: false

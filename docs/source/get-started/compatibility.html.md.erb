@@ -1,11 +1,13 @@
 ---
 title: "Compatibility and limits"
-description: "Compatibility and limits for the civica.uk Home Assistant design system."
+description: "Compatibility and limits for the civica Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 published_on: "2026-11-11"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: "2026-11-12"
     description: "Documented the existing companion identity behaviour and the boundary of the proposed household personalisation settings."
   - date: "2026-11-11"
@@ -42,7 +44,7 @@ These isolated examples illustrate the decisions on this page. Any household val
 | Native Map | Preserve map attribution, controls, markers and navigation | Actual map provider and marker contrast |
 | Custom cards | Use public variables where available | Each installed card's private styles and updates |
 | Three known household cards | Scoped presentation for appliances, waste collections and gas safety | Their actual versions, responsive layouts and native actions |
-| civica.uk action links | Native local links and existing fragment navigation | Each configured destination and pop-up |
+| civica action links | Native local links and existing fragment navigation | Each configured destination and pop-up |
 | Authentication and companion apps | Native branding and authentication remain outside module coverage | Separate native application work would be required |
 
 ## Maintained custom cards and legacy configurations
@@ -64,7 +66,7 @@ The module targets known component types through their open component roots:
 | `pa-gas-safety-card` | Shared type, record layout, details and actions |
 | `ha-panel-energy` → supported native graph card → `ha-chart-base` | ONS-based presentation on the existing ECharts instance and a read-only data table; see the exact [chart support list](../components/charts.html) |
 
-The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica.uk is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.
+The three household-card adapters use adopted stylesheets, scoped to those exact hosts. They survive ordinary card content updates and are removed when civica is inactive. They change presentation only: device permissions, services, dates, records and action handlers remain with the existing card. Other third-party cards are not covered by these private selectors.
 
 Startup, navigation and theme changes trigger bounded discovery of these hosts. The module observes the document's theme style attribute and the sidebar's own badge text changes. The sidebar observer updates only numeric attention-count presentation and accessible descriptions; it does not observe device state or create, clear or acknowledge notifications.
 
@@ -74,7 +76,7 @@ These adapters are version-sensitive. If an expected component is absent, the mo
 
 Safe and recovery modes disable colour controls and restore native branding. Repeated module imports must not add duplicate controls or listeners.
 
-Avoid monkey-patching browser prototypes, replacing native controls wholesale or assuming a selector is a public Home Assistant API. Document each adapter and test its cleanup when the user switches away from civica.uk.
+Avoid monkey-patching browser prototypes, replacing native controls wholesale or assuming a selector is a public Home Assistant API. Document each adapter and test its cleanup when the user switches away from civica.
 
 ## CSS cannot correct everything
 
@@ -88,6 +90,6 @@ Follow the [testing checklist](../accessibility/testing.html) for native panels 
 
 ## Household identity transition
 
-The design-system policy now separates project identity from household personalisation. civica.uk identifies the project and documentation; it is not required as the home’s identity.
+The design-system policy now separates project identity from household personalisation. civica identifies the project and documentation; it is not required as the home’s identity.
 
-The existing companion still replaces supported sidebar titles and browser/app icons with civica.uk artwork. It does not yet provide the proposed family-name or custom-crest settings. This documentation update does not alter that implementation or any Home Assistant installation. Do not describe the new personalisation examples as available global theme settings. The [personalisation guide](personalisation.html) separates current native dashboard titles and picture cards from that proposed shell behaviour.
+The existing companion still replaces supported sidebar titles and browser/app icons with civica artwork. It does not yet provide the proposed family-name or custom-crest settings. This documentation update does not alter that implementation or any Home Assistant installation. Do not describe the new personalisation examples as available global theme settings. The [personalisation guide](personalisation.html) separates current native dashboard titles and picture cards from that proposed shell behaviour.

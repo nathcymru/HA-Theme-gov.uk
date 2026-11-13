@@ -4,8 +4,10 @@ description: ONS chart patterns adapted to Home Assistant's native charts, with 
 last_reviewed_on: 2026-11-11
 review_in: 3 months
 published_on: 2026-11-11
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: "2026-11-12"
     description: "Connected data and colour rules to the existing ONS-informed chart contract and quantitative scale examples."
   - date: "2026-11-11"
@@ -18,7 +20,7 @@ updates:
 
 # Charts and tables
 
-Charts help people compare values and understand change. The civica.uk chart pattern adapts the **ONS Design System chart components**, their figure structure and their chart build specifications to Home Assistant. A change to series colours alone does not implement this pattern.
+Charts help people compare values and understand change. The civica chart pattern adapts the **ONS Design System chart components**, their figure structure and their chart build specifications to Home Assistant. A change to series colours alone does not implement this pattern.
 
 Use the [Energy and history pattern](../patterns/energy.html) for consumption, power and distribution. The [machine-readable ONS source record](../reference/ons-chart-sources.json) records the upstream release, source hashes, reference values and controlled deviations.
 
@@ -56,7 +58,7 @@ These isolated examples illustrate the decisions on this page. Any household val
 
 ## Source and implementation boundary
 
-The reviewed ONS components are [bar charts](https://service-manual.ons.gov.uk/design-system/components/bar-chart-component), [column charts](https://service-manual.ons.gov.uk/design-system/components/column-chart-component) and [line charts](https://service-manual.ons.gov.uk/design-system/components/line-chart-component). Their published implementation uses Highcharts. This project applies the design to Home Assistant's existing ECharts renderer through the optional civica.uk companion; it does not install Highcharts or replace the Energy dashboard.
+The reviewed ONS components are [bar charts](https://service-manual.ons.gov.uk/design-system/components/bar-chart-component), [column charts](https://service-manual.ons.gov.uk/design-system/components/column-chart-component) and [line charts](https://service-manual.ons.gov.uk/design-system/components/line-chart-component). Their published implementation uses Highcharts. This project applies the design to Home Assistant's existing ECharts renderer through the optional civica companion; it does not install Highcharts or replace the Energy dashboard.
 
 The source baseline is [ONS Design System 74.0.0](https://github.com/ONSdigital/design-system/releases/tag/74.0.0), reviewed on 11 November 2026. The companion must leave native chart data, unit conversion, statistics, routing, selection and date handling under Home Assistant's control. Theme YAML provides colour roles; the companion is required for chart geometry, captions and data alternatives. See [installation](../get-started/install.html).
 
@@ -72,12 +74,12 @@ Provide a named chart region and a route to its values without hovering. Support
 
 These are chart roles, separate from card borders and input boundaries. Values are CSS pixels at the default text scale.
 
-| Element | ONS reference | civica.uk adaptation |
+| Element | ONS reference | civica adaptation |
 | --- | --- | --- |
 | Plot | Transparent background; no decorative frame | Inherit the themed card canvas; no extra plot box |
 | Numeric grid | `#D9D9D9`, 1px | `#D9D9D9` in light mode; `#50565A` in dark mode |
 | Zero reference | `#B3B3B3`, 1.5px | Use the true zero crossing where established; dark-mode reference colour `#9BA4AA` |
-| Axis labels | At least 14px, horizontal | Use the civica.uk font, respect user text scaling and reduce tick density before shrinking text |
+| Axis labels | At least 14px, horizontal | Use the civica font, respect user text scaling and reduce tick density before shrinking text |
 | Legend text | At least 14px, normal weight | Keep native labels and expose values in the accompanying table |
 | Filled-series key | 12px circle | Match the opaque series colour and comparison pattern; preserve native visibility controls |
 | Line-series key | 20px wide, 3px stroke | Match the line colour and dash pattern at the local 1.5px width; preserve native controls |
@@ -100,7 +102,7 @@ Place the legend above the plot, aligned left, and wrap whole labelled items. Pr
 
 ONS 74.0.0's primary categorical palette is `#206095`, `#A8BD3A`, `#871A5B`, `#F66068`, `#05341A`, `#27A0CC`; its line variant exchanges the last two positions. These are reference values, not a replacement brand palette or a guarantee that every pair is distinguishable.
 
-civica.uk uses the [shared chart colour generator](../styles/chart-colour.html) for stable semantic energy families and named device identities across all ten brand palettes. Vivid and Muted follow the theme toggle; brand selection does not recolour identities. There are 24 fallback variables and an extensible identity-based range. Colours are opaque, with no native alpha suffixes or gradients. Text uses the civica.uk Arial stack rather than importing ONS Open Sans. The adapter uses ONS label grey `#414042` and numeric-axis grey `#707071` in light mode; dark equivalents are `#FFFFFF` and `#CBD0D3`. These chart roles preserve the same hierarchy across themes.
+civica uses the [shared chart colour generator](../styles/chart-colour.html) for stable semantic energy families and named device identities across all ten brand palettes. Vivid and Muted follow the theme toggle; brand selection does not recolour identities. There are 24 fallback variables and an extensible identity-based range. Colours are opaque, with no native alpha suffixes or gradients. Text uses the civica Arial stack rather than importing ONS Open Sans. The adapter uses ONS label grey `#414042` and numeric-axis grey `#707071` in light mode; dark equivalents are `#FFFFFF` and `#CBD0D3`. These chart roles preserve the same hierarchy across themes.
 
 Prefer five or fewer categories in a newly authored chart, following ONS [colour guidance](https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts). An existing Home Assistant chart may contain more: **never truncate, regroup or discard native series** to fit the ONS component's six-series primary or five-series alternate limit. Use names, data values and preserved line styles to supplement colour. Audit the actual rendered combinations.
 

@@ -64,8 +64,8 @@ test('new image-card HTML uses current styling and behaviour even when old unver
 test('project-subpath charts load hashed catalogue scripts and expose identical copyable HTML', async ({ page, request }) => {
   // Serve the existing build under the actual Pages project prefix without
   // creating another server or modifying the public build directory.
-  await page.route('**/HA-Theme-gov.uk/**', async route => {
-    const upstream = route.request().url().replace('/HA-Theme-gov.uk/', '/docs/build/');
+  await page.route('**/civica/**', async route => {
+    const upstream = route.request().url().replace('/civica/', '/docs/build/');
     await route.fulfill({ response: await route.fetch({ url: upstream }) });
   });
   const errors = [];
@@ -74,7 +74,7 @@ test('project-subpath charts load hashed catalogue scripts and expose identical 
     ['components/charts.html', 'local-chart-power'],
     ['styles/brand-data.html', 'bg-data-operational-power'],
   ]) {
-    await page.goto(`/HA-Theme-gov.uk/${guide}`);
+    await page.goto(`/civica/${guide}`);
     const preview = page.locator(`#example-${id}`);
     await preview.scrollIntoViewIfNeeded();
     const frame = preview.frameLocator('iframe');
@@ -90,7 +90,7 @@ test('project-subpath charts load hashed catalogue scripts and expose identical 
     }, { html: await response.text(), displayed })).toBe(true);
     const frameElement = preview.locator('iframe');
     expect(new URL(await frameElement.getAttribute('src'), page.url()).pathname)
-      .toBe(`/HA-Theme-gov.uk/examples/${id}.html`);
+      .toBe(`/civica/examples/${id}.html`);
   }
   expect(errors).toEqual([]);
 });

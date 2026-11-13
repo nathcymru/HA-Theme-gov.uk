@@ -6,10 +6,12 @@ group: "Home Assistant components"
 status: "reference"
 source_url: "https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders"
 published_on: "2026-11-12"
-updated_on: "2026-11-12"
+updated_on: "2026-11-13"
 last_reviewed_on: "2026-11-12"
 review_in: "3 months"
 updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
   - date: 2026-11-12
     description: "Added five complete slider specimens and the native integration boundary; corrected the wider source review to include the current official Royal Navy Range Slider."
 ---
@@ -18,7 +20,7 @@ updates:
 
 Use a slider to adjust a known, bounded value such as brightness or volume. Pair it with a precise text field and visible decrease and increase buttons when the task requires an exact value. All inputs represent one draft. Keep the last reported device value separate.
 
-**This is an original civica.uk implementation informed by an official UK range-slider reference.** The [Royal Navy Design System publishes a Range Slider](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs). It was found when the initial eight-catalogue review was widened. The [UK systems review](../community/uk-design-system-review.html) now records nine indexed systems and distinguishes current component evidence from legacy guidance and partial departmental checks.
+**This is an original civica implementation informed by an official UK range-slider reference.** The [Royal Navy Design System publishes a Range Slider](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs). It was found when the initial eight-catalogue review was widened. The [UK systems review](../community/uk-design-system-review.html) now records nine indexed systems and distinguishes current component evidence from legacy guidance and partial departmental checks.
 
 GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-pages/#using-range-sliders) advises against slider questions and requires a non-drag alternative if one is used. The local exception is adjustment of an existing device setting. It does not justify using a slider to collect a person's precise answer in an ordinary form.
 
@@ -26,9 +28,9 @@ GOV.UK [Question pages](https://design-system.service.gov.uk/patterns/question-p
 
 Royal Navy's current [component source at release 4.64.2](https://github.com/Royal-Navy/design-system/blob/13163badc75f09695bb48968a0f82928eead6d35/packages/react-component-library/src/components/RangeSlider/Slider.tsx) supports one or two handles, minimum/maximum bounds, steps, ticks, displayed units, custom formatting, disabled and reversed scales, and optional threshold tracks. Its [ten published stories](https://storybook.design-system.navy.digital.mod.uk/?path=/docs/components-range-slider--docs) include brightness icons and labelled scales. These are relevant numeric-input primitives. They do not specify a light's supported range, a heating limit, a request policy or a confirmed device result.
 
-| Upstream primitive | civica.uk decision |
+| Upstream primitive | civica decision |
 | --- | --- |
-| Bounded track, handle and displayed value | Keep the recognisable anatomy using native HTML range semantics and civica.uk colours and focus |
+| Bounded track, handle and displayed value | Keep the recognisable anatomy using native HTML range semantics and civica colours and focus |
 | Steps and optional value formatting | Use the actual integration step and unit; preserve decimal precision in both the input and accessible value |
 | Optional ticks and endpoint icons | Add only when useful; retain written labels, bounds and units so icons are not the only explanation |
 | Two handles and crossing/pushing modes | Not implemented by these examples; use two labelled precise fields with ordering validation unless a dual-handle task has separate evidence |
@@ -56,7 +58,7 @@ Use the [continuous-controls pattern](../home-assistant/continuous-controls.html
 
 ## Component anatomy and appearance
 
-Keep a persistent device heading, a separately labelled reported value, a draft label, visible minimum/maximum/step instructions, the range, precise entry, step buttons and an explicit action. State the unit in the labels; do not rely on a coloured track or a suffix alone. Use the shared civica.uk typography, ink input boundaries, quiet surrounding dividers and yellow-and-ink focus treatment.
+Keep a persistent device heading, a separately labelled reported value, a draft label, visible minimum/maximum/step instructions, the range, precise entry, step buttons and an explicit action. State the unit in the labels; do not rely on a coloured track or a suffix alone. Use the shared civica typography, ink input boundaries, quiet surrounding dividers and yellow-and-ink focus treatment.
 
 The thumb remains round so it reads as something that moves along a track. Provide a control area at least 44 CSS pixels high, enough space for the thumb and focus ring, and wrapping step buttons. A square-card rule must not flatten the thumb into a badge or obscure its selected position. Do not use red/green position colouring to imply danger or success across an ordinary range. Respect forced colours instead of suppressing the user's palette.
 
@@ -145,4 +147,4 @@ See the [native task test matrix](../home-assistant/native-task-accessibility.ht
 - [W3C Slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) and [Dragging movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html): accessibility requirements and test limitations.
 - [USWDS Range slider](https://designsystem.digital.gov/components/range-slider/): a published United States comparator, not a UK component or a claim about this project's provenance.
 
-Reviewed on 12 November 2026. The local track styling, precision alternatives and household state model are civica.uk decisions. No official government logo, font asset or component certification is transferred to this implementation.
+Reviewed on 12 November 2026. The local track styling, precision alternatives and household state model are civica decisions. No official government logo, font asset or component certification is transferred to this implementation.

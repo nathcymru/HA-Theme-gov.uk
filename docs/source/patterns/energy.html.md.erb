@@ -3,11 +3,20 @@ title: "Energy and history"
 description: "Apply ONS column and line patterns to native Home Assistant Energy without changing its statistics or controls."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: "2026-11-11"
+updated_on: "2026-11-13"
+updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Energy and history
 
-Home Assistant's native Energy dashboard remains authoritative. Apply the [civica.uk chart component](../components/charts.html) to its consumption columns and time-series charts while retaining dates, statistics, comparisons, device breakdowns and configured sources. A branded heading and different series colours are insufficient: the chart itself needs the defined typography, grid, legend and accessible data treatment.
+Home Assistant's native Energy dashboard remains authoritative. Apply the [civica chart component](../components/charts.html) to its consumption columns and time-series charts while retaining dates, statistics, comparisons, device breakdowns and configured sources. A branded heading and different series colours are insufficient: the chart itself needs the defined typography, grid, legend and accessible data treatment.
 
 
 ## Examples
@@ -74,7 +83,7 @@ The release acceptance record must cover all of the following:
 3. Change the date, open data, operate legends and tooltips, and use native detail navigation. Confirm the chart and alternative agree after each update.
 4. Review consumption columns, power history and distribution independently. An improved column chart does not establish Sankey coverage.
 5. Check light and dark modes, multiple palettes, keyboard interaction, a 320px viewport and enlarged text. Keep wide data tables contained.
-6. Switch away from civica.uk, navigate away and return. Verify restoration, no duplicate tables or legends, and no retained observers on detached charts.
+6. Switch away from civica, navigate away and return. Verify restoration, no duplicate tables or legends, and no retained observers on detached charts.
 7. Distinguish synthetic browser coverage from live verification. Do not claim all custom chart cards or a complete screen-reader audit from one Energy screenshot.
 
 The [ONS source record](../reference/ons-chart-sources.json) identifies the reviewed upstream code and design decisions. Compatibility with private Home Assistant elements is version-sensitive; retain native functionality when an expected interface changes.

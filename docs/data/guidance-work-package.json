@@ -613,6 +613,50 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-CIVICA-RENAME",
+      "title": "Rename the current project and replace its supplied identity without rewriting historical evidence",
+      "items": [
+        {
+          "id": "RN1",
+          "task": "Update current naming, repository/install destinations, supplied artwork and compatibility contract.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/rebrand-review.json",
+            "brand/civica/docs/accepted-assets.json",
+            "docs/source/get-started/install.html.md.erb"
+          ]
+        },
+        {
+          "id": "RN2",
+          "task": "Preserve earlier reviews and exact rule snapshots; distinguish historical names from active presentation with a bounded guard.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/naming-inventory.json",
+            "docs/data/history/brand-guidance-before-civica-2026-11-13.json",
+            "scripts/check-naming.mjs",
+            "test/naming.test.mjs"
+          ]
+        },
+        {
+          "id": "RN3",
+          "task": "Reconcile current source/example evidence and independently review the GitHub Pages and HACS migration boundaries.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/rebrand-review.json",
+            "docs/data/design-system-audit.json"
+          ]
+        },
+        {
+          "id": "RN4",
+          "task": "Complete final build/tests, rename the repository, publish the new Pages path and verify actual public assets.",
+          "status": "pending",
+          "evidence": [
+            "docs/data/rebrand-review.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -844,6 +888,22 @@
         "test/roadmap-workflow.test.mjs",
         "tests/roadmap.browser.spec.mjs"
       ]
+    },
+    {
+      "id": "loop-19",
+      "title": "Loop 19: separate current identity from historical proof and compatibility names",
+      "outcome": "Reviewed the explicit replacement authority, current name/asset mappings, original provenance, repository-versus-Pages redirects and HACS refresh behavior. Current-source evidence is reconciled; final integrated and remote acceptance remains separately recorded.",
+      "checks": [
+        "Current project identity and repository destinations use civica; earlier reviews and dated page history retain their original names.",
+        "Only the supplied accepted manifest corrects archive metadata defects; original source manifests remain byte-identical.",
+        "Legacy theme/resource/entity identifiers remain explicit compatibility interfaces, not displayed project identity.",
+        "GitHub repository redirects do not establish Pages redirects; HACS metadata refresh is distinct from file removal or redownload."
+      ],
+      "evidence": [
+        "docs/data/rebrand-review.json",
+        "docs/data/naming-inventory.json",
+        "scripts/check-naming.mjs"
+      ]
     }
   ],
   "limitations": [
@@ -875,6 +935,6 @@
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
   ],
-  "latest_documentation_review": "docs/data/roadmap-accepted-review.json",
+  "latest_documentation_review": "docs/data/rebrand-review.json",
   "publication_verification_scope": "Historical verification remains attached to the explicitly named revisions. The original roadmap review is unchanged; the Accepted-stage extension, two actual proposals and current acceptance are recorded separately in roadmap-accepted-review.json."
 }

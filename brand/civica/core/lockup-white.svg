@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="260" viewBox="0 0 1180 260" role="img" aria-label="Civica lock-up white">
+    <title>Civica lock-up white</title>
+    <g transform="translate(10,2)">
+    <title></title>
+    <path d="M52 120 L128 56 L166 88 V58 Q166 46 178 46 H188 Q200 46 200 58 V116 L208 122 Q218 130 218 144 V198 Q218 218 198 218 H58 Q38 218 38 198 V144 Q38 130 52 120 Z"
+          fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="88" cy="136" r="15" fill="#FFFFFF"/><circle cx="128" cy="136" r="15" fill="#FFFFFF"/><circle cx="168" cy="136" r="15" fill="#FFFFFF"/><circle cx="88" cy="180" r="15" fill="#FFFFFF"/><circle cx="128" cy="180" r="15" fill="#FFFFFF"/><circle cx="168" cy="180" r="15" fill="#FFFFFF"/></g>
+    <text x="290" y="186" font-family="Arial, Helvetica, Liberation Sans, Arimo, sans-serif" font-weight="700" font-size="178" fill="#FFFFFF">Civica</text>
+    </svg>

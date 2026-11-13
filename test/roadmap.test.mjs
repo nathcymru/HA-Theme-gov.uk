@@ -173,9 +173,9 @@ test('CLI validates current or isolated empty snapshots offline; fetch needs exp
 test('real GitHub numeric repository links preserve opaque cursors on the configured repository route', async () => {
   const cursor = 'Y3Vyc29yOnYyOpLPAAABoYX4ItDPAAAAAWsrdkA=';
   const requested = [];
-  const result = await fetchRoadmap({ repository: 'nathcymru/HA-Theme-gov.uk', token: 'secret', now, fetchImpl: async url => {
+  const result = await fetchRoadmap({ repository: 'nathcymru/civica', token: 'secret', now, fetchImpl: async url => {
     const parsed = new URL(url); requested.push(parsed);
-    assert.equal(parsed.pathname, '/repos/nathcymru/HA-Theme-gov.uk/issues');
+    assert.equal(parsed.pathname, '/repos/nathcymru/civica/issues');
     if (parsed.searchParams.get('labels') !== STATUS_LABELS.inWorks) return response([]);
     if (parsed.searchParams.get('page') === '1') {
       const next = new URL(url); next.pathname = '/repositories/1437953677/issues'; next.searchParams.set('page', '2'); next.searchParams.set('after', cursor);

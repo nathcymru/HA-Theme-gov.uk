@@ -1,0 +1,21 @@
+:root { --civica-blue: #1D70B8; --civica-ink: #0B0C0C; --civica-white: #FFFFFF; }
+[data-civica-theme="civic-cobalt"][data-civica-mode="vivid"] { --civica-theme-primary: #1D70B8; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="civic-cobalt"][data-civica-mode="muted"] { --civica-theme-primary: #103E65; --civica-theme-canvas: #F3F6F9; }
+[data-civica-theme="racing-moss"][data-civica-mode="vivid"] { --civica-theme-primary: #006853; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="racing-moss"][data-civica-mode="muted"] { --civica-theme-primary: #00392E; --civica-theme-canvas: #F2F6F4; }
+[data-civica-theme="imperial-damson"][data-civica-mode="vivid"] { --civica-theme-primary: #732282; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="imperial-damson"][data-civica-mode="muted"] { --civica-theme-primary: #3F1348; --civica-theme-canvas: #F6F3F7; }
+[data-civica-theme="sovereign-crimson"][data-civica-mode="vivid"] { --civica-theme-primary: #B2292E; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="sovereign-crimson"][data-civica-mode="muted"] { --civica-theme-primary: #621719; --civica-theme-canvas: #F9F4F4; }
+[data-civica-theme="regimental-plum"][data-civica-mode="vivid"] { --civica-theme-primary: #532A45; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="regimental-plum"][data-civica-mode="muted"] { --civica-theme-primary: #2E1726; --civica-theme-canvas: #F7F3F5; }
+[data-civica-theme="oxford-midnight"][data-civica-mode="vivid"] { --civica-theme-primary: #003764; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="oxford-midnight"][data-civica-mode="muted"] { --civica-theme-primary: #001E37; --civica-theme-canvas: #F2F4F8; }
+[data-civica-theme="ink-charcoal"][data-civica-mode="vivid"] { --civica-theme-primary: #0B0C0C; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="ink-charcoal"][data-civica-mode="muted"] { --civica-theme-primary: #2B2E30; --civica-theme-canvas: #F3F2F1; }
+[data-civica-theme="heritage-ochre"][data-civica-mode="vivid"] { --civica-theme-primary: #8A6100; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="heritage-ochre"][data-civica-mode="muted"] { --civica-theme-primary: #4D3600; --civica-theme-canvas: #F9F7F1; }
+[data-civica-theme="kiln-terracotta"][data-civica-mode="vivid"] { --civica-theme-primary: #9E3B0E; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="kiln-terracotta"][data-civica-mode="muted"] { --civica-theme-primary: #572008; --civica-theme-canvas: #F9F5F2; }
+[data-civica-theme="umber-bronze"][data-civica-mode="vivid"] { --civica-theme-primary: #5C3D28; --civica-theme-canvas: #FFFFFF; }
+[data-civica-theme="umber-bronze"][data-civica-mode="muted"] { --civica-theme-primary: #332216; --civica-theme-canvas: #F6F4F1; }

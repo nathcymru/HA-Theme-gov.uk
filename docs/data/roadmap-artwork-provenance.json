@@ -62,5 +62,10 @@
       "alternative_text_decision": "Decorative inline SVG is aria-hidden and not focusable. The adjacent HTML section heading and introduction carry the full meaning.",
       "informative_reuse_description": "Three interface sheets form a tidy stack, with a simple layout on the front sheet."
     }
-  ]
+  ],
+  "project_identity": {
+    "name": "civica",
+    "updated_on": "2026-11-13",
+    "provenance_note": "Creator credits retain the project name used when these original illustrations were made. They are historical attribution, not the current displayed identity. This naming update does not alter the artwork geometry or its original file hashes."
+  }
 }

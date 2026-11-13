@@ -1,0 +1,112 @@
+{
+  "civic-cobalt": {
+    "name": "Civic Cobalt",
+    "vivid": {
+      "primary": "#1D70B8",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#103E65",
+      "canvas": "#F3F6F9"
+    }
+  },
+  "racing-moss": {
+    "name": "Racing Moss",
+    "vivid": {
+      "primary": "#006853",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#00392E",
+      "canvas": "#F2F6F4"
+    }
+  },
+  "imperial-damson": {
+    "name": "Imperial Damson",
+    "vivid": {
+      "primary": "#732282",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#3F1348",
+      "canvas": "#F6F3F7"
+    }
+  },
+  "sovereign-crimson": {
+    "name": "Sovereign Crimson",
+    "vivid": {
+      "primary": "#B2292E",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#621719",
+      "canvas": "#F9F4F4"
+    }
+  },
+  "regimental-plum": {
+    "name": "Regimental Plum",
+    "vivid": {
+      "primary": "#532A45",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#2E1726",
+      "canvas": "#F7F3F5"
+    }
+  },
+  "oxford-midnight": {
+    "name": "Oxford Midnight",
+    "vivid": {
+      "primary": "#003764",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#001E37",
+      "canvas": "#F2F4F8"
+    }
+  },
+  "ink-charcoal": {
+    "name": "Ink Charcoal",
+    "vivid": {
+      "primary": "#0B0C0C",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#2B2E30",
+      "canvas": "#F3F2F1"
+    }
+  },
+  "heritage-ochre": {
+    "name": "Heritage Ochre",
+    "vivid": {
+      "primary": "#8A6100",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#4D3600",
+      "canvas": "#F9F7F1"
+    }
+  },
+  "kiln-terracotta": {
+    "name": "Kiln Terracotta",
+    "vivid": {
+      "primary": "#9E3B0E",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#572008",
+      "canvas": "#F9F5F2"
+    }
+  },
+  "umber-bronze": {
+    "name": "Umber Bronze",
+    "vivid": {
+      "primary": "#5C3D28",
+      "canvas": "#FFFFFF"
+    },
+    "muted": {
+      "primary": "#332216",
+      "canvas": "#F6F4F1"
+    }
+  }
+}

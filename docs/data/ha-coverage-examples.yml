@@ -113,7 +113,7 @@ examples:
       <section aria-labelledby="example-heading">
       <h1 class="govuk-heading-l" id="example-heading">An external page that could not be embedded</h1>
       <p class="govuk-body">Synthetic example. Names, readings and dates are invented. This page is not connected to Home Assistant.</p>
-      <h2 class="govuk-heading-m">Home Assistant documentation</h2><p class="govuk-body">The external page is not embedded in this example.</p><p class="govuk-body">The documentation belongs to home-assistant.io. Opening it leaves this civica.uk example; it does not change your dashboard.</p><a class="govuk-link" href="https://www.home-assistant.io/dashboards/iframe/">Read Home Assistant’s Webpage card documentation</a><h2 class="govuk-heading-m">What remains available here</h2><p class="govuk-body">Use a normal link when embedding is blocked or unsuitable. Do not weaken browser restrictions or put household credentials into a URL.</p>
+      <h2 class="govuk-heading-m">Home Assistant documentation</h2><p class="govuk-body">The external page is not embedded in this example.</p><p class="govuk-body">The documentation belongs to home-assistant.io. Opening it leaves this civica example; it does not change your dashboard.</p><a class="govuk-link" href="https://www.home-assistant.io/dashboards/iframe/">Read Home Assistant’s Webpage card documentation</a><h2 class="govuk-heading-m">What remains available here</h2><p class="govuk-body">Use a normal link when embedding is blocked or unsuitable. Do not weaken browser restrictions or put household credentials into a URL.</p>
       </section>
   ha-coverage-helper-number:
     title: "A precise helper draft with a declared range"

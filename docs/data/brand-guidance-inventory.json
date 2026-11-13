@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "reviewed_on": "2026-11-12",
-  "scope": "Interface-design guidance adapted from the four requested GOV.UK Brand source sections. civica.uk identity applies to project documentation and promotion; household or business identity is optional and user chosen.",
+  "reviewed_on": "2026-11-13",
+  "scope": "Interface-design guidance adapted from the four requested GOV.UK Brand source sections. civica identity applies to project documentation and promotion; household or business identity is optional and user chosen.",
   "source_count": 31,
   "brand_source_count": 30,
   "sources": [
@@ -317,7 +317,7 @@
     }
   ],
   "retained_user_requirements": [
-    "civica.uk identifies the project, documentation and promotion. In-home identity is optional and belongs to the household or business; official GOV.UK identity remains excluded.",
+    "civica identifies the project, documentation and promotion. In-home identity is optional and belongs to the household or business; official GOV.UK identity remains excluded.",
     "Ten exact supplied palettes; Vivid/Muted independent of Light/Dark.",
     "Arial, Helvetica, sans-serif interface typography.",
     "Stable generated chart identity colours; 1.5px operational Energy lines.",
@@ -409,7 +409,7 @@
       ],
       "level": "MUST",
       "scope": "Theme selection, optional household personalisation and separate project identity",
-      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica.uk artwork only for project documentation or promotion; exclude official GOV.UK identity."
+      "requirement": "Use the exact selected palette without inserting a required project logo. Keep any chosen household or business artwork unchanged. Use supplied civica artwork only for project documentation or promotion; exclude official GOV.UK identity."
     },
     {
       "id": "BG-COL-02",
@@ -523,7 +523,7 @@
       ],
       "disposition": "adapted",
       "acceptance_checks": [
-        "Exercise ten palettes \u00d7 two tones \u00d7 two modes on affected surfaces.",
+        "Exercise ten palettes × two tones × two modes on affected surfaces.",
         "Inspect forced colours, focus and native editor density without clipping."
       ],
       "implementation_evidence": [
@@ -1246,7 +1246,7 @@
   ],
   "rights_note": "Guidance is paraphrased with source links. No official brand illustrations, fonts, logos or graphic-device artwork are copied into these examples; schematic SVGs are original project markup.",
   "status": "current-user-clarified-scope",
-  "frozen_on": "2026-11-12",
+  "frozen_on": "2026-11-13",
   "normative_levels": {
     "MUST": "Required local acceptance condition within the stated scope.",
     "SHOULD": "Recommended starting point; record a reason for a different approach.",
@@ -1260,5 +1260,13 @@
     "previous_sha256": "22eee0296e6eb74a43f4d7a58c706f53feea75ff984f17049e2f1d2511e4c3bb",
     "decision": "Remove the Brand guidance navigation group; present colour/data/type/illustration as design styles. Do not require civica.uk identity inside a home. Add optional family-name, crest and business-logo guidance. This is a design-system update only.",
     "legacy_identifiers": "BG rule IDs and brand-guidance JSON routes remain stable for existing references."
+  },
+  "identity_revision": {
+    "date": "2026-11-13",
+    "authority": "Explicit user request to rename the project and replace the supplied identity",
+    "current_project": "civica",
+    "previous_record": "docs/data/history/brand-guidance-before-civica-2026-11-13.json",
+    "previous_sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+    "decision": "Use the replacement civica identity for project documentation and promotion. The earlier supplied identity-preservation requirement does not prevent this authorised replacement. Household and business identity remains optional; official government marks remain excluded. Source mappings, rule identifiers and accessibility requirements are unchanged."
   }
 }

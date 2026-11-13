@@ -40,7 +40,7 @@ examples:
       reviewed_on: 2026-11-12
       classification: Generated categorical reference; no second palette
       generator: design-system/chart-colours.mjs
-      generator_sha256: b24ceb52e76843c58dad497ba860c8044ba15fb7d45dd9e197e1795eff50dcee
+      generator_sha256: e3fcc179b074f8fe8b767c4ef39927f5863f195e6ee2886094238f2e46246441
       specification: design-system/chart-colours.json
       algorithm_version: oklch-identity-v1
       series:

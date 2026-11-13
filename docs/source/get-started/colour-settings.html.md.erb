@@ -1,13 +1,22 @@
 ---
 title: "Change theme colours"
-description: "Change theme colours for the civica.uk Home Assistant design system."
+description: "Change theme colours for the civica Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: "2026-11-11"
+updated_on: "2026-11-13"
+updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Change theme colours
 
-Open your Home Assistant profile and find the theme settings. Use the civica.uk colour controls to select a palette. You can also select a **civica** theme through the native dropdown.
+Open your Home Assistant profile and find the theme settings. Use the civica colour controls to select a palette. You can also select a **civica** theme through the native dropdown.
 
 
 ## Examples
@@ -27,7 +36,7 @@ Use **Colour palette** to choose one of the ten named palettes. Labels are alway
 
 Use **Use muted colours** to switch between Vivid and Muted. A checked control selects Muted. An unchecked control selects Vivid. The palette stays the same. The same control changes chart colour strength. Chart identities stay independent of the brand palette: grid remains in its blue family, for example. Read the [chart colour rules](../styles/chart-colour.html).
 
-The selected palette and variant also choose the matching supplied V3.2 header lockup and app icon. Their accent dots are part of the original artwork.
+The selected palette and variant also choose the matching supplied revised header lockup and app icon where the companion applies project identity. The complete supplied files are used without recolouring or cropping. This does not add a household name, crest or logo setting.
 
 Both variants use the exact primary and canvas values in the [colour specification](../styles/colour.html). Vivid and Muted describe colour strength. They do not mean light and dark mode.
 
@@ -55,6 +64,6 @@ Colour controls are disabled in Home Assistant safe or recovery mode. The compan
 
 ## Interaction requirements
 
-A palette change must not reload the page, move keyboard focus away from the control or change device state. Announce the chosen palette and variant with a polite status message. If any of the twenty generated themes are missing, the controls stay disabled and explain that the complete theme set must be installed. A missing theme must not silently choose a different palette.
+A palette change must not reload the page, move keyboard focus away from the control or change device state. Announce the chosen palette and variant with a polite status message. If any of the twenty named palette variants are missing, the controls stay disabled and explain that the complete theme set must be installed. A missing theme must not silently choose a different palette.
 
-The local toggle is inspired by GOV.UK's palette variants, but it is a civica.uk Home Assistant feature. GOV.UK's documented [colour variants](https://design-system.service.gov.uk/styles/colour/) are Sass palette options, not this user settings control.
+The local toggle is inspired by GOV.UK's palette variants, but it is a civica Home Assistant feature. GOV.UK's documented [colour variants](https://design-system.service.gov.uk/styles/colour/) are Sass palette options, not this user settings control.

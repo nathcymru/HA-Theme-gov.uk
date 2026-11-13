@@ -15,7 +15,8 @@ export function selectedVariant(hass?: ThemeHass) {
       if (name === themeName(palette.name, muted)) return { palette, muted };
     }
   }
-  return name === 'govuk' ? { palette: palettes.palettes[0], muted: false } : undefined;
+  const defaultPalette = palettes.palettes.find(palette => palette.id === palettes.defaultPalette)!;
+  return name === 'civica' || name === 'govuk' ? { palette: defaultPalette, muted: palettes.defaultTone === 'muted' } : undefined;
 }
 
 const CSS = `
@@ -50,10 +51,10 @@ export class CivicaThemeSettings extends HTMLElement {
     const root = this.attachShadow({ mode: 'open' });
     const style = document.createElement('style'); style.textContent = CSS;
     const section = document.createElement('section'); section.setAttribute('aria-labelledby', 'title');
-    const title = document.createElement('h2'); title.id = 'title'; title.textContent = 'civica.uk colours';
+    const title = document.createElement('h2'); title.id = 'title'; title.textContent = 'civica colours';
     const label = document.createElement('label'); label.htmlFor = 'palette'; label.textContent = 'Colour palette';
     this.select = document.createElement('select'); this.select.id = 'palette'; this.select.setAttribute('aria-describedby', 'hint');
-    const placeholder = document.createElement('option'); placeholder.value = ''; placeholder.textContent = 'Choose a civica.uk palette'; placeholder.disabled = true; this.select.append(placeholder);
+    const placeholder = document.createElement('option'); placeholder.value = ''; placeholder.textContent = 'Choose a civica palette'; placeholder.disabled = true; this.select.append(placeholder);
     for (const p of palettes.palettes) { const option = document.createElement('option'); option.value = p.id; option.textContent = p.name; this.select.append(option); }
     const toggle = document.createElement('label'); toggle.className = 'tone'; toggle.htmlFor = 'muted';
     this.muted = document.createElement('input'); this.muted.type = 'checkbox'; this.muted.id = 'muted'; this.muted.setAttribute('role', 'switch'); this.muted.setAttribute('aria-describedby', 'hint');
@@ -86,7 +87,7 @@ export class CivicaThemeSettings extends HTMLElement {
     this.select.disabled = !hasAll || Boolean(recovery);
     this.muted.disabled = !hasAll || !variant || Boolean(recovery);
     this.select.value = variant?.palette.id || ''; this.muted.checked = variant?.muted || false;
-    this.status.textContent = recovery ? 'Colour controls are unavailable in safe or recovery mode.' : !hasAll ? 'Install all civica.uk themes and reload themes to use these controls.' : variant ? `${variant.palette.name}: ${variant.muted ? 'muted' : 'vivid'} colours selected.` : 'Choose a palette to use civica.uk colours.';
+    this.status.textContent = recovery ? 'Colour controls are unavailable in safe or recovery mode.' : !hasAll ? 'Install all civica themes and reload themes to use these controls.' : variant ? `${variant.palette.name}: ${variant.muted ? 'muted' : 'vivid'} colours selected.` : 'Choose a palette to use civica colours.';
   }
   private apply() {
     const palette = palettes.palettes.find(p => p.id === this.select.value);
@@ -106,4 +107,4 @@ export class CivicaThemeSettings extends HTMLElement {
 if (!customElements.get('civica-theme-settings')) customElements.define('civica-theme-settings', CivicaThemeSettings);
 const registry = window as unknown as { customCards?: object[] };
 registry.customCards ||= [];
-if (!registry.customCards.some((c: any) => c.type === 'civica-theme-settings')) registry.customCards.push({ type: 'civica-theme-settings', name: 'civica.uk colours', description: 'Choose a colour palette and switch between vivid and muted colours.' });
+if (!registry.customCards.some((c: any) => c.type === 'civica-theme-settings')) registry.customCards.push({ type: 'civica-theme-settings', name: 'civica colours', description: 'Choose a colour palette and switch between vivid and muted colours.' });

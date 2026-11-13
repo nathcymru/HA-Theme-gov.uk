@@ -1,4 +1,4 @@
-# civica.uk inset text. Use for supporting information, not urgent warnings.
+# civica inset text. Use for supporting information, not urgent warnings.
 type: markdown
 content: >
   It can take up to 10 minutes for the thermostat to report its new state.

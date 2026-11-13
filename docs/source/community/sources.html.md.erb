@@ -1,19 +1,30 @@
 ---
 title: "Sources and provenance"
-description: "Sources and provenance for the civica.uk Home Assistant design system."
+description: "Sources and provenance for the civica Home Assistant design system."
 last_reviewed_on: 2026-11-11
 review_in: 3 months
+published_on: "2026-11-11"
+updated_on: "2026-11-13"
+updates:
+  - date: "2026-11-13"
+    description: "Updated the current project name and repository links to civica."
+  - date: "2026-11-11"
+    description: "Added the brand and writing source decisions, audit links and provenance boundaries."
+  - date: "2026-11-11"
+    description: "Added the shared documentation navigation, page history and example presentation as part of the design-system site rebuild."
+  - date: "2026-11-11"
+    description: "First published in the civica.uk design system."
 ---
 
 # Sources and provenance
 
 These official sources were reviewed on 11 November 2026. They inform the local system; their example markup and organisation-specific instructions are not automatically adopted.
 
-| Source | Applied to civica.uk | Qualification |
+| Source | Applied to civica | Qualification |
 | --- | --- | --- |
 | [GOV.UK Design System](https://design-system.service.gov.uk/) | Overall styles, components and patterns | Adapted to Home Assistant tasks |
 | [Writing standards](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/) | Clear, active, user-centred interface copy | Preserve user device names and native translations |
-| [GOV.UK Brand](https://brand.design-system.service.gov.uk/) | Colour, typography, data and illustration | Adapted rules preserve civica.uk palettes, Arial, supplied artwork and operational chart semantics |
+| [GOV.UK Brand](https://brand.design-system.service.gov.uk/) | Colour, typography, data and illustration | Adapted rules preserve civica palettes, Arial, supplied artwork and operational chart semantics |
 | [Frontend without GOV.UK branding](https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/) | Alternative font, header, icons and metadata | No claim of government affiliation |
 | [GOV.UK website repository](https://github.com/alphagov/govuk-design-system) | Navigation and documentation organisation | Upstream is Node; this site uses Middleman |
 | [Tech Docs Template](https://github.com/alphagov/tech-docs-template) | Actual documentation build and template foundations | Pinned gem, local unbranded layout |
@@ -55,7 +66,7 @@ These sources inform original household rules and examples. We do not copy their
 
 - `design-system/palettes.json`: canonical supplied palette specification.
 - `design-system/themes.json`: resolved theme-variable mapping.
-- `brand/civica/`: supplied V3.2 asset pack, proof, palette variants and provenance records.
+- `brand/civica/`: accepted revised asset pack, palette variants, archive verification and provenance records.
 - `docs/source/reference/brand-assets.json`: published artwork source mapping and hashes.
 - `docs/source/design-contract.json`: machine-readable local rules.
 - `docs/source/llms.txt`: reading order for agents and automated tooling.
@@ -65,6 +76,6 @@ The [visual review](visual-audit.html) explains how the public homepage, reusabl
 
 ## Verify claims at the right level
 
-A source's accessibility findings apply to its tested implementation, not automatically to civica.uk. The supplied asset pack's verification record describes its mechanical checks; it does not establish live Home Assistant compatibility or government approval.
+A source's accessibility findings apply to its tested implementation, not automatically to civica. The supplied asset pack's verification record describes its mechanical checks; it does not establish live Home Assistant compatibility or government approval.
 
 Record source changes during maintenance and update the [deviation register](deviations.html), implementation and tests together.
