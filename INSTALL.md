@@ -41,3 +41,7 @@ https://github.com/nathcymru/HA-Theme-gov.uk
 The repository was checked with automated and browser fixtures. A live deployment still needs the acceptance checks in `docs/source/accessibility/`. The theme cannot replace native Energy, Map, authentication, native app branding or arbitrary third-party component internals.
 
 See `LICENSE` for software terms and `ARTWORK.md` for supplied artwork provenance. civica.uk is an independent project, not a government service.
+
+## Licence update on 13 November 2026
+
+This offered copy uses the civica Free Use Licence 1.0 for covered original work: free personal and internal business use, with no sale, paid access, paid bundles or paid services involving that work. Earlier permissions and third-party terms remain unchanged. Read [the release-specific licence and attribution](LICENSE.md).
