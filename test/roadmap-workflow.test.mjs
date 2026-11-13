@@ -13,6 +13,8 @@ test('roadmap refresh handles withdrawal and recovery without granting issue-wri
   assert.ok(workflow.on.schedule.length && 'workflow_dispatch' in workflow.on);
   assert.equal(workflow.permissions.issues, 'read');
   assert.equal(workflow.permissions.contents, 'read');
+  assert.match(workflow.jobs.verify.if, /contains\(github\.event\.issue\.labels\.\*\.name, 'roadmap: accepted'\)/);
+  assert.match(workflow.jobs.verify.if, /github\.event\.label\.name == 'roadmap: accepted'/);
   assert.match(workflow.jobs.verify.if, /github\.event\.label\.name == 'roadmap: in-works'/);
   assert.match(workflow.jobs.verify.if, /github\.event\.label\.name == 'roadmap: completed'/);
 });
@@ -36,6 +38,8 @@ test('whole publication is serialised and unrelated issues cannot replace a pend
   assert.match(group, /'publish'/);
   assert.match(group, /format\('pr-\{0\}'/);
   assert.match(group, /format\('ignored-\{0\}', github\.run_id\)/);
+  assert.match(group, /!contains\(github\.event\.issue\.labels\.\*\.name, 'roadmap: accepted'\)/);
+  assert.match(group, /github\.event\.label\.name != 'roadmap: accepted'/);
   assert.match(group, /!contains\(github\.event\.issue\.labels\.\*\.name, 'roadmap: in-works'\)/);
   assert.match(group, /!contains\(github\.event\.issue\.labels\.\*\.name, 'roadmap: completed'\)/);
   assert.match(group, /github\.event\.label\.name != 'roadmap: in-works'/);

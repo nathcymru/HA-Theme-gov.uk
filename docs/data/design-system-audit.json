@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-11-12",
-  "status": "current-roadmap-source-and-focused-review-passed; final-validation-and-publication-pending",
+  "reviewed_on": "2026-11-13",
+  "status": "current-accepted-roadmap-source-reviewed; final-validation-and-publication-pending",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
   "scope": "All current authored guides and examples; shared documentation presentation, original artwork and canonical ownership; maintained lighting request/count remediation and chart fixture date navigation. Current source review and named browser checks do not certify every native Home Assistant task or physical outcome. The 12 November supplement adds finite source-registry coverage, terminology, UK family decisions and authored references; acceptance is recorded separately.",
   "rule_links": {
@@ -418,8 +418,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers\u2019 change process. 12 November 2026 source review: Linked the shared design styles and added an original contribution and review illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json. Roadmap source review: the new entry distinguishes reviewed theme features from documentation changes and links the public timeline and maintainer workflow.",
-      "sha256": "da9e2c5c4b5147c0a5172d0a4e59b0e169187c3adee882252fa5e5188fd3069f",
+      "note": "New work-package, compliance, organisation and gap entry points are connected to the maintainers\u2019 change process. 12 November 2026 source review: Linked the shared design styles and added an original contribution and review illustration. Integrated validation is recorded separately in the data-design review. Hero layout correction: reviewed the shared text/art band and metadata against the official desktop/mobile composition. Rendered acceptance is tracked separately in hero-layout-review.json. Roadmap source review: the new entry distinguishes reviewed theme features from documentation changes and links the public timeline and maintainer workflow. Accepted-stage source review: the entry names all three roadmap stages and preserves the theme-versus-documentation scope.",
+      "sha256": "57d4f0b2b6c3a7ad04696f17e451ce3f3730ef573f21584d2d5f345c1bb2d66b",
       "url": "/community/index.html",
       "title": "Maintain the system",
       "example_ids": [
@@ -473,8 +473,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Reviewed the form/parser/workflow contract against primary GitHub sources: submitted textarea boundary, maintainer release judgement, status and UTC chronology, exact category/title ordering, public GitHub notes versus excluded roadmap notes, safe pagination and read-only token, trusted-main/PR separation, and the retained full verification gate. Current integrated and publication evidence is separately bounded in roadmap-review.json.",
-      "sha256": "9246606b943673b8f46e607386db91df160ea5f09fcffb4f9cdbf5d8bf403895",
+      "note": "Reviewed the form/parser/workflow contract against primary GitHub sources: submitted textarea boundary, maintainer release judgement, status and UTC chronology, exact category/title ordering, public GitHub notes versus excluded roadmap notes, safe pagination and read-only token, trusted-main/PR separation, and the retained full verification gate. Current integrated and publication evidence is separately bounded in roadmap-review.json. Accepted-stage source review: reviewed all three publishing labels, open/no-date status semantics, one-to-three category limits, schema migration, old-form compatibility and blank-only reserved media. Corrected the instruction that could have relabelled previously started work as unstarted. Feasibility, language quality and accessibility remain requirements for later research and delivery, not established proposal facts.",
+      "sha256": "63b12b2845392636d964d2528b9fb844cb583d31d5405f560a3b1bd9ff0c409e",
       "url": "/community/maintain-roadmap.html",
       "title": "Maintain the theme roadmap",
       "example_ids": [],
@@ -525,8 +525,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Reviewed the real roadmap partial: semantic In the works and Delivered sections, escaped category/title/benefit fields, date grouping, honest empty states, original decorative art and native anchor navigation. Focused browser checks are recorded separately in roadmap-review.json; no live runtime or publication claim.",
-      "sha256": "d883979ab4fafc0d6dda3e8c1ea816fa3dabd5d7383c9a57cfc3ab000ac861ae",
+      "note": "Reviewed the real roadmap partial: semantic In the works and Delivered sections, escaped category/title/benefit fields, date grouping, honest empty states, original decorative art and native anchor navigation. Focused browser checks are recorded separately in roadmap-review.json; no live runtime or publication claim. Accepted-stage source review: schema 2 presents a distinct undated Accepted section, the exact requested proposal benefits under an explicit not-started/testing boundary, and one to three escaped category pills. The separate roadmap-accepted-review.json records current validation; no BSL implementation or verified accessibility is claimed.",
+      "sha256": "a75a3c07d69c86e15e851afa512ff2d1ab0e6f351343c958028a5fef5e9cb95c",
       "url": "/community/roadmap.html",
       "title": "Theme roadmap",
       "example_ids": [],
@@ -4282,8 +4282,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. Project-story review: first-person user-provided purpose, independent identity, descriptive About link and current coverage; Writing guide has a distinct home entry. 12 November 2026 source review: Linked data and colour guidance directly and matched the three homepage category illustrations to their section headers. Integrated validation is recorded separately in the data-design review. Roadmap source review: the new descriptive link points to the theme-only timeline; it does not invent a planned item or claim a documentation change is a delivered runtime feature.",
-      "sha256": "2fa8f838ad76175a5eb59697eb5063cd5fe2da42a8e3865dfca45098dc80eccf",
+      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. Project-story review: first-person user-provided purpose, independent identity, descriptive About link and current coverage; Writing guide has a distinct home entry. 12 November 2026 source review: Linked data and colour guidance directly and matched the three homepage category illustrations to their section headers. Integrated validation is recorded separately in the data-design review. Roadmap source review: the new descriptive link points to the theme-only timeline; it does not invent a planned item or claim a documentation change is a delivered runtime feature. Accepted-stage source review: the roadmap entry now includes agreed work alongside development and delivery, without presenting the two BSL proposals as implemented capabilities.",
+      "sha256": "788e76ada69abffd1f22c2c8ac9908f9c7ab32466fd9341e1c9c8cae62eb2ba5",
       "url": "/index.html",
       "title": "Home",
       "example_ids": [],
@@ -17720,8 +17720,8 @@
     },
     {
       "path": "docs/source/llms.txt",
-      "sha256": "027c1f94f8120031183be6d713a30b0e26dc9d7d868068cbf1c2ffe1eb491603",
-      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope."
+      "sha256": "108df108eb05ce1b892ba70dff8dbd1a4bf19ecbffd61c9fb39d10ee32e6e13b",
+      "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/data/project-artwork-provenance.json",
@@ -17900,88 +17900,88 @@
     },
     {
       "path": ".github/ISSUE_TEMPLATE/roadmap_item.yml",
-      "sha256": "6bdfd998cd8132b1e75f060cd11b62afff93b7a29ce9535be1dc8b6b8ebeb991",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "e1dfe38efdb2a173a59e663bcfb19cadd161303bcedd972dc0cc79a774c4e375",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": ".github/roadmap-labels.json",
-      "sha256": "75b57cbe15a37f11587744f459ad6573e2d91ed8eac0b94b41dbbf92274cb3fe",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "0030b7e6f6177df5be7b66fd5bb2fa2c3d9851de9674ec1dd74305e381688bc2",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": ".github/workflows/validate.yml",
-      "sha256": "938bf02f9f0cc6e9a83c64fe80f9c04a1dd27a2bc7081152588bd00d17700cce",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "e090b3955e7d724e72ec43208597a663cb0005e018fef7fbf19dc252b5b0c27a",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "scripts/roadmap.mjs",
-      "sha256": "d5c7f6f50e352201b39f836e8db3860112204dc14bbe64ab74fe1074b28230ad",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "e0e05e48da885413c53d68ac50e17e26c0d775f8e1bda2f36749c81b7e8060dd",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "test/roadmap.test.mjs",
-      "sha256": "990bcbc0b4810f0fc1e8c4acb07ff6aea398876f6216f600478894b72d5fef04",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "b58b9d414d813d1e30134758f23269d0960f1b70a1d5939b1412c290c98ca89b",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "test/roadmap-workflow.test.mjs",
-      "sha256": "546e6c1b833b3b39de0507d6ec20b48230752c3866a195f809f2e79e76a8e67d",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "42bbaa473eb5167caf43e3622997b56d8307623fbb425fe7f94f09c705b16cc1",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "tests/roadmap.browser.spec.mjs",
-      "sha256": "f838c9b9ceecfab6b09f581e050e757864f3bff1e37245ca3bc3ff480e98e337",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "077ddb0596a03a23c50f337ae0c3a0a0d6bdaad5020888a54714047f40725d3a",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/README.md",
-      "sha256": "601ad03cd058beff7f0bde31f9365c3b2583f0fb044b0f6871a43734b9f57aa2",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "735188ffe35f0c528d2237bfac6f7637a46b5f4abfb019ba3087c2a077c176ff",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/index.html.erb",
-      "sha256": "2fa8f838ad76175a5eb59697eb5063cd5fe2da42a8e3865dfca45098dc80eccf",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "788e76ada69abffd1f22c2c8ac9908f9c7ab32466fd9341e1c9c8cae62eb2ba5",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/community/index.html.md.erb",
-      "sha256": "da9e2c5c4b5147c0a5172d0a4e59b0e169187c3adee882252fa5e5188fd3069f",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "57d4f0b2b6c3a7ad04696f17e451ce3f3730ef573f21584d2d5f345c1bb2d66b",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/community/roadmap.html.erb",
-      "sha256": "d883979ab4fafc0d6dda3e8c1ea816fa3dabd5d7383c9a57cfc3ab000ac861ae",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "a75a3c07d69c86e15e851afa512ff2d1ab0e6f351343c958028a5fef5e9cb95c",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/community/maintain-roadmap.html.md.erb",
-      "sha256": "9246606b943673b8f46e607386db91df160ea5f09fcffb4f9cdbf5d8bf403895",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "63b12b2845392636d964d2528b9fb844cb583d31d5405f560a3b1bd9ff0c409e",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/partials/_roadmap.erb",
-      "sha256": "2026c96b4f62bb99ecb7adb22d86daf7ac94fcfd1af57c4ffc2f4efefd296bed",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "159230576b606557735f7b764b46196424b77e4965f45dd8ee4cabb21aee23e2",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/partials/_roadmap_card.erb",
-      "sha256": "453392bb255fd90061ccc4141d1a0aec950f438c26bba68da59c59d7cdf4f9e7",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "dd9b84bbd73c2aebe57f881c204cf8f8fb0e91cd6aaea133a940fe5f2d4f9224",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/partials/_roadmap_art.erb",
-      "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "8e53df8a23f7b5f7f8bd362628e46b12e1cc6e10d81dfb7cd00d504511533d2a",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/stylesheets/_roadmap.scss",
-      "sha256": "5b39c2a5fc0379e1132cc0765bb81bcec99d70239dde5a54bd01d42292ad20ed",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "2389ee337e038bcbbc0cc2b47e9f418eddc22661dfe8321ef3c45c5f6a10f709",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/data/roadmap-artwork-provenance.json",
-      "sha256": "9ff8adc7af1372b37dfc03d11bc53e9ae8f51af2bf913999fadf2645d11588d9",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+      "sha256": "f46c6c7b10203e25d88873fdae71d4a99df597b4da0fcccaa0ea06fb7f8f0e3a",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json."
     },
     {
       "path": "docs/source/reference/roadmap.json.erb",
@@ -17997,6 +17997,16 @@
       "path": "docs/data/roadmap-review.json",
       "sha256": "e57a184d7410598f5cfe92167de86bea058f83021e3e5af1db28ad740b386a36",
       "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+    },
+    {
+      "path": "docs/source/reference/roadmap-accepted-review.json.erb",
+      "sha256": "7b8b19a4dbb8ab1aa80475ace3824026cf09a2d5dca8a83ce3798d6c32ec10db",
+      "scope": "Accepted-stage roadmap source review; current evidence and limitations are recorded in docs/data/roadmap-accepted-review.json."
+    },
+    {
+      "path": "docs/data/roadmap-accepted-review.json",
+      "sha256": "406ea0212fbe15813882a186d0437b33e7a9b6f5ccc8aec8db2701c550f33ae9",
+      "scope": "Accepted-stage roadmap source review; current evidence and limitations are recorded in docs/data/roadmap-accepted-review.json."
     }
   ],
   "limitations": [
@@ -18010,7 +18020,7 @@
   "verification_record": "docs/data/remediation-verification.json",
   "remediation_baseline_commit": "c254b1c3ae497bbcb52b1fc075804d6c411af6e4",
   "completeness_verification_record": "docs/data/ha-coverage-verification.json",
-  "latest_documentation_review": "docs/data/roadmap-review.json",
+  "latest_documentation_review": "docs/data/roadmap-accepted-review.json",
   "rule_snapshot_history": [
     {
       "date": "2026-11-11",
@@ -18031,6 +18041,12 @@
       "revision": "df7a26a640f1e7242598a61e4197dd1f468b3b70",
       "sha256": "225b6674b629b9fc416eb0566a4ef1fe88d5b6cb9bfe3ebb3ee6d93a7a0662d6",
       "scope": "Unchanged preceding hero-layout evidence. Its tests and deployed result remain historical and do not prove the new roadmap pipeline."
+    },
+    {
+      "record": "docs/data/roadmap-review.json",
+      "revision": "478c666670b0947d43800b7213c14ea81a66abe4",
+      "sha256": "e57a184d7410598f5cfe92167de86bea058f83021e3e5af1db28ad740b386a36",
+      "scope": "Preserved original roadmap evidence before schema 2 and the Accepted stage. Its actual merged publication is separately identified in the accepted-stage review; the old source record remains unchanged."
     }
   ],
   "source_snapshot_history": [
@@ -19060,6 +19076,628 @@
           "path": "docs/source/reference/hero-layout-review.json.erb",
           "sha256": "41664cf697f0c62235050190cb3660a0fbb452d6b358d41820f3d62a312ec492",
           "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
+        }
+      ]
+    },
+    {
+      "revision": "478c666670b0947d43800b7213c14ea81a66abe4",
+      "date": "2026-11-13",
+      "scope": "All 123 source snapshots from the original roadmap deployment, preserved before the Accepted-stage extension. Dynamic roadmap.json was never a frozen source snapshot.",
+      "snapshots": [
+        {
+          "path": "docs/source/layouts/civica.erb",
+          "sha256": "07725251e8c2a94a7be3d3dbeee390337bb713867ca0869bd941c0c222234bc8",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/layouts/civica_core.erb",
+          "sha256": "a7319c8d1c2d134cb1fa1e30b29713e939a9a8320903c9f24eba971e76e489b0",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/source/partials/_catalogue.erb",
+          "sha256": "d8a916f9b07e43e7e7dd43176f4bd8a11518709eba62b24293384db897150a97",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/source/partials/_example.erb",
+          "sha256": "830b8298cedebd320145555b9f186588772a6087bd9378b0fb6c32209952aa6f",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/partials/_history.erb",
+          "sha256": "5d8244f2eae9b0cf43b21b7c795093ae139da77058969e5f587824b03c4989f5",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/stylesheets/example.css.scss",
+          "sha256": "11042edf22c159c45998370935d136d03584ab4fdeef47a72201305603f15910",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/stylesheets/screen.css.scss",
+          "sha256": "2d01ce96feb1a7047e3dd064facde4faabc0e1eaf41f202da913d612855550a9",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope."
+        },
+        {
+          "path": "docs/source/javascripts/civica-docs.js",
+          "sha256": "1075adadab57dc3fd9e0eada81fb87df0565c5dbc5b2ac3c4e436f1442121edc",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/energy-chart-examples.js",
+          "sha256": "6b0ed4dbc691451d47d82a24ac8ac54d343392b543097a6547b0e4ba2489d36d",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/example-components.js",
+          "sha256": "c9c8159a46d4ff9407a53c56355be3cc673834576b499756913872c443c2603c",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/example.js",
+          "sha256": "1bedaa21fc7d7724658b844c32dbc4bfce3a9fa323100caad8a3db8245bee1f2",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/javascripts/publishing-examples.js",
+          "sha256": "ec6aafb1b4499bbc011bcc4a70bf8eccfed29c6a0290b818157e1e0e8b8caef3",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/helpers/design_system_helpers.rb",
+          "sha256": "ed20e6bef57e8dbfe3b669661d23fe0201c3c0bf5f596aaa9f89d9dad7d79a47",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "docs/config.rb",
+          "sha256": "0f707a73a8935a1bac18dcfa5d3947fec39bb8e712b3898d8025ee0acaf05cfb",
+          "scope": "Authored/shared documentation source review. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope."
+        },
+        {
+          "path": "docs/source/design-contract.json",
+          "sha256": "15c65a45fe3c8ec6ef328af9c67439594e3fc2c6bc7a28d2cb37afa407bcf7bd",
+          "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope."
+        },
+        {
+          "path": "design-system/palettes.json",
+          "sha256": "e89aae1ed7aab4cb07d3a429d90e5e081918bc09641816eddcbc90c983447c70",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "ui/dev/energy-charts-harness.ts",
+          "sha256": "bc324fe70ef1bbf709f7a5be9e2ab7d49853025c325584ed06120f41ded9da5d",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "card/src/card.ts",
+          "sha256": "5401ec58d1c031c14f74a9504da36aeb4afc7b9e004dd8b947500b4b115af7b5",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/action-links.ts",
+          "sha256": "45ebe4bdf71f434d9b8c147b35101058a10c80e1669ffedf3fee4a1255af60a8",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/civica-ui.ts",
+          "sha256": "7e93a2416f4864e5de6c7a93fa9cbc3190740dc3d1e66abee17ba974c8ee2168",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/energy-chart-data.ts",
+          "sha256": "e47a84a93d09621aeb05bba7de1456fadd6ebb9a3aed0195016768703f018ba0",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/energy-charts.ts",
+          "sha256": "a1a5e3cec847e7b78734f6a5153a84ec621c18302353131c73e9479709371a47",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/energy-power-series.ts",
+          "sha256": "39fb4e7347494c674b5fd8fcb10214490383de974377cc07924380593bf0dfa0",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/index.ts",
+          "sha256": "376a8614f7630365a9f4c969cd3d89022c7bff3555678b7d4bb6760dfefddba6",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/legacy-card-styles.ts",
+          "sha256": "359732952189f8bf7119287645abe0fb76c8688e72cf4e4641cb61a89ced73c1",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/sidebar-badges.ts",
+          "sha256": "006e875169089d29256355e470b05bd70cd0f01231bfba862c54ed820f856cf0",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "ui/src/theme-settings.ts",
+          "sha256": "0c8e3d74ceb3dd9d88cf2b5e790c3271337df9051eca3d5aadf3e728da614635",
+          "scope": "Maintained presentation/content surface inventory and bounded static inspection; no new live-device execution."
+        },
+        {
+          "path": "docs/data/brand-guidance-examples.yml",
+          "sha256": "7c0799cdecdf264ea8959dd87e28fb7324f96e6dd289107cde53345aca751daa",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/core-examples.yml",
+          "sha256": "cc8ae6458b4c11cf6204fb7124f9e5c27c8fc263b819d4caaefa92941b359dea",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/local-examples.yml",
+          "sha256": "f12b572fd44b1ea80d0aaf6c742e1aa762a3946e153c9e3948c61c02aa9bd896",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/nhs-component-examples.yml",
+          "sha256": "b1308c143a8e505b4de87d0bdca620e8a9440a1fc258c248fe139c0f27576d0c",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/nhs-pattern-examples.yml",
+          "sha256": "6931bd0a8964911fccdb5e64fdfd56268d519f87173c76f060b337c86f0b3ff2",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/publishing-examples.yml",
+          "sha256": "1a50b45edcbace34701af942812f049ace5b46958dd85b2ce9ff52274a0cfab8",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/writing-guide-examples.yml",
+          "sha256": "db49e45bfc31be3ee2631f12f35db1e856887c03a74d1906f62380b259833661",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/brand-guidance-inventory.json",
+          "sha256": "9442ef40111ed3c57233b684158dcb23b6399eee19a46de9e8ee00de4d18c042",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/data/writing-guide-inventory.json",
+          "sha256": "57fdf310349851d0db438fe4f6bead23b77c865da45bf76bf04f629b2e548815",
+          "scope": "Authored/shared documentation source review."
+        },
+        {
+          "path": "docs/source/stylesheets/_civica-tokens.scss",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "5bdb6985fdebd53175de9e83aafef941d8252910fdb279cc7f4e2f2324da60f4"
+        },
+        {
+          "path": "docs/source/partials/_component_family.erb",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "86e91370c9df2719a0692092dff52daa8aba1be2ab792c7a3d7bd00b16f2dd5c"
+        },
+        {
+          "path": "docs/data/card-examples.yml",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "56fd5b82db1441a5cd1835aacb1a1479ef1c3e661ae05c0ab93f02d7eece7e4d"
+        },
+        {
+          "path": "docs/data/ha-controls-examples.yml",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "27d2da1c43cd1a24b2de7ca97a175e34cfe2c04488205343f15d251fbfd6f2b9"
+        },
+        {
+          "path": "docs/data/ha-flows-examples.yml",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "af4bab139ed07e7976887f608688f56f5955064c603d0361685871d8c529e2d2"
+        },
+        {
+          "path": "docs/data/illustration-assets.json",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "74b804c58838e26735e4ace113cf389e60bb3b2a32ac7689ceaff46c40d594f1"
+        },
+        {
+          "path": "docs/data/card-artwork-provenance.json",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "134d240fde7ed6927e18cfdd265079c0f1bfdeaa9c20fd11c964f570570ba5f8"
+        },
+        {
+          "path": "docs/source/images/card-kitchen.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "b09c41ecd9a301478e12b7510beb6a9c74f18a73ff07fe15e186f37474622593"
+        },
+        {
+          "path": "docs/source/images/card-reading-lamp.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "f8a6bc789016d58327b5d2417e1a65b758af17138c7cfb8de42118e6fc427fe6"
+        },
+        {
+          "path": "docs/source/images/card-room-schematic.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "d4209d9e24bf04e75ae55fef1cbdf28ce0d89ed1a53e2bc2b01134ec9d028a34"
+        },
+        {
+          "path": "docs/source/images/category-components.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "8e5510489e3e26c06f2b8d285767fb721929ac6835c40dd88615c7946a526fa7"
+        },
+        {
+          "path": "docs/source/images/category-patterns.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "9d5a02851359658dec10820dae22f58edb69046f1960fce19e58023a3c6ed276"
+        },
+        {
+          "path": "docs/source/images/category-styles.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "8db31a71a91570c65982d0b7932c7e84278b44ed2f2f1a73274a3bc07e02ee1f"
+        },
+        {
+          "path": "docs/source/images/design-system-hero.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "30ed80ab58e25d2987f83106fd91b7903a70fcb62718cb78a03502f399e86f1b"
+        },
+        {
+          "path": "docs/source/images/ha-controls-camera-scene.svg",
+          "scope": "Current remediation source, example, original artwork or shared ownership review.",
+          "sha256": "0c7fd17ac0ac4908864001eb35c9db9b1da89cbd7d156580b2d29a6cbb7b72c2"
+        },
+        {
+          "path": "docs/source/example.html.erb",
+          "scope": "Standalone example rendering, shared markup and build-time cache invalidation review.",
+          "sha256": "eccbfd59ed22ee0a908ee03514a0e7bfa9c7be542a910a67b8c525adf1983e25"
+        },
+        {
+          "path": "docs/data/completeness-interface-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "9f1e1ab8b3d0d39c2fa546c1cdda03ceee1ad94a4fe2d4c6226859e6baacc132"
+        },
+        {
+          "path": "docs/data/completeness-parent-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "40c725d485548e902726332f34ba306e09cac9925fb1114f735b50782fabf102"
+        },
+        {
+          "path": "docs/data/completeness-terminology-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "8a08e88ed2a515cd6c775fe0918a5908d4153b52296672b3c79779aec2f88366"
+        },
+        {
+          "path": "docs/data/terminology-source-review.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "84924563aae466e1e4d1d7b95cb1f4ee37d9abbdeaba53932dc7dbd11d6f1eaf"
+        },
+        {
+          "path": "docs/data/ha-interface-coverage.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "30087422a2197c4a7171928db85f37a0c70604184698354266bb4d2d6ce842a5"
+        },
+        {
+          "path": "docs/data/ha-terminology.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "1a1b472e48add357943611a3072321e6664bf03b83e1aa4bb7463830a7a3876b"
+        },
+        {
+          "path": "docs/data/uk-design-system-crosswalk.json",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "fd51df55f6fce81dbe064163fa41798a34f34ae8d4e2b53a54898ee991b9d41e"
+        },
+        {
+          "path": "docs/data/ha-administration-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "d036fcf80fa78095dab1ce760c342dbb3d62fde3c96652b5edb915894fa4807f"
+        },
+        {
+          "path": "docs/data/ha-coverage-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "b840d2fcec4f1d9c2939ef0bd64284c0bb9bd749164ce62eb111fb29c2d5934c"
+        },
+        {
+          "path": "docs/data/slider-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "632c44fbc7b769f5c194b45e3baa750b4918b84a429bc32bfe39ada4b9192fd3"
+        },
+        {
+          "path": "docs/data/terminology-examples.yml",
+          "scope": "Versioned coverage source, authored reference specimen or independent source-review evidence; runtime acceptance remains separate.",
+          "sha256": "505804b8ced997466985f5760c40972708f1ab34f473ba6bfe75f942649c663a"
+        },
+        {
+          "path": "docs/data/navigation.yml",
+          "sha256": "db8498fac53013e07fe408fe4af0a69d818887f8eaa7d6b3de22b5aa0e20c255",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/data/page_history.yml",
+          "sha256": "0f1c5d01ca4db36e6d4f96bab4a0ccb3187ad815e4138167b88622205902e34d",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/reference/coverage.json.erb",
+          "sha256": "caae1504551498813bde9296af32ae0007611e7ac21c667798540e86556ba6b1",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/reference/documentation-artwork.json.erb",
+          "sha256": "e9a9cc73d824e32484c3dd7671e2230cc28caaeb068c8fb42d6a85f6ff575b62",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope."
+        },
+        {
+          "path": "docs/source/llms.txt",
+          "sha256": "027c1f94f8120031183be6d713a30b0e26dc9d7d868068cbf1c2ffe1eb491603",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope."
+        },
+        {
+          "path": "docs/data/project-artwork-provenance.json",
+          "sha256": "d8e04461c1edf8195bd3965262905aa27c23ee0e15686c9d61799eda59323ac6",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/images/project-control-detail.svg",
+          "sha256": "453e28d8f7d2a66fb82974a2fdcc54e34b2fb7e2ca3113062ccb4cfa7d1fa469",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/images/project-household-overview.svg",
+          "sha256": "f4c35add6081b06701340f584649e7db19dce398cef760ea9e03bbf1bd0ea0e6",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/source/images/project-information-hierarchy.svg",
+          "sha256": "68b5d2e64a1c3c63fd5fe1207df082c397f73020c83df580b0490a53640e9e00",
+          "scope": "Project-story and Writing guide navigation review; original assets and complete alternatives."
+        },
+        {
+          "path": "docs/data/dashboard-data-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "f58ffe131e502cc7d6f33186e7b4624bf1c20e6ba2e17b32ed356abc5ddee68a"
+        },
+        {
+          "path": "docs/data/data-colour-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "b13bbc18961820a79e16c0172807bea062bba72927ed34e2676e8b390b483cf8"
+        },
+        {
+          "path": "docs/data/data-design-review.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "3f0000989a5728195e6394339b012a57a1b04c3a7c7e45ae2e2e4b4a6923187f"
+        },
+        {
+          "path": "docs/data/map-design-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "3ef7f2b37b6e09bbb05d036a6d3a099a3b7d8bd4869f08b56e0e63d3dd73dc4e"
+        },
+        {
+          "path": "docs/data/page-illustrations.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "ea427b31388c3a07bffde0de51af90e0452410c14363def1a4c76552b65152dc"
+        },
+        {
+          "path": "docs/data/personalisation-examples.yml",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "2a3c3a1250ca66489af786c6553f0e5eb909a896c78b6a415255f4206eecdfd8"
+        },
+        {
+          "path": "docs/data/section-artwork-provenance.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "0c893e6e8bba28011db142e30233a29d33f02091b9f2e3c7ecc7dc9cb282b6e8"
+        },
+        {
+          "path": "docs/javascript/map-examples.mjs",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "82bb1679e0f4431ae463af186a8f4478c6ae462e83aa64088fb03a01752bc8f3"
+        },
+        {
+          "path": "docs/source/images/guide-colour.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "335cdb10b5be23d922947ff9c18db8005b2b517342963aa785dbda1dbbe0041c"
+        },
+        {
+          "path": "docs/source/images/guide-data.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "6184769262aee4920a73eded4131b68846c698350e2c1b903f3a1a8f2ed7b020"
+        },
+        {
+          "path": "docs/source/images/guide-illustration.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "97876507abd9165ad729f14c81e227012da5d5fd954edc04de727916e0505858"
+        },
+        {
+          "path": "docs/source/images/section-accessibility.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "4fff717897a336077413a672b49bc74bbe8e8b3088c7ef6ad0ee82e8fb396a9a"
+        },
+        {
+          "path": "docs/source/images/section-community.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "b014a725d70c00c21db7f1fccc56057b370adb70fc427be3c3325d59db5e6a0f"
+        },
+        {
+          "path": "docs/source/images/section-components.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "ca2676b2f53f702a851c993d7faa05fcfebc0a0a7f2cdf600d79919fb3034821"
+        },
+        {
+          "path": "docs/source/images/section-content.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "d160152c9edf97acc2d0c750977c2557f9a2055359d9bd2f3a0a90a84b07771b"
+        },
+        {
+          "path": "docs/source/images/section-get-started.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "bfccaa44345f0cb91aa70d300e41278ea7c22aa31c3b35ed25a2390519797774"
+        },
+        {
+          "path": "docs/source/images/section-patterns.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "28fc88ec3f19f48b3e30acebddc1a8d38c2150629024b8c4ad378ba55ece9d1c"
+        },
+        {
+          "path": "docs/source/images/section-styles.svg",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "d3e00f9bf085f81d3e4422be6e661eeed314645595ac2f0d3a75a75d8e3502c4"
+        },
+        {
+          "path": "docs/source/reference/map-example-provider.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "1df56d3bb89ad26b0210c96c7c9a3ec2d593d157d14eda908246968c6e879b23"
+        },
+        {
+          "path": "docs/source/stylesheets/_data-colour.scss",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "6f1a8ea2f6b807af4e2fe3789077d80508c63261202147b33415978fdb8aaea8"
+        },
+        {
+          "path": "docs/source/stylesheets/_data-dashboard.scss",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "a84441e179e9db6fc3846f199e11e941d2aa6d9b23a22f6b2708b672905086ec"
+        },
+        {
+          "path": "docs/source/stylesheets/_data-maps.scss",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "da4923c4e393f36bdc61c6147ecee31a3b521c29f330b8d4e8b8ceca8cdccfe0"
+        },
+        {
+          "path": "scripts/build-docs-maps.mjs",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "8d87fabb143bfcc6a3d5da4d35cc09c339275cdef0f1d29a613e420f84054f3b"
+        },
+        {
+          "path": "docs/scripts/sync-palettes.py",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "0e527b1027e3c2500f6af71a920ed4a3c2b08063fbc33dcfa97052fdbf79beea"
+        },
+        {
+          "path": "scripts/build.mjs",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope.",
+          "sha256": "e09b38eea21f9c5ba97f9a0a955bf667acbeb52071b097e2080914508b7149a9"
+        },
+        {
+          "path": "package.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope.",
+          "sha256": "7be922060d4e1cd4ba8cb22c27912e6a101cf572b6e01318c1263ec01539e972"
+        },
+        {
+          "path": "package-lock.json",
+          "scope": "Current data, colour, identity and illustration documentation inputs; source review only, with integrated verification recorded separately.",
+          "sha256": "0927c977938c6d3b84c16044e0413bdc09143543fce8944b2512d3bec2afd635"
+        },
+        {
+          "path": "docs/source/reference/data-design-review.json.erb",
+          "sha256": "3c6c71eeae5c69c4cd47b014e1be038a4609fa982d74d6370b60d5dba119c2e5",
+          "scope": "Public reference wrapper for current scoped documentation evidence."
+        },
+        {
+          "path": "docs/source/partials/_breadcrumbs.erb",
+          "sha256": "07d2038b15d3bf0bab870b186a4d4dda1c51f66001266c7b9de501b8d61985f3",
+          "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
+        },
+        {
+          "path": "docs/data/hero-layout-review.json",
+          "sha256": "225b6674b629b9fc416eb0566a4ef1fe88d5b6cb9bfe3ebb3ee6d93a7a0662d6",
+          "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
+        },
+        {
+          "path": "docs/source/reference/hero-layout-review.json.erb",
+          "sha256": "41664cf697f0c62235050190cb3660a0fbb452d6b358d41820f3d62a312ec492",
+          "scope": "Corrective shared hero layout and its explicitly bounded source/verification record."
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/roadmap_item.yml",
+          "sha256": "6bdfd998cd8132b1e75f060cd11b62afff93b7a29ce9535be1dc8b6b8ebeb991",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": ".github/roadmap-labels.json",
+          "sha256": "75b57cbe15a37f11587744f459ad6573e2d91ed8eac0b94b41dbbf92274cb3fe",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": ".github/workflows/validate.yml",
+          "sha256": "938bf02f9f0cc6e9a83c64fe80f9c04a1dd27a2bc7081152588bd00d17700cce",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "scripts/roadmap.mjs",
+          "sha256": "d5c7f6f50e352201b39f836e8db3860112204dc14bbe64ab74fe1074b28230ad",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "test/roadmap.test.mjs",
+          "sha256": "990bcbc0b4810f0fc1e8c4acb07ff6aea398876f6216f600478894b72d5fef04",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "test/roadmap-workflow.test.mjs",
+          "sha256": "546e6c1b833b3b39de0507d6ec20b48230752c3866a195f809f2e79e76a8e67d",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "tests/roadmap.browser.spec.mjs",
+          "sha256": "f838c9b9ceecfab6b09f581e050e757864f3bff1e37245ca3bc3ff480e98e337",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/README.md",
+          "sha256": "601ad03cd058beff7f0bde31f9365c3b2583f0fb044b0f6871a43734b9f57aa2",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/index.html.erb",
+          "sha256": "2fa8f838ad76175a5eb59697eb5063cd5fe2da42a8e3865dfca45098dc80eccf",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/community/index.html.md.erb",
+          "sha256": "da9e2c5c4b5147c0a5172d0a4e59b0e169187c3adee882252fa5e5188fd3069f",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/community/roadmap.html.erb",
+          "sha256": "d883979ab4fafc0d6dda3e8c1ea816fa3dabd5d7383c9a57cfc3ab000ac861ae",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/community/maintain-roadmap.html.md.erb",
+          "sha256": "9246606b943673b8f46e607386db91df160ea5f09fcffb4f9cdbf5d8bf403895",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/partials/_roadmap.erb",
+          "sha256": "2026c96b4f62bb99ecb7adb22d86daf7ac94fcfd1af57c4ffc2f4efefd296bed",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/partials/_roadmap_card.erb",
+          "sha256": "453392bb255fd90061ccc4141d1a0aec950f438c26bba68da59c59d7cdf4f9e7",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/partials/_roadmap_art.erb",
+          "sha256": "0cb3785617d4f793c2e96465b089ab3e2ffed3e9e4dbe5dd4d1140920f6dd6de",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/stylesheets/_roadmap.scss",
+          "sha256": "5b39c2a5fc0379e1132cc0765bb81bcec99d70239dde5a54bd01d42292ad20ed",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/data/roadmap-artwork-provenance.json",
+          "sha256": "9ff8adc7af1372b37dfc03d11bc53e9ae8f51af2bf913999fadf2645d11588d9",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/reference/roadmap.json.erb",
+          "sha256": "f2eb8ac4a4f800850a1ee5dbc199cb973f39445a45f04d0c80315792c3098f27",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/source/reference/roadmap-review.json.erb",
+          "sha256": "d6ab1505eb9bfa4463960c40f129b1de1aed9c01646a381ee25d356df6c044bf",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
+        },
+        {
+          "path": "docs/data/roadmap-review.json",
+          "sha256": "e57a184d7410598f5cfe92167de86bea058f83021e3e5af1db28ad740b386a36",
+          "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits."
         }
       ]
     }

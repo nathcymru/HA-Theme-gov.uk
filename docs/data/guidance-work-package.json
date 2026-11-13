@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Brand, writing and design-system audit work package",
-  "reviewed_on": "2026-11-12",
+  "reviewed_on": "2026-11-13",
   "baseline_commit": "2dfeb5272eaf27c100dcb50b59f20220918a2d41",
   "scope": "Original brand/writing review and whole-system audit, followed by authorised remediation: 16 confirmed findings, 4 recommendations, 14 ownership decisions, 30 dedicated Home Assistant specifications and 104 additional examples. Native live-task coverage remains separately bounded. The 12 November completeness supplement adds 632 registry mappings, 456 terminology entries, 681 contextual native labels, eight additional task families and 45 examples; source coverage and native implementation remain separate.",
   "completion_meaning": "A completed review means its documented scope has been covered. Open audit findings remain open until their acceptance evidence exists.",
@@ -569,6 +569,50 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-ROADMAP-ACCEPTED",
+      "title": "Record agreed theme proposals separately from work in progress and delivery",
+      "items": [
+        {
+          "id": "RA1",
+          "task": "Extend the strict public schema and status workflow with Accepted and one to three categories while preserving trusted publication and safe failures.",
+          "status": "complete",
+          "evidence": [
+            "scripts/roadmap.mjs",
+            ".github/workflows/validate.yml",
+            "docs/data/roadmap-accepted-review.json"
+          ]
+        },
+        {
+          "id": "RA2",
+          "task": "Record the two requested real BSL proposals as unstarted intended outcomes, with exact copy, the reserved media field blank and no implementation claim.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/roadmap-accepted-review.json",
+            "docs/source/partials/_roadmap.erb",
+            "docs/source/community/maintain-roadmap.html.md.erb"
+          ]
+        },
+        {
+          "id": "RA3",
+          "task": "Review schema migration, category rendering, editorial limits and status conflicts independently; preserve the original roadmap evidence.",
+          "status": "complete",
+          "evidence": [
+            "docs/data/roadmap-accepted-review.json",
+            "test/roadmap.test.mjs",
+            "tests/roadmap.browser.spec.mjs"
+          ]
+        },
+        {
+          "id": "RA4",
+          "task": "Complete final integrated source, unit, browser and publication checks, then verify the actual public two-proposal projection.",
+          "status": "pending",
+          "evidence": [
+            "docs/data/roadmap-accepted-review.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -783,6 +827,23 @@
         "test/roadmap-workflow.test.mjs",
         "tests/roadmap.browser.spec.mjs"
       ]
+    },
+    {
+      "id": "loop-18",
+      "title": "Loop 18: separate accepted BSL proposals from implemented capability",
+      "outcome": "Reviewed the schema 2 extension, strict status/category/media boundaries and explicit unstarted/testing wording. Corrected a draft instruction that confused paused work with work not started. The two authentic issue proposals remain intended outcomes; final integrated validation and publication are recorded separately.",
+      "checks": [
+        "Accepted appears in all four current/removed-label workflow relevance and concurrency predicates.",
+        "Legacy issue bodies still parse; schema 1 snapshots fail with a migration instruction; populated reserved media fails safely.",
+        "Requested proposal wording is preserved under an explicit not-started/testing introduction, without claiming accessibility certification, language quality or hardware feasibility.",
+        "The preceding roadmap review and 123 source snapshots are preserved; dynamic issue-derived public data remains unhashed."
+      ],
+      "evidence": [
+        "docs/data/roadmap-accepted-review.json",
+        "test/roadmap.test.mjs",
+        "test/roadmap-workflow.test.mjs",
+        "tests/roadmap.browser.spec.mjs"
+      ]
     }
   ],
   "limitations": [
@@ -790,7 +851,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "current-roadmap-source-and-focused-review-passed; final-validation-and-publication-pending",
+  "status": "current-accepted-roadmap-source-reviewed; final-validation-and-publication-pending",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",
@@ -814,6 +875,6 @@
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
   ],
-  "latest_documentation_review": "docs/data/roadmap-review.json",
-  "publication_verification_scope": "Historical verification remains attached to its explicitly named revisions. The new documentation-only theme roadmap has local source/unit/focused-browser evidence and pending final validation/publication in roadmap-review.json; earlier release and live checks are not reused as a pass for it."
+  "latest_documentation_review": "docs/data/roadmap-accepted-review.json",
+  "publication_verification_scope": "Historical verification remains attached to the explicitly named revisions. The original roadmap review is unchanged; the Accepted-stage extension, two actual proposals and current acceptance are recorded separately in roadmap-accepted-review.json."
 }

@@ -5,9 +5,10 @@ import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
 
-export const STATUS_LABELS = Object.freeze({ inWorks: 'roadmap: in-works', completed: 'roadmap: completed' });
+export const STATUS_LABELS = Object.freeze({ accepted: 'roadmap: accepted', inWorks: 'roadmap: in-works', completed: 'roadmap: completed' });
 export const PUBLIC_LIMITS = Object.freeze({ title: [5, 120], summary: [20, 400], category: [2, 40] });
 const FIELD_HEADINGS = ['Public title', 'User benefit', 'Scope'];
+const MEDIA_HEADING = 'BSL / Audio Video Link';
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const DEFAULT_OUTPUT = 'docs/data/roadmap.json';
 const has = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
@@ -78,20 +79,29 @@ export function parsePublicFields(body, issueNumber) {
   const publicBody = normal.slice(0, boundary.index);
   if (publicBody.length > 15000) fail('The public form content is too long.', issueNumber);
   const headings = [...publicBody.matchAll(/^\s{0,3}###[ \t]+([^\n]+?)[ \t]*$/gm)];
-  if (headings.length !== 3 || headings.some((m, i) => m[1] !== FIELD_HEADINGS[i]) || publicBody.slice(0, headings[0]?.index).trim()) fail('Use the three public form fields in their original order.', issueNumber);
+  const expected = headings.length === 4 ? [...FIELD_HEADINGS, MEDIA_HEADING] : FIELD_HEADINGS;
+  if (headings.length !== expected.length || headings.some((m, i) => m[1] !== expected[i]) || publicBody.slice(0, headings[0]?.index).trim()) fail('Use the public form fields in their original order, with the optional media field after Scope.', issueNumber);
   const values = headings.map((m, i) => publicBody.slice(m.index + m[0].length, headings[i + 1]?.index ?? publicBody.length).trim());
   if (values[2] !== 'Theme feature only') fail('Scope must be Theme feature only.', issueNumber);
+  if (values.length === 4 && values[3] !== '' && values[3] !== '_No response_') fail('BSL / Audio Video Link must be blank until roadmap media is supported. Clear this field before publishing.', issueNumber);
   if (/^\s*#{1,6}\s/m.test(values[0] + '\n' + values[1])) fail('Public fields must not contain extra headings.', issueNumber);
   return { title: toPlainText(values[0], 'title', issueNumber), summary: toPlainText(values[1], 'summary', issueNumber) };
 }
-function categoryFor(labels, issueNumber) {
+function categoriesFor(labels, issueNumber) {
   const tags = labels.filter(label => label.startsWith('tag:'));
-  if (tags.length !== 1 || !tags[0].startsWith('tag: ')) fail('Add exactly one category label using tag: Category.', issueNumber);
-  const category = tags[0].slice(5);
-  if (!/^[\p{L}\p{N}][\p{L}\p{N} &'’–-]*$/u.test(category) || category !== category.trim() || /\s{2}/.test(category)) fail('The category label must be a short, readable name.', issueNumber);
-  const clean = toPlainText(category, 'category', issueNumber);
-  if (clean !== category) fail('The category label contains a reference or formatting.', issueNumber);
-  return clean;
+  if (tags.length < 1 || tags.length > 3 || tags.some(tag => !tag.startsWith('tag: '))) fail('Add 1 to 3 category labels using tag: Category.', issueNumber);
+  const seen = new Set();
+  const categories = tags.map(tag => {
+    const category = tag.slice(5);
+    if (!/^[\p{L}\p{N}][\p{L}\p{N} &'’–-]*$/u.test(category) || category !== category.trim() || /\s{2}/.test(category)) fail('Each category label must be a short, readable name.', issueNumber);
+    const clean = toPlainText(category, 'category', issueNumber);
+    if (clean !== category) fail('A category label contains a reference or formatting.', issueNumber);
+    const key = clean.toLocaleLowerCase('en-GB');
+    if (seen.has(key)) fail('Category labels must be unique, ignoring letter case.', issueNumber);
+    seen.add(key);
+    return clean;
+  });
+  return categories.sort(compare);
 }
 function closedDate(value, now, issueNumber) {
   if (typeof value !== 'string') fail('Completed items need a valid closed_at date.', issueNumber);
@@ -106,11 +116,15 @@ function closedDate(value, now, issueNumber) {
   return parsed;
 }
 const compare = (a, b) => a.localeCompare(b, 'en-GB') || (a < b ? -1 : a > b ? 1 : 0);
-const compareItems = (a, b) => compare(a.category, b.category) || compare(a.title, b.title) || compare(a.summary, b.summary);
+const compareCategories = (a, b) => {
+  for (let i = 0; i < Math.min(a.length, b.length); i++) { const result = compare(a[i], b[i]); if (result) return result; }
+  return a.length - b.length;
+};
+const compareItems = (a, b) => compareCategories(a.categories, b.categories) || compare(a.title, b.title) || compare(a.summary, b.summary);
 
 export function buildSnapshot(issues, { now = new Date() } = {}) {
   if (!Array.isArray(issues) || !(now instanceof Date) || !Number.isFinite(now.getTime())) fail('Invalid roadmap input.');
-  const inWorks = [], completed = [], numbers = new Set(), publicNames = new Set();
+  const accepted = [], inWorks = [], completed = [], numbers = new Set(), publicNames = new Set();
   for (const issue of issues) {
     if (!plainObject(issue)) fail('GitHub returned an invalid issue record.');
     if (has(issue, 'pull_request')) continue;
@@ -123,20 +137,21 @@ export function buildSnapshot(issues, { now = new Date() } = {}) {
     if (labels.some(x => typeof x !== 'string')) fail('Issue labels are malformed.', n);
     const status = labels.filter(x => x.startsWith('roadmap:'));
     if (status.length !== 1 || !Object.values(STATUS_LABELS).includes(status[0])) fail('Apply exactly one supported roadmap status label after review.', n);
-    const category = categoryFor(labels, n), fields = parsePublicFields(issue.body, n);
-    const item = { category, title: fields.title, summary: fields.summary };
-    const key = category.toLocaleLowerCase('en-GB') + '\0' + fields.title.toLocaleLowerCase('en-GB');
-    if (publicNames.has(key)) fail('The public category and title duplicate another roadmap item.', n);
+    const categories = categoriesFor(labels, n), fields = parsePublicFields(issue.body, n);
+    const item = { categories, title: fields.title, summary: fields.summary };
+    const key = categories.join('\0').toLocaleLowerCase('en-GB') + '\0' + fields.title.toLocaleLowerCase('en-GB');
+    if (publicNames.has(key)) fail('The public categories and title duplicate another roadmap item.', n);
     publicNames.add(key);
-    if (status[0] === STATUS_LABELS.inWorks) {
-      if (issue.state !== 'open' || issue.closed_at !== null || ![null, 'reopened'].includes(issue.state_reason)) fail('An in-works item must be open with no completion date.', n);
-      inWorks.push(item);
+    if ([STATUS_LABELS.accepted, STATUS_LABELS.inWorks].includes(status[0])) {
+      if (issue.state !== 'open' || issue.closed_at !== null || ![null, 'reopened'].includes(issue.state_reason)) fail('Accepted and in-works items must be open with no completion date.', n);
+      (status[0] === STATUS_LABELS.accepted ? accepted : inWorks).push(item);
     } else {
       if (issue.state !== 'closed' || issue.state_reason !== 'completed') fail('A completed label requires an issue closed as completed.', n);
       const date = closedDate(issue.closed_at, now, n);
       completed.push({ date, month: date.toISOString().slice(0, 7), item });
     }
   }
+  accepted.sort(compareItems);
   inWorks.sort(compareItems);
   completed.sort((a, b) => b.date - a.date || compareItems(a.item, b.item));
   const delivered = [];
@@ -148,24 +163,29 @@ export function buildSnapshot(issues, { now = new Date() } = {}) {
     if (!bucket || bucket.month !== month) { bucket = { month, label: MONTHS[Number(month.slice(5)) - 1], items: [] }; group.months.push(bucket); }
     bucket.items.push(item);
   }
-  const snapshot = { schemaVersion: 1, scope: 'theme-features', inWorks, delivered };
+  const snapshot = { schemaVersion: 2, scope: 'theme-features', accepted, inWorks, delivered };
   validateSnapshot(snapshot);
   return snapshot;
 }
 
 export function validateSnapshot(snapshot) {
-  exactKeys(snapshot, ['schemaVersion', 'scope', 'inWorks', 'delivered'], 'roadmap');
-  if (snapshot.schemaVersion !== 1 || snapshot.scope !== 'theme-features' || !Array.isArray(snapshot.inWorks) || !Array.isArray(snapshot.delivered)) fail('Invalid roadmap schema or scope.');
+  if (plainObject(snapshot) && snapshot.schemaVersion === 1) fail('Roadmap schema 1 is no longer supported. Fetch a schema 2 snapshot before publishing.');
+  exactKeys(snapshot, ['schemaVersion', 'scope', 'accepted', 'inWorks', 'delivered'], 'roadmap');
+  if (snapshot.schemaVersion !== 2 || snapshot.scope !== 'theme-features' || !Array.isArray(snapshot.accepted) || !Array.isArray(snapshot.inWorks) || !Array.isArray(snapshot.delivered)) fail('Invalid roadmap schema or scope.');
   const seen = new Set();
   const validateItem = item => {
-    exactKeys(item, ['category', 'title', 'summary'], 'public item');
-    for (const field of ['category', 'title', 'summary']) if (toPlainText(item[field], field) !== item[field]) fail(`Public ${field} is not plain text.`);
-    categoryFor(['tag: ' + item.category]);
-    const key = item.category.toLocaleLowerCase('en-GB') + '\0' + item.title.toLocaleLowerCase('en-GB');
+    exactKeys(item, ['categories', 'title', 'summary'], 'public item');
+    for (const field of ['title', 'summary']) if (toPlainText(item[field], field) !== item[field]) fail(`Public ${field} is not plain text.`);
+    if (!Array.isArray(item.categories) || item.categories.some(category => typeof category !== 'string')) fail('Public categories must be an array of readable names.');
+    const sorted = categoriesFor(item.categories.map(category => 'tag: ' + category));
+    if (sorted.some((category, index) => category !== item.categories[index])) fail('Public categories must be sorted.');
+    const key = item.categories.join('\0').toLocaleLowerCase('en-GB') + '\0' + item.title.toLocaleLowerCase('en-GB');
     if (seen.has(key)) fail('Duplicate public roadmap item.'); seen.add(key);
   };
-  snapshot.inWorks.forEach(validateItem);
-  if (snapshot.inWorks.some((item, i) => i && compareItems(snapshot.inWorks[i - 1], item) > 0)) fail('In-works items must be sorted by category and title.');
+  for (const items of [snapshot.accepted, snapshot.inWorks]) {
+    items.forEach(validateItem);
+    if (items.some((item, i) => i && compareItems(items[i - 1], item) > 0)) fail('Accepted and in-works items must be sorted by categories and title.');
+  }
   let previousYear = Infinity;
   for (const group of snapshot.delivered) {
     exactKeys(group, ['year', 'months'], 'delivery year');

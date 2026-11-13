@@ -20,8 +20,10 @@ concurrency:
   group: >-
     civica-validate-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||
     (github.event_name == 'issues' &&
+    !contains(github.event.issue.labels.*.name, 'roadmap: accepted') &&
     !contains(github.event.issue.labels.*.name, 'roadmap: in-works') &&
     !contains(github.event.issue.labels.*.name, 'roadmap: completed') &&
+    github.event.label.name != 'roadmap: accepted' &&
     github.event.label.name != 'roadmap: in-works' &&
     github.event.label.name != 'roadmap: completed') && format('ignored-{0}', github.run_id) || 'publish' }}
   cancel-in-progress: false
@@ -29,8 +31,10 @@ jobs:
   verify:
     if: >-
       github.event_name != 'issues' ||
+      contains(github.event.issue.labels.*.name, 'roadmap: accepted') ||
       contains(github.event.issue.labels.*.name, 'roadmap: in-works') ||
       contains(github.event.issue.labels.*.name, 'roadmap: completed') ||
+      github.event.label.name == 'roadmap: accepted' ||
       github.event.label.name == 'roadmap: in-works' ||
       github.event.label.name == 'roadmap: completed'
     runs-on: ubuntu-latest
