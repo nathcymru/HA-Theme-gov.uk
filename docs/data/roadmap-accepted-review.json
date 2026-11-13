@@ -95,7 +95,7 @@
     },
     "source_integrity": {
       "status": "passed",
-      "executed": "Final Middleman build, internal links and anchors in675 HTML pages, guidance evidence for101 rules across216 guides and459 examples, Home Assistant coverage, type checking and diff whitespace checks passed. Three further browser checks passed for roadmap, maintenance guide and Community structure/history/accessibility/320px reflow."
+      "executed": "Final Middleman build, internal links and anchors in 675 HTML pages, guidance evidence for 101 rules across 216 guides and 459 examples, Home Assistant coverage, type checking and diff whitespace checks passed. Three further browser checks passed for roadmap, maintenance guide and Community structure/history/accessibility/320px reflow."
     },
     "actual_issue_projection": {
       "status": "authenticated-fetch-confirmed-by-parent",
