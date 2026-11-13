@@ -657,6 +657,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "WP-STARTUP-READINESS",
+      "title": "Correct a missing theme registry during native startup",
+      "items": [
+        {
+          "id": "SR1",
+          "task": "Guard theme-registry access, show disabled loading controls and retain native preference semantics until data arrives.",
+          "status": "complete",
+          "evidence": [
+            "ui/src/civica-ui.ts",
+            "ui/src/theme-settings.ts",
+            "docs/data/startup-readiness-review.json"
+          ]
+        },
+        {
+          "id": "SR2",
+          "task": "Verify absent/null registry states and automatic recovery without errors or unintended preference events.",
+          "status": "complete",
+          "evidence": [
+            "tests/theme-settings.browser.spec.mjs",
+            "docs/data/startup-readiness-review.json"
+          ]
+        },
+        {
+          "id": "SR3",
+          "task": "Update current installation/cache references, retain v1.4.0 history and reconcile the exact patched source evidence.",
+          "status": "complete",
+          "evidence": [
+            "docs/source/get-started/install.html.md.erb",
+            "docs/data/startup-readiness-review.json"
+          ]
+        },
+        {
+          "id": "SR4",
+          "task": "Run mandatory full CI, publish the patch and verify the actual live cold-start behavior.",
+          "status": "pending",
+          "evidence": [
+            "docs/data/startup-readiness-review.json"
+          ]
+        }
+      ]
     }
   ],
   "loops": [
@@ -904,6 +946,21 @@
         "docs/data/naming-inventory.json",
         "scripts/check-naming.mjs"
       ]
+    },
+    {
+      "id": "loop-20",
+      "title": "Loop 20: test native data readiness separately from element registration readiness",
+      "outcome": "The owner-frozen correction passed build/typecheck, 84 Node tests and all 12 focused theme-settings browser tests. Independent source review confirmed the registry-readiness guards, disabled/loading state, native fallback and preference-preserving recovery; the Energy change is type-only. Full CI/publication and actual live patch acceptance remain pending in the follow-up release receipt. Earlier v1.4.0 evidence remains unchanged.",
+      "checks": [
+        "A present hass object does not establish that its themes registry or nested map is available.",
+        "Loading controls are disabled; an absent registry is not described as an uninstalled theme.",
+        "Recovery retains native preferences, safe-mode behavior and no unsolicited theme-change events.",
+        "Earlier rename history/source review remains unchanged; current cache versions advance separately."
+      ],
+      "evidence": [
+        "docs/data/startup-readiness-review.json",
+        "tests/theme-settings.browser.spec.mjs"
+      ]
     }
   ],
   "limitations": [
@@ -911,7 +968,7 @@
     "Native Home Assistant and third-party behaviour require their own release-specific live checks.",
     "Reference examples use invented household data and do not control devices."
   ],
-  "status": "current-accepted-roadmap-source-reviewed; final-validation-and-publication-pending",
+  "status": "current-startup-readiness-patch-locally-validated; full-ci-publication-and-live-acceptance-pending",
   "publication_verification": {
     "verified_revision": "8336de1d1eb5fd498ec3581809e786efa0d67c1d",
     "verified_at": "2026-11-11T23:29:52.043094+00:00",
@@ -935,6 +992,6 @@
       "remaining_scope": "Implement and verify the proposed changes separately; no live Home Assistant change or full accessibility certification is claimed."
     }
   ],
-  "latest_documentation_review": "docs/data/rebrand-review.json",
+  "latest_documentation_review": "docs/data/startup-readiness-review.json",
   "publication_verification_scope": "Historical verification remains attached to the explicitly named revisions. The original roadmap review is unchanged; the Accepted-stage extension, two actual proposals and current acceptance are recorded separately in roadmap-accepted-review.json."
 }

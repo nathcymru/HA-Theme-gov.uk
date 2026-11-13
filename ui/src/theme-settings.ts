@@ -3,13 +3,13 @@ import palettes from '../../design-system/palettes.json';
 export interface ThemeHass {
   config?: { safe_mode?: boolean; recovery_mode?: boolean; time_zone?: string };
   locale?: { language?: string; time_format?: string; number_format?: string; time_zone?: string };
-  themes: { themes: Record<string, unknown>; theme?: string; darkMode?: boolean; default_theme?: string };
+  themes?: { themes?: Record<string, unknown> | null; theme?: string; darkMode?: boolean; default_theme?: string } | null;
   selectedTheme?: { theme?: string; dark?: boolean; primaryColor?: string; accentColor?: string };
 }
 
 export const themeName = (name: string, muted: boolean) => `civica ${name} ${muted ? 'Muted' : 'Vivid'}`;
 export function selectedVariant(hass?: ThemeHass) {
-  const name = hass?.themes.theme || hass?.selectedTheme?.theme || hass?.themes.default_theme;
+  const name = hass?.themes?.theme || hass?.selectedTheme?.theme || hass?.themes?.default_theme;
   for (const palette of palettes.palettes) {
     for (const muted of [false, true]) {
       if (name === themeName(palette.name, muted)) return { palette, muted };
@@ -77,23 +77,24 @@ export class CivicaThemeSettings extends HTMLElement {
   }
   private sync() {
     if (!this.select) return;
-    const available = this.current?.themes.themes || {};
+    const loading = !this.current?.themes?.themes;
+    const available = this.current?.themes?.themes || {};
     const variant = selectedVariant(this.current);
     const recovery = this.current?.config?.safe_mode || this.current?.config?.recovery_mode;
-    const key = `${recovery}|${this.current?.selectedTheme?.theme}|${this.current?.themes.theme}|${Object.keys(available).join('|')}`;
+    const key = `${loading}|${recovery}|${this.current?.selectedTheme?.theme}|${this.current?.themes?.theme}|${Object.keys(available).join('|')}`;
     if (this.stateKey === key) return;
     this.stateKey = key;
     const hasAll = palettes.palettes.every(p => [false, true].every(m => themeName(p.name, m) in available));
     this.select.disabled = !hasAll || Boolean(recovery);
     this.muted.disabled = !hasAll || !variant || Boolean(recovery);
     this.select.value = variant?.palette.id || ''; this.muted.checked = variant?.muted || false;
-    this.status.textContent = recovery ? 'Colour controls are unavailable in safe or recovery mode.' : !hasAll ? 'Install all civica themes and reload themes to use these controls.' : variant ? `${variant.palette.name}: ${variant.muted ? 'muted' : 'vivid'} colours selected.` : 'Choose a palette to use civica colours.';
+    this.status.textContent = recovery ? 'Colour controls are unavailable in safe or recovery mode.' : loading ? 'Colour settings are loading.' : !hasAll ? 'Install all civica themes and reload themes to use these controls.' : variant ? `${variant.palette.name}: ${variant.muted ? 'muted' : 'vivid'} colours selected.` : 'Choose a palette to use civica colours.';
   }
   private apply() {
     const palette = palettes.palettes.find(p => p.id === this.select.value);
     if (!palette || this.current?.config?.safe_mode || this.current?.config?.recovery_mode) return;
     const theme = themeName(palette.name, this.muted.checked);
-    if (!this.current?.themes.themes[theme]) { this.status.textContent = 'This theme is unavailable. Reload themes and try again.'; return; }
+    if (!this.current?.themes?.themes?.[theme]) { this.status.textContent = 'This theme is unavailable. Reload themes and try again.'; return; }
     // This is the same event used by HA's own profile theme row. HA owns local
     // application, persistence, cross-device updates and any save-failure toast.
     // Clear native colour overrides so they cannot partially mask this palette.

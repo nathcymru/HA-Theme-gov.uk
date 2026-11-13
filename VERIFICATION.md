@@ -1,5 +1,11 @@
 # Verification
 
+## v1.4.1 — wait for theme data during startup
+
+Live acceptance identified a transient startup error when Home Assistant supplies a `hass` object before its theme registry is available. The companion and colour controls now handle an absent or null registry and a pending registry map. They keep native identity and disabled loading controls until the data arrives, then recover without changing the saved palette or display mode. The regression checks those transitions, uncaught browser errors and recovery through the existing document-style observer.
+
+This patch changes the companion and installation cache versions. Supplied artwork, theme values, card behaviour and household configuration remain as released in 1.4.0. Final CI and live acceptance are recorded on the patch release pull request.
+
 ## v1.4.0 — civica rename and revised artwork (13 November 2026)
 
 The current product, repository links, documentation and installation package use **civica**. The revised supplied artwork replaces the previous logos. The accepted inventory contains 224 unchanged supplied files, including 218 valid images and all 20 palette variants. One empty WebP is excluded and the supplied metadata discrepancies are recorded in `brand/civica/docs/accepted-assets.json`.

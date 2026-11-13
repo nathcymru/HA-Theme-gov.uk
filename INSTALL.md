@@ -10,7 +10,7 @@ This package contains themes, the optional colour controls and branding companio
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.4.0
+    - /local/civica/civica-ui.js?v=1.4.1
 ```
 
 4. Restart Home Assistant, then reload your browser. Choose a civica theme in **Profile → Theme**. Choose a palette and toggle **Use muted colours**. Your Light/Dark/Auto setting is separate. The native theme dropdown also works without the companion.
@@ -30,7 +30,7 @@ The new lighting resource is `civica-house-lighting-card.js`. The package retain
 
 Follow `lighting/README.md` to configure rooms, light groups and the required automation package before using the lighting card. The included sample room configuration is installation-specific: review it for your home. Do not install `lighting/ha/front_door.yaml` just to use this theme; it is an existing example of a separate automation.
 
-Add `/local/civica/card/dist/civica-house-lighting-card.js?v=1.4.0` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. Existing `custom:govuk-house-lighting-card` dashboards remain compatible.
+Add `/local/civica/card/dist/civica-house-lighting-card.js?v=1.4.1` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. Existing `custom:govuk-house-lighting-card` dashboards remain compatible.
 
 The companion also applies the ONS-based chart specification to supported graphs in the native Energy panel. YAML themes alone cannot change chart options or add the View data table. Update both the companion and the HACS-owned theme files. The theme supplies Vivid/Muted chart tokens; the companion supplies opaque fills, individual power lines, native chart styling and data tables. Keep the companion resource version aligned with this release and reload the browser after upgrading. It preserves the native Energy data and controls; History and arbitrary custom charts are outside this adapter's scope. See `docs/source/components/charts.html.md.erb` for the exact support boundary.
 
