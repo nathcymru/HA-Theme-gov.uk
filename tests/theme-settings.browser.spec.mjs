@@ -105,7 +105,7 @@ test('all palette contexts pass automated text contrast checks', async ({ page }
   }
 });
 
-test('supplied v3.2 logos and app icons follow every palette and tone in both display modes', async ({ page }) => {
+test('supplied revised logos and app icons follow every palette and tone in both display modes', async ({ page }) => {
   // Set up original metadata while the adapter is inactive, independent of
   // whether its first scheduled pass has already run on this machine.
   await page.evaluate(() => {
