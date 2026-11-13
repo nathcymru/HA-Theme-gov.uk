@@ -7,6 +7,8 @@ published_on: "2026-11-11"
 updated_on: "2026-11-13"
 updates:
   - date: "2026-11-13"
+    description: "Updated the module resource cache versions for the startup theme-registry readiness fix in v1.4.1."
+  - date: "2026-11-13"
     description: "Updated the project identity, default theme, release paths and existing-installation migration guidance for civica."
   - date: "2026-11-11"
     description: "Updated the module resource cache version for the lighting request and count fixes."
@@ -85,7 +87,7 @@ Add the module to the existing `frontend:` section:
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/civica/civica-ui.js?v=1.4.0
+    - /local/civica/civica-ui.js?v=1.4.1
 ```
 
 Restart Home Assistant after a configuration check and reload the browser. The module adds civica settings beside Home Assistant's theme settings. From a non-civica theme, choose a palette to start using civica. It also provides the dashboard settings card.
@@ -96,7 +98,7 @@ Use `extra_module_url` for global loading. Loading only a dashboard resource can
 
 Configure the lighting package and room groups described in `lighting/README.md` before using the lighting card. The included room and automation examples are installation-specific; review them for your home.
 
-Add `/local/civica/card/dist/civica-house-lighting-card.js?v=1.4.0` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. The old `govuk-house-lighting-card.js` filename remains a compatibility import, and `custom:govuk-house-lighting-card` remains a supported type for saved dashboards. Add only one of the resource filenames.
+Add `/local/civica/card/dist/civica-house-lighting-card.js?v=1.4.1` as a JavaScript module dashboard resource. Use `type: custom:civica-house-lighting-card`. The old `govuk-house-lighting-card.js` filename remains a compatibility import, and `custom:govuk-house-lighting-card` remains a supported type for saved dashboards. Add only one of the resource filenames.
 
 The artwork is served from `/local/civica/card/assets/`. Do not install the separate front-door automation example merely to apply the theme.
 

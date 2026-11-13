@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "startup-theme-readiness-v1.4.1",
+  "reviewed_on": "2026-11-13",
+  "status": "locally-validated-full-ci-publication-and-live-acceptance-pending",
+  "scope": "Bounded correction for a native Home Assistant startup state where the hass object exists but its theme registry has not arrived. Current installation/cache references advance to v1.4.1. This patch does not change palette values, supplied artwork or device configuration.",
+  "baseline_revision": "df148e8ecd811c801950874e224b4142c8652f73",
+  "previous_evidence": {
+    "record": "docs/data/rebrand-review.json",
+    "sha256": "f41273642b687a48acf51b0b5dcefade3d0322ba5dc92d4af0a84d13c58bd369",
+    "meaning": "Earlier rename and artwork-replacement source review remains unchanged. Its local outcomes are not a fresh startup regression result.",
+    "subsequent_ci": {
+      "run": "https://github.com/nathcymru/civica/actions/runs/43407821969",
+      "verify_job": 131826400996,
+      "node_passed": 84,
+      "browser_passed": 890,
+      "completed_at": "2026-11-13T10:27:35Z",
+      "scope": "Successful v1.4.0 CI did not include the subsequently observed null-theme-registry startup case."
+    }
+  },
+  "reported_defect": {
+    "source": "Parent observed the failure during live validation after the renamed release.",
+    "trigger": "The native application publishes hass while hass.themes is null; companion code dereferenced the absent registry.",
+    "effect": "A TypeError interrupts the companion update. A present hass object alone is not proof that theme settings are ready."
+  },
+  "implementation_contract": [
+    "Read optional theme state and its nested registry defensively in companion activation and settings selection.",
+    "Keep colour controls disabled and describe their loading state while the theme registry is absent; do not present a loading registry as a missing-theme installation.",
+    "Resume normal controls and scoped styling when the registry becomes available, using existing native events and polling/lifecycle behavior.",
+    "Preserve existing safe/recovery-mode restrictions and avoid emitting a theme-change action while the registry is absent.",
+    "Use v1.4.1 module/resource cache references; retained compatibility filenames and existing household configuration remain unchanged."
+  ],
+  "independent_source_review": {
+    "status": "completed_against_owner_frozen_source",
+    "findings": "No additional defect found in the bounded null-registry correction. Optional reads cover both outer theme data and its nested registry. Settings distinguish loading from missing installed themes; absent data deactivates project branding until normal updates restore it.",
+    "regression_scope": "The fixture exercises undefined/null outer theme data, an empty pending object and a null nested map. It asserts disabled/loading controls, native identity fallback, automatic recovery, preserved dark preference, no unintended theme-change events and no page errors. This is local fixture evidence, not a live cold-start certification.",
+    "chart_contract": "The only energy-charts.ts change permits null in the HassContext themes type. Its accesses already use optional chaining; chart rendering, options and data behavior are unchanged."
+  },
+  "validation": {
+    "local": "passed",
+    "build": "passed",
+    "typecheck": "passed",
+    "node_tests": {
+      "passed": 84,
+      "failed": 0,
+      "evidence_source": "Parent executed the full local Node suite after the frozen correction."
+    },
+    "theme_settings_browser": {
+      "passed": 12,
+      "failed": 0,
+      "duration_seconds": 11.2,
+      "evidence_source": "Parent executed the complete focused theme-settings suite, including the new absent/null-registry recovery regression."
+    },
+    "full_ci": "pending",
+    "publication": "pending",
+    "live_recheck": "pending",
+    "recording_boundary": "Full CI, release, Pages and actual live patch acceptance will be recorded in the follow-up pull request and deployment receipt. The original v1.4.0 review remains byte-identical."
+  },
+  "source_freeze": [
+    {
+      "path": "ui/src/civica-ui.ts",
+      "sha256": "28b987d4116259e6a6e6272efeff2f3a78fbc7899e65b3be89dbca94744c1950"
+    },
+    {
+      "path": "ui/src/theme-settings.ts",
+      "sha256": "b33bc985ceb6aae8d3afa8edca7b33ad7b810ed3af00fa8dbd1cdc6748c096a6"
+    },
+    {
+      "path": "ui/src/energy-charts.ts",
+      "sha256": "d60ce681dd8dab76f844ea42a5289829dad5345d1f96449d6f3c2377a7bf79e1"
+    },
+    {
+      "path": "tests/theme-settings.browser.spec.mjs",
+      "sha256": "f1c131881c079973621485dc8eb4d127e7614fd7dbbda1d498305087c3ecff41"
+    },
+    {
+      "path": "docs/source/get-started/install.html.md.erb",
+      "sha256": "d2e22e7fe30b3fc108cf71b4c2db20a1d6f3ca9a13c55d732923106d3197d658"
+    },
+    {
+      "path": "docs/data/naming-inventory.json",
+      "sha256": "25be0c1c6c8ead42d462e3d2ea24359b86ce17e62852e3204acffd237868d3f4"
+    },
+    {
+      "path": "package.json",
+      "sha256": "86fcb8dd84d9fc480c2d8e77cc3a9d48902e99a3a4e3c5e030f53d546e8e10ba"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "02674588e5e2c212c2e6c8f98b23e9fb15f773d9b7c8d4ea8544281f15904f9c"
+    },
+    {
+      "path": "scripts/package.mjs",
+      "sha256": "7b807728d505dde077c9bd7368b884a6e3e742e560c000708afabf5ef447a000"
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "1a5992585620a2c3386d51bf64b9364e159be5d59d05fd972bee0353807f6e39"
+    },
+    {
+      "path": "README.md",
+      "sha256": "854507b22af7701978651f157194fa101219e17dae45e0904fd5247466b3c504"
+    },
+    {
+      "path": "VERIFICATION.md",
+      "sha256": "ddd702db6ef966f79ead1c41146ffce6a4034bbee6a23a56cd35003da62d213e"
+    },
+    {
+      "path": "lighting/README.md",
+      "sha256": "6c8f34c9061294e62417bb2fc28c8ebda74e584d0b21c37b00bb8d18c6c37626"
+    }
+  ]
+}

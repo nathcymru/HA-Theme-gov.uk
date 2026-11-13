@@ -36,10 +36,10 @@ function updateBrand(app: App, targets: HTMLElement[]) {
   for (const title of originalTitles.keys()) if (!title.isConnected) originalTitles.delete(title);
   for (const icon of originalIcons.keys()) if (!icon.isConnected) originalIcons.delete(icon);
   for (const style of sidebarStyles) if (!style.isConnected) sidebarStyles.delete(style);
-  const name = app.hass?.themes.theme || app.hass?.selectedTheme?.theme || app.hass?.themes.default_theme || '';
+  const name = app.hass?.themes?.theme || app.hass?.selectedTheme?.theme || app.hass?.themes?.default_theme || '';
   const variant = selectedVariant(app.hass);
   const active = !app.hass?.config?.safe_mode && !app.hass?.config?.recovery_mode &&
-    Boolean(app.hass?.themes.themes[name]) && Boolean(variant);
+    Boolean(app.hass?.themes?.themes?.[name]) && Boolean(variant);
   updateBadges(undefined, active);
   updateEnergyCharts(targets.filter(el => el.localName === 'ha-panel-energy'), active, app.hass);
   // Compatibility styles are deliberately scoped to these three project cards.

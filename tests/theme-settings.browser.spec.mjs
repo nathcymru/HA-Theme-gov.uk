@@ -146,13 +146,13 @@ test('supplied revised logos and app icons follow every palette and tone in both
       for (const muted of [false, true]) {
         await page.getByRole('switch').setChecked(muted);
         const stem = `/ui/dist/brand/themes/${palette.id}/${muted ? 'muted' : 'vivid'}/`;
-        await expect(logo).toHaveAttribute('src', new RegExp(`${stem}lockup-on-primary\\.svg\\?v=1\\.4\\.0$`));
+        await expect(logo).toHaveAttribute('src', new RegExp(`${stem}lockup-on-primary\\.svg\\?v=1\\.4\\.1$`));
         await expect(logo).toHaveAttribute('data-identity', 'preserve-this-node');
         await expect.poll(() => logo.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
-        await expect(favicon).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.svg\\?v=1\\.4\\.0$`));
+        await expect(favicon).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.svg\\?v=1\\.4\\.1$`));
         await expect(favicon).toHaveAttribute('type', 'image/svg+xml');
         await expect(favicon).toHaveAttribute('sizes', 'any');
-        await expect(touch).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.png\\?v=1\\.4\\.0$`));
+        await expect(touch).toHaveAttribute('href', new RegExp(`${stem}app-icon\\.png\\?v=1\\.4\\.1$`));
         await expect(touch).toHaveAttribute('type', 'image/png');
         await expect(touch).toHaveAttribute('sizes', '512x512');
       }
@@ -176,7 +176,7 @@ test('legacy alias uses Cobalt Vivid artwork and unknown civica names do not rep
     app.hass.themes.theme = app.hass.selectedTheme.theme = 'govuk';
     window.dispatchEvent(new Event('settheme'));
   });
-  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg\?v=1\.4\.0$/);
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg\?v=1\.4\.1$/);
   await page.evaluate(() => {
     const { app } = window.fixture;
     app.hass.themes.themes['civica unrelated custom theme'] = {};
@@ -194,9 +194,49 @@ test('civica default selects the supplied default artwork and can change tone wi
   });
   await expect(page.getByLabel('Colour palette')).toHaveValue('civic-cobalt');
   await expect(page.getByRole('switch')).not.toBeChecked();
-  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg\?v=1\.4\.0$/);
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /themes\/civic-cobalt\/vivid\/app-icon\.svg\?v=1\.4\.1$/);
   await page.getByRole('switch').check();
   expect(await page.evaluate(() => window.fixture.app.hass.selectedTheme)).toEqual({ theme: 'civica Civic Cobalt Muted', dark: true });
+});
+
+test('missing theme data during startup and navigation stays quiet and recovers without changing preferences', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.evaluate(() => {
+    const { app } = window.fixture;
+    app.hass.selectedTheme.dark = true;
+    window.fixture.paint();
+    window.readyThemeRegistry = app.hass.themes;
+    customElements.define('ha-sidebar', class extends HTMLElement {
+      constructor() { super(); this.attachShadow({mode:'open'}).innerHTML = '<div class="title">Home Assistant</div>'; }
+    });
+    app.shadowRoot.append(document.createElement('ha-sidebar'));
+    window.dispatchEvent(new Event('location-changed'));
+  });
+  await expect(page.locator('ha-sidebar img')).toHaveAttribute('alt', 'civica');
+  for (const state of ['absent', 'null', 'pending', 'null-map']) {
+    await page.evaluate(state => {
+      const { app } = window.fixture;
+      app.hass.themes = state === 'absent' ? undefined : state === 'null' ? null : state === 'pending' ? {} : {themes:null};
+      document.querySelector('civica-theme-settings').hass = app.hass;
+      window.dispatchEvent(new Event('location-changed'));
+    }, state);
+    await expect(page.getByLabel('Colour palette')).toBeDisabled();
+    await expect(page.getByRole('switch')).toBeDisabled();
+    await expect(page.locator('civica-theme-settings [role="status"]')).toHaveText('Colour settings are loading.');
+    await expect(page.locator('ha-sidebar .title')).toHaveText('Home Assistant');
+  }
+  await page.evaluate(() => {
+    window.fixture.app.hass.themes = window.readyThemeRegistry;
+    // HA applies document variables when theme data becomes available.
+    document.documentElement.style.setProperty('--theme-readiness-fixture', 'ready');
+  });
+  await expect(page.getByLabel('Colour palette')).toBeEnabled();
+  await expect(page.locator('ha-sidebar img')).toHaveAttribute('alt', 'civica');
+  await expect(page.locator('head link[rel="icon"]')).toHaveAttribute('href', /app-icon\.svg\?v=1\.4\.1$/);
+  expect(await page.evaluate(() => window.fixture.app.hass.selectedTheme)).toEqual({theme:'civica Civic Cobalt Vivid', dark:true});
+  expect(await page.evaluate(() => window.events)).toEqual([]);
+  expect(errors).toEqual([]);
 });
 
 test('production bundle waits for HA registry replacement before registering or starting its lifecycle', async ({ context }) => {

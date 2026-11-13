@@ -119,27 +119,14 @@
       "path": "docs/data/terminology-source-review.json",
       "sha256": "84924563aae466e1e4d1d7b95cb1f4ee37d9abbdeaba53932dc7dbd11d6f1eaf",
       "reason": "Published earlier source review or archived rule inventory. Preserved byte-for-byte, not presented as current naming or fresh validation."
+    },
+    {
+      "path": "docs/data/rebrand-review.json",
+      "sha256": "f41273642b687a48acf51b0b5dcefade3d0322ba5dc92d4af0a84d13c58bd369",
+      "reason": "Published v1.4.0 rename review, preserved byte-for-byte before the separate startup-readiness patch. Its tests and publication boundaries remain historical."
     }
   ],
   "historical_values": [
-    {
-      "path": "docs/data/rebrand-review.json",
-      "pointer": "/historical_context/previous_project",
-      "sha256": "4a05960bdd254a54c3c60ef1bb8e9f200d5ee4ba78fb3e5f9177d046afd30f07",
-      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
-    },
-    {
-      "path": "docs/data/rebrand-review.json",
-      "pointer": "/historical_context/previous_repository",
-      "sha256": "b6142b22ebc52abab45e37d4d31b32aeaf924c0caede39d2f2f71bbec7b56d61",
-      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
-    },
-    {
-      "path": "docs/data/rebrand-review.json",
-      "pointer": "/historical_context/previous_pages",
-      "sha256": "7e5f72e778bbbf86a9a24823c97dccb5c1448aadd32daa1f1bb7d460b3d70f72",
-      "reason": "Historical source, original evidence or publication record; current fields are checked separately."
-    },
     {
       "path": "docs/data/brand-guidance-checklist.json",
       "pointer": "/scope_revision/decision",
@@ -1090,7 +1077,7 @@
     },
     {
       "path": "docs/source/get-started/install.html.md.erb",
-      "pointer": "/frontmatter/updates/3/description",
+      "pointer": "/frontmatter/updates/4/description",
       "sha256": "78363dfd7943491d379dc242edf003e73020962c329f636adff0cf3cf33485f9",
       "reason": "Dated page history is preserved as originally published."
     },

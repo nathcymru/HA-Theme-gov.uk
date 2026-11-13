@@ -49,7 +49,7 @@ interface ChartHost extends HTMLElement {
 interface HassContext {
   locale?: { language?: string; number_format?: string; time_format?: string; time_zone?: string };
   config?: { time_zone?: string };
-  themes?: { theme?: string; default_theme?: string; darkMode?: boolean };
+  themes?: { theme?: string; default_theme?: string; darkMode?: boolean } | null;
   selectedTheme?: { theme?: string; dark?: boolean };
 }
 interface OwnedValue { path: Path; original: any; applied: any }

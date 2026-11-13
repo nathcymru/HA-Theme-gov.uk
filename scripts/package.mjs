@@ -22,7 +22,7 @@ mkdirSync(`${root}/docs`, { recursive: true });
 for (const name of ['source', 'build', 'data', 'helpers', 'config', 'scripts', 'config.rb', 'Gemfile', 'Gemfile.lock', 'README.md']) {
   if (existsSync(`docs/${name}`)) cpSync(`docs/${name}`, `${root}/docs/${name}`, { recursive: true });
 }
-writeFileSync(`${root}/configuration.example.yaml`, `# Merge these keys into your existing frontend configuration.\nfrontend:\n  themes: !include_dir_merge_named themes\n  extra_module_url:\n    - /local/civica/civica-ui.js?v=1.4.0\n\n# Add the lighting card as a dashboard JavaScript module resource:\n# /local/civica/card/dist/civica-house-lighting-card.js?v=1.4.0\n`);
+writeFileSync(`${root}/configuration.example.yaml`, `# Merge these keys into your existing frontend configuration.\nfrontend:\n  themes: !include_dir_merge_named themes\n  extra_module_url:\n    - /local/civica/civica-ui.js?v=1.4.1\n\n# Add the lighting card as a dashboard JavaScript module resource:\n# /local/civica/card/dist/civica-house-lighting-card.js?v=1.4.1\n`);
 rmSync('dist/civica.zip', { force: true });
 execFileSync('zip', ['-qr', '../civica.zip', '.'], { cwd: root });
 rmSync('dist/SHA256SUMS.txt', { force: true });
