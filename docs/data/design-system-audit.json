@@ -4283,8 +4283,8 @@
       ],
       "result": "no_confirmed_finding",
       "finding_ids": [],
-      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. Project-story review: first-person user-provided purpose, independent identity, descriptive About link and current coverage; Writing guide has a distinct home entry. 12 November 2026 source review: Linked data and colour guidance directly and matched the three homepage category illustrations to their section headers. Integrated validation is recorded separately in the data-design review. Roadmap source review: the new descriptive link points to the theme-only timeline; it does not invent a planned item or claim a documentation change is a delivered runtime feature. Accepted-stage source review: the roadmap entry now includes agreed work alongside development and delivery, without presenting the two BSL proposals as implemented capabilities. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run.",
-      "sha256": "6dbd079e328c5d984351f75045472721897e0d32fdd402480ecb090d57146262",
+      "note": "Homepage entry points and new guidance/audit links are truthful. Existing decorative hero is a migration recommendation, with appropriate empty alt in its decorative placement. Remediation review: Reviewed the revised catalogue, evidence/compatibility boundaries, linked current deliverables and exact implementation claims. Project-story review: first-person user-provided purpose, independent identity, descriptive About link and current coverage; Writing guide has a distinct home entry. 12 November 2026 source review: Linked data and colour guidance directly and matched the three homepage category illustrations to their section headers. Integrated validation is recorded separately in the data-design review. Roadmap source review: the new descriptive link points to the theme-only timeline; it does not invent a planned item or claim a documentation change is a delivered runtime feature. Accepted-stage source review: the roadmap entry now includes agreed work alongside development and delivery, without presenting the two BSL proposals as implemented capabilities. 13 November 2026 naming review: current project wording, supplied-artwork references and repository destinations reconciled with the authorised civica rename; prior publication history retained. This source update does not claim a fresh native Home Assistant acceptance run. 14 November 2026 homepage review: white sections use blue rules and responsive single/two-column content. Three bordered image-header cards retain original decorative artwork, concise descriptions and one heading link to each section; subsidiary bullet links removed. Desktop and 320px visual review, keyboard focus, destination/image loading, doubled below-hero text and homepage axe checks passed; seven existing project-story and artwork browser checks passed. This is a documentation layout review, not native Home Assistant acceptance.",
+      "sha256": "c350abb90c94aab7241cb9507a9dab2d52a3122dac54aaf6f9a3a2391db771e1",
       "url": "/index.html",
       "title": "Home",
       "example_ids": [],
@@ -17434,8 +17434,8 @@
     },
     {
       "path": "docs/source/stylesheets/screen.css.scss",
-      "sha256": "bd661022e374d85178f869402cee58fcf06dddde4600eeebf9d08c579d0a2f7f",
-      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope. Current licensing, documentation storage and first-visit notice source review; source checks and targeted acceptance are recorded in docs/data/licensing-notice-review.json. Full validation and publication remain separate."
+      "sha256": "582d65809f3a0c259626728aa4d2eb59712a73a96eb9f8f038e25f7935b772a8",
+      "scope": "Authored/shared documentation source review. Subsequent project-story/navigation changes reviewed within docs/data/project-story-review.json scope. Roadmap-related changes reviewed within docs/data/roadmap-review.json scope. Current licensing, documentation storage and first-visit notice source review; source checks and targeted acceptance are recorded in docs/data/licensing-notice-review.json. Full validation and publication remain separate. 14 November 2026: reviewed homepage section rules, column stacking, bordered image cards, focus and enlarged-text reflow; existing project-story and section-artwork checks passed."
     },
     {
       "path": "docs/source/javascripts/civica-docs.js",
@@ -17959,8 +17959,8 @@
     },
     {
       "path": "docs/source/index.html.erb",
-      "sha256": "6dbd079e328c5d984351f75045472721897e0d32fdd402480ecb090d57146262",
-      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json."
+      "sha256": "c350abb90c94aab7241cb9507a9dab2d52a3122dac54aaf6f9a3a2391db771e1",
+      "scope": "Bounded roadmap source review; see docs/data/roadmap-review.json for actual acceptance and publication limits. Accepted-stage changes reviewed in docs/data/roadmap-accepted-review.json. Current naming and supplied-artwork replacement reviewed in docs/data/rebrand-review.json. Homepage layout and image-card review completed 14 November 2026; see the current page review note."
     },
     {
       "path": "docs/source/community/index.html.md.erb",
